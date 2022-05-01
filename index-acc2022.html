@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css">
+		<link rel="stylesheet" href="aykut.css">
+
+        <!-- Theme used for syntax highlighted code -->
+        <link rel="stylesheet" href="node_modules/highlight.js/styles/arta.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+                <section>
+                  <h4>Robust Data-Driven Passivity-Based Control of
+                          Underactuated Systems via Neural Approximators and
+                          Bayesian Inference</h4> 
+
+                  <p style="font-size:0.75em">Wankun
+                  Sirichotiyakul<sup>&#8224</sup>, <u>Nardos Ayele
+                          Ashenafi<sup>&#8224</sup></u> and Aykut C.
+                  Satici<sup>&#8225</sup></p>
+                  <p style="font-size:0.75em"><sup>&#8224</sup>Electrical and Computer
+                  Engineering <br> <sup>&#8225</sup>Mechanical and Biomedical Engineering <br> Boise State University</p>
+                </section>
+                <section data-background="indigo" data-timing="10">
+                  <h1>Slide 2</h1>
+                <aside class="notes">
+                 These notes were <strong>added</strong> via an <pre>aside</pre>.
+                  </aside>
+                </section>
+                <section data-background="pink" data-background-transition="convex">
+                  <h1>Slide 3</h1>
+                  \[ e^{-i\pi} = 1. \]
+                </section>
+                <section data-markdown id="mdown">
+                # Markdown Notes
+
+                `$$ J(\theta_0, \theta_1) = \sum_{i=0} $$`
+
+                notes: These **are** my _notes_!
+                </section>
+            </div>
+		</div>
+                
+		<script src="dist/reveal.js"></script>
+        <script src="plugin/notes/notes.js"></script>
+        <script src="plugin/markdown/markdown.js"></script>
+        <script src="plugin/highlight/highlight.js"></script>
+        <script src="plugin/math/math.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+                markdown: { smartypants: true },
+                autoPlayMedia: true,
+                autoAnimateDuration: 1.0,
+                autoAnimateEasing: 'ease-out',
+
+                backgroundTransition: 'convex',
+
+                defaultTiming: 30,
+                hashOneBasedIndex: true,
+                slideNumber: 'c', 
+
+                plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX ]
+			});
+		</script>
+        <style type="text/css">
+                .reveal .slide-number {
+                  font-size: 1em;
+                  right: auto;
+                  left: 10px;
+                  width: 1.5em;
+                  height: 1.5em;
+                  border-radius: 1em;
+                  background-color: indigo;
+                  display: grid !important;
+                  place-items: center;
+                }
+        </style>
+	</body>
+</html>
