@@ -1,0 +1,30 @@
+---
+title: "CAREER 2022"
+subtitle: "Aykut Satici"
+format:
+  revealjs:
+    slide-number: true
+    chalkboard:
+      buttons: false
+    preview-links: auto
+    logo: images/logo.svg
+    css: styles.css
+    footer: <https://quarto.org>
+    navigation-mode: vertical
+---
+
+
+# Hello, there
+
+This presentation will show you examples of what you can do with Quarto and [Reveal.js](https://revealjs.com), including:
+
+-   Presenting code and LaTeX equations
+-   Including computations in slide output
+-   Image, video, and iframe backgrounds
+-   Fancy transitions and animations
+-   Printing to PDF
+
+...and much more
+
+# {data-background-image="images/nn-pbc-struct_v2.svg" data-background-size="contain"}
+
