@@ -9,12 +9,12 @@ format:
     preview-links: auto
     logo: images/logo.svg
     css: styles.css
-    footer: <https://quarto.org>
+    footer: Aykut Satici 
     navigation-mode: vertical
 ---
 
 
-# Hello, there
+# Data-Driven Controllers for Robotics 
 
 This presentation will show you examples of what you can do with Quarto and [Reveal.js](https://revealjs.com), including:
 
@@ -28,3 +28,6 @@ This presentation will show you examples of what you can do with Quarto and [Rev
 
 # {data-background-image="images/nn-pbc-struct_v2.svg" data-background-size="contain"}
 
+# {data-background-video="videos/iwp_swing_stab.mp4" data-background-size="contain" data-background-video-loop="true"}
+
+# {data-background-video="videos/furuta_swing_stab.mp4" data-background-size="contain" data-background-video-loop="false"}
