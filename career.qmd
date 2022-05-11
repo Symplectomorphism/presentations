@@ -5,29 +5,55 @@ format:
   revealjs:
     slide-number: true
     chalkboard:
-      buttons: false
+      buttons: true
     preview-links: auto
     logo: images/logo.svg
     css: styles.css
     footer: Aykut Satici 
-    navigation-mode: vertical
+    controls: true
+    text-align: left
 ---
 
 
-# Data-Driven Controllers for Robotics 
 
-This presentation will show you examples of what you can do with Quarto and [Reveal.js](https://revealjs.com), including:
+<header style="position: absolute;top: -40px; left: 50px; z-index:500; font-size:70px;"></header>
 
--   Presenting code and LaTeX equations
--   Including computations in slide output
--   Image, video, and iframe backgrounds
--   Fancy transitions and animations
--   Printing to PDF
+<section data-state="header1" data-background-image="images/nn-pbc-struct_v2.svg" data-background-size="contain">
+<style>.header1 header:after { content: "Data-Driven Controller Synthesis"; }</style>
+</section>
 
-...and much more
+<!-- # Data-Driven Controller Synthesis {data-background-image="images/nn-pbc-struct_v2.svg" data-background-size="contain"} -->
 
-# {data-background-image="images/nn-pbc-struct_v2.svg" data-background-size="contain"}
 
-# {data-background-video="videos/iwp_swing_stab.mp4" data-background-size="contain" data-background-video-loop="true"}
+## {data-background-video="videos/iwp_swing_stab.mp4" data-background-size="contain" data-background-video-loop="true"}
 
-# {data-background-video="videos/furuta_swing_stab.mp4" data-background-size="contain" data-background-video-loop="false"}
+## {data-background-video="videos/furuta_swing_stab.mp4" data-background-size="contain" data-background-video-loop="false"}
+
+
+
+##
+### Data-Driven Controllers for Manipulation
+
+::: columns
+
+::: {.column width="60%"} 
+
+::: incremental
+-   Quasi-static plans available for manipulation
+-   Gap: robust dynamic object manipulation
+-   Machine learning \& Nonlinear control
+    - Passivity-based control 
+    - Bayesian inference/learning 
+:::
+:::
+
+
+::: {.column width="40%"}
+<img data-src="./images/simple_robot.svg" width="350" class="fragment"
+data-fragment-index=1/>
+<img data-src="./images/test_arena_frr_bsu.svg" width="350" class="fragment"
+data-fragment-index=1/>
+:::
+
+:::
+

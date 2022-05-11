@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="utf-8">
-  <meta name="generator" content="quarto-0.9.347">
+  <meta name="generator" content="quarto-0.9.364">
 
   <title>CAREER 2022</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -326,33 +326,43 @@
   <p class="subtitle">Aykut Satici</p>
 </section>
 
-<section id="data-driven-controllers-for-robotics" class="title-slide slide level1 center">
-<h1>Data-Driven Controllers for Robotics</h1>
-<p>This presentation will show you examples of what you can do with Quarto and <a href="https://revealjs.com">Reveal.js</a>, including:</p>
+<section class="slide level2">
+
+<header style="position: absolute;top: -40px; left: 50px; z-index:500; font-size:70px;">
+</header>
+<section data-state="header1" data-background-image="images/nn-pbc-struct_v2.svg" data-background-size="contain">
+<style>.header1 header:after { content: "Data-Driven Controller Synthesis"; }</style>
+</section>
+<!-- # Data-Driven Controller Synthesis {data-background-image="images/nn-pbc-struct_v2.svg" data-background-size="contain"} -->
+</section>
+<section id="section" class="slide level2" data-background-video="videos/iwp_swing_stab.mp4" data-background-size="contain" data-background-video-loop="true">
+<h2></h2>
+</section>
+<section id="section-1" class="slide level2" data-background-video="videos/furuta_swing_stab.mp4" data-background-size="contain" data-background-video-loop="false">
+<h2></h2>
+</section>
+<section id="section-2" class="slide level2">
+<h2></h2>
+<h3 id="data-driven-controllers-for-manipulation">Data-Driven Controllers for Manipulation</h3>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div>
 <ul>
-<li>Presenting code and LaTeX equations</li>
-<li>Including computations in slide output</li>
-<li>Image, video, and iframe backgrounds</li>
-<li>Fancy transitions and animations</li>
-<li>Printing to PDF</li>
+<li class="fragment">Quasi-static plans available for manipulation</li>
+<li class="fragment">Gap: robust dynamic object manipulation</li>
+<li class="fragment">Machine learning &amp; Nonlinear control
+<ul>
+<li class="fragment">Passivity-based control</li>
+<li class="fragment">Bayesian inference/learning</li>
+</ul></li>
 </ul>
-<p>…and much more</p>
-</section>
-
-<section id="section" class="title-slide slide level1 center" data-background-image="images/nn-pbc-struct_v2.svg" data-background-size="contain">
-<h1></h1>
-
-</section>
-
-<section id="section-1" class="title-slide slide level1 center" data-background-video="videos/iwp_swing_stab.mp4" data-background-size="contain" data-background-video-loop="true">
-<h1></h1>
-
-</section>
-
-<section id="section-2" class="title-slide slide level1 center" data-background-video="videos/furuta_swing_stab.mp4" data-background-size="contain" data-background-video-loop="false">
-<h1></h1>
-
-<img src="images/logo.svg" class="slide-logo r-stretch"><div class="footer footer-default">
+</div>
+</div><div class="column" style="width:40%;">
+<p><img data-src="./images/simple_robot.svg" width="350" class="fragment" data-fragment-index="1/"> <img data-src="./images/test_arena_frr_bsu.svg" width="350" class="fragment" data-fragment-index="1/"></p>
+</div>
+</div>
+<p><img src="images/logo.svg" class="slide-logo"></p>
+<div class="footer footer-default">
 <p>Aykut Satici</p>
 </div>
 </section>
@@ -381,7 +391,7 @@
       // Full list of configuration options available at:
       // https://revealjs.com/config/
       Reveal.initialize({
-'controlsAuto': true,
+'controlsAuto': false,
 'previewLinksAuto': true,
 'smaller': false,
 'pdfSeparateFragments': false,
@@ -389,11 +399,11 @@
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
 'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
-'chalkboard': {"buttons":false},
+'chalkboard': {"buttons":true},
 'smaller': false,
  
         // Display controls in the bottom right corner
-        controls: false,
+        controls: true,
 
         // Help the user learn the controls by providing hints, for example by
         // bouncing the down arrow when they first encounter a vertical slide
@@ -410,7 +420,7 @@
         progress: true,
 
         // Display the page number of the current slide
-        slideNumber: 'h.v',
+        slideNumber: 'c/t',
 
         // 'all', 'print', or 'speaker'
         showSlideNumber: 'all',
@@ -451,7 +461,7 @@
         rtl: false,
 
         // see https://revealjs.com/vertical-slides/#navigation-mode
-        navigationMode: 'default',
+        navigationMode: 'linear',
 
         // Randomizes the order of slides each time the presentation loads
         shuffle: false,
