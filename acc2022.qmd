@@ -55,6 +55,8 @@ data-fragment-index=1/>
 
 
 
-# {data-background-image="images/research_overview_fig.svg" data-background-size="contain"}
+## Manipulation Flowchart
+### Manipulation Flowchart {data-background-image="images/research_overview_fig.svg" data-background-size="contain"}
 
-# {background-iframe="https://www.bastiansolutions.com/service/industrial-robotics/"}
+
+## {background-iframe="https://www.bastiansolutions.com/service/industrial-robotics/"}
