@@ -1,0 +1,60 @@
+---
+title: "Robust Controller Synthesis via Bayesian Learning"
+subtitle: "Aykut Satici"
+format:
+  revealjs:
+    slide-number: true
+    chalkboard:
+      buttons: true
+    preview-links: auto
+    logo: images/logo.svg
+    css: styles.css
+    footer: Aykut Satici 
+    controls: true
+    text-align: left
+    transition: convex
+    slide-level: 3
+---
+
+
+## Data-Driven Controller Synthesis 
+
+### Data-Driven Controller Synthesis {data-background-image="images/nn-pbc-struct_v2.svg" data-background-size="contain"} 
+
+### {data-background-video="videos/iwp_swing_stab.mp4" data-background-size="contain" data-background-video-loop="true"}
+
+### {data-background-video="videos/furuta_swing_stab.mp4" data-background-size="contain" data-background-video-loop="false"}
+
+
+
+## Data-Driven Controllers for Manipulation
+### Data-Driven Controllers for Manipulation
+
+::: columns
+
+::: {.column width="60%"} 
+
+::: incremental
+-   Quasi-static plans available for manipulation
+-   Gap: robust dynamic object manipulation
+-   Machine learning \& Nonlinear control
+    - Passivity-based control 
+    - Bayesian inference/learning 
+:::
+:::
+
+
+::: {.column width="40%"}
+<img data-src="./images/simple_robot.svg" width="350" class="fragment"
+data-fragment-index=1/>
+<img data-src="./images/test_arena_frr_bsu.svg" width="350" class="fragment"
+data-fragment-index=1/>
+:::
+
+:::
+
+
+
+# {data-background-image="images/research_overview_fig.svg" data-background-size="contain"}
+
+# {background-iframe="https://www.bastiansolutions.com/service/industrial-robotics/"}

@@ -1,0 +1,109 @@
+\documentclass[tikz]{standalone}
+\input{standalonepreamble}
+%\tikzstyle{name}=[options]
+\def\nodespx{6cm}\def\nodespy{1.7cm}
+\tikzstyle{mynode}=[thick,rounded corners = 0.1cm,draw,minimum size=0.375cm,align=center]
+\tikzstyle{myedge} = [thick,->,>=stealth',outer sep=0pt,inner sep=0pt]
+\tikzstyle{nodraw}=[draw=none]
+\tikzstyle{alignc}=[align=center]
+\newcommand{\tw}{text width}
+\newcommand{\mw}{minimum width}
+\newcommand{\mh}{minimum height}
+\begin{document}
+\begin{tikzpicture}[thick,>=stealth']
+% define a bunch of coordinates at which we place nodes. 
+\path 
+(0*\nodespx,0*\nodespy) coordinate (modelloc)
+(0*\nodespx,-1*\nodespy) coordinate (cmgmploc)
+(0*\nodespx,-2*\nodespy) coordinate (qsmploc)
+(1.1*\nodespx,-2*\nodespy) coordinate (storagefunloc)
+(2*\nodespx,-1*\nodespy) coordinate (rewardloc)
+(1*\nodespx,0.3*\nodespy) coordinate (bayesiannetloc)
+(1*\nodespx,-1.25*\nodespy) coordinate (obj1loc)
+(2*\nodespx,-2*\nodespy) coordinate (obj2loc)
+(1*\nodespx,-0.7*\nodespy) coordinate (bayesianlearnloc)
+(2*\nodespx,-2*\nodespy) coordinate (controllerloc)
+(0*\nodespx,-2.7*\nodespy) coordinate (qsmp_below_loc)
+(0.5*\nodespx,-2*\nodespy) coordinate (qsmp_right_loc)
+(2*\nodespx,-0.5*\nodespy) coordinate (verifloc)
+(3*\nodespx,-1*\nodespy) coordinate (experimentloc)
+++ (0.0*\nodespx,-0.7*\nodespy) coordinate (qmsp_belowright_loc)
+(2.0*\nodespx,0.4*\nodespy)  coordinate (certloc) 
+; %% end positions
+
+% SOTA node 
+\draw[fill = gray!10,dashed,rounded corners=0.5cm] (cmgmploc) ++(-0.325*\nodespx,-1.375*\nodespy) -- ++(0*\nodespx,2.75*\nodespy) coordinate (sotanode) -- ++(0.65*\nodespx,0*\nodespy) -- ++(0*\nodespx,-2.75*\nodespy) -- cycle;
+\draw (sotanode) node[above right,gray!70!black]{State-of-the-Art Approach};
+% Objective 1 
+\draw[shift = (obj1loc),fill = red!10,dashed,rounded corners=0.5cm] (-0.35*\nodespx,-1.375*\nodespy) -- ++(0*\nodespx,3.3*\nodespy) coordinate (o1node) -- ++(0.725*\nodespx,0*\nodespy) -- ++(0*\nodespx,-2.3*\nodespy)-- ++(1*\nodespx,0*\nodespy) -- ++(0*\nodespx,-1*\nodespy) -- cycle;
+\draw (o1node) node[above right,red!70!black]{Objective 1};
+% Objective 2
+\draw[shift = (obj2loc),fill = blue!10,dashed,rounded corners=0.5cm] (-0.57*\nodespx,0.75*\nodespy) -- ++(0*\nodespx,2*\nodespy) coordinate (o2node) -- ++(0.975*\nodespx,0*\nodespy) -- ++(0*\nodespx,-2*\nodespy) -- cycle;
+\draw (o2node) node[above right,blue!70!black,xshift=0.0cm]{Objective 2};
+% Objective 3
+\draw[shift = (experimentloc),fill = green!10,dashed,rounded corners=0.5cm] (-0.5*\nodespx,-1.625*\nodespy) -- ++(0*\nodespx,2.5*\nodespy) coordinate (o3node) -- ++(0.875*\nodespx,0*\nodespy) -- ++(0*\nodespx,-2.5*\nodespy) -- cycle;
+\draw (o3node) node[above right,green!70!black]{Objective 3};
+% SOTA node  % model
+\draw (modelloc) node(modelnode)[mynode,nodraw,alignc,\tw=3.5cm]{Robot+Object \\ +Environment Models};
+% SOTA node  % CMGMP
+\draw  (cmgmploc) node(cmgmp)[mynode,\tw=3cm,alignc]{Contact-Mode-Guided \\ Motion Planner}; % Planning~\cite{cheng2021contactmodeGMP}};
+% SOTA node  % Quasistatic
+\draw (qsmploc) node(qsmpnode)[mynode,draw=none,text width=2cm,align =center]{Quasi-static\\ motion plan};
+% Bayesian Lerning 
+\draw (bayesianlearnloc) node(bayes)[mynode,text width=3cm,align =center]{Bayesian-based Training algorithm};
+% Controller
+\draw (controllerloc)  node(ctrl)[mynode,\tw=3cm] {Passivity-Based Controller};
+% Experiment
+\draw (experimentloc) node(experiment)[mynode,fill=white]{\includegraphics[width=3cm]{Franka_Panda_175} } (experiment.south) node(experimentlabel)[below,align =center]{\small Experimental Testbed};
+% Storage Function:
+\draw (storagefunloc) node(storage)[mynode,fill=white]{\includegraphics[height=1cm]{storagefn_cap.png}} (storage.south) node(storagelabel)[below,align =center,yshift=1mm]{\small Storage Function $\theta$};
+% Bayesian Network
+\draw (bayesiannetloc) node(bayesnet)[mynode,\tw=3.7cm]{Bayesian\\ Network Model};
+% Verification Algorithm
+\draw (verifloc)  node(verifnode)[mynode,\tw=3cm] {Automated  Verification};% Stability \& Passivity
+% Stability & Robustness
+\draw (certloc) node(stab)[text width=4cm,align =center]{Stability, Passivity \& Robustness Certificates};
+
+\path (modelnode.east) ++ (0.275*\nodespx,0) coordinate (modelstoragemid);
+% qausi-static to bayes training 
+\draw[->] (qsmpnode) -- ++(3,0) node[below,\tw=1.5cm,xshift=-2mm]{Rewards, \\ Trajectory} to [vh path] (bayes);
+%  uninformative prior: 
+\path (storage) ++(-1.65,0.3) coordinate (temp) (temp |-bayes.south) coordinate (bnin);
+\path (storage.north |- bayes.south) coordinate (bnstrgin);
+\draw[->] (temp)  node(unpriornode) [\tw = 2cm]{\footnotesize Uninformative \\ Prior $p(\theta)$\\ (user-defined)} (unpriornode)  -- (bnin);
+\path (verifnode.east -| bayes.east) coordinate (verifbayes);
+%\draw[->] (bayes.east) -- ++(0.5,0) to [vh path] (ctrl);
+
+%\draw (bayes) -- node[right,align=right,\tw=2cm]{} (storage);
+%%% Edges
+\graph {
+(modelnode) -> (cmgmp) -> (qsmpnode);% -> ["Rewards"]
+(ctrl) -> (verifnode) -> (stab);
+(qsmpnode) -- ["Trajectory",pos=0.7] (qsmp_below_loc) -> [hv path] {(experimentlabel)};
+(modelstoragemid) -> [vh path] (bayesnet);
+(bayesnet) ->  (bayes);
+ (bnstrgin) -> ["\footnotesize Posterior $p(\theta| \mathrm{data})$",edge quotes={right,\tw=2cm} ](storage);
+ (storage) -> (ctrl);
+};
+% initialization task verif to bayesian training
+\draw[->] (verifnode.west) node[below left,\tw = 1.6cm, align=right]{\small Informative\\ Prior $p(\theta)$} -- (verifbayes);
+
+% model to verification:
+\draw (modelnode) -- (modelstoragemid) node[below left]{Model}node[above left]{Nominal} -- ++(0.3,0);
+
+\draw[dashed,opacity=0.5]  (modelstoragemid) -- ++ (0.82*\nodespx,0) coordinate (modelsource2);
+\draw[->]  (modelsource2) -- ++(1,0) to [vh path] ($(verifnode.north west)+(0,-0.1)$) ;
+
+%% Open loop  
+\draw (experimentlabel.south) ++(0,-0.7) node[left,gray!70!black]{Open-loop};
+% control -> experiment
+\draw[->] (ctrl.east) -- ++(0.25*\nodespx,0) node[right,xshift=0mm,red!70!black]{Closed-loop} to [vh path] (experiment.west);
+\end{tikzpicture}
+ \end{document}
+ 
+ 
+% Rewards Node
+%\draw (rewardloc) node(rew)[mynode,draw=none,text width=3cm,align =center]{Reward Model \\ (Section~\ref{sssec:rewardmodels})};
+%%% green SOTA as a node
+%\draw (cmgmploc) node(sotanode)[mynode,\mw=4cm,\mh = 6cm,fill = green!10,dashed]{};
+%\draw (sotanode.north west) node[above right,green!70!black]{State-of-the-Art Planner};
