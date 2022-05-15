@@ -1,6 +1,7 @@
 ---
 title: "Robust Controller Synthesis via Bayesian Learning"
-subtitle: "Aykut Satici"
+author: "Aykut Satici"
+institute: "Boise State University"
 format:
   revealjs:
     slide-number: true
@@ -26,8 +27,8 @@ format:
 ### {data-background-video="videos/furuta_swing_stab.mp4" data-background-size="contain" data-background-video-loop="false"}
 
 
+---
 
-## Data-Driven Controllers for Manipulation
 ### Data-Driven Controllers for Manipulation
 
 ::: columns
@@ -54,8 +55,8 @@ data-fragment-index=1/>
 :::
 
 
+---
 
-## Manipulation Flowchart
 ### Manipulation Flowchart {data-background-image="images/research_overview_fig.svg" data-background-size="contain"}
 
 
