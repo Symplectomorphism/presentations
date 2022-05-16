@@ -1,4 +1,4 @@
-## My Ph.D. Contributions 
+## Peer-Reviewed Publications
 
 <br>
 
@@ -29,20 +29,30 @@
 [^underreview]: Under review
 [^secondary]: Secondary contributions
 
-# Research Motivation {visibility="uncounted"}
+# Motivation {visibility="uncounted"}
 <!-- ###################################################################### -->
 
 
 ## Underactuated Robots 
 <!-- ###################################################################### -->
 
-::: {layout="[50,-25,30]" layout-valign="bottom"}
+:::: {.r-stack}
+
+::: {layout="[50,-25,30]" layout-valign="bottom" .fragment .fade-in-then-out fragment-index=0}
 ![](assets/underactuation-illustration-01_%5Bxiong2021underactuated%5D.png)
 
 ![](assets/acrobot-schematic.png)
 :::
 
-::: {.fragment .fade-up}
+::: {layout="[50,-25,30]" layout-valign="bottom" .fragment .fade-in-then-out fragment-index=1}
+![](assets/underactuation-illustration-01_%5Bxiong2021underactuated%5D.png)
+
+![](assets/ball-beam-evolution.png)
+:::
+
+::::
+
+::: {.fragment .fade-up data-fragment-index=1}
 ::: {.callout-note icon="false"}
 ## Definition
 A control-affine system $\ddot{q} = f(q,\dot{q}) + g(q)u$ is *underactuated*

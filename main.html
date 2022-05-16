@@ -3,8 +3,8 @@
   <meta charset="utf-8">
   <meta name="generator" content="quarto-99.9.9">
 
-  <meta name="author" content="Wankun Sirichotiyakul">
-  <title>Data-Driven Passivity-Based Control of Underactuated Robotic Systems</title>
+  <meta name="author" content="Aykut C. Satici">
+  <title>Data-Driven Passivity-Based Control</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -323,16 +323,16 @@
     <div class="slides">
 
 
-<section id="data-driven-passivity-based-control-of-underactuated-robotic-systems" class="slide level2 center smaller">
-<h2>Data-Driven Passivity-Based Control of Underactuated Robotic Systems</h2>
+<section id="data-driven-passivity-based-control" class="slide level2 center smaller">
+<h2>Data-Driven Passivity-Based Control</h2>
 <!-- ###################################################################### -->
 <hr>
-<p><em>Doctoral Dissertation Defense</em></p>
-<p><strong>Candidate</strong>: Wankun Sirichotiyakul <br> <strong>Advisor</strong>: Aykut Satici, Ph.D.&nbsp;<br></p>
-<p>Electrical and Computer Engineering Department <br> Boise State University, Boise, Idaho, USA</p>
+<p><em>University of Kentucky Seminar</em></p>
+<p><strong>Presenter</strong>: Aykut Satici, Ph.D.&nbsp;<br></p>
+<p>Mechanical and Biomedical Engineering Department <br> Boise State University, Boise, Idaho, USA</p>
 </section>
-<section id="my-ph.d.-contributions" class="slide level2">
-<h2>My Ph.D.&nbsp;Contributions</h2>
+<section id="peer-reviewed-publications" class="slide level2">
+<h2>Peer-Reviewed Publications</h2>
 <p><br></p>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -365,14 +365,15 @@
 </div>
 <aside><ol class="aside-footnotes"><li id="fn1" role="doc-endnote"><p>Under review</p></li><li id="fn2" role="doc-endnote"><p>Secondary contributions</p></li></ol></aside></section>
 <section>
-<section id="research-motivation" class="title-slide slide level1 center" data-visibility="uncounted">
-<h1>Research Motivation</h1>
+<section id="motivation" class="title-slide slide level1 center" data-visibility="uncounted">
+<h1>Motivation</h1>
 <!-- ###################################################################### -->
 </section>
 <section id="underactuated-robots" class="slide level2">
 <h2>Underactuated Robots</h2>
 <!-- ###################################################################### -->
-<div class="quarto-layout-panel">
+<div class="r-stack">
+<div class="fragment fade-in-then-out quarto-layout-panel" data-fragment-index="0">
 <div class="quarto-layout-row quarto-layout-valign-bottom">
 <div class="quarto-layout-cell" style="flex-basis: 47.6%;justify-content: center;">
 <p><img data-src="contents/assets/underactuation-illustration-01_%5Bxiong2021underactuated%5D.png"></p>
@@ -385,7 +386,21 @@
 </div>
 </div>
 </div>
-<div class="fragment fade-up">
+<div class="fragment fade-in-then-out quarto-layout-panel" data-fragment-index="1">
+<div class="quarto-layout-row quarto-layout-valign-bottom">
+<div class="quarto-layout-cell" style="flex-basis: 47.6%;justify-content: center;">
+<p><img data-src="contents/assets/underactuation-illustration-01_%5Bxiong2021underactuated%5D.png"></p>
+</div>
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 23.8%;justify-content: center;">
+<p>&nbsp;</p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 28.6%;justify-content: center;">
+<p><img data-src="contents/assets/ball-beam-evolution.png"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment fade-up" data-fragment-index="1">
 <div class="callout callout-note no-icon callout-captioned callout-style-default">
 <div class="callout-body">
 <div class="callout-caption">
@@ -707,7 +722,7 @@ vi - Ri^2 &amp;= \frac{\text{d}}{\text{d} t} \left(
 <!-- ###################################################################### -->
 <p>Learning storage function from trajectories</p>
 </section>
-<section id="motivation" class="slide level2">
+<section id="motivation-1" class="slide level2">
 <h2>Motivation</h2>
 <!-- ###################################################################### -->
 <p>Control synthesis in PBC</p>
@@ -984,7 +999,7 @@ J(\theta, x_0) = \int_{0}^{T} \ell \left(\phi,u^\theta,\theta\right)\, \text{d} 
 <!-- ###################################################################### -->
 <p>Solving matching PDEs with neural networks</p>
 </section>
-<section id="motivation-1" class="slide level2" data-auto-animate="true">
+<section id="motivation-2" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Motivation</h2>
 <!-- ###################################################################### -->
 <p><span class="smallcaps">NeuralPbc</span> is flexible, but guaranteeing stability is hard</p>

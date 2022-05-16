@@ -1,6 +1,6 @@
 ---
-pagetitle: "Data-Driven Passivity-Based Control of Underactuated Robotic Systems"
-author-meta: "Wankun Sirichotiyakul"
+pagetitle: "Data-Driven Passivity-Based Control"
+author-meta: "Aykut C. Satici"
 institute: "Boise State University"
 from: markdown+emoji
 format:
