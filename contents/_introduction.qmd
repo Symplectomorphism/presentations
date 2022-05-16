@@ -47,7 +47,7 @@
 ::: {layout="[50,-25,30]" .fragment .fade-in-then-out fragment-index=1}
 ![](assets/underactuation-illustration-01_%5Bxiong2021underactuated%5D.png)
 
-<img src="assets/pushcontact.png" style="width: 1280px; height: 300px;"/>
+<img src="assets/pushcontact.png" style="width: 800px; height: 300px;"/>
 :::
 
 ::::

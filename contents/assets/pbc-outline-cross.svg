@@ -2,13 +2,13 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="246.17168mm"
+   width="250.46112mm"
    height="72.230972mm"
-   viewBox="0 0 697.80944 204.74922"
+   viewBox="0 0 709.96848 204.74922"
    version="1.1"
    id="svg5"
    sodipodi:docname="pbc-outline-cross.svg"
-   inkscape:version="1.1.2 (1:1.1+202202050950+0a00cf5339)"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -24,14 +24,18 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="1.4424661"
-     inkscape:cx="316.12528"
-     inkscape:cy="88.043665"
-     inkscape:window-width="2560"
-     inkscape:window-height="1573"
-     inkscape:window-x="2560"
-     inkscape:window-y="27"
+     inkscape:cx="606.94667"
+     inkscape:cy="131.37224"
+     inkscape:window-width="2486"
+     inkscape:window-height="1376"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg5" />
+     inkscape:current-layer="layer1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
   <defs
      id="defs2">
     <marker
@@ -111,12 +115,12 @@
     <rect
        style="fill:#cccccc;fill-opacity:0.959003;stroke:#000000;stroke-width:0.294369;stroke-opacity:1"
        id="rect3684"
-       width="209.09122"
+       width="222.5658"
        height="56.380245"
-       x="548.3139"
-       y="127.95659"
+       x="546.99835"
+       y="129.70125"
        ry="3.1265078"
-       rx="3.1265078" />
+       rx="3.3279791" />
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.10826;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:1;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#TriangleOutL)"
        d="M 521.75525,156.14671 H 548.3139"
@@ -124,17 +128,17 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:24.3819px;line-height:1;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans Light';fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.336859"
-       x="653.38593"
-       y="151.12018"
+       x="659.39081"
+       y="152.61897"
        id="text17082"
-       transform="scale(0.99919437,1.0008063)"><tspan
+       transform="scale(0.99919435,1.0008063)"><tspan
          id="tspan17080"
          style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:24.3819px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans Light';text-align:center;text-anchor:middle;stroke-width:0.336859"
-         x="653.38593"
-         y="151.12018">Action w/ stability</tspan><tspan
+         x="659.39081"
+         y="152.61897">Action w/ stability</tspan><tspan
          style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:24.3819px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans Light';text-align:center;text-anchor:middle;stroke-width:0.336859"
-         x="653.38593"
-         y="175.50208"
+         x="659.39081"
+         y="177.00087"
          id="tspan56539">guarantees</tspan></text>
     <text
        xml:space="preserve"
