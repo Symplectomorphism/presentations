@@ -1,0 +1,104 @@
+# Appendix {visibility="uncounted"}
+
+
+## Passivity {auto-animate="true" auto-animate-duration="0.5" visibility="uncounted"}
+<!-- ###################################################################### -->
+
+The system $\Sigma$ is __passive__ if dissipative with supply rate
+
+$$s = u^\top y$$
+
+It is __output strictly passive__ if dissipative with supply rate
+
+$$s = u^\top y - \delta \lVert y \rVert^2, \; \delta > 0$$
+
+It is __input strictly passive__ if dissipative with supply rate
+
+$$s = u^\top y - \delta \lVert u \rVert^2, \; \delta > 0$$
+
+
+
+## <span style="font-variant:small-caps;">NeuralPbc</span> Publications {visibility="uncounted"}
+<!-- ###################################################################### -->
+
+This work is published in ISER 2020[^iser], CCTA 2021[^ccta]
+
+[^iser]: W. Sirichotiyakul and A. C. Satici, “Data-driven design of energy-shaping controllers for swing-up control of underactuated robots,” in International Symposium on Experimental Robotics. Springer, 2020, pp. 323-333.
+
+[^ccta]: W. Sirichotiyakul and A. C. Satici, “Combining energy-shaping control of dynamical systems with data-driven approaches,” in 2021 IEEE Conference on Control Technology and Applications (CCTA). IEEE, 2021, pp. 1121-1127. 
+
+## <span style="font-variant:small-caps;">NeuralPbc</span> Publications {visibility="uncounted"}
+<!-- ###################################################################### -->
+
+This work also provides a foundation for an ongoing research that investigate the improvement of robustness properties of <span style="font-variant:small-caps;">NeuralPbc</span>[^acc]<sup>,</sup>[^css]
+
+[^acc]: W. Sirichotiyakul, N. A. Ashenafi, and A. C. Satici, “Robust Data-Driven Passivity-Based Control of Underactuated Systems via Neural Approximators and Bayesian Inference,” in 2022 American Control Conference, ACC. IEEE, Accepted for publication January 2022.
+
+[^css]: N. A. Ashenafi, W. Sirichotiyakul, and A. C. Satici, “Robust Passivity-Based Control of Underactuated Systems via Neural Approximators and Bayesian In ference,” in 2022 Conference on Decision and Control, CDC. IEEE. (Submitted for review March 2022).
+
+
+## <span style="font-variant:small-caps;">NeuralIdaPbc</span> Publications {visibility="uncounted"}
+<!-- ###################################################################### -->
+
+This work is published in the International Journal of Control[^ijc]
+
+[^ijc]: W. Sirichotiyakul and A. C. Satici, “Data-Driven Passivity-Based Control of Underactuated Mechanical Systems via Interconnection and Damping Assignment,” in International Journal of Control. (Accepted for publication March 2022)
+
+\ 
+
+<span style="font-variant:small-caps;">NeuralIdaPbc</span> is the basis for an ongoing research that investigate the improvement of robustness properties[^tacon]
+
+[^tacon]: W. Sirichotiyakul, N. A. Ashenafi, and A. C. Satici, “Robust Interconnection and Damping Assignment Passivity-Based Control via Neural Bayesian Inference,” in IEEE Transactions on Automatic Control. (Submitted for review April 2022)
+
+
+## `DiffEqFlux.jl` Demo {visibility="uncounted"}
+<!-- ###################################################################### -->
+
+Learning $\dot{x} = f(x)$ where $f$ is a neural network
+
+Regress on MSE between trajectory of $f$ and data
+
+:::: {.r-stack}
+![](assets/diffeqflux_1.png){.fragment .fade-out fragment-index=0}
+
+![](assets/diffeqflux_2.gif){.fragment .fade-in fragment-index=0}
+::::
+
+
+## <span style="font-variant:small-caps;">NeuralIdaPbc</span> Main Problem {.smaller visibility="uncounted"}
+<!-- ###################################################################### -->
+
+$$\begin{aligned} \underset{\theta}{\text{minimize}} && J(\theta) &= \left\lVert G^{\bot} \left\{ \nabla_{q} H - M_{d}^{\theta}M^{-1} \nabla_{q} H_{d}^{\theta} + J_{2}^{\theta} \left(M_{d}^{\theta}\right)^{-1} p \right\} \right\rVert^2  \\ \text{subject to}  && H_d^{\theta} &= \frac{1}{2} p^{\top} \left( M_{d}^{\theta} \right)^{-1} p + V_{d}^{\theta}(q) \\ && M_d^{\theta}(q) &= \left(M_d^{\theta}(q)\right)^\top \succ 0 \\ && J_{2}^{\theta}(q,p) &= -\left(J_{2}^{\theta}(q,p)\right)^\top \\ && q^\star &= \underset{q}{\arg \min} \, V_{d}^{\theta} (q) \end{aligned}$$
+
+::::: {.fragment}
+:::: {.columns}
+
+::: {.column width=49%}
+
+::: {.callout-tip icon="false"}
+## <span style="font-variant:small-caps;">NeuralIdaPbc</span>
+
+- Solve nonlinear PDEs using neural networks and SoS polynomials
+- Surrogates of $M_d$, $J_2$, $V_d$ are constrained *by construction*
+
+:::
+
+:::
+
+::: {.column width=2%} 
+
+:::
+
+::: {.column width=49%}
+::: {.callout-tip icon="false"}
+## <span style="font-variant:small-caps;">Pinn</span>
+
+- Solve nonlinear PDEs using neural networks
+- Solution surrogates are constrained via penalty term in loss function
+
+
+:::
+:::
+
+::::
+:::::

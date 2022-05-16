@@ -1,0 +1,19 @@
+---
+pagetitle: "Data-Driven Passivity-Based Control of Underactuated Robotic Systems"
+author-meta: "Wankun Sirichotiyakul"
+institute: "Boise State University"
+---
+
+## Data-Driven Passivity-Based Control of Underactuated Robotic Systems {.center .smaller}
+<!-- ###################################################################### -->
+
+<hr>
+
+*Doctoral Dissertation Defense*
+
+__Candidate__: Wankun Sirichotiyakul <br>
+__Advisor__: Aykut Satici, Ph.D. <br>
+
+Electrical and Computer Engineering Department <br>
+Boise State University, Boise, Idaho, USA 
+

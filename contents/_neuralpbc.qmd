@@ -1,0 +1,314 @@
+# <span style="font-variant:small-caps;">NeuralPbc</span> {visibility="uncounted"}
+<!-- ###################################################################### -->
+
+Learning storage function from trajectories
+
+
+## Motivation
+<!-- ###################################################################### -->
+
+Control synthesis in PBC
+$$
+Gu_{es} = \nabla_q H - \nabla_q H_d
+$$
+
+- If underactuated, $H_d$ must satisfy $G$ is not invertible
+  * Choice of $u_{es}$ must satisfy **nonlinear PDE**
+  * Quadratic $V_d$ most likely not viable
+- Incorporate **performance objective** into design of $H_d$?
+
+
+
+## <span style="font-variant:small-caps;">NeuralPbc</span> Problem Statement
+<!-- ###################################################################### -->
+
+Consider the mechanical system
+
+$$
+\begin{bmatrix} \dot{q} \\ \dot{p} \end{bmatrix} = 
+\begin{bmatrix} \phantom{-}0 & 1 \\ -1 & 0 \end{bmatrix} 
+\begin{bmatrix} \nabla_q H_{\phantom{d}} \\ \nabla_p H_{\phantom{d}} \end{bmatrix} +
+\begin{bmatrix} 0 \\ G \end{bmatrix} u_\phantom{di}
+$$
+
+__Control task__: stabilize desired equilibrium $x^\star = (q^\star, 0)$
+
+:::: {.r-stack}
+
+::: {.fragment .fade-out fragment-index=3}
+$$u = u_{es} + u_{di} = \left(G^{\top} G \right)^{-1} \left( \nabla_q H  - \nabla_q H_d \right)  - K_D G^\top \nabla_p H_d $$
+:::
+
+::: {.fragment .fade-in  fragment-index=3}
+$$u = u_{es} + u_{di} = - \left(G^{\top} G \right)^{-1} \nabla_q H_d^{\theta}  - K_D G^\top \nabla_p H_d^{\theta} $$
+:::
+
+::::
+
+::: {.fragment .fade-in fragment-index=1}
+Choosing a suitable $H_d$ is not trivial
+:::
+
+::: {.fragment .fade-in fragment-index=2}
+Parameterize $H_d$ by a neural network $H_d^\theta$ and relax control task to bringing $x$ to a small neighborhood of $x^\star$
+:::
+
+
+## <span style="font-variant:small-caps;">NeuralPbc</span> Problem Statement
+<!-- ###################################################################### -->
+
+::: {.callout}
+$$
+\begin{aligned}
+\underset{\theta}{\text{minimize}} && J(\theta, x_0) &= \int_{0}^{T} \ell \left(\phi,u^\theta,\theta\right)\, \text{d} t \\
+\text{subject to} &&
+\begin{bmatrix}
+  \dot{q} \\ \dot{p}
+\end{bmatrix} &=
+\begin{bmatrix}
+  0 & I \\ -I & 0
+\end{bmatrix}
+\begin{bmatrix} \nabla_q H \\ \nabla_p H \end{bmatrix} + 
+\begin{bmatrix}
+  0 \\ G
+\end{bmatrix} u^{\theta}
+\\
+&& u^\theta &= \left(G^{\top} G \right)^{-1} \left( - \nabla_q H_d^{\theta}  - K_D G^\top \nabla_p H_d^{\theta} \right)
+\end{aligned}
+$$
+:::
+
+- Injecting control task into loss function design 
+- Backprop through closed-loop trajectories
+- Sampling the state space efficiently
+
+## <span style="font-variant:small-caps;">NeuralPbc</span> Loss Function
+<!-- ###################################################################### -->
+
+$$
+J(\theta, x_0) = \int_{0}^{T} \ell \left(\phi,u^\theta,\theta\right)\, \text{d} t
+$$
+
+$\ell \triangleq \ell_{\text{set}}(\gamma) + \ell_{\bot}(\gamma,u)$ where
+
+- $\phi$ is the flow of the equation of motion
+ 
+- $\gamma$ is the closed-loop trajectory starting from $x_0$
+
+- $T$ is the time horizon (hyperparameter)
+
+
+
+## <span style="font-variant:small-caps;">NeuralPbc</span> Loss Function
+<!-- ###################################################################### -->
+
+
+$$\ell \triangleq \ell_{\text{set}}(\gamma) + \ell_{\bot}(\gamma,u)$$
+
+:::: {.callout}
+## Set Distance Loss $\ell_{\text{set}}$
+
+Penalizes when closed-loop trajectory $\gamma$ under the current control law is far away from a neighborhood $\mathcal{S}$ of $x^\star$
+
+::: {layout="[80,100]" layout-valign="center"}
+![](assets/neuralpbc/033.svg)
+
+<div>
+* The set $\mathcal{S}$ may be chosen as
+  * A ball around $x^\star$
+  * Estimated region of attraction
+
+$$l_{\text{set}}(x) = \underset{t}{\inf} \left\{ \lVert a-b \rVert : a \in \gamma(t), b \in \mathcal{S}\right\}$$
+
+* No additional loss if any point in $\gamma$ is in $\mathcal{S}$
+</div>
+:::
+::::
+
+## <span style="font-variant:small-caps;">NeuralPbc</span> Loss Function
+<!-- ###################################################################### -->
+
+
+$$\ell \triangleq \ell_{\text{set}}(\gamma) + \ell_{\bot}(\gamma,u)$$
+
+
+::::: {.callout}
+## Transversal Distance Loss $\ell_{\bot}$
+
+Measures how close $\gamma$ is to $\gamma^\star$ (expert trajectory) using transverse coordinates $x_\bot$
+
+:::: {layout="[70,100]"}
+
+![](assets/transverseCoordinates.svg)
+
+<div>
+* Defined on a transversal section along $\gamma^\star$
+* $\tau$ a surrogate for time
+* By construction $x_{\bot} \to 0 \iff \gamma = \gamma^\star$
+* Select penalty as
+
+$$\ell_{\bot} = x_\bot^\top Q x_\bot + u^\top R u, \, Q \succeq 0, \, R \succ 0$$
+
+* No preferred orbit? $Q = 0$
+</div>
+
+::::
+:::::
+
+
+## Backprop through ODE Solutions
+<!-- ###################################################################### -->
+
+We need $\partial J / \partial \theta$, which depends ODE solutions
+
+::: {.fragment .fade-in-then-semi-out}
+:crying_cat_face: Combining `autodiff` with numerical ODE solvers 
+:::
+
+::: {.fragment .fade-in-then-semi-out}
+:crying_cat_face: Adjoint sensitivity method: solve the adjoint problem backward in time
+$$\frac{\text{d}\lambda}{\text{d}t} = -\lambda \frac{\partial f}{\partial x}, \quad \frac{\partial J}{\partial \theta} = \lambda(t_0) \frac{\partial f}{\partial x}$$
+:::
+
+::: {.fragment .fade-in}
+:smiley_cat: Adjoint methods + `autodiff` implemented in `DiffEqFlux.jl`
+:::
+
+
+## <span style="font-variant:small-caps;">NeuralPbc</span> Sampling State Space
+<!-- ###################################################################### -->
+
+Learned policy $u^\theta$ need to perform well for a wide range of $x_0$
+
+:::: {.r-stack}
+::: {.fragment .fade-out fragment-index=0}
+$$J(\theta, x_0) = \int_{0}^{T} \ell \left(\phi,u^\theta,\theta\right)\, \text{d} t$$
+:::
+<!-- $$\hat{J}(\theta) = \mathbb{E}_{x_0 \sim p(\mathbf{x}_0)} \left[ J(\theta, x_0) \right]$$ -->
+::: {.fragment .fade-in fragment-index=0}
+$$J(\theta) = \mathbb{E}_{x_0 \sim p(\mathbf{x}_0)} \left[ \int_{0}^{T} \ell \left(\phi(t,x_0),u^\theta,\theta\right)\, \text{d} t \right]$$
+:::
+::::
+
+Sample state space with technique based on <span style="font-variant:small-caps;">DAgger</span>[^dagger] 
+
+::: {.fragment .fade-in fragment-index=1}
+1. Simulating the system under application of $u^\theta$ (initially poorly-trained)
+2. Collect samples from the regions of state-space visited by $u^\theta$
+:::
+
+[^dagger]: Ross, S., Gordon, G. J., & Bagnell, J. A. (2011). No-regret reductions for imitation learning and structured prediction. In In AISTATS.
+
+## <span style="font-variant:small-caps;">NeuralPbc</span> Algorithm
+<!-- ###################################################################### -->
+
+:::: {.r-stack}
+
+
+![](assets/neuralpbc/000.svg)
+
+![](assets/neuralpbc/001.svg){.fragment}
+
+![](assets/neuralpbc/002.svg){.fragment}
+
+![](assets/neuralpbc/003.svg){.fragment}
+
+![](assets/neuralpbc/004.svg){.fragment}
+
+![](assets/neuralpbc/005.svg){.fragment}
+
+![](assets/neuralpbc/006.svg){.fragment}
+
+![](assets/neuralpbc/007.svg){.fragment}
+
+![](assets/neuralpbc/008.svg){.fragment}
+
+![](assets/neuralpbc/009.svg){.fragment}
+
+![](assets/neuralpbc/010.svg){.fragment}
+
+![](assets/neuralpbc/011.svg){.fragment}
+
+![](assets/neuralpbc/012.svg){.fragment}
+
+![](assets/neuralpbc/013.svg){.fragment}
+
+![](assets/neuralpbc/014.svg){.fragment}
+
+![](assets/neuralpbc/015.svg){.fragment}
+
+![](assets/neuralpbc/016.svg){.fragment}
+
+![](assets/neuralpbc/017.svg){.fragment}
+
+![](assets/neuralpbc/018.svg){.fragment}
+
+![](assets/neuralpbc/019.svg){.fragment}
+
+![](assets/neuralpbc/020.svg){.fragment}
+
+![](assets/neuralpbc/021.svg){.fragment}
+
+![](assets/neuralpbc/022.svg){.fragment}
+
+![](assets/neuralpbc/023.svg){.fragment}
+
+![](assets/neuralpbc/024.svg){.fragment}
+
+![](assets/neuralpbc/025.svg){.fragment}
+
+![](assets/neuralpbc/026.svg){.fragment}
+
+![](assets/neuralpbc/027.svg){.fragment}
+
+![](assets/neuralpbc/028.svg){.fragment}
+
+![](assets/neuralpbc/029.svg){.fragment}
+
+![](assets/neuralpbc/030.svg){.fragment}
+
+![](assets/neuralpbc/031.svg){.fragment}
+
+![](assets/neuralpbc/032.svg){.fragment}
+
+![](assets/neuralpbc/033.svg){.fragment}
+
+::::
+
+## <span style="font-variant:small-caps;">NeuralPbc</span> Experiments
+<!-- ###################################################################### -->
+Benchmark underactuated  control problems:
+
+* Cart-pole
+* Inertia-wheel pendulum
+* Acrobot
+
+## {background-video="contents/assets/cartpole-firefox.mp4" background-size="contain" background-video-loop="true" background-video-muted="true"}
+<!-- ###################################################################### -->
+
+## Learned storage function
+<!-- ###################################################################### -->
+
+![](assets/cartpole-contours.png)
+
+Observations
+: 
+$H_d^\theta$ has a local minimum at $x^\star$, control law $u^\theta$ commands the force in the expected direction
+
+
+## Comparison with Energy Shaping[^astrom]
+<!-- ###################################################################### -->
+
+![](assets/cartpole-cost-compare.svg)
+
+
+
+[^astrom]: K. J. Åström and K. Furuta, "Swinging up a pendulum by energy control,"
+Automatica, vol. 36, no. 2, pp. 287–295, 2000.
+
+## {background-video="contents/assets/cartpole-exp.mp4" background-size="contain" background-video-loop="true" background-video-muted="true"}
+<!-- ###################################################################### -->
+
+
+## {background-video="contents/assets/acrobot-firefox.mp4" background-size="contain" background-video-loop="true" background-video-muted="true"}
+<!-- ###################################################################### -->

@@ -1,0 +1,128 @@
+## My Ph.D. Contributions 
+
+<br>
+
+:::: {.columns}
+::: {.column width="50%"}
+### <span style="font-variant:small-caps;">NeuralPbc</span>
+
+<ul>
+<li class="fragment highlight-red" data-fragment-index="0">[ISER 2020] </li>
+<li class="fragment highlight-red" data-fragment-index="0">[CCTA 2021] </li>
+<li class="fragment semi-fade-out" data-fragment-index="0">[ACC 2022]<sup>2</sup></li>
+<li class="fragment semi-fade-out" data-fragment-index="0">[CSS 2022]<sup>1,2</sup></li>
+</ul>
+
+:::
+::: {.column width="50%"}
+### <span style="font-variant:small-caps;">NeuralIdaPbc</span>
+
+<ul>
+<li class="fragment highlight-red" data-fragment-index="0">*[IJC 2021]*</li>
+<li class="fragment semi-fade-out" data-fragment-index="0">*[TACON 2022]*[^underreview]<sup>,</sup>[^secondary]</li>
+</ul>
+:::
+::::
+
+
+
+[^underreview]: Under review
+[^secondary]: Secondary contributions
+
+# Research Motivation {visibility="uncounted"}
+<!-- ###################################################################### -->
+
+
+## Underactuated Robots 
+<!-- ###################################################################### -->
+
+::: {layout="[50,-25,30]" layout-valign="bottom"}
+![](assets/underactuation-illustration-01_%5Bxiong2021underactuated%5D.png)
+
+![](assets/acrobot-schematic.png)
+:::
+
+::: {.fragment .fade-up}
+::: {.callout-note icon="false"}
+## Definition
+A control-affine system $\ddot{q} = f(q,\dot{q}) + g(q)u$ is *underactuated*
+if $\text{rank } g(q) < \text{dim } q$
+:::
+
+:::
+
+
+## Previous Methods {.smaller}
+<!-- ###################################################################### -->
+
+:::: {.fragment .semi-fade-out fragment-index=1}
+::: {layout="[100,-5,60]" layout-valign="center"}
+![](assets/pbc-outline.svg)
+
+Strengths
+: 
+Stability guarantees \
+Closed-form policy
+
+Weaknesses
+: 
+Model uncertainties \
+Need to solve PDEs
+:::
+::::
+
+:::: {.fragment fragment-index=1}
+::: {layout="[100,-5,60]" layout-valign="center"}
+Reinforcement learning
+![](assets/rl-outline.svg)
+
+Strengths
+: 
+More general \
+Unknown dynamics OK
+
+Weaknesses
+: 
+Sample complexity \
+Stability guarantees?
+:::
+::::
+
+
+## {background-image="https://c.tenor.com/EstKpPVveyYAAAAC/both-agree.gif" background-size="50%" visibility="uncounted"}
+<!-- ###################################################################### -->
+
+
+## Our Methods {.smaller}
+<!-- ###################################################################### -->
+
+:::: {.columns}
+
+::: {.column width="70%"}
+![](assets/pbc-outline-cross.svg){fig-align="center"} \
+:::
+
+::: {.column width="30%"}
+ 
+:::
+
+::::
+
+:::: {.columns}
+
+::: {.column width="70%"}
+![](assets/pbc-ml-outline.svg){fig-align="center"} <br>
+:::
+
+::: {.column width="30%"}
+Systematic approach
+
+Prior domain knowledge
+
+Stability is *intrinsic*
+
+Model uncertainty considerations possible
+:::
+
+::::
+
