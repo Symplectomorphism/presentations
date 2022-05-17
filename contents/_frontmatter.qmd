@@ -50,3 +50,12 @@ Nardos Ayele Ashenafi :mortar_board: <br/>
 ::::
 
 [^underreview]: Under review
+
+::: {.notes}
+* ISER - International Symposium on Experimental Robotics
+* CCTA - Conference on Control Technology and Applications
+* ACC - American Control Conference
+* LCSS - Control Systems Letters
+* IJC - International Journal of Control
+* TACON - Transactions on Automatic Control
+:::

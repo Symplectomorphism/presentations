@@ -372,58 +372,130 @@ L-CSS 2022<sup>1</sup>
 </ul>
 </div>
 </div>
+<aside class="notes">
+<ul>
+<li>ISER - International Symposium on Experimental Robotics</li>
+<li>CCTA - Conference on Control Technology and Applications</li>
+<li>ACC - American Control Conference</li>
+<li>LCSS - Control Systems Letters</li>
+<li>IJC - International Journal of Control</li>
+<li>TACON - Transactions on Automatic Control</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <aside><ol class="aside-footnotes"><li id="fn1" role="doc-endnote"><p>Under review</p></li></ol></aside></section>
 <section>
 <section id="motivation" class="title-slide slide level1 center" data-visibility="uncounted">
 <h1>Motivation</h1>
 <!-- ###################################################################### -->
+<!-- ## {background-iframe="https://www.youtube-nocookie.com/embed/CJyCcXob0c8?controls=0&amp;start=19&amp;autoplay=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"} -->
 </section>
-<section id="underactuated-robots" class="slide level2">
-<h2>Underactuated Robots</h2>
-<!-- ###################################################################### -->
+<section id="what-is-underactuation" class="slide level2">
+<h2>What is Underactuation?</h2>
 <div class="r-stack">
-<div class="fragment fade-in-then-out quarto-layout-panel" data-fragment-index="0">
+<div class="quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-bottom">
-<div class="quarto-layout-cell" style="flex-basis: 47.6%;justify-content: center;">
-<p><img data-src="contents/assets/underactuation-illustration-01_%5Bxiong2021underactuated%5D.png"></p>
-</div>
-<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 23.8%;justify-content: center;">
-<p>&nbsp;</p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 28.6%;justify-content: center;">
-<p><img data-src="contents/assets/acrobot-schematic.png"></p>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="contents/assets/twolink-kin.gif"></p>
+</figure>
 </div>
 </div>
-</div>
-<div class="fragment fade-in-then-out quarto-layout-panel" data-fragment-index="1">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 47.6%;justify-content: center;">
-<p><img data-src="contents/assets/underactuation-illustration-01_%5Bxiong2021underactuated%5D.png"></p>
-</div>
-<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 23.8%;justify-content: center;">
-<p>&nbsp;</p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 28.6%;justify-content: center;">
-<p><img src="contents/assets/pushcontact.png" style="width: 800px; height: 300px;"></p>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="contents/assets/acrobot.gif" class="fragment fade-in" data-fragment-index="0"></p>
+</figure>
 </div>
 </div>
+</div>
+</div>
+<div class="fragment" data-fragment-index="1">
+<div class="semi-transparent-overlay">
+
 </div>
 </div>
 <div class="fragment fade-up" data-fragment-index="1">
 <div class="callout callout-note no-icon callout-captioned callout-style-default">
 <div class="callout-body">
 <div class="callout-caption">
-<p><strong>Definition</strong></p>
+<p><strong>Underactuation</strong></p>
 </div>
 <div class="callout-content">
-<p>A control-affine system <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>q</mi><mo accent="true">̈</mo></mover><mo>=</mo><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>q</mi><mo>,</mo><mover><mi>q</mi><mo accent="true">̇</mo></mover><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mi>g</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>q</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>u</mi></mrow><annotation encoding="application/x-tex">\ddot{q} = f(q,\dot{q}) + g(q)u</annotation></semantics></math> is <em>underactuated</em> if <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mtext mathvariant="normal">rank </mtext><mspace width="0.333em"></mspace></mrow><mi>g</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>q</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>&lt;</mo><mrow><mtext mathvariant="normal">dim </mtext><mspace width="0.333em"></mspace></mrow><mi>q</mi></mrow><annotation encoding="application/x-tex">\text{rank } g(q) &lt; \text{dim } q</annotation></semantics></math>.</p>
+<ul>
+<li>No control input can generate acceleration in arbitrary direction</li>
+<li>Control problem becomes much more complicated</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="previous-methods" class="slide level2 smaller">
-<h2>Previous Methods</h2>
+<section id="underactuated-robots" class="slide level2">
+<h2>Underactuated Robots</h2>
+<!-- ###################################################################### -->
+<div class="r-stack">
+<div class="fragment fade-out quarto-layout-panel" data-fragment-index="0">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 52.8%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="contents/assets/walking_model.png"></p>
+<p></p><figcaption aria-hidden="true">Walking machines</figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 7.9%;justify-content: center;">
+<p>&nbsp;</p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 39.4%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="contents/assets/quadrotor2d.svg"></p>
+<p></p><figcaption aria-hidden="true"><a href="http://underactuated.mit.edu/acrobot.html#section3">Flying machines</a></figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment quarto-layout-panel" data-fragment-index="0">
+<div class="quarto-layout-row quarto-layout-valign-bottom">
+<div class="quarto-layout-cell" style="flex-basis: 47.1%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="contents/assets/manipulator.jpg"></p>
+<p></p><figcaption aria-hidden="true">Torque-limited manipulators</figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 8.8%;justify-content: center;">
+<p>&nbsp;</p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 44.1%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="contents/assets/pushcontact.png"></p>
+<p></p><figcaption aria-hidden="true">Nonprehensile manipulation</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="existing-methods" class="slide level2 smaller" data-transition="fade">
+<h2>Existing Methods</h2>
 <!-- ###################################################################### -->
 <div class="fragment semi-fade-out" data-fragment-index="1">
 <div class="quarto-layout-panel">
@@ -477,30 +549,43 @@ Stability guarantees?
 </div>
 </div>
 </div>
-</section>
-<section id="section" class="slide level2" data-background-image="https://c.tenor.com/EstKpPVveyYAAAAC/both-agree.gif" data-background-size="50%" data-visibility="uncounted">
-<h2></h2>
+<!-- ## {background-image="https://c.tenor.com/EstKpPVveyYAAAAC/both-agree.gif" background-size="50%" visibility="uncounted"} -->
 <!-- ###################################################################### -->
 </section>
-<section id="our-methods" class="slide level2 smaller">
+<section id="our-methods" class="slide level2 smaller" data-transition="fade">
 <h2>Our Methods</h2>
 <!-- ###################################################################### -->
-<div class="columns">
-<div class="column" style="width:70%;">
-<p><img data-src="contents/assets/pbc-outline-cross.svg" data-fig-align="center"><br>
-</p>
-</div><div class="column" style="width:30%;">
-
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-center">
+<div class="quarto-layout-cell" style="flex-basis: 60.6%;justify-content: center;">
+<p><img data-src="contents/assets/pbc-outline-cross.svg"></p>
+</div>
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 3.0%;justify-content: center;">
+<p>&nbsp;</p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 36.4%;justify-content: center;">
+<p>&nbsp;</p>
 </div>
 </div>
-<div class="columns">
-<div class="column" style="width:70%;">
-<p><img data-src="contents/assets/pbc-ml-outline.svg" data-fig-align="center"> <br></p>
-</div><div class="column" style="width:30%;">
-<p>Systematic approach</p>
-<p>Prior domain knowledge</p>
-<p>Stability is <em>intrinsic</em></p>
-<p>Model uncertainty considerations possible</p>
+</div>
+<div class="fragment" data-fragment-index="1">
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-center">
+<div class="quarto-layout-cell" style="flex-basis: 60.6%;justify-content: center;">
+<p><img data-src="contents/assets/pbc-ml-outline.svg"></p>
+</div>
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 3.0%;justify-content: center;">
+<p>&nbsp;</p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 36.4%;justify-content: center;">
+<ul>
+<li>Systematic approach</li>
+<li>Prior domain knowledge</li>
+<li>Stability is <em>intrinsic</em></li>
+<li>Model uncertainty considerations possible</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 </section>
@@ -741,7 +826,7 @@ vi - Ri^2 &amp;= \frac{\text{d}}{\text{d} t} \left(
 </div>
 </div>
 </section>
-<section id="section-1" class="slide level2" data-background-video="contents/assets/ballbot_youtube_trim_reverse.mp4">
+<section id="section" class="slide level2" data-background-video="contents/assets/ballbot_youtube_trim_reverse.mp4">
 <h2></h2>
 <!-- ###################################################################### -->
 <div class="r-stack">
@@ -1012,7 +1097,7 @@ J(\theta, x_0) = \int_{0}^{T} \ell \left(\phi,u^\theta,\theta\right)\, \text{d} 
 <li>Acrobot</li>
 </ul>
 </section>
-<section id="section-2" class="slide level2" data-background-video="contents/assets/cartpole-firefox.mp4" data-background-size="contain" data-background-video-loop="true" data-background-video-muted="true">
+<section id="section-1" class="slide level2" data-background-video="contents/assets/cartpole-firefox.mp4" data-background-size="contain" data-background-video-loop="true" data-background-video-muted="true">
 <h2></h2>
 <!-- ###################################################################### -->
 </section>
@@ -1032,11 +1117,11 @@ J(\theta, x_0) = \int_{0}^{T} \ell \left(\phi,u^\theta,\theta\right)\, \text{d} 
 <!-- ###################################################################### -->
 
 <img data-src="contents/assets/cartpole-cost-compare.svg" class="r-stretch"><aside><ol class="aside-footnotes"><li id="fn3" role="doc-endnote"><p>K. J. Åström and K. Furuta, “Swinging up a pendulum by energy control,” Automatica, vol.&nbsp;36, no. 2, pp.&nbsp;287–295, 2000.</p></li></ol></aside></section>
-<section id="section-3" class="slide level2" data-background-video="contents/assets/cartpole-exp.mp4" data-background-size="contain" data-background-video-loop="true" data-background-video-muted="true">
+<section id="section-2" class="slide level2" data-background-video="contents/assets/cartpole-exp.mp4" data-background-size="contain" data-background-video-loop="true" data-background-video-muted="true">
 <h2></h2>
 <!-- ###################################################################### -->
 </section>
-<section id="section-4" class="slide level2" data-background-video="contents/assets/acrobot-firefox.mp4" data-background-size="contain" data-background-video-loop="true" data-background-video-muted="true">
+<section id="section-3" class="slide level2" data-background-video="contents/assets/acrobot-firefox.mp4" data-background-size="contain" data-background-video-loop="true" data-background-video-muted="true">
 <h2></h2>
 <!-- ###################################################################### -->
 </section></section>
@@ -1336,7 +1421,7 @@ u_{di} &amp;= -K_v G^\top \nabla_p H_d \phantom{\left\|\left(\nabla_p\right)^{\t
 <li>Ball-beam system</li>
 </ul>
 <aside><ol class="aside-footnotes"><li id="fn4" role="doc-endnote"><p>R. Ortega, M. W. Spong, F. Gómez-Estern, and G. Blankenstein, “Stabilization of a class of underactuated mechanical systems via interconnection and damping assignment,” IEEE transactions on automatic control, vol.&nbsp;47, no. 8, pp. 1218–1233, 2002.</p></li></ol></aside></section>
-<section id="section-5" class="slide level2" data-background-video="contents/assets/iwp-firefox.mp4" data-background-size="contain" data-background-video-loop="true" data-background-video-muted="true">
+<section id="section-4" class="slide level2" data-background-video="contents/assets/iwp-firefox.mp4" data-background-size="contain" data-background-video-loop="true" data-background-video-muted="true">
 <h2></h2>
 <!-- ###################################################################### -->
 </section>
@@ -1349,7 +1434,7 @@ u_{di} &amp;= -K_v G^\top \nabla_p H_d \phantom{\left\|\left(\nabla_p\right)^{\t
 <p><img data-src="contents/assets/compare_uru.png" class="fragment fade-in" data-fragment-index="1"></p>
 </div>
 </section>
-<section id="section-6" class="slide level2" data-background-video="contents/assets/iwp-cut-firefox.mp4" data-background-size="contain" data-background-video-loop="true" data-background-video-muted="true">
+<section id="section-5" class="slide level2" data-background-video="contents/assets/iwp-cut-firefox.mp4" data-background-size="contain" data-background-video-loop="true" data-background-video-muted="true">
 <h2></h2>
 <!-- ###################################################################### -->
 </section>

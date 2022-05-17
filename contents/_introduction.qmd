@@ -1,39 +1,53 @@
 # Motivation {visibility="uncounted"}
 <!-- ###################################################################### -->
 
+<!-- ## {background-iframe="https://www.youtube-nocookie.com/embed/CJyCcXob0c8?controls=0&amp;start=19&amp;autoplay=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"} -->
 
-## Underactuated Robots 
-<!-- ###################################################################### -->
+## What is Underactuation?
 
 :::: {.r-stack}
 
-::: {layout="[50,-25,30]" layout-valign="bottom" .fragment .fade-in-then-out fragment-index=0}
-![](assets/underactuation-illustration-01_%5Bxiong2021underactuated%5D.png)
+::: {layout-ncol="2" layout-align="center" layout-valign="bottom"}
+![](assets/twolink-kin.gif){fig-align="center"}
 
-![](assets/acrobot-schematic.png)
+![](assets/acrobot.gif){fig-align="center" width=40% .fragment .fade-in fragment-index=0}
 :::
 
-::: {layout="[50,-25,30]" .fragment .fade-in-then-out fragment-index=1}
-![](assets/underactuation-illustration-01_%5Bxiong2021underactuated%5D.png)
+::: {.fragment fragment-index=1}
+<div class="semi-transparent-overlay"></div>
+:::
 
-<img src="assets/pushcontact.png" style="width: 800px; height: 300px;"/>
+::: {.fragment .fade-up fragment-index=1}
+::: {.callout-note icon="false"}
+## Underactuation
+
+* No control input can generate acceleration in arbitrary direction
+* Control problem becomes much more complicated
+:::
 :::
 
 ::::
 
 
+## Underactuated Robots 
+<!-- ###################################################################### -->
 
-::: {.fragment .fade-up data-fragment-index=1}
-::: {.callout-note icon="false"}
-## Definition
-A control-affine system $\ddot{q} = f(q,\dot{q}) + g(q)u$ is *underactuated*
-if $\text{rank } g(q) < \text{dim } q$.
+:::: {.r-stack}
+::: {layout="[134,-20,100]" layout-align="center" .fragment .fade-out fragment-index=0}
+![Walking machines](assets/walking_model.png){fig-align="center"}
+
+![[Flying machines](http://underactuated.mit.edu/acrobot.html#section3)](assets/quadrotor2d.svg){fig-align="center"}
 :::
 
+::: {layout="[107,-20,100]" layout-valign="bottom" layout-align="center" .fragment fragment-index=0}
+![Torque-limited manipulators](assets/manipulator.jpg){fig-align="center"}
+
+![Nonprehensile manipulation](assets/pushcontact.png){fig-align="center"}
 :::
+::::
 
 
-## Previous Methods {.smaller}
+## Existing Methods {.smaller transition="fade"}
 <!-- ###################################################################### -->
 
 :::: {.fragment .semi-fade-out fragment-index=1}
@@ -70,41 +84,30 @@ Stability guarantees?
 ::::
 
 
-## {background-image="https://c.tenor.com/EstKpPVveyYAAAAC/both-agree.gif" background-size="50%" visibility="uncounted"}
+<!-- ## {background-image="https://c.tenor.com/EstKpPVveyYAAAAC/both-agree.gif" background-size="50%" visibility="uncounted"} -->
 <!-- ###################################################################### -->
 
 
-## Our Methods {.smaller}
+## Our Methods {.smaller transition="fade"}
 <!-- ###################################################################### -->
 
-:::: {.columns}
+::: {layout="[100,-5,60]" layout-valign="center"}
+![](assets/pbc-outline-cross.svg)
 
-::: {.column width="70%"}
-![](assets/pbc-outline-cross.svg){fig-align="center"} \
+&nbsp;
+
 :::
 
-::: {.column width="30%"}
- 
+
+:::: {.fragment fragment-index=1}
+::: {layout="[100,-5,60]" layout-valign="center"}
+![](assets/pbc-ml-outline.svg)
+
+* Systematic approach
+* Prior domain knowledge
+* Stability is _intrinsic_
+* Model uncertainty considerations possible
 :::
-
-::::
-
-:::: {.columns}
-
-::: {.column width="70%"}
-![](assets/pbc-ml-outline.svg){fig-align="center"} <br>
-:::
-
-::: {.column width="30%"}
-Systematic approach
-
-Prior domain knowledge
-
-Stability is *intrinsic*
-
-Model uncertainty considerations possible
-:::
-
 ::::
 
 
