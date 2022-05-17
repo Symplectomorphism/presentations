@@ -9,6 +9,7 @@ format:
     html-math-method: mathml
     smaller: false
     slide-number: true
+    footer: "Data-Driven Passivity-Based Control • Aykut C. Satici"
     chalkboard: 
       buttons: false
     preview-links: auto
