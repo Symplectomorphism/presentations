@@ -11,7 +11,7 @@ institute: "Boise State University"
 
 *University of Kentucky Seminar*
 
-<br />
+<br/>
 
 ::: {layout="[120, 60]"}
 __Presenter__: Aykut Satici, Ph.D. <br>
@@ -22,3 +22,31 @@ __Graduate Students__: <br/>
 Wankun Sirichotiyakul :mortar_board: <br/>
 Nardos Ayele Ashenafi :mortar_board: <br/>
 :::
+
+## Peer-Reviewed Contributions
+
+<br>
+
+:::: {.columns}
+::: {.column width="50%"}
+### <span style="font-variant:small-caps;">NeuralPbc</span>
+
+<ul>
+<li class="fragment highlight-red" data-fragment-index="0">ISER 2020</li>
+<li class="fragment highlight-red" data-fragment-index="0">CCTA 2021</li>
+<li class="fragment semi-fade-out" data-fragment-index="0">ACC 2022</li>
+<li class="fragment semi-fade-out" data-fragment-index="0">L-CSS 2022<sup>1</sup></li>
+</ul>
+
+:::
+::: {.column width="50%"}
+### <span style="font-variant:small-caps;">NeuralIdaPbc</span>
+
+<ul>
+<li class="fragment highlight-red" data-fragment-index="0">*IJC 2021*</li>
+<li class="fragment semi-fade-out" data-fragment-index="0">*TACON 2022*[^underreview]</li>
+</ul>
+:::
+::::
+
+[^underreview]: Under review
