@@ -407,7 +407,7 @@
 <p><strong>Definition</strong></p>
 </div>
 <div class="callout-content">
-<p>A control-affine system <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>q</mi><mo accent="true">̈</mo></mover><mo>=</mo><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>q</mi><mo>,</mo><mover><mi>q</mi><mo accent="true">̇</mo></mover><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mi>g</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>q</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>u</mi></mrow><annotation encoding="application/x-tex">\ddot{q} = f(q,\dot{q}) + g(q)u</annotation></semantics></math> is <em>underactuated</em> if <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mtext mathvariant="normal">rank </mtext><mspace width="0.333em"></mspace></mrow><mi>g</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>q</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>&lt;</mo><mrow><mtext mathvariant="normal">dim </mtext><mspace width="0.333em"></mspace></mrow><mi>q</mi></mrow><annotation encoding="application/x-tex">\text{rank } g(q) &lt; \text{dim } q</annotation></semantics></math></p>
+<p>A control-affine system <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>q</mi><mo accent="true">̈</mo></mover><mo>=</mo><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>q</mi><mo>,</mo><mover><mi>q</mi><mo accent="true">̇</mo></mover><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mi>g</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>q</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>u</mi></mrow><annotation encoding="application/x-tex">\ddot{q} = f(q,\dot{q}) + g(q)u</annotation></semantics></math> is <em>underactuated</em> if <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mtext mathvariant="normal">rank </mtext><mspace width="0.333em"></mspace></mrow><mi>g</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>q</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>&lt;</mo><mrow><mtext mathvariant="normal">dim </mtext><mspace width="0.333em"></mspace></mrow><mi>q</mi></mrow><annotation encoding="application/x-tex">\text{rank } g(q) &lt; \text{dim } q</annotation></semantics></math>.</p>
 </div>
 </div>
 </div>
@@ -492,6 +492,44 @@ Stability guarantees?
 <p>Prior domain knowledge</p>
 <p>Stability is <em>intrinsic</em></p>
 <p>Model uncertainty considerations possible</p>
+</div>
+</div>
+</section>
+<section id="robustness-via-bayesian-learning" class="slide level2">
+<h2>Robustness via Bayesian Learning</h2>
+<div class="callout callout-tip callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>System Parameter Uncertainty and Measurement Noise</strong></p>
+</div>
+
+</div>
+</div>
+<img data-src="contents/assets/regular-vs-bayesian.svg" class="r-stretch quarto-figure-center"><div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="callout callout-none no-icon callout-captioned callout-style-simple quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="callout-body">
+<div class="callout-caption">
+<p><strong>Less robust</strong></p>
+</div>
+<div class="callout-content">
+
+</div>
+</div>
+</div>
+<div class="callout callout-none no-icon callout-captioned callout-style-simple quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="callout-body">
+<div class="callout-caption">
+<p><strong>More robust</strong></p>
+</div>
+<div class="callout-content">
+
+</div>
+</div>
+</div>
 </div>
 </div>
 </section></section>

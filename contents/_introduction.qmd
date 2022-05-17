@@ -58,7 +58,7 @@
 ::: {.callout-note icon="false"}
 ## Definition
 A control-affine system $\ddot{q} = f(q,\dot{q}) + g(q)u$ is *underactuated*
-if $\text{rank } g(q) < \text{dim } q$
+if $\text{rank } g(q) < \text{dim } q$.
 :::
 
 :::
@@ -138,3 +138,22 @@ Model uncertainty considerations possible
 
 ::::
 
+
+## Robustness via Bayesian Learning
+
+::: {.callout-tip}
+## System Parameter Uncertainty and Measurement Noise
+![](assets/regular-vs-bayesian.svg){fig-align="center"}
+:::
+
+:::: {layout-ncol="2"}
+
+::: {.callout}
+## Less robust
+:::
+
+::: {.callout}
+## More robust
+:::
+
+::::
