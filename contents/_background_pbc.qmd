@@ -45,6 +45,25 @@ $$
 ::::
 
 
+## Passivity
+<!-- ###################################################################### -->
+
+The system $\Sigma$ is __passive__ if it is dissipative with supply rate
+
+$$s = u^\top y.$$
+
+It is __output strictly passive__ if it is dissipative with supply rate
+
+$$s = u^\top y - \delta \lVert y \rVert^2, \; \delta > 0.$$
+
+It is __input strictly passive__ if it is dissipative with supply rate
+
+
+$$s = u^\top y - \delta \lVert u \rVert^2, \; \delta > 0.$$
+
+
+
+
 ## Passive System Example
 <!-- ###################################################################### -->
 
@@ -99,11 +118,18 @@ $u^{\top} y \geq \dot{\mathcal{H}} = \frac{\partial\mathcal{H}}{\partial x} f(x,
 
 ::: {.callout-note icon="false"}
 ## Lemma (Khalil, 2002)
-- The origin is __stable__ if $\Sigma$ is passive
-- The origin is __asymptotically stable__ if $\Sigma$ is output strictly passive
-- The origin is __globally asymptotically stable__ if $\Sigma$ is output strictly passive and $\mathcal{H}$ is radially unbounded
+The origin of $\Sigma$ is: 
+
+- __stable__ if $\Sigma$ is passive,
+- __asymptotically stable__ if $\Sigma$ is output strictly passive,
+- __globally asymptotically stable__ if $\Sigma$ is output strictly passive and the storage function $\mathcal{H}(x) \to \infty$ as $\lVert x \rVert \to \infty$ (radially unbounded)
 :::
 
+
+::: {.notes}
+* Notice that we only require that the function $\mathcal{H}$ be positive semidefinite and not necessarily positive definite as per usual Lyapunov conditions.
+* Observability (detectability) ensures LaSalle's theorem works.
+:::
 
 
 ## Passivity-Based Control (PBC)
@@ -118,7 +144,7 @@ $$
 \end{cases}
 $$
 
-Main idea --- search for functions $H_d$ and $h_d$ such that $u(x) = u_{es} + u_{di}$ renders the closed-loop system passive
+Main idea --- Select $u(x) = u_{es} + u_{di}$ that renders the closed-loop system passive.
 
 $$
 \Sigma_d: \quad
@@ -128,7 +154,7 @@ $$
 \end{cases}
 $$
 
-with $\dot{H}_d \leq y_d^\top u_{di}$
+Control problem is cast as a search for $H_d$ and $h_d$ s.t. $\dot{H}_d \leq y_d^\top u_{di}$
 
 ## PBC Example - Simple Pendulum {auto-animate="false" auto-animate-easing="ease"}
 <!-- ###################################################################### -->
@@ -148,7 +174,8 @@ $$
 $$
 
 ::: {.fragment .fade-in fragment-index=1}
-Choose $u = u_{es} + u_{di}$ and $H_d$ satisfying $\dot{H}_{d} \leq y^\top u_{di}$ 
+Choose $u = u_{es} + u_{di}$ that transforms system into a passive one  with $x^\star = (q^\star, 0)$
+<!-- and $H_d$ satisfying $\dot{H}_{d} \leq y^\top u_{di}$ -->
 :::
 
 ::: {.fragment .fade-in  fragment-index=2}
@@ -174,7 +201,7 @@ $$
 $$
 \begin{bmatrix} \dot{q} \\ \dot{p} \end{bmatrix} = 
 \begin{bmatrix} \phantom{-}0 & 1 \\ -1 & -G K_D G^\top \end{bmatrix} 
-\begin{bmatrix} \nabla_q H_d \\ \nabla_p H_d \end{bmatrix}
+\begin{bmatrix} \nabla_q H_d \\ \nabla_p H_d \end{bmatrix},
 \qquad y = \dot{q}
 $$
 
@@ -192,14 +219,14 @@ $$
 
 ## Control Synthesis via PBC
 
-Choose $u = u_{es} + u_{di}$ and $H_d$ satisfying $\dot{H}_{d} \leq y^\top u_{di}$ 
+Choose $u = u_{es} + u_{di}$ that transforms system into a passive one with $x^\star =  (q^\star, 0)$
 
 $Gu_{es} = \nabla_q H  - \nabla_q H_d , \quad Gu_{di} = -GK_D G^\top \nabla_p H_d$
 
 $$
 \begin{bmatrix} \dot{q} \\ \dot{p} \end{bmatrix} = 
 \begin{bmatrix} \phantom{-}0 & 1 \\ -1 & -G K_D G^\top \end{bmatrix} 
-\begin{bmatrix} \nabla_q H_d \\ \nabla_p H_d \end{bmatrix}
+\begin{bmatrix} \nabla_q H_d \\ \nabla_p H_d \end{bmatrix},
 \qquad y = \dot{q}
 $$
 
@@ -242,3 +269,21 @@ $\boxed{u = -mgl\sin(x) - K_P(q - q^\star) - K_D \dot{q}}$
 
 ::::
 
+
+## Our Methods
+<!-- ###################################################################### -->
+
+::: {layout="[-1,8,-1]" layout-alilgn="center" layout-valign="center"}
+![](assets/pbc-ml-outline.svg){width=50%}
+:::
+
+:::: {.fragment}
+::: {style="text-align: center; font-size: 27px"}
+<span style="font-variant:small-caps;">NeuralPbc</span> | <span style="font-variant:small-caps;">NeuralIdaPbc</span> 
+:---: | :---:
+$H_d$ neural net | $H_d$ quadratic in $p$
+Sample state space | __Sample configuration space__
+No stability certificate | __Stability certificate__
+__More flexible__ | As applicable as <span style="font-variant:small-caps;">IdaPbc</span>
+:::
+::::

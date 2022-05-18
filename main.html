@@ -673,6 +673,16 @@ Stability guarantees?
 </div>
 </div>
 </section>
+<section id="passivity" class="slide level2">
+<h2>Passivity</h2>
+<!-- ###################################################################### -->
+<p>The system <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Σ</mi><annotation encoding="application/x-tex">\Sigma</annotation></semantics></math> is <strong>passive</strong> if it is dissipative with supply rate</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo>=</mo><msup><mi>u</mi><mi>⊤</mi></msup><mi>y</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">s = u^\top y.</annotation></semantics></math></p>
+<p>It is <strong>output strictly passive</strong> if it is dissipative with supply rate</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo>=</mo><msup><mi>u</mi><mi>⊤</mi></msup><mi>y</mi><mo>−</mo><mi>δ</mi><mo stretchy="false" form="prefix">∥</mo><mi>y</mi><msup><mo stretchy="false" form="postfix">∥</mo><mn>2</mn></msup><mo>,</mo><mspace width="0.278em"></mspace><mi>δ</mi><mo>&gt;</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">s = u^\top y - \delta \lVert y \rVert^2, \; \delta &gt; 0.</annotation></semantics></math></p>
+<p>It is <strong>input strictly passive</strong> if it is dissipative with supply rate</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo>=</mo><msup><mi>u</mi><mi>⊤</mi></msup><mi>y</mi><mo>−</mo><mi>δ</mi><mo stretchy="false" form="prefix">∥</mo><mi>u</mi><msup><mo stretchy="false" form="postfix">∥</mo><mn>2</mn></msup><mo>,</mo><mspace width="0.278em"></mspace><mi>δ</mi><mo>&gt;</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">s = u^\top y - \delta \lVert u \rVert^2, \; \delta &gt; 0.</annotation></semantics></math></p>
+</section>
 <section id="passive-system-example" class="slide level2">
 <h2>Passive System Example</h2>
 <!-- ###################################################################### -->
@@ -720,14 +730,31 @@ vi - Ri^2 &amp;= \frac{\text{d}}{\text{d} t} \left(
 <p><strong>Lemma (Khalil, 2002)</strong></p>
 </div>
 <div class="callout-content">
+<p>The origin of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Σ</mi><annotation encoding="application/x-tex">\Sigma</annotation></semantics></math> is:</p>
 <ul>
-<li>The origin is <strong>stable</strong> if <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Σ</mi><annotation encoding="application/x-tex">\Sigma</annotation></semantics></math> is passive</li>
-<li>The origin is <strong>asymptotically stable</strong> if <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Σ</mi><annotation encoding="application/x-tex">\Sigma</annotation></semantics></math> is output strictly passive</li>
-<li>The origin is <strong>globally asymptotically stable</strong> if <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Σ</mi><annotation encoding="application/x-tex">\Sigma</annotation></semantics></math> is output strictly passive and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mstyle mathvariant="script"><mi>ℋ</mi></mstyle><annotation encoding="application/x-tex">\mathcal{H}</annotation></semantics></math> is radially unbounded</li>
+<li><strong>stable</strong> if <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Σ</mi><annotation encoding="application/x-tex">\Sigma</annotation></semantics></math> is passive,</li>
+<li><strong>asymptotically stable</strong> if <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Σ</mi><annotation encoding="application/x-tex">\Sigma</annotation></semantics></math> is output strictly passive,</li>
+<li><strong>globally asymptotically stable</strong> if <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Σ</mi><annotation encoding="application/x-tex">\Sigma</annotation></semantics></math> is output strictly passive and the storage function <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathvariant="script"><mi>ℋ</mi></mstyle><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>→</mo><mi>∞</mi></mrow><annotation encoding="application/x-tex">\mathcal{H}(x) \to \infty</annotation></semantics></math> as <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">∥</mo><mi>x</mi><mo stretchy="false" form="postfix">∥</mo><mo>→</mo><mi>∞</mi></mrow><annotation encoding="application/x-tex">\lVert x \rVert \to \infty</annotation></semantics></math> (radially unbounded)</li>
 </ul>
 </div>
 </div>
 </div>
+<aside class="notes">
+<ul>
+<li>Notice that we only require that the function <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mstyle mathvariant="script"><mi>ℋ</mi></mstyle><annotation encoding="application/x-tex">\mathcal{H}</annotation></semantics></math> be positive semidefinite and not necessarily positive definite as per usual Lyapunov conditions.</li>
+<li>Observability (detectability) ensures LaSalle’s theorem works.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="passivity-based-control-pbc" class="slide level2">
 <h2>Passivity-Based Control (PBC)</h2>
@@ -739,7 +766,7 @@ vi - Ri^2 &amp;= \frac{\text{d}}{\text{d} t} \left(
   y &amp;= h(x)
 \end{cases}
 </annotation></semantics></math></p>
-<p>Main idea — search for functions <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>H</mi><mi>d</mi></msub><annotation encoding="application/x-tex">H_d</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>h</mi><mi>d</mi></msub><annotation encoding="application/x-tex">h_d</annotation></semantics></math> such that <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msub><mi>u</mi><mrow><mi>e</mi><mi>s</mi></mrow></msub><mo>+</mo><msub><mi>u</mi><mrow><mi>d</mi><mi>i</mi></mrow></msub></mrow><annotation encoding="application/x-tex">u(x) = u_{es} + u_{di}</annotation></semantics></math> renders the closed-loop system passive</p>
+<p>Main idea — Select <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msub><mi>u</mi><mrow><mi>e</mi><mi>s</mi></mrow></msub><mo>+</mo><msub><mi>u</mi><mrow><mi>d</mi><mi>i</mi></mrow></msub></mrow><annotation encoding="application/x-tex">u(x) = u_{es} + u_{di}</annotation></semantics></math> that renders the closed-loop system passive.</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Σ</mi><mi>d</mi></msub><mo>:</mo><mspace width="1.0em"></mspace><mrow><mo stretchy="true" form="prefix">{</mo><mtable><mtr><mtd columnalign="left"><mover><mi>x</mi><mo accent="true">̇</mo></mover></mtd><mtd columnalign="left"><mo>=</mo><msub><mi>f</mi><mi>d</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mi>g</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><msub><mi>u</mi><mrow><mi>d</mi><mi>i</mi></mrow></msub><mo>,</mo><mspace width="1.0em"></mspace><msub><mi>f</mi><mi>d</mi></msub><mo>:=</mo><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mi>g</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><msub><mi>u</mi><mrow><mi>e</mi><mi>s</mi></mrow></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow></mtd></mtr><mtr><mtd columnalign="left"><msub><mi>y</mi><mi>d</mi></msub></mtd><mtd columnalign="left"><mo>=</mo><msub><mi>h</mi><mi>d</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow></mtd></mtr></mtable></mrow></mrow><annotation encoding="application/x-tex">
 \Sigma_d: \quad
 \begin{cases}
@@ -747,7 +774,7 @@ vi - Ri^2 &amp;= \frac{\text{d}}{\text{d} t} \left(
   y_d &amp;= h_d(x)
 \end{cases}
 </annotation></semantics></math></p>
-<p>with <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover><mi>H</mi><mo accent="true">̇</mo></mover><mi>d</mi></msub><mo>≤</mo><msubsup><mi>y</mi><mi>d</mi><mi>⊤</mi></msubsup><msub><mi>u</mi><mrow><mi>d</mi><mi>i</mi></mrow></msub></mrow><annotation encoding="application/x-tex">\dot{H}_d \leq y_d^\top u_{di}</annotation></semantics></math></p>
+<p>Control problem is cast as a search for <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>H</mi><mi>d</mi></msub><annotation encoding="application/x-tex">H_d</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>h</mi><mi>d</mi></msub><annotation encoding="application/x-tex">h_d</annotation></semantics></math> s.t. <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover><mi>H</mi><mo accent="true">̇</mo></mover><mi>d</mi></msub><mo>≤</mo><msubsup><mi>y</mi><mi>d</mi><mi>⊤</mi></msubsup><msub><mi>u</mi><mrow><mi>d</mi><mi>i</mi></mrow></msub></mrow><annotation encoding="application/x-tex">\dot{H}_d \leq y_d^\top u_{di}</annotation></semantics></math></p>
 </section>
 <section id="pbc-example---simple-pendulum" class="slide level2" data-auto-animate="false" data-auto-animate-easing="ease">
 <h2 data-id="quarto-animate-title">PBC Example - Simple Pendulum</h2>
@@ -767,7 +794,7 @@ vi - Ri^2 &amp;= \frac{\text{d}}{\text{d} t} \left(
 \qquad y = \dot{q}
 </annotation></semantics></math></p>
 <div class="fragment fade-in" data-fragment-index="1">
-<p>Choose <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mo>=</mo><msub><mi>u</mi><mrow><mi>e</mi><mi>s</mi></mrow></msub><mo>+</mo><msub><mi>u</mi><mrow><mi>d</mi><mi>i</mi></mrow></msub></mrow><annotation encoding="application/x-tex">u = u_{es} + u_{di}</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>H</mi><mi>d</mi></msub><annotation encoding="application/x-tex">H_d</annotation></semantics></math> satisfying <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover><mi>H</mi><mo accent="true">̇</mo></mover><mi>d</mi></msub><mo>≤</mo><msup><mi>y</mi><mi>⊤</mi></msup><msub><mi>u</mi><mrow><mi>d</mi><mi>i</mi></mrow></msub></mrow><annotation encoding="application/x-tex">\dot{H}_{d} \leq y^\top u_{di}</annotation></semantics></math></p>
+<p>Choose <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mo>=</mo><msub><mi>u</mi><mrow><mi>e</mi><mi>s</mi></mrow></msub><mo>+</mo><msub><mi>u</mi><mrow><mi>d</mi><mi>i</mi></mrow></msub></mrow><annotation encoding="application/x-tex">u = u_{es} + u_{di}</annotation></semantics></math> that transforms system into a passive one with <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mo>⋆</mo></msup><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>q</mi><mo>⋆</mo></msup><mo>,</mo><mn>0</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">x^\star = (q^\star, 0)</annotation></semantics></math> <!-- and $H_d$ satisfying $\dot{H}_{d} \leq y^\top u_{di}$ --></p>
 </div>
 <div class="fragment fade-in" data-fragment-index="2">
 <p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi><msub><mi>u</mi><mrow><mi>e</mi><mi>s</mi></mrow></msub><mo>=</mo><msub><mi>∇</mi><mi>q</mi></msub><mi>H</mi><mo>−</mo><msub><mi>∇</mi><mi>q</mi></msub><msub><mi>H</mi><mi>d</mi></msub><mo>,</mo><mspace width="1.0em"></mspace><mi>G</mi><msub><mi>u</mi><mrow><mi>d</mi><mi>i</mi></mrow></msub><mo>=</mo><mo>−</mo><mi>G</mi><msub><mi>K</mi><mi>D</mi></msub><msup><mi>G</mi><mi>⊤</mi></msup><msub><mi>∇</mi><mi>p</mi></msub><msub><mi>H</mi><mi>d</mi></msub></mrow><annotation encoding="application/x-tex">Gu_{es} = \nabla_q H - \nabla_q H_d , \quad Gu_{di} = -GK_D G^\top \nabla_p H_d</annotation></semantics></math></p>
@@ -783,10 +810,10 @@ vi - Ri^2 &amp;= \frac{\text{d}}{\text{d} t} \left(
 </annotation></semantics></math></p>
 </div>
 <div class="fragment fade-in" data-fragment-index="2">
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center"><mover><mi>q</mi><mo accent="true">̇</mo></mover></mtd></mtr><mtr><mtd columnalign="center"><mover><mi>p</mi><mo accent="true">̇</mo></mover></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center"><mphantom><mo>−</mo></mphantom><mn>0</mn></mtd><mtd columnalign="center"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center"><mo>−</mo><mn>1</mn></mtd><mtd columnalign="center"><mo>−</mo><mi>G</mi><msub><mi>K</mi><mi>D</mi></msub><msup><mi>G</mi><mi>⊤</mi></msup></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center"><msub><mi>∇</mi><mi>q</mi></msub><msub><mi>H</mi><mi>d</mi></msub></mtd></mtr><mtr><mtd columnalign="center"><msub><mi>∇</mi><mi>p</mi></msub><msub><mi>H</mi><mi>d</mi></msub></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mspace width="2.0em"></mspace><mi>y</mi><mo>=</mo><mover><mi>q</mi><mo accent="true">̇</mo></mover></mrow><annotation encoding="application/x-tex">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center"><mover><mi>q</mi><mo accent="true">̇</mo></mover></mtd></mtr><mtr><mtd columnalign="center"><mover><mi>p</mi><mo accent="true">̇</mo></mover></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center"><mphantom><mo>−</mo></mphantom><mn>0</mn></mtd><mtd columnalign="center"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center"><mo>−</mo><mn>1</mn></mtd><mtd columnalign="center"><mo>−</mo><mi>G</mi><msub><mi>K</mi><mi>D</mi></msub><msup><mi>G</mi><mi>⊤</mi></msup></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center"><msub><mi>∇</mi><mi>q</mi></msub><msub><mi>H</mi><mi>d</mi></msub></mtd></mtr><mtr><mtd columnalign="center"><msub><mi>∇</mi><mi>p</mi></msub><msub><mi>H</mi><mi>d</mi></msub></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><mi>y</mi><mo>=</mo><mover><mi>q</mi><mo accent="true">̇</mo></mover></mrow><annotation encoding="application/x-tex">
 \begin{bmatrix} \dot{q} \\ \dot{p} \end{bmatrix} = 
 \begin{bmatrix} \phantom{-}0 &amp; 1 \\ -1 &amp; -G K_D G^\top \end{bmatrix} 
-\begin{bmatrix} \nabla_q H_d \\ \nabla_p H_d \end{bmatrix}
+\begin{bmatrix} \nabla_q H_d \\ \nabla_p H_d \end{bmatrix},
 \qquad y = \dot{q}
 </annotation></semantics></math></p>
 </div>
@@ -804,12 +831,12 @@ vi - Ri^2 &amp;= \frac{\text{d}}{\text{d} t} \left(
 <p><strong>Control Synthesis via PBC</strong></p>
 </div>
 <div class="callout-content">
-<p>Choose <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mo>=</mo><msub><mi>u</mi><mrow><mi>e</mi><mi>s</mi></mrow></msub><mo>+</mo><msub><mi>u</mi><mrow><mi>d</mi><mi>i</mi></mrow></msub></mrow><annotation encoding="application/x-tex">u = u_{es} + u_{di}</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>H</mi><mi>d</mi></msub><annotation encoding="application/x-tex">H_d</annotation></semantics></math> satisfying <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover><mi>H</mi><mo accent="true">̇</mo></mover><mi>d</mi></msub><mo>≤</mo><msup><mi>y</mi><mi>⊤</mi></msup><msub><mi>u</mi><mrow><mi>d</mi><mi>i</mi></mrow></msub></mrow><annotation encoding="application/x-tex">\dot{H}_{d} \leq y^\top u_{di}</annotation></semantics></math></p>
+<p>Choose <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mo>=</mo><msub><mi>u</mi><mrow><mi>e</mi><mi>s</mi></mrow></msub><mo>+</mo><msub><mi>u</mi><mrow><mi>d</mi><mi>i</mi></mrow></msub></mrow><annotation encoding="application/x-tex">u = u_{es} + u_{di}</annotation></semantics></math> that transforms system into a passive one with <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mo>⋆</mo></msup><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>q</mi><mo>⋆</mo></msup><mo>,</mo><mn>0</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">x^\star = (q^\star, 0)</annotation></semantics></math></p>
 <p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi><msub><mi>u</mi><mrow><mi>e</mi><mi>s</mi></mrow></msub><mo>=</mo><msub><mi>∇</mi><mi>q</mi></msub><mi>H</mi><mo>−</mo><msub><mi>∇</mi><mi>q</mi></msub><msub><mi>H</mi><mi>d</mi></msub><mo>,</mo><mspace width="1.0em"></mspace><mi>G</mi><msub><mi>u</mi><mrow><mi>d</mi><mi>i</mi></mrow></msub><mo>=</mo><mo>−</mo><mi>G</mi><msub><mi>K</mi><mi>D</mi></msub><msup><mi>G</mi><mi>⊤</mi></msup><msub><mi>∇</mi><mi>p</mi></msub><msub><mi>H</mi><mi>d</mi></msub></mrow><annotation encoding="application/x-tex">Gu_{es} = \nabla_q H - \nabla_q H_d , \quad Gu_{di} = -GK_D G^\top \nabla_p H_d</annotation></semantics></math></p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center"><mover><mi>q</mi><mo accent="true">̇</mo></mover></mtd></mtr><mtr><mtd columnalign="center"><mover><mi>p</mi><mo accent="true">̇</mo></mover></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center"><mphantom><mo>−</mo></mphantom><mn>0</mn></mtd><mtd columnalign="center"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center"><mo>−</mo><mn>1</mn></mtd><mtd columnalign="center"><mo>−</mo><mi>G</mi><msub><mi>K</mi><mi>D</mi></msub><msup><mi>G</mi><mi>⊤</mi></msup></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center"><msub><mi>∇</mi><mi>q</mi></msub><msub><mi>H</mi><mi>d</mi></msub></mtd></mtr><mtr><mtd columnalign="center"><msub><mi>∇</mi><mi>p</mi></msub><msub><mi>H</mi><mi>d</mi></msub></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mspace width="2.0em"></mspace><mi>y</mi><mo>=</mo><mover><mi>q</mi><mo accent="true">̇</mo></mover></mrow><annotation encoding="application/x-tex">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center"><mover><mi>q</mi><mo accent="true">̇</mo></mover></mtd></mtr><mtr><mtd columnalign="center"><mover><mi>p</mi><mo accent="true">̇</mo></mover></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center"><mphantom><mo>−</mo></mphantom><mn>0</mn></mtd><mtd columnalign="center"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center"><mo>−</mo><mn>1</mn></mtd><mtd columnalign="center"><mo>−</mo><mi>G</mi><msub><mi>K</mi><mi>D</mi></msub><msup><mi>G</mi><mi>⊤</mi></msup></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center"><msub><mi>∇</mi><mi>q</mi></msub><msub><mi>H</mi><mi>d</mi></msub></mtd></mtr><mtr><mtd columnalign="center"><msub><mi>∇</mi><mi>p</mi></msub><msub><mi>H</mi><mi>d</mi></msub></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><mi>y</mi><mo>=</mo><mover><mi>q</mi><mo accent="true">̇</mo></mover></mrow><annotation encoding="application/x-tex">
 \begin{bmatrix} \dot{q} \\ \dot{p} \end{bmatrix} = 
 \begin{bmatrix} \phantom{-}0 &amp; 1 \\ -1 &amp; -G K_D G^\top \end{bmatrix} 
-\begin{bmatrix} \nabla_q H_d \\ \nabla_p H_d \end{bmatrix}
+\begin{bmatrix} \nabla_q H_d \\ \nabla_p H_d \end{bmatrix},
 \qquad y = \dot{q}
 </annotation></semantics></math></p>
 <div class="fragment fade-up">
@@ -845,6 +872,57 @@ vi - Ri^2 &amp;= \frac{\text{d}}{\text{d} t} \left(
 <p><img data-src="contents/assets/ballbot_derivation_2.png" class="fragment fade-in-then-semi-out absolute" style="top: 20px; right: 20px; width: 800px; "></p>
 <div class="fragment">
 
+</div>
+</div>
+</section>
+<section id="our-methods-1" class="slide level2">
+<h2>Our Methods</h2>
+<!-- ###################################################################### -->
+<div class="quarto-layout-panel" data-layout-alilgn="center">
+<div class="quarto-layout-row quarto-layout-valign-center">
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 10.0%;justify-content: center;">
+<p>&nbsp;</p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 80.0%;justify-content: center;">
+<p><img data-src="contents/assets/pbc-ml-outline.svg"></p>
+</div>
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 10.0%;justify-content: center;">
+<p>&nbsp;</p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div style="text-align: center; font-size: 27px">
+<table>
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="smallcaps">NeuralPbc</span></th>
+<th style="text-align: center;"><span class="smallcaps">NeuralIdaPbc</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>H</mi><mi>d</mi></msub><annotation encoding="application/x-tex">H_d</annotation></semantics></math> neural net</td>
+<td style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>H</mi><mi>d</mi></msub><annotation encoding="application/x-tex">H_d</annotation></semantics></math> quadratic in <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Sample state space</td>
+<td style="text-align: center;"><strong>Sample configuration space</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">No stability certificate</td>
+<td style="text-align: center;"><strong>Stability certificate</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>More flexible</strong></td>
+<td style="text-align: center;">As applicable as <span class="smallcaps">IdaPbc</span></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </section></section>
@@ -1456,7 +1534,7 @@ u_{di} &amp;= -K_v G^\top \nabla_p H_d \phantom{\left\|\left(\nabla_p\right)^{\t
 <h1>Appendix</h1>
 
 </section>
-<section id="passivity" class="slide level2" data-auto-animate="true" data-auto-animate-duration="0.5" data-visibility="uncounted">
+<section id="passivity-1" class="slide level2" data-auto-animate="true" data-auto-animate-duration="0.5" data-visibility="uncounted">
 <h2 data-id="quarto-animate-title">Passivity</h2>
 <!-- ###################################################################### -->
 <p>The system <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Σ</mi><annotation encoding="application/x-tex">\Sigma</annotation></semantics></math> is <strong>passive</strong> if dissipative with supply rate</p>
