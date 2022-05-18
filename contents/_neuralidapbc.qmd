@@ -32,6 +32,11 @@ $$
 
 $H_d = \frac{1}{2} p^{\top} M_d(q)^{-1} p + V_d(q),\, M_d \succ 0$
 
+::: {.notes}
+- Further structure not only facilitates stability analysis but also restricts the search to a pd matrix $M_d$ and $V_d$.
+- This search may be performed solely on the configuration space.
+:::
+
 
 ## <span style="font-variant:small-caps;">IdaPbc</span> Background {auto-animate="true"}
 <!-- ###################################################################### -->
@@ -91,6 +96,11 @@ $$
 ::::
 
 <center>*Infinite-dimensional*---closed-form solution is difficult</center>
+
+## <span style="font-variant:small-caps;">NeuralIdaPbc</span> 
+<!-- ###################################################################### -->
+
+![](assets/nn-pbc-struct-frame-05.png){fig-align="center"}
 
 
 ## <span style="font-variant:small-caps;">NeuralIdaPbc</span> Problem Statement  {transition="fade-in zoom-out"}
@@ -194,22 +204,11 @@ $$q^\star = \underset{q}{\arg \min} \, V_{d}^{\theta} (q)$$
 ## Boundedness of $V_d^\theta$
 
 * $V_d^\theta(q)$ bounded from below with isolated minimum at $q^\star$
-* If $V_d$ is convex, only need first order condition $\nabla V_d^\theta(q^\star) = 0$
+<!-- * If $V_d$ is convex, only need first order condition $\nabla V_d^\theta(q^\star) = 0$ -->
 * Parameterize $V_d^\theta$ by a *sums-of-square (SoS) polynomial*
 * $V_d^\theta(q) > 0,\, q \neq q^\star$ 
 :::
 :::
-
-
-## <span style="font-variant:small-caps;">SoS</span> Polynomials
-<!-- ###################################################################### -->
-
-Is $p(x)$ nonnegative for all $x$?
-$$p(x) = 4x_1^2 + x_1x_2 - 4x_2^2 - 2.1x_1^4 + 4x_2^4 + \frac{1}{3}x_1^6 + 1.0316\;$$
-
-::: {.fragment}
-$$\begin{aligned} p(x) = &\left(0.116x_1^2 + 0.01x_1x_2 - 2x_2^2 + 1.015\right)^2 \\ & + \; \left(-0.569x_1^3 + 1.938x_1 + 0.244x_2\right)^2 \\ & + \; \left(0.224x_1^2 + 0.666x_1x_2 + 0.029x_2^2 + 0.026\right)^2 \\ & + \; \left(-0.188x_1^2 + 0.063x_1x_2 - 0.006x_2^2 + 0.009\right)^2 \\ & + \; \left(0.099x_1^3 + 0.029x_1 + 0.004x_2\right)^2 + \left(0.009x_1^2x_2\right)^2 \end{aligned}$$
-::: 
 
 ## <span style="font-variant:small-caps;">SoS</span> Decomposition
 <!-- ###################################################################### -->
@@ -217,7 +216,7 @@ $$\begin{aligned} p(x) = &\left(0.116x_1^2 + 0.01x_1x_2 - 2x_2^2 + 1.015\right)^
 ::: {.callout-tip icon="false"}
 ## Theorem (Choi, 1995)
 
-A polynomial $P \in \mathbb{R}[x]$ of degree $2d$ has a SoS decomposition  $\Leftrightarrow$ $\exists Q \succ 0$ such that, with $\mu(x) = \begin{bmatrix} 1 & x_1 & \cdots & x_n & x_1 x_2 & \cdots & x_n^d\end{bmatrix}$, we have $P(x) = \mu^\top(x) Q \mu(x)$
+A polynomial $P \in \mathbb{R}[x]$ of degree $2d$ has a SoS decomposition  $\Leftrightarrow$ $\exists Q \succ 0$ such that, with $\mu(x) = \begin{bmatrix} 1 & x_1 & \cdots & x_n & x_1 x_2 & \cdots & x_n^d\end{bmatrix}$, we have $P(x) = \mu(x)^\top Q \mu(x)$
 
 <!-- $$P(x) = \mu^\top(x) Q \mu(x)$$ -->
 :::
@@ -225,12 +224,14 @@ A polynomial $P \in \mathbb{R}[x]$ of degree $2d$ has a SoS decomposition  $\Lef
 ::: {.callout-note icon="false"}
 
 ## Example
-$$\begin{aligned} x_1^2 + 2x_1^2x_2 + 5x_1^2x_2^2 + 4x_1x_2^2 + x_2^2  &= X^{\top} \begin{pmatrix} 1 & 1 & 0 \\ 1 & 5 & 2 \\ 0 & 2 & 1 \end{pmatrix}  X \\ &= X^{\top} \begin{pmatrix} 1 & 0 & 0 \\ 1 & 2 & 0 \\ 0 & 1 & 0 \end{pmatrix} \begin{pmatrix}   1 & 0 & 0 \\ 1 & 2 & 0 \\ 0 & 1 & 0 \end{pmatrix}^{\top} X \end{aligned} $$
+$$\begin{aligned} x_1^2 + 2x_1^2x_2 + 5x_1^2x_2^2 + 4x_1x_2^2 + x_2^2  &= \mu(x)^{\top} \begin{pmatrix} 1 & 1 & 0 \\ 1 & 5 & 2 \\ 0 & 2 & 1 \end{pmatrix} \mu(x) \\ &= \mu(x)^{\top} \begin{pmatrix} 1 & 0 & 0 \\ 1 & 2 & 0 \\ 0 & 1 & 0 \end{pmatrix} \begin{pmatrix}   1 & 0 & 0 \\ 1 & 2 & 0 \\ 0 & 1 & 0 \end{pmatrix}^{\top} \mu(x) \end{aligned} $$
 
 :::
 
-## <span style="font-variant:small-caps;">NeuralIdaPbc</span> 
+##
 <!-- ###################################################################### -->
+
+<br/>
 
 :::: {.r-stack}
 
@@ -272,7 +273,17 @@ of a class of underactuated mechanical systems via interconnection and damping a
 
 ![](assets/idapbc-contours.png){.fragment .fade-in-then-out fragment-index=0}
 
-![](assets/compare_uru.png){.fragment .fade-in fragment-index=1}
+<!-- ![](assets/compare_uru.png){.fragment .fade-in fragment-index=1} -->
+
+::: {.fragment .fade-in fragment-index=1}
+
+<center>Comparison of control effort expenditure</center>
+
+<span style="font-variant:small-caps;">NeuralPbc</span> | <span style="font-variant:small-caps;">NeuralIdaPbc</span> | <span style="font-variant:small-caps;">IdaPbc</span>
+:---:|:---:|:---:
+![](assets/compare_uRu_neuralpbc.svg) | ![](assets/compare_uRu_neuralidapbc.svg){width=90%} | ![](assets/compare_uRu_idapbc.svg){width=93%}
+:::
+
 ::::
 
 ## {background-video="contents/assets/iwp-cut-firefox.mp4" background-size="contain" background-video-loop="true" background-video-muted="true"}
@@ -283,7 +294,13 @@ of a class of underactuated mechanical systems via interconnection and damping a
 <!-- ###################################################################### -->
 
 ::: {.r-stack}
-![](assets/ball-beam-schematic.png){.fragment .fade-out fragment-index=0}
+![](assets/ball-beam.svg){.fragment .fade-out fragment-index=0}
 
-![](assets/ball-beam-evolution.png){.fragment .fade-in fragment-index=0}
+::: {.fragment .fade-in fragment-index=0}
+::: {layout="[100,85]" layout-valign="center"}
+![](assets/ball_beam-Vd-contour.svg)
+
+![](assets/ball_beam-evolution.svg)
+:::
+:::
 :::

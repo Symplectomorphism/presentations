@@ -935,15 +935,15 @@ vi - Ri^2 &amp;= \frac{\text{d}}{\text{d} t} \left(
 <section id="motivation-1" class="slide level2">
 <h2>Motivation</h2>
 <!-- ###################################################################### -->
-<p>Control synthesis in PBC</p>
+<p>Control synthesis in PBC:</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi><msub><mi>u</mi><mrow><mi>e</mi><mi>s</mi></mrow></msub><mo>=</mo><msub><mi>∇</mi><mi>q</mi></msub><mi>H</mi><mo>−</mo><msub><mi>∇</mi><mi>q</mi></msub><msub><mi>H</mi><mi>d</mi></msub></mrow><annotation encoding="application/x-tex">
 Gu_{es} = \nabla_q H - \nabla_q H_d
 </annotation></semantics></math></p>
 <ul>
-<li>If underactuated, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>H</mi><mi>d</mi></msub><annotation encoding="application/x-tex">H_d</annotation></semantics></math> must satisfy <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>G</mi><annotation encoding="application/x-tex">G</annotation></semantics></math> is not invertible
+<li>If underactuated, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>G</mi><annotation encoding="application/x-tex">G</annotation></semantics></math> is not invertible
 <ul>
 <li>Choice of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>u</mi><mrow><mi>e</mi><mi>s</mi></mrow></msub><annotation encoding="application/x-tex">u_{es}</annotation></semantics></math> must satisfy <strong>nonlinear PDE</strong></li>
-<li>Quadratic <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>V</mi><mi>d</mi></msub><annotation encoding="application/x-tex">V_d</annotation></semantics></math> most likely not viable</li>
+<li>Quadratic potential most likely not viable</li>
 </ul></li>
 <li>Incorporate <strong>performance objective</strong> into design of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>H</mi><mi>d</mi></msub><annotation encoding="application/x-tex">H_d</annotation></semantics></math>?</li>
 </ul>
@@ -961,18 +961,33 @@ Gu_{es} = \nabla_q H - \nabla_q H_d
 <p><strong>Control task</strong>: stabilize desired equilibrium <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mo>⋆</mo></msup><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>q</mi><mo>⋆</mo></msup><mo>,</mo><mn>0</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">x^\star = (q^\star, 0)</annotation></semantics></math></p>
 <div class="r-stack">
 <div class="fragment fade-out" data-fragment-index="3">
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mo>=</mo><msub><mi>u</mi><mrow><mi>e</mi><mi>s</mi></mrow></msub><mo>+</mo><msub><mi>u</mi><mrow><mi>d</mi><mi>i</mi></mrow></msub><mo>=</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>G</mi><mi>⊤</mi></msup><mi>G</mi><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo>−</mo><mn>1</mn></mrow></msup><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>∇</mi><mi>q</mi></msub><mi>H</mi><mo>−</mo><msub><mi>∇</mi><mi>q</mi></msub><msub><mi>H</mi><mi>d</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><msub><mi>K</mi><mi>D</mi></msub><msup><mi>G</mi><mi>⊤</mi></msup><msub><mi>∇</mi><mi>p</mi></msub><msub><mi>H</mi><mi>d</mi></msub></mrow><annotation encoding="application/x-tex">u = u_{es} + u_{di} = \left(G^{\top} G \right)^{-1} \left( \nabla_q H  - \nabla_q H_d \right)  - K_D G^\top \nabla_p H_d </annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mo>=</mo><msub><mi>u</mi><mrow><mi>e</mi><mi>s</mi></mrow></msub><mo>+</mo><msub><mi>u</mi><mrow><mi>d</mi><mi>i</mi></mrow></msub><mo>=</mo><msup><mi>G</mi><mo>†</mo></msup><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>∇</mi><mi>q</mi></msub><mi>H</mi><mo>−</mo><msub><mi>∇</mi><mi>q</mi></msub><msub><mi>H</mi><mi>d</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><msub><mi>K</mi><mi>D</mi></msub><msup><mi>G</mi><mi>⊤</mi></msup><msub><mi>∇</mi><mi>p</mi></msub><msub><mi>H</mi><mi>d</mi></msub></mrow><annotation encoding="application/x-tex">u = u_{es} + u_{di} = G^{\dagger} \left( \nabla_q H  - \nabla_q H_d \right)  - K_D G^\top \nabla_p H_d </annotation></semantics></math></p>
 </div>
 <div class="fragment fade-in" data-fragment-index="3">
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mo>=</mo><msub><mi>u</mi><mrow><mi>e</mi><mi>s</mi></mrow></msub><mo>+</mo><msub><mi>u</mi><mrow><mi>d</mi><mi>i</mi></mrow></msub><mo>=</mo><mo>−</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>G</mi><mi>⊤</mi></msup><mi>G</mi><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo>−</mo><mn>1</mn></mrow></msup><msub><mi>∇</mi><mi>q</mi></msub><msubsup><mi>H</mi><mi>d</mi><mi>θ</mi></msubsup><mo>−</mo><msub><mi>K</mi><mi>D</mi></msub><msup><mi>G</mi><mi>⊤</mi></msup><msub><mi>∇</mi><mi>p</mi></msub><msubsup><mi>H</mi><mi>d</mi><mi>θ</mi></msubsup></mrow><annotation encoding="application/x-tex">u = u_{es} + u_{di} = - \left(G^{\top} G \right)^{-1} \nabla_q H_d^{\theta}  - K_D G^\top \nabla_p H_d^{\theta} </annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mo>=</mo><msub><mi>u</mi><mrow><mi>e</mi><mi>s</mi></mrow></msub><mo>+</mo><msub><mi>u</mi><mrow><mi>d</mi><mi>i</mi></mrow></msub><mo>=</mo><mo>−</mo><msup><mi>G</mi><mo>†</mo></msup><msub><mi>∇</mi><mi>q</mi></msub><msubsup><mi>H</mi><mi>d</mi><mi>θ</mi></msubsup><mo>−</mo><msub><mi>K</mi><mi>D</mi></msub><msup><mi>G</mi><mi>⊤</mi></msup><msub><mi>∇</mi><mi>p</mi></msub><msubsup><mi>H</mi><mi>d</mi><mi>θ</mi></msubsup></mrow><annotation encoding="application/x-tex">u = u_{es} + u_{di} = - G^{\dagger} \nabla_q H_d^{\theta}  - K_D G^\top \nabla_p H_d^{\theta} </annotation></semantics></math></p>
 </div>
 </div>
-<div class="fragment fade-in" data-fragment-index="1">
 <p>Choosing a suitable <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>H</mi><mi>d</mi></msub><annotation encoding="application/x-tex">H_d</annotation></semantics></math> is not trivial</p>
-</div>
 <div class="fragment fade-in" data-fragment-index="2">
-<p>Parameterize <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>H</mi><mi>d</mi></msub><annotation encoding="application/x-tex">H_d</annotation></semantics></math> by a neural network <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>H</mi><mi>d</mi><mi>θ</mi></msubsup><annotation encoding="application/x-tex">H_d^\theta</annotation></semantics></math> and relax control task to bringing <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math> to a small neighborhood of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>x</mi><mo>⋆</mo></msup><annotation encoding="application/x-tex">x^\star</annotation></semantics></math></p>
+<p>Parameterize <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>H</mi><mi>d</mi></msub><annotation encoding="application/x-tex">H_d</annotation></semantics></math> by a neural network <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>H</mi><mi>d</mi><mi>θ</mi></msubsup><annotation encoding="application/x-tex">H_d^\theta</annotation></semantics></math>, and relax control task to bringing <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math> to a small neighborhood of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>x</mi><mo>⋆</mo></msup><annotation encoding="application/x-tex">x^\star</annotation></semantics></math></p>
 </div>
+<aside class="notes">
+<ul>
+<li>Instead of asking for asymptotic stabilization, we only require that trajectories pass thru a nbhd of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>x</mi><mo>⋆</mo></msup><annotation encoding="application/x-tex">x^\star</annotation></semantics></math></li>
+<li>This is reasonable because we know how to stabilize a fixed point, e.g.&nbsp;stabilize the linearization of the system using LQR</li>
+<li>This allows us to find approximations for <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>H</mi><mi>d</mi><mi>θ</mi></msubsup><annotation encoding="application/x-tex">H_d^\theta</annotation></semantics></math> using learning techniques</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="neuralpbc-problem-statement-1" class="slide level2">
 <h2><span class="smallcaps">NeuralPbc</span> Problem Statement</h2>
@@ -980,7 +995,7 @@ Gu_{es} = \nabla_q H - \nabla_q H_d
 <div class="callout callout-none no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right"><munder><mtext mathvariant="normal">minimize</mtext><mi>θ</mi></munder></mtd><mtd columnalign="left"></mtd><mtd columnalign="right"><mi>J</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>θ</mi><mo>,</mo><msub><mi>x</mi><mn>0</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left"><mo>=</mo><msubsup><mo>∫</mo><mn>0</mn><mi>T</mi></msubsup><mo>ℓ</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>ϕ</mi><mo>,</mo><msup><mi>u</mi><mi>θ</mi></msup><mo>,</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mspace width="0.167em"></mspace><mtext mathvariant="normal">d</mtext><mi>t</mi></mtd></mtr><mtr><mtd columnalign="right"><mtext mathvariant="normal">subject to</mtext></mtd><mtd columnalign="left"></mtd><mtd columnalign="right"><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center"><mover><mi>q</mi><mo accent="true">̇</mo></mover></mtd></mtr><mtr><mtd columnalign="center"><mover><mi>p</mi><mo accent="true">̇</mo></mover></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow></mtd><mtd columnalign="left"><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center"><mn>0</mn></mtd><mtd columnalign="center"><mi>I</mi></mtd></mtr><mtr><mtd columnalign="center"><mo>−</mo><mi>I</mi></mtd><mtd columnalign="center"><mn>0</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center"><msub><mi>∇</mi><mi>q</mi></msub><mi>H</mi></mtd></mtr><mtr><mtd columnalign="center"><msub><mi>∇</mi><mi>p</mi></msub><mi>H</mi></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo>+</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center"><mn>0</mn></mtd></mtr><mtr><mtd columnalign="center"><mi>G</mi></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><msup><mi>u</mi><mi>θ</mi></msup></mtd></mtr><mtr><mtd columnalign="right"></mtd><mtd columnalign="left"></mtd><mtd columnalign="right"><msup><mi>u</mi><mi>θ</mi></msup></mtd><mtd columnalign="left"><mo>=</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>G</mi><mi>⊤</mi></msup><mi>G</mi><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo>−</mo><mn>1</mn></mrow></msup><mrow><mo stretchy="true" form="prefix">(</mo><mo>−</mo><msub><mi>∇</mi><mi>q</mi></msub><msubsup><mi>H</mi><mi>d</mi><mi>θ</mi></msubsup><mo>−</mo><msub><mi>K</mi><mi>D</mi></msub><msup><mi>G</mi><mi>⊤</mi></msup><msub><mi>∇</mi><mi>p</mi></msub><msubsup><mi>H</mi><mi>d</mi><mi>θ</mi></msubsup><mo stretchy="true" form="postfix">)</mo></mrow></mtd></mtr></mtable><annotation encoding="application/x-tex">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right"><munder><mtext mathvariant="normal">minimize</mtext><mi>θ</mi></munder></mtd><mtd columnalign="left"></mtd><mtd columnalign="right"><mi>J</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>θ</mi><mo>,</mo><msub><mi>x</mi><mn>0</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left"><mo>=</mo><msubsup><mo>∫</mo><mn>0</mn><mi>T</mi></msubsup><mo>ℓ</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>ϕ</mi><mo>,</mo><msup><mi>u</mi><mi>θ</mi></msup><mo>,</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mspace width="0.167em"></mspace><mtext mathvariant="normal">d</mtext><mi>t</mi></mtd></mtr><mtr><mtd columnalign="right"><mtext mathvariant="normal">subject to</mtext></mtd><mtd columnalign="left"></mtd><mtd columnalign="right"><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center"><mover><mi>q</mi><mo accent="true">̇</mo></mover></mtd></mtr><mtr><mtd columnalign="center"><mover><mi>p</mi><mo accent="true">̇</mo></mover></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow></mtd><mtd columnalign="left"><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center"><mn>0</mn></mtd><mtd columnalign="center"><mi>I</mi></mtd></mtr><mtr><mtd columnalign="center"><mo>−</mo><mi>I</mi></mtd><mtd columnalign="center"><mn>0</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center"><msub><mi>∇</mi><mi>q</mi></msub><mi>H</mi></mtd></mtr><mtr><mtd columnalign="center"><msub><mi>∇</mi><mi>p</mi></msub><mi>H</mi></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo>+</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center"><mn>0</mn></mtd></mtr><mtr><mtd columnalign="center"><mi>G</mi></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><msup><mi>u</mi><mi>θ</mi></msup></mtd></mtr><mtr><mtd columnalign="right"></mtd><mtd columnalign="left"></mtd><mtd columnalign="right"><msup><mi>u</mi><mi>θ</mi></msup></mtd><mtd columnalign="left"><mo>=</mo><mo>−</mo><msup><mi>G</mi><mo>†</mo></msup><msub><mi>∇</mi><mi>q</mi></msub><msubsup><mi>H</mi><mi>d</mi><mi>θ</mi></msubsup><mo>−</mo><msub><mi>K</mi><mi>D</mi></msub><msup><mi>G</mi><mi>⊤</mi></msup><msub><mi>∇</mi><mi>p</mi></msub><msubsup><mi>H</mi><mi>d</mi><mi>θ</mi></msubsup></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{aligned}
 \underset{\theta}{\text{minimize}} &amp;&amp; J(\theta, x_0) &amp;= \int_{0}^{T} \ell \left(\phi,u^\theta,\theta\right)\, \text{d} t \\
 \text{subject to} &amp;&amp;
@@ -995,7 +1010,7 @@ Gu_{es} = \nabla_q H - \nabla_q H_d
   0 \\ G
 \end{bmatrix} u^{\theta}
 \\
-&amp;&amp; u^\theta &amp;= \left(G^{\top} G \right)^{-1} \left( - \nabla_q H_d^{\theta}  - K_D G^\top \nabla_p H_d^{\theta} \right)
+&amp;&amp; u^\theta &amp;= - G^{\dagger}\nabla_q H_d^{\theta}  - K_D G^\top \nabla_p H_d^{\theta}
 \end{aligned}
 </annotation></semantics></math></p>
 </div>
@@ -1032,20 +1047,18 @@ J(\theta, x_0) = \int_{0}^{T} \ell \left(\phi,u^\theta,\theta\right)\, \text{d} 
 <div class="callout-content">
 <p>Penalizes when closed-loop trajectory <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>γ</mi><annotation encoding="application/x-tex">\gamma</annotation></semantics></math> under the current control law is far away from a neighborhood <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mstyle mathvariant="script"><mi>𝒮</mi></mstyle><annotation encoding="application/x-tex">\mathcal{S}</annotation></semantics></math> of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>x</mi><mo>⋆</mo></msup><annotation encoding="application/x-tex">x^\star</annotation></semantics></math></p>
 <div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-center">
-<div class="quarto-layout-cell" style="flex-basis: 44.4%;justify-content: center;">
-<p><img data-src="contents/assets/neuralpbc/033.svg"></p>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="contents/assets/pend_damped_phase_edited.svg"></p>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 55.6%;justify-content: center;">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mo>ℓ</mo><mtext mathvariant="normal">set</mtext></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><munder><mo>inf</mo><mi>t</mi></munder><mrow><mo stretchy="true" form="prefix">{</mo><mo stretchy="false" form="prefix">∥</mo><mi>a</mi><mo>−</mo><mi>b</mi><mo stretchy="false" form="postfix">∥</mo><mo>:</mo><mi>a</mi><mo>∈</mo><mi>γ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo><mi>b</mi><mo>∈</mo><mstyle mathvariant="script"><mi>𝒮</mi></mstyle><mo stretchy="true" form="postfix">}</mo></mrow></mrow><annotation encoding="application/x-tex">\ell_{\text{set}}(x) = \underset{t}{\inf} \left\{ \lVert a-b \rVert : a \in \gamma(t), b \in \mathcal{S}\right\}</annotation></semantics></math></p>
 <ul>
 <li>The set <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mstyle mathvariant="script"><mi>𝒮</mi></mstyle><annotation encoding="application/x-tex">\mathcal{S}</annotation></semantics></math> may be chosen as
 <ul>
 <li>A ball around <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>x</mi><mo>⋆</mo></msup><annotation encoding="application/x-tex">x^\star</annotation></semantics></math></li>
 <li>Estimated region of attraction</li>
 </ul></li>
-</ul>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>l</mi><mtext mathvariant="normal">set</mtext></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><munder><mo>inf</mo><mi>t</mi></munder><mrow><mo stretchy="true" form="prefix">{</mo><mo stretchy="false" form="prefix">∥</mo><mi>a</mi><mo>−</mo><mi>b</mi><mo stretchy="false" form="postfix">∥</mo><mo>:</mo><mi>a</mi><mo>∈</mo><mi>γ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo><mi>b</mi><mo>∈</mo><mstyle mathvariant="script"><mi>𝒮</mi></mstyle><mo stretchy="true" form="postfix">}</mo></mrow></mrow><annotation encoding="application/x-tex">l_{\text{set}}(x) = \underset{t}{\inf} \left\{ \lVert a-b \rVert : a \in \gamma(t), b \in \mathcal{S}\right\}</annotation></semantics></math></p>
-<ul>
 <li>No additional loss if any point in <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>γ</mi><annotation encoding="application/x-tex">\gamma</annotation></semantics></math> is in <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mstyle mathvariant="script"><mi>𝒮</mi></mstyle><annotation encoding="application/x-tex">\mathcal{S}</annotation></semantics></math></li>
 </ul>
 </div>
@@ -1073,10 +1086,12 @@ J(\theta, x_0) = \int_{0}^{T} \ell \left(\phi,u^\theta,\theta\right)\, \text{d} 
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 58.8%;justify-content: center;">
 <ul>
-<li>Defined on a transversal section along <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>γ</mi><mo>⋆</mo></msup><annotation encoding="application/x-tex">\gamma^\star</annotation></semantics></math></li>
-<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>τ</mi><annotation encoding="application/x-tex">\tau</annotation></semantics></math> a surrogate for time</li>
+<li>Coordinate transformation
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>τ</mi><mo>∈</mo><mstyle mathvariant="double-struck"><mi>ℝ</mi></mstyle></mrow><annotation encoding="application/x-tex">\tau \in \mathbb{R}</annotation></semantics></math> a surrogate for time</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mi>⊥</mi></msub><mo>∈</mo><msup><mstyle mathvariant="double-struck"><mi>ℝ</mi></mstyle><mrow><mn>2</mn><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">x_{\bot} \in \mathbb{R}^{2n-1}</annotation></semantics></math> quantify how far away the current state is from <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>γ</mi><mo>⋆</mo></msup><annotation encoding="application/x-tex">\gamma^\star</annotation></semantics></math></li>
+</ul></li>
 <li>By construction <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mi>⊥</mi></msub><mo>→</mo><mn>0</mn><mo>⇔</mo><mi>γ</mi><mo>=</mo><msup><mi>γ</mi><mo>⋆</mo></msup></mrow><annotation encoding="application/x-tex">x_{\bot} \to 0 \iff \gamma = \gamma^\star</annotation></semantics></math></li>
-<li>Select penalty as</li>
 </ul>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mo>ℓ</mo><mi>⊥</mi></msub><mo>=</mo><msubsup><mi>x</mi><mi>⊥</mi><mi>⊤</mi></msubsup><mi>Q</mi><msub><mi>x</mi><mi>⊥</mi></msub><mo>+</mo><msup><mi>u</mi><mi>⊤</mi></msup><mi>R</mi><mi>u</mi><mo>,</mo><mspace width="0.167em"></mspace><mi>Q</mi><mo>≽</mo><mn>0</mn><mo>,</mo><mspace width="0.167em"></mspace><mi>R</mi><mo>≻</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\ell_{\bot} = x_\bot^\top Q x_\bot + u^\top R u, \, Q \succeq 0, \, R \succ 0</annotation></semantics></math></p>
 <ul>
@@ -1088,6 +1103,22 @@ J(\theta, x_0) = \int_{0}^{T} \ell \left(\phi,u^\theta,\theta\right)\, \text{d} 
 </div>
 </div>
 </div>
+<aside class="notes">
+<ul>
+<li>We can find a coordinate transformation such that 1 coordinate <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>τ</mi><annotation encoding="application/x-tex">\tau</annotation></semantics></math> is along the desired orbit and acts as surrogate for time</li>
+<li>The remaining coordinates <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>x</mi><mi>⊥</mi></msub><annotation encoding="application/x-tex">x_{\bot}</annotation></semantics></math> quantify how far away the current state is from the desired trajectory</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="backprop-through-ode-solutions" class="slide level2">
 <h2>Backprop through ODE Solutions</h2>
@@ -1103,6 +1134,23 @@ J(\theta, x_0) = \int_{0}^{T} \ell \left(\phi,u^\theta,\theta\right)\, \text{d} 
 <div class="fragment fade-in">
 <p><span class="emoji" data-emoji="smiley_cat">😺</span> Adjoint methods + <code>autodiff</code> implemented in <code>DiffEqFlux.jl</code></p>
 </div>
+<aside class="notes">
+<ul>
+<li>Plain <code>autodiff</code> causes errors due to numerical ODE integration, high memory consumption</li>
+<li>Adjoint methods requires storing many passes of the adjoint problem, again high memory consumption</li>
+<li><code>DiffEqFlux</code> combines the two, avoiding multiple passes through clever implementation, fast an efficient</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="neuralpbc-sampling-state-space" class="slide level2">
 <h2><span class="smallcaps">NeuralPbc</span> Sampling State Space</h2>
@@ -1120,13 +1168,28 @@ J(\theta, x_0) = \int_{0}^{T} \ell \left(\phi,u^\theta,\theta\right)\, \text{d} 
 <p>Sample state space with technique based on <span class="smallcaps">DAgger</span><sup>1</sup></p>
 <div class="fragment fade-in" data-fragment-index="1">
 <ol type="1">
-<li>Simulating the system under application of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>u</mi><mi>θ</mi></msup><annotation encoding="application/x-tex">u^\theta</annotation></semantics></math> (initially poorly-trained)</li>
+<li>Simulating system under application of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>u</mi><mi>θ</mi></msup><annotation encoding="application/x-tex">u^\theta</annotation></semantics></math></li>
 <li>Collect samples from the regions of state-space visited by <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>u</mi><mi>θ</mi></msup><annotation encoding="application/x-tex">u^\theta</annotation></semantics></math></li>
 </ol>
 </div>
-<aside><ol class="aside-footnotes"><li id="fn2" role="doc-endnote"><p>Ross, S., Gordon, G. J., &amp; Bagnell, J. A. (2011). No-regret reductions for imitation learning and structured prediction. In In AISTATS.</p></li></ol></aside></section>
+<aside class="notes">
+<ul>
+<li>Use dynamics to guide the collection of samples</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<aside><ol class="aside-footnotes"><li id="fn2" role="doc-endnote"><p>Ross, S., Gordon, G. J., &amp; Bagnell, J. A. (2011). No-regret reductions for imitation learning and structured prediction. In AISTATS.</p></li></ol></aside></section>
 <section id="neuralpbc-algorithm" class="slide level2">
-<h2><span class="smallcaps">NeuralPbc</span> Algorithm</h2>
+<h2><span class="smallcaps">NeuralPbc</span> Algorithm <span class="emoji" data-emoji="chart_with_downwards_trend">📉</span></h2>
 <!-- ###################################################################### -->
 <div class="r-stack">
 <p><img data-src="contents/assets/neuralpbc/000.svg"></p>
@@ -1169,11 +1232,27 @@ J(\theta, x_0) = \int_{0}^{T} \ell \left(\phi,u^\theta,\theta\right)\, \text{d} 
 <h2><span class="smallcaps">NeuralPbc</span> Experiments</h2>
 <!-- ###################################################################### -->
 <p>Benchmark underactuated control problems:</p>
+<div class="columns">
+<div class="column" style="width:60%;">
 <ul>
-<li>Cart-pole</li>
-<li>Inertia-wheel pendulum</li>
-<li>Acrobot</li>
+<li class="fragment highlight-current-blue" data-fragment-index="0">
+Cart-pole
+</li>
+<li class="fragment highlight-current-blue" data-fragment-index="1">
+Inertia-Wheel Pendulum (IWP)
+</li>
+<li class="fragment highlight-current-blue" data-fragment-index="2">
+Acrobot
+</li>
 </ul>
+</div><div class="column" style="width:40%;">
+<div class="r-stack">
+<p><img data-src="contents/assets/cartpole.svg" class="fragment fade-in-then-out" data-fragment-index="0"></p>
+<p><img data-src="contents/assets/iwp.svg" class="fragment fade-in-then-out" data-fragment-index="1"></p>
+<p><img data-src="contents/assets/acrobot.svg" class="fragment fade-in-then-out" data-fragment-index="2"></p>
+</div>
+</div>
+</div>
 </section>
 <section id="section-1" class="slide level2" data-background-video="contents/assets/cartpole-firefox.mp4" data-background-size="contain" data-background-video-loop="true" data-background-video-muted="true">
 <h2></h2>
@@ -1229,6 +1308,22 @@ J(\theta, x_0) = \int_{0}^{T} \ell \left(\phi,u^\theta,\theta\right)\, \text{d} 
 <!-- ::: -->
 <!-- :::: -->
 <p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mi>d</mi></msub><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><msup><mi>p</mi><mi>⊤</mi></msup><msub><mi>M</mi><mi>d</mi></msub><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>q</mi><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo>−</mo><mn>1</mn></mrow></msup><mi>p</mi><mo>+</mo><msub><mi>V</mi><mi>d</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>q</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo><mspace width="0.167em"></mspace><msub><mi>M</mi><mi>d</mi></msub><mo>≻</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">H_d = \frac{1}{2} p^{\top} M_d(q)^{-1} p + V_d(q),\, M_d \succ 0</annotation></semantics></math></p>
+<aside class="notes">
+<ul>
+<li>Further structure not only facilitates stability analysis but also restricts the search to a pd matrix <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>M</mi><mi>d</mi></msub><annotation encoding="application/x-tex">M_d</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>V</mi><mi>d</mi></msub><annotation encoding="application/x-tex">V_d</annotation></semantics></math>.</li>
+<li>This search may be performed solely on the configuration space.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="idapbc-background" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"><span class="smallcaps">IdaPbc</span> Background</h2>
@@ -1308,6 +1403,11 @@ u_{di} &amp;= -K_v G^\top \nabla_p H_d \phantom{\left\|\left(\nabla_p\right)^{\t
 <em>Infinite-dimensional</em>—closed-form solution is difficult
 </center>
 </section>
+<section id="neuralidapbc-2" class="slide level2">
+<h2><span class="smallcaps">NeuralIdaPbc</span></h2>
+<!-- ###################################################################### -->
+
+<img data-src="contents/assets/nn-pbc-struct-frame-05.png" class="r-stretch quarto-figure-center"></section>
 <section id="neuralidapbc-problem-statement" class="slide level2" data-transition="fade-in zoom-out">
 <h2><span class="smallcaps">NeuralIdaPbc</span> Problem Statement</h2>
 <!-- ###################################################################### -->
@@ -1434,23 +1534,13 @@ u_{di} &amp;= -K_v G^\top \nabla_p H_d \phantom{\left\|\left(\nabla_p\right)^{\t
 </div>
 <div class="callout-content">
 <ul>
-<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>V</mi><mi>d</mi><mi>θ</mi></msubsup><mrow><mo stretchy="true" form="prefix">(</mo><mi>q</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">V_d^\theta(q)</annotation></semantics></math> bounded from below with isolated minimum at <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>q</mi><mo>⋆</mo></msup><annotation encoding="application/x-tex">q^\star</annotation></semantics></math></li>
-<li>If <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>V</mi><mi>d</mi></msub><annotation encoding="application/x-tex">V_d</annotation></semantics></math> is convex, only need first order condition <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∇</mi><msubsup><mi>V</mi><mi>d</mi><mi>θ</mi></msubsup><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>q</mi><mo>⋆</mo></msup><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\nabla V_d^\theta(q^\star) = 0</annotation></semantics></math></li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>V</mi><mi>d</mi><mi>θ</mi></msubsup><mrow><mo stretchy="true" form="prefix">(</mo><mi>q</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">V_d^\theta(q)</annotation></semantics></math> bounded from below with isolated minimum at <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>q</mi><mo>⋆</mo></msup><annotation encoding="application/x-tex">q^\star</annotation></semantics></math> <!-- * If $V_d$ is convex, only need first order condition $\nabla V_d^\theta(q^\star) = 0$ --></li>
 <li>Parameterize <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>V</mi><mi>d</mi><mi>θ</mi></msubsup><annotation encoding="application/x-tex">V_d^\theta</annotation></semantics></math> by a <em>sums-of-square (SoS) polynomial</em></li>
 <li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>V</mi><mi>d</mi><mi>θ</mi></msubsup><mrow><mo stretchy="true" form="prefix">(</mo><mi>q</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>&gt;</mo><mn>0</mn><mo>,</mo><mspace width="0.167em"></mspace><mi>q</mi><mo>≠</mo><msup><mi>q</mi><mo>⋆</mo></msup></mrow><annotation encoding="application/x-tex">V_d^\theta(q) &gt; 0,\, q \neq q^\star</annotation></semantics></math></li>
 </ul>
 </div>
 </div>
 </div>
-</div>
-</section>
-<section id="sos-polynomials" class="slide level2">
-<h2><span class="smallcaps">SoS</span> Polynomials</h2>
-<!-- ###################################################################### -->
-<p>Is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">p(x)</annotation></semantics></math> nonnegative for all <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>?</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>4</mn><msubsup><mi>x</mi><mn>1</mn><mn>2</mn></msubsup><mo>+</mo><msub><mi>x</mi><mn>1</mn></msub><msub><mi>x</mi><mn>2</mn></msub><mo>−</mo><mn>4</mn><msubsup><mi>x</mi><mn>2</mn><mn>2</mn></msubsup><mo>−</mo><mn>2.1</mn><msubsup><mi>x</mi><mn>1</mn><mn>4</mn></msubsup><mo>+</mo><mn>4</mn><msubsup><mi>x</mi><mn>2</mn><mn>4</mn></msubsup><mo>+</mo><mfrac><mn>1</mn><mn>3</mn></mfrac><msubsup><mi>x</mi><mn>1</mn><mn>6</mn></msubsup><mo>+</mo><mn>1.0316</mn><mspace width="0.278em"></mspace></mrow><annotation encoding="application/x-tex">p(x) = 4x_1^2 + x_1x_2 - 4x_2^2 - 2.1x_1^4 + 4x_2^4 + \frac{1}{3}x_1^6 + 1.0316\;</annotation></semantics></math></p>
-<div class="fragment">
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right"><mi>p</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo></mtd><mtd columnalign="left"><msup><mrow><mo stretchy="true" form="prefix">(</mo><mn>0.116</mn><msubsup><mi>x</mi><mn>1</mn><mn>2</mn></msubsup><mo>+</mo><mn>0.01</mn><msub><mi>x</mi><mn>1</mn></msub><msub><mi>x</mi><mn>2</mn></msub><mo>−</mo><mn>2</mn><msubsup><mi>x</mi><mn>2</mn><mn>2</mn></msubsup><mo>+</mo><mn>1.015</mn><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup></mtd></mtr><mtr><mtd columnalign="right"></mtd><mtd columnalign="left"><mo>+</mo><mspace width="0.278em"></mspace><msup><mrow><mo stretchy="true" form="prefix">(</mo><mo>−</mo><mn>0.569</mn><msubsup><mi>x</mi><mn>1</mn><mn>3</mn></msubsup><mo>+</mo><mn>1.938</mn><msub><mi>x</mi><mn>1</mn></msub><mo>+</mo><mn>0.244</mn><msub><mi>x</mi><mn>2</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup></mtd></mtr><mtr><mtd columnalign="right"></mtd><mtd columnalign="left"><mo>+</mo><mspace width="0.278em"></mspace><msup><mrow><mo stretchy="true" form="prefix">(</mo><mn>0.224</mn><msubsup><mi>x</mi><mn>1</mn><mn>2</mn></msubsup><mo>+</mo><mn>0.666</mn><msub><mi>x</mi><mn>1</mn></msub><msub><mi>x</mi><mn>2</mn></msub><mo>+</mo><mn>0.029</mn><msubsup><mi>x</mi><mn>2</mn><mn>2</mn></msubsup><mo>+</mo><mn>0.026</mn><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup></mtd></mtr><mtr><mtd columnalign="right"></mtd><mtd columnalign="left"><mo>+</mo><mspace width="0.278em"></mspace><msup><mrow><mo stretchy="true" form="prefix">(</mo><mo>−</mo><mn>0.188</mn><msubsup><mi>x</mi><mn>1</mn><mn>2</mn></msubsup><mo>+</mo><mn>0.063</mn><msub><mi>x</mi><mn>1</mn></msub><msub><mi>x</mi><mn>2</mn></msub><mo>−</mo><mn>0.006</mn><msubsup><mi>x</mi><mn>2</mn><mn>2</mn></msubsup><mo>+</mo><mn>0.009</mn><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup></mtd></mtr><mtr><mtd columnalign="right"></mtd><mtd columnalign="left"><mo>+</mo><mspace width="0.278em"></mspace><msup><mrow><mo stretchy="true" form="prefix">(</mo><mn>0.099</mn><msubsup><mi>x</mi><mn>1</mn><mn>3</mn></msubsup><mo>+</mo><mn>0.029</mn><msub><mi>x</mi><mn>1</mn></msub><mo>+</mo><mn>0.004</mn><msub><mi>x</mi><mn>2</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mo>+</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><mn>0.009</mn><msubsup><mi>x</mi><mn>1</mn><mn>2</mn></msubsup><msub><mi>x</mi><mn>2</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned} p(x) = &amp;\left(0.116x_1^2 + 0.01x_1x_2 - 2x_2^2 + 1.015\right)^2 \\ &amp; + \; \left(-0.569x_1^3 + 1.938x_1 + 0.244x_2\right)^2 \\ &amp; + \; \left(0.224x_1^2 + 0.666x_1x_2 + 0.029x_2^2 + 0.026\right)^2 \\ &amp; + \; \left(-0.188x_1^2 + 0.063x_1x_2 - 0.006x_2^2 + 0.009\right)^2 \\ &amp; + \; \left(0.099x_1^3 + 0.029x_1 + 0.004x_2\right)^2 + \left(0.009x_1^2x_2\right)^2 \end{aligned}</annotation></semantics></math></p>
 </div>
 </section>
 <section id="sos-decomposition" class="slide level2">
@@ -1462,7 +1552,7 @@ u_{di} &amp;= -K_v G^\top \nabla_p H_d \phantom{\left\|\left(\nabla_p\right)^{\t
 <p><strong>Theorem (Choi, 1995)</strong></p>
 </div>
 <div class="callout-content">
-<p>A polynomial <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>∈</mo><mstyle mathvariant="double-struck"><mi>ℝ</mi></mstyle><mrow><mo stretchy="true" form="prefix">[</mo><mi>x</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">P \in \mathbb{R}[x]</annotation></semantics></math> of degree <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>d</mi></mrow><annotation encoding="application/x-tex">2d</annotation></semantics></math> has a SoS decomposition <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>⇔</mo><annotation encoding="application/x-tex">\Leftrightarrow</annotation></semantics></math> <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>∃</mo><mi>Q</mi><mo>≻</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\exists Q \succ 0</annotation></semantics></math> such that, with <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center"><mn>1</mn></mtd><mtd columnalign="center"><msub><mi>x</mi><mn>1</mn></msub></mtd><mtd columnalign="center"><mi>⋯</mi></mtd><mtd columnalign="center"><msub><mi>x</mi><mi>n</mi></msub></mtd><mtd columnalign="center"><msub><mi>x</mi><mn>1</mn></msub><msub><mi>x</mi><mn>2</mn></msub></mtd><mtd columnalign="center"><mi>⋯</mi></mtd><mtd columnalign="center"><msubsup><mi>x</mi><mi>n</mi><mi>d</mi></msubsup></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">\mu(x) = \begin{bmatrix} 1 &amp; x_1 &amp; \cdots &amp; x_n &amp; x_1 x_2 &amp; \cdots &amp; x_n^d\end{bmatrix}</annotation></semantics></math>, we have <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msup><mi>μ</mi><mi>⊤</mi></msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>Q</mi><mi>μ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">P(x) = \mu^\top(x) Q \mu(x)</annotation></semantics></math></p>
+<p>A polynomial <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>∈</mo><mstyle mathvariant="double-struck"><mi>ℝ</mi></mstyle><mrow><mo stretchy="true" form="prefix">[</mo><mi>x</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">P \in \mathbb{R}[x]</annotation></semantics></math> of degree <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>d</mi></mrow><annotation encoding="application/x-tex">2d</annotation></semantics></math> has a SoS decomposition <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>⇔</mo><annotation encoding="application/x-tex">\Leftrightarrow</annotation></semantics></math> <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>∃</mo><mi>Q</mi><mo>≻</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\exists Q \succ 0</annotation></semantics></math> such that, with <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center"><mn>1</mn></mtd><mtd columnalign="center"><msub><mi>x</mi><mn>1</mn></msub></mtd><mtd columnalign="center"><mi>⋯</mi></mtd><mtd columnalign="center"><msub><mi>x</mi><mi>n</mi></msub></mtd><mtd columnalign="center"><msub><mi>x</mi><mn>1</mn></msub><msub><mi>x</mi><mn>2</mn></msub></mtd><mtd columnalign="center"><mi>⋯</mi></mtd><mtd columnalign="center"><msubsup><mi>x</mi><mi>n</mi><mi>d</mi></msubsup></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">\mu(x) = \begin{bmatrix} 1 &amp; x_1 &amp; \cdots &amp; x_n &amp; x_1 x_2 &amp; \cdots &amp; x_n^d\end{bmatrix}</annotation></semantics></math>, we have <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>μ</mi><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>⊤</mi></msup><mi>Q</mi><mi>μ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">P(x) = \mu(x)^\top Q \mu(x)</annotation></semantics></math></p>
 <!-- $$P(x) = \mu^\top(x) Q \mu(x)$$ -->
 </div>
 </div>
@@ -1473,14 +1563,15 @@ u_{di} &amp;= -K_v G^\top \nabla_p H_d \phantom{\left\|\left(\nabla_p\right)^{\t
 <p><strong>Example</strong></p>
 </div>
 <div class="callout-content">
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right"><msubsup><mi>x</mi><mn>1</mn><mn>2</mn></msubsup><mo>+</mo><mn>2</mn><msubsup><mi>x</mi><mn>1</mn><mn>2</mn></msubsup><msub><mi>x</mi><mn>2</mn></msub><mo>+</mo><mn>5</mn><msubsup><mi>x</mi><mn>1</mn><mn>2</mn></msubsup><msubsup><mi>x</mi><mn>2</mn><mn>2</mn></msubsup><mo>+</mo><mn>4</mn><msub><mi>x</mi><mn>1</mn></msub><msubsup><mi>x</mi><mn>2</mn><mn>2</mn></msubsup><mo>+</mo><msubsup><mi>x</mi><mn>2</mn><mn>2</mn></msubsup></mtd><mtd columnalign="left"><mo>=</mo><msup><mi>X</mi><mi>⊤</mi></msup><mrow><mo stretchy="true" form="prefix">(</mo><mtable><mtr><mtd columnalign="center"><mn>1</mn></mtd><mtd columnalign="center"><mn>1</mn></mtd><mtd columnalign="center"><mn>0</mn></mtd></mtr><mtr><mtd columnalign="center"><mn>1</mn></mtd><mtd columnalign="center"><mn>5</mn></mtd><mtd columnalign="center"><mn>2</mn></mtd></mtr><mtr><mtd columnalign="center"><mn>0</mn></mtd><mtd columnalign="center"><mn>2</mn></mtd><mtd columnalign="center"><mn>1</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">)</mo></mrow><mi>X</mi></mtd></mtr><mtr><mtd columnalign="right"></mtd><mtd columnalign="left"><mo>=</mo><msup><mi>X</mi><mi>⊤</mi></msup><mrow><mo stretchy="true" form="prefix">(</mo><mtable><mtr><mtd columnalign="center"><mn>1</mn></mtd><mtd columnalign="center"><mn>0</mn></mtd><mtd columnalign="center"><mn>0</mn></mtd></mtr><mtr><mtd columnalign="center"><mn>1</mn></mtd><mtd columnalign="center"><mn>2</mn></mtd><mtd columnalign="center"><mn>0</mn></mtd></mtr><mtr><mtd columnalign="center"><mn>0</mn></mtd><mtd columnalign="center"><mn>1</mn></mtd><mtd columnalign="center"><mn>0</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">)</mo></mrow><msup><mrow><mo stretchy="true" form="prefix">(</mo><mtable><mtr><mtd columnalign="center"><mn>1</mn></mtd><mtd columnalign="center"><mn>0</mn></mtd><mtd columnalign="center"><mn>0</mn></mtd></mtr><mtr><mtd columnalign="center"><mn>1</mn></mtd><mtd columnalign="center"><mn>2</mn></mtd><mtd columnalign="center"><mn>0</mn></mtd></mtr><mtr><mtd columnalign="center"><mn>0</mn></mtd><mtd columnalign="center"><mn>1</mn></mtd><mtd columnalign="center"><mn>0</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">)</mo></mrow><mi>⊤</mi></msup><mi>X</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned} x_1^2 + 2x_1^2x_2 + 5x_1^2x_2^2 + 4x_1x_2^2 + x_2^2  &amp;= X^{\top} \begin{pmatrix} 1 &amp; 1 &amp; 0 \\ 1 &amp; 5 &amp; 2 \\ 0 &amp; 2 &amp; 1 \end{pmatrix}  X \\ &amp;= X^{\top} \begin{pmatrix} 1 &amp; 0 &amp; 0 \\ 1 &amp; 2 &amp; 0 \\ 0 &amp; 1 &amp; 0 \end{pmatrix} \begin{pmatrix}   1 &amp; 0 &amp; 0 \\ 1 &amp; 2 &amp; 0 \\ 0 &amp; 1 &amp; 0 \end{pmatrix}^{\top} X \end{aligned} </annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right"><msubsup><mi>x</mi><mn>1</mn><mn>2</mn></msubsup><mo>+</mo><mn>2</mn><msubsup><mi>x</mi><mn>1</mn><mn>2</mn></msubsup><msub><mi>x</mi><mn>2</mn></msub><mo>+</mo><mn>5</mn><msubsup><mi>x</mi><mn>1</mn><mn>2</mn></msubsup><msubsup><mi>x</mi><mn>2</mn><mn>2</mn></msubsup><mo>+</mo><mn>4</mn><msub><mi>x</mi><mn>1</mn></msub><msubsup><mi>x</mi><mn>2</mn><mn>2</mn></msubsup><mo>+</mo><msubsup><mi>x</mi><mn>2</mn><mn>2</mn></msubsup></mtd><mtd columnalign="left"><mo>=</mo><mi>μ</mi><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>⊤</mi></msup><mrow><mo stretchy="true" form="prefix">(</mo><mtable><mtr><mtd columnalign="center"><mn>1</mn></mtd><mtd columnalign="center"><mn>1</mn></mtd><mtd columnalign="center"><mn>0</mn></mtd></mtr><mtr><mtd columnalign="center"><mn>1</mn></mtd><mtd columnalign="center"><mn>5</mn></mtd><mtd columnalign="center"><mn>2</mn></mtd></mtr><mtr><mtd columnalign="center"><mn>0</mn></mtd><mtd columnalign="center"><mn>2</mn></mtd><mtd columnalign="center"><mn>1</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">)</mo></mrow><mi>μ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow></mtd></mtr><mtr><mtd columnalign="right"></mtd><mtd columnalign="left"><mo>=</mo><mi>μ</mi><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>⊤</mi></msup><mrow><mo stretchy="true" form="prefix">(</mo><mtable><mtr><mtd columnalign="center"><mn>1</mn></mtd><mtd columnalign="center"><mn>0</mn></mtd><mtd columnalign="center"><mn>0</mn></mtd></mtr><mtr><mtd columnalign="center"><mn>1</mn></mtd><mtd columnalign="center"><mn>2</mn></mtd><mtd columnalign="center"><mn>0</mn></mtd></mtr><mtr><mtd columnalign="center"><mn>0</mn></mtd><mtd columnalign="center"><mn>1</mn></mtd><mtd columnalign="center"><mn>0</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">)</mo></mrow><msup><mrow><mo stretchy="true" form="prefix">(</mo><mtable><mtr><mtd columnalign="center"><mn>1</mn></mtd><mtd columnalign="center"><mn>0</mn></mtd><mtd columnalign="center"><mn>0</mn></mtd></mtr><mtr><mtd columnalign="center"><mn>1</mn></mtd><mtd columnalign="center"><mn>2</mn></mtd><mtd columnalign="center"><mn>0</mn></mtd></mtr><mtr><mtd columnalign="center"><mn>0</mn></mtd><mtd columnalign="center"><mn>1</mn></mtd><mtd columnalign="center"><mn>0</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">)</mo></mrow><mi>⊤</mi></msup><mi>μ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned} x_1^2 + 2x_1^2x_2 + 5x_1^2x_2^2 + 4x_1x_2^2 + x_2^2  &amp;= \mu(x)^{\top} \begin{pmatrix} 1 &amp; 1 &amp; 0 \\ 1 &amp; 5 &amp; 2 \\ 0 &amp; 2 &amp; 1 \end{pmatrix} \mu(x) \\ &amp;= \mu(x)^{\top} \begin{pmatrix} 1 &amp; 0 &amp; 0 \\ 1 &amp; 2 &amp; 0 \\ 0 &amp; 1 &amp; 0 \end{pmatrix} \begin{pmatrix}   1 &amp; 0 &amp; 0 \\ 1 &amp; 2 &amp; 0 \\ 0 &amp; 1 &amp; 0 \end{pmatrix}^{\top} \mu(x) \end{aligned} </annotation></semantics></math></p>
 </div>
 </div>
 </div>
 </section>
-<section id="neuralidapbc-2" class="slide level2">
-<h2><span class="smallcaps">NeuralIdaPbc</span></h2>
+<section id="section-4" class="slide level2">
+<h2></h2>
 <!-- ###################################################################### -->
+<p><br></p>
 <div class="r-stack">
 <p><img data-src="contents/assets/nn-pbc-struct-frame-00.png" class="fragment fade-out" data-fragment-index="0"></p>
 <p><img data-src="contents/assets/nn-pbc-struct-frame-01.png" class="fragment fade-in-then-out" data-fragment-index="0"></p>
@@ -1499,7 +1590,7 @@ u_{di} &amp;= -K_v G^\top \nabla_p H_d \phantom{\left\|\left(\nabla_p\right)^{\t
 <li>Ball-beam system</li>
 </ul>
 <aside><ol class="aside-footnotes"><li id="fn4" role="doc-endnote"><p>R. Ortega, M. W. Spong, F. Gómez-Estern, and G. Blankenstein, “Stabilization of a class of underactuated mechanical systems via interconnection and damping assignment,” IEEE transactions on automatic control, vol.&nbsp;47, no. 8, pp. 1218–1233, 2002.</p></li></ol></aside></section>
-<section id="section-4" class="slide level2" data-background-video="contents/assets/iwp-firefox.mp4" data-background-size="contain" data-background-video-loop="true" data-background-video-muted="true">
+<section id="section-5" class="slide level2" data-background-video="contents/assets/iwp-firefox.mp4" data-background-size="contain" data-background-video-loop="true" data-background-video-muted="true">
 <h2></h2>
 <!-- ###################################################################### -->
 </section>
@@ -1509,10 +1600,36 @@ u_{di} &amp;= -K_v G^\top \nabla_p H_d \phantom{\left\|\left(\nabla_p\right)^{\t
 <div class="r-stack">
 <p><img data-src="contents/assets/idapbc-iwp-evolution.png" class="fragment fade-out" data-fragment-index="0"></p>
 <p><img data-src="contents/assets/idapbc-contours.png" class="fragment fade-in-then-out" data-fragment-index="0"></p>
-<p><img data-src="contents/assets/compare_uru.png" class="fragment fade-in" data-fragment-index="1"></p>
+<!-- ![](assets/compare_uru.png){.fragment .fade-in fragment-index=1} -->
+<div class="fragment fade-in" data-fragment-index="1">
+<center>
+Comparison of control effort expenditure
+</center>
+<table>
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="smallcaps">NeuralPbc</span></th>
+<th style="text-align: center;"><span class="smallcaps">NeuralIdaPbc</span></th>
+<th style="text-align: center;"><span class="smallcaps">IdaPbc</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><img data-src="contents/assets/compare_uRu_neuralpbc.svg"></td>
+<td style="text-align: center;"><img data-src="contents/assets/compare_uRu_neuralidapbc.svg" style="width:90.0%"></td>
+<td style="text-align: center;"><img data-src="contents/assets/compare_uRu_idapbc.svg" style="width:93.0%"></td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </section>
-<section id="section-5" class="slide level2" data-background-video="contents/assets/iwp-cut-firefox.mp4" data-background-size="contain" data-background-video-loop="true" data-background-video-muted="true">
+<section id="section-6" class="slide level2" data-background-video="contents/assets/iwp-cut-firefox.mp4" data-background-size="contain" data-background-video-loop="true" data-background-video-muted="true">
 <h2></h2>
 <!-- ###################################################################### -->
 </section>
@@ -1520,29 +1637,57 @@ u_{di} &amp;= -K_v G^\top \nabla_p H_d \phantom{\left\|\left(\nabla_p\right)^{\t
 <h2>Ball-beam experiments</h2>
 <!-- ###################################################################### -->
 <div class="r-stack">
-<p><img data-src="contents/assets/ball-beam-schematic.png" class="fragment fade-out" data-fragment-index="0"></p>
-<p><img data-src="contents/assets/ball-beam-evolution.png" class="fragment fade-in" data-fragment-index="0"></p>
+<p><img data-src="contents/assets/ball-beam.svg" class="fragment fade-out" data-fragment-index="0"></p>
+<div class="fragment fade-in" data-fragment-index="0">
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-center">
+<div class="quarto-layout-cell" style="flex-basis: 54.1%;justify-content: center;">
+<p><img data-src="contents/assets/ball_beam-Vd-contour.svg"></p>
 </div>
+<div class="quarto-layout-cell" style="flex-basis: 46.0%;justify-content: center;">
+<p><img data-src="contents/assets/ball_beam-evolution.svg"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- # :grey_question: Q&A -->
 </section></section>
-<section id="qa" class="title-slide slide level1 center">
-<h1><span class="emoji" data-emoji="grey_question">❔</span> Q&amp;A</h1>
+<section>
+<section id="conclusions" class="title-slide slide level1 center">
+<h1>Conclusions</h1>
 
 </section>
+<section id="closing-thoughts-and-future-directions" class="slide level2">
+<h2>Closing Thoughts and Future Directions</h2>
+<h6 id="pbc-machine-learning-techniques">PBC + machine learning techniques <span class="emoji" data-emoji="sparkles">✨</span></h6>
+<div style="font-size: 32px;">
+<ul>
+<li>We uncovered the engineering foundations for combining them</li>
+<li>Transparent connection to stability analysis (<span class="smallcaps">NeuralIdaPbc</span>)</li>
+<li>Extensive experimental results in simulation and on hardware</li>
+</ul>
+</div>
+<h6 id="future-directionsapplications-in">Future directions—applications in:</h6>
+<div style="font-size: 32px;">
+<ul>
+<li>Dynamical models with uncertainity</li>
+<li>Hybrid dynamical systems (walking machines)</li>
+</ul>
+</div>
+</section>
+<section id="acknowledgements" class="slide level2">
+<h2>Acknowledgements</h2>
 
+<img data-src="contents/assets/acknowledgement.jpg" class="r-stretch quarto-figure-center"></section>
+<section id="section-7" class="slide level2" data-background-image="contents/assets/qa_background.png" data-visibility="uncounted">
+<h2></h2>
+<!--  -->
+</section></section>
 <section>
 <section id="appendix" class="title-slide slide level1 center" data-visibility="uncounted">
 <h1>Appendix</h1>
 
-</section>
-<section id="passivity-1" class="slide level2" data-auto-animate="true" data-auto-animate-duration="0.5" data-visibility="uncounted">
-<h2 data-id="quarto-animate-title">Passivity</h2>
-<!-- ###################################################################### -->
-<p>The system <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Σ</mi><annotation encoding="application/x-tex">\Sigma</annotation></semantics></math> is <strong>passive</strong> if dissipative with supply rate</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo>=</mo><msup><mi>u</mi><mi>⊤</mi></msup><mi>y</mi></mrow><annotation encoding="application/x-tex">s = u^\top y</annotation></semantics></math></p>
-<p>It is <strong>output strictly passive</strong> if dissipative with supply rate</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo>=</mo><msup><mi>u</mi><mi>⊤</mi></msup><mi>y</mi><mo>−</mo><mi>δ</mi><mo stretchy="false" form="prefix">∥</mo><mi>y</mi><msup><mo stretchy="false" form="postfix">∥</mo><mn>2</mn></msup><mo>,</mo><mspace width="0.278em"></mspace><mi>δ</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">s = u^\top y - \delta \lVert y \rVert^2, \; \delta &gt; 0</annotation></semantics></math></p>
-<p>It is <strong>input strictly passive</strong> if dissipative with supply rate</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo>=</mo><msup><mi>u</mi><mi>⊤</mi></msup><mi>y</mi><mo>−</mo><mi>δ</mi><mo stretchy="false" form="prefix">∥</mo><mi>u</mi><msup><mo stretchy="false" form="postfix">∥</mo><mn>2</mn></msup><mo>,</mo><mspace width="0.278em"></mspace><mi>δ</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">s = u^\top y - \delta \lVert u \rVert^2, \; \delta &gt; 0</annotation></semantics></math></p>
 </section>
 <section id="neuralpbc-publications" class="slide level2" data-visibility="uncounted">
 <h2><span class="smallcaps">NeuralPbc</span> Publications</h2>
@@ -1609,6 +1754,15 @@ u_{di} &amp;= -K_v G^\top \nabla_p H_d \phantom{\left\|\left(\nabla_p\right)^{\t
 </div>
 </div>
 </div>
+</div>
+</section>
+<section id="sos-polynomials" class="slide level2" data-visibility="uncounted">
+<h2><span class="smallcaps">SoS</span> Polynomials</h2>
+<!-- ###################################################################### -->
+<p>Is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">p(x)</annotation></semantics></math> nonnegative for all <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>?</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>4</mn><msubsup><mi>x</mi><mn>1</mn><mn>2</mn></msubsup><mo>+</mo><msub><mi>x</mi><mn>1</mn></msub><msub><mi>x</mi><mn>2</mn></msub><mo>−</mo><mn>4</mn><msubsup><mi>x</mi><mn>2</mn><mn>2</mn></msubsup><mo>−</mo><mn>2.1</mn><msubsup><mi>x</mi><mn>1</mn><mn>4</mn></msubsup><mo>+</mo><mn>4</mn><msubsup><mi>x</mi><mn>2</mn><mn>4</mn></msubsup><mo>+</mo><mfrac><mn>1</mn><mn>3</mn></mfrac><msubsup><mi>x</mi><mn>1</mn><mn>6</mn></msubsup><mo>+</mo><mn>1.0316</mn><mspace width="0.278em"></mspace></mrow><annotation encoding="application/x-tex">p(x) = 4x_1^2 + x_1x_2 - 4x_2^2 - 2.1x_1^4 + 4x_2^4 + \frac{1}{3}x_1^6 + 1.0316\;</annotation></semantics></math></p>
+<div class="fragment">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right"><mi>p</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo></mtd><mtd columnalign="left"><msup><mrow><mo stretchy="true" form="prefix">(</mo><mn>0.116</mn><msubsup><mi>x</mi><mn>1</mn><mn>2</mn></msubsup><mo>+</mo><mn>0.01</mn><msub><mi>x</mi><mn>1</mn></msub><msub><mi>x</mi><mn>2</mn></msub><mo>−</mo><mn>2</mn><msubsup><mi>x</mi><mn>2</mn><mn>2</mn></msubsup><mo>+</mo><mn>1.015</mn><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup></mtd></mtr><mtr><mtd columnalign="right"></mtd><mtd columnalign="left"><mo>+</mo><mspace width="0.278em"></mspace><msup><mrow><mo stretchy="true" form="prefix">(</mo><mo>−</mo><mn>0.569</mn><msubsup><mi>x</mi><mn>1</mn><mn>3</mn></msubsup><mo>+</mo><mn>1.938</mn><msub><mi>x</mi><mn>1</mn></msub><mo>+</mo><mn>0.244</mn><msub><mi>x</mi><mn>2</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup></mtd></mtr><mtr><mtd columnalign="right"></mtd><mtd columnalign="left"><mo>+</mo><mspace width="0.278em"></mspace><msup><mrow><mo stretchy="true" form="prefix">(</mo><mn>0.224</mn><msubsup><mi>x</mi><mn>1</mn><mn>2</mn></msubsup><mo>+</mo><mn>0.666</mn><msub><mi>x</mi><mn>1</mn></msub><msub><mi>x</mi><mn>2</mn></msub><mo>+</mo><mn>0.029</mn><msubsup><mi>x</mi><mn>2</mn><mn>2</mn></msubsup><mo>+</mo><mn>0.026</mn><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup></mtd></mtr><mtr><mtd columnalign="right"></mtd><mtd columnalign="left"><mo>+</mo><mspace width="0.278em"></mspace><msup><mrow><mo stretchy="true" form="prefix">(</mo><mo>−</mo><mn>0.188</mn><msubsup><mi>x</mi><mn>1</mn><mn>2</mn></msubsup><mo>+</mo><mn>0.063</mn><msub><mi>x</mi><mn>1</mn></msub><msub><mi>x</mi><mn>2</mn></msub><mo>−</mo><mn>0.006</mn><msubsup><mi>x</mi><mn>2</mn><mn>2</mn></msubsup><mo>+</mo><mn>0.009</mn><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup></mtd></mtr><mtr><mtd columnalign="right"></mtd><mtd columnalign="left"><mo>+</mo><mspace width="0.278em"></mspace><msup><mrow><mo stretchy="true" form="prefix">(</mo><mn>0.099</mn><msubsup><mi>x</mi><mn>1</mn><mn>3</mn></msubsup><mo>+</mo><mn>0.029</mn><msub><mi>x</mi><mn>1</mn></msub><mo>+</mo><mn>0.004</mn><msub><mi>x</mi><mn>2</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mo>+</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><mn>0.009</mn><msubsup><mi>x</mi><mn>1</mn><mn>2</mn></msubsup><msub><mi>x</mi><mn>2</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned} p(x) = &amp;\left(0.116x_1^2 + 0.01x_1x_2 - 2x_2^2 + 1.015\right)^2 \\ &amp; + \; \left(-0.569x_1^3 + 1.938x_1 + 0.244x_2\right)^2 \\ &amp; + \; \left(0.224x_1^2 + 0.666x_1x_2 + 0.029x_2^2 + 0.026\right)^2 \\ &amp; + \; \left(-0.188x_1^2 + 0.063x_1x_2 - 0.006x_2^2 + 0.009\right)^2 \\ &amp; + \; \left(0.099x_1^3 + 0.029x_1 + 0.004x_2\right)^2 + \left(0.009x_1^2x_2\right)^2 \end{aligned}</annotation></semantics></math></p>
 </div>
 <div class="footer footer-default">
 <p>Data-Driven Passivity-Based Control • Aykut C. Satici</p>

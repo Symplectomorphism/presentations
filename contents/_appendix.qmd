@@ -1,23 +1,5 @@
 # Appendix {visibility="uncounted"}
 
-
-## Passivity {auto-animate="true" auto-animate-duration="0.5" visibility="uncounted"}
-<!-- ###################################################################### -->
-
-The system $\Sigma$ is __passive__ if dissipative with supply rate
-
-$$s = u^\top y$$
-
-It is __output strictly passive__ if dissipative with supply rate
-
-$$s = u^\top y - \delta \lVert y \rVert^2, \; \delta > 0$$
-
-It is __input strictly passive__ if dissipative with supply rate
-
-$$s = u^\top y - \delta \lVert u \rVert^2, \; \delta > 0$$
-
-
-
 ## <span style="font-variant:small-caps;">NeuralPbc</span> Publications {visibility="uncounted"}
 <!-- ###################################################################### -->
 
@@ -102,3 +84,14 @@ $$\begin{aligned} \underset{\theta}{\text{minimize}} && J(\theta) &= \left\lVert
 
 ::::
 :::::
+
+
+## <span style="font-variant:small-caps;">SoS</span> Polynomials {visibility="uncounted"}
+<!-- ###################################################################### -->
+
+Is $p(x)$ nonnegative for all $x$?
+$$p(x) = 4x_1^2 + x_1x_2 - 4x_2^2 - 2.1x_1^4 + 4x_2^4 + \frac{1}{3}x_1^6 + 1.0316\;$$
+
+::: {.fragment}
+$$\begin{aligned} p(x) = &\left(0.116x_1^2 + 0.01x_1x_2 - 2x_2^2 + 1.015\right)^2 \\ & + \; \left(-0.569x_1^3 + 1.938x_1 + 0.244x_2\right)^2 \\ & + \; \left(0.224x_1^2 + 0.666x_1x_2 + 0.029x_2^2 + 0.026\right)^2 \\ & + \; \left(-0.188x_1^2 + 0.063x_1x_2 - 0.006x_2^2 + 0.009\right)^2 \\ & + \; \left(0.099x_1^3 + 0.029x_1 + 0.004x_2\right)^2 + \left(0.009x_1^2x_2\right)^2 \end{aligned}$$
+::: 

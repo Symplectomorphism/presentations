@@ -35,6 +35,7 @@ format:
 
 {{< include contents/_neuralidapbc.qmd >}}
 
-# :grey_question: Q&A 
+<!-- # :grey_question: Q&A -->
+{{< include contents/_closing.qmd >}}
 
 {{< include contents/_appendix.qmd >}}
