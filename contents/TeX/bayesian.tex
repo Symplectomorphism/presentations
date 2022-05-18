@@ -6,11 +6,11 @@
 \newcommand\nn[1]{
     % Input layer
     \foreach \y in {1,...,2}
-        \node[neuron, fill=green!40] (i\y-#1) at (0,\y+1) {$i\y$};
+        \node[neuron, fill=green!40] (x\y-#1) at (0,\y+1) {$x_\y$};
 
     % Hidden layer
     \foreach \y in {1,...,4}
-        \path node[neuron, fill=blue!40] (h\y-#1) at (\layersep,\y) {$h\y$};
+        \path node[neuron, fill=blue!40] (h\y-#1) at (\layersep,\y) {$h_\y$};
 
     % Output node
     \node[neuron, fill=red!40] (o-#1) at (2*\layersep,2.5) {$o$};
@@ -18,7 +18,7 @@
     % Connect every node in the input layer with every node in the hidden layer.
     \foreach \source in {1,...,2}
         \foreach \dest in {1,...,4}
-            \path (i\source-#1) edge (h\dest-#1);
+            \path (x\source-#1) edge (h\dest-#1);
 
     % Connect every node in the hidden layer with the output layer
     \foreach \source in {1,...,4}
@@ -47,14 +47,14 @@
   % Draw weights for all regular edges.
   \foreach \i in {1,...,2}
   \foreach \j in {1,...,4}
-  \path (i\i-regular) -- (h\j-regular) node[weight={\i}{\j}];
+  \path (x\i-regular) -- (h\j-regular) node[weight={\i}{\j}];
   \foreach \i in {1,...,4}
   \path (h\i-regular) -- (o-regular) node[weight={\i}{1}];
 
   % Draw distros for all Bayesian edges.
   \foreach \i in {1,...,2}
   \foreach \j in {1,...,4}
-  \path (i\i-bayes) -- (h\j-bayes) node[distro={\i}{\j}];
+  \path (x\i-bayes) -- (h\j-bayes) node[distro={\i}{\j}];
   \foreach \i in {1,...,4}
   \path (h\i-bayes) -- (o-bayes) node[distro={\i}{1}];
 \end{tikzpicture}
