@@ -302,10 +302,11 @@ z)}_{\text{VI}}.
 $$
 
 :::: {.fragment .semi-fade-out fragment-index=1}
-::: {layout="[5,1]" layout-valign="center"}
-![](assets/pbc-outline.svg){width=200%}
+::: {layout="[1,1]" layout-valign="center"}
+![Show ELBO convergence.](assets/pbc-outline.svg){width=200%}
 
-::: {.callout}
+::: {.callout-important icon=false}
+## KL-divergence and ELBO
 $$
 \begin{aligned}
 D_{\text{KL}} &= \mathbb{E}_{\theta \sim q}\left[ \log \frac{q(\theta;
@@ -323,9 +324,10 @@ $$
 
 :::: {.fragment fragment-index=1}
 ::: {layout="[1,1]" layout-valign="center"}
-![](assets/pbc-outline.svg){width=100%}
+![Show prob. distribution](assets/pbc-outline.svg){width=100%}
 
-::: {.callout}
+::: {.callout-tip icon=false}
+## Prediction through marginalization
 $$
 \begin{aligned}
 \hat{m} &= \frac{1}{N}\sum_{\theta \sim q} m(x, \theta).
