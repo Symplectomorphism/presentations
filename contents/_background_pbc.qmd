@@ -292,24 +292,29 @@ __More flexible__ | As applicable as <span style="font-variant:small-caps;">IdaP
 ## Bayesian Learning {.smaller}
 <!-- ###################################################################### -->
 
+
+$$
+p(\theta \mid \mathcal{D}) = \frac{\overbrace{p(\mathcal{D} \mid
+\theta)}^{\text{likelihood}}\overbrace{p(\theta)}^{\text{prior}}}
+{\underbrace{\int_\theta p(\mathcal{D} \mid \theta^\prime)p(\theta^\prime)
+d\theta^\prime}_{\text{evidence}}} \underbrace{\approx q(\theta;
+z)}_{\text{VI}}.
+$$
+
 :::: {.fragment .semi-fade-out fragment-index=1}
-::: {layout="[100,-5,60]" layout-valign="center"}
+::: {layout="[100,-5,80]" layout-valign="center"}
 ![](assets/pbc-outline.svg)
 
-Strengths
-: 
-Stability guarantees \
-Closed-form policy
+$$
+D_{\text{KL}} = \mathbb{E}_{\theta \sim q}\left[ \log \frac{q(\theta;
+z)}{p(\theta \mid \mathcal{D})}\right]
+$$
 
-Weaknesses
-: 
-Model uncertainties \
-Need to solve PDEs
 :::
 ::::
 
 :::: {.fragment fragment-index=1}
-::: {layout="[100,-5,60]" layout-valign="center"}
+::: {layout="[100,-5,80]" layout-valign="center"}
 Reinforcement learning
 ![](assets/rl-outline.svg)
 
