@@ -302,17 +302,21 @@ z)}_{\text{VI}}.
 $$
 
 :::: {.fragment .semi-fade-out fragment-index=1}
-::: {layout="[100,-5,80]" layout-valign="center"}
-![](assets/pbc-outline.svg)
+::: {layout="[5,1]" layout-valign="center"}
+![](assets/pbc-outline.svg){width=200%}
 
-\begin{align*}
+::: {.callout}
+$$
+\begin{aligned}
 D_{\text{KL}} &= \mathbb{E}_{\theta \sim q}\left[ \log \frac{q(\theta;
 z)}{p(\theta \mid \mathcal{D})}\right] \\
 &= \log p(\mathcal{D}) - \mathbb{E}_{\theta \sim q}\left[ \log
 \frac{p(\mathcal{D} \mid \theta) p(\theta)}{q(\theta; z)} \right] \\
 \mathcal{L}(\mathcal{D}; z) &= \mathbb{E}_{\theta \sim q}\left[ \log
 p(\mathcal{D} \mid \theta) p(\theta) - \log q(\theta; z) \right]
-\end{align*}
+\end{aligned}
+$$
+:::
 
 :::
 ::::
@@ -332,5 +336,30 @@ Weaknesses
 Sample complexity \
 Stability guarantees?
 :::
+::::
+
+
+## Bayesian Learning {.smaller}
+<!-- ###################################################################### -->
+
+:::: {.columns}
+
+::: {.column width="50%"}
+![](assets/pbc-outline.svg)
+:::
+
+::: {.column width="50%"}
+
+\begin{align*}
+D_{\text{KL}} &= \mathbb{E}_{\theta \sim q}\left[ \log \frac{q(\theta;
+z)}{p(\theta \mid \mathcal{D})}\right] \\
+&= \log p(\mathcal{D}) - \mathbb{E}_{\theta \sim q}\left[ \log
+\frac{p(\mathcal{D} \mid \theta) p(\theta)}{q(\theta; z)} \right] \\
+\mathcal{L}(\mathcal{D}; z) &= \mathbb{E}_{\theta \sim q}\left[ \log
+p(\mathcal{D} \mid \theta) p(\theta) - \log q(\theta; z) \right]
+\end{align*}
+
+:::
+
 ::::
 
