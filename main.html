@@ -1303,10 +1303,25 @@ J(\theta, x_0) = \int_{0}^{T} \ell \left(\phi,u^\theta,\theta\right)\, \text{d} 
 <section id="bayesian-solution" class="slide level2">
 <h2>Bayesian Solution</h2>
 <!-- ###################################################################### -->
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mrow><mo stretchy="true" form="prefix">(</mo><mo stretchy="false" form="prefix">∥</mo><msub><mo>ℓ</mo><mtext mathvariant="normal">set</mtext></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>γ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><msub><mo>ℓ</mo><mi>⊥</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>γ</mi><mo>,</mo><mi>u</mi><mo stretchy="true" form="postfix">)</mo></mrow><msup><mo stretchy="false" form="postfix">∥</mo><mn>2</mn></msup><mo>∣</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mstyle mathvariant="script"><mi>𝒩</mi></mstyle><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo>,</mo><mi>s</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
-p\left(\lVert \ell_{\text{set}}(\gamma) + \ell_\bot(\gamma, u) \rVert^2 \mid
-\theta \right) = \mathcal{N}(0, s).
-</annotation></semantics></math></p>
+<p>&nbsp;</p>
+<ol class="fragment" data-fragment-index="0">
+Computing ELBO requires:
+<li class="fragment" data-fragment-index="0">
+<p><em>Likelihood</em>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mrow><mo stretchy="true" form="prefix">(</mo><mo stretchy="false" form="prefix">∥</mo><msub><mo>ℓ</mo><mtext mathvariant="normal">set</mtext></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>γ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><msub><mo>ℓ</mo><mi>⊥</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>γ</mi><mo>,</mo><mi>u</mi><mo stretchy="true" form="postfix">)</mo></mrow><msup><mo stretchy="false" form="postfix">∥</mo><mn>2</mn></msup><mo>∣</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mstyle mathvariant="script"><mi>𝒩</mi></mstyle><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo>,</mo><mi>s</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex"> p\left( \lVert \ell_{\text{set}}(\gamma) + \ell_\bot(\gamma, u) \rVert^2 \mid \theta \right) = \mathcal{N}(0, s). </annotation></semantics></math></p>
+</li>
+<li class="fragment" data-fragment-index="1">
+<em>Prior</em>:
+<ul>
+<li>
+Uninformed
+</li>
+<li>
+Deterministic
+</li>
+</ul>
+</li>
+</ol>
 </section>
 <section id="comparison-of-methods" class="slide level2 smaller">
 <h2>Comparison of Methods</h2>
@@ -1930,7 +1945,7 @@ Comparison of control effort expenditure
       // Full list of configuration options available at:
       // https://revealjs.com/config/
       Reveal.initialize({
-'controlsAuto': true,
+'controlsAuto': false,
 'previewLinksAuto': true,
 'smaller': false,
 'pdfSeparateFragments': false,
@@ -1942,7 +1957,7 @@ Comparison of control effort expenditure
 'smaller': false,
  
         // Display controls in the bottom right corner
-        controls: false,
+        controls: true,
 
         // Help the user learn the controls by providing hints, for example by
         // bouncing the down arrow when they first encounter a vertical slide

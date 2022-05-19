@@ -297,10 +297,21 @@ Sample state space with technique based on <span style="font-variant:small-caps;
 ## Bayesian Solution
 <!-- ###################################################################### -->
 
-$$
-p\left(\lVert \ell_{\text{set}}(\gamma) + \ell_\bot(\gamma, u) \rVert^2 \mid
-\theta \right) = \mathcal{N}(0, s).
-$$
+&nbsp;
+
+<ol class="fragment" data-fragment-index=0>
+Computing ELBO requires: 
+  <li class="fragment" data-fragment-index=0> _Likelihood_:
+$$ p\left( \lVert \ell_{\text{set}}(\gamma) + \ell_\bot(\gamma, u) \rVert^2 \mid \theta \right) = \mathcal{N}(0, s). $$
+  </li>
+  <li class="fragment" data-fragment-index=1> _Prior_:
+    <ul>
+      <li> Uninformed </li>
+      <li> Deterministic </li>
+    </ul>
+  </li>
+</ol>
+
 
 
 

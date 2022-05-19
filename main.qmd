@@ -7,6 +7,7 @@ format:
   revealjs: 
     css: styles.css
     html-math-method: mathml
+    controls: true
     smaller: false
     slide-number: true
     footer: "Data-Driven Passivity-Based Control • Aykut C. Satici"
