@@ -34,8 +34,8 @@ Nardos Ayele Ashenafi :mortar_board: <br/>
 <ul>
 <li class="fragment highlight-red" data-fragment-index="0">ISER 2020</li>
 <li class="fragment highlight-red" data-fragment-index="0">CCTA 2021</li>
-<li class="fragment semi-fade-out" data-fragment-index="0">ACC 2022</li>
-<li class="fragment semi-fade-out" data-fragment-index="0">L-CSS 2022<sup>1</sup></li>
+<li class="fragment highlight-blue" data-fragment-index="0">ACC 2022</li>
+<li class="fragment highlight-blue" data-fragment-index="0">L-CSS 2022<sup>1</sup></li>
 </ul>
 
 :::
@@ -44,7 +44,7 @@ Nardos Ayele Ashenafi :mortar_board: <br/>
 
 <ul>
 <li class="fragment highlight-red" data-fragment-index="0">*IJC 2021*</li>
-<li class="fragment semi-fade-out" data-fragment-index="0">*TACON 2022*[^underreview]</li>
+<li class="fragment highlight-blue" data-fragment-index="0">*TACON 2022*[^underreview]</li>
 </ul>
 :::
 ::::

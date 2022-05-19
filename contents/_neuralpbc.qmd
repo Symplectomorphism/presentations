@@ -297,7 +297,10 @@ Sample state space with technique based on <span style="font-variant:small-caps;
 ## Bayesian Solution
 <!-- ###################################################################### -->
 
-
+$$
+p\left(\lVert \ell_{\text{set}}(\gamma) + \ell_\bot(\gamma, u) \rVert^2 \mid
+\theta \right) = \mathcal{N}(0, s).
+$$
 
 
 
