@@ -273,7 +273,7 @@ $\boxed{u = -mgl\sin(x) - K_P(q - q^\star) - K_D \dot{q}}$
 ## Our Methods
 <!-- ###################################################################### -->
 
-::: {layout="[-1,8,-1]" layout-alilgn="center" layout-valign="center"}
+::: {layout="[-1,8,-1]" layout-align="center" layout-valign="center"}
 ![](assets/pbc-ml-outline.svg){width=50%}
 :::
 
@@ -287,3 +287,41 @@ No stability certificate | __Stability certificate__
 __More flexible__ | As applicable as <span style="font-variant:small-caps;">IdaPbc</span>
 :::
 ::::
+
+
+## Bayesian Learning {.smaller}
+<!-- ###################################################################### -->
+
+:::: {.fragment .semi-fade-out fragment-index=1}
+::: {layout="[100,-5,60]" layout-valign="center"}
+![](assets/pbc-outline.svg)
+
+Strengths
+: 
+Stability guarantees \
+Closed-form policy
+
+Weaknesses
+: 
+Model uncertainties \
+Need to solve PDEs
+:::
+::::
+
+:::: {.fragment fragment-index=1}
+::: {layout="[100,-5,60]" layout-valign="center"}
+Reinforcement learning
+![](assets/rl-outline.svg)
+
+Strengths
+: 
+More general \
+Unknown dynamics OK
+
+Weaknesses
+: 
+Sample complexity \
+Stability guarantees?
+:::
+::::
+
