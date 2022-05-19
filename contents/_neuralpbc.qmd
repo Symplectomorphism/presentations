@@ -311,7 +311,7 @@ Sample state space with technique based on <span style="font-variant:small-caps;
 
 |Case|Deterministic|Bayesian|
 |---|:---:|:---:|
-|Robusness|:x:|:heavy_check_mark:|
+|Robustness|:x:|:heavy_check_mark:|
 |Computation cost|:heavy_check_mark:|:x:|
 |Model selection|:x:|:heavy_check_mark:|
 |Prior knowledge|:heavy_check_mark:|:heavy_check_mark::heavy_check_mark:|
