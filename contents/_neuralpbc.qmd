@@ -293,6 +293,34 @@ Sample state space with technique based on <span style="font-variant:small-caps;
 
 ::::
 
+
+## Bayesian Solution
+<!-- ###################################################################### -->
+
+
+
+
+
+## Comparison of Methods {.smaller}
+<!-- ###################################################################### -->
+
+&nbsp;
+
+::: {.callout-note icon=false}
+## Advantages :heavy_check_mark: and Disadvantages :x:
+
+|Case|Deterministic|Bayesian|
+|---|:---:|:---:|
+|Robusness|:x:|:heavy_check_mark:|
+|Computation cost|:heavy_check_mark:|:x:|
+|Model selection|:x:|:heavy_check_mark:|
+|Prior knowledge|:heavy_check_mark:|:heavy_check_mark::heavy_check_mark:|
+|Overfitting|:x:|:heavy_check_mark:|
+:::
+
+
+
+
 ## <span style="font-variant:small-caps;">NeuralPbc</span> Experiments
 <!-- ###################################################################### -->
 Benchmark underactuated  control problems:
