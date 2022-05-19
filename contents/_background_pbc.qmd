@@ -305,10 +305,14 @@ $$
 ::: {layout="[100,-5,80]" layout-valign="center"}
 ![](assets/pbc-outline.svg)
 
-$$
-D_{\text{KL}} = \mathbb{E}_{\theta \sim q}\left[ \log \frac{q(\theta;
-z)}{p(\theta \mid \mathcal{D})}\right]
-$$
+\begin{align*}
+D_{\text{KL}} &= \mathbb{E}_{\theta \sim q}\left[ \log \frac{q(\theta;
+z)}{p(\theta \mid \mathcal{D})}\right] \\
+&= \log p(\mathcal{D}) - \mathbb{E}_{\theta \sim q}\left[ \log
+\frac{p(\mathcal{D} \mid \theta) p(\theta)}{q(\theta; z)} \right] \\
+\mathcal{L}(\mathcal{D}; z) &= \mathbb{E}_{\theta \sim q}\left[ \log
+p(\mathcal{D} \mid \theta) p(\theta) - \log q(\theta; z) \right]
+\end{align*}
 
 :::
 ::::

@@ -939,17 +939,18 @@ z)}_{\text{VI}}.
 <div class="fragment semi-fade-out" data-fragment-index="1">
 <div class="quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-center">
-<div class="quarto-layout-cell" style="flex-basis: 54.1%;justify-content: center;">
+<div class="quarto-layout-cell" style="flex-basis: 88.9%;justify-content: center;">
 <p><img data-src="contents/assets/pbc-outline.svg"></p>
 </div>
-<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 2.7%;justify-content: center;">
-<p>&nbsp;</p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 43.2%;justify-content: center;">
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mtext mathvariant="normal">KL</mtext></msub><mo>=</mo><msub><mstyle mathvariant="double-struck"><mi>𝔼</mi></mstyle><mrow><mi>θ</mi><mo>∼</mo><mi>q</mi></mrow></msub><mrow><mo stretchy="true" form="prefix">[</mo><mo>log</mo><mfrac><mrow><mi>q</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>θ</mi><mo>;</mo><mi>z</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mrow><mi>p</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>θ</mi><mo>∣</mo><mstyle mathvariant="script"><mi>𝒟</mi></mstyle><mo stretchy="true" form="postfix">)</mo></mrow></mrow></mfrac><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">
-D_{\text{KL}} = \mathbb{E}_{\theta \sim q}\left[ \log \frac{q(\theta;
-z)}{p(\theta \mid \mathcal{D})}\right]
-</annotation></semantics></math></p>
+<div class="quarto-layout-cell" style="flex-basis: 11.1%;justify-content: center;">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right"><msub><mi>D</mi><mtext mathvariant="normal">KL</mtext></msub></mtd><mtd columnalign="left"><mo>=</mo><msub><mstyle mathvariant="double-struck"><mi>𝔼</mi></mstyle><mrow><mi>θ</mi><mo>∼</mo><mi>q</mi></mrow></msub><mrow><mo stretchy="true" form="prefix">[</mo><mo>log</mo><mfrac><mrow><mi>q</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>θ</mi><mo>;</mo><mi>z</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mrow><mi>p</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>θ</mi><mo>∣</mo><mstyle mathvariant="script"><mi>𝒟</mi></mstyle><mo stretchy="true" form="postfix">)</mo></mrow></mrow></mfrac><mo stretchy="true" form="postfix">]</mo></mrow></mtd></mtr><mtr><mtd columnalign="right"></mtd><mtd columnalign="left"><mo>=</mo><mo>log</mo><mi>p</mi><mrow><mo stretchy="true" form="prefix">(</mo><mstyle mathvariant="script"><mi>𝒟</mi></mstyle><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><msub><mstyle mathvariant="double-struck"><mi>𝔼</mi></mstyle><mrow><mi>θ</mi><mo>∼</mo><mi>q</mi></mrow></msub><mrow><mo stretchy="true" form="prefix">[</mo><mo>log</mo><mfrac><mrow><mi>p</mi><mrow><mo stretchy="true" form="prefix">(</mo><mstyle mathvariant="script"><mi>𝒟</mi></mstyle><mo>∣</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>p</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mrow><mi>q</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>θ</mi><mo>;</mo><mi>z</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></mfrac><mo stretchy="true" form="postfix">]</mo></mrow></mtd></mtr><mtr><mtd columnalign="right"><mstyle mathvariant="script"><mi>ℒ</mi></mstyle><mrow><mo stretchy="true" form="prefix">(</mo><mstyle mathvariant="script"><mi>𝒟</mi></mstyle><mo>;</mo><mi>z</mi><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left"><mo>=</mo><msub><mstyle mathvariant="double-struck"><mi>𝔼</mi></mstyle><mrow><mi>θ</mi><mo>∼</mo><mi>q</mi></mrow></msub><mrow><mo stretchy="true" form="prefix">[</mo><mo>log</mo><mi>p</mi><mrow><mo stretchy="true" form="prefix">(</mo><mstyle mathvariant="script"><mi>𝒟</mi></mstyle><mo>∣</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>p</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mo>log</mo><mi>q</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>θ</mi><mo>;</mo><mi>z</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{align*}
+D_{\text{KL}} &amp;= \mathbb{E}_{\theta \sim q}\left[ \log \frac{q(\theta;
+z)}{p(\theta \mid \mathcal{D})}\right] \\
+&amp;= \log p(\mathcal{D}) - \mathbb{E}_{\theta \sim q}\left[ \log
+\frac{p(\mathcal{D} \mid \theta) p(\theta)}{q(\theta; z)} \right] \\
+\mathcal{L}(\mathcal{D}; z) &amp;= \mathbb{E}_{\theta \sim q}\left[ \log
+p(\mathcal{D} \mid \theta) p(\theta) - \log q(\theta; z) \right]
+\end{align*}</annotation></semantics></math></p>
 </div>
 </div>
 </div>
