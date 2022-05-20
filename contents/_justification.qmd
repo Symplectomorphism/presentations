@@ -119,18 +119,15 @@ $$
 <!-- ###################################################################### -->
 
 
-::: {layout="[100,-5,60]" layout-valign="center" .fragment data-fragment-index=0 data-id="opt-sol"}
+:::: {layout="[100,-5,60]" layout-valign="center" .fragment data-fragment-index=0 data-id="opt-sol"}
 
 ::: {.callout-note icon=false}
 ## Deterministic
-
 $\theta^\star = g(\hat{p}) := -\hat{p} -\sqrt{\hat{p}^2+\frac{q}{r}}$
-
 :::
 
 ::: {.callout-note icon=false}
 ## Probabilistic
-
 $$
 \begin{aligned}
 f_{\theta^\star}(\theta^\star) &= \frac{1}{\sigma_p \sqrt{2\pi}}\left( \
@@ -139,11 +136,8 @@ f_{\theta^\star}(\theta^\star) &= \frac{1}{\sigma_p \sqrt{2\pi}}\left( \
 \frac{\theta^\star}{2} - \hat{p}  \right)^2  \right\} }
 \end{aligned}
 $$
-
 :::
-
-:::
-
+::::
 
 ::: {.r-stack}
 ![](assets/optimal-dist_1.svg){.fragment data-fragment-index=1}
@@ -153,6 +147,4 @@ $$
 ![](assets/optimal-dist_3.svg){.fragment data-fragment-index=3}
 :::
 
-::: {layout-valign="center" .fragment data-fragment-index=1 data-id="opt-sol"}
-$\hat{p}=5, \sigma_p = 5$
-:::
+
