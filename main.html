@@ -1006,6 +1006,7 @@ p(\mathcal{D} \mid \theta) p(\theta) - \log q(\theta; z) \right]
 </section>
 <section id="system-parameter-uncertainty" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">System Parameter Uncertainty</h2>
+<!-- ###################################################################### -->
 <div class="fragment" data-fragment-index="0">
 <ul>
 <li>Scalar control system</li>
@@ -1013,7 +1014,10 @@ p(\mathcal{D} \mid \theta) p(\theta) - \log q(\theta; z) \right]
 <li>No measurement uncertainty</li>
 </ul>
 </div>
-<div id="system" class="fragment" data-fragment-index="1">
+<div class="fragment" data-id="system" data-fragment-index="1">
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-center">
+<div class="quarto-layout-cell" style="flex-basis: 60.6%;justify-content: center;">
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Σ</mi><mo>:</mo><mspace width="1.0em"></mspace><mrow><mo stretchy="true" form="prefix">{</mo><mtable><mtr><mtd columnalign="left"><mover><mi>x</mi><mo accent="true">̇</mo></mover></mtd><mtd columnalign="left"><mo>=</mo><mi>p</mi><mi>x</mi><mo>+</mo><mi>u</mi><mo>,</mo></mtd></mtr><mtr><mtd columnalign="left"><mi>u</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left"><mo>=</mo><mi>θ</mi><mi>x</mi><mo>,</mo></mtd></mtr><mtr><mtd columnalign="left"><mi>x</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left"><mo>=</mo><mn>1</mn><mi>.</mi></mtd></mtr></mtable></mrow></mrow><annotation encoding="application/x-tex">
 \Sigma: \quad
 \begin{cases}
@@ -1023,10 +1027,25 @@ p(\mathcal{D} \mid \theta) p(\theta) - \log q(\theta; z) \right]
 \end{cases}
 </annotation></semantics></math></p>
 </div>
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 3.0%;justify-content: center;">
+<p>&nbsp;</p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 36.4%;justify-content: center;">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msup><mi>e</mi><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>p</mi><mo>+</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>t</mi></mrow></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+  x(t) = e^{(p+\theta)t}.
+</annotation></semantics></math></p>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="performance-index" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Performance Index</h2>
-<div id="system">
+<!-- ###################################################################### -->
+<div data-id="system">
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-center">
+<div class="quarto-layout-cell" style="flex-basis: 60.6%;justify-content: center;">
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Σ</mi><mo>:</mo><mspace width="1.0em"></mspace><mrow><mo stretchy="true" form="prefix">{</mo><mtable><mtr><mtd columnalign="left"><mover><mi>x</mi><mo accent="true">̇</mo></mover></mtd><mtd columnalign="left"><mo>=</mo><mi>p</mi><mi>x</mi><mo>+</mo><mi>u</mi><mo>,</mo></mtd></mtr><mtr><mtd columnalign="left"><mi>u</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left"><mo>=</mo><mi>θ</mi><mi>x</mi><mo>,</mo></mtd></mtr><mtr><mtd columnalign="left"><mi>x</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left"><mo>=</mo><mn>1</mn><mi>.</mi></mtd></mtr></mtable></mrow></mrow><annotation encoding="application/x-tex">
 \Sigma: \quad
 \begin{cases}
@@ -1035,6 +1054,17 @@ p(\mathcal{D} \mid \theta) p(\theta) - \log q(\theta; z) \right]
   x(0) &amp;= 1.
 \end{cases}
 </annotation></semantics></math></p>
+</div>
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 3.0%;justify-content: center;">
+<p>&nbsp;</p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 36.4%;justify-content: center;">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msup><mi>e</mi><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>p</mi><mo>+</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>t</mi></mrow></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+  x(t) = e^{(p+\theta)t}.
+</annotation></semantics></math></p>
+</div>
+</div>
+</div>
 </div>
 <div class="fragment" data-fragment-index="0">
 <p>Quadratic performance index</p>
@@ -1044,10 +1074,31 @@ p(\mathcal{D} \mid \theta) p(\theta) - \log q(\theta; z) \right]
 <li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>T</mi><annotation encoding="application/x-tex">T</annotation></semantics></math>: control horizon</li>
 </ul>
 </div>
-<div class="fragment" data-fragment-index="0">
+<div class="fragment" data-fragment-index="0," data-id="perf">
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathvariant="script"><mi>𝒥</mi></mstyle><mo>=</mo><msubsup><mo>∫</mo><mn>0</mn><mi>T</mi></msubsup><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>q</mi><mi>x</mi><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mo>+</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>r</mi><mi>u</mi><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow><mi>d</mi><mi>t</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
 \mathcal{J} = \int_0^T \left( \frac{1}{2}qx(t)^2 + \frac{1}{2}ru(t)^2  \right)dt.
 </annotation></semantics></math></p>
+</div>
+</section>
+<section id="infinite-horizon-best-performance" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Infinite-Horizon Best Performance</h2>
+<!-- ###################################################################### -->
+<div class="fragment quarto-layout-panel" data-fragment-index="0" data-id="perf">
+<div class="quarto-layout-row quarto-layout-valign-center">
+<div class="quarto-layout-cell" style="flex-basis: 60.6%;justify-content: center;">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathvariant="script"><mi>𝒥</mi></mstyle><mo>=</mo><msubsup><mo>∫</mo><mn>0</mn><mi>T</mi></msubsup><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>q</mi><mi>x</mi><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mo>+</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>r</mi><mi>u</mi><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow><mi>d</mi><mi>t</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathcal{J} = \int_0^T \left( \frac{1}{2}qx(t)^2 + \frac{1}{2}ru(t)^2  \right)dt.
+</annotation></semantics></math></p>
+</div>
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 3.0%;justify-content: center;">
+<p>&nbsp;</p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 36.4%;justify-content: center;">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mstyle mathvariant="script"><mi>𝒥</mi></mstyle><mi>∞</mi></msub><mo>=</mo><mo>−</mo><mfrac><mn>1</mn><mn>4</mn></mfrac><mfrac><mrow><mi>q</mi><mo>+</mo><mi>r</mi><msup><mi>θ</mi><mn>2</mn></msup></mrow><mrow><mi>p</mi><mo>+</mo><mi>θ</mi></mrow></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathcal{J}_\infty = -\frac{1}{4}\frac{q+r \theta^2}{p+\theta}.
+</annotation></semantics></math></p>
+</div>
+</div>
 </div>
 </section></section>
 <section>

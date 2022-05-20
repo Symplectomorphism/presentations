@@ -3,7 +3,10 @@
 
 Why does Bayesian Learning result in more robust controllers?
 
+
+
 ## System Parameter Uncertainty {auto-animate="true"}
+<!-- ###################################################################### -->
 
 ::: {.fragment data-fragment-index=0}
 * Scalar control system 
@@ -12,7 +15,9 @@ Why does Bayesian Learning result in more robust controllers?
 * No measurement uncertainty
 :::
 
-::: {id="system" .fragment data-fragment-index=1}
+::: {data-id="system" .fragment data-fragment-index=1}
+
+::: {layout="[100,-5,60]" layout-valign="center"}
 $$
 \Sigma: \quad
 \begin{cases}
@@ -21,14 +26,21 @@ $$
   x(0) &= 1.
 \end{cases}
 $$
+$$
+  x(t) = e^{(p+\theta)t}.
+$$
+:::
 :::
 
 
 
 ## Performance Index {auto-animate="true"}
+<!-- ###################################################################### -->
 
 
-::: {id="system"}
+::: {data-id="system"}
+
+::: {layout="[100,-5,60]" layout-valign="center"}
 $$
 \Sigma: \quad
 \begin{cases}
@@ -37,6 +49,10 @@ $$
   x(0) &= 1.
 \end{cases}
 $$
+$$
+  x(t) = e^{(p+\theta)t}.
+$$
+:::
 :::
 
 ::: {.fragment data-fragment-index=0}
@@ -47,8 +63,23 @@ Quadratic performance index
 - $T$: control horizon
 :::
 
-::: {.fragment data-fragment-index=0}
+::: {.fragment data-fragment-index=0, data-id="perf"}
 $$
 \mathcal{J} = \int_0^T \left( \frac{1}{2}qx(t)^2 + \frac{1}{2}ru(t)^2  \right)dt.
 $$
 :::
+
+
+## Infinite-Horizon Best Performance {auto-animate="true"}
+<!-- ###################################################################### -->
+
+::: {layout="[100,-5,60]" layout-valign="center" .fragment data-fragment-index=0 data-id="perf"}
+$$
+\mathcal{J} = \int_0^T \left( \frac{1}{2}qx(t)^2 + \frac{1}{2}ru(t)^2  \right)dt.
+$$
+$$
+\mathcal{J}_\infty = -\frac{1}{4}\frac{q+r \theta^2}{p+\theta}.
+$$
+:::
+
+
