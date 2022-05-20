@@ -1180,6 +1180,106 @@ f_{\theta^\star}(\theta^\star) &amp;= \frac{1}{\sigma_p \sqrt{2\pi}}\left( \
 <p><img data-src="contents/assets/optimal-dist_2.svg" class="fragment" data-fragment-index="2"></p>
 <p><img data-src="contents/assets/optimal-dist_3.svg" class="fragment" data-fragment-index="3"></p>
 </div>
+</section>
+<section class="slide level2">
+
+<h3 data-auto-animate="true" id="parameter-uncertainty-and-measurement-noise">Parameter Uncertainty and Measurement Noise</h3>
+<!-- ###################################################################### -->
+<div class="fragment" data-fragment-index="0">
+<p>Same control system with measurement noise: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∼</mo><mstyle mathvariant="script"><mi>𝒩</mi></mstyle><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>,</mo><msup><mi>σ</mi><mn>2</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">x \sim \mathcal{N}(x, \sigma^2)</annotation></semantics></math>.</p>
+</div>
+<div class="fragment" data-id="stoc-system" data-fragment-index="1">
+<div data-layout-valign="center">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Σ</mi><mo>:</mo><mspace width="1.0em"></mspace><mrow><mo stretchy="true" form="prefix">{</mo><mtable><mtr><mtd columnalign="left"><mi>d</mi><mi>x</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left"><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>p</mi><mo>+</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>x</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>d</mi><mi>t</mi><mo>+</mo><mi>θ</mi><mi>σ</mi><mi>d</mi><msub><mi>W</mi><mi>t</mi></msub><mo>,</mo></mtd></mtr><mtr><mtd columnalign="left"><mi>x</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left"><mo>=</mo><mn>1</mn><mi>.</mi></mtd></mtr></mtable></mrow></mrow><annotation encoding="application/x-tex">
+\Sigma: \quad
+\begin{cases}
+  dx(t) &amp;= (p+\theta)x(t) dt + \theta \sigma dW_t, \\
+  x(0) &amp;= 1.
+\end{cases}
+</annotation></semantics></math></p>
+</div>
+<div data-layout-valign="center">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msup><mi>e</mi><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>p</mi><mo>+</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>t</mi></mrow></msup><mo>+</mo><mi>θ</mi><mi>σ</mi><msubsup><mo>∫</mo><mn>0</mn><mi>t</mi></msubsup><msup><mi>e</mi><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>p</mi><mo>+</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo>−</mo><mi>s</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></msup><mi>d</mi><msub><mi>W</mi><mi>s</mi></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">
+x(t) = e^{(p+\theta)t} + \theta \sigma \int_0^t e^{(p+\theta)(t-s)}dW_s.
+</annotation></semantics></math></p>
+</div>
+</div>
+<div class="fragment" data-fragment-index="2" data-id="lemma">
+<div class="callout callout-tip no-icon callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<p><strong>Lemma</strong></p>
+</div>
+<div class="callout-content">
+<p>The conditional expectation <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathvariant="double-struck"><mi>𝔼</mi></mstyle><mrow><mo stretchy="true" form="prefix">[</mo><mstyle mathvariant="script"><mi>𝒥</mi></mstyle><mo>∣</mo><mi>p</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">\mathbb{E}[\mathcal{J} \mid p]</annotation></semantics></math> of the performance index given the system parameter <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math> is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathvariant="double-struck"><mi>𝔼</mi></mstyle><mrow><mo stretchy="true" form="prefix">[</mo><mstyle mathvariant="script"><mi>𝒥</mi></mstyle><mo>∣</mo><mi>p</mi><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mo>−</mo><mfrac><mn>1</mn><mn>4</mn></mfrac><mfrac><mrow><mi>q</mi><mo>+</mo><mi>r</mi><msup><mi>θ</mi><mn>2</mn></msup></mrow><mrow><mi>p</mi><mo>+</mo><mi>θ</mi></mrow></mfrac><mrow><mo stretchy="true" form="prefix">[</mo><msup><mi>θ</mi><mn>2</mn></msup><msup><mi>σ</mi><mn>2</mn></msup><mi>T</mi><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><msup><mi>e</mi><mrow><mn>2</mn><mi>T</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>p</mi><mo>+</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></msup><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>+</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mfrac><mrow><msup><mi>θ</mi><mn>2</mn></msup><msup><mi>σ</mi><mn>2</mn></msup></mrow><mrow><mi>p</mi><mo>+</mo><mi>θ</mi></mrow></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">
+\mathbb{E}[\mathcal{J} \mid p] =
+-\frac{1}{4}\frac{q+r\theta^2}{p+\theta}\left[ \theta^2 \sigma^2 T +
+\left(1-e^{2 T (p+\theta)}\right) \left(1+\frac{1}{2}\frac{\theta^2
+\sigma^2}{p+\theta}\right) \right]
+</annotation></semantics></math></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="conditional-expectation" class="slide level2 smaller" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Conditional Expectation</h2>
+<!-- ###################################################################### -->
+<div class="fragment" data-fragment-index="2" data-id="lemma">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathvariant="double-struck"><mi>𝔼</mi></mstyle><mrow><mo stretchy="true" form="prefix">[</mo><mstyle mathvariant="script"><mi>𝒥</mi></mstyle><mo>∣</mo><mi>p</mi><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mo>−</mo><mfrac><mn>1</mn><mn>4</mn></mfrac><mfrac><mrow><mi>q</mi><mo>+</mo><mi>r</mi><msup><mi>θ</mi><mn>2</mn></msup></mrow><mrow><mi>p</mi><mo>+</mo><mi>θ</mi></mrow></mfrac><mrow><mo stretchy="true" form="prefix">[</mo><msup><mi>θ</mi><mn>2</mn></msup><msup><mi>σ</mi><mn>2</mn></msup><mi>T</mi><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><msup><mi>e</mi><mrow><mn>2</mn><mi>T</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>p</mi><mo>+</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></msup><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>+</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mfrac><mrow><msup><mi>θ</mi><mn>2</mn></msup><msup><mi>σ</mi><mn>2</mn></msup></mrow><mrow><mi>p</mi><mo>+</mo><mi>θ</mi></mrow></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">
+\mathbb{E}[\mathcal{J} \mid p] =
+-\frac{1}{4}\frac{q+r\theta^2}{p+\theta}\left[ \theta^2 \sigma^2 T +
+\left(1-e^{2 T (p+\theta)}\right) \left(1+\frac{1}{2}\frac{\theta^2
+\sigma^2}{p+\theta}\right) \right]
+</annotation></semantics></math></p>
+</div>
+<div class="fragment" data-fragment-index="3" data-id="proof">
+<div class="callout callout-warning no-icon callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<p><strong>Proof</strong></p>
+</div>
+<div class="callout-content">
+<p>Substituting the solution of the SDE into the performance measure yields</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right"><mstyle mathvariant="script"><mi>𝒥</mi></mstyle><mo>=</mo></mtd><mtd columnalign="left"><mo>−</mo><mfrac><mn>1</mn><mn>4</mn></mfrac><mfrac><mrow><mi>q</mi><mo>+</mo><mi>r</mi><msup><mi>θ</mi><mn>2</mn></msup></mrow><mrow><mi>p</mi><mo>+</mo><mi>θ</mi></mrow></mfrac><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>+</mo><msup><mi>e</mi><mrow><mn>2</mn><mi>T</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>p</mi><mo>+</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></msup><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>q</mi><mo>+</mo><mi>r</mi><msup><mi>θ</mi><mn>2</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow><mi>θ</mi><mi>σ</mi><msubsup><mo>∫</mo><mn>0</mn><mi>T</mi></msubsup><msup><mi>e</mi><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>p</mi><mo>+</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>t</mi></mrow></msup><msubsup><mo>∫</mo><mn>0</mn><mi>t</mi></msubsup><msup><mi>e</mi><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>p</mi><mo>+</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo>−</mo><mi>s</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></msup><mi>d</mi><msub><mi>W</mi><mi>s</mi></msub><mi>d</mi><mi>t</mi><mspace width="0.278em"></mspace><mo>+</mo></mtd></mtr><mtr><mtd columnalign="right"></mtd><mtd columnalign="left"><mfrac><mn>1</mn><mn>2</mn></mfrac><mrow><mo stretchy="true" form="prefix">(</mo><mi>q</mi><mo>+</mo><mi>r</mi><msup><mi>θ</mi><mn>2</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow><msup><mi>θ</mi><mn>2</mn></msup><msup><mi>σ</mi><mn>2</mn></msup><msubsup><mo>∫</mo><mn>0</mn><mi>T</mi></msubsup><msup><mrow><mo stretchy="true" form="prefix">(</mo><msubsup><mo>∫</mo><mn>0</mn><mi>t</mi></msubsup><msup><mi>e</mi><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>p</mi><mo>+</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo>−</mo><mi>s</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></msup><mi>d</mi><msub><mi>W</mi><mi>s</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mi>d</mi><mi>t</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned} \mathcal{J} =
+        &amp; -\frac{1}{4}\frac{q+r\theta^2}{p+\theta}\left(1 +
+        e^{2T(p+\theta)}\right) + 
+        (q+r\theta^2)\theta\sigma \int_0^T
+        e^{(p+\theta)t} \int_0^t e^{(p+\theta)(t-s)}dW_s
+        dt \; + \\ &amp;\frac{1}{2}(q+r\theta^2)\theta^2
+        \sigma^2 \int_0^T \left( \int_0^t
+        e^{(p+\theta)(t-s)} dW_s  \right)^2 dt 
+\end{aligned}
+</annotation></semantics></math></p>
+<p>The conditional expectation of this quantity given the system parameter <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math> under the distribution induced by the Wiener process may be computed in closed-form using Ito calculus.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right"><msub><mstyle mathvariant="double-struck"><mi>𝔼</mi></mstyle><mi>W</mi></msub><mrow><mo stretchy="true" form="prefix">[</mo><mstyle mathvariant="script"><mi>𝒥</mi></mstyle><mo>∣</mo><mi>p</mi><mo stretchy="true" form="postfix">]</mo></mrow></mtd><mtd columnalign="left"><mo>=</mo><mo>−</mo><mfrac><mn>1</mn><mn>4</mn></mfrac><mfrac><mrow><mi>q</mi><mo>+</mo><mi>r</mi><msup><mi>θ</mi><mn>2</mn></msup></mrow><mrow><mi>p</mi><mo>+</mo><mi>θ</mi></mrow></mfrac><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><msup><mi>e</mi><mrow><mn>2</mn><mi>T</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>p</mi><mo>+</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></msup><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>q</mi><mo>+</mo><mi>r</mi><msup><mi>θ</mi><mn>2</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow><mi>θ</mi><mi>σ</mi><msubsup><mo>∫</mo><mn>0</mn><mi>T</mi></msubsup><msup><mi>e</mi><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>p</mi><mo>+</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>t</mi></mrow></msup><msub><mstyle mathvariant="double-struck"><mi>𝔼</mi></mstyle><mi>W</mi></msub><mrow><mo stretchy="true" form="prefix">[</mo><msubsup><mo>∫</mo><mn>0</mn><mi>t</mi></msubsup><msup><mi>e</mi><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>p</mi><mo>+</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo>−</mo><mi>s</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></msup><mi>d</mi><msub><mi>W</mi><mi>s</mi></msub><mspace width="0.222em"></mspace><mo minsize="1.8" maxsize="1.8" stretchy="false" form="postfix">|</mo><mi>p</mi><mo stretchy="true" form="postfix">]</mo></mrow><mi>d</mi><mi>t</mi><mo>+</mo></mtd></mtr><mtr><mtd columnalign="right"></mtd><mtd columnalign="left"><mfrac><mn>1</mn><mn>2</mn></mfrac><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>q</mi><mo>+</mo><mi>r</mi><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><msup><mi>θ</mi><mn>2</mn></msup><msup><mi>σ</mi><mn>2</mn></msup><msubsup><mo>∫</mo><mn>0</mn><mi>T</mi></msubsup><msub><mstyle mathvariant="double-struck"><mi>𝔼</mi></mstyle><mi>W</mi></msub><mrow><mo stretchy="true" form="prefix">[</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><msubsup><mo>∫</mo><mn>0</mn><mi>t</mi></msubsup><msup><mi>e</mi><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>p</mi><mo>+</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo>−</mo><mi>s</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></msup><mi>d</mi><msub><mi>W</mi><mi>s</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mspace width="0.222em"></mspace><mo minsize="2.4" maxsize="2.4" stretchy="false" form="postfix">|</mo><mi>p</mi><mo stretchy="true" form="postfix">]</mo></mrow><mi>d</mi><mi>t</mi></mtd></mtr><mtr><mtd columnalign="right"></mtd><mtd columnalign="left"><mo>=</mo><mo>−</mo><mfrac><mn>1</mn><mn>4</mn></mfrac><mfrac><mrow><mi>q</mi><mo>+</mo><mi>r</mi><msup><mi>θ</mi><mn>2</mn></msup></mrow><mrow><mi>p</mi><mo>+</mo><mi>θ</mi></mrow></mfrac><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><msup><mi>e</mi><mrow><mn>2</mn><mi>T</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>p</mi><mo>+</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></msup><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mrow><mo stretchy="true" form="prefix">(</mo><mi>q</mi><mo>+</mo><mi>r</mi><msup><mi>θ</mi><mn>2</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow><msup><mi>θ</mi><mn>2</mn></msup><msup><mi>σ</mi><mn>2</mn></msup><msubsup><mo>∫</mo><mn>0</mn><mi>T</mi></msubsup><mrow><mo stretchy="true" form="prefix">(</mo><msubsup><mo>∫</mo><mn>0</mn><mi>t</mi></msubsup><msup><mi>e</mi><mrow><mn>2</mn><mrow><mo stretchy="true" form="prefix">(</mo><mi>p</mi><mo>+</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo>−</mo><mi>s</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></msup><mi>d</mi><mi>s</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>d</mi><mi>t</mi></mtd></mtr><mtr><mtd columnalign="right"></mtd><mtd columnalign="left"><mo>=</mo><mo>−</mo><mfrac><mn>1</mn><mn>4</mn></mfrac><mfrac><mrow><mi>q</mi><mo>+</mo><mi>r</mi><msup><mi>θ</mi><mn>2</mn></msup></mrow><mrow><mi>p</mi><mo>+</mo><mi>θ</mi></mrow></mfrac><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><msup><mi>e</mi><mrow><mn>2</mn><mi>T</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>p</mi><mo>+</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></msup><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mrow><mo stretchy="true" form="prefix">(</mo><mi>q</mi><mo>+</mo><mi>r</mi><msup><mi>θ</mi><mn>2</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow><msup><mi>θ</mi><mn>2</mn></msup><msup><mi>σ</mi><mn>2</mn></msup><msubsup><mo>∫</mo><mn>0</mn><mi>T</mi></msubsup><mo>−</mo><mfrac><mn>1</mn><mrow><mn>2</mn><mrow><mo stretchy="true" form="prefix">(</mo><mi>p</mi><mo>+</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></mfrac><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><msup><mi>e</mi><mrow><mn>2</mn><mi>T</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>p</mi><mo>+</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></msup><mo stretchy="true" form="postfix">)</mo></mrow><mi>d</mi><mi>t</mi></mtd></mtr><mtr><mtd columnalign="right"></mtd><mtd columnalign="left"><mo>=</mo><mo>−</mo><mfrac><mn>1</mn><mn>4</mn></mfrac><mfrac><mrow><mi>q</mi><mo>+</mo><mi>r</mi><msup><mi>θ</mi><mn>2</mn></msup></mrow><mrow><mi>p</mi><mo>+</mo><mi>θ</mi></mrow></mfrac><mrow><mo stretchy="true" form="prefix">[</mo><msup><mi>θ</mi><mn>2</mn></msup><msup><mi>σ</mi><mn>2</mn></msup><mi>T</mi><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><msup><mi>e</mi><mrow><mn>2</mn><mi>T</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>p</mi><mo>+</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></msup><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>+</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mfrac><mrow><msup><mi>θ</mi><mn>2</mn></msup><msup><mi>σ</mi><mn>2</mn></msup></mrow><mrow><mi>p</mi><mo>+</mo><mi>θ</mi></mrow></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned} 
+\mathbb{E}_W\left[\mathcal{J} \mid p \right] &amp;= -\frac{1}{4}\frac{q+r\theta^2}{p+\theta}\left(1 - e^{2T(p+\theta)}\right) +
+        (q+r\theta^2)\theta\sigma\int_0^Te^{(p+\theta)t}\mathbb{E}_W\left[\int_0^t
+        e^{(p+\theta)(t-s)} dW_s~\Big\rvert p\right] dt + \\
+        &amp;\frac{1}{2}(q+r\theta)^2\theta^2\sigma^2\int_0^T\mathbb{E}_W\left[\left(\int_0^t
+        e^{(p+\theta)(t-s)} dW_s \right)^2~\bigg\rvert p\right] dt \\
+        &amp;=-\frac{1}{4}\frac{q+r\theta^2}{p+\theta}\left(1 -
+        e^{2T(p+\theta)}\right) + 
+        \frac{1}{2}(q+r\theta^2)\theta^2\sigma^2\int_0^T\left(\int_0^t
+        e^{2(p+\theta)(t-s)} ds \right) dt \\ 
+        &amp;=-\frac{1}{4}\frac{q+r\theta^2}{p+\theta}\left(1 - e^{2T(p+\theta)}\right) + 
+        \frac{1}{2}(q+r\theta^2)\theta^2\sigma^2\int_0^T
+        -\frac{1}{2(p+\theta)}\left(1 - e^{2T(p+\theta)}\right) dt \\ 
+        &amp;=-\frac{1}{4}\frac{q+r\theta^2}{p+\theta} \left[ \theta^2 \sigma^2 T +
+        \left(1 - e^{2T(p+\theta)}\right) \left(1 +
+        \frac{1}{2}\frac{\theta^2\sigma^2}{p+\theta}\right)\right]. 
+\end{aligned}
+</annotation></semantics></math></p>
+<div data-layout-halign="right">
+<p><span class="emoji" data-emoji="black_medium_square">◼️</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section></section>
 <section>
 <section id="neuralpbc-1" class="title-slide slide level1 center" data-visibility="uncounted">
@@ -1190,8 +1290,7 @@ f_{\theta^\star}(\theta^\star) &amp;= \frac{1}{\sigma_p \sqrt{2\pi}}\left( \
 <section id="motivation-1" class="slide level2">
 <h2>Motivation</h2>
 <!-- ###################################################################### -->
-<p>Control synthesis in PBC:</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi><msub><mi>u</mi><mrow><mi>e</mi><mi>s</mi></mrow></msub><mo>=</mo><msub><mi>∇</mi><mi>q</mi></msub><mi>H</mi><mo>−</mo><msub><mi>∇</mi><mi>q</mi></msub><msub><mi>H</mi><mi>d</mi></msub></mrow><annotation encoding="application/x-tex">
+<p>Control synthesis in PBC: <math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi><msub><mi>u</mi><mrow><mi>e</mi><mi>s</mi></mrow></msub><mo>=</mo><msub><mi>∇</mi><mi>q</mi></msub><mi>H</mi><mo>−</mo><msub><mi>∇</mi><mi>q</mi></msub><msub><mi>H</mi><mi>d</mi></msub></mrow><annotation encoding="application/x-tex">
 Gu_{es} = \nabla_q H - \nabla_q H_d
 </annotation></semantics></math></p>
 <ul>
@@ -1685,8 +1784,7 @@ Acrobot
 <p><strong>Control synthesis</strong></p>
 </div>
 <div class="callout-content">
-<p>Choose <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mo>=</mo><msub><mi>u</mi><mrow><mi>e</mi><mi>s</mi></mrow></msub><mo>+</mo><msub><mi>u</mi><mrow><mi>d</mi><mi>i</mi></mrow></msub></mrow><annotation encoding="application/x-tex">u = u_{es} + u_{di}</annotation></semantics></math> where</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right"><mi>G</mi><msub><mi>u</mi><mrow><mi>e</mi><mi>s</mi></mrow></msub></mtd><mtd columnalign="left"><mo>=</mo><msub><mi>∇</mi><mi>q</mi></msub><mi>H</mi><mo>−</mo><msub><mi>M</mi><mi>d</mi></msub><msup><mi>M</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup><msub><mi>∇</mi><mi>q</mi></msub><msub><mi>H</mi><mi>d</mi></msub></mtd></mtr><mtr><mtd columnalign="right"></mtd><mtd columnalign="left"><mspace width="1.0em"></mspace><mspace width="0.278em"></mspace><mo>+</mo><msub><mi>J</mi><mn>2</mn></msub><msubsup><mi>M</mi><mi>d</mi><mrow><mo>−</mo><mn>1</mn></mrow></msubsup><mi>p</mi><mphantom><msubsup><mi>∇</mi><mi>p</mi><mi>⊤</mi></msubsup></mphantom></mtd></mtr><mtr><mtd columnalign="right"><msub><mi>u</mi><mrow><mi>d</mi><mi>i</mi></mrow></msub></mtd><mtd columnalign="left"><mo>=</mo><mo>−</mo><msub><mi>K</mi><mi>v</mi></msub><msup><mi>G</mi><mi>⊤</mi></msup><msub><mi>∇</mi><mi>p</mi></msub><msub><mi>H</mi><mi>d</mi></msub><mphantom><msup><mrow><mo stretchy="true" form="prefix">∥</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>∇</mi><mi>p</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mi>⊤</mi></msup><mo stretchy="true" form="postfix">∥</mo></mrow><mn>2</mn></msup></mphantom></mtd></mtr></mtable><annotation encoding="application/x-tex">
+<p>Choose <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mo>=</mo><msub><mi>u</mi><mrow><mi>e</mi><mi>s</mi></mrow></msub><mo>+</mo><msub><mi>u</mi><mrow><mi>d</mi><mi>i</mi></mrow></msub></mrow><annotation encoding="application/x-tex">u = u_{es} + u_{di}</annotation></semantics></math> where <math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right"><mi>G</mi><msub><mi>u</mi><mrow><mi>e</mi><mi>s</mi></mrow></msub></mtd><mtd columnalign="left"><mo>=</mo><msub><mi>∇</mi><mi>q</mi></msub><mi>H</mi><mo>−</mo><msub><mi>M</mi><mi>d</mi></msub><msup><mi>M</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup><msub><mi>∇</mi><mi>q</mi></msub><msub><mi>H</mi><mi>d</mi></msub></mtd></mtr><mtr><mtd columnalign="right"></mtd><mtd columnalign="left"><mspace width="1.0em"></mspace><mspace width="0.278em"></mspace><mo>+</mo><msub><mi>J</mi><mn>2</mn></msub><msubsup><mi>M</mi><mi>d</mi><mrow><mo>−</mo><mn>1</mn></mrow></msubsup><mi>p</mi><mphantom><msubsup><mi>∇</mi><mi>p</mi><mi>⊤</mi></msubsup></mphantom></mtd></mtr><mtr><mtd columnalign="right"><msub><mi>u</mi><mrow><mi>d</mi><mi>i</mi></mrow></msub></mtd><mtd columnalign="left"><mo>=</mo><mo>−</mo><msub><mi>K</mi><mi>v</mi></msub><msup><mi>G</mi><mi>⊤</mi></msup><msub><mi>∇</mi><mi>p</mi></msub><msub><mi>H</mi><mi>d</mi></msub><mphantom><msup><mrow><mo stretchy="true" form="prefix">∥</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>∇</mi><mi>p</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mi>⊤</mi></msup><mo stretchy="true" form="postfix">∥</mo></mrow><mn>2</mn></msup></mphantom></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{aligned} 
 Gu_{es} &amp;= \nabla_{q} H - M_{d}M^{-1} \nabla_{q} H_{d} \\
 &amp;\quad\; + J_{2} M_{d}^{-1} p \phantom{\nabla_{p}^{\top}} \\

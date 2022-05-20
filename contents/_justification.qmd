@@ -147,4 +147,107 @@ $$
 ![](assets/optimal-dist_3.svg){.fragment data-fragment-index=3}
 :::
 
+---
 
+### Parameter Uncertainty and Measurement Noise {auto-animate="true"}
+<!-- ###################################################################### -->
+
+::: {.fragment data-fragment-index=0}
+Same control system with measurement noise: $x \sim \mathcal{N}(x, \sigma^2)$.
+:::
+
+::: {data-id="stoc-system" .fragment data-fragment-index=1}
+
+::: {layout-valign="center"}
+$$
+\Sigma: \quad
+\begin{cases}
+  dx(t) &= (p+\theta)x(t) dt + \theta \sigma dW_t, \\
+  x(0) &= 1.
+\end{cases}
+$$
+:::
+::: {layout-valign="center"}
+$$
+x(t) = e^{(p+\theta)t} + \theta \sigma \int_0^t e^{(p+\theta)(t-s)}dW_s.
+$$
+:::
+:::
+
+::: {.fragment data-fragment-index=2 data-id="lemma"}
+::: {.callout-tip icon=false}
+## Lemma
+
+The conditional expectation $\mathbb{E}[\mathcal{J} \mid p]$ of the performance
+index given the system parameter $p$ is
+
+$$
+\mathbb{E}[\mathcal{J} \mid p] =
+-\frac{1}{4}\frac{q+r\theta^2}{p+\theta}\left[ \theta^2 \sigma^2 T +
+\left(1-e^{2 T (p+\theta)}\right) \left(1+\frac{1}{2}\frac{\theta^2
+\sigma^2}{p+\theta}\right) \right]
+$$
+:::
+:::
+
+
+## Conditional Expectation {auto-animate="true" .smaller}
+<!-- ###################################################################### -->
+
+::: {.fragment data-fragment-index=2 data-id="lemma"}
+$$
+\mathbb{E}[\mathcal{J} \mid p] =
+-\frac{1}{4}\frac{q+r\theta^2}{p+\theta}\left[ \theta^2 \sigma^2 T +
+\left(1-e^{2 T (p+\theta)}\right) \left(1+\frac{1}{2}\frac{\theta^2
+\sigma^2}{p+\theta}\right) \right]
+$$
+:::
+
+::: {.fragment data-fragment-index=3 data-id="proof"}
+::: {.callout-warning icon=false}
+## Proof
+
+Substituting the solution of the SDE into the performance measure yields
+
+$$
+\begin{aligned} \mathcal{J} =
+        & -\frac{1}{4}\frac{q+r\theta^2}{p+\theta}\left(1 +
+        e^{2T(p+\theta)}\right) + 
+        (q+r\theta^2)\theta\sigma \int_0^T
+        e^{(p+\theta)t} \int_0^t e^{(p+\theta)(t-s)}dW_s
+        dt \; + \\ &\frac{1}{2}(q+r\theta^2)\theta^2
+        \sigma^2 \int_0^T \left( \int_0^t
+        e^{(p+\theta)(t-s)} dW_s  \right)^2 dt 
+\end{aligned}
+$$
+
+The conditional expectation of this quantity given the system parameter $p$
+under the distribution induced by the Wiener process may be computed in
+closed-form using Ito calculus.
+
+$$
+\begin{aligned} 
+\mathbb{E}_W\left[\mathcal{J} \mid p \right] &= -\frac{1}{4}\frac{q+r\theta^2}{p+\theta}\left(1 - e^{2T(p+\theta)}\right) +
+        (q+r\theta^2)\theta\sigma\int_0^Te^{(p+\theta)t}\mathbb{E}_W\left[\int_0^t
+        e^{(p+\theta)(t-s)} dW_s~\Big\rvert p\right] dt + \\
+        &\frac{1}{2}(q+r\theta)^2\theta^2\sigma^2\int_0^T\mathbb{E}_W\left[\left(\int_0^t
+        e^{(p+\theta)(t-s)} dW_s \right)^2~\bigg\rvert p\right] dt \\
+        &=-\frac{1}{4}\frac{q+r\theta^2}{p+\theta}\left(1 -
+        e^{2T(p+\theta)}\right) + 
+        \frac{1}{2}(q+r\theta^2)\theta^2\sigma^2\int_0^T\left(\int_0^t
+        e^{2(p+\theta)(t-s)} ds \right) dt \\ 
+        &=-\frac{1}{4}\frac{q+r\theta^2}{p+\theta}\left(1 - e^{2T(p+\theta)}\right) + 
+        \frac{1}{2}(q+r\theta^2)\theta^2\sigma^2\int_0^T
+        -\frac{1}{2(p+\theta)}\left(1 - e^{2T(p+\theta)}\right) dt \\ 
+        &=-\frac{1}{4}\frac{q+r\theta^2}{p+\theta} \left[ \theta^2 \sigma^2 T +
+        \left(1 - e^{2T(p+\theta)}\right) \left(1 +
+        \frac{1}{2}\frac{\theta^2\sigma^2}{p+\theta}\right)\right]. 
+\end{aligned}
+$$
+
+::: {layout-halign="right"}
+:black_medium_square:
+:::
+
+:::
+:::
