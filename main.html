@@ -1094,11 +1094,94 @@ p(\mathcal{D} \mid \theta) p(\theta) - \log q(\theta; z) \right]
 <p>&nbsp;</p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 36.4%;justify-content: center;">
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mstyle mathvariant="script"><mi>𝒥</mi></mstyle><mi>∞</mi></msub><mo>=</mo><mo>−</mo><mfrac><mn>1</mn><mn>4</mn></mfrac><mfrac><mrow><mi>q</mi><mo>+</mo><mi>r</mi><msup><mi>θ</mi><mn>2</mn></msup></mrow><mrow><mi>p</mi><mo>+</mo><mi>θ</mi></mrow></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
-\mathcal{J}_\infty = -\frac{1}{4}\frac{q+r \theta^2}{p+\theta}.
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mstyle mathvariant="script"><mi>𝒥</mi></mstyle><mrow><mi>T</mi><mo>→</mo><mi>∞</mi></mrow></msub><mo>=</mo><mo>−</mo><mfrac><mn>1</mn><mn>4</mn></mfrac><mfrac><mrow><mi>q</mi><mo>+</mo><mi>r</mi><msup><mi>θ</mi><mn>2</mn></msup></mrow><mrow><mi>p</mi><mo>+</mo><mi>θ</mi></mrow></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathcal{J}_{T \to \infty} = -\frac{1}{4}\frac{q+r \theta^2}{p+\theta}.
 </annotation></semantics></math></p>
 </div>
 </div>
+</div>
+<div class="fragment" data-fragment-index="1">
+<p>Solve for <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>θ</mi><annotation encoding="application/x-tex">\theta</annotation></semantics></math> that minimizes <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mstyle mathvariant="script"><mi>𝒥</mi></mstyle><mi>∞</mi></msub><annotation encoding="application/x-tex">\mathcal{J}_\infty</annotation></semantics></math>: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>θ</mi><mo>⋆</mo></msup><mo>=</mo><mi>g</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>p</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>:=</mo><mo>−</mo><mi>p</mi><mo>−</mo><msqrt><mrow><msup><mi>p</mi><mn>2</mn></msup><mo>+</mo><mfrac><mi>q</mi><mi>r</mi></mfrac></mrow></msqrt></mrow><annotation encoding="application/x-tex">\theta^\star = g(p) := -p -\sqrt{p^2+\frac{q}{r}}</annotation></semantics></math>.</p>
+</div>
+<div class="fragment quarto-layout-panel" data-fragment-index="2" data-id="opt-sol">
+<div class="quarto-layout-row quarto-layout-valign-center">
+<div class="callout callout-note no-icon callout-captioned callout-style-default quarto-layout-cell" style="flex-basis: 60.6%;justify-content: center;">
+<div class="callout-body">
+<div class="callout-caption">
+<p><strong>Deterministic</strong></p>
+</div>
+<div class="callout-content">
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>θ</mi><mo>⋆</mo></msup><mo>=</mo><mi>g</mi><mrow><mo stretchy="true" form="prefix">(</mo><mover><mi>p</mi><mo accent="true">̂</mo></mover><mo stretchy="true" form="postfix">)</mo></mrow><mo>:=</mo><mo>−</mo><mover><mi>p</mi><mo accent="true">̂</mo></mover><mo>−</mo><msqrt><mrow><msup><mover><mi>p</mi><mo accent="true">̂</mo></mover><mn>2</mn></msup><mo>+</mo><mfrac><mi>q</mi><mi>r</mi></mfrac></mrow></msqrt></mrow><annotation encoding="application/x-tex">\theta^\star = g(\hat{p}) := -\hat{p} -\sqrt{\hat{p}^2+\frac{q}{r}}</annotation></semantics></math></p>
+</div>
+</div>
+</div>
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 3.0%;justify-content: center;">
+<p>&nbsp;</p>
+</div>
+<div class="callout callout-note no-icon callout-captioned callout-style-default quarto-layout-cell" style="flex-basis: 36.4%;justify-content: center;">
+<div class="callout-body">
+<div class="callout-caption">
+<p><strong>Probabilistic</strong></p>
+</div>
+<div class="callout-content">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right"><msub><mi>f</mi><msup><mi>θ</mi><mo>⋆</mo></msup></msub><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>θ</mi><mo>⋆</mo></msup><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left"><mo>=</mo><mfrac><mn>1</mn><mrow><msub><mi>σ</mi><mi>p</mi></msub><msqrt><mrow><mn>2</mn><mi>π</mi></mrow></msqrt></mrow></mfrac><mrow><mo stretchy="true" form="prefix">(</mo><mspace width="0.222em"></mspace><mfrac><mn>1</mn><mn>2</mn></mfrac><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>+</mo><mfrac><mi>q</mi><mrow><mi>r</mi><msup><msup><mi>θ</mi><mo>⋆</mo></msup><mn>2</mn></msup></mrow></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow></mtd></mtr><mtr><mtd columnalign="right"></mtd><mtd columnalign="left"><mo>exp</mo><mrow><mo stretchy="true" form="prefix">{</mo><mo>−</mo><mfrac><mn>1</mn><mrow><mn>2</mn><msubsup><mi>σ</mi><mi>p</mi><mn>2</mn></msubsup></mrow></mfrac><msup><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mi>q</mi><mrow><mn>2</mn><mi>r</mi><msup><mi>θ</mi><mo>⋆</mo></msup></mrow></mfrac><mo>−</mo><mfrac><msup><mi>θ</mi><mo>⋆</mo></msup><mn>2</mn></mfrac><mo>−</mo><mover><mi>p</mi><mo accent="true">̂</mo></mover><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mo stretchy="true" form="postfix">}</mo></mrow></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+f_{\theta^\star}(\theta^\star) &amp;= \frac{1}{\sigma_p \sqrt{2\pi}}\left( \
+\frac{1}{2}\left(1+\frac{q}{r{\theta^\star}^2}\right) \right) \\
+&amp;\exp{\left\{ -\frac{1}{2\sigma_p^2}\left( \frac{q}{2r\theta^\star} -
+\frac{\theta^\star}{2} - \hat{p}  \right)^2  \right\} }
+\end{aligned}
+</annotation></semantics></math></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="infinite-horizon-best-performance-1" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Infinite-Horizon Best Performance</h2>
+<!-- ###################################################################### -->
+<div class="fragment quarto-layout-panel" data-fragment-index="0" data-id="opt-sol">
+<div class="quarto-layout-row quarto-layout-valign-center">
+<div class="callout callout-note no-icon callout-captioned callout-style-default quarto-layout-cell" style="flex-basis: 60.6%;justify-content: center;">
+<div class="callout-body">
+<div class="callout-caption">
+<p><strong>Deterministic</strong></p>
+</div>
+<div class="callout-content">
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>θ</mi><mo>⋆</mo></msup><mo>=</mo><mi>g</mi><mrow><mo stretchy="true" form="prefix">(</mo><mover><mi>p</mi><mo accent="true">̂</mo></mover><mo stretchy="true" form="postfix">)</mo></mrow><mo>:=</mo><mo>−</mo><mover><mi>p</mi><mo accent="true">̂</mo></mover><mo>−</mo><msqrt><mrow><msup><mover><mi>p</mi><mo accent="true">̂</mo></mover><mn>2</mn></msup><mo>+</mo><mfrac><mi>q</mi><mi>r</mi></mfrac></mrow></msqrt></mrow><annotation encoding="application/x-tex">\theta^\star = g(\hat{p}) := -\hat{p} -\sqrt{\hat{p}^2+\frac{q}{r}}</annotation></semantics></math></p>
+</div>
+</div>
+</div>
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 3.0%;justify-content: center;">
+<p>&nbsp;</p>
+</div>
+<div class="callout callout-note no-icon callout-captioned callout-style-default quarto-layout-cell" style="flex-basis: 36.4%;justify-content: center;">
+<div class="callout-body">
+<div class="callout-caption">
+<p><strong>Probabilistic</strong></p>
+</div>
+<div class="callout-content">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right"><msub><mi>f</mi><msup><mi>θ</mi><mo>⋆</mo></msup></msub><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>θ</mi><mo>⋆</mo></msup><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left"><mo>=</mo><mfrac><mn>1</mn><mrow><msub><mi>σ</mi><mi>p</mi></msub><msqrt><mrow><mn>2</mn><mi>π</mi></mrow></msqrt></mrow></mfrac><mrow><mo stretchy="true" form="prefix">(</mo><mspace width="0.222em"></mspace><mfrac><mn>1</mn><mn>2</mn></mfrac><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>+</mo><mfrac><mi>q</mi><mrow><mi>r</mi><msup><msup><mi>θ</mi><mo>⋆</mo></msup><mn>2</mn></msup></mrow></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow></mtd></mtr><mtr><mtd columnalign="right"></mtd><mtd columnalign="left"><mo>exp</mo><mrow><mo stretchy="true" form="prefix">{</mo><mo>−</mo><mfrac><mn>1</mn><mrow><mn>2</mn><msubsup><mi>σ</mi><mi>p</mi><mn>2</mn></msubsup></mrow></mfrac><msup><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mi>q</mi><mrow><mn>2</mn><mi>r</mi><msup><mi>θ</mi><mo>⋆</mo></msup></mrow></mfrac><mo>−</mo><mfrac><msup><mi>θ</mi><mo>⋆</mo></msup><mn>2</mn></mfrac><mo>−</mo><mover><mi>p</mi><mo accent="true">̂</mo></mover><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mo stretchy="true" form="postfix">}</mo></mrow></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+f_{\theta^\star}(\theta^\star) &amp;= \frac{1}{\sigma_p \sqrt{2\pi}}\left( \
+\frac{1}{2}\left(1+\frac{q}{r{\theta^\star}^2}\right) \right) \\
+&amp;\exp{\left\{ -\frac{1}{2\sigma_p^2}\left( \frac{q}{2r\theta^\star} -
+\frac{\theta^\star}{2} - \hat{p}  \right)^2  \right\} }
+\end{aligned}
+</annotation></semantics></math></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="r-stack">
+<p><img data-src="contents/assets/optimal-dist_1.svg" class="fragment" data-fragment-index="1"></p>
+<p><img data-src="contents/assets/optimal-dist_2.svg" class="fragment" data-fragment-index="2"></p>
+<p><img data-src="contents/assets/optimal-dist_3.svg" class="fragment" data-fragment-index="3"></p>
+</div>
+<div class="fragment" data-layout-valign="center" data-fragment-index="1" data-id="opt-sol">
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>p</mi><mo accent="true">̂</mo></mover><mo>=</mo><mn>5</mn><mo>,</mo><msub><mi>σ</mi><mi>p</mi></msub><mo>=</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">\hat{p}=5, \sigma_p = 5</annotation></semantics></math></p>
 </div>
 </section></section>
 <section>

@@ -78,8 +78,81 @@ $$
 \mathcal{J} = \int_0^T \left( \frac{1}{2}qx(t)^2 + \frac{1}{2}ru(t)^2  \right)dt.
 $$
 $$
-\mathcal{J}_\infty = -\frac{1}{4}\frac{q+r \theta^2}{p+\theta}.
+\mathcal{J}_{T \to \infty} = -\frac{1}{4}\frac{q+r \theta^2}{p+\theta}.
 $$
 :::
 
+::: {.fragment data-fragment-index=1}
 
+Solve for $\theta$ that minimizes $\mathcal{J}_\infty$: $\theta^\star = g(p) :=
+-p -\sqrt{p^2+\frac{q}{r}}$.
+
+:::
+
+::: {layout="[100,-5,60]" layout-valign="center" .fragment data-fragment-index=2 data-id="opt-sol"}
+
+::: {.callout-note icon=false}
+## Deterministic
+
+$\theta^\star = g(\hat{p}) := -\hat{p} -\sqrt{\hat{p}^2+\frac{q}{r}}$
+
+:::
+
+::: {.callout-note icon=false}
+## Probabilistic
+
+$$
+\begin{aligned}
+f_{\theta^\star}(\theta^\star) &= \frac{1}{\sigma_p \sqrt{2\pi}}\left( \
+\frac{1}{2}\left(1+\frac{q}{r{\theta^\star}^2}\right) \right) \\
+&\exp{\left\{ -\frac{1}{2\sigma_p^2}\left( \frac{q}{2r\theta^\star} -
+\frac{\theta^\star}{2} - \hat{p}  \right)^2  \right\} }
+\end{aligned}
+$$
+
+:::
+
+:::
+
+
+## Infinite-Horizon Best Performance {auto-animate="true"}
+<!-- ###################################################################### -->
+
+
+::: {layout="[100,-5,60]" layout-valign="center" .fragment data-fragment-index=0 data-id="opt-sol"}
+
+::: {.callout-note icon=false}
+## Deterministic
+
+$\theta^\star = g(\hat{p}) := -\hat{p} -\sqrt{\hat{p}^2+\frac{q}{r}}$
+
+:::
+
+::: {.callout-note icon=false}
+## Probabilistic
+
+$$
+\begin{aligned}
+f_{\theta^\star}(\theta^\star) &= \frac{1}{\sigma_p \sqrt{2\pi}}\left( \
+\frac{1}{2}\left(1+\frac{q}{r{\theta^\star}^2}\right) \right) \\
+&\exp{\left\{ -\frac{1}{2\sigma_p^2}\left( \frac{q}{2r\theta^\star} -
+\frac{\theta^\star}{2} - \hat{p}  \right)^2  \right\} }
+\end{aligned}
+$$
+
+:::
+
+:::
+
+
+::: {.r-stack}
+![](assets/optimal-dist_1.svg){.fragment data-fragment-index=1}
+
+![](assets/optimal-dist_2.svg){.fragment data-fragment-index=2}
+
+![](assets/optimal-dist_3.svg){.fragment data-fragment-index=3}
+:::
+
+::: {layout-valign="center" .fragment data-fragment-index=1 data-id="opt-sol"}
+$\hat{p}=5, \sigma_p = 5$
+:::
