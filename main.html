@@ -1273,12 +1273,50 @@ x(t) = e^{(p+\theta)t} + \theta \sigma \int_0^t e^{(p+\theta)(t-s)}dW_s.
         \frac{1}{2}\frac{\theta^2\sigma^2}{p+\theta}\right)\right]. 
 \end{aligned}
 </annotation></semantics></math></p>
-<div data-layout-halign="right">
-<p><span class="emoji" data-emoji="black_medium_square">◼️</span></p>
+<div style="text-align: right">
+<span class="emoji" data-emoji="orange_square">🟧</span>
 </div>
 </div>
 </div>
 </div>
+</div>
+</section>
+<section id="optimal-controller" class="slide level2" data-auto-animate="true" data-auto-animate-easing="ease-in-out">
+<h2 data-id="quarto-animate-title">Optimal Controller</h2>
+<!-- ###################################################################### -->
+<div class="r-stack" data-layout-valign="center">
+<p><img data-src="contents/assets/optimal_ctrl.svg" class="fragment" data-fragment-index="0" data-id="opt-ctrl" style="width:80.0%"></p>
+<div class="fragment" style="vertical-align: bottom" data-fragment-index="0">
+Optimal controller <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">|</mo><msup><mi>θ</mi><mo>⋆</mo></msup><mo stretchy="true" form="postfix">|</mo></mrow><annotation encoding="application/x-tex">|\theta^\star|</annotation></semantics></math> minimizing <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathvariant="double-struck"><mi>𝔼</mi></mstyle><mstyle mathvariant="script"><mi>𝒥</mi></mstyle></mrow><annotation encoding="application/x-tex">\mathbb{E}\mathcal{J}</annotation></semantics></math>
+</div>
+<p><img data-src="contents/assets/optimal_cost.svg" class="fragment" data-fragment-index="1" data-id="opt-cost" style="width:80.0%"></p>
+<div class="fragment" style="vertical-align: bottom" data-fragment-index="1">
+Minimal expected cost <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathvariant="double-struck"><mi>𝔼</mi></mstyle><mstyle mathvariant="script"><mi>𝒥</mi></mstyle></mrow><annotation encoding="application/x-tex">\mathbb{E}\mathcal{J}</annotation></semantics></math>
+</div>
+</div>
+</section>
+<section id="optimal-controller-1" class="slide level2" data-auto-animate="true" data-auto-animate-easing="ease-in-out">
+<h2 data-id="quarto-animate-title">Optimal Controller</h2>
+<!-- ###################################################################### -->
+<div class="r-hstack">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="contents/assets/optimal_ctrl.svg" class="fragment" data-fragment-index="0" data-id="opt-ctrl"></p>
+<p></p><figcaption aria-hidden="true">Optimal controller <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">|</mo><msup><mi>θ</mi><mo>⋆</mo></msup><mo stretchy="true" form="postfix">|</mo></mrow><annotation encoding="application/x-tex">|\theta^\star|</annotation></semantics></math> minimizing <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathvariant="double-struck"><mi>𝔼</mi></mstyle><mstyle mathvariant="script"><mi>𝒥</mi></mstyle></mrow><annotation encoding="application/x-tex">\mathbb{E}\mathcal{J}</annotation></semantics></math></figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="contents/assets/optimal_cost.svg" class="fragment" data-fragment-index="0" data-id="opt-cost"></p>
+<p></p><figcaption aria-hidden="true">Minimal expected cost <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathvariant="double-struck"><mi>𝔼</mi></mstyle><mstyle mathvariant="script"><mi>𝒥</mi></mstyle></mrow><annotation encoding="application/x-tex">\mathbb{E}\mathcal{J}</annotation></semantics></math></figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="fragment" data-fragment-index="1">
+<ul>
+<li class="fragment">Optimal control parameter a nontrivial function of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>σ</mi><annotation encoding="application/x-tex">\sigma</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>σ</mi><mi>p</mi></msub><annotation encoding="application/x-tex">\sigma_p</annotation></semantics></math>.</li>
+<li class="fragment">Bayesian learning strikes the right trade-off.</li>
+</ul>
 </div>
 </section></section>
 <section>
