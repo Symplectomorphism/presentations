@@ -999,6 +999,58 @@ p(\mathcal{D} \mid \theta) p(\theta) - \log q(\theta; z) \right]
 </div>
 </section></section>
 <section>
+<section id="theoretical-justification" class="title-slide slide level1 center" data-visibility="uncounted">
+<h1>Theoretical Justification</h1>
+<!-- ###################################################################### -->
+<p>Why does Bayesian Learning result in more robust controllers?</p>
+</section>
+<section id="system-parameter-uncertainty" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">System Parameter Uncertainty</h2>
+<div class="fragment" data-fragment-index="0">
+<ul>
+<li>Scalar control system</li>
+<li>Uncertain drift vector field: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>∼</mo><mstyle mathvariant="script"><mi>𝒩</mi></mstyle><mrow><mo stretchy="true" form="prefix">(</mo><mover><mi>p</mi><mo accent="true">̂</mo></mover><mo>,</mo><msubsup><mi>σ</mi><mi>p</mi><mn>2</mn></msubsup><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">p \sim \mathcal{N}(\hat{p}, \sigma_p^2)</annotation></semantics></math>.</li>
+<li>No measurement uncertainty</li>
+</ul>
+</div>
+<div id="system" class="fragment" data-fragment-index="1">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Σ</mi><mo>:</mo><mspace width="1.0em"></mspace><mrow><mo stretchy="true" form="prefix">{</mo><mtable><mtr><mtd columnalign="left"><mover><mi>x</mi><mo accent="true">̇</mo></mover></mtd><mtd columnalign="left"><mo>=</mo><mi>p</mi><mi>x</mi><mo>+</mo><mi>u</mi><mo>,</mo></mtd></mtr><mtr><mtd columnalign="left"><mi>u</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left"><mo>=</mo><mi>θ</mi><mi>x</mi><mo>,</mo></mtd></mtr><mtr><mtd columnalign="left"><mi>x</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left"><mo>=</mo><mn>1</mn><mi>.</mi></mtd></mtr></mtable></mrow></mrow><annotation encoding="application/x-tex">
+\Sigma: \quad
+\begin{cases}
+  \dot{x} &amp;= px + u, \\
+  u(x) &amp;= \theta x, \\
+  x(0) &amp;= 1.
+\end{cases}
+</annotation></semantics></math></p>
+</div>
+</section>
+<section id="performance-index" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Performance Index</h2>
+<div id="system">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Σ</mi><mo>:</mo><mspace width="1.0em"></mspace><mrow><mo stretchy="true" form="prefix">{</mo><mtable><mtr><mtd columnalign="left"><mover><mi>x</mi><mo accent="true">̇</mo></mover></mtd><mtd columnalign="left"><mo>=</mo><mi>p</mi><mi>x</mi><mo>+</mo><mi>u</mi><mo>,</mo></mtd></mtr><mtr><mtd columnalign="left"><mi>u</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left"><mo>=</mo><mi>θ</mi><mi>x</mi><mo>,</mo></mtd></mtr><mtr><mtd columnalign="left"><mi>x</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left"><mo>=</mo><mn>1</mn><mi>.</mi></mtd></mtr></mtable></mrow></mrow><annotation encoding="application/x-tex">
+\Sigma: \quad
+\begin{cases}
+  \dot{x} &amp;= px + u, \\
+  u(x) &amp;= \theta x, \\
+  x(0) &amp;= 1.
+\end{cases}
+</annotation></semantics></math></p>
+</div>
+<div class="fragment" data-fragment-index="0">
+<p>Quadratic performance index</p>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">q \geq 0</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">r &gt; 0</annotation></semantics></math><br>
+</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>T</mi><annotation encoding="application/x-tex">T</annotation></semantics></math>: control horizon</li>
+</ul>
+</div>
+<div class="fragment" data-fragment-index="0">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathvariant="script"><mi>𝒥</mi></mstyle><mo>=</mo><msubsup><mo>∫</mo><mn>0</mn><mi>T</mi></msubsup><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>q</mi><mi>x</mi><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mo>+</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>r</mi><mi>u</mi><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow><mi>d</mi><mi>t</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathcal{J} = \int_0^T \left( \frac{1}{2}qx(t)^2 + \frac{1}{2}ru(t)^2  \right)dt.
+</annotation></semantics></math></p>
+</div>
+</section></section>
+<section>
 <section id="neuralpbc-1" class="title-slide slide level1 center" data-visibility="uncounted">
 <h1><span class="smallcaps">NeuralPbc</span></h1>
 <!-- ###################################################################### -->
@@ -1305,12 +1357,14 @@ J(\theta, x_0) = \int_{0}^{T} \ell \left(\phi,u^\theta,\theta\right)\, \text{d} 
 <!-- ###################################################################### -->
 <p>&nbsp;</p>
 <ol class="fragment" data-fragment-index="0">
-Computing ELBO requires:
-<li class="fragment" data-fragment-index="0">
+<p>Computing ELBO</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathvariant="script"><mi>ℒ</mi></mstyle><mrow><mo stretchy="true" form="prefix">(</mo><mstyle mathvariant="script"><mi>𝒟</mi></mstyle><mo>;</mo><mi>z</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msub><mstyle mathvariant="double-struck"><mi>𝔼</mi></mstyle><mrow><mi>θ</mi><mo>∼</mo><mi>q</mi></mrow></msub><mrow><mo stretchy="true" form="prefix">[</mo><mo>log</mo><mi>p</mi><mrow><mo stretchy="true" form="prefix">(</mo><mstyle mathvariant="script"><mi>𝒟</mi></mstyle><mo>∣</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>p</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mo>log</mo><mi>q</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>θ</mi><mo>;</mo><mi>z</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex"> \mathcal{L}(\mathcal{D};z) = \mathbb{E}_{\theta \sim q}\left[ \log p(\mathcal{D} \mid \theta)p(\theta) - \log q(\theta; z)  \right] </annotation></semantics></math></p>
+requires: &nbsp;
+<li class="fragment" data-fragment-index="1">
 <p><em>Likelihood</em>:</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mrow><mo stretchy="true" form="prefix">(</mo><mo stretchy="false" form="prefix">∥</mo><msub><mo>ℓ</mo><mtext mathvariant="normal">set</mtext></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>γ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><msub><mo>ℓ</mo><mi>⊥</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>γ</mi><mo>,</mo><mi>u</mi><mo stretchy="true" form="postfix">)</mo></mrow><msup><mo stretchy="false" form="postfix">∥</mo><mn>2</mn></msup><mo>∣</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mstyle mathvariant="script"><mi>𝒩</mi></mstyle><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo>,</mo><mi>s</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex"> p\left( \lVert \ell_{\text{set}}(\gamma) + \ell_\bot(\gamma, u) \rVert^2 \mid \theta \right) = \mathcal{N}(0, s). </annotation></semantics></math></p>
 </li>
-<li class="fragment" data-fragment-index="1">
+<li class="fragment" data-fragment-index="2">
 <em>Prior</em>:
 <ul>
 <li>

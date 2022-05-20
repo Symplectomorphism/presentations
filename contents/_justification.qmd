@@ -1,0 +1,54 @@
+# Theoretical Justification {visibility="uncounted"}
+<!-- ###################################################################### -->
+
+Why does Bayesian Learning result in more robust controllers?
+
+## System Parameter Uncertainty {auto-animate="true"}
+
+::: {.fragment data-fragment-index=0}
+* Scalar control system 
+* Uncertain drift vector field: $p \sim
+\mathcal{N}(\hat{p}, \sigma_p^2)$.
+* No measurement uncertainty
+:::
+
+::: {id="system" .fragment data-fragment-index=1}
+$$
+\Sigma: \quad
+\begin{cases}
+  \dot{x} &= px + u, \\
+  u(x) &= \theta x, \\
+  x(0) &= 1.
+\end{cases}
+$$
+:::
+
+
+
+## Performance Index {auto-animate="true"}
+
+
+::: {id="system"}
+$$
+\Sigma: \quad
+\begin{cases}
+  \dot{x} &= px + u, \\
+  u(x) &= \theta x, \\
+  x(0) &= 1.
+\end{cases}
+$$
+:::
+
+::: {.fragment data-fragment-index=0}
+
+Quadratic performance index
+
+- $q \geq 0$, $r > 0$  
+- $T$: control horizon
+:::
+
+::: {.fragment data-fragment-index=0}
+$$
+\mathcal{J} = \int_0^T \left( \frac{1}{2}qx(t)^2 + \frac{1}{2}ru(t)^2  \right)dt.
+$$
+:::

@@ -300,11 +300,14 @@ Sample state space with technique based on <span style="font-variant:small-caps;
 &nbsp;
 
 <ol class="fragment" data-fragment-index=0>
-Computing ELBO requires: 
-  <li class="fragment" data-fragment-index=0> _Likelihood_:
+Computing ELBO
+$$ \mathcal{L}(\mathcal{D};z) = \mathbb{E}_{\theta \sim q}\left[ \log p(\mathcal{D} \mid \theta)p(\theta) - \log q(\theta; z)  \right] $$
+requires: 
+&nbsp;
+  <li class="fragment" data-fragment-index=1> _Likelihood_:
 $$ p\left( \lVert \ell_{\text{set}}(\gamma) + \ell_\bot(\gamma, u) \rVert^2 \mid \theta \right) = \mathcal{N}(0, s). $$
   </li>
-  <li class="fragment" data-fragment-index=1> _Prior_:
+  <li class="fragment" data-fragment-index=2> _Prior_:
     <ul>
       <li> Uninformed </li>
       <li> Deterministic </li>
