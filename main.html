@@ -2153,14 +2153,70 @@ b_1\dot{q}_1\right) \\ \frac{1}{I_2}\left(u^\theta -b_2 \dot{q}_2 \right)
 <h2></h2>
 <!-- ###################################################################### -->
 </section>
-<section id="deterministic-vs.-bayesian-training-1" class="slide level2">
+<section id="deterministic-vs.-bayesian-training-1" class="slide level2 smaller">
 <h2>Deterministic vs.&nbsp;Bayesian Training</h2>
 <!-- ###################################################################### -->
 <div class="columns">
-<div class="column" style="width:50%;">
-
+<div class="column fragment" data-fragment-index="1" style="width:50%;">
+<div class="fragment" data-fragment-index="0">
+<ul>
+<li class="fragment">Subtracting rings from the wheel
+<ul>
+<li class="fragment">decreases wheel mass</li>
+<li class="fragment">decreases wheel and pendulum inertia</li>
+<li class="fragment">moves the center of mass</li>
+</ul></li>
+</ul>
+</div>
+<div class="callout callout-none no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<table>
+<thead>
+<tr class="header">
+<th>Parameter vector <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ζ</mi><annotation encoding="application/x-tex">\zeta</annotation></semantics></math></th>
+<th style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>I</mi><mn>1</mn></msub><annotation encoding="application/x-tex">I_1</annotation></semantics></math></th>
+<th style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>I</mi><mn>2</mn></msub><annotation encoding="application/x-tex">I_2</annotation></semantics></math></th>
+<th style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mi>g</mi><mi>l</mi></mrow><annotation encoding="application/x-tex">m g l</annotation></semantics></math></th>
+<th style="text-align: center;">Error</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Nominal</td>
+<td style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.0455</mn><annotation encoding="application/x-tex">0.0455</annotation></semantics></math></td>
+<td style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.00425</mn><annotation encoding="application/x-tex">0.00425</annotation></semantics></math></td>
+<td style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1.795</mn><annotation encoding="application/x-tex">1.795</annotation></semantics></math></td>
+<td style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0</mn><annotation encoding="application/x-tex">0</annotation></semantics></math></td>
+</tr>
+<tr class="even">
+<td>3 rings</td>
+<td style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.0417</mn><annotation encoding="application/x-tex">0.0417</annotation></semantics></math></td>
+<td style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.00330</mn><annotation encoding="application/x-tex">0.00330</annotation></semantics></math></td>
+<td style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1.577</mn><annotation encoding="application/x-tex">1.577</annotation></semantics></math></td>
+<td style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.122</mn><annotation encoding="application/x-tex">0.122</annotation></semantics></math></td>
+</tr>
+<tr class="odd">
+<td>2 rings</td>
+<td style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.0378</mn><annotation encoding="application/x-tex">0.0378</annotation></semantics></math></td>
+<td style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.00235</mn><annotation encoding="application/x-tex">0.00235</annotation></semantics></math></td>
+<td style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1.358</mn><annotation encoding="application/x-tex">1.358</annotation></semantics></math></td>
+<td style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.243</mn><annotation encoding="application/x-tex">0.243</annotation></semantics></math></td>
+</tr>
+<tr class="even">
+<td>1 rings</td>
+<td style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.0340</mn><annotation encoding="application/x-tex">0.0340</annotation></semantics></math></td>
+<td style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.00141</mn><annotation encoding="application/x-tex">0.00141</annotation></semantics></math></td>
+<td style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1.140</mn><annotation encoding="application/x-tex">1.140</annotation></semantics></math></td>
+<td style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.365</mn><annotation encoding="application/x-tex">0.365</annotation></semantics></math></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
 </div><div class="column" data-layout-valign="center" style="width:50%;">
-<p><img data-src="contents/assets/four-rings.jpg" style="width:80.0%"></p>
+<p><img data-src="contents/assets/four-rings.jpg" data-layout-valign="center" style="width:80.0%"></p>
 <p><img data-src="contents/assets/idapbc_bar.svg" style="width:90.0%"></p>
 </div>
 </div>
