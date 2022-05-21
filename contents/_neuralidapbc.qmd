@@ -286,8 +286,73 @@ of a class of underactuated mechanical systems via interconnection and damping a
 
 ::::
 
+
+## Deterministic vs. Bayesian Training {.smaller}
+<!-- ###################################################################### -->
+
+:::: {.columns}
+
+::: {.column width="60%"}
+
+::: {.fragment}
+Performance metric: $\mathcal{J} = \int_0^T \left( \frac{1}{2}qx(t)^2 + \frac{1}{2}ru(t)^2  \right)dt$.
+:::
+
+&nbsp;
+
+::: {.fragment}
+Simulated dynamics  
+
+$$
+\begin{aligned}
+dx &= \begin{bmatrix}
+\dot{q}_1 \\ \dot{q_2} \\ \frac{1}{I_1}\left(m g l \sin{q_1} - u^\theta -
+b_1\dot{q}_1\right) \\ \frac{1}{I_2}\left(u^\theta -b_2 \dot{q}_2 \right)
+\end{bmatrix} dt \\
+&+ \nabla_xu^\theta(x) \sigma dW_t.
+\end{aligned}
+$$
+:::
+
+:::
+
+::: {.column width="40%"}
+
+![](assets/iwp.svg){width=50%}
+
+![](assets/bandplot.svg){width=90%}
+
+
+:::
+
+::::
+
+
 ## {background-video="contents/assets/iwp-cut-firefox.mp4" background-size="contain" background-video-loop="true" background-video-muted="true"}
 <!-- ###################################################################### -->
+
+
+## Deterministic vs. Bayesian Training
+<!-- ###################################################################### -->
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+
+
+:::
+
+::: {.column width="50%" layout-valign="center"}
+
+![](assets/four-rings.jpg){width=80%}
+
+![](assets/idapbc_bar.svg){width=90%}
+
+
+:::
+
+::::
 
 
 ## Ball-beam experiments

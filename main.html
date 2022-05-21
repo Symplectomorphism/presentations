@@ -2122,9 +2122,48 @@ Comparison of control effort expenditure
 </div>
 </div>
 </section>
+<section id="deterministic-vs.-bayesian-training" class="slide level2 smaller">
+<h2>Deterministic vs.&nbsp;Bayesian Training</h2>
+<!-- ###################################################################### -->
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="fragment">
+<p>Performance metric: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathvariant="script"><mi>𝒥</mi></mstyle><mo>=</mo><msubsup><mo>∫</mo><mn>0</mn><mi>T</mi></msubsup><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>q</mi><mi>x</mi><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mo>+</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>r</mi><mi>u</mi><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow><mi>d</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">\mathcal{J} = \int_0^T \left( \frac{1}{2}qx(t)^2 + \frac{1}{2}ru(t)^2 \right)dt</annotation></semantics></math>.</p>
+</div>
+<p>&nbsp;</p>
+<div class="fragment">
+<p>Simulated dynamics</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right"><mi>d</mi><mi>x</mi></mtd><mtd columnalign="left"><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center"><msub><mover><mi>q</mi><mo accent="true">̇</mo></mover><mn>1</mn></msub></mtd></mtr><mtr><mtd columnalign="center"><mover><msub><mi>q</mi><mn>2</mn></msub><mo accent="true">̇</mo></mover></mtd></mtr><mtr><mtd columnalign="center"><mfrac><mn>1</mn><msub><mi>I</mi><mn>1</mn></msub></mfrac><mrow><mo stretchy="true" form="prefix">(</mo><mi>m</mi><mi>g</mi><mi>l</mi><mo>sin</mo><msub><mi>q</mi><mn>1</mn></msub><mo>−</mo><msup><mi>u</mi><mi>θ</mi></msup><mo>−</mo><msub><mi>b</mi><mn>1</mn></msub><msub><mover><mi>q</mi><mo accent="true">̇</mo></mover><mn>1</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow></mtd></mtr><mtr><mtd columnalign="center"><mfrac><mn>1</mn><msub><mi>I</mi><mn>2</mn></msub></mfrac><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>u</mi><mi>θ</mi></msup><mo>−</mo><msub><mi>b</mi><mn>2</mn></msub><msub><mover><mi>q</mi><mo accent="true">̇</mo></mover><mn>2</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mi>d</mi><mi>t</mi></mtd></mtr><mtr><mtd columnalign="right"></mtd><mtd columnalign="left"><mo>+</mo><msub><mi>∇</mi><mi>x</mi></msub><msup><mi>u</mi><mi>θ</mi></msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>σ</mi><mi>d</mi><msub><mi>W</mi><mi>t</mi></msub><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+dx &amp;= \begin{bmatrix}
+\dot{q}_1 \\ \dot{q_2} \\ \frac{1}{I_1}\left(m g l \sin{q_1} - u^\theta -
+b_1\dot{q}_1\right) \\ \frac{1}{I_2}\left(u^\theta -b_2 \dot{q}_2 \right)
+\end{bmatrix} dt \\
+&amp;+ \nabla_xu^\theta(x) \sigma dW_t.
+\end{aligned}
+</annotation></semantics></math></p>
+</div>
+</div><div class="column" style="width:40%;">
+<p><img data-src="contents/assets/iwp.svg" style="width:50.0%"></p>
+<p><img data-src="contents/assets/bandplot.svg" style="width:90.0%"></p>
+</div>
+</div>
+</section>
 <section id="section-6" class="slide level2" data-background-video="contents/assets/iwp-cut-firefox.mp4" data-background-size="contain" data-background-video-loop="true" data-background-video-muted="true">
 <h2></h2>
 <!-- ###################################################################### -->
+</section>
+<section id="deterministic-vs.-bayesian-training-1" class="slide level2">
+<h2>Deterministic vs.&nbsp;Bayesian Training</h2>
+<!-- ###################################################################### -->
+<div class="columns">
+<div class="column" style="width:50%;">
+
+</div><div class="column" data-layout-valign="center" style="width:50%;">
+<p><img data-src="contents/assets/four-rings.jpg" style="width:80.0%"></p>
+<p><img data-src="contents/assets/idapbc_bar.svg" style="width:90.0%"></p>
+</div>
+</div>
 </section>
 <section id="ball-beam-experiments" class="slide level2">
 <h2>Ball-beam experiments</h2>
