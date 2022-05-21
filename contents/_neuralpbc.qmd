@@ -317,7 +317,6 @@ $$ p\left( \lVert \ell_{\text{set}}(\gamma) + \ell_\bot(\gamma, u) \rVert^2 \mid
 
 
 
-
 ## Comparison of Methods {.smaller}
 <!-- ###################################################################### -->
 
@@ -336,6 +335,31 @@ $$ p\left( \lVert \ell_{\text{set}}(\gamma) + \ell_\bot(\gamma, u) \rVert^2 \mid
 :::
 
 
+## Energy-Shaping Pendulum Swing-Up {auto-animate="true" auto-animate-easing="ease-in-out"}
+<!-- ###################################################################### -->
+
+
+::: {.r-stack layout-valign="center"}
+![](assets/neuralpbc/033.svg){.fragment .shrink fragment-index=0}
+
+![](assets/H.svg){.fragment fragmend-index=1}
+:::
+
+
+## Energy-Shaping Pendulum Swing-Up {auto-animate="true" auto-animate-easing="ease-in-out"}
+<!-- ###################################################################### -->
+
+
+::: r-hstack
+![](assets/neuralpbc/033.svg){.fragment data-fragment-index=0}
+
+![](assets/H.svg){.fragment data-fragment-index=0}
+:::
+
+::: {.incremental .fragment data-fragment-index=1}
+* Deterministic training vs. Bayesian training under parameter uncertainty and measurement noise.
+* Measurement noise: $\epsilon_q = 5 \times 10^4$ rad., $\epsilon_{\dot{q}} = 5 \times 10^2$ rad/s.
+:::
 
 
 ## <span style="font-variant:small-caps;">NeuralPbc</span> Experiments
