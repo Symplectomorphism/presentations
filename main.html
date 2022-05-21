@@ -2264,6 +2264,41 @@ b_1\dot{q}_1\right) \\ \frac{1}{I_2}\left(u^\theta -b_2 \dot{q}_2 \right)
 </ul>
 </div>
 </section>
+<section id="data-driven-control-through-contact" class="slide level2 smaller">
+<h2>Data-Driven Control Through Contact</h2>
+<!-- ###################################################################### -->
+<div class="columns">
+<div class="column" style="width:52%;">
+<p>&nbsp;</p>
+<div class="callout callout-none no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right"><munder><mtext mathvariant="normal">min</mtext><mrow><mi>q</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></munder></mtd><mtd columnalign="left"></mtd><mtd columnalign="right"><mspace width="1.0em"></mspace><mi>J</mi><mo stretchy="false" form="prefix">(</mo></mtd><mtd columnalign="left"><mi>ϕ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo>;</mo><msub><mi>x</mi><mn>0</mn></msub><mo>,</mo><mi>u</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo><mi>u</mi><mo stretchy="false" form="postfix">)</mo></mtd></mtr><mtr><mtd columnalign="right"><mtext mathvariant="normal">subject to</mtext></mtd><mtd columnalign="left"></mtd><mtd columnalign="right"><mspace width="1.0em"></mspace><mi>M</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>d</mi><mi>x</mi></mtd><mtd columnalign="left"><mo>−</mo><mi>h</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>,</mo><mover><mi>x</mi><mo accent="true">̇</mo></mover><mo>,</mo><mi>u</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>d</mi><mi>t</mi><mo>−</mo><mi>d</mi><mi>Λ</mi><mo>=</mo><mn>0</mn><mo>,</mo></mtd></mtr><mtr><mtd columnalign="right"></mtd><mtd columnalign="left"></mtd><mtd columnalign="right"><mspace width="1.0em"></mspace><mi>u</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>;</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left"><mo>=</mo><mstyle mathvariant="script"><mi>𝒟</mi></mstyle><mo stretchy="false" form="prefix">{</mo><mi>F</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>;</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="false" form="postfix">}</mo><mo>,</mo></mtd></mtr><mtr><mtd columnalign="right"></mtd><mtd columnalign="left"></mtd><mtd columnalign="right"><mspace width="1.0em"></mspace><mi>ζ</mi></mtd><mtd columnalign="left"><mo>∼</mo><mstyle mathvariant="script"><mi>𝒩</mi></mstyle><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>ζ</mi><mn>0</mn></msub><mo>,</mo><msub><mi>Σ</mi><mi>ζ</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo></mtd></mtr><mtr><mtd columnalign="right"></mtd><mtd columnalign="left"></mtd><mtd columnalign="right"><mspace width="1.0em"></mspace><mi>θ</mi></mtd><mtd columnalign="left"><mo>∼</mo><mi>q</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+\underset{q(\theta) }{\text{min}} 
+&amp;&amp;\quad J(&amp;\phi(t; x_0, u), u) \\
+\text{subject to} 
+&amp;&amp;\quad M(x) dx &amp;- h(x, \dot{x}, u) dt - d\Lambda= 0, \\
+&amp;&amp;\quad u(x; \theta) &amp;= \mathcal{D}\{F(x; \theta)\}, \\
+&amp;&amp;\quad \zeta &amp;\sim \mathcal{N}(\zeta_0, \Sigma_{\zeta}), \\
+&amp;&amp;\quad \theta &amp;\sim q(\theta),
+\end{aligned} 
+</annotation></semantics></math></p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:48%;">
+<p><img data-src="contents/assets/rimless_wheel.svg" style="width:90.0%"></p>
+</div>
+</div>
+<div>
+<ul>
+<li class="fragment">Impacts and friction modelled through measure differential inclusions.</li>
+<li class="fragment">Usually solved through linear complementarity problems (convex optimization).</li>
+<li class="fragment">Data-driven PBC designed to be robust against uncertainties (e.g.&nbsp;surface friction).</li>
+</ul>
+</div>
+</section>
 <section id="acknowledgements" class="slide level2">
 <h2>Acknowledgements</h2>
 
