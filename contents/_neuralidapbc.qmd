@@ -100,7 +100,7 @@ $$
 ## <span style="font-variant:small-caps;">NeuralIdaPbc</span> 
 <!-- ###################################################################### -->
 
-![](assets/nn-pbc-struct-frame-05.png){fig-align="center"}
+![](contents/assets/nn-pbc-struct-frame-05.png){fig-align="center"}
 
 
 ## <span style="font-variant:small-caps;">NeuralIdaPbc</span> Problem Statement  {transition="fade-in zoom-out"}
@@ -235,17 +235,17 @@ $$\begin{aligned} x_1^2 + 2x_1^2x_2 + 5x_1^2x_2^2 + 4x_1x_2^2 + x_2^2  &= \mu(x)
 
 :::: {.r-stack}
 
-![](assets/nn-pbc-struct-frame-00.png){.fragment .fade-out fragment-index=0}
+![](contents/assets/nn-pbc-struct-frame-00.png){.fragment .fade-out fragment-index=0}
 
-![](assets/nn-pbc-struct-frame-01.png){.fragment .fade-in-then-out fragment-index=0}
+![](contents/assets/nn-pbc-struct-frame-01.png){.fragment .fade-in-then-out fragment-index=0}
 
-![](assets/nn-pbc-struct-frame-02.png){.fragment .fade-in-then-out fragment-index=1}
+![](contents/assets/nn-pbc-struct-frame-02.png){.fragment .fade-in-then-out fragment-index=1}
 
-![](assets/nn-pbc-struct-frame-03.png){.fragment .fade-in-then-out fragment-index=2}
+![](contents/assets/nn-pbc-struct-frame-03.png){.fragment .fade-in-then-out fragment-index=2}
 
-![](assets/nn-pbc-struct-frame-04.png){.fragment .fade-in-then-out fragment-index=3}
+![](contents/assets/nn-pbc-struct-frame-04.png){.fragment .fade-in-then-out fragment-index=3}
 
-![](assets/nn-pbc-struct-frame-05.png){.fragment .fade-in-then-out fragment-index=4}
+![](contents/assets/nn-pbc-struct-frame-05.png){.fragment .fade-in-then-out fragment-index=4}
 
 
 ::::
@@ -269,11 +269,11 @@ of a class of underactuated mechanical systems via interconnection and damping a
 <!-- ###################################################################### -->
 
 :::: {.r-stack}
-![](assets/idapbc-iwp-evolution.png){.fragment .fade-out fragment-index=0}
+![](contents/assets/idapbc-iwp-evolution.png){.fragment .fade-out fragment-index=0}
 
-![](assets/idapbc-contours.png){.fragment .fade-in-then-out fragment-index=0}
+![](contents/assets/idapbc-contours.png){.fragment .fade-in-then-out fragment-index=0}
 
-<!-- ![](assets/compare_uru.png){.fragment .fade-in fragment-index=1} -->
+<!-- ![](contents/assets/compare_uru.png){.fragment .fade-in fragment-index=1} -->
 
 ::: {.fragment .fade-in fragment-index=1}
 
@@ -281,7 +281,7 @@ of a class of underactuated mechanical systems via interconnection and damping a
 
 <span style="font-variant:small-caps;">NeuralPbc</span> | <span style="font-variant:small-caps;">NeuralIdaPbc</span> | <span style="font-variant:small-caps;">IdaPbc</span>
 :---:|:---:|:---:
-![](assets/compare_uRu_neuralpbc.svg) | ![](assets/compare_uRu_neuralidapbc.svg){width=90%} | ![](assets/compare_uRu_idapbc.svg){width=93%}
+![](contents/assets/compare_uRu_neuralpbc.svg) | ![](contents/assets/compare_uRu_neuralidapbc.svg){width=90%} | ![](contents/assets/compare_uRu_idapbc.svg){width=93%}
 :::
 
 ::::
@@ -318,9 +318,9 @@ $$
 
 ::: {.column width="40%"}
 
-![](assets/iwp.svg){width=50%}
+![](contents/assets/iwp.svg){width=50%}
 
-![](assets/bandplot.svg){width=90%}
+![](contents/assets/bandplot.svg){width=90%}
 
 
 :::
@@ -358,9 +358,9 @@ $$
 
 ::: {.column width="50%" layout-valign="center"}
 
-![](assets/four-rings.jpg){width=80% layout-valign="center"}
+![](contents/assets/four-rings.jpg){width=80% layout-valign="center"}
 
-![](assets/idapbc_bar.svg){width=90%}
+![](contents/assets/idapbc_bar.svg){width=90%}
 
 
 :::
@@ -372,13 +372,13 @@ $$
 <!-- ###################################################################### -->
 
 ::: {.r-stack}
-![](assets/ball-beam.svg){.fragment .fade-out fragment-index=0}
+![](contents/assets/ball-beam.svg){.fragment .fade-out fragment-index=0}
 
 ::: {.fragment .fade-in fragment-index=0}
 ::: {layout="[100,85]" layout-valign="center"}
-![](assets/ball_beam-Vd-contour.svg)
+![](contents/assets/ball_beam-Vd-contour.svg)
 
-![](assets/ball_beam-evolution.svg)
+![](contents/assets/ball_beam-evolution.svg)
 :::
 :::
 :::

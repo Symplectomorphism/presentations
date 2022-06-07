@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-  <meta charset="utf-8">
-  <meta name="generator" content="quarto-99.9.9">
+<script src="main_files/libs/clipboard/clipboard.min.js"></script>
+<script src="main_files/libs/quarto-html/tabby.min.js"></script>
+<script src="main_files/libs/quarto-html/popper.min.js"></script>
+<script src="main_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="main_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="main_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet">
+<link href="main_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-0.9.533">
 
   <meta name="author" content="Aykut C. Satici">
   <title>Data-Driven Passivity-Based Control</title>
@@ -20,13 +26,6 @@
   </style>
   <link rel="stylesheet" href="main_files/libs/revealjs/dist/theme/quarto.css" id="theme">
   <link rel="stylesheet" href="styles.css">
-  <script src="main_files/libs/clipboard/clipboard.min.js"></script>
-  <script src="main_files/libs/quarto-html/tabby.min.js"></script>
-  <script src="main_files/libs/quarto-html/popper.min.js"></script>
-  <script src="main_files/libs/quarto-html/tippy.umd.min.js"></script>
-  <link href="main_files/libs/quarto-html/tippy.css" rel="stylesheet">
-  <link href="main_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet">
-  <link id="quarto-text-highlighting-styles" href="main_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
   <link href="main_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="main_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="main_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -599,10 +598,16 @@ Stability guarantees?
 </div>
 <p><strong>System Parameter Uncertainty and Measurement Noise</strong></p>
 </div>
-
+<div class="callout-content">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="contents/assets/regular-vs-bayesian.svg"></p>
+</figure>
 </div>
 </div>
-<img data-src="contents/assets/regular-vs-bayesian.svg" class="r-stretch quarto-figure-center"><div class="quarto-layout-panel">
+</div>
+</div>
+<div class="quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="callout callout-none no-icon callout-captioned callout-style-simple quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="callout-body">
@@ -1766,8 +1771,8 @@ Acrobot
 <section id="comparison-with-energy-shapingastrom" class="slide level2">
 <h2>Comparison with Energy Shaping<sup>1</sup></h2>
 <!-- ###################################################################### -->
-
-<img data-src="contents/assets/cartpole-cost-compare.svg" class="r-stretch"><aside><ol class="aside-footnotes"><li id="fn3" role="doc-endnote"><p>K. J. Åström and K. Furuta, “Swinging up a pendulum by energy control,” Automatica, vol.&nbsp;36, no. 2, pp.&nbsp;287–295, 2000.</p></li></ol></aside></section>
+<p><img data-src="contents/assets/cartpole-cost-compare.svg"></p>
+<aside><ol class="aside-footnotes"><li id="fn3" role="doc-endnote"><p>K. J. Åström and K. Furuta, “Swinging up a pendulum by energy control,” Automatica, vol.&nbsp;36, no. 2, pp.&nbsp;287–295, 2000.</p></li></ol></aside></section>
 <section id="section-2" class="slide level2" data-background-video="contents/assets/cartpole-exp.mp4" data-background-size="contain" data-background-video-loop="true" data-background-video-muted="true">
 <h2></h2>
 <!-- ###################################################################### -->
@@ -2093,7 +2098,7 @@ u_{di} &amp;= -K_v G^\top \nabla_p H_d \phantom{\left\|\left(\nabla_p\right)^{\t
 <div class="r-stack">
 <p><img data-src="contents/assets/idapbc-iwp-evolution.png" class="fragment fade-out" data-fragment-index="0"></p>
 <p><img data-src="contents/assets/idapbc-contours.png" class="fragment fade-in-then-out" data-fragment-index="0"></p>
-<!-- ![](assets/compare_uru.png){.fragment .fade-in fragment-index=1} -->
+<!-- ![](contents/assets/compare_uru.png){.fragment .fade-in fragment-index=1} -->
 <div class="fragment fade-in" data-fragment-index="1">
 <center>
 Comparison of control effort expenditure

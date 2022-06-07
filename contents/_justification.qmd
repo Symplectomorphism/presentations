@@ -140,11 +140,11 @@ $$
 ::::
 
 ::: {.r-stack}
-![](assets/optimal-dist_1.svg){.fragment data-fragment-index=1}
+![](contents/assets/optimal-dist_1.svg){.fragment data-fragment-index=1}
 
-![](assets/optimal-dist_2.svg){.fragment data-fragment-index=2}
+![](contents/assets/optimal-dist_2.svg){.fragment data-fragment-index=2}
 
-![](assets/optimal-dist_3.svg){.fragment data-fragment-index=3}
+![](contents/assets/optimal-dist_3.svg){.fragment data-fragment-index=3}
 :::
 
 ---
@@ -256,11 +256,11 @@ $$
 
 
 ::: {.r-stack layout-valign="center"}
-![](assets/optimal_ctrl.svg){width="80%" .fragment data-fragment-index=0 data-id="opt-ctrl"}
+![](contents/assets/optimal_ctrl.svg){width="80%" .fragment data-fragment-index=0 data-id="opt-ctrl"}
 
 <div style="vertical-align: bottom" class="fragment" data-fragment-index="0">Optimal controller $|\theta^\star|$ minimizing $\mathbb{E}\mathcal{J}$</div>
 
-![](assets/optimal_cost.svg){width="80%" .fragment data-fragment-index=1 data-id="opt-cost"}
+![](contents/assets/optimal_cost.svg){width="80%" .fragment data-fragment-index=1 data-id="opt-cost"}
 
 <div style="vertical-align: bottom" class="fragment" data-fragment-index="1">Minimal expected cost $\mathbb{E}\mathcal{J}$</div>
 
@@ -272,9 +272,9 @@ $$
 
 
 ::: r-hstack
-![Optimal controller $|\theta^\star|$ minimizing $\mathbb{E}\mathcal{J}$](assets/optimal_ctrl.svg){.fragment data-fragment-index=0 data-id="opt-ctrl"}
+![Optimal controller $|\theta^\star|$ minimizing $\mathbb{E}\mathcal{J}$](contents/assets/optimal_ctrl.svg){.fragment data-fragment-index=0 data-id="opt-ctrl"}
 
-![Minimal expected cost $\mathbb{E}\mathcal{J}$](assets/optimal_cost.svg){.fragment data-fragment-index=0 data-id="opt-cost"}
+![Minimal expected cost $\mathbb{E}\mathcal{J}$](contents/assets/optimal_cost.svg){.fragment data-fragment-index=0 data-id="opt-cost"}
 :::
 
 ::: {.incremental .fragment data-fragment-index=1}

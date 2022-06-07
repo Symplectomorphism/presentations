@@ -45,7 +45,7 @@ $$
 
 ::: {.column width="48%"}
 
-![](assets/rimless_wheel.svg){width=90%}
+![](contents/assets/rimless_wheel.svg){width=90%}
 
 :::
 
@@ -59,7 +59,7 @@ $$
 
 ## Acknowledgements
 
-![](assets/acknowledgement.jpg){fig-align="center"}
+![](contents/assets/acknowledgement.jpg){fig-align="center"}
 
 ## {background-image="contents/assets/qa_background.png" visibility="uncounted"}
 <!--  -->
