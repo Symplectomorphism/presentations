@@ -1,0 +1,50 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%2345678901234567890123456789012345678901234567890123456789012345678901234567890
+%        1         2         3         4         5         6         7         8
+
+\documentclass[journal,twoside,web]{ieeecolor}  % Comment this line out
+                                                          % if you need a4paper
+
+\title{\LARGE \bf
+Robust Passivity-Based Control of Underactuated Systems via %
+Neural Approximators and Bayesian Inference
+}
+
+
+\author{Nardos Ayele Ashenafi$^{1}$, \IEEEmembership{Student Member, IEEE}, Wankun Sirichotiyakul$^{1}$, \IEEEmembership{Student Member, IEEE}, \\
+        Aykut C. Satici$^{2}$, \IEEEmembership{Member, IEEE}% <-this % stops a space
+\thanks{$^{1}$Electrical and Computer Engineering Department
+        }%
+\thanks{$^{2}$Mechanical and Biomedical Engineering Department
+        }%
+\thanks{$^{1, 2}$Boise State University, Boise, ID 83725, USA}
+}
+
+
+\input{preamble.tex}
+
+\begin{document}
+
+
+\maketitle
+\thispagestyle{empty}
+% \pagestyle{empty}
+
+\begin{IEEEkeywords}
+        Robotics, robust control, machine learning, nonlinear control systems
+\end{IEEEkeywords}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{contents/abstract.tex}
+
+\input{contents/introduction.tex}
+\input{contents/background.tex}                           
+\input{contents/methods.tex}
+\input{contents/results.tex}
+\input{contents/conclusion.tex}
+
+\bibliographystyle{IEEEtran}        
+\bibliography{bib/IEEEabrv,bib/cdc2022.bib} 
+
+\end{document}
