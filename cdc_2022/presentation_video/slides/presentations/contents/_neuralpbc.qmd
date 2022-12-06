@@ -380,8 +380,8 @@ requires:
 ::: {.fragment .fade-in fragment-index=0} 
 - _Likelihood_:
 
-<font size="5">$$ p( J(\theta, x_0)) = \mathcal{N}(0, s). 
-$$</font>
+$$ p( J(\theta, x_0)) = \mathcal{N}(0, s). 
+$$
 :::
 
 ::: {.fragment .fade-in fragment-index=1} 
