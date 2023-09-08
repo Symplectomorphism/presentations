@@ -1,0 +1,234 @@
+\section{Introduction}
+
+
+Passivity-based control (PBC)~\cite{ortega2001putting,van2000l2} is a
+methodology that casts the control problem as a search for an interconnection
+pattern among subsystems such that the overall dynamics exhibits passivity
+properties, which help infer stability.
+%
+The standard PBC approach in the robot control domain amounts to shaping the
+system's overall energy with a fictitious one and injecting damping to
+achieve asymptotic stability.
+%
+In practice, the closed-loop energy function is typically chosen as a quadratic
+function of the error to the desired equilibrium point.
+%
+However, a limit of this approach is the lack of a clear connection between the
+form of the desired energy function and the performance objective of a given
+task.
+%
+Furthermore, control synthesis in PBC methods relies strongly on the dynamical
+model, and imperfect compensation of the system's energy may lead to poor
+performance or even instability.
+%
+This raises concerns regarding model uncertainties, especially in dynamical
+systems with large number of parameters~\cite{nagy,wu2020active}.
+%
+% Although passive systems admit some inherent robustness
+% properties~\cite{van2000l2}, imperfect compensation of the system's energy in
+% PBC may result in instability.
+%
+
+
+There are techniques that combine tools from optimization, probability theory,
+and machine learning to learn control strategies from inaccurate system models
+or even unknown dynamics.
+%
+% Researchers have been tackling similar problems using a combination of tools
+% from optimization, probability theory, and machine learning.
+%
+% Reinforcement learning (RL)~\cite{sutton2018reinforcement} uses data-driven
+% techniques to find approximate solutions to the Hamilton-Jacobi-Bellman
+% equation, which is the quintessential task of optimal control.
+%
+One example in this domain is reinforcement learning (RL), wherein the quintessential
+task is to find a mapping from the observed states to the control input such
+that the long-term cumulative reward is maximized.
+%
+Many variants of RL view the dynamical system as a black-box, which may be
+represented by a real system or a simulation, and rely on repeated interactions
+with the unknown environment to improve the control law.
+%
+One way to account for model uncertainties within this method is to perform training
+directly on the real system.
+%
+% However, to avoid damage, training may require conservative state constraints,
+% consequently limiting the capabilities of the learning
+% techniques~\cite{ARGALL2009469,beaudoin2021structured}.
+%
+While RL methods evidently offer more flexibility on how they learn from the
+unknown environment~\cite{heess2017emergence, andrychowicz2020learning,
+lillicrap2015continuous}, most of them discard any potential geometric or
+algebraic structures that may be useful in control synthesis.
+%
+This prohibitively increases the sample complexity and limits the ability to
+infer stability properties.
+
+
+% In contrast to black-box approaches, constructing learning frameworks based on
+% prior knowledge and physical principles have been shown to be much more
+% efficient~\cite{zhong2019symplectic,greydanus2019hamiltonian,sirichotiyakul2020data}.
+% %
+% In~\cite{zhong2019symplectic}, a learning framework for discovering Hamiltonian
+% dynamics is proposed, and the controller is synthesized using passivity-based
+% techniques.
+% %
+% We proposed in~\cite{sirichotiyakul2020data} a data-driven PBC framework where
+% the desired energy function is expressed by a neural network, which is optimized
+% based directly on the performance of the closed-loop trajectories of the system.
+% %
+% A similar approach is again explored in~\cite{massaroli2021optimal}.
+% %
+% However, these model-based approaches do not present a trivial solution to
+% address uncertainties in the nominal dynamical model from which they are
+% formulated.
+
+
+Bayesian learning~\cite{gal2016improving,thakur} offers an alternative method to
+simultaneously combat model uncertainties while preserving the useful physical
+structure in a data-driven framework.
+%
+% It has already proven effective in the modeling of dynamical systems. 
+%
+For instance, it is used to model disturbances, such as the effect of wind gusts
+on quadcopters and the motion of other vehicles in autonomous
+driving~\cite{sadigh2015safe}. 
+%
+% Nonlinear dynamics can be decomposed into segments of linear dynamics, and learn
+% the linear dynamical units and their transition probabilities through
+% BL~\cite{pmlr-v54-linderman17a}. 
+%
+% Bayesian learning is also used in motion planning and control synthesis. 
+%
+In human-robot interactions, such as prosthetics and rehabilitation devices,
+Bayesian neural networks can classify and predict motions in order to generate
+reliable commands for the device~\cite{motionclassification}. 
+% %
+% Given an optimal policy, \cite{thakur} uses Bayesian neural networks to detect
+% uncertainties caused by offset between training and testing conditions. When the
+% uncertainty is high, the controller switches to a fallback strategy that
+% requests more demonstrations. 
+%
+% In~\cite{lazkano2007use}, a Bayesian neural network trained using data generated
+% only from sonar readings is used to generate task-execution commands for
+% mobile robots.
+%
+% A unified learning-based approach that incorporates combines traditional control
+% theory and addresses uncertainties is still missing from the literature.
+%
+However, the literature on applications of Bayesian learning in the control of
+uncertain dynamical systems is scarce.
+
+% {
+%     \color{magenta}
+%     We present a theoretical justification for the robustness properties of
+%     controllers obtained from Bayesian learning techniques in~[23]. In [23],
+%     we compare the performance of deterministic and Bayesian solutions to
+%     the optimal control search problem for a simple dynamical system under
+%     uncertainties. Our analysis shows that the deterministic solution is
+%     sensitive to system parameter uncertainty and measurement noise.
+%     Moreover, the Bayesian solution reasons about the stability of the
+%     system under these uncertainties. In the following sections, we extend
+%     the findings of [23] to a more complex control synthesis technique, such
+%     as PBC.
+    
+% } 
+
+
+In this work, we present a unified framework that simultaneously combines PBC
+techniques and rigorously addresses model uncertainties using Bayesian learning.
+%
+The specific contributions of this work are threefold: (i)
+Motivated by~\cite{sirichotiyakul2020data}, we incorporate uncertainties into
+the dynamics and cast the passivity-based control synthesis problem as a
+stochastic optimization problem.
+%
+The closed-loop storage (energy-like) function, from which the control law is
+derived, is not restricted to a certain form and instead represented by a neural
+network whose parameters are random variables.
+%
+% The second aim is to develop an algorithm that find a suitable family of
+% parameters for the energy-like function such that the behavior of the
+% closed-loop trajectories optimizes a certain performance objective.
+%
+(ii) We apply Bayesian learning and develop an algorithm that finds
+a suitable probability distribution of the neural net parameters automatically.
+%
+In contrast to deterministic optimization, this approach provides a probability
+distribution over the neural net parameters instead of a point estimate,
+providing a way to reason about model uncertainties and measurement noise during
+the learning process.
+%
+(iii) We demonstrate the efficacy and robustness of our current framework with a
+comparison against our deterministic
+framework~\cite{sirichotiyakul2020data}. The comparison is performed on a
+benchmark underactuated control problem--the inertia wheel pendulum--both in
+simulation and real-world experiments. 
+
+
+
+% {
+ %   \color{magenta}
+    %
+    % The contributions of this work are summarized as follows:
+    % \begin{enumerate}
+    %     % \item Without destroying the structure of the underlying physical system, we
+    %     % leverage the intrinsic stability properties of the IDA-PBC method and
+    %     % formulate an optimization problem that finds surrogates for the solutions to
+    %     % the essential nonlinear PDEs.
+    %     \item Formulate a stochastic optimization problem that addresses system parameter and measurement uncertainties and preserves the properties of PBC presented in [12],
+    %     \item Solve the stochastic optimization problem via Bayesian learning techniques,
+    %     \item Compare the robustness properties of the solution obtained from Bayesian learning techniques with the deterministic PBC solution from [12].
+    % \end{enumerate} 
+% }
+% The summary of our contributions is as follows:
+% %
+% \begin{itemize}[label=\diamond,topsep=-\parskip+3pt, itemsep=0pt, leftmargin=0pt, itemindent=2.4\listparindent, labelsep=2pt]
+%     \item \textsc{NeuralPbc}, which finds the desired energy-like
+%     function that optimizes the behavior of the closed-loop trajectories
+%     \item A Bayesian learning framework, which infers robustness of
+%     \textsc{NeuralPbc} against model uncertainties.
+%     \item Validation of our methods on the inertia wheel pendulum, a benchmark
+%     underactuated control problem, both in simulation and on a real system.
+% \end{itemize}
+
+
+
+% In order to learn a robust controller in simulation, we modify our deterministic
+% learning technique into a Bayesian framework. 
+% %
+% The development of controllers under the Bayesian framework has two main
+% advantages. 
+% %
+% First, Bayesian learning can account for uncertainties by learning a
+% probability distribution over the parameters of the controller. 
+% %
+% Hence, we leverage this technique to minimize the adverse effects of system
+% parameter uncertainties and measurement error on the control parameters.
+% % First, any deterministic data-driven learning technique can be modified into a
+% % Bayesian learning framework that accounts for uncertainties by learning a
+% % probability distribution over the parameters of the controller. 
+% %
+% % Second, Bayesian learning can improve on parameters learned from deterministic
+% % learning techniques in simulation to guarantee robust performance on the real
+% % system. 
+% %
+% Second, we can use parameters learned from deterministic learning techniques as
+% priors to the Bayesian learning. 
+% %
+% This allows us to improve the robustness properties of the deterministic
+% training without learning from scratch.
+% %
+% To best demonstrate these concepts, we use data-driven passivity-based-control
+% (PBC) as the deterministic learning technique on which we improve.
+
+% % This paper has two main contributions: 1) deterministic data-driven PBC
+% % techniques are used to learn energy-like function of the closed-loop system
+% % parameterized by a neural network, 2) a Bayesian learning framework is injected
+% % into the deterministic learning scheme to learn a controller robust against
+% % uncertainties created by an offset between simulation training and experimental
+% % testing. 
+% % %
+% % The remainder of the paper is organized as follows: {\todo[inline]{ complete
+% % once all sections are known}}
+

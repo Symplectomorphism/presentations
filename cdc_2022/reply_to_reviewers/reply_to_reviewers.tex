@@ -1,0 +1,500 @@
+\documentclass[11pt]{article}
+
+% packages
+\usepackage[a4paper]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{pdfpages}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{xpatch} % also loads expl3
+
+%%START
+\makeatletter
+\xpatchcmd{\@bibitem}
+  {\item}
+  {\item[\@biblabel{\changekey{#1}}]}
+  {}{}
+\xpatchcmd{\@bibitem}
+  {\the\value{\@listctr}}
+  {\changekey{#1}}
+  {}{}
+\makeatother
+
+\ExplSyntaxOn
+\cs_new:Npn \changekey #1
+ {
+  \str_case:nVF {#1} \g_changekey_list_tl { ?? }
+ }
+\cs_new_protected:Npn \setchangekey #1 #2
+ {
+  \tl_gput_right:Nn \g_changekey_list_tl { {#1}{#2} }
+ }
+\tl_new:N \g_changekey_list_tl
+\cs_generate_variant:Nn \str_case:nnF { nV }
+\ExplSyntaxOff
+
+\setchangekey{ortega2001putting}{1}
+\setchangekey{ashenafi_robust_control_design}{17}
+\setchangekey{sirichotiyakul2020data}{12}
+\setchangekey{bishop2006pattern}{13}
+
+
+\newcommand{\dd}{\operatorname{d}\!}
+\newcommand{\bmat}[1]{\begin{bmatrix}#1\end{bmatrix}}
+
+% new commands and definitions
+\def \revname {[Assign the Reviewer code before!]}
+\newcommand{\setrevname}[1]{\def \revname {#1}}
+\newcounter{AR_index}
+\newcommand{\resetquestioncounter}{\setcounter{AR_index}{0}}
+\newcommand{\question}[1]{\refstepcounter{AR_index} ~\bigskip\newline {\Huge\color{Gray} Q.} \textbf{{\Large \revname.\arabic{AR_index}} \hspace{1mm}\----\hspace{1mm}} \textit{#1}}
+\newcommand{\answer}{~\newline {\Huge\color{Gray} A.} \textbf{{\Large \revname.\arabic{AR_index}} \hspace{1mm}\----\hspace{1mm}}}
+
+\begin{document}
+
+\title{Reply to Reviewers}
+\maketitle
+
+\noindent
+\textbf{Submission Number: 22-0227}  \\%
+\textbf{Paper title:} Robust Passivity-Based Control of Underactuated Systems via Neural Approximators and Bayesian Inference
+
+\bigskip \bigskip \noindent 
+%
+We thank the Editor and the Reviewers for the thorough review of our work and
+the insightful comments. We have revised our manuscript according to the
+Editor's and Reviewers' recommendations. 
+%
+In the following, we report the
+original comments from each Reviewer (\emph{italic fonts}) and our replies
+(normal fonts). 
+%
+We recorded the changes made to the main manuscript in this
+document for quick reference. 
+%
+In addition, we submitted the revised manuscript highlighting the revisions
+in \textcolor{magenta}{magenta color}. 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\section*{ASSOCIATE EDITOR}
+
+\bigskip \bigskip
+
+We thank the Editor and each of the Reviewers for the suggestions that
+contribute to improving the quality of this manuscript. In the sequel, we strive
+to address each issue pointed in the recommendations. 
+
+\medskip
+
+The common recommendations among both referees include 1) discussing major
+contributions of this work compared to our previous work titled, ``Data-Driven
+Design of Energy-Shaping Controllers for Swing-up Control of Underactuated
+Robots'', 2) providing theoretical justification for the robustness properties of
+Bayesian-inference based control design, 3) establishing a baseline control
+design technique to compare against the Bayesian approach, and 4) fixing any
+typos and grammatical mistakes.
+
+
+
+% 1) adding discussions
+% regarding the stability properties of our controller, and 2) clarifying the
+% contributions of the study point-by-point. 
+%
+% In the revised manuscript, we provide a discussion regarding stability
+% considerations in Section 3.1. 
+% %
+% In particular, we state Proposition 3.2 showing that a solution to our main
+% optimization problem (15) is continuous with respect to the objective value.
+% This continuity result allows us to leverage the original asymptotic stability
+% results of IDA-PBC, which is stated in Proposition 2.1. 
+% %
+% We have added an Appendix section, where we provide a proof of Proposition 3.2
+% and a detailed discussion how the original IDA-PBC stability results apply to
+% our framework.
+%
+For each of the remaining comments from the reviewers, we followed the
+recommendations and have summarized the revisions made to the manuscript
+one-by-one in this document.
+
+
+\medskip
+
+We again reiterate our gratitude to the reviewers for the detailed
+recommendations. We truly feel that they led to revisions that greatly improved
+the quality and clarity of the paper. 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\resetquestioncounter
+\setrevname{Ref-1}
+\section*{REFEREE \#1}
+
+\textit{%
+    %
+    This paper investigated the data-driven approach to learn 
+    storage functions parameterized neural network for underactuated
+    mechanical systems. Two practical algorithms were proposed to deal with
+    the point estimate and probabilistic inference of optimal parameters.
+    The method was evaluated in both simulation and real-world on an
+    inverted pendulum. The paper is well organized and clear, and the
+    results show that the Bayesian-based algorithm is more robust to
+    parametric uncertainties. However, the reviewer has some concerns over
+    the technical contribution of this work. Following are some detailed
+    comments. 
+    %
+}
+
+
+\noindent 
+\question{%
+    %
+    What is the major contribution of this work compared to [12]? From
+    the reviewer's understanding, these two papers are both focused on
+    data-driven control of underactuated systems. 
+    %
+}
+
+\answer{
+    %
+    The major contributions of this work include the formulation of the
+    passivity-based control problem as a stochastic optimization problem, and
+    the use of Bayesian learning to automatically find the probability
+    distributions over the control law parameters.
+    %
+    These contributions amount to a control design framework for underactuated
+    robotic systems that rigorously addresses the effects of system parameter
+    and measurement uncertainties. 
+    %
+    This is in contrast to [12], wherein the solution
+    to the optimization problem is deterministic in nature, obscuring the
+    ability to reason about any uncertainties in the nominal dynamical model
+    used during training.
+    
+    Per the suggestion of the reviewer, we summarize the major contribution of
+    our work at the end of Section I: Introduction as follows.
+
+
+    %
+    \begin{quote}
+        \color{magenta} 
+        
+        The specific contributions of this work are threefold: (i) Motivated
+        by [12], we incorporate uncertainties into the
+        dynamics and cast the passivity-based control synthesis problem as a
+        stochastic optimization problem.
+        %
+        The closed-loop (energy-like) storage function, from which the control
+        law is derived, is not restricted to a certain form and instead
+        represented by a neural network whose parameters are random variables.
+        %
+        (ii) We apply Bayesian learning and develop an algorithm that finds a
+        suitable probability distribution of the neural net parameters
+        automatically.
+        %
+        In contrast to deterministic optimization
+        in [12], this approach provides a probability
+        distribution over the neural net parameters instead of a point estimate,
+        providing a way to reason about model uncertainties and measurement
+        noise during the learning process.
+        %
+        (iii) We demonstrate the efficacy and the improved robustness of the
+        proposed Bayesian framework, using the method presented
+        in [12] as a baseline. The comparison is
+        performed on a benchmark underactuated control problem--the inertia
+        wheel pendulum--both in simulation and real-world experiments. 
+    \end{quote}
+
+
+    % We introduce the stochastic optimization problem mentioned in Section 1 in the third paragraph 
+    % of Section III.3 as follows: 
+    % {
+    %     \color{magenta}
+
+    %     Additionally, we model measurement error by injecting noise into the
+    %     prediction $\gamma$. This is achieved by replacing the system constraint
+    %     given in (5) with a stochastic differential equation (SDE) of the form 
+    %     \begin{align}
+    %         \begin{split}
+    %             \dd x &= f(x) \dd t + \nabla_x u^\theta(x) \dd W_t,  \\%
+    %             f(x) &= \bmat{\phantom{-}\nabla_p H^\zeta \\-\nabla_q H^\zeta} + \bmat{0 \\ G(q)}u^{\theta}(x),
+    %         \end{split}
+    %         \label{eq:sde_initial}
+    %     \end{align}
+    %     where $\dd W_t$ is a correlated noise process, such as Wiener process,
+    %     on the states due to measurement uncertainties, and $\nabla_x u(x)$ is
+    %     the coefficient of the first-order Taylor approximation of
+    %     $u^{\theta}(x)$ around zero noise. The system Hamiltonian $H^\zeta$ is
+    %     evaluated at the sampled system parameter $\zeta$. Overall, the Bayesian
+    %     solution for \textsc{NeuralPbc} reformulates the deterministic
+    %     optimization problem given in (5) as
+    %     \begin{equation*}
+    %         \begin{aligned}
+    %             \underset{z}{\textrm{maximize}} 
+    %             & & \mathcal{L}&(\ell, z) , \\%
+    %             \textrm{subject to}
+    %             & & \dd x &= f(x) \dd t + \nabla_x u^\theta(x) \dd W_t,  \\%
+    %             & & u^{\theta} &= -G^{\dagger} \nabla_q H_d^{\theta} - K_v^{\theta} G^\top \nabla_p H_d^{\theta}, \\
+    %             & & \theta &\sim q(\theta;z), \\%
+    %             & & \zeta &\sim \mathcal{N}(\zeta_0, \sigma_\zeta).
+    %         \end{aligned}
+    %         % \label{eq:neural_pbc_finite_optim}
+    %     \end{equation*}
+
+} 
+
+
+\pagebreak
+\question{%
+    %
+    Why could the Bayesian inference-based approach be more robust to
+    uncertainties? 
+    %
+}
+
+\answer{ Due to the limited space available in the manuscript, we present
+    separately a theoretical justification for the robustness properties of the
+    Bayesian approach in our arXiv paper titled ``Robustness of Control Design
+    via Bayesian Learning''. We have added a brief summary of this work as a
+    remark under Section II: Methods as follows. 
+
+    \begin{quote}
+        \color{magenta}
+
+        \textit{Remark 1}: We provide a thorough comparison of the
+        deterministic and Bayesian solutions to the optimal control of a
+        one-dimensional linear dynamical system that is subject to parameter and
+        measurement uncertainties in [17]. 
+        %
+        The simplicity of the underlying system facilitates the computation of
+        exact solutions, revealing the fact that the Bayesian solution improves
+        the robustness of the closed-loop system against both type of
+        uncertainties.
+        %
+        This comparison serves as a theoretical justification for the
+        improved robustness properties of controllers obtained via Bayesian learning
+        techniques.
+        
+        
+        % In~\cite{ashenafi_robust_control_design}, we compare the performance of deterministic and
+        % Bayesian solutions to the optimal control search problem for a simple
+        % dynamical system under uncertainties. Our analysis shows that the
+        % deterministic solution is sensitive to system parameter uncertainty and
+        % measurement noise. Moreover, the Bayesian solution reasons about the
+        % stability of the system under these uncertainties. 
+        %
+        % In the following sections, we extend the findings of~\cite{ashenafi_robust_control_design} to a more complex
+        % control synthesis technique, such as PBC. 
+        %
+        % For deeper insight on the motivation of the Bayesian
+        % technique, we refer the reader to~\cite{ashenafi_robust_control_design}.
+
+        
+    \end{quote}
+
+    The list of references is updated to include the arXiv paper, [17]:
+    \begin{quote}
+        \color{magenta}
+        [17] N. A. Ashenafi, W. Sirichotiyakul, and A. C. Satici, ``Robustness
+        of control design via bayesian learning,'' 2022. [Online]. Available: \\
+        https://arxiv.org/abs/2205.06896 
+    \end{quote}
+
+}
+
+\pagebreak
+\question{ 
+    It seems to me that the major reason [that the Bayesian approach is
+    more robust] is that the authors injected noises during collecting the
+    training data, while this trick was not used in the first approach. This is
+    a common trick in RL called domain randomization for improving robustness.
+    It would make sense to make a comparison between the two algorithms with
+    domain randomization being applied to both of them. }
+
+\answer{ 
+    % While domain randomization is a common technique in reinforcement
+    % learning, it has not been investigated in the PBC setting. During our
+    % investigation, we learned that the introducing uncertainties into the
+    % deterministic training simply learns point estimates that, on average,
+    % minimize the running cost function. 
+    %
+    %
+    % Injecting noise during training certainly contributes to the improved
+    % robustness properties of our framework; however, this is not the only reason
+    % that the proposed Bayesian approach is more robust.
+    %
+    % The direct comparison between the Bayesian approach and deterministic
+    % approach with domain randomization is omitted for the following reasons.
+    %
+    Introducing domain randomization in the first approach (Algorithm 1) would lead to a set of
+    deterministic control law parameters, referred to as ``point estimates''
+    hereafter.
+    %
+    This is in contrast to our Bayesian framework (Algorithm 2), where the
+    control law parameters are characterized by the posterior probability
+    distributions.
+    %
+    The point estimates may be interpreted as the \textit{maximum a posteriori}
+    (MAP) estimate of the probability distribution that the Bayesian framework
+    provides.
+    
+    During the development of this work, we investigated the efficacy of the MAP
+    approach through experiments.
+    %
+    We found that the point estimates are prone to be biased under large
+    uncertainties in system parameters or measurement [13]. For example, if the
+    uncertainty in system parameters is large, the optimal controller parameter
+    $\theta$ for the true system may be quite far from the deterministic
+    solution. Hence, we do not include a direct comparison in the manuscript.
+    %
+    Instead, the proposed framework alleviates this problem by marginalizing
+    over the learned posterior distribution of the control law parameters.
+    %
+    % This would not have been possible by injecting domain randomization in
+    % Algorithm 1.
+    
+    We clarify this point by adding the following remark under Section III-D of
+    the manuscript. 
+    
+    \begin{quote}
+        \color{magenta}    
+        \textit{Remark 2}: Introducing uncertainties to the deterministic training finds a point
+        estimate of the optimal controller parameter, which may be interpreted
+        as the mean of the optimal posterior distribution that Bayesian learning
+        provides. A point estimate of the learned parameters is prone to be
+        biased (for example, if the uncertainty in system parameters is large,
+        the optimal parameter $\theta$ for the true system parameter may be
+        quite far from the deterministic solution). This bias-variance trade-off
+        problem is alleviated by Bayesian inference which allows one to
+        marginalize over the posterior parameter
+        distribution [13].
+        
+    % These point estimates have no variance
+    % but may be prone to high bias (for example, if the uncertainty in system
+    % parameters is large, the optimal parameter $\theta$ for the true system
+    % parameter may be quite far from the deterministic solution). But using a
+    % Bayesian approach allows us to marginalize over the stochastic controller,
+    % which has the following advantages~\cite{bishop}:
+    % \begin{itemize}
+    %     \item the Bayesian approach finds a distribution that balances variance and bias, 
+    %     \item balancing variance and bias helps find parameters that are less
+    %     prone to overfitting
+    % \end{itemize}
+    % Hence, this work takes the deterministic PBC technique [12] and improves on
+    % it using Bayesian inference approach.
+    \end{quote}
+
+}
+\pagebreak
+\question{%
+    %
+    The experiment part only included the results of the two proposed
+    methods, while a proper baseline method is missing. It would make sense
+    to include an RL baseline or the method from [12] if the proposed
+    method is different from [12]. 
+    %
+}
+
+\answer{
+    %
+    % The objective of this work is to improve the robustness properties of the
+    % deterministic PBC technique. Hence, we are using the deterministic solution
+    % as the baseline from which we compare the performance of the Bayesian
+    % solution. To clarify this, we add the following sentence to the first
+    % paragraph of Section IV: Case Study: Inertia-Wheel Pendulum.
+    %
+    The results presented in Section IV are direct comparisons between the
+    proposed Bayesian method and the baseline method from [12]. To clarify this,
+    we add the following sentence to the first paragraph of Section IV: Case
+    Study: Inertia-Wheel Pendulum.
+
+    \begin{quote}
+    In this section, we validate the proposed control design framework on the
+    problem of swinging-up and stabilizing the inverted position of an inertia
+    wheel pendulum (IWP), shown in Fig.1. We provide experimental results from
+    simulation and real-world hardware in order to thoroughly demonstrate the
+    efficacy and robustness claims of Bayesian inference. 
+    {
+        \color{magenta}
+        %
+        We use the deterministic solution for \textsc{NeuralPbc} as the baseline
+        on which we compare the performance of the Bayesian solution.
+    }
+    
+    \end{quote}
+}
+
+\pagebreak
+\question{%
+    %
+    Both the control input matrix and observation matrix are noted by $G$,
+    can you change one of them to be a different letter? 
+    %
+}
+
+\answer{ In passivity-based control, the observation matrix is sometimes chosen
+    the same as the transpose of the control input
+    matrix as in reference [1] to facilitate control synthesis and
+    stability analysis. For clarity, we state the dependency of $G$ on $q$
+    explicitly in the second equation of (2) as follows:
+    
+    \begin{quote}
+        \begin{align*}
+            \begin{split}  
+              \bmat{\dot{q} \\ \dot{p}} &= \bmat{0 & I_n \\ -I_n & 0}\bmat{\nabla_qH \\
+              \nabla_pH} + \bmat{0 \\ G(q)}u, \\
+              &\hspace{-0.15cm} y = G\textcolor{magenta}{(q)}^\top \dot{q},
+            \end{split}
+            % \label{eq:hamiltonian_dynamics}
+        \end{align*}
+    \end{quote}
+    }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\resetquestioncounter
+\setrevname{Ref-2}
+\section*{REFEREE \#2}
+
+\textit{%
+    %
+    The paper deals with robust passivity-Based control of underactuated
+    systems via neural approximators and Bayesian inference. Authors
+    exploited the Bayesian theory to improve the robustness of the
+    controller. They proposed an interesting Bayesian learning algorithm,
+    and the case study is very well presented.
+    %
+}
+
+\question{%
+    %
+    The paper is well-written and organized, and easy to follow. There some
+    typos and grammatical mistakes. Then the authors are invited to
+    proofread their paper before resubmission.
+    %
+}
+
+\answer{ 
+    Thank you for the opportunity to improve the submission. We have
+    thoroughly read through the manuscript and fixed any typos and grammatical
+    mistakes. }
+
+% \newpage
+% \bibliographystyle{IEEEtran}        % Include this if you use bibtex 
+% \bibliography{bib/IEEEabrv,bib/cdc2022.bib} % and a bib file to produce the 
+                                                            % bibliography (preferred). The
+                                                            % correct style is generated by
+                                                            % Elsevier at the time of printing.
+
+
+
+\end{document}

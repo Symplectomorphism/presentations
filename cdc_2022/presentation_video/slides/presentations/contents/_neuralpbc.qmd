@@ -1,0 +1,418 @@
+
+
+## Our Methods {auto-animate=true}
+<!-- ###################################################################### -->
+
+::: {layout="[-1,8,-1]" layout-align="center" layout-valign="center"}
+![](contents/assets/pbc-ml-outline.svg){width=50%}
+:::
+
+:::: {.fragment}
+::: {.callout-note icon=false}
+## Data-Driven Passivity-based control
+$$
+\begin{aligned}
+\underset{\theta}{\text{minimize}} && J(\theta, x_0) &= \int_{0}^{T} \ell \left(\phi,u^\theta,\theta\right)\, \text{d} t \\
+\text{subject to} &&
+\begin{bmatrix}
+  \dot{q} \\ \dot{p}
+\end{bmatrix} &=
+\begin{bmatrix}
+  0 & I \\ -I & 0
+\end{bmatrix}
+\begin{bmatrix} \nabla_q H \\ \nabla_p H \end{bmatrix} + 
+\begin{bmatrix}
+  0 \\ G
+\end{bmatrix} u^{\theta}
+\\
+&& u^\theta &= -G^{\dagger} \nabla_q H_d^{\theta}  - K_D G^\top \nabla_p H_d^{\theta}
+\end{aligned}
+$$
+:::
+::::
+
+## <span style="font-variant:small-caps;">NeuralPbc</span> Problem Statement {auto-animate=true}
+<!-- ###################################################################### -->
+::: {.callout-note icon=false}
+## Data-Driven Passivity-based control
+$$
+\begin{aligned}
+\underset{\theta}{\text{minimize}} && J(\theta, x_0) &= \int_{0}^{T} \ell \left(\phi,u^\theta,\theta\right)\, \text{d} t \\
+\text{subject to} &&
+\begin{bmatrix}
+  \dot{q} \\ \dot{p}
+\end{bmatrix} &=
+\begin{bmatrix}
+  0 & I \\ -I & 0
+\end{bmatrix}
+\begin{bmatrix} \nabla_q H \\ \nabla_p H \end{bmatrix} + 
+\begin{bmatrix}
+  0 \\ G
+\end{bmatrix} u^{\theta}
+\\
+&& u^\theta &= -G^{\dagger} \nabla_q H_d^{\theta}  - K_D G^\top \nabla_p H_d^{\theta}
+\end{aligned}
+$$
+:::
+
+::: {.incremental}
+- Sampling the state space efficiently
+- Injecting control task into loss function design 
+- Backprop through closed-loop trajectories
+:::
+
+
+## <span style="font-variant:small-caps;">NeuralPbc</span> Sampling State Space :chart_with_downwards_trend:
+<!-- ###################################################################### -->
+
+:::: {.r-stack}
+
+
+![](contents/assets/neuralpbc/000.svg)
+
+![](contents/assets/neuralpbc/001.svg){.fragment}
+
+![](contents/assets/neuralpbc/002.svg){.fragment}
+
+![](contents/assets/neuralpbc/003.svg){.fragment}
+
+![](contents/assets/neuralpbc/004.svg){.fragment}
+
+![](contents/assets/neuralpbc/005.svg){.fragment}
+
+![](contents/assets/neuralpbc/006.svg){.fragment}
+
+![](contents/assets/neuralpbc/007.svg){.fragment}
+
+![](contents/assets/neuralpbc/008.svg){.fragment}
+
+![](contents/assets/neuralpbc/009.svg){.fragment}
+
+![](contents/assets/neuralpbc/010.svg){.fragment}
+
+![](contents/assets/neuralpbc/011.svg){.fragment}
+
+![](contents/assets/neuralpbc/012.svg){.fragment}
+
+![](contents/assets/neuralpbc/013.svg){.fragment}
+
+![](contents/assets/neuralpbc/014.svg){.fragment}
+
+<!-- ![](contents/assets/neuralpbc/015.svg){.fragment} -->
+
+![](contents/assets/neuralpbc/016.svg){.fragment}
+
+![](contents/assets/neuralpbc/017.svg){.fragment}
+
+![](contents/assets/neuralpbc/018.svg){.fragment}
+
+![](contents/assets/neuralpbc/019.svg){.fragment}
+
+![](contents/assets/neuralpbc/020.svg){.fragment}
+
+![](contents/assets/neuralpbc/021.svg){.fragment}
+
+![](contents/assets/neuralpbc/022.svg){.fragment}
+
+![](contents/assets/neuralpbc/023.svg){.fragment}
+
+![](contents/assets/neuralpbc/024.svg){.fragment}
+
+![](contents/assets/neuralpbc/025.svg){.fragment}
+
+![](contents/assets/neuralpbc/026.svg){.fragment}
+
+![](contents/assets/neuralpbc/027.svg){.fragment}
+
+![](contents/assets/neuralpbc/028.svg){.fragment}
+
+![](contents/assets/neuralpbc/029.svg){.fragment}
+
+![](contents/assets/neuralpbc/030.svg){.fragment}
+
+![](contents/assets/neuralpbc/031.svg){.fragment}
+
+![](contents/assets/neuralpbc/032.svg){.fragment}
+
+![](contents/assets/neuralpbc/033.svg){.fragment}
+
+::::
+
+
+## <span style="font-variant:small-caps;">NeuralPbc</span> Cost Function
+<!-- ###################################################################### -->
+
+$$
+J(\theta, x_0) = \int_{0}^{T} \ell \left(\phi,u^\theta,\theta\right)\, \text{d} t
+$$
+
+$\ell \triangleq \ell_{\text{set}}(\gamma) + \ell_{\bot}(\gamma,u)$ where
+
+- $\phi$ is the flow of the equation of motion
+ 
+- $\gamma$ is the closed-loop trajectory starting from $x_0$
+
+- $T$ is the time horizon (hyperparameter)
+
+
+
+## <span style="font-variant:small-caps;">NeuralPbc</span> Cost Function
+<!-- ###################################################################### -->
+
+
+$$\ell \triangleq \ell_{\text{set}}(\gamma) + \ell_{\bot}(\gamma,u)$$
+
+:::: {.callout}
+## Set Distance Loss $\ell_{\text{set}}$
+
+Penalizes when closed-loop trajectory $\gamma$ under the current control law is far away from a neighborhood $\mathcal{S}$ of $x^\star$
+
+::: {layout="[100,100]" layout-valign="top"}
+![](contents/assets/pend_damped_phase_edited.svg)
+<div>
+
+$$
+\ell_{\text{set}}(x) = \underset{t}{\inf} \left\{ \lVert a-b \rVert : a \in \gamma(t), b \in \mathcal{S}\right\}
+$$
+
+- The set $\mathcal{S}$ may be chosen as
+  * A ball around $x^\star$
+  * Estimated region of attraction
+- No additional loss if any point in $\gamma$ is in $\mathcal{S}$
+</div>
+:::
+
+::::
+
+## <span style="font-variant:small-caps;">NeuralPbc</span> Cost Function
+<!-- ###################################################################### -->
+
+
+$$\ell \triangleq \ell_{\text{set}}(\gamma) + \ell_{\bot}(\gamma,u)$$
+
+
+::::: {.callout}
+## Transversal Distance Loss $\ell_{\bot}$
+
+Measures how close $\gamma$ is to $\gamma^\star$ (expert trajectory) using transverse coordinates $x_\bot$
+
+:::: {layout="[70,100]"}
+
+![](contents/assets/transverseCoordinates.svg)
+
+<div>
+* Coordinate transformation
+  - $\tau \in \mathbb{R}$ a surrogate for time
+  - $x_{\bot} \in \mathbb{R}^{2n-1}$ quantify how far away the current state is from $\gamma^\star$
+* By construction $x_{\bot} \to 0 \iff \gamma = \gamma^\star$
+
+$$\ell_{\bot} = x_\bot^\top Q x_\bot + u^\top R u, \, Q \succeq 0, \, R \succ 0$$
+
+* No preferred orbit? $Q = 0$
+</div>
+
+::::
+:::::
+
+::: {.notes}
+- We can find a coordinate transformation such that 1 coordinate $\tau$ is along the desired orbit and acts as surrogate for time
+- The remaining coordinates $x_{\bot}$ quantify how far away the current state is from the desired trajectory
+:::
+
+
+## Backprop through ODE Solutions
+<!-- ###################################################################### -->
+
+We need $\partial J / \partial \theta$, which depends ODE solutions
+
+::: {.fragment .fade-in-then-semi-out}
+:crying_cat_face: Combining `autodiff` with numerical ODE solvers 
+:::
+
+::: {.fragment .fade-in-then-semi-out}
+:crying_cat_face: Adjoint sensitivity method: solve the adjoint problem backward in time
+$$\frac{\text{d}\lambda}{\text{d}t} = -\lambda \frac{\partial f}{\partial x}, \quad \frac{\partial J}{\partial \theta} = \lambda(t_0) \frac{\partial f}{\partial x}$$
+:::
+
+::: {.fragment .fade-in}
+:smiley_cat: Adjoint methods + `autodiff` implemented in `DiffEqFlux.jl`
+:::
+
+::: {.notes}
+* Plain `autodiff` causes errors due to numerical ODE integration, high memory consumption
+* Adjoint methods requires storing many passes of the adjoint problem, again high memory consumption
+* `DiffEqFlux` combines the two, avoiding multiple passes through clever implementation, fast an efficient
+:::
+
+
+## Robust Control Under Uncertainties 
+
+
+:::: {.r-stack}
+
+:::{.fragment fragment-index=1 .fade-out}
+::: {.callout-important icon=false}
+## Optimal Control under System Parameter Uncertainties
+$$
+\begin{aligned}
+\underset{\theta}{\text{minimize}} && J(\theta, x_0) &= \int_{0}^{T} \ell \left(\phi,u^\theta,\theta\right)\, \text{d} t \\
+\text{subject to} &&
+\dot{x} &= f(x, u^{\theta}; p)\\
+&& p &\sim \, \mathcal{N}(\hat{p}, \sigma_p)
+\end{aligned}
+$$
+:::
+:::
+
+:::{.fragment fragment-index=1 .fade-in}
+::: {.callout-important icon=false}
+## Optimal Control under System Parameter and Measurement Uncertainties
+
+$$
+\begin{aligned}
+\underset{\theta}{\text{minimize}} && J(\theta, x_0) &= \int_{0}^{T} \ell \left(\phi,u^\theta,\theta\right)\, \text{d} t \\
+\text{subject to} &&
+\dd x &= f(x, u^{\theta}) 
+        \dd t + \nabla_x u(x) \dd W_t \\
+&& p &\sim \,\mathcal{N}(\hat{p}, \sigma_p)
+\end{aligned}
+$$
+
+:::
+:::
+::::
+
+:::: {.columns}
+
+::: {.column width="70%"}
+:::{.fragment fragment-index=2 .fade-in}
+![](contents/assets/regular_vs_bayesian.svg){.absolute top=250 left=100 width="600" height="500"}
+:::
+:::
+
+::: {.column width="30%"}
+
+:::{.fragment fragment-index=3 .fade-in }
+
+&nbsp;
+
+- <font size="5">BNNs capture variance in controller</font>
+- <font size="5">Akin to learning ensemble of controllers that each minimize $J$</font>
+:::
+:::
+
+::::
+
+
+## Bayesian Learning 
+<!-- ###################################################################### -->
+
+:::: {.columns}
+
+::: {.column width="60%"}
+
+::: {.fragment .fade-in fragment-index=0}
+::: {.callout-important icon=false}
+## Bayesian Passivity-based Control
+
+$$
+\begin{aligned}
+\underset{z}{\text{minimize}} && J(\theta, x_0) &= \int_{0}^{T} \ell \left(\phi,u^\theta,\theta\right)\, \text{d} t \\
+\text{subject to} &&
+\dd x &= f(x, u^{\theta}) 
+        \dd t + \nabla_x u(x) \dd W_t \\
+&& p &\sim \, \mathcal{N}(\hat{p}, \sigma_p) \\
+&& u^\theta &= -G^{\dagger} \nabla_q H_d^{\theta}  - K_D G^\top \nabla_p H_d^{\theta} \\
+&& \theta &\sim \, q(\theta; z)
+\end{aligned}
+$$
+:::
+:::
+
+:::
+
+::: {.column width="40%"}
+::: {.fragment .fade-in fragment-index=1}
+
+&nbsp;
+$$
+p(\theta \mid \mathcal{D}) = \frac{\overbrace{p(\mathcal{D} \mid
+\theta)}^{\text{likelihood}}\overbrace{p(\theta)}^{\text{prior}}}
+{\underbrace{\int_\theta p(\mathcal{D} \mid \theta^\prime)p(\theta^\prime)
+d\theta^\prime}_{\text{evidence}}} \underbrace{\approx q(\theta;
+z)}_{\text{VI}}.
+$$
+:::
+:::
+
+::::
+
+::: {.fragment .fade-in fragment-index=2}
+::: {.callout-important icon=false}
+## KL-divergence and ELBO
+$$
+\begin{aligned}
+D_{\text{KL}} &= \mathbb{E}_{\theta \sim q}\left[ \log \frac{q(\theta;
+z)}{p(\theta \mid \mathcal{D})}\right] \\
+&= \log p(\mathcal{D}) - \mathbb{E}_{\theta \sim q}\left[ \log
+\frac{p(\mathcal{D} \mid \theta) p(\theta)}{q(\theta; z)} \right] \\
+\mathcal{L}(\mathcal{D}; z) &= \mathbb{E}_{\theta \sim q}\left[ \log
+p(\mathcal{D} \mid \theta) p(\theta) - \log q(\theta; z) \right]
+\end{aligned}
+$$
+:::
+:::
+
+
+## Bayesian Solution
+<!-- ###################################################################### -->
+
+&nbsp;
+
+Computing ELBO
+$$ \mathcal{L}(\mathcal{D};z) = \mathbb{E}_{\theta \sim q}\left[ \log p(\mathcal{D} \mid \theta)p(\theta) - \log q(\theta; z)  \right] $$
+requires: 
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+::: {.fragment .fade-in fragment-index=0} 
+- _Likelihood_:
+
+$$ p( J(\theta, x_0)) = \mathcal{N}(0, s). 
+$$
+:::
+
+::: {.fragment .fade-in fragment-index=1} 
+- _Prior_:
+    <ul>
+      <li> Uninformed </li>
+      <li> Deterministic </li>
+    </ul>
+:::
+:::
+
+::: {.column width="50%"} 
+::: {.fragment fragment-index=2 .fade-in}
+
+::: {.callout-tip icon=false}
+## Prediction through maximum aposteriori
+$$
+u(x) = u(x, \underset{\theta}{\text{argmax}} \, p(\theta;z)).
+$$
+:::
+
+::: {.callout-tip icon=false}
+## Prediction through marginalization
+$$
+u(x) = \frac{1}{N}\sum_{\theta \sim q} u(x, \theta).
+$$
+:::
+
+:::
+::: 
+::::
+
+
+

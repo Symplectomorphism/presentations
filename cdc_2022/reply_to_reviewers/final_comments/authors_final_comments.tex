@@ -1,0 +1,74 @@
+\documentclass[11pt]{article}
+
+% packages
+\usepackage[a4paper]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{pdfpages}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{xpatch} % also loads expl3
+
+
+% new commands and definitions
+\def \revname {[Assign the Reviewer code before!]}
+\newcommand{\setrevname}[1]{\def \revname {#1}}
+\newcounter{AR_index}
+\newcommand{\resetquestioncounter}{\setcounter{AR_index}{0}}
+\newcommand{\question}[1]{\refstepcounter{AR_index} ~\bigskip\newline {\Huge\color{Gray} Q.} \textbf{{\Large \revname.\arabic{AR_index}} \hspace{1mm}\----\hspace{1mm}} \textit{#1}}
+\newcommand{\answer}{~\newline {\Huge\color{Gray} A.} \textbf{{\Large \revname.\arabic{AR_index}} \hspace{1mm}\----\hspace{1mm}}}
+
+\begin{document}
+
+\title{Authors' Comments on Final Submission}
+\maketitle
+
+\noindent
+\textbf{Submission Number: 22-0227}  \\%
+\textbf{Paper title:} Robust Passivity-Based Control of Underactuated Systems via Neural Approximators and Bayesian Inference
+
+\bigskip \bigskip \noindent 
+%
+We thank the Editor and the Reviewers for the thorough review of our work and
+the insightful comments. 
+%
+In our revised (second) manuscript, submitted May 18, 2022, we had addressed
+the reviewers' comments in detail.
+%
+Following the second submission, both reviewers have found our answers and
+corresponding changes to the manuscript satisfactory.
+%
+Hence, we have not made any changes from the last revised submission.
+% 
+To indicate that no changes were requested, we have attached the replies from
+reviewers as follows:
+%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\resetquestioncounter
+\setrevname{Ref-1}
+\section*{REFEREE \#1, ID 65379}
+
+\textit{%
+    %
+    The revision is satisfactoy. Authors made considerable efforts to
+    improve the paper.
+    %
+}
+
+\resetquestioncounter
+\setrevname{Ref-2}
+\section*{REFEREE \#2, ID 65381}
+
+\textit{%
+    %
+    The authors thoroughly addressed my concerns, and I advocate for the
+    acceptance of this paper. %
+}
+
+
+\end{document}

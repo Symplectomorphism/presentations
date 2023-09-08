@@ -1,0 +1,21 @@
+
+## Closing Thoughts and Future Directions
+
+###### PBC + machine learning techniques :sparkles: 
+
+::: {style="font-size: 32px;"}
+* We uncovered the engineering foundations for combining them
+* Extensive experimental results in simulation and on hardware
+:::
+
+###### Future directions---applications in:
+
+::: {style="font-size: 32px;"}
+* Dynamical models with uncertainity
+* Hybrid dynamical systems (walking machines)
+:::
+
+<!-- ## {background-image="contents/assets/qa_background.png" visibility="uncounted"} -->
+
+## {background-video="contents/cartpole-moe.mp4" background-video-loop="true" background-video-muted="true"}
+<!--  -->
