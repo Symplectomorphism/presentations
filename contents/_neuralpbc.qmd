@@ -115,7 +115,7 @@ $$\ell \triangleq \ell_{\text{set}}(\gamma) + \ell_{\bot}(\gamma,u)$$
 Penalizes when closed-loop trajectory $\gamma$ under the current control law is far away from a neighborhood $\mathcal{S}$ of $x^\star$
 
 ::: {layout="[100,100]" layout-valign="top"}
-![](assets/pend_damped_phase_edited.svg)
+![](contents/assets/pend_damped_phase_edited.svg)
 
 <div>
 
@@ -142,7 +142,7 @@ Measures how close $\gamma$ is to $\gamma^\star$ (expert trajectory) using trans
 
 :::: {layout="[70,100]"}
 
-![](assets/transverseCoordinates.svg)
+![](contents/assets/transverseCoordinates.svg)
 
 <div>
 * Coordinate transformation
@@ -223,73 +223,73 @@ Sample state space with technique based on <span style="font-variant:small-caps;
 :::: {.r-stack}
 
 
-![](assets/neuralpbc/000.svg)
+![](contents/assets/neuralpbc/000.svg)
 
-![](assets/neuralpbc/001.svg){.fragment}
+![](contents/assets/neuralpbc/001.svg){.fragment}
 
-![](assets/neuralpbc/002.svg){.fragment}
+![](contents/assets/neuralpbc/002.svg){.fragment}
 
-![](assets/neuralpbc/003.svg){.fragment}
+![](contents/assets/neuralpbc/003.svg){.fragment}
 
-![](assets/neuralpbc/004.svg){.fragment}
+![](contents/assets/neuralpbc/004.svg){.fragment}
 
-![](assets/neuralpbc/005.svg){.fragment}
+![](contents/assets/neuralpbc/005.svg){.fragment}
 
-![](assets/neuralpbc/006.svg){.fragment}
+![](contents/assets/neuralpbc/006.svg){.fragment}
 
-![](assets/neuralpbc/007.svg){.fragment}
+![](contents/assets/neuralpbc/007.svg){.fragment}
 
-![](assets/neuralpbc/008.svg){.fragment}
+![](contents/assets/neuralpbc/008.svg){.fragment}
 
-![](assets/neuralpbc/009.svg){.fragment}
+![](contents/assets/neuralpbc/009.svg){.fragment}
 
-![](assets/neuralpbc/010.svg){.fragment}
+![](contents/assets/neuralpbc/010.svg){.fragment}
 
-![](assets/neuralpbc/011.svg){.fragment}
+![](contents/assets/neuralpbc/011.svg){.fragment}
 
-![](assets/neuralpbc/012.svg){.fragment}
+![](contents/assets/neuralpbc/012.svg){.fragment}
 
-![](assets/neuralpbc/013.svg){.fragment}
+![](contents/assets/neuralpbc/013.svg){.fragment}
 
-![](assets/neuralpbc/014.svg){.fragment}
+![](contents/assets/neuralpbc/014.svg){.fragment}
 
-![](assets/neuralpbc/015.svg){.fragment}
+![](contents/assets/neuralpbc/015.svg){.fragment}
 
-![](assets/neuralpbc/016.svg){.fragment}
+![](contents/assets/neuralpbc/016.svg){.fragment}
 
-![](assets/neuralpbc/017.svg){.fragment}
+![](contents/assets/neuralpbc/017.svg){.fragment}
 
-![](assets/neuralpbc/018.svg){.fragment}
+![](contents/assets/neuralpbc/018.svg){.fragment}
 
-![](assets/neuralpbc/019.svg){.fragment}
+![](contents/assets/neuralpbc/019.svg){.fragment}
 
-![](assets/neuralpbc/020.svg){.fragment}
+![](contents/assets/neuralpbc/020.svg){.fragment}
 
-![](assets/neuralpbc/021.svg){.fragment}
+![](contents/assets/neuralpbc/021.svg){.fragment}
 
-![](assets/neuralpbc/022.svg){.fragment}
+![](contents/assets/neuralpbc/022.svg){.fragment}
 
-![](assets/neuralpbc/023.svg){.fragment}
+![](contents/assets/neuralpbc/023.svg){.fragment}
 
-![](assets/neuralpbc/024.svg){.fragment}
+![](contents/assets/neuralpbc/024.svg){.fragment}
 
-![](assets/neuralpbc/025.svg){.fragment}
+![](contents/assets/neuralpbc/025.svg){.fragment}
 
-![](assets/neuralpbc/026.svg){.fragment}
+![](contents/assets/neuralpbc/026.svg){.fragment}
 
-![](assets/neuralpbc/027.svg){.fragment}
+![](contents/assets/neuralpbc/027.svg){.fragment}
 
-![](assets/neuralpbc/028.svg){.fragment}
+![](contents/assets/neuralpbc/028.svg){.fragment}
 
-![](assets/neuralpbc/029.svg){.fragment}
+![](contents/assets/neuralpbc/029.svg){.fragment}
 
-![](assets/neuralpbc/030.svg){.fragment}
+![](contents/assets/neuralpbc/030.svg){.fragment}
 
-![](assets/neuralpbc/031.svg){.fragment}
+![](contents/assets/neuralpbc/031.svg){.fragment}
 
-![](assets/neuralpbc/032.svg){.fragment}
+![](contents/assets/neuralpbc/032.svg){.fragment}
 
-![](assets/neuralpbc/033.svg){.fragment}
+![](contents/assets/neuralpbc/033.svg){.fragment}
 
 ::::
 
@@ -340,9 +340,9 @@ $$ p\left( \lVert \ell_{\text{set}}(\gamma) + \ell_\bot(\gamma, u) \rVert^2 \mid
 
 
 ::: {.r-stack layout-valign="center"}
-![](assets/neuralpbc/033.svg){.fragment .shrink fragment-index=0}
+![](contents/assets/neuralpbc/033.svg){.fragment .shrink fragment-index=0}
 
-![](assets/H.svg){.fragment fragmend-index=1}
+![](contents/assets/H.svg){.fragment fragmend-index=1}
 :::
 
 
@@ -351,9 +351,9 @@ $$ p\left( \lVert \ell_{\text{set}}(\gamma) + \ell_\bot(\gamma, u) \rVert^2 \mid
 
 
 ::: r-hstack
-![](assets/neuralpbc/033.svg){.fragment data-fragment-index=0}
+![](contents/assets/neuralpbc/033.svg){.fragment data-fragment-index=0}
 
-![](assets/H.svg){.fragment data-fragment-index=0}
+![](contents/assets/H.svg){.fragment data-fragment-index=0}
 :::
 
 ::: {.incremental .fragment data-fragment-index=1}
@@ -376,11 +376,11 @@ Benchmark underactuated  control problems:
 :::
 ::: {.column width=40%}
 ::: {.r-stack}
-![](assets/cartpole.svg){.fragment .fade-in-then-out fragment-index=0}
+![](contents/assets/cartpole.svg){.fragment .fade-in-then-out fragment-index=0}
 
-![](assets/iwp.svg){.fragment .fade-in-then-out fragment-index=1}
+![](contents/assets/iwp.svg){.fragment .fade-in-then-out fragment-index=1}
 
-![](assets/acrobot.svg){.fragment .fade-in-then-out fragment-index=2}
+![](contents/assets/acrobot.svg){.fragment .fade-in-then-out fragment-index=2}
 :::
 :::
 ::::
@@ -391,7 +391,7 @@ Benchmark underactuated  control problems:
 ## Learned storage function
 <!-- ###################################################################### -->
 
-![](assets/cartpole-contours.png)
+![](contents/assets/cartpole-contours.png)
 
 Observations
 : 
@@ -401,7 +401,7 @@ $H_d^\theta$ has a local minimum at $x^\star$, control law $u^\theta$ commands t
 ## Comparison with Energy Shaping[^astrom]
 <!-- ###################################################################### -->
 
-![](assets/cartpole-cost-compare.svg)
+![](contents/assets/cartpole-cost-compare.svg)
 
 
 

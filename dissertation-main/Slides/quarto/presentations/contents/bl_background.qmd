@@ -1,0 +1,130 @@
+## Bayesian Learning {auto-animate=true}
+ 
+<br/>
+
+* **Objective**: Given finite dataset with inherent noise, we are in search of a regression model
+
+:::: {.columns}
+
+:::{.column width=60%}
+
+:::{.fragment fragment-index=0}
+* E.g. Recognizing handwritten digits from images
+    + noise due to differences in individual handwriting
+:::
+
+:::{.fragment fragment-index=1}
+* Bayesian learning provides *stochastic models* that do not overfit on the training data
+    + *Stochastic model*: $F(x;\theta), \theta \sim P(\theta | \mathbb{D})$
+:::
+
+:::
+
+:::{.column width=40%}
+
+:::{.fragment fragment-index=0}
+![](contents/assets/handwritten_images.png){.absolute top=250 left=700 width="350" height="200"}
+:::
+
+:::
+::::
+
+## Robustness via Bayesian Learning 
+
+::::{.columns}
+:::{.column width=50%}
+
+<br/>
+
+:::{.incremental}
+* <span style="font-variant:small-caps;">NeuralPbc</span> assumes a nominal model $\dot{x} = f(x, u)$
+* The trained controller must not overfit on the observations generated from the nominal model
+
+:::
+:::
+
+:::{.column width=50%}
+
+![](contents/assets/regular-vs-bayesian.svg){.absolute width="575" heigth="575"}
+
+:::
+<!-- column -->
+
+::::
+
+:::{.fragment fragment-index=0}
+:::{.incremental}
+* **Our method**: $H_d$ is a Bayesian neural network
+    + achieves the performance objective for samples $\theta \sim P(\theta | \mathbb{D})$
+    + searches for ensemble of parameters that meet the desired performance 
+  $$
+    P(\theta \mid \mathbb{D}) = \frac{\overbrace{P(\mathbb{D} \mid
+    \theta)}^{\text{likelihood}}\overbrace{P(\theta)}^{\text{prior}}}
+    {\underbrace{\int_\theta P(\mathbb{D} \mid \theta^\prime)P(\theta^\prime)
+    d\theta^\prime}_{\text{evidence}}}.
+  $$
+:::
+:::
+
+## Training Stochastic Models {auto-animate=true}
+
+<br/>
+
+:::{.r-stack}
+:::{.fragment .fade-in-then-out fragment-index=0}
+:::{.callout-important icon=false }
+## Bayesian Inference
+
+$$
+\begin{aligned}
+\underset{P(\theta | \mathbb{D})}{\text{maximize}} &&& P(\mathbb{D} | \theta) P(\theta), \\
+\text{subject to} &&
+& \theta \sim P(\theta | \mathbb{D}), \\
+&& \mathbb{D} &= \{(x_1, y_1), \dots, (x_N, y_N) \}.
+\end{aligned}
+$$
+::: 
+<!-- callout -->
+:::
+
+:::{ .fragment .fade-in-then-out fragment-index=1}
+:::{.callout-important icon=false}
+## Bayesian Inference
+
+$$
+\begin{aligned}
+\underset{P(\theta | \mathbb{D})}{\text{maximize}} && \prod_{j=1}^{N} \mathcal{N}&(\| F(x_j; \theta) -  y_j \| \; | \; 0, s_1) \mathcal{N}(\| \theta - \theta_0 \| \; | \; 0, s_2), \\
+\text{subject to} &&
+& \theta \sim P(\theta | \mathbb{D}), \\
+&& \mathbb{D} &= \{(x_1, y_1), \dots, (x_N, y_N) \}.
+\end{aligned}
+$$
+::: 
+<!-- callout -->
+:::
+
+:::{ .fragment .fade-in fragment-index=2}
+:::{.callout-important icon=false}
+## Bayesian Inference
+
+$$
+\begin{aligned}
+\underset{z}{\text{maximize}} && \mathcal{L}(\mathbb{D},z) &= \mathbb{E}_{\theta \sim Q} \left[\ln(P(\mathbb{D} \mid \theta)P(\theta)) - \ln(Q(\theta;z)) \right], \\
+\text{subject to} &&
+& \theta \sim Q(\theta;z), \\
+&& \mathbb{D} &= \{(x_1, y_1), \dots, (x_N, y_N) \}.
+\end{aligned}
+$$
+::: 
+<!-- callout -->
+:::
+:::
+
+:::{.fragment fragment-index=2}
+* **Variational Inference**: approximates the posterior $P(\theta | \mathbb{D})$ with a pre-selected distribution $Q(\theta; z)$
+* **Objective**: collect $N_\theta$ samples from the current posterior $Q(\theta; z)$ and maximize <span style="font-variant:small-caps;">Elbo</span> 
+$$
+  \mathcal{L}(\mathbb{D},z) = \mathbb{E}_{\theta \sim Q} \left[\ln(P(\mathbb{D} \mid \theta)P(\theta)) - \ln(Q(\theta;z)) \right]
+$$
+:::
+

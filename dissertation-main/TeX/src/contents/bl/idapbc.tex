@@ -1,0 +1,88 @@
+
+\section{Bayesian Neural Interconnection and Damping Assignment PBC}
+
+In this subsection, we formulate a Bayesian learning framework that tackles the
+adverse effects of system parameter uncertainties in the \textsc{IdaPbc}
+architecture.
+%
+We parametrize the function $V_d^\theta$ and the entries of $L_\theta$ and
+$A_\theta$ matrices with Bayesian neural networks. 
+%
+We invoke variational inference to find the approximate posterior over the
+parameters $\theta$. The goal is to learn the distribution parameters $z$ of the
+posterior multivariate probability distribution $Q(\theta;z)$ that maximize the
+\textsc{Elbo} given in~\eqref{eq:elbo}.
+%
+We pose the search over the parameters $z$ as the following optimization problem.
+\begin{equation}
+    \begin{aligned}
+        \underset{z }{\textrm{minimize}} 
+        &&\quad \left\| l_{\textrm{IDA}} (x) \right\|^2 &= \left\| \Omega^\perp \left\{ \nabla_qH - M_dM^{-1} \nabla_qH_d + J_2M_d^{-1}p \right\} \right\|^2, \\
+        \textrm{subject to}
+        &&\quad M^\theta_d &= L_{\theta}(q)L_{\theta}^\top(q) + \delta_M I_n, \\
+        &&\quad J_2^\theta(q, p) &= A_\theta(q, p) - A^\top_\theta(q, p), \\
+        % &&\quad q^\star &= \underset{q}{\textrm{argmin}} \; V_d^\theta.  \\
+        &&\quad q^\star &= \underset{q}{\textrm{argmin}}\; V_d^\theta, \\
+        &&p_s &\sim \mathcal{N}(\hat{p}_s, \sigma_p), \\
+        &&\theta &\sim Q(\theta; z).
+    \end{aligned}    
+    \label{eq:bayesian_idapbc}%
+  \end{equation}
+
+% Similar to the deterministic \textsc{NeuralIdaPbc} framework discussed in
+% Section~\ref{ssec:pbc}, we enforce the constraints on $V_d, M_d$ and $J_2$ with the
+% following redefinitions.
+% \begin{equation*}
+%     \begin{gathered}
+%         M^\theta_d = L_{\theta}(q)L_{\theta}^\top(q) + \delta_M I_n, \\
+%         J_2^\theta(q, p) = A_\theta(q, p) - A^\top_\theta(q, p) \\
+%         V_d^\theta(x) = \Phi \Bigl( W_j\sigma(W_{j-1}\sigma(\ldots W_2\sigma(W_1x))) \Bigr),
+%     \end{gathered}
+% \end{equation*}
+% \noindent where $\sigma(0) = 0$, $\Phi(0) = 0$ and $\Phi(x) > 0, x \ne 0$.
+%
+The computation of the \textsc{Elbo} requires the likelihood function and
+the prior distribution.
+%
+In order to compute the likelihood, we first draw samples of $\theta$ from the
+posterior $Q(\theta;z)$, and evaluate the PDEs given in~\eqref{eq:pde_idapbc}.
+Then, the likelihood is given by
+\begin{equation}
+    P( \left\| l_{\textrm{IDA}} (x) \right\| \mid \theta) = \mathcal{N}\left(\left\| l_{\textrm{IDA}} (x) \right\| \; | \; 0, s \right),
+    \label{eqn:likelihood_idapbc}
+\end{equation}
+where $\mathcal{N}$ represents the Gaussian probability distribution, and $s$ is
+a hyperparameter that represents the standard deviation of the likelihood.
+%
+With the choice of the likelihood function given in
+\eqref{eqn:likelihood_idapbc}, maximizing the \textsc{Elbo}
+in~\eqref{eq:elbo} coaxes the loss $l_{\text{IDA}}(x)$ to zero.
+
+
+%
+We update the distribution parameters $z$ along the gradient $\partial
+\mathcal{L}/\partial z$ until the \textsc{Elbo} converges and the objective
+function $\left\| l_{\textrm{IDA}} (x) \right\|^2$ reaches the threshold
+$\epsilon_{tol}$.
+%
+We invoke the reparameterization trick of the Automatic Differentiation
+Variational Inference(\textsc{ADVI})~\cite{kucukelbir2015automatic} to compute
+the gradient of samples $\theta$ with respect to the distribution parameters
+$z$.
+
+
+System parameter uncertainties can deteriorate the performance of controllers
+employed on real systems. 
+%
+Hence, in the Bayesian framework, we inject these uncertainties directly into
+the training loop in order to learn a controller that works for a wide range of
+system parameters.
+%
+To model these uncertainties, we sample a set of system parameters $p_s$ from
+a normal distribution $\mathcal{N}(\hat{p}_s, \sigma_{p})$ centered around the
+nominal parameter $\hat{p}_s$, where $\sigma_{p}$ represents the uncertainty
+in system parameters.
+%
+Each time we compute the PDE loss $l_{\text{IDA}}$ for a batch of discrete
+states sampled from the configuration space, we draw a new sample
+of $p_s$.

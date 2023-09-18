@@ -4,25 +4,27 @@ author-meta: "Aykut C. Satici"
 institute: "Boise State University"
 ---
 
-## Data-Driven Passivity-Based Control {.center .smaller}
+## Data-Driven Passivity-Based Control of Robotic Locomotion and Manipulation {.center .smaller}
 <!-- ###################################################################### -->
 
 <hr>
 
-*University of Kentucky Seminar*
+*University of Texas at Dallas Seminar*
 
 <br/>
 
 ::: {layout="[120, 60]"}
 __Presenter__: Aykut Satici, Ph.D. <br>
-Mechanical and Biomedical Engineering Department <br>
+Mechanical and Biomedical Engineering <br>
 Boise State University, Boise, Idaho, USA 
 
 __Graduate Students__: <br/>
+Chris Dagher :mortar_board: <br/>
 Wankun Sirichotiyakul :mortar_board: <br/>
 Nardos Ayele Ashenafi :mortar_board: <br/>
 :::
 
+<!--
 ## Peer-Reviewed Contributions
 
 <br>
@@ -59,3 +61,4 @@ Nardos Ayele Ashenafi :mortar_board: <br/>
 * IJC - International Journal of Control
 * TACON - Transactions on Automatic Control
 :::
+-->

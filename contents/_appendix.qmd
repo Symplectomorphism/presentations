@@ -41,9 +41,9 @@ Learning $\dot{x} = f(x)$ where $f$ is a neural network
 Regress on MSE between trajectory of $f$ and data
 
 :::: {.r-stack}
-![](assets/diffeqflux_1.png){.fragment .fade-out fragment-index=0}
+![](contents/assets/diffeqflux_1.png){.fragment .fade-out fragment-index=0}
 
-![](assets/diffeqflux_2.gif){.fragment .fade-in fragment-index=0}
+![](contents/assets/diffeqflux_2.gif){.fragment .fade-in fragment-index=0}
 ::::
 
 
