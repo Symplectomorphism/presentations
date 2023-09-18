@@ -1,0 +1,53 @@
+# Switching Control with Deep-net Mixture of Experts
+
+# Background
+* Mixture of Experts 
+
+## Mixture of Experts (MOE): Old Faithful {auto-animate="true"}
+
+
+* **Objective**: learn two expert Gaussian models that represent dataset $\mathbb{D} = \{(x_1, y_1), \dots, (x_N, y_N) \}$
+
+::::{.columns}
+
+<!-- :::{.r-stack} -->
+
+:::{.column  width="60%"}
+
+:::{.fragment .fade-in fragment-index=2}
+* The experts are chosen as
+\begin{align*}
+F(x;\theta) &= \{\mathcal{N}_1(\mu_1, \sigma_1), \mathcal{N}_2(\mu_2, \sigma_2)\} \\
+\theta &= \{(\mu_1, \sigma_1), (\mu_2, \sigma_2) \}
+\end{align*}
+    + Prediction is a weighted-average of experts
+:::
+
+
+:::
+
+
+:::{.column  width="40%"}
+
+<!-- :::{.r-stack}
+
+![](contents/assets/geyser.JPG){.absolute top=100 left=700 .fragment .fade-in-then-out fragment-index=0} -->
+![](contents/assets/old_faithful.svg){.absolute top=75 left=600 width="550" height="400" .fragment .fade-in fragment-index=0}
+
+<!-- ::: -->
+:::
+
+::::
+
+:::{.fragment .fade-in fragment-index=3}
+
+* The gating network is a neural net $\mathbf{P}(x | \psi) = [P_1(x | \psi), P_2(x | \psi) ]$
+    + Divides the input space into partitions
+:::
+
+:::{.fragment .fade-in fragment-index=4}
+* *Expectation Maximization*: maximizes log likelihood
+$$
+\ln \{P(\mathbb{D} | \theta, \psi) \} = \sum_{j=1}^{N} \ln \sum_{i=1}^{N_F} \frac{1}{\sqrt{2 \pi \sigma_i^2}} \exp \left( -\frac{1}{2}\frac{(y_j - \mu_i)^2}{\sigma_i^2} \right) P_i(x_j, \psi)
+$$
+:::

@@ -1,0 +1,195 @@
+# Uncertainty Handling via Neural Bayesian Inference
+
+# Background {visibility="uncounted"}
+<!-- ###################################################################### -->
+
+* Passive System Theory and Passivity-Based Control (PBC)
+* Bayesian Learning
+
+## Dissipativity {auto-animate="true"}
+<!-- ###################################################################### -->
+
+<br/>
+
+* A dynamical system
+$$
+\Sigma: \quad
+\begin{cases}
+  \dot{x} &= f(x,u) \\
+  y &= g(x,u)
+\end{cases}
+\quad x \in \mathcal{X} \subset \mathbb{R}^{2m}, \, u \in \mathcal{U} \subset \mathbb{R}^{n} 
+$$
+is __dissipative__ with respect to some supply rate $s$ if there exists a *storage function* $H: \mathcal{X} \to \mathbb{R}^{+}$ such that
+$$
+H\left(  x(t_1) \right) \leq  H\left(  x(t_0) \right) + \int_{t_0}^{t_1} s(u(t), y(t)) \, \text{d}t
+$$
+for all $x(t_0) = x_0$, all input $u$, and all $t_1 \geq t_0$
+* It is passive if $s = u^{\top} y$
+
+## Stability of Passive Systems {auto-animate="true"}
+<!-- ###################################################################### -->
+
+<br/>
+
+$$
+\Sigma: \quad
+\begin{cases}
+  \dot{x} &= f(x,u) && f(0,0) = 0, \\
+  y &= g(x,u) && g(0,0) = 0.
+\end{cases}
+$$
+
+
+\begin{gather*}
+u^{\top} y \geq \dot{H} = \frac{\partial H}{\partial x} f(x,u), \\
+\quad H \geq 0,\quad y \equiv 0 \implies x \equiv 0.
+\end{gather*}
+
+<br/> 
+
+::: {.callout-note icon="false"}
+## Lemma (Khalil, 2002)
+The origin of $\Sigma$ is: 
+
+- __stable__ if $\Sigma$ is passive,
+- __asymptotically stable__ if $\Sigma$ is output strictly passive ($s = u^\top y - \delta \lVert y \rVert^2, \; \delta > 0$).
+:::
+
+
+## Simple Pendulum {auto-animate="false" auto-animate-easing="ease"}
+<!-- ###################################################################### -->
+
+<br/> 
+
+:::: {.callout-note icon="false"}
+
+## Energy Shaping
+
+$H(q,p) = \frac{1}{2} J^{-1} p^2 + mgl (1 - \cos q)$
+
+$$
+\begin{bmatrix} \dot{q} \\ \dot{p} \end{bmatrix} = 
+\begin{bmatrix} \phantom{-}0 & 1 \\ -1 & 0 \end{bmatrix} 
+\begin{bmatrix} \nabla_q H_{\phantom{d}} \\ \nabla_p H_{\phantom{d}} \end{bmatrix} +
+\begin{bmatrix} 0 \\ \Omega \end{bmatrix} u_\phantom{di},
+\qquad y = \dot{q}
+$$
+
+::: {.fragment .fade-in fragment-index=1}
+Choose $u = u_{es} + u_{di}$ that transforms system into a passive one  with $x^\star = (q^\star, 0)$
+<!-- and $H_d$ satisfying $\dot{H}_{d} \leq y^\top u_{di}$ -->
+:::
+
+::: {.fragment .fade-in  fragment-index=2}
+
+$\Omega u_{es} = \nabla_q H  - \nabla_q H_d , \quad \Omega u_{di} = -\Omega K_D \Omega^\top \nabla_p H_d$
+:::
+
+
+::: {.r-stack}
+
+::: {.fragment .fade-in-then-out fragment-index=1}
+$$
+\begin{bmatrix} \dot{q} \\ \dot{p} \end{bmatrix} = 
+\begin{bmatrix} \phantom{-}0 & 1 \\ -1 & 0 \end{bmatrix} 
+\begin{bmatrix} \nabla_q H_d \\ \nabla_p H_d \end{bmatrix} +
+\begin{bmatrix} 0 \\ \Omega \end{bmatrix} u_{di},
+\qquad y = \dot{q}
+$$
+:::
+
+::: {.fragment .fade-in fragment-index=2}
+
+$$
+\begin{bmatrix} \dot{q} \\ \dot{p} \end{bmatrix} = 
+\begin{bmatrix} \phantom{-}0 & 1 \\ -1 & -\Omega K_D \Omega^\top \end{bmatrix} 
+\begin{bmatrix} \nabla_q H_d \\ \nabla_p H_d \end{bmatrix},
+\qquad y = \dot{q}
+$$
+
+:::
+
+:::
+
+::::
+
+
+##  Simple Pendulum  {auto-animate="false" auto-animate-easing="ease"}
+<!-- ###################################################################### -->
+
+:::: {.callout-tip icon="false"}
+
+## Control Synthesis via PBC
+
+Choose $u = u_{es} + u_{di}$ that transforms system into a passive one with $x^\star =  (q^\star, 0)$
+
+$\Omega u_{es} = \nabla_q H  - \nabla_q H_d , \quad \Omega u_{di} = -\Omega K_D \Omega^\top \nabla_p H_d$
+
+$$
+\begin{bmatrix} \dot{q} \\ \dot{p} \end{bmatrix} = 
+\begin{bmatrix} \phantom{-}0 & 1 \\ -1 & -\Omega K_D \Omega^\top \end{bmatrix} 
+\begin{bmatrix} \nabla_q H_d \\ \nabla_p H_d \end{bmatrix},
+\qquad y = \dot{q}
+$$
+
+
+::: {.fragment .fade-up}
+$H_d(q,p) = \frac{1}{2} J^{-1} p^2 + V_d(q), \quad V_d(q) = \frac{1}{2} K_{P} \left( q - q^\star \right)^2$
+:::
+
+<!-- $\dot{H_d} = -\left(  \nabla_p H_d \right)^\top K_D \left(  \nabla_p H_d \right) \leq 0$ -->
+
+::: {.fragment .fade-up}
+$\dot{H}_d = -K_D \left( J^{-1} p \right)^2 = y^\top u_{di} \leq 0$
+:::
+
+::: {.fragment .fade-up}
+$\boxed{u = -mgl\sin(q) - K_P(q - q^\star) - K_D \dot{q}}$
+:::
+
+::::
+
+::: {.fragment .fade-up}
+::::{.callout-note icon="false"}
+## Constraint on $H_d$ 
+
+\begin{align*}
+\Omega^\perp (\nabla_q H  - \nabla_q H_d) = 0
+\end{align*}
+where $\Omega^\perp \Omega = 0$.
+::::
+:::
+
+## <span style="font-variant:small-caps;">NeuralPbc</span> 
+<!-- ###################################################################### -->
+
+<br/>
+
+::: {.callout-tip icon="false"}
+## <span style="font-variant:small-caps;">NeuralPbc</span> Optimization Problem 
+
+$$
+\begin{aligned}
+\underset{\theta}{\text{minimize}} && J(\phi, u^\theta) &= \mathbb{E}_{x_0 \in \mathcal{D}_N}[ \ell( \phi(x_0, u, T), u) ], \\
+\text{subject to} &&
+\begin{bmatrix}
+  \dot{q} \\ \dot{p}
+\end{bmatrix} &=
+\begin{bmatrix}
+  0 & I \\ -I & 0
+\end{bmatrix}
+\begin{bmatrix} \nabla_q H \\ \nabla_p H \end{bmatrix} + 
+\begin{bmatrix}
+  0 \\ \Omega
+\end{bmatrix} u^{\theta},
+\\
+&& u^\theta &= \Omega^{\dagger}(\nabla_q H  - \nabla_q H_d^\theta).
+\end{aligned}
+$$
+:::
+
+- Parameterize $H_d$ by a neural network $H_d^\theta$
+- Desired performance characterized by $\ell$ observed from trajectory $\phi$
+- Approximate solutions to the PDEs found via stochastic gradient descent
+

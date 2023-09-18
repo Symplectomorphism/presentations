@@ -1,0 +1,464 @@
+[
+  {
+    "objectID": "summary.html",
+    "href": "summary.html",
+    "title": "main",
+    "section": "",
+    "text": "Title: Data-Driven Passivity Based Control of Robotic Locomotion and Manipulation\nAbstract: The recent boom and success of machine learning methods has encouraged efforts in synthesizing controllers that leverage neural networks as function approximators. However, when such controllers are synthesized it is important to take precautions against their potential vulnerabilities against disturbances arising from model uncertainties or measurement noise. In this work we address the automatic robust data-driven controller synthesis problem for robotic manipulation and locomotion. We demonstrate the efficacy of our theoretical results in simulation and real-world experiments on a rimless-wheel and a cart-pole system that contains walls. Our approach performs repeated interactions with a nominal dynamical model to infer a contact-aware passivity-based controller, whose storage function is given by a fully-connected neural network. Contacts, impacts and Coulomb friction are modeled through the linear complementarity problem (LCP), and solved via Lemke’s algorithm, which allows us to take pertinent gradients for the data-driven technique. Additionally, we improve the robustness properties of the controller under model uncertainties, such as the rimless wheel traversing on uneven terrain, via Bayesian learning.\nBio: Aykut Satici holds a BSc and MSc of Mechatronics Engineering from Sabanci University in Turkey, an MSc of Mathematics, and Ph.D. in Electrical Engineering from the University of Texas at Dallas under Prof. Mark W. Spong. He worked as a postdoctoral associate at University of Naples, Federico II and at Massachusetts Institute of Technology. Dr. Satici is currently an assistant professor of Mechanical and Biomedical Engineering at Boise State University. He has actively contributed to the control, estimation, and robotics research communities for more than 15 years. His research output includes the optimal design of robotic manipulators, optimal control of uncrewed aerial vehicles, multi-agent robot control and estimation, differential geometric methods in nonlinear control, passivity-based control, and control synthesis with machine learning methods."
+  },
+  {
+    "objectID": "main.html#data-driven-passivity-based-control",
+    "href": "main.html#data-driven-passivity-based-control",
+    "title": "main",
+    "section": "Data-Driven Passivity-Based Control",
+    "text": "Data-Driven Passivity-Based Control\n\n\nUniversity of Texas at Dallas Seminar\n\n\n\n\nPresenter: Aykut Satici, Ph.D.  Mechanical and Biomedical Engineering Department  Boise State University, Boise, Idaho, USA\n\n\nGraduate Students:  Wankun Sirichotiyakul 🎓  Nardos Ayele Ashenafi 🎓"
+  },
+  {
+    "objectID": "main.html#peer-reviewed-contributions",
+    "href": "main.html#peer-reviewed-contributions",
+    "title": "main",
+    "section": "Peer-Reviewed Contributions",
+    "text": "Peer-Reviewed Contributions\n\n\n\nNeuralPbc\n\n\nISER 2020\n\n\nCCTA 2021\n\n\nACC 2022\n\n\nL-CSS 20221\n\n\n\nNeuralIdaPbc\n\n\nIJC 2021\n\n\nTACON 20221\n\n\n\n\n\n\nISER - International Symposium on Experimental Robotics\nCCTA - Conference on Control Technology and Applications\nACC - American Control Conference\nLCSS - Control Systems Letters\nIJC - International Journal of Control\nTACON - Transactions on Automatic Control\n\n\nUnder review"
+  },
+  {
+    "objectID": "main.html#what-is-underactuation",
+    "href": "main.html#what-is-underactuation",
+    "title": "main",
+    "section": "What is Underactuation?",
+    "text": "What is Underactuation?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nUnderactuation\n\n\n\nNo control input can generate acceleration in arbitrary direction\nControl problem becomes much more complicated"
+  },
+  {
+    "objectID": "main.html#underactuated-robots",
+    "href": "main.html#underactuated-robots",
+    "title": "main",
+    "section": "Underactuated Robots",
+    "text": "Underactuated Robots\n\n\n\n\n\n\n\n\nWalking machines\n\n\n\n\n \n\n\n\n\n\nFlying machines\n\n\n\n\n\n\n\n\n\n\n\nTorque-limited manipulators\n\n\n\n\n \n\n\n\n\n\nNonprehensile manipulation"
+  },
+  {
+    "objectID": "main.html#existing-methods",
+    "href": "main.html#existing-methods",
+    "title": "main",
+    "section": "Existing Methods",
+    "text": "Existing Methods\n\n\n\n\n\n\n\n\n \n\n\n\nStrengths\n\nStability guarantees\nClosed-form policy\n\nWeaknesses\n\nModel uncertainties\nNeed to solve PDEs\n\n\n\n\n\n\n\n\n\n\nReinforcement learning \n\n\n \n\n\n\nStrengths\n\nMore general\nUnknown dynamics OK\n\nWeaknesses\n\nSample complexity\nStability guarantees?"
+  },
+  {
+    "objectID": "main.html#our-methods",
+    "href": "main.html#our-methods",
+    "title": "main",
+    "section": "Our Methods",
+    "text": "Our Methods\n\n\n\n\n\n\n\n \n\n\n \n\n\n\n\n\n\n\n\n\n\n \n\n\n\nSystematic approach\nPrior domain knowledge\nStability is intrinsic\nModel uncertainty considerations possible"
+  },
+  {
+    "objectID": "main.html#robustness-via-bayesian-learning",
+    "href": "main.html#robustness-via-bayesian-learning",
+    "title": "main",
+    "section": "Robustness via Bayesian Learning",
+    "text": "Robustness via Bayesian Learning\n\n\n\n\n\n\nSystem Parameter Uncertainty and Measurement Noise\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLess robust\n\n\n\n\n\n\n\n\n\n\n\nMore robust"
+  },
+  {
+    "objectID": "main.html#dissipativity",
+    "href": "main.html#dissipativity",
+    "title": "main",
+    "section": "Dissipativity",
+    "text": "Dissipativity\n\nA dynamical system\nΣ:{ẋ=f(x,u)y=h(x,u)x∈𝒳⊂ℝ2n,u∈𝒰⊂ℝm\n\\Sigma: \\quad\n\\begin{cases}\n  \\dot{x} &= f(x,u) \\\\\n  y &= h(x,u)\n\\end{cases}\n\\quad x \\in \\mathcal{X} \\subset \\mathbb{R}^{2n}, \\, u \\in \\mathcal{U} \\subset \\mathbb{R}^{m} \n\nis dissipative with respect to some supply rate ss if there exists a storage function ℋ:𝒳→ℝ+\\mathcal{H}: \\mathcal{X} \\to \\mathbb{R}^{+} such that\nℋ(x(t1))≤ℋ(x(t0))+∫t0t1s(u(t),y(t))dt\n\\mathcal{H}\\left(  x(t_1) \\right) \\leq  \\mathcal{H}\\left(  x(t_0) \\right) + \\int_{t_0}^{t_1} s(u(t), y(t)) \\, \\text{d}t\n\nfor all x(t0)=x0x(t_0) = x_0, all input uu, and all t1≥t0t_1 \\geq t_0"
+  },
+  {
+    "objectID": "main.html#dissipativity-1",
+    "href": "main.html#dissipativity-1",
+    "title": "main",
+    "section": "Dissipativity",
+    "text": "Dissipativity\nℋ(x(t1))≤ℋ(x(t0))+∫t0t1s(u(t),y(t))dt\n\\mathcal{H}\\left(  x(t_1) \\right) \\leq  \\mathcal{H}\\left(  x(t_0) \\right) + \\int_{t_0}^{t_1} s(u(t), y(t)) \\, \\text{d}t\n\n\n\n\nDissipation Inequality\n\n\n\n\nStored energy at t1t_1 is at most equal to stored energy at t0t_0, plus externally supplied energy s(u,y)s(u,y)\nNo generation of energy, only internal dissipation\nWith s(t)≡0s(t) \\equiv 0, trajectories tend towards minimum of ℋ\\mathcal{H}"
+  },
+  {
+    "objectID": "main.html#passivity",
+    "href": "main.html#passivity",
+    "title": "main",
+    "section": "Passivity",
+    "text": "Passivity\n\nThe system Σ\\Sigma is passive if it is dissipative with supply rate\ns=u⊤y.s = u^\\top y.\nIt is output strictly passive if it is dissipative with supply rate\ns=u⊤y−δ∥y∥2,δ&gt;0.s = u^\\top y - \\delta \\lVert y \\rVert^2, \\; \\delta &gt; 0.\nIt is input strictly passive if it is dissipative with supply rate\ns=u⊤y−δ∥u∥2,δ&gt;0.s = u^\\top y - \\delta \\lVert u \\rVert^2, \\; \\delta &gt; 0."
+  },
+  {
+    "objectID": "main.html#passive-system-example",
+    "href": "main.html#passive-system-example",
+    "title": "main",
+    "section": "Passive System Example",
+    "text": "Passive System Example\n\n\n\n\n\nKirchoff’s law\nv=Ri+1C∫0ti(τ)dτ+Ldidtvi−Ri2=ddt(12C(∫0ti(τ)dτ)2⏟𝒱+12Li2⏟𝒯)\n\\begin{aligned}\nv &= Ri + \\frac{1}{C} \\int_{0}^{t} i(\\tau) \\, \\text{d}\\tau + L \\frac{\\text{d} i}{\\text{d} t} \\\\\nvi - Ri^2 &= \\frac{\\text{d}}{\\text{d} t} \\left( \n  \\underbrace{\\frac{1}{2C} \\left( \\int_{0}^{t} i(\\tau)\\, \\text{d} \\tau \\right)^2}_{\\mathcal{V}} + \n  \\underbrace{\\frac{1}{2} Li^2}_{\\mathcal{T}}  \n\\right)\n\\end{aligned}\n\n\n\nLet ℋ=𝒱+𝒯\\mathcal{H} = \\mathcal{V} + \\mathcal{T}, integrate to obtain\nℋ(t)⏟available−ℋ(0)⏟initial=∫0tv(τ)i(τ)dτ⏟supplied−∫0tRi2(τ)dτ⏟dissipated&lt;∫0tv(τ)i(τ)dτ\n\\underbrace{\\mathcal{H}(t)}_{\\textrm{available}} -\n\\underbrace{\\mathcal{H}(0)}_{\\textrm{initial}} \n= \n\\underbrace{\\int_{0}^{t} v(\\tau)i(\\tau)\\, \\text{d} \\tau}_{\\textrm{supplied}} - \n\\underbrace{\\int_{0}^{t} Ri^2(\\tau)\\, \\text{d} \\tau}_{\\textrm{dissipated}}\n&lt;\n\\int_{0}^{t} v(\\tau) i(\\tau) \\, \\text{d} \\tau"
+  },
+  {
+    "objectID": "main.html#stability-of-passive-systems",
+    "href": "main.html#stability-of-passive-systems",
+    "title": "main",
+    "section": "Stability of Passive Systems",
+    "text": "Stability of Passive Systems\n\nΣ:{ẋ=f(x,u),f(0,0)=0,y=h(x,u),h(0,0)=0,\n\\Sigma: \\quad\n\\begin{cases}\n  \\dot{x} &= f(x,u), && f(0,0) = 0, \\\\\n  y &= h(x,u), && h(0,0) = 0,\n\\end{cases}\n\nu⊤y≥ℋ̇=∂ℋ∂xf(x,u),ℋ≥0,y≡0⟹x≡0u^{\\top} y \\geq \\dot{\\mathcal{H}} = \\frac{\\partial\\mathcal{H}}{\\partial x} f(x,u),\\quad \\mathcal{H} \\geq 0,\\quad y \\equiv 0 \\implies x \\equiv 0\n\n\n\nLemma (Khalil, 2002)\n\n\nThe origin of Σ\\Sigma is:\n\nstable if Σ\\Sigma is passive,\nasymptotically stable if Σ\\Sigma is output strictly passive,\nglobally asymptotically stable if Σ\\Sigma is output strictly passive and the storage function ℋ(x)→∞\\mathcal{H}(x) \\to \\infty as ∥x∥→∞\\lVert x \\rVert \\to \\infty (radially unbounded)\n\n\n\n\n\n\nNotice that we only require that the function ℋ\\mathcal{H} be positive semidefinite and not necessarily positive definite as per usual Lyapunov conditions.\nObservability (detectability) ensures LaSalle’s theorem works."
+  },
+  {
+    "objectID": "main.html#passivity-based-control-pbc",
+    "href": "main.html#passivity-based-control-pbc",
+    "title": "main",
+    "section": "Passivity-Based Control (PBC)",
+    "text": "Passivity-Based Control (PBC)\n\nΣo:{ẋ=f(x)+g(x)u,y=h(x)\n\\Sigma_o: \\quad\n\\begin{cases}\n  \\dot{x} &= f(x) + g(x)u, \\\\\n  y &= h(x)\n\\end{cases}\n\nMain idea — Select u(x)=ues+udiu(x) = u_{es} + u_{di} that renders the closed-loop system passive.\nΣd:{ẋ=fd(x)+g(x)udi,fd:=f(x)+g(x)ues(x)yd=hd(x)\n\\Sigma_d: \\quad\n\\begin{cases}\n  \\dot{x} &= f_d(x) + g(x) u_{di}, \\quad f_d := f(x) + g(x) u_{es}(x) \\\\\n  y_d &= h_d(x)\n\\end{cases}\n\nControl problem is cast as a search for HdH_d and hdh_d s.t. Ḣd≤yd⊤udi\\dot{H}_d \\leq y_d^\\top u_{di}"
+  },
+  {
+    "objectID": "main.html#pbc-example---simple-pendulum",
+    "href": "main.html#pbc-example---simple-pendulum",
+    "title": "main",
+    "section": "PBC Example - Simple Pendulum",
+    "text": "PBC Example - Simple Pendulum\n\n\n\n\nSystem Dynamics\n\n\nH(q,p)=12J−1p2+mgl(1−cosq)H(q,p) = \\frac{1}{2} J^{-1} p^2 + mgl (1 - \\cos q)\n[q̇ṗ]=[−01−10][∇qHd∇pHd]+[0G]udi,y=q̇\n\\begin{bmatrix} \\dot{q} \\\\ \\dot{p} \\end{bmatrix} = \n\\begin{bmatrix} \\phantom{-}0 & 1 \\\\ -1 & 0 \\end{bmatrix} \n\\begin{bmatrix} \\nabla_q H_{\\phantom{d}} \\\\ \\nabla_p H_{\\phantom{d}} \\end{bmatrix} +\n\\begin{bmatrix} 0 \\\\ G \\end{bmatrix} u_\\phantom{di},\n\\qquad y = \\dot{q}\n\n\nChoose u=ues+udiu = u_{es} + u_{di} that transforms system into a passive one with x⋆=(q⋆,0)x^\\star = (q^\\star, 0) \n\n\nGues=∇qH−∇qHd,Gudi=−GKDG⊤∇pHdGu_{es} = \\nabla_q H - \\nabla_q H_d , \\quad Gu_{di} = -GK_D G^\\top \\nabla_p H_d\n\n\n\n[q̇ṗ]=[−01−10][∇qHd∇pHd]+[0G]udi,y=q̇\n\\begin{bmatrix} \\dot{q} \\\\ \\dot{p} \\end{bmatrix} = \n\\begin{bmatrix} \\phantom{-}0 & 1 \\\\ -1 & 0 \\end{bmatrix} \n\\begin{bmatrix} \\nabla_q H_d \\\\ \\nabla_p H_d \\end{bmatrix} +\n\\begin{bmatrix} 0 \\\\ G \\end{bmatrix} u_{di},\n\\qquad y = \\dot{q}\n\n\n\n[q̇ṗ]=[−01−1−GKDG⊤][∇qHd∇pHd],y=q̇\n\\begin{bmatrix} \\dot{q} \\\\ \\dot{p} \\end{bmatrix} = \n\\begin{bmatrix} \\phantom{-}0 & 1 \\\\ -1 & -G K_D G^\\top \\end{bmatrix} \n\\begin{bmatrix} \\nabla_q H_d \\\\ \\nabla_p H_d \\end{bmatrix},\n\\qquad y = \\dot{q}"
+  },
+  {
+    "objectID": "main.html#pbc-example---simple-pendulum-1",
+    "href": "main.html#pbc-example---simple-pendulum-1",
+    "title": "main",
+    "section": "PBC Example - Simple Pendulum",
+    "text": "PBC Example - Simple Pendulum\n\n\n\n\nControl Synthesis via PBC\n\n\nChoose u=ues+udiu = u_{es} + u_{di} that transforms system into a passive one with x⋆=(q⋆,0)x^\\star = (q^\\star, 0)\nGues=∇qH−∇qHd,Gudi=−GKDG⊤∇pHdGu_{es} = \\nabla_q H - \\nabla_q H_d , \\quad Gu_{di} = -GK_D G^\\top \\nabla_p H_d\n[q̇ṗ]=[−01−1−GKDG⊤][∇qHd∇pHd],y=q̇\n\\begin{bmatrix} \\dot{q} \\\\ \\dot{p} \\end{bmatrix} = \n\\begin{bmatrix} \\phantom{-}0 & 1 \\\\ -1 & -G K_D G^\\top \\end{bmatrix} \n\\begin{bmatrix} \\nabla_q H_d \\\\ \\nabla_p H_d \\end{bmatrix},\n\\qquad y = \\dot{q}\n\n\nHd(q,p)=12J−1p2+Vd(q),Vd(q)=12KP(q−q⋆)2H_d(q,p) = \\frac{1}{2} J^{-1} p^2 + V_d(q), \\quad V_d(q) = \\frac{1}{2} K_{P} \\left( q - q^\\star \\right)^2\n\n\n\nḢd=−KD(J−1p)2=y⊤udi≤0\\dot{H}_d = -K_D \\left( J^{-1} p \\right)^2 = y^\\top u_{di} \\leq 0\n\n\nu=−mglsin(x)−KP(q−q⋆)−KDq̇\\boxed{u = -mgl\\sin(x) - K_P(q - q^\\star) - K_D \\dot{q}}"
+  },
+  {
+    "objectID": "main.html#our-methods-1",
+    "href": "main.html#our-methods-1",
+    "title": "main",
+    "section": "Our Methods",
+    "text": "Our Methods\n\n\n\n\n \n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\nNeuralPbc\nNeuralIdaPbc\n\n\n\n\nHdH_d neural net\nHdH_d quadratic in pp\n\n\nSample state space\nSample configuration space\n\n\nNo stability certificate\nStability certificate\n\n\nMore flexible\nAs applicable as IdaPbc"
+  },
+  {
+    "objectID": "main.html#bayesian-learning",
+    "href": "main.html#bayesian-learning",
+    "title": "main",
+    "section": "Bayesian Learning",
+    "text": "Bayesian Learning\n\np(θ∣𝒟)=p(𝒟∣θ)⏞likelihoodp(θ)⏞prior∫θp(𝒟∣θ′)p(θ′)dθ′⏟evidence≈q(θ;z)⏟VI.\np(\\theta \\mid \\mathcal{D}) = \\frac{\\overbrace{p(\\mathcal{D} \\mid\n\\theta)}^{\\text{likelihood}}\\overbrace{p(\\theta)}^{\\text{prior}}}\n{\\underbrace{\\int_\\theta p(\\mathcal{D} \\mid \\theta^\\prime)p(\\theta^\\prime)\nd\\theta^\\prime}_{\\text{evidence}}} \\underbrace{\\approx q(\\theta;\nz)}_{\\text{VI}}.\n\n\n\n\n\n\n\n\nShow ELBO convergence.\n\n\n\n\n\n\n\nKL-divergence and ELBO\n\n\nDKL=𝔼θ∼q[logq(θ;z)p(θ∣𝒟)]=logp(𝒟)−𝔼θ∼q[logp(𝒟∣θ)p(θ)q(θ;z)]ℒ(𝒟;z)=𝔼θ∼q[logp(𝒟∣θ)p(θ)−logq(θ;z)]\n\\begin{aligned}\nD_{\\text{KL}} &= \\mathbb{E}_{\\theta \\sim q}\\left[ \\log \\frac{q(\\theta;\nz)}{p(\\theta \\mid \\mathcal{D})}\\right] \\\\\n&= \\log p(\\mathcal{D}) - \\mathbb{E}_{\\theta \\sim q}\\left[ \\log\n\\frac{p(\\mathcal{D} \\mid \\theta) p(\\theta)}{q(\\theta; z)} \\right] \\\\\n\\mathcal{L}(\\mathcal{D}; z) &= \\mathbb{E}_{\\theta \\sim q}\\left[ \\log\np(\\mathcal{D} \\mid \\theta) p(\\theta) - \\log q(\\theta; z) \\right]\n\\end{aligned}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nShow prob. distribution\n\n\n\n\n\n\n\nPrediction through marginalization\n\n\nm̂=1N∑θ∼qm(x,θ).\n\\begin{aligned}\n\\hat{m} &= \\frac{1}{N}\\sum_{\\theta \\sim q} m(x, \\theta).\n\\end{aligned}"
+  },
+  {
+    "objectID": "main.html#system-parameter-uncertainty",
+    "href": "main.html#system-parameter-uncertainty",
+    "title": "main",
+    "section": "System Parameter Uncertainty",
+    "text": "System Parameter Uncertainty\n\n\n\nScalar control system\nUncertain drift vector field: p∼𝒩(p̂,σp2)p \\sim \\mathcal{N}(\\hat{p}, \\sigma_p^2).\nNo measurement uncertainty\n\n\n\n\n\n\nΣ:{ẋ=px+u,u(x)=θx,x(0)=1.\n\\Sigma: \\quad\n\\begin{cases}\n  \\dot{x} &= px + u, \\\\\n  u(x) &= \\theta x, \\\\\n  x(0) &= 1.\n\\end{cases}\n x(t)=e(p+θ)t.\n  x(t) = e^{(p+\\theta)t}."
+  },
+  {
+    "objectID": "main.html#performance-index",
+    "href": "main.html#performance-index",
+    "title": "main",
+    "section": "Performance Index",
+    "text": "Performance Index\n\n\n\n\n\nΣ:{ẋ=px+u,u(x)=θx,x(0)=1.\n\\Sigma: \\quad\n\\begin{cases}\n  \\dot{x} &= px + u, \\\\\n  u(x) &= \\theta x, \\\\\n  x(0) &= 1.\n\\end{cases}\n x(t)=e(p+θ)t.\n  x(t) = e^{(p+\\theta)t}.\n\n\n\n \n\n\n\n\n\nQuadratic performance index\n\nq≥0q \\geq 0, r&gt;0r &gt; 0\n\nTT: control horizon\n\n\n\n𝒥=∫0T(12qx(t)2+12ru(t)2)dt.\n\\mathcal{J} = \\int_0^T \\left( \\frac{1}{2}qx(t)^2 + \\frac{1}{2}ru(t)^2  \\right)dt."
+  },
+  {
+    "objectID": "main.html#infinite-horizon-best-performance",
+    "href": "main.html#infinite-horizon-best-performance",
+    "title": "main",
+    "section": "Infinite-Horizon Best Performance",
+    "text": "Infinite-Horizon Best Performance\n\n\n\n\n𝒥=∫0T(12qx(t)2+12ru(t)2)dt.\n\\mathcal{J} = \\int_0^T \\left( \\frac{1}{2}qx(t)^2 + \\frac{1}{2}ru(t)^2  \\right)dt.\n 𝒥T→∞=−14q+rθ2p+θ.\n\\mathcal{J}_{T \\to \\infty} = -\\frac{1}{4}\\frac{q+r \\theta^2}{p+\\theta}.\n\n\n\n \n\n\n\n\nSolve for θ\\theta that minimizes 𝒥∞\\mathcal{J}_\\infty: θ⋆=g(p):=−p−p2+qr\\theta^\\star = g(p) := -p -\\sqrt{p^2+\\frac{q}{r}}.\n\n\n\n\n\n\n\nDeterministic\n\n\nθ⋆=g(p̂):=−p̂−p̂2+qr\\theta^\\star = g(\\hat{p}) := -\\hat{p} -\\sqrt{\\hat{p}^2+\\frac{q}{r}}\n\n\n\n\n\n \n\n\n\n\n\nProbabilistic\n\n\nfθ⋆(θ⋆)=1σp2π(12(1+qrθ⋆2))exp{−12σp2(q2rθ⋆−θ⋆2−p̂)2}\n\\begin{aligned}\nf_{\\theta^\\star}(\\theta^\\star) &= \\frac{1}{\\sigma_p \\sqrt{2\\pi}}\\left( \\\n\\frac{1}{2}\\left(1+\\frac{q}{r{\\theta^\\star}^2}\\right) \\right) \\\\\n&\\exp{\\left\\{ -\\frac{1}{2\\sigma_p^2}\\left( \\frac{q}{2r\\theta^\\star} -\n\\frac{\\theta^\\star}{2} - \\hat{p}  \\right)^2  \\right\\} }\n\\end{aligned}"
+  },
+  {
+    "objectID": "main.html#infinite-horizon-best-performance-1",
+    "href": "main.html#infinite-horizon-best-performance-1",
+    "title": "main",
+    "section": "Infinite-Horizon Best Performance",
+    "text": "Infinite-Horizon Best Performance\n\n\n\n\n\n\n\nDeterministic\n\n\nθ⋆=g(p̂):=−p̂−p̂2+qr\\theta^\\star = g(\\hat{p}) := -\\hat{p} -\\sqrt{\\hat{p}^2+\\frac{q}{r}}\n\n\n\n\n\n \n\n\n\n\n\nProbabilistic\n\n\nfθ⋆(θ⋆)=1σp2π(12(1+qrθ⋆2))exp{−12σp2(q2rθ⋆−θ⋆2−p̂)2}\n\\begin{aligned}\nf_{\\theta^\\star}(\\theta^\\star) &= \\frac{1}{\\sigma_p \\sqrt{2\\pi}}\\left( \\\n\\frac{1}{2}\\left(1+\\frac{q}{r{\\theta^\\star}^2}\\right) \\right) \\\\\n&\\exp{\\left\\{ -\\frac{1}{2\\sigma_p^2}\\left( \\frac{q}{2r\\theta^\\star} -\n\\frac{\\theta^\\star}{2} - \\hat{p}  \\right)^2  \\right\\} }\n\\end{aligned}"
+  },
+  {
+    "objectID": "main.html#conditional-expectation",
+    "href": "main.html#conditional-expectation",
+    "title": "main",
+    "section": "Conditional Expectation",
+    "text": "Conditional Expectation\n\n\n𝔼[𝒥∣p]=−14q+rθ2p+θ[θ2σ2T+(1−e2T(p+θ))(1+12θ2σ2p+θ)]\n\\mathbb{E}[\\mathcal{J} \\mid p] =\n-\\frac{1}{4}\\frac{q+r\\theta^2}{p+\\theta}\\left[ \\theta^2 \\sigma^2 T +\n\\left(1-e^{2 T (p+\\theta)}\\right) \\left(1+\\frac{1}{2}\\frac{\\theta^2\n\\sigma^2}{p+\\theta}\\right) \\right]\n\n\n\n\n\n\nProof\n\n\nSubstituting the solution of the SDE into the performance measure yields\n𝒥=−14q+rθ2p+θ(1+e2T(p+θ))+(q+rθ2)θσ∫0Te(p+θ)t∫0te(p+θ)(t−s)dWsdt+12(q+rθ2)θ2σ2∫0T(∫0te(p+θ)(t−s)dWs)2dt\n\\begin{aligned} \\mathcal{J} =\n        & -\\frac{1}{4}\\frac{q+r\\theta^2}{p+\\theta}\\left(1 +\n        e^{2T(p+\\theta)}\\right) + \n        (q+r\\theta^2)\\theta\\sigma \\int_0^T\n        e^{(p+\\theta)t} \\int_0^t e^{(p+\\theta)(t-s)}dW_s\n        dt \\; + \\\\ &\\frac{1}{2}(q+r\\theta^2)\\theta^2\n        \\sigma^2 \\int_0^T \\left( \\int_0^t\n        e^{(p+\\theta)(t-s)} dW_s  \\right)^2 dt \n\\end{aligned}\n\nThe conditional expectation of this quantity given the system parameter pp under the distribution induced by the Wiener process may be computed in closed-form using Ito calculus.\n𝔼W[𝒥∣p]=−14q+rθ2p+θ(1−e2T(p+θ))+(q+rθ2)θσ∫0Te(p+θ)t𝔼W[∫0te(p+θ)(t−s)dWs|p]dt+12(q+rθ)2θ2σ2∫0T𝔼W[(∫0te(p+θ)(t−s)dWs)2|p]dt=−14q+rθ2p+θ(1−e2T(p+θ))+12(q+rθ2)θ2σ2∫0T(∫0te2(p+θ)(t−s)ds)dt=−14q+rθ2p+θ(1−e2T(p+θ))+12(q+rθ2)θ2σ2∫0T−12(p+θ)(1−e2T(p+θ))dt=−14q+rθ2p+θ[θ2σ2T+(1−e2T(p+θ))(1+12θ2σ2p+θ)].\n\\begin{aligned} \n\\mathbb{E}_W\\left[\\mathcal{J} \\mid p \\right] &= -\\frac{1}{4}\\frac{q+r\\theta^2}{p+\\theta}\\left(1 - e^{2T(p+\\theta)}\\right) +\n        (q+r\\theta^2)\\theta\\sigma\\int_0^Te^{(p+\\theta)t}\\mathbb{E}_W\\left[\\int_0^t\n        e^{(p+\\theta)(t-s)} dW_s~\\Big\\rvert p\\right] dt + \\\\\n        &\\frac{1}{2}(q+r\\theta)^2\\theta^2\\sigma^2\\int_0^T\\mathbb{E}_W\\left[\\left(\\int_0^t\n        e^{(p+\\theta)(t-s)} dW_s \\right)^2~\\bigg\\rvert p\\right] dt \\\\\n        &=-\\frac{1}{4}\\frac{q+r\\theta^2}{p+\\theta}\\left(1 -\n        e^{2T(p+\\theta)}\\right) + \n        \\frac{1}{2}(q+r\\theta^2)\\theta^2\\sigma^2\\int_0^T\\left(\\int_0^t\n        e^{2(p+\\theta)(t-s)} ds \\right) dt \\\\ \n        &=-\\frac{1}{4}\\frac{q+r\\theta^2}{p+\\theta}\\left(1 - e^{2T(p+\\theta)}\\right) + \n        \\frac{1}{2}(q+r\\theta^2)\\theta^2\\sigma^2\\int_0^T\n        -\\frac{1}{2(p+\\theta)}\\left(1 - e^{2T(p+\\theta)}\\right) dt \\\\ \n        &=-\\frac{1}{4}\\frac{q+r\\theta^2}{p+\\theta} \\left[ \\theta^2 \\sigma^2 T +\n        \\left(1 - e^{2T(p+\\theta)}\\right) \\left(1 +\n        \\frac{1}{2}\\frac{\\theta^2\\sigma^2}{p+\\theta}\\right)\\right]. \n\\end{aligned}\n\n\n🟧"
+  },
+  {
+    "objectID": "main.html#optimal-controller",
+    "href": "main.html#optimal-controller",
+    "title": "main",
+    "section": "Optimal Controller",
+    "text": "Optimal Controller\n\n\n\n\nOptimal controller |θ⋆||\\theta^\\star| minimizing 𝔼𝒥\\mathbb{E}\\mathcal{J}\n\n\n\nMinimal expected cost 𝔼𝒥\\mathbb{E}\\mathcal{J}"
+  },
+  {
+    "objectID": "main.html#optimal-controller-1",
+    "href": "main.html#optimal-controller-1",
+    "title": "main",
+    "section": "Optimal Controller",
+    "text": "Optimal Controller\n\n\n\n\n\nOptimal controller |θ⋆||\\theta^\\star| minimizing 𝔼𝒥\\mathbb{E}\\mathcal{J}\n\n\n\n\n\nMinimal expected cost 𝔼𝒥\\mathbb{E}\\mathcal{J}\n\n\n\n\n\nOptimal control parameter a nontrivial function of σ\\sigma and σp\\sigma_p.\nBayesian learning strikes the right trade-off."
+  },
+  {
+    "objectID": "main.html#motivation-1",
+    "href": "main.html#motivation-1",
+    "title": "main",
+    "section": "Motivation",
+    "text": "Motivation\n\nControl synthesis in PBC: Gues=∇qH−∇qHd\nGu_{es} = \\nabla_q H - \\nabla_q H_d\n\n\nIf underactuated, GG is not invertible\n\nChoice of uesu_{es} must satisfy nonlinear PDE\nQuadratic potential most likely not viable\n\nIncorporate performance objective into design of HdH_d?"
+  },
+  {
+    "objectID": "main.html#neuralpbc-problem-statement",
+    "href": "main.html#neuralpbc-problem-statement",
+    "title": "main",
+    "section": "NeuralPbc Problem Statement",
+    "text": "NeuralPbc Problem Statement\n\nConsider the mechanical system\n[q̇ṗ]=[−01−10][∇qHd∇pHd]+[0G]udi\n\\begin{bmatrix} \\dot{q} \\\\ \\dot{p} \\end{bmatrix} = \n\\begin{bmatrix} \\phantom{-}0 & 1 \\\\ -1 & 0 \\end{bmatrix} \n\\begin{bmatrix} \\nabla_q H_{\\phantom{d}} \\\\ \\nabla_p H_{\\phantom{d}} \\end{bmatrix} +\n\\begin{bmatrix} 0 \\\\ G \\end{bmatrix} u_\\phantom{di}\n\nControl task: stabilize desired equilibrium x⋆=(q⋆,0)x^\\star = (q^\\star, 0)\n\n\nu=ues+udi=G†(∇qH−∇qHd)−KDG⊤∇pHdu = u_{es} + u_{di} = G^{\\dagger} \\left( \\nabla_q H  - \\nabla_q H_d \\right)  - K_D G^\\top \\nabla_p H_d \n\n\nu=ues+udi=−G†∇qHdθ−KDG⊤∇pHdθu = u_{es} + u_{di} = - G^{\\dagger} \\nabla_q H_d^{\\theta}  - K_D G^\\top \\nabla_p H_d^{\\theta} \n\n\nChoosing a suitable HdH_d is not trivial\n\nParameterize HdH_d by a neural network HdθH_d^\\theta, and relax control task to bringing xx to a small neighborhood of x⋆x^\\star\n\n\n\nInstead of asking for asymptotic stabilization, we only require that trajectories pass thru a nbhd of x⋆x^\\star\nThis is reasonable because we know how to stabilize a fixed point, e.g. stabilize the linearization of the system using LQR\nThis allows us to find approximations for HdθH_d^\\theta using learning techniques"
+  },
+  {
+    "objectID": "main.html#neuralpbc-problem-statement-1",
+    "href": "main.html#neuralpbc-problem-statement-1",
+    "title": "main",
+    "section": "NeuralPbc Problem Statement",
+    "text": "NeuralPbc Problem Statement\n\n\n\n\nminimizeθJ(θ,x0)=∫0Tℓ(ϕ,uθ,θ)dtsubject to[q̇ṗ]=[0I−I0][∇qH∇pH]+[0G]uθuθ=−G†∇qHdθ−KDG⊤∇pHdθ\n\\begin{aligned}\n\\underset{\\theta}{\\text{minimize}} && J(\\theta, x_0) &= \\int_{0}^{T} \\ell \\left(\\phi,u^\\theta,\\theta\\right)\\, \\text{d} t \\\\\n\\text{subject to} &&\n\\begin{bmatrix}\n  \\dot{q} \\\\ \\dot{p}\n\\end{bmatrix} &=\n\\begin{bmatrix}\n  0 & I \\\\ -I & 0\n\\end{bmatrix}\n\\begin{bmatrix} \\nabla_q H \\\\ \\nabla_p H \\end{bmatrix} + \n\\begin{bmatrix}\n  0 \\\\ G\n\\end{bmatrix} u^{\\theta}\n\\\\\n&& u^\\theta &= - G^{\\dagger}\\nabla_q H_d^{\\theta}  - K_D G^\\top \\nabla_p H_d^{\\theta}\n\\end{aligned}\n\n\n\n\n\nInjecting control task into loss function design\nBackprop through closed-loop trajectories\nSampling the state space efficiently"
+  },
+  {
+    "objectID": "main.html#neuralpbc-loss-function",
+    "href": "main.html#neuralpbc-loss-function",
+    "title": "main",
+    "section": "NeuralPbc Loss Function",
+    "text": "NeuralPbc Loss Function\n\nJ(θ,x0)=∫0Tℓ(ϕ,uθ,θ)dt\nJ(\\theta, x_0) = \\int_{0}^{T} \\ell \\left(\\phi,u^\\theta,\\theta\\right)\\, \\text{d} t\n\nℓ≜ℓset(γ)+ℓ⊥(γ,u)\\ell \\triangleq \\ell_{\\text{set}}(\\gamma) + \\ell_{\\bot}(\\gamma,u) where\n\nϕ\\phi is the flow of the equation of motion\nγ\\gamma is the closed-loop trajectory starting from x0x_0\nTT is the time horizon (hyperparameter)"
+  },
+  {
+    "objectID": "main.html#neuralpbc-loss-function-1",
+    "href": "main.html#neuralpbc-loss-function-1",
+    "title": "main",
+    "section": "NeuralPbc Loss Function",
+    "text": "NeuralPbc Loss Function\n\nℓ≜ℓset(γ)+ℓ⊥(γ,u)\\ell \\triangleq \\ell_{\\text{set}}(\\gamma) + \\ell_{\\bot}(\\gamma,u)\n\n\n\nSet Distance Loss ℓset\\ell_{\\text{set}}\n\n\nPenalizes when closed-loop trajectory γ\\gamma under the current control law is far away from a neighborhood 𝒮\\mathcal{S} of x⋆x^\\star\n\n\n\n\n\n\nℓset(x)=inft{∥a−b∥:a∈γ(t),b∈𝒮}\\ell_{\\text{set}}(x) = \\underset{t}{\\inf} \\left\\{ \\lVert a-b \\rVert : a \\in \\gamma(t), b \\in \\mathcal{S}\\right\\} * The set 𝒮\\mathcal{S} may be chosen as * A ball around x⋆x^\\star * Estimated region of attraction * No additional loss if any point in γ\\gamma is in 𝒮\\mathcal{S}"
+  },
+  {
+    "objectID": "main.html#neuralpbc-loss-function-2",
+    "href": "main.html#neuralpbc-loss-function-2",
+    "title": "main",
+    "section": "NeuralPbc Loss Function",
+    "text": "NeuralPbc Loss Function\n\nℓ≜ℓset(γ)+ℓ⊥(γ,u)\\ell \\triangleq \\ell_{\\text{set}}(\\gamma) + \\ell_{\\bot}(\\gamma,u)\n\n\n\nTransversal Distance Loss ℓ⊥\\ell_{\\bot}\n\n\nMeasures how close γ\\gamma is to γ⋆\\gamma^\\star (expert trajectory) using transverse coordinates x⊥x_\\bot\n\n\n\n\n\n\n\nCoordinate transformation\n\nτ∈ℝ\\tau \\in \\mathbb{R} a surrogate for time\nx⊥∈ℝ2n−1x_{\\bot} \\in \\mathbb{R}^{2n-1} quantify how far away the current state is from γ⋆\\gamma^\\star\n\nBy construction x⊥→0⇔γ=γ⋆x_{\\bot} \\to 0 \\iff \\gamma = \\gamma^\\star\n\nℓ⊥=x⊥⊤Qx⊥+u⊤Ru,Q≽0,R≻0\\ell_{\\bot} = x_\\bot^\\top Q x_\\bot + u^\\top R u, \\, Q \\succeq 0, \\, R \\succ 0\n\nNo preferred orbit? Q=0Q = 0\n\n\n\n\n\n\n\n\n\nWe can find a coordinate transformation such that 1 coordinate τ\\tau is along the desired orbit and acts as surrogate for time\nThe remaining coordinates x⊥x_{\\bot} quantify how far away the current state is from the desired trajectory"
+  },
+  {
+    "objectID": "main.html#backprop-through-ode-solutions",
+    "href": "main.html#backprop-through-ode-solutions",
+    "title": "main",
+    "section": "Backprop through ODE Solutions",
+    "text": "Backprop through ODE Solutions\n\nWe need ∂J/∂θ\\partial J / \\partial \\theta, which depends ODE solutions\n\n😿 Combining autodiff with numerical ODE solvers\n\n\n😿 Adjoint sensitivity method: solve the adjoint problem backward in time dλdt=−λ∂f∂x,∂J∂θ=λ(t0)∂f∂x\\frac{\\text{d}\\lambda}{\\text{d}t} = -\\lambda \\frac{\\partial f}{\\partial x}, \\quad \\frac{\\partial J}{\\partial \\theta} = \\lambda(t_0) \\frac{\\partial f}{\\partial x}\n\n\n😺 Adjoint methods + autodiff implemented in DiffEqFlux.jl\n\n\n\nPlain autodiff causes errors due to numerical ODE integration, high memory consumption\nAdjoint methods requires storing many passes of the adjoint problem, again high memory consumption\nDiffEqFlux combines the two, avoiding multiple passes through clever implementation, fast an efficient"
+  },
+  {
+    "objectID": "main.html#neuralpbc-sampling-state-space",
+    "href": "main.html#neuralpbc-sampling-state-space",
+    "title": "main",
+    "section": "NeuralPbc Sampling State Space",
+    "text": "NeuralPbc Sampling State Space\n\nLearned policy uθu^\\theta need to perform well for a wide range of x0x_0\n\n\nJ(θ,x0)=∫0Tℓ(ϕ,uθ,θ)dtJ(\\theta, x_0) = \\int_{0}^{T} \\ell \\left(\\phi,u^\\theta,\\theta\\right)\\, \\text{d} t\n\n\n\nJ(θ)=𝔼x0∼p(𝐱0)[∫0Tℓ(ϕ(t,x0),uθ,θ)dt]J(\\theta) = \\mathbb{E}_{x_0 \\sim p(\\mathbf{x}_0)} \\left[ \\int_{0}^{T} \\ell \\left(\\phi(t,x_0),u^\\theta,\\theta\\right)\\, \\text{d} t \\right]\n\n\nSample state space with technique based on DAgger1\n\n\nSimulating system under application of uθu^\\theta\nCollect samples from the regions of state-space visited by uθu^\\theta\n\n\n\n\nUse dynamics to guide the collection of samples\n\n\nRoss, S., Gordon, G. J., & Bagnell, J. A. (2011). No-regret reductions for imitation learning and structured prediction. In AISTATS."
+  },
+  {
+    "objectID": "main.html#neuralpbc-algorithm",
+    "href": "main.html#neuralpbc-algorithm",
+    "title": "main",
+    "section": "NeuralPbc Algorithm 📉",
+    "text": "NeuralPbc Algorithm 📉"
+  },
+  {
+    "objectID": "main.html#bayesian-solution",
+    "href": "main.html#bayesian-solution",
+    "title": "main",
+    "section": "Bayesian Solution",
+    "text": "Bayesian Solution\n\n \n\nComputing ELBO ℒ(𝒟;z)=𝔼θ∼q[logp(𝒟∣θ)p(θ)−logq(θ;z)] \\mathcal{L}(\\mathcal{D};z) = \\mathbb{E}_{\\theta \\sim q}\\left[ \\log p(\\mathcal{D} \\mid \\theta)p(\\theta) - \\log q(\\theta; z)  \\right]  requires:  \n\nLikelihood: p(∥ℓset(γ)+ℓ⊥(γ,u)∥2∣θ)=𝒩(0,s). p\\left( \\lVert \\ell_{\\text{set}}(\\gamma) + \\ell_\\bot(\\gamma, u) \\rVert^2 \\mid \\theta \\right) = \\mathcal{N}(0, s). \n\n\nPrior:\n\n\nUninformed\n\n\nDeterministic"
+  },
+  {
+    "objectID": "main.html#comparison-of-methods",
+    "href": "main.html#comparison-of-methods",
+    "title": "main",
+    "section": "Comparison of Methods",
+    "text": "Comparison of Methods\n\n \n\n\n\nAdvantages ✔️ and Disadvantages ❌\n\n\n\n\n\n\n\n\n\n\nCase\nDeterministic\nBayesian\n\n\n\n\nRobustness\n❌\n✔️\n\n\nComputation cost\n✔️\n❌\n\n\nModel selection\n❌\n✔️\n\n\nPrior knowledge\n✔️\n✔️✔️\n\n\nOverfitting\n❌\n✔️"
+  },
+  {
+    "objectID": "main.html#energy-shaping-pendulum-swing-up",
+    "href": "main.html#energy-shaping-pendulum-swing-up",
+    "title": "main",
+    "section": "Energy-Shaping Pendulum Swing-Up",
+    "text": "Energy-Shaping Pendulum Swing-Up"
+  },
+  {
+    "objectID": "main.html#energy-shaping-pendulum-swing-up-1",
+    "href": "main.html#energy-shaping-pendulum-swing-up-1",
+    "title": "main",
+    "section": "Energy-Shaping Pendulum Swing-Up",
+    "text": "Energy-Shaping Pendulum Swing-Up\n\n\n\n\n\n\n\nDeterministic training vs. Bayesian training under parameter uncertainty and measurement noise.\nMeasurement noise: ϵq=5×104\\epsilon_q = 5 \\times 10^4 rad., ϵq̇=5×102\\epsilon_{\\dot{q}} = 5 \\times 10^2 rad/s."
+  },
+  {
+    "objectID": "main.html#neuralpbc-experiments",
+    "href": "main.html#neuralpbc-experiments",
+    "title": "main",
+    "section": "NeuralPbc Experiments",
+    "text": "NeuralPbc Experiments\n\nBenchmark underactuated control problems:\n\n\n\n\nCart-pole\n\n\nInertia-Wheel Pendulum (IWP)\n\n\nAcrobot"
+  },
+  {
+    "objectID": "main.html#learned-storage-function",
+    "href": "main.html#learned-storage-function",
+    "title": "main",
+    "section": "Learned storage function",
+    "text": "Learned storage function\n\n\n\nObservations\n\nHdθH_d^\\theta has a local minimum at x⋆x^\\star, control law uθu^\\theta commands the force in the expected direction"
+  },
+  {
+    "objectID": "main.html#comparison-with-energy-shapingastrom",
+    "href": "main.html#comparison-with-energy-shapingastrom",
+    "title": "main",
+    "section": "Comparison with Energy Shaping1",
+    "text": "Comparison with Energy Shaping1\n\n\nK. J. Åström and K. Furuta, “Swinging up a pendulum by energy control,” Automatica, vol. 36, no. 2, pp. 287–295, 2000."
+  },
+  {
+    "objectID": "main.html#motivation-2",
+    "href": "main.html#motivation-2",
+    "title": "main",
+    "section": "Motivation",
+    "text": "Motivation\n\nNeuralPbc is flexible, but guaranteeing stability is hard\nAdditional structure of IdaPbc facilitates stability analysis\n\n\n[q̇ṗ]=[0I−I0][∇qH∇pH]+[0G]u \\begin{bmatrix} \\dot{q} \\\\ \\dot{p} \\end{bmatrix} = \\begin{bmatrix}0 & I \\\\ -I & 0\\end{bmatrix} \\begin{bmatrix} \\nabla_q H \\\\ \\nabla_p H  \\end{bmatrix} + \\begin{bmatrix} 0 \\\\ G \\end{bmatrix} u  \nClosed-loop port-Hamiltonian dynamics:\n\n[q̇ṗ]=[0M−1Md−MdM−1J2(q,p)−GKvG⊤][∇qHd∇pHd]\n\\begin{bmatrix} \\dot{q} \\\\ \\dot{p} \\end{bmatrix}\n=\n\\begin{bmatrix}0 & M^{-1}M_d \\\\ -M_dM^{-1} & J_2(q,p) - GK_vG^\\top\\end{bmatrix}\n\\begin{bmatrix} \\nabla_q H_d \\\\ \\nabla_p H_d \\end{bmatrix}\n  \nHd=12p⊤Md(q)−1p+Vd(q),Md≻0H_d = \\frac{1}{2} p^{\\top} M_d(q)^{-1} p + V_d(q),\\, M_d \\succ 0\n\n\nFurther structure not only facilitates stability analysis but also restricts the search to a pd matrix MdM_d and VdV_d.\nThis search may be performed solely on the configuration space."
+  },
+  {
+    "objectID": "main.html#idapbc-background",
+    "href": "main.html#idapbc-background",
+    "title": "main",
+    "section": "IdaPbc Background",
+    "text": "IdaPbc Background\n\n[q̇ṗ]=[0M−1Md−MdM−1J2(q,p)−GKvG⊤][∇qHd∇pHd] \\begin{bmatrix} \\dot{q} \\\\ \\dot{p} \\end{bmatrix} = \\begin{bmatrix}0 & M^{-1}M_d \\\\ -M_dM^{-1} & J_2(q,p) - GK_vG^\\top\\end{bmatrix} \\begin{bmatrix} \\nabla_q H_d \\\\ \\nabla_p H_d \\end{bmatrix} \nHd=12p⊤Md(q)−1p+Vd(q),Md≻0H_d = \\frac{1}{2} p^{\\top} M_d(q)^{-1} p + V_d(q),\\, M_d \\succ 0\n\n\n\n\n\n\nStability results\n\n\nḢd=(∇pHd)⊤(−GKvG⊤)∇pHd≤−λmin{Kv}∥(∇pHd)⊤G∥2≤0\\begin{aligned}\\dot{H}_d &= \\left( \\nabla_p H_d \\right)^{\\top} \\left(-G K_v G^{\\top}\\right) \\nabla_p H_d \\\\ &\\leq -\\lambda_{\\textrm{min}} \\{ K_v \\} \\left\\| \\left( \\nabla_p H_d \\right)^{\\top} G \\right\\|^2 \\leq 0 \\end{aligned}\nWith q⋆=argminVd(q)q^\\star = \\arg \\min V_d(q), we have x→x⋆=(q⋆,0)x \\to x^\\star = (q^\\star, 0)\n\n\n\n\n\n\n\n\nControl synthesis\n\n\nChoose u=ues+udiu = u_{es} + u_{di} where Gues=∇qH−MdM−1∇qHd+J2Md−1p∇p⊤udi=−KvG⊤∇pHd∥(∇p)⊤∥2\n\\begin{aligned} \nGu_{es} &= \\nabla_{q} H - M_{d}M^{-1} \\nabla_{q} H_{d} \\\\\n&\\quad\\; + J_{2} M_{d}^{-1} p \\phantom{\\nabla_{p}^{\\top}} \\\\\nu_{di} &= -K_v G^\\top \\nabla_p H_d \\phantom{\\left\\|\\left(\\nabla_p\\right)^{\\top} \\right\\|^2} \n\\end{aligned}"
+  },
+  {
+    "objectID": "main.html#idapbc-via-optimization",
+    "href": "main.html#idapbc-via-optimization",
+    "title": "main",
+    "section": "IdaPbc via Optimization",
+    "text": "IdaPbc via Optimization\n\n\n\n\n \n\n\n\n\n\nminimizeMd,J2,Vd0subject to0=G⊥{∇qH−MdM−1∇qHd+J2Md−1p}Hd=12p⊤Md(q)−1p+Vd(q)Md=Md⊤≻0J2=−J2⊤q⋆=argminqVd(q)\n\\begin{aligned}\n\\underset{M_d,\\,J_2,\\,V_d}{\\text{minimize}} && 0 &  \\\\\n\\text{subject to} &&\n0 &= G^{\\bot}\\left\\{ \\nabla_{q} H - M_{d}M^{-1} \\nabla_{q} H_{d} + J_{2} M_{d}^{-1} p  \\right\\}\n\\\\\n&& H_d &= \\frac{1}{2} p^{\\top} M_d(q)^{-1} p + V_d(q)\n\\\\\n&& M_d &= M_d^\\top \\succ 0\n\\\\\n&& J_2 &= -J_2^\\top\n\\\\\n&& q^\\star &= \\underset{q}{\\arg \\min} \\, V_d(q)\n\\end{aligned}\n\n\n\n\n\n\n \n\n\n\n\nInfinite-dimensional—closed-form solution is difficult"
+  },
+  {
+    "objectID": "main.html#neuralidapbc-2",
+    "href": "main.html#neuralidapbc-2",
+    "title": "main",
+    "section": "NeuralIdaPbc",
+    "text": "NeuralIdaPbc"
+  },
+  {
+    "objectID": "main.html#neuralidapbc-problem-statement",
+    "href": "main.html#neuralidapbc-problem-statement",
+    "title": "main",
+    "section": "NeuralIdaPbc Problem Statement",
+    "text": "NeuralIdaPbc Problem Statement\n\n\n\n\n \n\n\n\n\n\nminimizeθJ(θ)=∥G⊥{∇qH−MdθM−1∇qHdθ+J2θ(Mdθ)−1p}∥2subject toHdθ=12p⊤(Mdθ)−1p+Vdθ(q)Mdθ(q)=(Mdθ(q))⊤≻0J2θ(q,p)=−(J2θ(q,p))⊤q⋆=argminqVdθ(q)\n\\begin{aligned}\n\\underset{\\theta}{\\text{minimize}} && J(\\theta) &= \\left\\lVert G^{\\bot} \\left\\{ \\nabla_{q} H - M_{d}^{\\theta}M^{-1} \\nabla_{q} H_{d}^{\\theta} + J_{2}^{\\theta} \\left(M_{d}^{\\theta}\\right)^{-1} p \\right\\} \\right\\rVert^2  \\\\\n\\text{subject to} \n&& H_d^{\\theta} &= \\frac{1}{2} p^{\\top} \\left( M_{d}^{\\theta} \\right)^{-1} p + V_{d}^{\\theta}(q)\n\\\\\n&& M_d^{\\theta}(q) &= \\left(M_d^{\\theta}(q)\\right)^\\top \\succ 0\n\\\\\n&& J_{2}^{\\theta}(q,p) &= -\\left(J_{2}^{\\theta}(q,p)\\right)^\\top\n\\\\\n&& q^\\star &= \\underset{q}{\\arg \\min} \\, V_{d}^{\\theta} (q)\n\\end{aligned}\n\n\n\n\n\n\n \n\n\n\n\n\n\n\nFinite-dimensional search\nSample configuration space\n\n\n\n \n\n\n\nController uu is a continuous function of JJ"
+  },
+  {
+    "objectID": "main.html#neuralidapbc-constraints",
+    "href": "main.html#neuralidapbc-constraints",
+    "title": "main",
+    "section": "NeuralIdaPbc Constraints",
+    "text": "NeuralIdaPbc Constraints\n\n\nMdθ=(Mdθ)⊤≻0M_d^{\\theta} = \\left(M_d^{\\theta}\\right)^{\\top} \\succ 0\n\n\nJ2θ=−(J2θ)⊤J_{2}^{\\theta} = -\\left(J_{2}^{\\theta}\\right)^{\\top}\nq⋆=argminqVdθ(q)q^\\star = \\underset{q}{\\arg \\min} \\, V_{d}^{\\theta} (q)\n\n\n\n\n\nPositive-definiteness of the desired mass matrix\n\n\n\nCholesky decomposition Mdθ(q)=Lθ(q)Lθ⊤(q)M_d^\\theta(q) = L_{\\theta}(q) L_{\\theta}^{\\top}(q)\nComponents of the lower-triangular matrix Lθ(q)L_\\theta(q) are outputs of a neural network"
+  },
+  {
+    "objectID": "main.html#neuralidapbc-constraints-1",
+    "href": "main.html#neuralidapbc-constraints-1",
+    "title": "main",
+    "section": "NeuralIdaPbc Constraints",
+    "text": "NeuralIdaPbc Constraints\n\n\nMdθ=(Mdθ)⊤≻0M_d^{\\theta} = \\left(M_d^{\\theta}\\right)^{\\top} \\succ 0\n\n\nJ2θ=−(J2θ)⊤J_{2}^{\\theta} = -\\left(J_{2}^{\\theta}\\right)^{\\top}\n\n\nq⋆=argminqVdθ(q)q^\\star = \\underset{q}{\\arg \\min} \\, V_{d}^{\\theta} (q)\n\n\n\n\n\nSkew symmetry of J2θ(q,p)J_2^\\theta(q,p)\n\n\n\nDecompose a square matrix into symmetric and skew-symmetric parts J2θ(q,p)=Aθ(q,p)−Aθ⊤(q,p)J_2^\\theta(q,p) = A_{\\theta}(q,p) -  A_{\\theta}^{\\top}(q,p)\nComponents of the square matrix Aθ(q,p)A_\\theta(q,p) are output of a neural network"
+  },
+  {
+    "objectID": "main.html#neuralidapbc-constraints-2",
+    "href": "main.html#neuralidapbc-constraints-2",
+    "title": "main",
+    "section": "NeuralIdaPbc Constraints",
+    "text": "NeuralIdaPbc Constraints\n\n\nMdθ=(Mdθ)⊤≻0M_d^{\\theta} = \\left(M_d^{\\theta}\\right)^{\\top} \\succ 0 J2θ=−(J2θ)⊤J_{2}^{\\theta} = -\\left(J_{2}^{\\theta}\\right)^{\\top}\n\n\nq⋆=argminqVdθ(q)q^\\star = \\underset{q}{\\arg \\min} \\, V_{d}^{\\theta} (q)\n\n\n\n\n\nBoundedness of VdθV_d^\\theta\n\n\n\nVdθ(q)V_d^\\theta(q) bounded from below with isolated minimum at q⋆q^\\star \nParameterize VdθV_d^\\theta by a sums-of-square (SoS) polynomial\nVdθ(q)&gt;0,q≠q⋆V_d^\\theta(q) &gt; 0,\\, q \\neq q^\\star"
+  },
+  {
+    "objectID": "main.html#sos-decomposition",
+    "href": "main.html#sos-decomposition",
+    "title": "main",
+    "section": "SoS Decomposition",
+    "text": "SoS Decomposition\n\n\n\n\nTheorem (Choi, 1995)\n\n\nA polynomial P∈ℝ[x]P \\in \\mathbb{R}[x] of degree 2d2d has a SoS decomposition ⇔\\Leftrightarrow ∃Q≻0\\exists Q \\succ 0 such that, with μ(x)=[1x1⋯xnx1x2⋯xnd]\\mu(x) = \\begin{bmatrix} 1 & x_1 & \\cdots & x_n & x_1 x_2 & \\cdots & x_n^d\\end{bmatrix}, we have P(x)=μ(x)⊤Qμ(x)P(x) = \\mu(x)^\\top Q \\mu(x)\n\n\n\n\n\n\n\nExample\n\n\nx12+2x12x2+5x12x22+4x1x22+x22=μ(x)⊤(110152021)μ(x)=μ(x)⊤(100120010)(100120010)⊤μ(x)\\begin{aligned} x_1^2 + 2x_1^2x_2 + 5x_1^2x_2^2 + 4x_1x_2^2 + x_2^2  &= \\mu(x)^{\\top} \\begin{pmatrix} 1 & 1 & 0 \\\\ 1 & 5 & 2 \\\\ 0 & 2 & 1 \\end{pmatrix} \\mu(x) \\\\ &= \\mu(x)^{\\top} \\begin{pmatrix} 1 & 0 & 0 \\\\ 1 & 2 & 0 \\\\ 0 & 1 & 0 \\end{pmatrix} \\begin{pmatrix}   1 & 0 & 0 \\\\ 1 & 2 & 0 \\\\ 0 & 1 & 0 \\end{pmatrix}^{\\top} \\mu(x) \\end{aligned}"
+  },
+  {
+    "objectID": "main.html#neuralidapbc-experiments",
+    "href": "main.html#neuralidapbc-experiments",
+    "title": "main",
+    "section": "NeuralIdaPbc Experiments",
+    "text": "NeuralIdaPbc Experiments\n\nFollowed the experiments performed in IdaPbc paper1\n\nInertia-wheel pendulum (IWP)\nBall-beam system\n\nR. Ortega, M. W. Spong, F. Gómez-Estern, and G. Blankenstein, “Stabilization of a class of underactuated mechanical systems via interconnection and damping assignment,” IEEE transactions on automatic control, vol. 47, no. 8, pp. 1218–1233, 2002."
+  },
+  {
+    "objectID": "main.html#simulated-iwp-experiments",
+    "href": "main.html#simulated-iwp-experiments",
+    "title": "main",
+    "section": "Simulated IWP experiments",
+    "text": "Simulated IWP experiments\n\n\n\n\n\n\n\nComparison of control effort expenditure\n\n\n\n\n\n\n\n\n\nNeuralPbc\nNeuralIdaPbc\nIdaPbc"
+  },
+  {
+    "objectID": "main.html#deterministic-vs.-bayesian-training",
+    "href": "main.html#deterministic-vs.-bayesian-training",
+    "title": "main",
+    "section": "Deterministic vs. Bayesian Training",
+    "text": "Deterministic vs. Bayesian Training\n\n\n\n\nPerformance metric: 𝒥=∫0T(12qx(t)2+12ru(t)2)dt\\mathcal{J} = \\int_0^T \\left( \\frac{1}{2}qx(t)^2 + \\frac{1}{2}ru(t)^2 \\right)dt.\n\n \n\nSimulated dynamics\ndx=[q̇1q2̇1I1(mglsinq1−uθ−b1q̇1)1I2(uθ−b2q̇2)]dt+∇xuθ(x)σdWt.\n\\begin{aligned}\ndx &= \\begin{bmatrix}\n\\dot{q}_1 \\\\ \\dot{q_2} \\\\ \\frac{1}{I_1}\\left(m g l \\sin{q_1} - u^\\theta -\nb_1\\dot{q}_1\\right) \\\\ \\frac{1}{I_2}\\left(u^\\theta -b_2 \\dot{q}_2 \\right)\n\\end{bmatrix} dt \\\\\n&+ \\nabla_xu^\\theta(x) \\sigma dW_t.\n\\end{aligned}"
+  },
+  {
+    "objectID": "main.html#deterministic-vs.-bayesian-training-1",
+    "href": "main.html#deterministic-vs.-bayesian-training-1",
+    "title": "main",
+    "section": "Deterministic vs. Bayesian Training",
+    "text": "Deterministic vs. Bayesian Training\n\n\n\n\n\nSubtracting rings from the wheel\n\ndecreases wheel mass\ndecreases wheel and pendulum inertia\nmoves the center of mass\n\n\n\n\n\n\n\n\n\nParameter vector ζ\\zeta\nI1I_1\nI2I_2\nmglm g l\nError\n\n\n\n\nNominal\n0.04550.0455\n0.004250.00425\n1.7951.795\n00\n\n\n3 rings\n0.04170.0417\n0.003300.00330\n1.5771.577\n0.1220.122\n\n\n2 rings\n0.03780.0378\n0.002350.00235\n1.3581.358\n0.2430.243\n\n\n1 rings\n0.03400.0340\n0.001410.00141\n1.1401.140\n0.3650.365"
+  },
+  {
+    "objectID": "main.html#ball-beam-experiments",
+    "href": "main.html#ball-beam-experiments",
+    "title": "main",
+    "section": "Ball-beam experiments",
+    "text": "Ball-beam experiments"
+  },
+  {
+    "objectID": "main.html#closing-thoughts-and-future-directions",
+    "href": "main.html#closing-thoughts-and-future-directions",
+    "title": "main",
+    "section": "Closing Thoughts and Future Directions",
+    "text": "Closing Thoughts and Future Directions\nPBC + machine learning techniques ✨\n\n\nWe uncovered the engineering foundations for combining them\nTransparent connection to stability analysis (NeuralIdaPbc)\nExtensive experimental results in simulation and on hardware\n\n\nFuture directions—applications in:\n\n\nDynamical models with uncertainity\nHybrid dynamical systems (walking machines)"
+  },
+  {
+    "objectID": "main.html#data-driven-control-through-contact",
+    "href": "main.html#data-driven-control-through-contact",
+    "title": "main",
+    "section": "Data-Driven Control Through Contact",
+    "text": "Data-Driven Control Through Contact\n\n\n\n \n\n\n\nminq(θ)J(ϕ(t;x0,u),u)subject toM(x)dx−h(x,ẋ,u)dt−dΛ=0,u(x;θ)=𝒟{F(x;θ)},ζ∼𝒩(ζ0,Σζ),θ∼q(θ),\n\\begin{aligned}\n\\underset{q(\\theta) }{\\text{min}} \n&&\\quad J(&\\phi(t; x_0, u), u) \\\\\n\\text{subject to} \n&&\\quad M(x) dx &- h(x, \\dot{x}, u) dt - d\\Lambda= 0, \\\\\n&&\\quad u(x; \\theta) &= \\mathcal{D}\\{F(x; \\theta)\\}, \\\\\n&&\\quad \\zeta &\\sim \\mathcal{N}(\\zeta_0, \\Sigma_{\\zeta}), \\\\\n&&\\quad \\theta &\\sim q(\\theta),\n\\end{aligned} \n\n\n\n\n\n\n\n\n\n\nImpacts and friction modelled through measure differential inclusions.\nUsually solved through linear complementarity problems (convex optimization).\nData-driven PBC designed to be robust against uncertainties (e.g. surface friction)."
+  },
+  {
+    "objectID": "main.html#acknowledgements",
+    "href": "main.html#acknowledgements",
+    "title": "main",
+    "section": "Acknowledgements",
+    "text": "Acknowledgements"
+  },
+  {
+    "objectID": "main.html#neuralpbc-publications",
+    "href": "main.html#neuralpbc-publications",
+    "title": "main",
+    "section": "NeuralPbc Publications",
+    "text": "NeuralPbc Publications\n\nThis work is published in ISER 20201, CCTA 20212\nW. Sirichotiyakul and A. C. Satici, “Data-driven design of energy-shaping controllers for swing-up control of underactuated robots,” in International Symposium on Experimental Robotics. Springer, 2020, pp. 323-333.W. Sirichotiyakul and A. C. Satici, “Combining energy-shaping control of dynamical systems with data-driven approaches,” in 2021 IEEE Conference on Control Technology and Applications (CCTA). IEEE, 2021, pp. 1121-1127."
+  },
+  {
+    "objectID": "main.html#neuralpbc-publications-1",
+    "href": "main.html#neuralpbc-publications-1",
+    "title": "main",
+    "section": "NeuralPbc Publications",
+    "text": "NeuralPbc Publications\n\nThis work also provides a foundation for an ongoing research that investigate the improvement of robustness properties of NeuralPbc1,2\nW. Sirichotiyakul, N. A. Ashenafi, and A. C. Satici, “Robust Data-Driven Passivity-Based Control of Underactuated Systems via Neural Approximators and Bayesian Inference,” in 2022 American Control Conference, ACC. IEEE, Accepted for publication January 2022.N. A. Ashenafi, W. Sirichotiyakul, and A. C. Satici, “Robust Passivity-Based Control of Underactuated Systems via Neural Approximators and Bayesian In ference,” in 2022 Conference on Decision and Control, CDC. IEEE. (Submitted for review March 2022)."
+  },
+  {
+    "objectID": "main.html#neuralidapbc-publications",
+    "href": "main.html#neuralidapbc-publications",
+    "title": "main",
+    "section": "NeuralIdaPbc Publications",
+    "text": "NeuralIdaPbc Publications\n\nThis work is published in the International Journal of Control1\n \nNeuralIdaPbc is the basis for an ongoing research that investigate the improvement of robustness properties2\nW. Sirichotiyakul and A. C. Satici, “Data-Driven Passivity-Based Control of Underactuated Mechanical Systems via Interconnection and Damping Assignment,” in International Journal of Control. (Accepted for publication March 2022)W. Sirichotiyakul, N. A. Ashenafi, and A. C. Satici, “Robust Interconnection and Damping Assignment Passivity-Based Control via Neural Bayesian Inference,” in IEEE Transactions on Automatic Control. (Submitted for review April 2022)"
+  },
+  {
+    "objectID": "main.html#diffeqflux.jl-demo",
+    "href": "main.html#diffeqflux.jl-demo",
+    "title": "main",
+    "section": "DiffEqFlux.jl Demo",
+    "text": "DiffEqFlux.jl Demo\n\nLearning ẋ=f(x)\\dot{x} = f(x) where ff is a neural network\nRegress on MSE between trajectory of ff and data"
+  },
+  {
+    "objectID": "main.html#neuralidapbc-main-problem",
+    "href": "main.html#neuralidapbc-main-problem",
+    "title": "main",
+    "section": "NeuralIdaPbc Main Problem",
+    "text": "NeuralIdaPbc Main Problem\n\nminimizeθJ(θ)=∥G⊥{∇qH−MdθM−1∇qHdθ+J2θ(Mdθ)−1p}∥2subject toHdθ=12p⊤(Mdθ)−1p+Vdθ(q)Mdθ(q)=(Mdθ(q))⊤≻0J2θ(q,p)=−(J2θ(q,p))⊤q⋆=argminqVdθ(q)\\begin{aligned} \\underset{\\theta}{\\text{minimize}} && J(\\theta) &= \\left\\lVert G^{\\bot} \\left\\{ \\nabla_{q} H - M_{d}^{\\theta}M^{-1} \\nabla_{q} H_{d}^{\\theta} + J_{2}^{\\theta} \\left(M_{d}^{\\theta}\\right)^{-1} p \\right\\} \\right\\rVert^2  \\\\ \\text{subject to}  && H_d^{\\theta} &= \\frac{1}{2} p^{\\top} \\left( M_{d}^{\\theta} \\right)^{-1} p + V_{d}^{\\theta}(q) \\\\ && M_d^{\\theta}(q) &= \\left(M_d^{\\theta}(q)\\right)^\\top \\succ 0 \\\\ && J_{2}^{\\theta}(q,p) &= -\\left(J_{2}^{\\theta}(q,p)\\right)^\\top \\\\ && q^\\star &= \\underset{q}{\\arg \\min} \\, V_{d}^{\\theta} (q) \\end{aligned}\n\n\n\n\n\n\nNeuralIdaPbc\n\n\n\nSolve nonlinear PDEs using neural networks and SoS polynomials\nSurrogates of MdM_d, J2J_2, VdV_d are constrained by construction\n\n\n\n\n\n\n\n\n\n\nPinn\n\n\n\nSolve nonlinear PDEs using neural networks\nSolution surrogates are constrained via penalty term in loss function"
+  },
+  {
+    "objectID": "main.html#sos-polynomials",
+    "href": "main.html#sos-polynomials",
+    "title": "main",
+    "section": "SoS Polynomials",
+    "text": "SoS Polynomials\n\nIs p(x)p(x) nonnegative for all xx? p(x)=4x12+x1x2−4x22−2.1x14+4x24+13x16+1.0316p(x) = 4x_1^2 + x_1x_2 - 4x_2^2 - 2.1x_1^4 + 4x_2^4 + \\frac{1}{3}x_1^6 + 1.0316\\;\n\np(x)=(0.116x12+0.01x1x2−2x22+1.015)2+(−0.569x13+1.938x1+0.244x2)2+(0.224x12+0.666x1x2+0.029x22+0.026)2+(−0.188x12+0.063x1x2−0.006x22+0.009)2+(0.099x13+0.029x1+0.004x2)2+(0.009x12x2)2\\begin{aligned} p(x) = &\\left(0.116x_1^2 + 0.01x_1x_2 - 2x_2^2 + 1.015\\right)^2 \\\\ & + \\; \\left(-0.569x_1^3 + 1.938x_1 + 0.244x_2\\right)^2 \\\\ & + \\; \\left(0.224x_1^2 + 0.666x_1x_2 + 0.029x_2^2 + 0.026\\right)^2 \\\\ & + \\; \\left(-0.188x_1^2 + 0.063x_1x_2 - 0.006x_2^2 + 0.009\\right)^2 \\\\ & + \\; \\left(0.099x_1^3 + 0.029x_1 + 0.004x_2\\right)^2 + \\left(0.009x_1^2x_2\\right)^2 \\end{aligned}\n\n\n\nData-Driven Passivity-Based Control • Aykut C. Satici"
+  },
+  {
+    "objectID": "main.html#neuralidapbc-1",
+    "href": "main.html#neuralidapbc-1",
+    "title": "main",
+    "section": "NeuralIdaPbc",
+    "text": "NeuralIdaPbc"
+  },
+  {
+    "objectID": "main.html#acknowledgments",
+    "href": "main.html#acknowledgments",
+    "title": "main",
+    "section": "Acknowledgments",
+    "text": "Acknowledgments"
+  }
+]

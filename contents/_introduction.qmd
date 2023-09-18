@@ -8,9 +8,9 @@
 :::: {.r-stack}
 
 ::: {layout-ncol="2" layout-align="center" layout-valign="bottom"}
-![](assets/twolink-kin.gif){fig-align="center"}
+![](contents/assets/twolink-kin.gif){fig-align="center"}
 
-![](assets/acrobot.gif){fig-align="center" width=40% .fragment .fade-in fragment-index=0}
+![](contents/assets/acrobot.gif){fig-align="center" width=40% .fragment .fade-in fragment-index=0}
 :::
 
 ::: {.fragment fragment-index=1}
@@ -34,15 +34,15 @@
 
 :::: {.r-stack}
 ::: {layout="[134,-20,100]" layout-align="center" .fragment .fade-out fragment-index=0}
-![Walking machines](assets/walking_model.png){fig-align="center"}
+![Walking machines](contents/assets/walking_model.png){fig-align="center"}
 
-![[Flying machines](http://underactuated.mit.edu/acrobot.html#section3)](assets/quadrotor2d.svg){fig-align="center"}
+![[Flying machines](http://underactuated.mit.edu/acrobot.html#section3)](contents/assets/quadrotor2d.svg){fig-align="center"}
 :::
 
 ::: {layout="[107,-20,100]" layout-valign="bottom" layout-align="center" .fragment fragment-index=0}
-![Torque-limited manipulators](assets/manipulator.jpg){fig-align="center"}
+![Torque-limited manipulators](contents/assets/manipulator.jpg){fig-align="center"}
 
-![Nonprehensile manipulation](assets/pushcontact.png){fig-align="center"}
+![Nonprehensile manipulation](contents/assets/pushcontact.png){fig-align="center"}
 :::
 ::::
 
@@ -52,7 +52,7 @@
 
 :::: {.fragment .semi-fade-out fragment-index=1}
 ::: {layout="[100,-5,60]" layout-valign="center"}
-![](assets/pbc-outline.svg)
+![](contents/assets/pbc-outline.svg)
 
 Strengths
 : 
@@ -69,7 +69,7 @@ Need to solve PDEs
 :::: {.fragment fragment-index=1}
 ::: {layout="[100,-5,60]" layout-valign="center"}
 Reinforcement learning
-![](assets/rl-outline.svg)
+![](contents/assets/rl-outline.svg)
 
 Strengths
 : 
@@ -92,7 +92,7 @@ Stability guarantees?
 <!-- ###################################################################### -->
 
 ::: {layout="[100,-5,60]" layout-valign="center"}
-![](assets/pbc-outline-cross.svg)
+![](contents/assets/pbc-outline-cross.svg)
 
 &nbsp;
 
@@ -101,7 +101,7 @@ Stability guarantees?
 
 :::: {.fragment fragment-index=1}
 ::: {layout="[100,-5,60]" layout-valign="center"}
-![](assets/pbc-ml-outline.svg)
+![](contents/assets/pbc-ml-outline.svg)
 
 * Systematic approach
 * Prior domain knowledge
@@ -115,7 +115,7 @@ Stability guarantees?
 
 ::: {.callout-tip}
 ## System Parameter Uncertainty and Measurement Noise
-![](assets/regular-vs-bayesian.svg){fig-align="center"}
+![](contents/assets/regular-vs-bayesian.svg){fig-align="center"}
 :::
 
 :::: {layout-ncol="2"}

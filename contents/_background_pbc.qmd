@@ -70,7 +70,7 @@ $$s = u^\top y - \delta \lVert u \rVert^2, \; \delta > 0.$$
 :::: {.columns}
 
 ::: {.column width="30%"}
-![](assets/passive-system-example.png)
+![](contents/assets/passive-system-example.png)
 :::
 
 ::: {.column width="70%"}
@@ -256,13 +256,13 @@ $\boxed{u = -mgl\sin(x) - K_P(q - q^\star) - K_D \dot{q}}$
 <div class="semi-transparent-overlay"></div>
 :::
 
-<center>![](assets/Ballbot_Rezero_2010.jpg){.fragment .fade-in-then-out fragment-index=0 height=640}</center>
+<center>![](contents/assets/Ballbot_Rezero_2010.jpg){.fragment .fade-in-then-out fragment-index=0 height=640}</center>
 
-<center>![](assets/ballbot_schematic.png){.fragment .fade-in-then-semi-out fragment-index=1 width=800}</center>
+<center>![](contents/assets/ballbot_schematic.png){.fragment .fade-in-then-semi-out fragment-index=1 width=800}</center>
 
-![](assets/ballbot_derivation_1.png){.fragment .fade-in-then-semi-out .absolute top=200 left=20 width=800 }
+![](contents/assets/ballbot_derivation_1.png){.fragment .fade-in-then-semi-out .absolute top=200 left=20 width=800 }
 
-![](assets/ballbot_derivation_2.png){.fragment .fade-in-then-semi-out .absolute top=20 right=20 width=800 }
+![](contents/assets/ballbot_derivation_2.png){.fragment .fade-in-then-semi-out .absolute top=20 right=20 width=800 }
 
 :::{.fragment}
 :::
@@ -274,7 +274,7 @@ $\boxed{u = -mgl\sin(x) - K_P(q - q^\star) - K_D \dot{q}}$
 <!-- ###################################################################### -->
 
 ::: {layout="[-1,8,-1]" layout-align="center" layout-valign="center"}
-![](assets/pbc-ml-outline.svg){width=50%}
+![](contents/assets/pbc-ml-outline.svg){width=50%}
 :::
 
 :::: {.fragment}
@@ -303,7 +303,7 @@ $$
 
 :::: {.fragment .semi-fade-out fragment-index=1}
 ::: {layout="[1,1]" layout-valign="center"}
-![Show ELBO convergence.](assets/pbc-outline.svg){width=200%}
+![Show ELBO convergence.](contents/assets/pbc-outline.svg){width=200%}
 
 ::: {.callout-important icon=false}
 ## KL-divergence and ELBO
@@ -324,7 +324,7 @@ $$
 
 :::: {.fragment fragment-index=1}
 ::: {layout="[1,1]" layout-valign="center"}
-![Show prob. distribution](assets/pbc-outline.svg){width=100%}
+![Show prob. distribution](contents/assets/pbc-outline.svg){width=100%}
 
 ::: {.callout-tip icon=false}
 ## Prediction through marginalization
