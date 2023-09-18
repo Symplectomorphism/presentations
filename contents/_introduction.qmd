@@ -1,72 +1,83 @@
-# Motivation {visibility="uncounted"}
+# Challenges {visibility="uncounted"}
 <!-- ###################################################################### -->
 
-<!-- ## {background-iframe="https://www.youtube-nocookie.com/embed/CJyCcXob0c8?controls=0&amp;start=19&amp;autoplay=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"} -->
 
-## What is Underactuation?
+## Hybrid Systems
 
-:::: {.r-stack}
-
-::: {layout-ncol="2" layout-align="center" layout-valign="bottom"}
-![](contents/assets/twolink-kin.gif){fig-align="center"}
-
-![](contents/assets/acrobot.gif){fig-align="center" width=40% .fragment .fade-in fragment-index=0}
+:::{.fragment .fade-in fragment-index=0}
+* exhibit both continuous state flow and discrete state transitions
 :::
-
-::: {.fragment fragment-index=1}
-<div class="semi-transparent-overlay"></div>
+:::{.fragment .fade-in fragment-index=1}
+* E.g. Room temperature control, contact-rich robots
 :::
-
-::: {.fragment .fade-up fragment-index=1}
-::: {.callout-note icon="false"}
-## Underactuation
-
-* No control input can generate acceleration in arbitrary direction
-* Control problem becomes much more complicated
+:::{.fragment .fade-in fragment-index=3}
+* We tackle two main challenges in the control of contact-rich robots
 :::
+:::{.fragment .fade-in fragment-index=2}
+:::: {.columns}
+:::{.column  width="60%"}
+![Walking machines](contents/assets/walking_model.png){fig-align="center" width="500" height="300"}
 :::
-
-::::
-
-
-## Underactuated Robots 
-<!-- ###################################################################### -->
-
-:::: {.r-stack}
-::: {layout="[134,-20,100]" layout-align="center" .fragment .fade-out fragment-index=0}
-![Walking machines](contents/assets/walking_model.png){fig-align="center"}
-
-![[Flying machines](http://underactuated.mit.edu/acrobot.html#section3)](contents/assets/quadrotor2d.svg){fig-align="center"}
+:::{.column  width="0%"}
 :::
-
-::: {layout="[107,-20,100]" layout-valign="bottom" layout-align="center" .fragment fragment-index=0}
-![Torque-limited manipulators](contents/assets/manipulator.jpg){fig-align="center"}
-
-![Nonprehensile manipulation](contents/assets/pushcontact.png){fig-align="center"}
+:::{.column  width="40%"}
+![Manipulators](contents/assets/manipulator.jpg){fig-align="center" width="300" height="300"}
 :::
 ::::
+:::
 
 
-## Existing Methods {.smaller transition="fade"}
+## Challenge 1: Mode Changes
 <!-- ###################################################################### -->
+
+
+:::{.fragment fragment-index=0}
+![](contents/assets/nhcm.png){fig-align="center" width="350" height="250"}
+:::
+
+:::{.fragment fragment-index=1}
+* Contacts cause mode changes
+* Each mode has distinct dynamics
+* Switching control does not scale well
+* It is difficult to parameterize the switching condition 
+:::
+
+
+## Challenge 1: Proposed Method
+<br/>
+<br/>
+
+* Our method uses data-driven technique to *automatically* learn a mixture of expert controller and the switching conditionals
+
+<br/>
+
+* We infer *contact-aware* controllers by training on trajectories generated from contact models
+    + *Contact-aware* controllers minimize the adverse effects of contacts or leverage the potential contacts to their advantage
+
+## Challenge 2: Operating under Uncertain Conditions
+
+<br/>
+
+<br/>
+
+::: {layout="[100, 100]"}
+{{< video https://youtu.be/7t1E7FWawgA 
+   height=300 width="100%" >}}
+
+{{< video contents/assets/rw_failing.MP4 >}}
+:::
+
+
+<!-- {{< video "contents/assets/rw_even.mp4" >}} -->
+
+<!-- ## {background-video="contents/assets/rw_failing.MP4" background-size="contain" background-video-muted="true"} -->
+
+
+## Challenge 2: Existing Methods {.smaller transition="fade"}
+
+<br/>
 
 :::: {.fragment .semi-fade-out fragment-index=1}
-::: {layout="[100,-5,60]" layout-valign="center"}
-![](contents/assets/pbc-outline.svg)
-
-Strengths
-: 
-Stability guarantees \
-Closed-form policy
-
-Weaknesses
-: 
-Model uncertainties \
-Need to solve PDEs
-:::
-::::
-
-:::: {.fragment fragment-index=1}
 ::: {layout="[100,-5,60]" layout-valign="center"}
 Reinforcement learning
 ![](contents/assets/rl-outline.svg)
@@ -83,32 +94,21 @@ Stability guarantees?
 :::
 ::::
 
-
-<!-- ## {background-image="https://c.tenor.com/EstKpPVveyYAAAAC/both-agree.gif" background-size="50%" visibility="uncounted"} -->
-<!-- ###################################################################### -->
-
-
-## Our Methods {.smaller transition="fade"}
-<!-- ###################################################################### -->
-
+:::: {.fragment  fragment-index=1}
 ::: {layout="[100,-5,60]" layout-valign="center"}
-![](contents/assets/pbc-outline-cross.svg)
-
-&nbsp;
-
-:::
-
-
-:::: {.fragment fragment-index=1}
-::: {layout="[100,-5,60]" layout-valign="center"}
+Bayesian Neural Passivity-based Control
 ![](contents/assets/pbc-ml-outline.svg)
 
-* Systematic approach
-* Prior domain knowledge
-* Stability is _intrinsic_
-* Model uncertainty considerations possible
+Strengths
+: 
+Stability guarantees \
+Closed-form policy \
+Reasons about model uncertainties \
+
 :::
 ::::
+
+
 
 
 ## Robustness via Bayesian Learning

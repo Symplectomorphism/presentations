@@ -7,7 +7,9 @@
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/quarto-contrib/videojs/video.min.js"></script>
+<link href="site_libs/quarto-contrib/videojs/video-js.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.3.450">
 
   <meta name="author" content="Aykut C. Satici">
@@ -328,8 +330,8 @@
     <div class="slides">
 
 
-<section id="data-driven-passivity-based-control" class="slide level2 center smaller">
-<h2>Data-Driven Passivity-Based Control</h2>
+<section id="data-driven-passivity-based-control-of-robotic-locomotion-and-manipulation" class="slide level2 center smaller">
+<h2>Data-Driven Passivity-Based Control of Robotic Locomotion and Manipulation</h2>
 <!-- ###################################################################### -->
 <hr>
 <p><em>University of Texas at Dallas Seminar</em></p>
@@ -337,10 +339,10 @@
 <div class="quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="quarto-layout-cell" style="flex-basis: 66.7%;justify-content: center;">
-<p><strong>Presenter</strong>: Aykut Satici, Ph.D.&nbsp;<br> Mechanical and Biomedical Engineering Department <br> Boise State University, Boise, Idaho, USA</p>
+<p><strong>Presenter</strong>: Aykut Satici, Ph.D.&nbsp;<br> Mechanical and Biomedical Engineering <br> Boise State University, Boise, Idaho, USA</p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
-<p><strong>Graduate Students</strong>: <br> Wankun Sirichotiyakul <span class="emoji" data-emoji="mortar_board">🎓</span> <br> Nardos Ayele Ashenafi <span class="emoji" data-emoji="mortar_board">🎓</span> <br></p>
+<p><strong>Graduate Students</strong>: <br> Chris Dagher <span class="emoji" data-emoji="mortar_board">🎓</span> <br> Wankun Sirichotiyakul <span class="emoji" data-emoji="mortar_board">🎓</span> <br> Nardos Ayele Ashenafi <span class="emoji" data-emoji="mortar_board">🎓</span> <br></p>
 </div>
 </div>
 </div>
@@ -384,136 +386,103 @@
 -->
 </section>
 <section>
-<section id="motivation" class="title-slide slide level1 center" data-visibility="uncounted">
-<h1>Motivation</h1>
+<section id="challenges" class="title-slide slide level1 center" data-visibility="uncounted">
+<h1>Challenges</h1>
 <!-- ###################################################################### -->
-<!-- ## {background-iframe="https://www.youtube-nocookie.com/embed/CJyCcXob0c8?controls=0&amp;start=19&amp;autoplay=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"} -->
 </section>
-<section id="what-is-underactuation" class="slide level2">
-<h2>What is Underactuation?</h2>
-<div class="r-stack">
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-bottom">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="contents/assets/twolink-kin.gif"></p>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="contents/assets/acrobot.gif" class="fragment fade-in" data-fragment-index="0"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<div class="fragment" data-fragment-index="1">
-<div class="semi-transparent-overlay">
-
-</div>
-</div>
-<div class="fragment fade-up" data-fragment-index="1">
-<div class="callout callout-note no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Underactuation</strong></p>
-</div>
-<div class="callout-content">
+<section id="hybrid-systems" class="slide level2">
+<h2>Hybrid Systems</h2>
+<div class="fragment fade-in" data-fragment-index="0">
 <ul>
-<li>No control input can generate acceleration in arbitrary direction</li>
-<li>Control problem becomes much more complicated</li>
+<li>exhibit both continuous state flow and discrete state transitions</li>
 </ul>
 </div>
+<div class="fragment fade-in" data-fragment-index="1">
+<ul>
+<li>E.g. Room temperature control, contact-rich robots</li>
+</ul>
 </div>
+<div class="fragment fade-in" data-fragment-index="3">
+<ul>
+<li>We tackle two main challenges in the control of contact-rich robots</li>
+</ul>
 </div>
-</div>
-</div>
-</section>
-<section id="underactuated-robots" class="slide level2">
-<h2>Underactuated Robots</h2>
-<!-- ###################################################################### -->
-<div class="r-stack">
-<div class="fragment fade-out quarto-layout-panel" data-fragment-index="0">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 52.8%;justify-content: center;">
+<div class="fragment fade-in" data-fragment-index="2">
+<div class="columns">
+<div class="column" style="width:60%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="contents/assets/walking_model.png"></p>
+<p><img data-src="contents/assets/walking_model.png" width="500" height="300"></p>
 <figcaption>Walking machines</figcaption>
 </figure>
 </div>
-</div>
-<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 7.9%;justify-content: center;">
-<p>&nbsp;</p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 39.4%;justify-content: center;">
+</div><div class="column" style="width:0%;">
+
+</div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="contents/assets/quadrotor2d.svg"></p>
-<figcaption><a href="http://underactuated.mit.edu/acrobot.html#section3">Flying machines</a></figcaption>
+<p><img data-src="contents/assets/manipulator.jpg" width="300" height="300"></p>
+<figcaption>Manipulators</figcaption>
 </figure>
-</div>
-</div>
-</div>
-</div>
-<div class="fragment quarto-layout-panel" data-fragment-index="0">
-<div class="quarto-layout-row quarto-layout-valign-bottom">
-<div class="quarto-layout-cell" style="flex-basis: 47.1%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="contents/assets/manipulator.jpg"></p>
-<figcaption>Torque-limited manipulators</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 8.8%;justify-content: center;">
-<p>&nbsp;</p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 44.1%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="contents/assets/pushcontact.png"></p>
-<figcaption>Nonprehensile manipulation</figcaption>
-</figure>
-</div>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="existing-methods" class="slide level2 smaller" data-transition="fade">
-<h2>Existing Methods</h2>
+<section id="challenge-1-mode-changes" class="slide level2">
+<h2>Challenge 1: Mode Changes</h2>
 <!-- ###################################################################### -->
-<div class="fragment semi-fade-out" data-fragment-index="1">
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-center">
-<div class="quarto-layout-cell" style="flex-basis: 60.6%;justify-content: center;">
-<p><img data-src="contents/assets/pbc-outline.svg"></p>
-</div>
-<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 3.0%;justify-content: center;">
-<p>&nbsp;</p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 36.4%;justify-content: center;">
-<dl>
-<dt>Strengths</dt>
-<dd>
-Stability guarantees<br>
-Closed-form policy
-</dd>
-<dt>Weaknesses</dt>
-<dd>
-Model uncertainties<br>
-Need to solve PDEs
-</dd>
-</dl>
-</div>
-</div>
+<div class="fragment" data-fragment-index="0">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="contents/assets/nhcm.png" width="350" height="250"></p>
+</figure>
 </div>
 </div>
 <div class="fragment" data-fragment-index="1">
+<ul>
+<li>Contacts cause mode changes</li>
+<li>Each mode has distinct dynamics</li>
+<li>Switching control does not scale well</li>
+<li>It is difficult to parameterize the switching condition</li>
+</ul>
+</div>
+</section>
+<section id="challenge-1-proposed-method" class="slide level2">
+<h2>Challenge 1: Proposed Method</h2>
+<p><br> <br></p>
+<ul>
+<li>Our method uses data-driven technique to <em>automatically</em> learn a mixture of expert controller and the switching conditionals</li>
+</ul>
+<p><br></p>
+<ul>
+<li>We infer <em>contact-aware</em> controllers by training on trajectories generated from contact models
+<ul>
+<li><em>Contact-aware</em> controllers minimize the adverse effects of contacts or leverage the potential contacts to their advantage</li>
+</ul></li>
+</ul>
+</section>
+<section id="challenge-2-operating-under-uncertain-conditions" class="slide level2">
+<h2>Challenge 2: Operating under Uncertain Conditions</h2>
+<p><br></p>
+<p><br></p>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<iframe data-external="1" src="https://www.youtube.com/embed/7t1E7FWawgA" width="100%" height="300" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<video id="video_shortcode_videojs_video2" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="contents/assets/rw_failing.MP4"></video>
+</div>
+</div>
+</div>
+<!--  -->
+<!-- ## {background-video="contents/assets/rw_failing.MP4" background-size="contain" background-video-muted="true"} -->
+</section>
+<section id="challenge-2-existing-methods" class="slide level2 smaller" data-transition="fade">
+<h2>Challenge 2: Existing Methods</h2>
+<p><br></p>
+<div class="fragment semi-fade-out" data-fragment-index="1">
 <div class="quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-center">
 <div class="quarto-layout-cell" style="flex-basis: 60.6%;justify-content: center;">
@@ -539,41 +508,25 @@ Stability guarantees?
 </div>
 </div>
 </div>
-<!-- ## {background-image="https://c.tenor.com/EstKpPVveyYAAAAC/both-agree.gif" background-size="50%" visibility="uncounted"} -->
-<!-- ###################################################################### -->
-</section>
-<section id="our-methods" class="slide level2 smaller" data-transition="fade">
-<h2>Our Methods</h2>
-<!-- ###################################################################### -->
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-center">
-<div class="quarto-layout-cell" style="flex-basis: 60.6%;justify-content: center;">
-<p><img data-src="contents/assets/pbc-outline-cross.svg"></p>
-</div>
-<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 3.0%;justify-content: center;">
-<p>&nbsp;</p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 36.4%;justify-content: center;">
-<p>&nbsp;</p>
-</div>
-</div>
-</div>
 <div class="fragment" data-fragment-index="1">
 <div class="quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-center">
 <div class="quarto-layout-cell" style="flex-basis: 60.6%;justify-content: center;">
-<p><img data-src="contents/assets/pbc-ml-outline.svg"></p>
+<p>Bayesian Neural Passivity-based Control <img data-src="contents/assets/pbc-ml-outline.svg"></p>
 </div>
 <div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 3.0%;justify-content: center;">
 <p>&nbsp;</p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 36.4%;justify-content: center;">
-<ul>
-<li>Systematic approach</li>
-<li>Prior domain knowledge</li>
-<li>Stability is <em>intrinsic</em></li>
-<li>Model uncertainty considerations possible</li>
-</ul>
+<dl>
+<dt>Strengths</dt>
+<dd>
+Stability guarantees<br>
+Closed-form policy<br>
+Reasons about model uncertainties<br>
+
+</dd>
+</dl>
 </div>
 </div>
 </div>
@@ -875,7 +828,7 @@ vi - Ri^2 &amp;= \frac{\text{d}}{\text{d} t} \left(
 </div>
 </div>
 </section>
-<section id="our-methods-1" class="slide level2">
+<section id="our-methods" class="slide level2">
 <h2>Our Methods</h2>
 <!-- ###################################################################### -->
 <div class="quarto-layout-panel">
@@ -1328,7 +1281,7 @@ Minimal expected cost <math display="inline" xmlns="http://www.w3.org/1998/Math/
 <!-- ###################################################################### -->
 <p>Learning storage function from trajectories</p>
 </section>
-<section id="motivation-1" class="slide level2">
+<section id="motivation" class="slide level2">
 <h2>Motivation</h2>
 <!-- ###################################################################### -->
 <p>Control synthesis in PBC: <math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi><msub><mi>u</mi><mrow><mi>e</mi><mi>s</mi></mrow></msub><mo>=</mo><msub><mi>∇</mi><mi>q</mi></msub><mi>H</mi><mo>−</mo><msub><mi>∇</mi><mi>q</mi></msub><msub><mi>H</mi><mi>d</mi></msub></mrow><annotation encoding="application/x-tex">
@@ -1773,7 +1726,7 @@ Acrobot
 <!-- ###################################################################### -->
 <p>Solving matching PDEs with neural networks</p>
 </section>
-<section id="motivation-2" class="slide level2" data-auto-animate="true">
+<section id="motivation-1" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Motivation</h2>
 <!-- ###################################################################### -->
 <p><span class="smallcaps">NeuralPbc</span> is flexible, but guaranteeing stability is hard</p>
@@ -2724,6 +2677,8 @@ b_1\dot{q}_1\right) \\ \frac{1}{I_2}\left(u^\theta -b_2 \dot{q}_2 \right)
       }
     });
     </script>
+    
+    
     
 
 </body></html>

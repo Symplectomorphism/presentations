@@ -46,7 +46,7 @@
     "href": "main.html#our-methods",
     "title": "main",
     "section": "Our Methods",
-    "text": "Our Methods\n\n\n\n\n\n\n\n \n\n\n \n\n\n\n\n\n\n\n\n\n\n \n\n\n\nSystematic approach\nPrior domain knowledge\nStability is intrinsic\nModel uncertainty considerations possible"
+    "text": "Our Methods\n\n\n\n\n \n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\nNeuralPbc\nNeuralIdaPbc\n\n\n\n\nHdH_d neural net\nHdH_d quadratic in pp\n\n\nSample state space\nSample configuration space\n\n\nNo stability certificate\nStability certificate\n\n\nMore flexible\nAs applicable as IdaPbc"
   },
   {
     "objectID": "main.html#robustness-via-bayesian-learning",
@@ -179,7 +179,7 @@
     "href": "main.html#motivation-1",
     "title": "main",
     "section": "Motivation",
-    "text": "Motivation\n\nControl synthesis in PBC: Gues=∇qH−∇qHd\nGu_{es} = \\nabla_q H - \\nabla_q H_d\n\n\nIf underactuated, GG is not invertible\n\nChoice of uesu_{es} must satisfy nonlinear PDE\nQuadratic potential most likely not viable\n\nIncorporate performance objective into design of HdH_d?"
+    "text": "Motivation\n\nNeuralPbc is flexible, but guaranteeing stability is hard\nAdditional structure of IdaPbc facilitates stability analysis\n\n\n[q̇ṗ]=[0I−I0][∇qH∇pH]+[0G]u \\begin{bmatrix} \\dot{q} \\\\ \\dot{p} \\end{bmatrix} = \\begin{bmatrix}0 & I \\\\ -I & 0\\end{bmatrix} \\begin{bmatrix} \\nabla_q H \\\\ \\nabla_p H  \\end{bmatrix} + \\begin{bmatrix} 0 \\\\ G \\end{bmatrix} u  \nClosed-loop port-Hamiltonian dynamics:\n\n[q̇ṗ]=[0M−1Md−MdM−1J2(q,p)−GKvG⊤][∇qHd∇pHd]\n\\begin{bmatrix} \\dot{q} \\\\ \\dot{p} \\end{bmatrix}\n=\n\\begin{bmatrix}0 & M^{-1}M_d \\\\ -M_dM^{-1} & J_2(q,p) - GK_vG^\\top\\end{bmatrix}\n\\begin{bmatrix} \\nabla_q H_d \\\\ \\nabla_p H_d \\end{bmatrix}\n  \nHd=12p⊤Md(q)−1p+Vd(q),Md≻0H_d = \\frac{1}{2} p^{\\top} M_d(q)^{-1} p + V_d(q),\\, M_d \\succ 0\n\n\nFurther structure not only facilitates stability analysis but also restricts the search to a pd matrix MdM_d and VdV_d.\nThis search may be performed solely on the configuration space."
   },
   {
     "objectID": "main.html#neuralpbc-problem-statement",
@@ -460,5 +460,54 @@
     "title": "main",
     "section": "Acknowledgments",
     "text": "Acknowledgments"
+  },
+  {
+    "objectID": "main.html#data-driven-passivity-based-control-of-robotic-locomotion-and-manipulation",
+    "href": "main.html#data-driven-passivity-based-control-of-robotic-locomotion-and-manipulation",
+    "title": "main",
+    "section": "Data-Driven Passivity-Based Control of Robotic Locomotion and Manipulation",
+    "text": "Data-Driven Passivity-Based Control of Robotic Locomotion and Manipulation\n\n\nUniversity of Texas at Dallas Seminar\n\n\n\n\nPresenter: Aykut Satici, Ph.D.  Mechanical and Biomedical Engineering  Boise State University, Boise, Idaho, USA\n\n\nGraduate Students:  Chris Dagher 🎓  Wankun Sirichotiyakul 🎓  Nardos Ayele Ashenafi 🎓"
+  },
+  {
+    "objectID": "main.html#motivation",
+    "href": "main.html#motivation",
+    "title": "main",
+    "section": "Motivation",
+    "text": "Motivation\n\nControl synthesis in PBC: Gues=∇qH−∇qHd\nGu_{es} = \\nabla_q H - \\nabla_q H_d\n\n\nIf underactuated, GG is not invertible\n\nChoice of uesu_{es} must satisfy nonlinear PDE\nQuadratic potential most likely not viable\n\nIncorporate performance objective into design of HdH_d?"
+  },
+  {
+    "objectID": "main.html#hybrid-systems",
+    "href": "main.html#hybrid-systems",
+    "title": "main",
+    "section": "Hybrid Systems",
+    "text": "Hybrid Systems\n\n\nexhibit both continuous state flow and discrete state transitions\n\n\n\n\nE.g. Room temperature control, contact-rich robots\n\n\n\n\nWe tackle two main challenges in the control of contact-rich robots\n\n\n\n\n\n\n\n\nWalking machines\n\n\n\n\n\n\n\n\nManipulators"
+  },
+  {
+    "objectID": "main.html#challenge-1-mode-changes",
+    "href": "main.html#challenge-1-mode-changes",
+    "title": "main",
+    "section": "Challenge 1: Mode Changes",
+    "text": "Challenge 1: Mode Changes\n\n\n\n\n\n\n\n\n\n\nContacts cause mode changes\nEach mode has distinct dynamics\nSwitching control does not scale well\nIt is difficult to parameterize the switching condition"
+  },
+  {
+    "objectID": "main.html#challenge-1-proposed-method",
+    "href": "main.html#challenge-1-proposed-method",
+    "title": "main",
+    "section": "Challenge 1: Proposed Method",
+    "text": "Challenge 1: Proposed Method\n \n\nOur method uses data-driven technique to automatically learn a mixture of expert controller and the switching conditionals\n\n\n\nWe infer contact-aware controllers by training on trajectories generated from contact models\n\nContact-aware controllers minimize the adverse effects of contacts or leverage the potential contacts to their advantage"
+  },
+  {
+    "objectID": "main.html#challenge-2-operating-under-uncertain-conditions",
+    "href": "main.html#challenge-2-operating-under-uncertain-conditions",
+    "title": "main",
+    "section": "Challenge 2: Operating under Uncertain Conditions",
+    "text": "Challenge 2: Operating under Uncertain Conditions"
+  },
+  {
+    "objectID": "main.html#challenge-2-existing-methods",
+    "href": "main.html#challenge-2-existing-methods",
+    "title": "main",
+    "section": "Challenge 2: Existing Methods",
+    "text": "Challenge 2: Existing Methods\n\n\n\n\n\nReinforcement learning \n\n\n \n\n\n\nStrengths\n\nMore general\nUnknown dynamics OK\n\nWeaknesses\n\nSample complexity\nStability guarantees?\n\n\n\n\n\n\n\n\n\n\nBayesian Neural Passivity-based Control \n\n\n \n\n\n\nStrengths\n\nStability guarantees\nClosed-form policy\nReasons about model uncertainties"
   }
 ]
