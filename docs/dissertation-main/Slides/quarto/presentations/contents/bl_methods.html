@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.313">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>main – bl_methods</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../../../">
+<script src="../../../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../../../../site_libs/quarto-contrib/videojs/video.min.js"></script>
+<link href="../../../../../site_libs/quarto-contrib/videojs/video-js.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-search-results"></div>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+<section id="bayesian-neuralpbc" class="level1">
+<h1>Bayesian <span class="smallcaps">NeuralPbc</span></h1>
+<section id="bayesian-neuralpbc-1" class="level2">
+<h2 class="anchored" data-anchor-id="bayesian-neuralpbc-1">Bayesian <span class="smallcaps">NeuralPbc</span></h2>
+<p><br></p>
+<div class="r-stack">
+<div class="fragment fade-in-then-out" data-fragment-index="0">
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+<span class="smallcaps">NeuralPbc</span> Optimization Problem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[
+\begin{aligned}
+\underset{\theta}{\text{minimize}} &amp;&amp; J(\phi, u^\theta) &amp;= \mathbb{E}_{x_0 \in \mathcal{D}_N}[ \ell( \phi(x_0, u, T), u) ], \\
+\text{subject to} &amp;&amp;
+\begin{bmatrix}
+  \dot{q} \\ \dot{p}
+\end{bmatrix} &amp;=
+\begin{bmatrix}
+  0 &amp; I \\ -I &amp; 0
+\end{bmatrix}
+\begin{bmatrix} \nabla_q H \\ \nabla_p H \end{bmatrix} +
+\begin{bmatrix}
+  0 \\ \Omega
+\end{bmatrix} u^{\theta},
+\\
+&amp;&amp; u^\theta &amp;= \Omega^{\dagger}(\nabla_q H  - \nabla_q H_d^\theta).
+\end{aligned}
+\]</span></p>
+</div>
+</div>
+</div>
+<div class="fragment fade-in-then-out" data-fragment-index="1">
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Bayesian <span class="smallcaps">NeuralPbc</span> Optimization Problem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[
+\begin{aligned}
+    \underset{z}{\text{minimize}} &amp;&amp; J(\phi, u^\theta) &amp;= \mathbb{E}_{x_0 \in \mathcal{D}_N}[ \ell( \phi(x_0, u, T), u) ], \\
+    \text{subject to} &amp;&amp;
+    \begin{bmatrix}
+    \dot{q} \\ \dot{p}
+    \end{bmatrix} &amp;=
+    \begin{bmatrix}
+    0 &amp; I \\ -I &amp; 0
+    \end{bmatrix}
+    \begin{bmatrix} \nabla_q H \\ \nabla_p H \end{bmatrix} +
+    \begin{bmatrix}
+    0 \\ \Omega
+    \end{bmatrix} u^{\theta},
+    \\
+    &amp;&amp; u^\theta &amp;= \Omega^{\dagger}(\nabla_q H  - \nabla_q H_d^\theta),\\
+    &amp;&amp; \theta &amp;\sim Q(\theta; z).
+\end{aligned}
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="1">
+<ul>
+<li>The parameter <span class="math inline">\(z\)</span> of the posterior <span class="math inline">\(Q(\theta;z)\)</span> is inferred from running cost <span class="math inline">\(J(\phi, u^\theta)\)</span></li>
+<li><span class="math inline">\(H_d^\theta\)</span> is a Bayesian neural network (BNN)</li>
+</ul>
+</div>
+</section>
+<section id="uncertainty-modeling" class="level2">
+<h2 class="anchored" data-anchor-id="uncertainty-modeling">Uncertainty Modeling</h2>
+<ul>
+<li>We provide more structure to the variance of the Bayesian controllers</li>
+</ul>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Bayesian <span class="smallcaps">NeuralPbc</span> Optimization Problem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[
+\begin{aligned}
+    \underset{z}{\text{minimize}} &amp;&amp; J(\phi, u^\theta) &amp;= \mathbb{E}_{x_0 \in \mathcal{D}_N}[ \ell( \phi(x_0, u, T), u) ], \\
+    \text{subject to} &amp;&amp;
+    \dd x &amp;= \left(
+        \begin{bmatrix}\phantom{-}\nabla_p H \\-\nabla_q H \end{bmatrix} + \begin{bmatrix} 0 \\ \Omega \end{bmatrix} u^{\theta}(x) \right) \dd t + \nabla_x u(x) \dd W_t, \\
+    &amp;&amp; u^\theta &amp;= \Omega^{\dagger}(\nabla_q H  - \nabla_q H_d^\theta),\\
+    &amp;&amp; \theta &amp;\sim Q(\theta; z), \\
+    &amp;&amp; p_s &amp;\sim \mathcal{N}(\hat{p}_s, \sigma_p).
+\end{aligned}
+\]</span></p>
+</div>
+</div>
+<ul>
+<li><strong>Objective</strong>: maximize <span class="smallcaps">Elbo</span></li>
+</ul>
+<p><span class="math display">\[\begin{gather*}
+  \mathcal{L}(J,z) = \mathbb{E}_{\theta \sim Q} \left[\ln(P(J \mid \theta)P(\theta)) - \ln(Q(\theta;z)) \right] \\
+  P(J | \theta) = \mathcal{N}(J \; | \; 0, s).
+\end{gather*}\]</span></p>
+</section>
+<section id="neuralpbc-hybrid-system" class="level2">
+<h2 class="anchored" data-anchor-id="neuralpbc-hybrid-system"><span class="smallcaps">NeuralPbc</span>: Hybrid System</h2>
+<p><br></p>
+<div class="fragment quarto-layout-panel" data-fragment-index="0">
+<div class="quarto-layout-row quarto-layout-valign-center">
+<div class="callout-note callout callout-style-default no-icon callout-captioned quarto-layout-cell" style="flex-basis: 47.6%;justify-content: center;">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Passive Smooth System
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[
+H\left(  x(t_1) \right) \leq  H\left(  x(t_0) \right) + \int_{t_0}^{t_1} s(u(t), y(t)) \, \text{d}t
+\]</span></p>
+</div>
+</div>
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 4.8%;justify-content: center;">
+<p>&nbsp;</p>
+</div>
+<div class="callout-important callout callout-style-default no-icon callout-captioned quarto-layout-cell" style="flex-basis: 47.6%;justify-content: center;">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Passive Hybrid System
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[\begin{gather*}
+H\left(  x(t_1) \right) \leq  H\left(  x(t_0) \right) + \int_{t_0}^{t_1} s(u(t), y(t)) \, \text{d}t \\
+H(x^+) \leq H(x^-)
+\end{gather*}\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment" data-fragment-index="1">
+<div class="callout-warning callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+<span class="smallcaps">NeuralPbc</span> for contact-rich system
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<span class="math display">\[\begin{aligned}
+    \underset{\theta}{\textrm{minimize}}
+    &amp; &amp; J(\phi, u^\theta) &amp;= \mathbb{E}_{x_0 \in \mathcal{D}_N}[ \ell( \phi(x_0, u, T), u) ], \\%
+    \textrm{subject to}
+    &amp; &amp; M(q) &amp;\dd \dot{q} + h(q, \dot{q}, \theta)\dd t - \dd R  = 0,\\%
+    &amp; &amp; u^{\theta} &amp;= \Omega^{\dagger}(\nabla_q H  - \nabla_q H_d).%
+\end{aligned}\]</span>
+</div>
+</div>
+</div>
+</section>
+<section id="bayesian-neuralpbc-hybrid-system" class="level2">
+<h2 class="anchored" data-anchor-id="bayesian-neuralpbc-hybrid-system">Bayesian <span class="smallcaps">NeuralPbc</span>: Hybrid System</h2>
+<div class="callout-warning callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+<span class="smallcaps">NeuralPbc</span> for contact-rich system
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<span class="math display">\[\begin{aligned}
+    \underset{z}{\textrm{minimize}}
+    &amp; &amp; &amp; J(\phi, u) = \mathbb{E}_{x_0 \in \mathcal{D}_N}[\ell(\phi(x_0, u^\theta, T), u^\theta)], \\
+    \textrm{subject to}
+    &amp; &amp; M(q) &amp;\dd \dot{q} + h(q, \dot{q}, \theta)\dd t - \dd R  = 0,\\
+    &amp; &amp; u^{\theta} &amp;= \Omega^{\dagger}(\nabla_q H  - \nabla_q H_d^\theta), \\
+    &amp; &amp; p_s &amp;\sim \mathbb{U}(p_{min}, p_{max}), \\
+    &amp; &amp; \theta &amp;\sim Q(\theta; z).
+\end{aligned}\]</span>
+</div>
+</div>
+<div class="quarto-video"><video id="video_shortcode_videojs_video1" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="contents/assets/rw_uneven.mp4"></video></div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<script>videojs(video_shortcode_videojs_video1);</script>
+
+
+
+</body></html>

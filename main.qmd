@@ -28,6 +28,12 @@ format:
 
 {{< include contents/_introduction.qmd >}}
 
+{{< include contents/_moe_background.qmd >}}
+
+{{< include contents/_moe_methods.qmd >}}
+
+{{< include contents/_moe_results.qmd >}}
+
 {{< include contents/_background_pbc.qmd >}}
 
 {{< include contents/_justification.qmd >}}
