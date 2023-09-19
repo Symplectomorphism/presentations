@@ -53,6 +53,6 @@ format:
 {{< include contents/_bl_results.qmd >}}
 
 <!-- # :grey_question: Q&A -->
-{{< include contents/_closing.qmd >}}
+<!-- {{< include contents/_closing.qmd >}} -->
 
 {{< include contents/_appendix.qmd >}}

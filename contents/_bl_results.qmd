@@ -91,4 +91,4 @@ J_T &= \sum_{t=0}^{T} \| \dot{x}_c^* - \dot{x}_c(t; \theta) \|
 
 ![](contents/assets/acknowledgment5.JPG){.absolute top=50 left=700 width="300"}
 
-# Q&A
+<!-- # Q&A -->
