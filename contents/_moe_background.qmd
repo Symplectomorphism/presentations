@@ -1,7 +1,7 @@
 # Switching Control with Deep-net Mixture of Experts
 
 # Background
-* Mixture of Experts 
+Mixture of Experts 
 
 ## Mixture of Experts (MOE): Old Faithful {auto-animate="true"}
 
