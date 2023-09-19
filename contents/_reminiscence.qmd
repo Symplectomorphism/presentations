@@ -1,13 +1,16 @@
 # Reminiscence
 
-## <span style="font-size:84%"> The Laboratory for Autonomous Robotics and Systems (LARS) </span>
+<!-- ## <span style="font-size:84%"> The Laboratory for Autonomous Robotics and Systems (LARS) </span> -->
+## LARS and SeRViCE (2010-2015)
 
 :::: {.columns}
 
 ::: {.column width="50%"}
 <center>
-<img src="./contents/assets/spong.jpg" width="40%" /img>
+![](./contents/assets/spong.jpg){.absolute top=50 left=-70 width="250" height="300"}
 </center>
+
+![](./contents/assets/Dr_Gans-1735-800x533.jpg){.absolute top=100 left=195 width="340" height="225"}
 
 ![](./contents/assets/spong-lab-650-2013-08.jpg){.absolute top=400 left=-70 width="300" height="225"}
 
