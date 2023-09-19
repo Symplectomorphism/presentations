@@ -1,14 +1,14 @@
-# Challenges {visibility="uncounted"}
+# Challenges in Robotic Manipulation and Locomotion {visibility="uncounted"}
 <!-- ###################################################################### -->
 
 
 ## Hybrid Systems
 
 :::{.fragment .fade-in fragment-index=0}
-* exhibit both continuous state flow and discrete state transitions
+* Exhibit both continuous state flow and discrete state transitions
 :::
 :::{.fragment .fade-in fragment-index=1}
-* E.g. Room temperature control, contact-rich robots
+* Examples: room temperature control, contact-rich robots
 :::
 :::{.fragment .fade-in fragment-index=3}
 * We tackle two main challenges in the control of contact-rich robots

@@ -480,7 +480,7 @@
     "href": "main.html#hybrid-systems",
     "title": "main",
     "section": "Hybrid Systems",
-    "text": "Hybrid Systems\n\n\nexhibit both continuous state flow and discrete state transitions\n\n\n\n\nE.g. Room temperature control, contact-rich robots\n\n\n\n\nWe tackle two main challenges in the control of contact-rich robots\n\n\n\n\n\n\n\n\nWalking machines\n\n\n\n\n\n\n\n\nManipulators"
+    "text": "Hybrid Systems\n\n\nExhibit both continuous state flow and discrete state transitions\n\n\n\n\nExamples: room temperature control, contact-rich robots\n\n\n\n\nWe tackle two main challenges in the control of contact-rich robots\n\n\n\n\n\n\n\n\nWalking machines\n\n\n\n\n\n\n\n\nManipulators"
   },
   {
     "objectID": "main.html#challenge-1-mode-changes",
@@ -1195,5 +1195,12 @@
     "title": "main",
     "section": "Acknowledgments",
     "text": "Acknowledgments"
+  },
+  {
+    "objectID": "main.html#the-laboratory-for-autonomous-robotics-and-systems-lars",
+    "href": "main.html#the-laboratory-for-autonomous-robotics-and-systems-lars",
+    "title": "main",
+    "section": " The Laboratory for Autonomous Robotics and Systems (LARS) ",
+    "text": "The Laboratory for Autonomous Robotics and Systems (LARS)"
   }
 ]
