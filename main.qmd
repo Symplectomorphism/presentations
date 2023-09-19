@@ -38,11 +38,17 @@ format:
 
 {{< include contents/_justification.qmd >}}
 
-{{< include contents/_neuralpbc.qmd >}}
+<!-- {{< include contents/_neuralpbc.qmd >}} -->
 
-{{< include contents/_background_idapbc.qmd >}}
+<!-- {{< include contents/_background_idapbc.qmd >}} -->
 
-{{< include contents/_neuralidapbc.qmd >}}
+<!-- {{< include contents/_neuralidapbc.qmd >}} -->
+
+{{< include contents/_bl_background.qmd >}}
+
+{{< include contents/_bl_methods.qmd >}} 
+
+{{< include contents/_bl_results.qmd >}}
 
 <!-- # :grey_question: Q&A -->
 {{< include contents/_closing.qmd >}}
