@@ -487,14 +487,14 @@
     "href": "main.html#challenge-1-mode-changes",
     "title": "main",
     "section": "Challenge 1: Mode Changes",
-    "text": "Challenge 1: Mode Changes\n\n\n\n\n\n\n\n\n\n\nContacts cause mode changes\nEach mode has distinct dynamics\nSwitching control does not scale well\nIt is difficult to parameterize the switching condition"
+    "text": "Challenge 1: Mode Changes\n\n\n\n\n\n\n\n\n\n\nContacts cause instantaneous changes in the dynamics and states.\nPotential contacts grow exponentially, making controller inference difficult."
   },
   {
     "objectID": "main.html#challenge-1-proposed-method",
     "href": "main.html#challenge-1-proposed-method",
     "title": "main",
     "section": "Challenge 1: Proposed Method",
-    "text": "Challenge 1: Proposed Method\n \n\nOur method uses data-driven technique to automatically learn a mixture of expert controller and the switching conditionals\n\n\n\nWe infer contact-aware controllers by training on trajectories generated from contact models\n\nContact-aware controllers minimize the adverse effects of contacts or leverage the potential contacts to their advantage"
+    "text": "Challenge 1: Proposed Method\n \n\nOur method uses data-driven technique to automatically learn a mixture of expert controller and the switching conditionals.\n\n\n\nWe infer contact-aware controllers by training on trajectories generated from contact models.\n\nContact-aware controllers minimize the adverse effects of contacts or even take advantage of them."
   },
   {
     "objectID": "main.html#challenge-2-operating-under-uncertain-conditions",

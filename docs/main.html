@@ -470,10 +470,8 @@
 </div>
 <div class="fragment" data-fragment-index="1">
 <ul>
-<li>Contacts cause mode changes</li>
-<li>Each mode has distinct dynamics</li>
-<li>Switching control does not scale well</li>
-<li>It is difficult to parameterize the switching condition</li>
+<li>Contacts cause instantaneous changes in the dynamics and states.</li>
+<li>Potential contacts grow exponentially, making controller inference difficult.</li>
 </ul>
 </div>
 </section>
@@ -481,13 +479,13 @@
 <h2>Challenge 1: Proposed Method</h2>
 <p><br> <br></p>
 <ul>
-<li>Our method uses data-driven technique to <em>automatically</em> learn a mixture of expert controller and the switching conditionals</li>
+<li>Our method uses data-driven technique to <em>automatically</em> learn a mixture of expert controller and the switching conditionals.</li>
 </ul>
 <p><br></p>
 <ul>
-<li>We infer <em>contact-aware</em> controllers by training on trajectories generated from contact models
+<li>We infer <em>contact-aware</em> controllers by training on trajectories generated from contact models.
 <ul>
-<li><em>Contact-aware</em> controllers minimize the adverse effects of contacts or leverage the potential contacts to their advantage</li>
+<li><em>Contact-aware</em> controllers minimize the adverse effects of contacts or even take advantage of them.</li>
 </ul></li>
 </ul>
 </section>

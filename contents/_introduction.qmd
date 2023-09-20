@@ -36,10 +36,8 @@
 :::
 
 :::{.fragment fragment-index=1}
-* Contacts cause mode changes
-* Each mode has distinct dynamics
-* Switching control does not scale well
-* It is difficult to parameterize the switching condition 
+* Contacts cause instantaneous changes in the dynamics and states.
+* Potential contacts grow exponentially, making controller inference difficult.
 :::
 
 
@@ -47,12 +45,15 @@
 <br/>
 <br/>
 
-* Our method uses data-driven technique to *automatically* learn a mixture of expert controller and the switching conditionals
+* Our method uses data-driven technique to *automatically* learn a mixture of
+expert controller and the switching conditionals.
 
 <br/>
 
-* We infer *contact-aware* controllers by training on trajectories generated from contact models
-    + *Contact-aware* controllers minimize the adverse effects of contacts or leverage the potential contacts to their advantage
+* We infer *contact-aware* controllers by training on trajectories generated
+from contact models.
+    + *Contact-aware* controllers minimize the adverse effects of contacts or
+    even take advantage of them.
 
 ## Challenge 2: Operating under Uncertain Conditions
 
