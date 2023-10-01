@@ -426,17 +426,17 @@
 <li>Exhibit both continuous state flow and discrete state transitions</li>
 </ul>
 </div>
-<div class="fragment fade-in" data-fragment-index="1">
+<div class="fragment fade-in" data-fragment-index="0">
 <ul>
 <li>Examples: room temperature control, contact-rich robots</li>
 </ul>
 </div>
-<div class="fragment fade-in" data-fragment-index="3">
+<div class="fragment fade-in" data-fragment-index="1">
 <ul>
 <li>We tackle two main challenges in the control of contact-rich robots</li>
 </ul>
 </div>
-<div class="fragment fade-in" data-fragment-index="2">
+<div class="fragment fade-in" data-fragment-index="0">
 <div class="columns">
 <div class="column" style="width:60%;">
 <div class="quarto-figure quarto-figure-center">
@@ -468,7 +468,7 @@
 </figure>
 </div>
 </div>
-<div class="fragment" data-fragment-index="1">
+<div class="fragment" data-fragment-index="0">
 <ul>
 <li>Contacts cause instantaneous changes in the dynamics and states.</li>
 <li>Potential contacts grow exponentially, making controller inference difficult.</li>
@@ -840,13 +840,11 @@ M(q) \dd \dot{q} + h(x; \psi, \theta) \dd t - \dd R  = 0 \text{ (Moreau's time s
 <section id="conclusions" class="slide level2">
 <h2>Conclusions</h2>
 <p><br> <br></p>
-<div>
 <ul>
-<li class="fragment">We provide a data-driven control design that <em>automatically</em> learns several policies and the necessary switching scheme</li>
-<li class="fragment">The framework leverages the switching controllers to stabilize the multi-modal dynamical system</li>
-<li class="fragment">The gating network successsfully parameterizes the control-switching conditionals that achieves the desired performance</li>
+<li><p>We provide a data-driven control design that <em>automatically</em> learns several policies and the necessary switching scheme.</p></li>
+<li><p>The framework leverages the switching controllers to stabilize the multi-modal dynamical system.</p></li>
+<li><p>The gating network successsfully parameterizes the control-switching conditionals that achieves the desired performance.</p></li>
 </ul>
-</div>
 </section></section>
 <section>
 <section id="background-1" class="title-slide slide level1 center" data-visibility="uncounted">
@@ -872,8 +870,8 @@ M(q) \dd \dot{q} + h(x; \psi, \theta) \dd t - \dd R  = 0 \text{ (Moreau's time s
 </annotation></semantics></math></p>
 <p>for all <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>t</mi><mn>0</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msub><mi>x</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">x(t_0) = x_0</annotation></semantics></math>, all input <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>u</mi><annotation encoding="application/x-tex">u</annotation></semantics></math>, and all <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>t</mi><mn>1</mn></msub><mo>≥</mo><msub><mi>t</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">t_1 \geq t_0</annotation></semantics></math></p>
 </section>
-<section id="dissipativity-1" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Dissipativity</h2>
+<section id="dissipativity-and-passivity" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Dissipativity and Passivity</h2>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℋ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>t</mi><mn>1</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mo>≤</mo><mi>ℋ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>t</mi><mn>0</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><msubsup><mo>∫</mo><msub><mi>t</mi><mn>0</mn></msub><msub><mi>t</mi><mn>1</mn></msub></msubsup><mi>s</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>u</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo><mi>y</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mspace width="0.167em"></mspace><mtext mathvariant="normal">d</mtext><mi>t</mi></mrow><annotation encoding="application/x-tex">
 \mathcal{H}\left(  x(t_1) \right) \leq  \mathcal{H}\left(  x(t_0) \right) + \int_{t_0}^{t_1} s(u(t), y(t)) \, \text{d}t
 </annotation></semantics></math></p>
@@ -883,56 +881,29 @@ M(q) \dd \dot{q} + h(x; \psi, \theta) \dd t - \dd R  = 0 \text{ (Moreau's time s
 <p><strong>Dissipation Inequality</strong></p>
 </div>
 <div class="callout-content">
-<div>
 <ul>
-<li class="fragment">Stored energy at <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>t</mi><mn>1</mn></msub><annotation encoding="application/x-tex">t_1</annotation></semantics></math> is <em>at most</em> equal to stored energy at <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>t</mi><mn>0</mn></msub><annotation encoding="application/x-tex">t_0</annotation></semantics></math>, plus externally supplied energy <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>u</mi><mo>,</mo><mi>y</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">s(u,y)</annotation></semantics></math></li>
-<li class="fragment">No generation of energy, only internal dissipation</li>
-<li class="fragment">With <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>≡</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">s(t) \equiv 0</annotation></semantics></math>, trajectories tend towards minimum of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℋ</mi><annotation encoding="application/x-tex">\mathcal{H}</annotation></semantics></math></li>
+<li><p>Stored energy at <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>t</mi><mn>1</mn></msub><annotation encoding="application/x-tex">t_1</annotation></semantics></math> is <em>at most</em> equal to stored energy at <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>t</mi><mn>0</mn></msub><annotation encoding="application/x-tex">t_0</annotation></semantics></math>, plus externally supplied energy <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>u</mi><mo>,</mo><mi>y</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">s(u,y)</annotation></semantics></math>.</p></li>
+<li><p>No generation of energy, only internal dissipation.</p></li>
+<li><p>With <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>≡</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">s(t) \equiv 0</annotation></semantics></math>, trajectories tend towards minimum of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℋ</mi><annotation encoding="application/x-tex">\mathcal{H}</annotation></semantics></math>.</p></li>
 </ul>
 </div>
 </div>
 </div>
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Passivity</strong></p>
 </div>
-</section>
-<section id="passivity" class="slide level2">
-<h2>Passivity</h2>
-<!-- ###################################################################### -->
+<div class="callout-content">
 <p>The system <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Σ</mi><annotation encoding="application/x-tex">\Sigma</annotation></semantics></math> is <strong>passive</strong> if it is dissipative with supply rate</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo>=</mo><msup><mi>u</mi><mi>⊤</mi></msup><mi>y</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">s = u^\top y.</annotation></semantics></math></p>
 <p>It is <strong>output strictly passive</strong> if it is dissipative with supply rate</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo>=</mo><msup><mi>u</mi><mi>⊤</mi></msup><mi>y</mi><mo>−</mo><mi>δ</mi><mo stretchy="false" form="prefix">∥</mo><mi>y</mi><msup><mo stretchy="false" form="postfix">∥</mo><mn>2</mn></msup><mo>,</mo><mspace width="0.278em"></mspace><mi>δ</mi><mo>&gt;</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">s = u^\top y - \delta \lVert y \rVert^2, \; \delta &gt; 0.</annotation></semantics></math></p>
 <p>It is <strong>input strictly passive</strong> if it is dissipative with supply rate</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo>=</mo><msup><mi>u</mi><mi>⊤</mi></msup><mi>y</mi><mo>−</mo><mi>δ</mi><mo stretchy="false" form="prefix">∥</mo><mi>u</mi><msup><mo stretchy="false" form="postfix">∥</mo><mn>2</mn></msup><mo>,</mo><mspace width="0.278em"></mspace><mi>δ</mi><mo>&gt;</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">s = u^\top y - \delta \lVert u \rVert^2, \; \delta &gt; 0.</annotation></semantics></math></p>
-</section>
-<section id="passive-system-example" class="slide level2">
-<h2>Passive System Example</h2>
-<!-- ###################################################################### -->
-<div class="columns">
-<div class="column" style="width:30%;">
-<p><img data-src="contents/assets/passive-system-example.png"></p>
-</div><div class="column" style="width:70%;">
-<p>Kirchoff’s law</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>v</mi></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mi>R</mi><mi>i</mi><mo>+</mo><mfrac><mn>1</mn><mi>C</mi></mfrac><msubsup><mo>∫</mo><mn>0</mn><mi>t</mi></msubsup><mi>i</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>τ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mspace width="0.167em"></mspace><mtext mathvariant="normal">d</mtext><mi>τ</mi><mo>+</mo><mi>L</mi><mfrac><mrow><mtext mathvariant="normal">d</mtext><mi>i</mi></mrow><mrow><mtext mathvariant="normal">d</mtext><mi>t</mi></mrow></mfrac></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><mi>v</mi><mi>i</mi><mo>−</mo><mi>R</mi><msup><mi>i</mi><mn>2</mn></msup></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mfrac><mtext mathvariant="normal">d</mtext><mrow><mtext mathvariant="normal">d</mtext><mi>t</mi></mrow></mfrac><mrow><mo stretchy="true" form="prefix">(</mo><munder><munder><mrow><mfrac><mn>1</mn><mrow><mn>2</mn><mi>C</mi></mrow></mfrac><msup><mrow><mo stretchy="true" form="prefix">(</mo><msubsup><mo>∫</mo><mn>0</mn><mi>t</mi></msubsup><mi>i</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>τ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mspace width="0.167em"></mspace><mtext mathvariant="normal">d</mtext><mi>τ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup></mrow><mo accent="true">⏟</mo></munder><mi>𝒱</mi></munder><mo>+</mo><munder><munder><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>L</mi><msup><mi>i</mi><mn>2</mn></msup></mrow><mo accent="true">⏟</mo></munder><mi>𝒯</mi></munder><mo stretchy="true" form="postfix">)</mo></mrow></mtd></mtr></mtable><annotation encoding="application/x-tex">
-\begin{aligned}
-v &amp;= Ri + \frac{1}{C} \int_{0}^{t} i(\tau) \, \text{d}\tau + L \frac{\text{d} i}{\text{d} t} \\
-vi - Ri^2 &amp;= \frac{\text{d}}{\text{d} t} \left( 
-  \underbrace{\frac{1}{2C} \left( \int_{0}^{t} i(\tau)\, \text{d} \tau \right)^2}_{\mathcal{V}} + 
-  \underbrace{\frac{1}{2} Li^2}_{\mathcal{T}}  
-\right)
-\end{aligned}
-</annotation></semantics></math></p>
 </div>
 </div>
-<p>Let <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℋ</mi><mo>=</mo><mi>𝒱</mi><mo>+</mo><mi>𝒯</mi></mrow><annotation encoding="application/x-tex">\mathcal{H} = \mathcal{V} + \mathcal{T}</annotation></semantics></math>, integrate to obtain</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><munder><munder><mrow><mi>ℋ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mo accent="true">⏟</mo></munder><mtext mathvariant="normal">available</mtext></munder><mo>−</mo><munder><munder><mrow><mi>ℋ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mo accent="true">⏟</mo></munder><mtext mathvariant="normal">initial</mtext></munder><mo>=</mo><munder><munder><mrow><msubsup><mo>∫</mo><mn>0</mn><mi>t</mi></msubsup><mi>v</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>τ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>i</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>τ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mspace width="0.167em"></mspace><mtext mathvariant="normal">d</mtext><mi>τ</mi></mrow><mo accent="true">⏟</mo></munder><mtext mathvariant="normal">supplied</mtext></munder><mo>−</mo><munder><munder><mrow><msubsup><mo>∫</mo><mn>0</mn><mi>t</mi></msubsup><mi>R</mi><msup><mi>i</mi><mn>2</mn></msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>τ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mspace width="0.167em"></mspace><mtext mathvariant="normal">d</mtext><mi>τ</mi></mrow><mo accent="true">⏟</mo></munder><mtext mathvariant="normal">dissipated</mtext></munder><mo>&lt;</mo><msubsup><mo>∫</mo><mn>0</mn><mi>t</mi></msubsup><mi>v</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>τ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>i</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>τ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mspace width="0.167em"></mspace><mtext mathvariant="normal">d</mtext><mi>τ</mi></mrow><annotation encoding="application/x-tex">
-\underbrace{\mathcal{H}(t)}_{\textrm{available}} -
-\underbrace{\mathcal{H}(0)}_{\textrm{initial}} 
-= 
-\underbrace{\int_{0}^{t} v(\tau)i(\tau)\, \text{d} \tau}_{\textrm{supplied}} - 
-\underbrace{\int_{0}^{t} Ri^2(\tau)\, \text{d} \tau}_{\textrm{dissipated}}
-&lt;
-\int_{0}^{t} v(\tau) i(\tau) \, \text{d} \tau
-</annotation></semantics></math></p>
+</div>
 </section>
 <section id="stability-of-passive-systems" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Stability of Passive Systems</h2>
@@ -1144,6 +1115,54 @@ vi - Ri^2 &amp;= \frac{\text{d}}{\text{d} t} \left(
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+</section>
+<section id="robustness-via-bayesian-learning-1" class="slide level2">
+<h2>Robustness via Bayesian Learning</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>System Parameter Uncertainty and Measurement Noise</strong></p>
+</div>
+<div class="callout-content">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="contents/assets/regular-vs-bayesian.svg"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="callout callout-none no-icon callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Less robust</strong></p>
+</div>
+<div class="callout-content">
+
+</div>
+</div>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="callout callout-none no-icon callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>More robust</strong></p>
+</div>
+<div class="callout-content">
+
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </section></section>
@@ -1503,7 +1522,7 @@ Minimal expected cost <math display="inline" xmlns="http://www.w3.org/1998/Math/
 
 -->
 </section>
-<section id="robustness-via-bayesian-learning-1" class="slide level2">
+<section id="robustness-via-bayesian-learning-2" class="slide level2">
 <h2>Robustness via Bayesian Learning</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -1875,17 +1894,51 @@ J_T &amp;= \sum_{t=0}^{T} \| \dot{x}_c^* - \dot{x}_c(t; \theta) \|
 </section>
 <section id="conclusions-1" class="slide level2">
 <h2>Conclusions</h2>
-<p><br></p>
+<p><br> <br></p>
 <div>
 <ul>
 <li class="fragment">MOE controller: multi-modal controller for multi-modal dynamics</li>
 <li class="fragment"><span class="smallcaps">NeuralPbc</span> + Bayesian inference = robust controller with stability properties</li>
-<li class="fragment">Future work
-<ul>
-<li class="fragment">manipulation tasks</li>
-<li class="fragment">multi-modal controller in uncertain environment</li>
-</ul></li>
 </ul>
+</div>
+</section>
+<section id="future-work" class="slide level2">
+<h2>Future work</h2>
+<div class="columns">
+<div class="column" style="width:80%;">
+<center>
+<img src="./contents/assets/resoverview.png" width="100%">
+</center>
+<div id="fig-elephants" class="quarto-layout-panel">
+<figure>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
+<div id="fig-surus" class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="./contents/assets/hasanpartition.png" data-ref-parent="fig-elephants" width="200"></p>
+<figcaption>(a) State partition according to NN</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
+<div id="fig-hanno" class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="./contents/assets/layoutphysical.png" data-ref-parent="fig-elephants"></p>
+<figcaption>(b) Experimental set up</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p></p><figcaption>Figure&nbsp;1: NSF Award #2330794</figcaption><p></p>
+</figure>
+</div>
+</div><div class="column" style="width:20%;">
+<center>
+<p><img src="./contents/assets/hasan.jpg" width="100%"></p>
+<p><br></p>
+<img src="./contents/assets/nsf-logo.svg" width="80%">
+</center>
+</div>
 </div>
 </section>
 <section id="acknowledgments" class="slide level2">
