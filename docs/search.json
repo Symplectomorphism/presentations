@@ -1,12 +1,5 @@
 [
   {
-    "objectID": "summary.html",
-    "href": "summary.html",
-    "title": "main",
-    "section": "",
-    "text": "Title: Data-Driven Passivity Based Control of Robotic Locomotion and Manipulation\nAbstract: The recent boom and success of machine learning methods has encouraged efforts in synthesizing controllers that leverage neural networks as function approximators. However, when such controllers are synthesized it is important to take precautions against their potential vulnerabilities against disturbances arising from model uncertainties or measurement noise. In this work we address the automatic robust data-driven controller synthesis problem for robotic manipulation and locomotion. We demonstrate the efficacy of our theoretical results in simulation and real-world experiments on a rimless-wheel and a cart-pole system that contains walls. Our approach performs repeated interactions with a nominal dynamical model to infer a contact-aware passivity-based controller, whose storage function is given by a fully-connected neural network. Contacts, impacts and Coulomb friction are modeled through the linear complementarity problem (LCP), and solved via Lemke’s algorithm, which allows us to take pertinent gradients for the data-driven technique. Additionally, we improve the robustness properties of the controller under model uncertainties, such as the rimless wheel traversing on uneven terrain, via Bayesian learning.\nBio: Aykut Satici holds a BSc and MSc of Mechatronics Engineering from Sabanci University in Turkey, an MSc of Mathematics, and Ph.D. in Electrical Engineering from the University of Texas at Dallas under Prof. Mark W. Spong. He worked as a postdoctoral associate at University of Naples, Federico II and at Massachusetts Institute of Technology. Dr. Satici is currently an assistant professor of Mechanical and Biomedical Engineering at Boise State University. He has actively contributed to the control, estimation, and robotics research communities for more than 15 years. His research output includes the optimal design of robotic manipulators, optimal control of uncrewed aerial vehicles, multi-agent robot control and estimation, differential geometric methods in nonlinear control, passivity-based control, and control synthesis with machine learning methods."
-  },
-  {
     "objectID": "main.html#data-driven-passivity-based-control-of-robotic-locomotion-and-manipulation",
     "href": "main.html#data-driven-passivity-based-control-of-robotic-locomotion-and-manipulation",
     "title": "main",
@@ -180,13 +173,6 @@
     "title": "main",
     "section": "Our Methods",
     "text": "Our Methods\n\n\n\n\n \n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\nNeuralPbc\nNeuralIdaPbc\n\n\n\n\nHdH_d neural net\nHdH_d quadratic in pp\n\n\nSample state space\nSample configuration space\n\n\nNo stability certificate\nStability certificate\n\n\nMore flexible\nAs applicable as IdaPbc"
-  },
-  {
-    "objectID": "main.html#bayesian-learning",
-    "href": "main.html#bayesian-learning",
-    "title": "main",
-    "section": "Bayesian Learning",
-    "text": "Bayesian Learning\n\np(θ∣𝒟)=p(𝒟∣θ)⏞likelihoodp(θ)⏞prior∫θp(𝒟∣θ′)p(θ′)dθ′⏟evidence≈q(θ;z)⏟VI.\np(\\theta \\mid \\mathcal{D}) = \\frac{\\overbrace{p(\\mathcal{D} \\mid\n\\theta)}^{\\text{likelihood}}\\overbrace{p(\\theta)}^{\\text{prior}}}\n{\\underbrace{\\int_\\theta p(\\mathcal{D} \\mid \\theta^\\prime)p(\\theta^\\prime)\nd\\theta^\\prime}_{\\text{evidence}}} \\underbrace{\\approx q(\\theta;\nz)}_{\\text{VI}}.\n\n\n\n\n\n\n\n\nShow ELBO convergence.\n\n\n\n\n\n\n\nKL-divergence and ELBO\n\n\nDKL=𝔼θ∼q[logq(θ;z)p(θ∣𝒟)]=logp(𝒟)−𝔼θ∼q[logp(𝒟∣θ)p(θ)q(θ;z)]ℒ(𝒟;z)=𝔼θ∼q[logp(𝒟∣θ)p(θ)−logq(θ;z)]\n\\begin{aligned}\nD_{\\text{KL}} &= \\mathbb{E}_{\\theta \\sim q}\\left[ \\log \\frac{q(\\theta;\nz)}{p(\\theta \\mid \\mathcal{D})}\\right] \\\\\n&= \\log p(\\mathcal{D}) - \\mathbb{E}_{\\theta \\sim q}\\left[ \\log\n\\frac{p(\\mathcal{D} \\mid \\theta) p(\\theta)}{q(\\theta; z)} \\right] \\\\\n\\mathcal{L}(\\mathcal{D}; z) &= \\mathbb{E}_{\\theta \\sim q}\\left[ \\log\np(\\mathcal{D} \\mid \\theta) p(\\theta) - \\log q(\\theta; z) \\right]\n\\end{aligned}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nShow prob. distribution\n\n\n\n\n\n\n\nPrediction through marginalization\n\n\nm̂=1N∑θ∼qm(x,θ).\n\\begin{aligned}\n\\hat{m} &= \\frac{1}{N}\\sum_{\\theta \\sim q} m(x, \\theta).\n\\end{aligned}"
   },
   {
     "objectID": "main.html#system-parameter-uncertainty",
