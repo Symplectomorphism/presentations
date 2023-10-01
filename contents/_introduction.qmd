@@ -65,7 +65,8 @@ from contact models.
 {{< video https://youtu.be/7t1E7FWawgA 
    height=300 width="100%" >}}
 
-{{< video contents/assets/rw_failing.MP4 >}}
+{{< video https://youtu.be/Kl6_hAY8PFw
+    height=300 width="100%" >}}
 :::
 
 

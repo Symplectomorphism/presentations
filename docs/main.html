@@ -499,7 +499,7 @@
 <iframe data-external="1" src="https://www.youtube.com/embed/7t1E7FWawgA" width="100%" height="300" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<video id="video_shortcode_videojs_video5" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="contents/assets/rw_failing.MP4"></video>
+<iframe data-external="1" src="https://www.youtube.com/embed/Kl6_hAY8PFw" width="100%" height="300" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
 </div>
 </div>
 </div>
@@ -1144,82 +1144,6 @@ vi - Ri^2 &amp;= \frac{\text{d}}{\text{d} t} \left(
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-</section>
-<section id="bayesian-learning" class="slide level2 smaller">
-<h2>Bayesian Learning</h2>
-<!-- ###################################################################### -->
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>θ</mi><mo>∣</mo><mi>𝒟</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mfrac><mrow><mover><mover><mrow><mi>p</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>𝒟</mi><mo>∣</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mo accent="true">⏞</mo></mover><mtext mathvariant="normal">likelihood</mtext></mover><mover><mover><mrow><mi>p</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mo accent="true">⏞</mo></mover><mtext mathvariant="normal">prior</mtext></mover></mrow><munder><munder><mrow><msub><mo>∫</mo><mi>θ</mi></msub><mi>p</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>𝒟</mi><mo>∣</mo><msup><mi>θ</mi><mi>′</mi></msup><mo stretchy="true" form="postfix">)</mo></mrow><mi>p</mi><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>θ</mi><mi>′</mi></msup><mo stretchy="true" form="postfix">)</mo></mrow><mi>d</mi><msup><mi>θ</mi><mi>′</mi></msup></mrow><mo accent="true">⏟</mo></munder><mtext mathvariant="normal">evidence</mtext></munder></mfrac><munder><munder><mrow><mo>≈</mo><mi>q</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>θ</mi><mo>;</mo><mi>z</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mo accent="true">⏟</mo></munder><mtext mathvariant="normal">VI</mtext></munder><mi>.</mi></mrow><annotation encoding="application/x-tex">
-p(\theta \mid \mathcal{D}) = \frac{\overbrace{p(\mathcal{D} \mid
-\theta)}^{\text{likelihood}}\overbrace{p(\theta)}^{\text{prior}}}
-{\underbrace{\int_\theta p(\mathcal{D} \mid \theta^\prime)p(\theta^\prime)
-d\theta^\prime}_{\text{evidence}}} \underbrace{\approx q(\theta;
-z)}_{\text{VI}}.
-</annotation></semantics></math></p>
-<div class="fragment semi-fade-out" data-fragment-index="1">
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-center">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="contents/assets/pbc-outline.svg"></p>
-<figcaption>Show ELBO convergence.</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="callout callout-important no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>KL-divergence and ELBO</strong></p>
-</div>
-<div class="callout-content">
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>D</mi><mtext mathvariant="normal">KL</mtext></msub></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><msub><mi>𝔼</mi><mrow><mi>θ</mi><mo>∼</mo><mi>q</mi></mrow></msub><mrow><mo stretchy="true" form="prefix">[</mo><mo>log</mo><mfrac><mrow><mi>q</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>θ</mi><mo>;</mo><mi>z</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mrow><mi>p</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>θ</mi><mo>∣</mo><mi>𝒟</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></mfrac><mo stretchy="true" form="postfix">]</mo></mrow></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mo>log</mo><mi>p</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>𝒟</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><msub><mi>𝔼</mi><mrow><mi>θ</mi><mo>∼</mo><mi>q</mi></mrow></msub><mrow><mo stretchy="true" form="prefix">[</mo><mo>log</mo><mfrac><mrow><mi>p</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>𝒟</mi><mo>∣</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>p</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mrow><mi>q</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>θ</mi><mo>;</mo><mi>z</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></mfrac><mo stretchy="true" form="postfix">]</mo></mrow></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><mi>ℒ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>𝒟</mi><mo>;</mo><mi>z</mi><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><msub><mi>𝔼</mi><mrow><mi>θ</mi><mo>∼</mo><mi>q</mi></mrow></msub><mrow><mo stretchy="true" form="prefix">[</mo><mo>log</mo><mi>p</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>𝒟</mi><mo>∣</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>p</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mo>log</mo><mi>q</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>θ</mi><mo>;</mo><mi>z</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow></mtd></mtr></mtable><annotation encoding="application/x-tex">
-\begin{aligned}
-D_{\text{KL}} &amp;= \mathbb{E}_{\theta \sim q}\left[ \log \frac{q(\theta;
-z)}{p(\theta \mid \mathcal{D})}\right] \\
-&amp;= \log p(\mathcal{D}) - \mathbb{E}_{\theta \sim q}\left[ \log
-\frac{p(\mathcal{D} \mid \theta) p(\theta)}{q(\theta; z)} \right] \\
-\mathcal{L}(\mathcal{D}; z) &amp;= \mathbb{E}_{\theta \sim q}\left[ \log
-p(\mathcal{D} \mid \theta) p(\theta) - \log q(\theta; z) \right]
-\end{aligned}
-</annotation></semantics></math></p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="fragment" data-fragment-index="1">
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-center">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="contents/assets/pbc-outline.svg"></p>
-<figcaption>Show prob. distribution</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="callout callout-tip no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Prediction through marginalization</strong></p>
-</div>
-<div class="callout-content">
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mover><mi>m</mi><mo accent="true">̂</mo></mover></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mfrac><mn>1</mn><mi>N</mi></mfrac><munder><mo>∑</mo><mrow><mi>θ</mi><mo>∼</mo><mi>q</mi></mrow></munder><mi>m</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
-\begin{aligned}
-\hat{m} &amp;= \frac{1}{N}\sum_{\theta \sim q} m(x, \theta).
-\end{aligned}
-</annotation></semantics></math></p>
-</div>
-</div>
-</div>
-</div>
-</div>
 </div>
 </div>
 </section></section>
@@ -2402,7 +2326,6 @@ J_T &amp;= \sum_{t=0}^{T} \| \dot{x}_c^* - \dot{x}_c(t; \theta) \|
       }
     });
     </script>
-    
     
     
     
