@@ -28,26 +28,25 @@ $$
 for all $x(t_0) = x_0$, all input $u$, and all $t_1 \geq t_0$
 
 
-## Dissipativity {auto-animate="true"}
+## Dissipativity and Passivity {auto-animate="true"}
 
 $$
 \mathcal{H}\left(  x(t_1) \right) \leq  \mathcal{H}\left(  x(t_0) \right) + \int_{t_0}^{t_1} s(u(t), y(t)) \, \text{d}t
 $$
 
-:::: {.callout}
+::: {.callout}
 ## Dissipation Inequality
 
-::: {.incremental}
-- Stored energy at $t_1$ is *at most* equal to stored energy at $t_0$, plus externally supplied energy $s(u,y)$
-- No generation of energy, only internal dissipation
-- With $s(t) \equiv 0$, trajectories tend towards minimum of $\mathcal{H}$
+- Stored energy at $t_1$ is *at most* equal to stored energy at $t_0$, plus externally supplied energy $s(u,y)$.
+
+- No generation of energy, only internal dissipation.
+
+- With $s(t) \equiv 0$, trajectories tend towards minimum of $\mathcal{H}$.
+
 :::
-::::
 
-
+::: {.callout-note icon=false}
 ## Passivity
-<!-- ###################################################################### -->
-
 The system $\Sigma$ is __passive__ if it is dissipative with supply rate
 
 $$s = u^\top y.$$
@@ -61,45 +60,8 @@ It is __input strictly passive__ if it is dissipative with supply rate
 
 $$s = u^\top y - \delta \lVert u \rVert^2, \; \delta > 0.$$
 
-
-
-
-## Passive System Example
-<!-- ###################################################################### -->
-
-:::: {.columns}
-
-::: {.column width="30%"}
-![](contents/assets/passive-system-example.png)
 :::
 
-::: {.column width="70%"}
-Kirchoff's law
-
-$$
-\begin{aligned}
-v &= Ri + \frac{1}{C} \int_{0}^{t} i(\tau) \, \text{d}\tau + L \frac{\text{d} i}{\text{d} t} \\
-vi - Ri^2 &= \frac{\text{d}}{\text{d} t} \left( 
-  \underbrace{\frac{1}{2C} \left( \int_{0}^{t} i(\tau)\, \text{d} \tau \right)^2}_{\mathcal{V}} + 
-  \underbrace{\frac{1}{2} Li^2}_{\mathcal{T}}  
-\right)
-\end{aligned}
-$$
-:::
-
-::::
-
-Let $\mathcal{H} = \mathcal{V} + \mathcal{T}$, integrate to obtain
-
-$$
-\underbrace{\mathcal{H}(t)}_{\textrm{available}} -
-\underbrace{\mathcal{H}(0)}_{\textrm{initial}} 
-= 
-\underbrace{\int_{0}^{t} v(\tau)i(\tau)\, \text{d} \tau}_{\textrm{supplied}} - 
-\underbrace{\int_{0}^{t} Ri^2(\tau)\, \text{d} \tau}_{\textrm{dissipated}}
-<
-\int_{0}^{t} v(\tau) i(\tau) \, \text{d} \tau
-$$
 
 
 ## Stability of Passive Systems {auto-animate="true"}
@@ -288,3 +250,22 @@ __More flexible__ | As applicable as <span style="font-variant:small-caps;">IdaP
 :::
 ::::
 
+
+## Robustness via Bayesian Learning
+
+::: {.callout-tip}
+## System Parameter Uncertainty and Measurement Noise
+![](contents/assets/regular-vs-bayesian.svg){fig-align="center"}
+:::
+
+:::: {layout-ncol="2"}
+
+::: {.callout}
+## Less robust
+:::
+
+::: {.callout}
+## More robust
+:::
+
+::::

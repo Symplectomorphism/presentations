@@ -69,14 +69,47 @@ J_T &= \sum_{t=0}^{T} \| \dot{x}_c^* - \dot{x}_c(t; \theta) \|
 ## Conclusions
 
 <br/>
+<br/>
 
 :::{.incremental}
 * MOE controller: multi-modal controller for multi-modal dynamics
 * <span style="font-variant:small-caps;">NeuralPbc</span> + Bayesian inference = robust controller with stability properties
-* Future work
-    + manipulation tasks
-    + multi-modal controller in uncertain environment
 :::
+
+## Future work
+
+:::: {.columns}
+
+::: {.column width="80%"}
+
+<center>
+<img src="./contents/assets/resoverview.png" width="100%" />
+</center>
+
+
+::: {#fig-elephants layout-ncol=2}
+
+![State partition according to NN](./contents/assets/hasanpartition.png){#fig-surus width=200}
+
+![Experimental set up](./contents/assets/layoutphysical.png){#fig-hanno}
+
+NSF Award \#2330794
+:::
+
+:::
+
+
+::: {.column width="20%"}
+<center>
+<img src="./contents/assets/hasan.jpg" width="100%"/>
+
+<br>
+
+<img src="./contents/assets/nsf-logo.svg" width="80%" />
+</center>
+:::
+
+::::
 
 ## Acknowledgments 
 

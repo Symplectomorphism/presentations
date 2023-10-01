@@ -109,7 +109,7 @@
     "href": "main.html#conclusions",
     "title": "main",
     "section": "Conclusions",
-    "text": "Conclusions\n \n\n\nWe provide a data-driven control design that automatically learns several policies and the necessary switching scheme\nThe framework leverages the switching controllers to stabilize the multi-modal dynamical system\nThe gating network successsfully parameterizes the control-switching conditionals that achieves the desired performance"
+    "text": "Conclusions\n \n\nWe provide a data-driven control design that automatically learns several policies and the necessary switching scheme.\nThe framework leverages the switching controllers to stabilize the multi-modal dynamical system.\nThe gating network successsfully parameterizes the control-switching conditionals that achieves the desired performance."
   },
   {
     "objectID": "main.html#dissipativity",
@@ -119,25 +119,11 @@
     "text": "Dissipativity\n\nA dynamical system\nΣ:{ẋ=f(x,u)y=h(x,u)x∈𝒳⊂ℝ2n,u∈𝒰⊂ℝm\n\\Sigma: \\quad\n\\begin{cases}\n  \\dot{x} &= f(x,u) \\\\\n  y &= h(x,u)\n\\end{cases}\n\\quad x \\in \\mathcal{X} \\subset \\mathbb{R}^{2n}, \\, u \\in \\mathcal{U} \\subset \\mathbb{R}^{m} \n\nis dissipative with respect to some supply rate ss if there exists a storage function ℋ:𝒳→ℝ+\\mathcal{H}: \\mathcal{X} \\to \\mathbb{R}^{+} such that\nℋ(x(t1))≤ℋ(x(t0))+∫t0t1s(u(t),y(t))dt\n\\mathcal{H}\\left(  x(t_1) \\right) \\leq  \\mathcal{H}\\left(  x(t_0) \\right) + \\int_{t_0}^{t_1} s(u(t), y(t)) \\, \\text{d}t\n\nfor all x(t0)=x0x(t_0) = x_0, all input uu, and all t1≥t0t_1 \\geq t_0"
   },
   {
-    "objectID": "main.html#dissipativity-1",
-    "href": "main.html#dissipativity-1",
+    "objectID": "main.html#dissipativity-and-passivity",
+    "href": "main.html#dissipativity-and-passivity",
     "title": "main",
-    "section": "Dissipativity",
-    "text": "Dissipativity\nℋ(x(t1))≤ℋ(x(t0))+∫t0t1s(u(t),y(t))dt\n\\mathcal{H}\\left(  x(t_1) \\right) \\leq  \\mathcal{H}\\left(  x(t_0) \\right) + \\int_{t_0}^{t_1} s(u(t), y(t)) \\, \\text{d}t\n\n\n\n\nDissipation Inequality\n\n\n\n\nStored energy at t1t_1 is at most equal to stored energy at t0t_0, plus externally supplied energy s(u,y)s(u,y)\nNo generation of energy, only internal dissipation\nWith s(t)≡0s(t) \\equiv 0, trajectories tend towards minimum of ℋ\\mathcal{H}"
-  },
-  {
-    "objectID": "main.html#passivity",
-    "href": "main.html#passivity",
-    "title": "main",
-    "section": "Passivity",
-    "text": "Passivity\n\nThe system Σ\\Sigma is passive if it is dissipative with supply rate\ns=u⊤y.s = u^\\top y.\nIt is output strictly passive if it is dissipative with supply rate\ns=u⊤y−δ∥y∥2,δ&gt;0.s = u^\\top y - \\delta \\lVert y \\rVert^2, \\; \\delta &gt; 0.\nIt is input strictly passive if it is dissipative with supply rate\ns=u⊤y−δ∥u∥2,δ&gt;0.s = u^\\top y - \\delta \\lVert u \\rVert^2, \\; \\delta &gt; 0."
-  },
-  {
-    "objectID": "main.html#passive-system-example",
-    "href": "main.html#passive-system-example",
-    "title": "main",
-    "section": "Passive System Example",
-    "text": "Passive System Example\n\n\n\n\n\nKirchoff’s law\nv=Ri+1C∫0ti(τ)dτ+Ldidtvi−Ri2=ddt(12C(∫0ti(τ)dτ)2⏟𝒱+12Li2⏟𝒯)\n\\begin{aligned}\nv &= Ri + \\frac{1}{C} \\int_{0}^{t} i(\\tau) \\, \\text{d}\\tau + L \\frac{\\text{d} i}{\\text{d} t} \\\\\nvi - Ri^2 &= \\frac{\\text{d}}{\\text{d} t} \\left( \n  \\underbrace{\\frac{1}{2C} \\left( \\int_{0}^{t} i(\\tau)\\, \\text{d} \\tau \\right)^2}_{\\mathcal{V}} + \n  \\underbrace{\\frac{1}{2} Li^2}_{\\mathcal{T}}  \n\\right)\n\\end{aligned}\n\n\n\nLet ℋ=𝒱+𝒯\\mathcal{H} = \\mathcal{V} + \\mathcal{T}, integrate to obtain\nℋ(t)⏟available−ℋ(0)⏟initial=∫0tv(τ)i(τ)dτ⏟supplied−∫0tRi2(τ)dτ⏟dissipated&lt;∫0tv(τ)i(τ)dτ\n\\underbrace{\\mathcal{H}(t)}_{\\textrm{available}} -\n\\underbrace{\\mathcal{H}(0)}_{\\textrm{initial}} \n= \n\\underbrace{\\int_{0}^{t} v(\\tau)i(\\tau)\\, \\text{d} \\tau}_{\\textrm{supplied}} - \n\\underbrace{\\int_{0}^{t} Ri^2(\\tau)\\, \\text{d} \\tau}_{\\textrm{dissipated}}\n&lt;\n\\int_{0}^{t} v(\\tau) i(\\tau) \\, \\text{d} \\tau"
+    "section": "Dissipativity and Passivity",
+    "text": "Dissipativity and Passivity\nℋ(x(t1))≤ℋ(x(t0))+∫t0t1s(u(t),y(t))dt\n\\mathcal{H}\\left(  x(t_1) \\right) \\leq  \\mathcal{H}\\left(  x(t_0) \\right) + \\int_{t_0}^{t_1} s(u(t), y(t)) \\, \\text{d}t\n\n\n\n\nDissipation Inequality\n\n\n\nStored energy at t1t_1 is at most equal to stored energy at t0t_0, plus externally supplied energy s(u,y)s(u,y).\nNo generation of energy, only internal dissipation.\nWith s(t)≡0s(t) \\equiv 0, trajectories tend towards minimum of ℋ\\mathcal{H}.\n\n\n\n\n\n\n\nPassivity\n\n\nThe system Σ\\Sigma is passive if it is dissipative with supply rate\ns=u⊤y.s = u^\\top y.\nIt is output strictly passive if it is dissipative with supply rate\ns=u⊤y−δ∥y∥2,δ&gt;0.s = u^\\top y - \\delta \\lVert y \\rVert^2, \\; \\delta &gt; 0.\nIt is input strictly passive if it is dissipative with supply rate\ns=u⊤y−δ∥u∥2,δ&gt;0.s = u^\\top y - \\delta \\lVert u \\rVert^2, \\; \\delta &gt; 0."
   },
   {
     "objectID": "main.html#stability-of-passive-systems",
@@ -173,6 +159,13 @@
     "title": "main",
     "section": "Our Methods",
     "text": "Our Methods\n\n\n\n\n \n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\nNeuralPbc\nNeuralIdaPbc\n\n\n\n\nHdH_d neural net\nHdH_d quadratic in pp\n\n\nSample state space\nSample configuration space\n\n\nNo stability certificate\nStability certificate\n\n\nMore flexible\nAs applicable as IdaPbc"
+  },
+  {
+    "objectID": "main.html#robustness-via-bayesian-learning-1",
+    "href": "main.html#robustness-via-bayesian-learning-1",
+    "title": "main",
+    "section": "Robustness via Bayesian Learning",
+    "text": "Robustness via Bayesian Learning\n\n\n\n\n\n\nSystem Parameter Uncertainty and Measurement Noise\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLess robust\n\n\n\n\n\n\n\n\n\n\n\nMore robust"
   },
   {
     "objectID": "main.html#system-parameter-uncertainty",
@@ -224,8 +217,8 @@
     "text": "Optimal Controller\n\n\n\n\n\nOptimal controller |θ⋆||\\theta^\\star| minimizing 𝔼𝒥\\mathbb{E}\\mathcal{J}\n\n\n\n\n\nMinimal expected cost 𝔼𝒥\\mathbb{E}\\mathcal{J}\n\n\n\n\n\nOptimal control parameter a nontrivial function of σ\\sigma and σp\\sigma_p.\nBayesian learning strikes the right trade-off."
   },
   {
-    "objectID": "main.html#robustness-via-bayesian-learning-1",
-    "href": "main.html#robustness-via-bayesian-learning-1",
+    "objectID": "main.html#robustness-via-bayesian-learning-2",
+    "href": "main.html#robustness-via-bayesian-learning-2",
     "title": "main",
     "section": "Robustness via Bayesian Learning",
     "text": "Robustness via Bayesian Learning\n\n\n\n\n\nNeuralPbc assumes a nominal model ẋ=f(x,u)\\dot{x} = f(x, u)\nThe trained controller must not overfit on the observations generated from the nominal model\n\n\n\n\n\n\n\n\n\nOur method: HdH_d is a Bayesian neural network\n\nachieves the performance objective for samples θ∼P(θ|𝔻)\\theta \\sim P(\\theta | \\mathbb{D})\nsearches for ensemble of parameters that meet the desired performance P(θ∣𝔻)=P(𝔻∣θ)⏞likelihoodP(θ)⏞prior∫θP(𝔻∣θ′)P(θ′)dθ′⏟evidence.\n  P(\\theta \\mid \\mathbb{D}) = \\frac{\\overbrace{P(\\mathbb{D} \\mid\n  \\theta)}^{\\text{likelihood}}\\overbrace{P(\\theta)}^{\\text{prior}}}\n  {\\underbrace{\\int_\\theta P(\\mathbb{D} \\mid \\theta^\\prime)P(\\theta^\\prime)\n  d\\theta^\\prime}_{\\text{evidence}}}."
@@ -291,7 +284,14 @@
     "href": "main.html#conclusions-1",
     "title": "main",
     "section": "Conclusions",
-    "text": "Conclusions\n\n\n\nMOE controller: multi-modal controller for multi-modal dynamics\nNeuralPbc + Bayesian inference = robust controller with stability properties\nFuture work\n\nmanipulation tasks\nmulti-modal controller in uncertain environment"
+    "text": "Conclusions\n \n\n\nMOE controller: multi-modal controller for multi-modal dynamics\nNeuralPbc + Bayesian inference = robust controller with stability properties"
+  },
+  {
+    "objectID": "main.html#future-work",
+    "href": "main.html#future-work",
+    "title": "main",
+    "section": "Future work",
+    "text": "Future work\n\n\n\n\n\n\n\n\n\n\n\n\n(a) State partition according to NN\n\n\n\n\n\n\n\n(b) Experimental set up\n\n\n\n\nFigure 1: NSF Award #2330794"
   },
   {
     "objectID": "main.html#acknowledgments",

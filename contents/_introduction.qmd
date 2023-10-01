@@ -7,13 +7,13 @@
 :::{.fragment .fade-in fragment-index=0}
 * Exhibit both continuous state flow and discrete state transitions
 :::
-:::{.fragment .fade-in fragment-index=1}
+:::{.fragment .fade-in fragment-index=0}
 * Examples: room temperature control, contact-rich robots
 :::
-:::{.fragment .fade-in fragment-index=3}
+:::{.fragment .fade-in fragment-index=1}
 * We tackle two main challenges in the control of contact-rich robots
 :::
-:::{.fragment .fade-in fragment-index=2}
+:::{.fragment .fade-in fragment-index=0}
 :::: {.columns}
 :::{.column  width="60%"}
 ![Walking machines](contents/assets/walking_model.png){fig-align="center" width="500" height="300"}
@@ -35,7 +35,7 @@
 ![](contents/assets/nhcm.png){fig-align="center" width="350" height="250"}
 :::
 
-:::{.fragment fragment-index=1}
+:::{.fragment fragment-index=0}
 * Contacts cause instantaneous changes in the dynamics and states.
 * Potential contacts grow exponentially, making controller inference difficult.
 :::
