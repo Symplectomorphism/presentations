@@ -2,6 +2,8 @@ project:
   title: "main"
   type: website
   output-dir: docs
+  preview:
+    port: 7777
 
 
 

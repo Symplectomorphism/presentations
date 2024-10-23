@@ -12,7 +12,7 @@ Mixture of Experts
 
 <!-- :::{.r-stack} -->
 
-:::{.column  width="60%"}
+:::{.column width="60%"}
 
 :::{.fragment .fade-in fragment-index=2}
 * The experts are chosen as

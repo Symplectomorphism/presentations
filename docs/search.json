@@ -7,13 +7,6 @@
     "text": "Data-Driven Passivity-Based Control of Robotic Locomotion and Manipulation\n\n\nUniversity of Texas at Dallas Seminar\n\n\n\n\nPresenter: Aykut Satici, Ph.D.  Mechanical and Biomedical Engineering  Boise State University, Boise, Idaho, USA\n\n\nGraduate Students:  Chris Dagher 🎓  Wankun Sirichotiyakul 🎓  Nardos Ayele Ashenafi 🎓"
   },
   {
-    "objectID": "main.html#lars-and-service-2010-2015",
-    "href": "main.html#lars-and-service-2010-2015",
-    "title": "main",
-    "section": "LARS and SeRViCE (2010-2015)",
-    "text": "LARS and SeRViCE (2010-2015)"
-  },
-  {
     "objectID": "main.html#hybrid-systems",
     "href": "main.html#hybrid-systems",
     "title": "main",
@@ -144,14 +137,14 @@
     "href": "main.html#pbc-example---simple-pendulum",
     "title": "main",
     "section": "PBC Example - Simple Pendulum",
-    "text": "PBC Example - Simple Pendulum\n\n\n\n\nSystem Dynamics\n\n\nH(q,p)=12J−1p2+mgl(1−cosq)H(q,p) = \\frac{1}{2} J^{-1} p^2 + mgl (1 - \\cos q)\n[q̇ṗ]=[−01−10][∇qHd∇pHd]+[0G]udi,y=q̇\n\\begin{bmatrix} \\dot{q} \\\\ \\dot{p} \\end{bmatrix} = \n\\begin{bmatrix} \\phantom{-}0 & 1 \\\\ -1 & 0 \\end{bmatrix} \n\\begin{bmatrix} \\nabla_q H_{\\phantom{d}} \\\\ \\nabla_p H_{\\phantom{d}} \\end{bmatrix} +\n\\begin{bmatrix} 0 \\\\ G \\end{bmatrix} u_\\phantom{di},\n\\qquad y = \\dot{q}\n\n\nChoose u=ues+udiu = u_{es} + u_{di} that transforms system into a passive one with x⋆=(q⋆,0)x^\\star = (q^\\star, 0) \n\n\nGues=∇qH−∇qHd,Gudi=−GKDG⊤∇pHdGu_{es} = \\nabla_q H - \\nabla_q H_d , \\quad Gu_{di} = -GK_D G^\\top \\nabla_p H_d\n\n\n\n[q̇ṗ]=[−01−10][∇qHd∇pHd]+[0G]udi,y=q̇\n\\begin{bmatrix} \\dot{q} \\\\ \\dot{p} \\end{bmatrix} = \n\\begin{bmatrix} \\phantom{-}0 & 1 \\\\ -1 & 0 \\end{bmatrix} \n\\begin{bmatrix} \\nabla_q H_d \\\\ \\nabla_p H_d \\end{bmatrix} +\n\\begin{bmatrix} 0 \\\\ G \\end{bmatrix} u_{di},\n\\qquad y = \\dot{q}\n\n\n\n[q̇ṗ]=[−01−1−GKDG⊤][∇qHd∇pHd],y=q̇\n\\begin{bmatrix} \\dot{q} \\\\ \\dot{p} \\end{bmatrix} = \n\\begin{bmatrix} \\phantom{-}0 & 1 \\\\ -1 & -G K_D G^\\top \\end{bmatrix} \n\\begin{bmatrix} \\nabla_q H_d \\\\ \\nabla_p H_d \\end{bmatrix},\n\\qquad y = \\dot{q}"
+    "text": "PBC Example - Simple Pendulum\n\n\n\n\nSystem Dynamics\n\n\nH(q,p)=12J−1p2+mgl(1−cosq)H(q,p) = \\frac{1}{2} J^{-1} p^2 + mgl (1 - \\cos q)\n[q̇ṗ]=[−01−10][∇qHd∇pHd]+[0G]udi,y=q̇\n\\begin{bmatrix} \\dot{q} \\\\ \\dot{p} \\end{bmatrix} = \n\\begin{bmatrix} \\phantom{-}0 & 1 \\\\ -1 & 0 \\end{bmatrix} \n\\begin{bmatrix} \\nabla_q H_{\\phantom{d}} \\\\ \\nabla_p H_{\\phantom{d}} \\end{bmatrix} +\n\\begin{bmatrix} 0 \\\\ G \\end{bmatrix} u_\\phantom{di},\n\\qquad y = \\dot{q}\n\n\nChoose u=ues+udiu = u_{es} + u_{di} that transforms system into a passive one with x⋆=(q⋆,0)x^\\star = (q^\\star, 0) \n\n\nGues=∇qH−∇qHd,Gudi=−GKDG⊤∇pHdGu_{es} = \\nabla_q H  - \\nabla_q H_d , \\quad Gu_{di} = -GK_D G^\\top \\nabla_p H_d\n\n\n\n[q̇ṗ]=[−01−10][∇qHd∇pHd]+[0G]udi,y=q̇\n\\begin{bmatrix} \\dot{q} \\\\ \\dot{p} \\end{bmatrix} = \n\\begin{bmatrix} \\phantom{-}0 & 1 \\\\ -1 & 0 \\end{bmatrix} \n\\begin{bmatrix} \\nabla_q H_d \\\\ \\nabla_p H_d \\end{bmatrix} +\n\\begin{bmatrix} 0 \\\\ G \\end{bmatrix} u_{di},\n\\qquad y = \\dot{q}\n\n\n\n[q̇ṗ]=[−01−1−GKDG⊤][∇qHd∇pHd],y=q̇\n\\begin{bmatrix} \\dot{q} \\\\ \\dot{p} \\end{bmatrix} = \n\\begin{bmatrix} \\phantom{-}0 & 1 \\\\ -1 & -G K_D G^\\top \\end{bmatrix} \n\\begin{bmatrix} \\nabla_q H_d \\\\ \\nabla_p H_d \\end{bmatrix},\n\\qquad y = \\dot{q}"
   },
   {
     "objectID": "main.html#pbc-example---simple-pendulum-1",
     "href": "main.html#pbc-example---simple-pendulum-1",
     "title": "main",
     "section": "PBC Example - Simple Pendulum",
-    "text": "PBC Example - Simple Pendulum\n\n\n\n\nControl Synthesis via PBC\n\n\nChoose u=ues+udiu = u_{es} + u_{di} that transforms system into a passive one with x⋆=(q⋆,0)x^\\star = (q^\\star, 0)\nGues=∇qH−∇qHd,Gudi=−GKDG⊤∇pHdGu_{es} = \\nabla_q H - \\nabla_q H_d , \\quad Gu_{di} = -GK_D G^\\top \\nabla_p H_d\n[q̇ṗ]=[−01−1−GKDG⊤][∇qHd∇pHd],y=q̇\n\\begin{bmatrix} \\dot{q} \\\\ \\dot{p} \\end{bmatrix} = \n\\begin{bmatrix} \\phantom{-}0 & 1 \\\\ -1 & -G K_D G^\\top \\end{bmatrix} \n\\begin{bmatrix} \\nabla_q H_d \\\\ \\nabla_p H_d \\end{bmatrix},\n\\qquad y = \\dot{q}\n\n\nHd(q,p)=12J−1p2+Vd(q),Vd(q)=12KP(q−q⋆)2H_d(q,p) = \\frac{1}{2} J^{-1} p^2 + V_d(q), \\quad V_d(q) = \\frac{1}{2} K_{P} \\left( q - q^\\star \\right)^2\n\n\n\nḢd=−KD(J−1p)2=y⊤udi≤0\\dot{H}_d = -K_D \\left( J^{-1} p \\right)^2 = y^\\top u_{di} \\leq 0\n\n\nu=−mglsin(x)−KP(q−q⋆)−KDq̇\\boxed{u = -mgl\\sin(x) - K_P(q - q^\\star) - K_D \\dot{q}}"
+    "text": "PBC Example - Simple Pendulum\n\n\n\n\nControl Synthesis via PBC\n\n\nChoose u=ues+udiu = u_{es} + u_{di} that transforms system into a passive one with x⋆=(q⋆,0)x^\\star =  (q^\\star, 0)\nGues=∇qH−∇qHd,Gudi=−GKDG⊤∇pHdGu_{es} = \\nabla_q H  - \\nabla_q H_d , \\quad Gu_{di} = -GK_D G^\\top \\nabla_p H_d\n[q̇ṗ]=[−01−1−GKDG⊤][∇qHd∇pHd],y=q̇\n\\begin{bmatrix} \\dot{q} \\\\ \\dot{p} \\end{bmatrix} = \n\\begin{bmatrix} \\phantom{-}0 & 1 \\\\ -1 & -G K_D G^\\top \\end{bmatrix} \n\\begin{bmatrix} \\nabla_q H_d \\\\ \\nabla_p H_d \\end{bmatrix},\n\\qquad y = \\dot{q}\n\n\nHd(q,p)=12J−1p2+Vd(q),Vd(q)=12KP(q−q⋆)2H_d(q,p) = \\frac{1}{2} J^{-1} p^2 + V_d(q), \\quad V_d(q) = \\frac{1}{2} K_{P} \\left( q - q^\\star \\right)^2\n\n\n\nḢd=−KD(J−1p)2=y⊤udi≤0\\dot{H}_d = -K_D \\left( J^{-1} p \\right)^2 = y^\\top u_{di} \\leq 0\n\n\nu=−mglsin(x)−KP(q−q⋆)−KDq̇\\boxed{u = -mgl\\sin(x) - K_P(q - q^\\star) - K_D \\dot{q}}"
   },
   {
     "objectID": "main.html#our-methods",
@@ -172,7 +165,7 @@
     "href": "main.html#system-parameter-uncertainty",
     "title": "main",
     "section": "System Parameter Uncertainty",
-    "text": "System Parameter Uncertainty\n\n\n\nScalar control system\nUncertain drift vector field: p∼𝒩(p̂,σp2)p \\sim \\mathcal{N}(\\hat{p}, \\sigma_p^2).\nNo measurement uncertainty\n\n\n\n\n\n\nΣ:{ẋ=px+u,u(x)=θx,x(0)=1.\n\\Sigma: \\quad\n\\begin{cases}\n  \\dot{x} &= px + u, \\\\\n  u(x) &= \\theta x, \\\\\n  x(0) &= 1.\n\\end{cases}\n x(t)=e(p+θ)t.\n  x(t) = e^{(p+\\theta)t}."
+    "text": "System Parameter Uncertainty\n\n\n\nScalar control system\nUncertain drift vector field: p∼𝒩(p̂,σp2)p \\sim\n\\mathcal{N}(\\hat{p}, \\sigma_p^2).\nNo measurement uncertainty\n\n\n\n\n\n\nΣ:{ẋ=px+u,u(x)=θx,x(0)=1.\n\\Sigma: \\quad\n\\begin{cases}\n  \\dot{x} &= px + u, \\\\\n  u(x) &= \\theta x, \\\\\n  x(0) &= 1.\n\\end{cases}\n x(t)=e(p+θ)t.\n  x(t) = e^{(p+\\theta)t}."
   },
   {
     "objectID": "main.html#performance-index",
@@ -186,7 +179,7 @@
     "href": "main.html#infinite-horizon-best-performance",
     "title": "main",
     "section": "Infinite-Horizon Best Performance",
-    "text": "Infinite-Horizon Best Performance\n\n\n\n\n𝒥=∫0T(12qx(t)2+12ru(t)2)dt.\n\\mathcal{J} = \\int_0^T \\left( \\frac{1}{2}qx(t)^2 + \\frac{1}{2}ru(t)^2  \\right)dt.\n 𝒥T→∞=−14q+rθ2p+θ.\n\\mathcal{J}_{T \\to \\infty} = -\\frac{1}{4}\\frac{q+r \\theta^2}{p+\\theta}.\n\n\n\n \n\n\n\n\nSolve for θ\\theta that minimizes 𝒥∞\\mathcal{J}_\\infty: θ⋆=g(p):=−p−p2+qr\\theta^\\star = g(p) := -p -\\sqrt{p^2+\\frac{q}{r}}.\n\n\n\n\n\n\n\nDeterministic\n\n\nθ⋆=g(p̂):=−p̂−p̂2+qr\\theta^\\star = g(\\hat{p}) := -\\hat{p} -\\sqrt{\\hat{p}^2+\\frac{q}{r}}\n\n\n\n\n\n \n\n\n\n\n\nProbabilistic\n\n\nfθ⋆(θ⋆)=1σp2π(12(1+qrθ⋆2))exp{−12σp2(q2rθ⋆−θ⋆2−p̂)2}\n\\begin{aligned}\nf_{\\theta^\\star}(\\theta^\\star) &= \\frac{1}{\\sigma_p \\sqrt{2\\pi}}\\left( \\\n\\frac{1}{2}\\left(1+\\frac{q}{r{\\theta^\\star}^2}\\right) \\right) \\\\\n&\\exp{\\left\\{ -\\frac{1}{2\\sigma_p^2}\\left( \\frac{q}{2r\\theta^\\star} -\n\\frac{\\theta^\\star}{2} - \\hat{p}  \\right)^2  \\right\\} }\n\\end{aligned}"
+    "text": "Infinite-Horizon Best Performance\n\n\n\n\n𝒥=∫0T(12qx(t)2+12ru(t)2)dt.\n\\mathcal{J} = \\int_0^T \\left( \\frac{1}{2}qx(t)^2 + \\frac{1}{2}ru(t)^2  \\right)dt.\n 𝒥T→∞=−14q+rθ2p+θ.\n\\mathcal{J}_{T \\to \\infty} = -\\frac{1}{4}\\frac{q+r \\theta^2}{p+\\theta}.\n\n\n\n \n\n\n\n\nSolve for θ\\theta that minimizes 𝒥∞\\mathcal{J}_\\infty: θ⋆=g(p):=−p−p2+qr\\theta^\\star = g(p) :=\n-p -\\sqrt{p^2+\\frac{q}{r}}.\n\n\n\n\n\n\n\nDeterministic\n\n\nθ⋆=g(p̂):=−p̂−p̂2+qr\\theta^\\star = g(\\hat{p}) := -\\hat{p} -\\sqrt{\\hat{p}^2+\\frac{q}{r}}\n\n\n\n\n\n \n\n\n\n\n\nProbabilistic\n\n\nfθ⋆(θ⋆)=1σp2π(12(1+qrθ⋆2))exp{−12σp2(q2rθ⋆−θ⋆2−p̂)2}\n\\begin{aligned}\nf_{\\theta^\\star}(\\theta^\\star) &= \\frac{1}{\\sigma_p \\sqrt{2\\pi}}\\left( \\\n\\frac{1}{2}\\left(1+\\frac{q}{r{\\theta^\\star}^2}\\right) \\right) \\\\\n&\\exp{\\left\\{ -\\frac{1}{2\\sigma_p^2}\\left( \\frac{q}{2r\\theta^\\star} -\n\\frac{\\theta^\\star}{2} - \\hat{p}  \\right)^2  \\right\\} }\n\\end{aligned}"
   },
   {
     "objectID": "main.html#infinite-horizon-best-performance-1",
@@ -291,7 +284,7 @@
     "href": "main.html#future-work",
     "title": "main",
     "section": "Future work",
-    "text": "Future work\n\n\n\n\n\n\n\n\n\n\n\n\n(a) State partition according to NN\n\n\n\n\n\n\n\n(b) Experimental set up\n\n\n\n\nFigure 1: NSF Award #2330794"
+    "text": "Future work\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n(a) State partition according to NN\n\n\n\n\n\n\n\n\n\n\n\n(b) Experimental set up\n\n\n\n\n\n\n\nFigure 1: NSF Award #2330794"
   },
   {
     "objectID": "main.html#acknowledgments",
@@ -340,6 +333,6 @@
     "href": "main.html#sos-polynomials",
     "title": "main",
     "section": "SoS Polynomials",
-    "text": "SoS Polynomials\n\nIs p(x)p(x) nonnegative for all xx? p(x)=4x12+x1x2−4x22−2.1x14+4x24+13x16+1.0316p(x) = 4x_1^2 + x_1x_2 - 4x_2^2 - 2.1x_1^4 + 4x_2^4 + \\frac{1}{3}x_1^6 + 1.0316\\;\n\np(x)=(0.116x12+0.01x1x2−2x22+1.015)2+(−0.569x13+1.938x1+0.244x2)2+(0.224x12+0.666x1x2+0.029x22+0.026)2+(−0.188x12+0.063x1x2−0.006x22+0.009)2+(0.099x13+0.029x1+0.004x2)2+(0.009x12x2)2\\begin{aligned} p(x) = &\\left(0.116x_1^2 + 0.01x_1x_2 - 2x_2^2 + 1.015\\right)^2 \\\\ & + \\; \\left(-0.569x_1^3 + 1.938x_1 + 0.244x_2\\right)^2 \\\\ & + \\; \\left(0.224x_1^2 + 0.666x_1x_2 + 0.029x_2^2 + 0.026\\right)^2 \\\\ & + \\; \\left(-0.188x_1^2 + 0.063x_1x_2 - 0.006x_2^2 + 0.009\\right)^2 \\\\ & + \\; \\left(0.099x_1^3 + 0.029x_1 + 0.004x_2\\right)^2 + \\left(0.009x_1^2x_2\\right)^2 \\end{aligned}\n\n\n\nData-Driven Passivity-Based Control • Aykut C. Satici"
+    "text": "SoS Polynomials\n\nIs p(x)p(x) nonnegative for all xx? p(x)=4x12+x1x2−4x22−2.1x14+4x24+13x16+1.0316p(x) = 4x_1^2 + x_1x_2 - 4x_2^2 - 2.1x_1^4 + 4x_2^4 + \\frac{1}{3}x_1^6 + 1.0316\\;\n\np(x)=(0.116x12+0.01x1x2−2x22+1.015)2+(−0.569x13+1.938x1+0.244x2)2+(0.224x12+0.666x1x2+0.029x22+0.026)2+(−0.188x12+0.063x1x2−0.006x22+0.009)2+(0.099x13+0.029x1+0.004x2)2+(0.009x12x2)2\\begin{aligned} p(x) = &\\left(0.116x_1^2 + 0.01x_1x_2 - 2x_2^2 + 1.015\\right)^2 \\\\ & + \\; \\left(-0.569x_1^3 + 1.938x_1 + 0.244x_2\\right)^2 \\\\ & + \\; \\left(0.224x_1^2 + 0.666x_1x_2 + 0.029x_2^2 + 0.026\\right)^2 \\\\ & + \\; \\left(-0.188x_1^2 + 0.063x_1x_2 - 0.006x_2^2 + 0.009\\right)^2 \\\\ & + \\; \\left(0.099x_1^3 + 0.029x_1 + 0.004x_2\\right)^2 + \\left(0.009x_1^2x_2\\right)^2 \\end{aligned}\n\n\n\n\nData-Driven Passivity-Based Control • Aykut C. Satici"
   }
 ]

@@ -26,7 +26,7 @@ format:
 
 {{< include contents/_frontmatter.qmd >}}
 
-{{< include contents/_reminiscence.qmd >}}
+<!-- {{< include contents/_reminiscence.qmd >}} -->
 
 {{< include contents/_introduction.qmd >}}
 
