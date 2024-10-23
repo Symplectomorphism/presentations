@@ -9,7 +9,7 @@ institute: "Boise State University"
 
 <hr>
 
-*University of Texas at Dallas Seminar*
+*Sabanci University Seminar*
 
 <br/>
 
@@ -19,9 +19,9 @@ Mechanical and Biomedical Engineering <br>
 Boise State University, Boise, Idaho, USA 
 
 __Graduate Students__: <br/>
-Chris Dagher :mortar_board: <br/>
 Wankun Sirichotiyakul :mortar_board: <br/>
 Nardos Ayele Ashenafi :mortar_board: <br/>
+Chris Dagher :mortar_board: <br/>
 :::
 
 <!--

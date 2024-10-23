@@ -39,6 +39,7 @@
   <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/reveal-pointer/pointer.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
@@ -335,7 +336,7 @@
 <h2>Data-Driven Passivity-Based Control of Robotic Locomotion and Manipulation</h2>
 <!-- ###################################################################### -->
 <hr>
-<p><em>University of Texas at Dallas Seminar</em></p>
+<p><em>Sabanci University Seminar</em></p>
 <p><br></p>
 <div class="quarto-layout-panel" data-layout="[120, 60]">
 <div class="quarto-layout-row">
@@ -343,7 +344,7 @@
 <p><strong>Presenter</strong>: Aykut Satici, Ph.D.&nbsp;<br> Mechanical and Biomedical Engineering <br> Boise State University, Boise, Idaho, USA</p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
-<p><strong>Graduate Students</strong>: <br> Chris Dagher <span class="emoji" data-emoji="mortar_board">🎓</span> <br> Wankun Sirichotiyakul <span class="emoji" data-emoji="mortar_board">🎓</span> <br> Nardos Ayele Ashenafi <span class="emoji" data-emoji="mortar_board">🎓</span> <br></p>
+<p><strong>Graduate Students</strong>: <br> Wankun Sirichotiyakul <span class="emoji" data-emoji="mortar_board">🎓</span> <br> Nardos Ayele Ashenafi <span class="emoji" data-emoji="mortar_board">🎓</span> <br> Chris Dagher <span class="emoji" data-emoji="mortar_board">🎓</span> <br></p>
 </div>
 </div>
 </div>
@@ -1219,7 +1220,7 @@ M(q) \dd \dot{q} + h(x; \psi, \theta) \dd t - \dd R  = 0 \text{ (Moreau's time s
 <section id="infinite-horizon-best-performance" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Infinite-Horizon Best Performance</h2>
 <!-- ###################################################################### -->
-<div class="fragment quarto-layout-panel" data-fragment-index="0" data-id="perf" data-layout="[100,-5,60]">
+<div class="fragment quarto-layout-panel" data-id="perf" data-fragment-index="0" data-layout="[100,-5,60]">
 <div class="quarto-layout-row quarto-layout-valign-center">
 <div class="quarto-layout-cell" style="flex-basis: 60.6%;justify-content: flex-start;">
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝒥</mi><mo>=</mo><msubsup><mo>∫</mo><mn>0</mn><mi>T</mi></msubsup><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>q</mi><mi>x</mi><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mo>+</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>r</mi><mi>u</mi><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow><mi>d</mi><mi>t</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
@@ -1237,7 +1238,7 @@ M(q) \dd \dot{q} + h(x; \psi, \theta) \dd t - \dd R  = 0 \text{ (Moreau's time s
 <p>Solve for <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>θ</mi><annotation encoding="application/x-tex">\theta</annotation></semantics></math> that minimizes <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>𝒥</mi><mi>∞</mi></msub><annotation encoding="application/x-tex">\mathcal{J}_\infty</annotation></semantics></math>: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>θ</mi><mo>⋆</mo></msup><mo>=</mo><mi>g</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>p</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>:=</mo><mo>−</mo><mi>p</mi><mo>−</mo><msqrt><mrow><msup><mi>p</mi><mn>2</mn></msup><mo>+</mo><mfrac><mi>q</mi><mi>r</mi></mfrac></mrow></msqrt></mrow><annotation encoding="application/x-tex">\theta^\star = g(p) :=
 -p -\sqrt{p^2+\frac{q}{r}}</annotation></semantics></math>.</p>
 </div>
-<div class="fragment quarto-layout-panel" data-fragment-index="2" data-id="opt-sol" data-layout="[100,-5,60]">
+<div class="fragment quarto-layout-panel" data-id="opt-sol" data-fragment-index="2" data-layout="[100,-5,60]">
 <div class="quarto-layout-row quarto-layout-valign-center">
 <div class="quarto-layout-cell" style="flex-basis: 60.6%;justify-content: flex-start;">
 <div class="callout callout-note no-icon callout-titled callout-style-default">
@@ -1279,7 +1280,7 @@ f_{\theta^\star}(\theta^\star) &amp;= \frac{1}{\sigma_p \sqrt{2\pi}}\left( \
 <section id="infinite-horizon-best-performance-1" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Infinite-Horizon Best Performance</h2>
 <!-- ###################################################################### -->
-<div class="fragment quarto-layout-panel" data-fragment-index="0" data-id="opt-sol" data-layout="[100,-5,60]">
+<div class="fragment quarto-layout-panel" data-id="opt-sol" data-fragment-index="0" data-layout="[100,-5,60]">
 <div class="quarto-layout-row quarto-layout-valign-center">
 <div class="quarto-layout-cell" style="flex-basis: 60.6%;justify-content: flex-start;">
 <div class="callout callout-note no-icon callout-titled callout-style-default">
@@ -2037,6 +2038,7 @@ Figure&nbsp;1: NSF Award #2330794
   <script src="site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
   <script src="site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
   <script src="site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="site_libs/revealjs/plugin/reveal-pointer/pointer.js"></script>
   <script src="site_libs/revealjs/plugin/quarto-support/support.js"></script>
   <script src="reveal-plugins/animate/plugin.js"></script>
   <script src="reveal-plugins/animate/svg.min.js"></script>
@@ -2060,6 +2062,7 @@ Figure&nbsp;1: NSF Award #2330794
 'autoAnimateUnmatched': true,
 'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
 'chalkboard': {"buttons":false},
+'pointer': {"key":"q","color":"green","pointerSize":16,"alwaysVisible":false},
 'smaller': false,
  
         // Display controls in the bottom right corner
@@ -2213,7 +2216,7 @@ Figure&nbsp;1: NSF Award #2330794
         margin: 0.1,
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealPointer, QuartoSupport,
 
           RevealNotes,
           RevealSearch,

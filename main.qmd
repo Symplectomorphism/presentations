@@ -17,11 +17,14 @@ format:
     theme: [white, custom.scss]
     standalone: false
     self-contained: false
+    # embed-resources: true
     reveal-jsscripts:
       - reveal-plugins/animate/plugin.js
       - reveal-plugins/animate/svg.min.js
     plugins:
       - RevealAnimate
+revealjs-plugins:
+  - pointer  
 ---
 
 {{< include contents/_frontmatter.qmd >}}
