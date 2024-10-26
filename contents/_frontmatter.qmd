@@ -15,12 +15,14 @@ institute: "Boise State University"
 
 ::: {layout="[120, 60]"}
 __Presenter__: Aykut Satici, Ph.D. <br>
+Associate Professor <br>
 Mechanical and Biomedical Engineering <br>
 Boise State University, Boise, Idaho, USA 
 
 __Graduate Students__: <br/>
 Wankun Sirichotiyakul :mortar_board: <br/>
 Nardos Ayele Ashenafi :mortar_board: <br/>
+Chandika Silva :mortar_board: <br/>
 Chris Dagher :mortar_board: <br/>
 :::
 

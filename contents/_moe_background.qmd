@@ -42,7 +42,7 @@ F(x;\theta) &= \{\mathcal{N}_1(\mu_1, \sigma_1), \mathcal{N}_2(\mu_2, \sigma_2)\
 :::{.fragment .fade-in fragment-index=3}
 
 * The gating network is a neural net $\mathbf{P}(x | \psi) = [P_1(x | \psi), P_2(x | \psi) ]$
-    + Divides the input space into partitions
+    + Splits the input space into partitions
 :::
 
 :::{.fragment .fade-in fragment-index=4}

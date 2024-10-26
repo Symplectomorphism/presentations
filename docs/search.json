@@ -4,7 +4,7 @@
     "href": "main.html#data-driven-passivity-based-control-of-robotic-locomotion-and-manipulation",
     "title": "main",
     "section": "Data-Driven Passivity-Based Control of Robotic Locomotion and Manipulation",
-    "text": "Data-Driven Passivity-Based Control of Robotic Locomotion and Manipulation\n\n\nSabanci University Seminar\n\n\n\n\nPresenter: Aykut Satici, Ph.D.  Mechanical and Biomedical Engineering  Boise State University, Boise, Idaho, USA\n\n\nGraduate Students:  Wankun Sirichotiyakul 🎓  Nardos Ayele Ashenafi 🎓  Chris Dagher 🎓"
+    "text": "Data-Driven Passivity-Based Control of Robotic Locomotion and Manipulation\n\n\nSabanci University Seminar\n\n\n\n\nPresenter: Aykut Satici, Ph.D.  Associate Professor  Mechanical and Biomedical Engineering  Boise State University, Boise, Idaho, USA\n\n\nGraduate Students:  Wankun Sirichotiyakul 🎓  Nardos Ayele Ashenafi 🎓  Chandika Silva 🎓  Chris Dagher 🎓"
   },
   {
     "objectID": "main.html#hybrid-systems",
@@ -14,11 +14,11 @@
     "text": "Hybrid Systems\n\n\nExhibit both continuous state flow and discrete state transitions\n\n\n\n\nExamples: room temperature control, contact-rich robots\n\n\n\n\nWe tackle two main challenges in the control of contact-rich robots\n\n\n\n\n\n\n\n\nWalking machines\n\n\n\n\n\n\n\n\nManipulators"
   },
   {
-    "objectID": "main.html#challenge-1-mode-changes",
-    "href": "main.html#challenge-1-mode-changes",
+    "objectID": "main.html#challenge-1-multiple-mode-changes",
+    "href": "main.html#challenge-1-multiple-mode-changes",
     "title": "main",
-    "section": "Challenge 1: Mode Changes",
-    "text": "Challenge 1: Mode Changes\n\n\n\n\n\n\n\n\n\n\nContacts cause instantaneous changes in the dynamics and states.\nPotential contacts grow exponentially, making controller inference difficult."
+    "section": "Challenge 1: Multiple Mode Changes",
+    "text": "Challenge 1: Multiple Mode Changes\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nContacts cause instantaneous changes in the dynamics and states.\nPotential contacts grow exponentially, making controller inference difficult."
   },
   {
     "objectID": "main.html#challenge-1-proposed-method",
@@ -53,7 +53,7 @@
     "href": "main.html#mixture-of-experts-moe-old-faithful",
     "title": "main",
     "section": "Mixture of Experts (MOE): Old Faithful",
-    "text": "Mixture of Experts (MOE): Old Faithful\n\nObjective: learn two expert Gaussian models that represent dataset 𝔻={(x1,y1),…,(xN,yN)}\\mathbb{D} = \\{(x_1, y_1), \\dots, (x_N, y_N) \\}\n\n\n\n\n\nThe experts are chosen as F(x;θ)={𝒩1(μ1,σ1),𝒩2(μ2,σ2)}θ={(μ1,σ1),(μ2,σ2)}\\begin{align*}\nF(x;\\theta) &= \\{\\mathcal{N}_1(\\mu_1, \\sigma_1), \\mathcal{N}_2(\\mu_2, \\sigma_2)\\} \\\\\n\\theta &= \\{(\\mu_1, \\sigma_1), (\\mu_2, \\sigma_2) \\}\n\\end{align*}\n\nPrediction is a weighted-average of experts\n\n\n\n\n\n\n\n\n\n\n\nThe gating network is a neural net 𝐏(x|ψ)=[P1(x|ψ),P2(x|ψ)]\\mathbf{P}(x | \\psi) = [P_1(x | \\psi), P_2(x | \\psi) ]\n\nDivides the input space into partitions\n\n\n\n\n\nExpectation Maximization: maximizes log likelihood ln{P(𝔻|θ,ψ)}=∑j=1Nln∑i=1NF12πσi2exp(−12(yj−μi)2σi2)Pi(xj,ψ)\n\\ln \\{P(\\mathbb{D} | \\theta, \\psi) \\} = \\sum_{j=1}^{N} \\ln \\sum_{i=1}^{N_F} \\frac{1}{\\sqrt{2 \\pi \\sigma_i^2}} \\exp \\left( -\\frac{1}{2}\\frac{(y_j - \\mu_i)^2}{\\sigma_i^2} \\right) P_i(x_j, \\psi)"
+    "text": "Mixture of Experts (MOE): Old Faithful\n\nObjective: learn two expert Gaussian models that represent dataset 𝔻={(x1,y1),…,(xN,yN)}\\mathbb{D} = \\{(x_1, y_1), \\dots, (x_N, y_N) \\}\n\n\n\n\n\nThe experts are chosen as F(x;θ)={𝒩1(μ1,σ1),𝒩2(μ2,σ2)}θ={(μ1,σ1),(μ2,σ2)}\\begin{align*}\nF(x;\\theta) &= \\{\\mathcal{N}_1(\\mu_1, \\sigma_1), \\mathcal{N}_2(\\mu_2, \\sigma_2)\\} \\\\\n\\theta &= \\{(\\mu_1, \\sigma_1), (\\mu_2, \\sigma_2) \\}\n\\end{align*}\n\nPrediction is a weighted-average of experts\n\n\n\n\n\n\n\n\n\n\n\nThe gating network is a neural net 𝐏(x|ψ)=[P1(x|ψ),P2(x|ψ)]\\mathbf{P}(x | \\psi) = [P_1(x | \\psi), P_2(x | \\psi) ]\n\nSplits the input space into partitions\n\n\n\n\n\nExpectation Maximization: maximizes log likelihood ln{P(𝔻|θ,ψ)}=∑j=1Nln∑i=1NF12πσi2exp(−12(yj−μi)2σi2)Pi(xj,ψ)\n\\ln \\{P(\\mathbb{D} | \\theta, \\psi) \\} = \\sum_{j=1}^{N} \\ln \\sum_{i=1}^{N_F} \\frac{1}{\\sqrt{2 \\pi \\sigma_i^2}} \\exp \\left( -\\frac{1}{2}\\frac{(y_j - \\mu_i)^2}{\\sigma_i^2} \\right) P_i(x_j, \\psi)"
   },
   {
     "objectID": "main.html#mixture-of-experts-controller-1",
@@ -280,11 +280,11 @@
     "text": "Conclusions\n \n\n\nMOE controller: multi-modal controller for multi-modal dynamics\nNeuralPbc + Bayesian inference = robust controller with stability properties"
   },
   {
-    "objectID": "main.html#future-work",
-    "href": "main.html#future-work",
+    "objectID": "main.html#current-work",
+    "href": "main.html#current-work",
     "title": "main",
-    "section": "Future work",
-    "text": "Future work\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n(a) State partition according to NN\n\n\n\n\n\n\n\n\n\n\n\n(b) Experimental set up\n\n\n\n\n\n\n\nFigure 1: NSF Award #2330794"
+    "section": "Current work",
+    "text": "Current work\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n(a) State partition according to NN\n\n\n\n\n\n\n\n\n\n\n\n(b) Experimental set up\n\n\n\n\n\n\n\nFigure 1: NSF Award #2330794"
   },
   {
     "objectID": "main.html#acknowledgments",

@@ -76,7 +76,7 @@ J_T &= \sum_{t=0}^{T} \| \dot{x}_c^* - \dot{x}_c(t; \theta) \|
 * <span style="font-variant:small-caps;">NeuralPbc</span> + Bayesian inference = robust controller with stability properties
 :::
 
-## Future work
+## Current work
 
 :::: {.columns}
 

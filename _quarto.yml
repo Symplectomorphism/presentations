@@ -4,6 +4,3 @@ project:
   output-dir: docs
   preview:
     port: 7777
-
-
-

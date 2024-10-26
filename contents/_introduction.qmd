@@ -27,15 +27,50 @@
 :::
 
 
-## Challenge 1: Mode Changes
+## Challenge 1: Multiple Mode Changes
 <!-- ###################################################################### -->
 
+<!-- <div class="fragment" data-fragment-index="0">
 
-:::{.fragment fragment-index=0}
-![](contents/assets/nhcm.png){fig-align="center" width="350" height="250"}
+
+<video autoplay="true" loop="true" aspect-ratio="4x3" width="350">
+<source src="contents/assets/cartpole_oneController.mp4">
+</video>
+
+<video autoplay="true" loop="true" aspect-ratio="4x3" width="350">
+<source src="contents/assets/ballbot_youtube_trim.mp4">
+</video>
+
+</div>
+
+
+<div class="fragment" data-fragment-index="1">
+* Contacts cause instantaneous changes in the dynamics and states.
+* Potential contacts grow exponentially, making controller inference difficult.
+</div>
+
+-->
+
+::: {.fragment fragment-index=0}
+
+:::: {.columns}
+::: {.column width="60%"}
+{{< video contents/assets/astria_encoded_trimmed.mp4 
+    aspect-ratio=16x9 width="600" >}} 
 :::
 
-:::{.fragment fragment-index=0}
+::: {.column width="40%"}
+<!-- {{< video contents/assets/ballbot_youtube_trim.mp4 
+    aspect-ratio=4x3 width="400" autoplay="true" loop="true" >}} -->
+![](contents/assets/nhcm.png){width="366" height="300"}
+:::
+
+::::
+
+:::
+
+
+::: {.fragment fragment-index=1}
 * Contacts cause instantaneous changes in the dynamics and states.
 * Potential contacts grow exponentially, making controller inference difficult.
 :::

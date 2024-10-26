@@ -341,10 +341,10 @@
 <div class="quarto-layout-panel" data-layout="[120, 60]">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 66.7%;justify-content: flex-start;">
-<p><strong>Presenter</strong>: Aykut Satici, Ph.D.&nbsp;<br> Mechanical and Biomedical Engineering <br> Boise State University, Boise, Idaho, USA</p>
+<p><strong>Presenter</strong>: Aykut Satici, Ph.D.&nbsp;<br> Associate Professor <br> Mechanical and Biomedical Engineering <br> Boise State University, Boise, Idaho, USA</p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
-<p><strong>Graduate Students</strong>: <br> Wankun Sirichotiyakul <span class="emoji" data-emoji="mortar_board">🎓</span> <br> Nardos Ayele Ashenafi <span class="emoji" data-emoji="mortar_board">🎓</span> <br> Chris Dagher <span class="emoji" data-emoji="mortar_board">🎓</span> <br></p>
+<p><strong>Graduate Students</strong>: <br> Wankun Sirichotiyakul <span class="emoji" data-emoji="mortar_board">🎓</span> <br> Nardos Ayele Ashenafi <span class="emoji" data-emoji="mortar_board">🎓</span> <br> Chandika Silva <span class="emoji" data-emoji="mortar_board">🎓</span> <br> Chris Dagher <span class="emoji" data-emoji="mortar_board">🎓</span> <br></p>
 </div>
 </div>
 </div>
@@ -432,17 +432,40 @@
 </div>
 </div>
 </section>
-<section id="challenge-1-mode-changes" class="slide level2">
-<h2>Challenge 1: Mode Changes</h2>
+<section id="challenge-1-multiple-mode-changes" class="slide level2">
+<h2>Challenge 1: Multiple Mode Changes</h2>
 <!-- ###################################################################### -->
+<!-- <div class="fragment" data-fragment-index="0">
+
+
+<video autoplay="true" loop="true" aspect-ratio="4x3" width="350">
+<source src="contents/assets/cartpole_oneController.mp4">
+</video>
+
+<video autoplay="true" loop="true" aspect-ratio="4x3" width="350">
+<source src="contents/assets/ballbot_youtube_trim.mp4">
+</video>
+
+</div>
+
+
+<div class="fragment" data-fragment-index="1">
+* Contacts cause instantaneous changes in the dynamics and states.
+* Potential contacts grow exponentially, making controller inference difficult.
+</div>
+
+-->
 <div class="fragment" data-fragment-index="0">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="contents/assets/nhcm.png" class="quarto-figure quarto-figure-center" width="350" height="250"></p>
-</figure>
+<div class="columns">
+<div class="column" style="width:60%;">
+<video id="video_shortcode_videojs_video1" width="600" height="338" class="video-js vjs-default-skin " controls="" preload="auto" data-setup="{}" title=""><source src="contents/assets/astria_encoded_trimmed.mp4"></video>
+</div><div class="column" style="width:40%;">
+<!--  -->
+<p><img data-src="contents/assets/nhcm.png" width="366" height="300"></p>
 </div>
 </div>
-<div class="fragment" data-fragment-index="0">
+</div>
+<div class="fragment" data-fragment-index="1">
 <ul>
 <li>Contacts cause instantaneous changes in the dynamics and states.</li>
 <li>Potential contacts grow exponentially, making controller inference difficult.</li>
@@ -621,7 +644,7 @@ F(x;\theta) &amp;= \{\mathcal{N}_1(\mu_1, \sigma_1), \mathcal{N}_2(\mu_2, \sigma
 <ul>
 <li>The gating network is a neural net <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐏</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="prefix">|</mo><mi>ψ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><msub><mi>P</mi><mn>1</mn></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="prefix">|</mo><mi>ψ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo><msub><mi>P</mi><mn>2</mn></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="prefix">|</mo><mi>ψ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">\mathbf{P}(x | \psi) = [P_1(x | \psi), P_2(x | \psi) ]</annotation></semantics></math>
 <ul>
-<li>Divides the input space into partitions</li>
+<li>Splits the input space into partitions</li>
 </ul></li>
 </ul>
 </div>
@@ -1220,7 +1243,7 @@ M(q) \dd \dot{q} + h(x; \psi, \theta) \dd t - \dd R  = 0 \text{ (Moreau's time s
 <section id="infinite-horizon-best-performance" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Infinite-Horizon Best Performance</h2>
 <!-- ###################################################################### -->
-<div class="fragment quarto-layout-panel" data-id="perf" data-fragment-index="0" data-layout="[100,-5,60]">
+<div class="fragment quarto-layout-panel" data-layout="[100,-5,60]" data-fragment-index="0" data-id="perf">
 <div class="quarto-layout-row quarto-layout-valign-center">
 <div class="quarto-layout-cell" style="flex-basis: 60.6%;justify-content: flex-start;">
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝒥</mi><mo>=</mo><msubsup><mo>∫</mo><mn>0</mn><mi>T</mi></msubsup><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>q</mi><mi>x</mi><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mo>+</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>r</mi><mi>u</mi><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow><mi>d</mi><mi>t</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
@@ -1238,7 +1261,7 @@ M(q) \dd \dot{q} + h(x; \psi, \theta) \dd t - \dd R  = 0 \text{ (Moreau's time s
 <p>Solve for <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>θ</mi><annotation encoding="application/x-tex">\theta</annotation></semantics></math> that minimizes <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>𝒥</mi><mi>∞</mi></msub><annotation encoding="application/x-tex">\mathcal{J}_\infty</annotation></semantics></math>: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>θ</mi><mo>⋆</mo></msup><mo>=</mo><mi>g</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>p</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>:=</mo><mo>−</mo><mi>p</mi><mo>−</mo><msqrt><mrow><msup><mi>p</mi><mn>2</mn></msup><mo>+</mo><mfrac><mi>q</mi><mi>r</mi></mfrac></mrow></msqrt></mrow><annotation encoding="application/x-tex">\theta^\star = g(p) :=
 -p -\sqrt{p^2+\frac{q}{r}}</annotation></semantics></math>.</p>
 </div>
-<div class="fragment quarto-layout-panel" data-id="opt-sol" data-fragment-index="2" data-layout="[100,-5,60]">
+<div class="fragment quarto-layout-panel" data-layout="[100,-5,60]" data-fragment-index="2" data-id="opt-sol">
 <div class="quarto-layout-row quarto-layout-valign-center">
 <div class="quarto-layout-cell" style="flex-basis: 60.6%;justify-content: flex-start;">
 <div class="callout callout-note no-icon callout-titled callout-style-default">
@@ -1280,7 +1303,7 @@ f_{\theta^\star}(\theta^\star) &amp;= \frac{1}{\sigma_p \sqrt{2\pi}}\left( \
 <section id="infinite-horizon-best-performance-1" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Infinite-Horizon Best Performance</h2>
 <!-- ###################################################################### -->
-<div class="fragment quarto-layout-panel" data-id="opt-sol" data-fragment-index="0" data-layout="[100,-5,60]">
+<div class="fragment quarto-layout-panel" data-layout="[100,-5,60]" data-fragment-index="0" data-id="opt-sol">
 <div class="quarto-layout-row quarto-layout-valign-center">
 <div class="quarto-layout-cell" style="flex-basis: 60.6%;justify-content: flex-start;">
 <div class="callout callout-note no-icon callout-titled callout-style-default">
@@ -1716,7 +1739,7 @@ Minimal expected cost <math display="inline" xmlns="http://www.w3.org/1998/Math/
 <section id="neuralpbc-hybrid-system" class="slide level2">
 <h2><span class="smallcaps">NeuralPbc</span>: Hybrid System</h2>
 <p><br></p>
-<div class="fragment quarto-layout-panel" data-fragment-index="0" data-layout="[50,-5,50]">
+<div class="fragment quarto-layout-panel" data-layout="[50,-5,50]" data-fragment-index="0">
 <div class="quarto-layout-row quarto-layout-valign-center">
 <div class="quarto-layout-cell" style="flex-basis: 47.6%;justify-content: flex-start;">
 <div class="callout callout-note no-icon callout-titled callout-style-default">
@@ -1878,8 +1901,8 @@ J_T &amp;= \sum_{t=0}^{T} \| \dot{x}_c^* - \dot{x}_c(t; \theta) \|
 </ul>
 </div>
 </section>
-<section id="future-work" class="slide level2">
-<h2>Future work</h2>
+<section id="current-work" class="slide level2">
+<h2>Current work</h2>
 <div class="columns">
 <div class="column" style="width:80%;">
 <center>
@@ -2382,6 +2405,8 @@ Figure&nbsp;1: NSF Award #2330794
     <script>videojs(video_shortcode_videojs_video2);</script>
     <script>videojs(video_shortcode_videojs_video3);</script>
     <script>videojs(video_shortcode_videojs_video4);</script>
+    <script>videojs(video_shortcode_videojs_video5);</script>
+    <script>videojs(video_shortcode_videojs_video6);</script>
     
 
 </body></html>
