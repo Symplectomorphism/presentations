@@ -338,12 +338,19 @@
 <hr>
 <p><em>Sabanci University Seminar</em></p>
 <p><br></p>
-<div class="quarto-layout-panel" data-layout="[120, 60]">
+<div class="quarto-layout-panel" data-layout="[80, 60, 60]">
 <div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 66.7%;justify-content: flex-start;">
-<p><strong>Presenter</strong>: Aykut Satici, Ph.D.&nbsp;<br> Associate Professor <br> Mechanical and Biomedical Engineering <br> Boise State University, Boise, Idaho, USA</p>
+<div class="quarto-layout-cell" style="flex-basis: 40.0%;justify-content: flex-start;">
+<p><strong>Presenter</strong>: Aykut Satici, Ph.D.&nbsp;<br> Associate Professor <br> Mechanical and Biomedical Eng. <br> Boise, Idaho, USA</p>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-layout-cell" style="flex-basis: 30.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="./contents/assets/bsu_logo2.jpg" class="quarto-figure quarto-figure-center" width="200" height="120"></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 30.0%;justify-content: flex-start;">
 <p><strong>Graduate Students</strong>: <br> Wankun Sirichotiyakul <span class="emoji" data-emoji="mortar_board">🎓</span> <br> Nardos Ayele Ashenafi <span class="emoji" data-emoji="mortar_board">🎓</span> <br> Chandika Silva <span class="emoji" data-emoji="mortar_board">🎓</span> <br> Chris Dagher <span class="emoji" data-emoji="mortar_board">🎓</span> <br></p>
 </div>
 </div>
@@ -702,14 +709,14 @@ F(x;\theta) &amp;= \{\mathcal{N}_1(\mu_1, \sigma_1), \mathcal{N}_2(\mu_2, \sigma
 <li class="fragment">Training procedure:
 <ul>
 <li class="fragment">Start from initial parameters <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mi>ψ</mi><mo>,</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(\psi, \theta)</annotation></semantics></math></li>
-<li class="fragment">Sample initial state <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>x</mi><mn>0</mn></msub><annotation encoding="application/x-tex">x_0</annotation></semantics></math></li>
+<li class="fragment">Sample initial state <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>x</mi><mn>0</mn></msub><annotation encoding="application/x-tex">x_0</annotation></semantics></math> (more on this later)</li>
 <li class="fragment">Generate trajectories <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ϕ</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>x</mi><mn>0</mn></msub><mo>,</mo><mi>u</mi><mo>,</mo><mi>T</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\phi(x_0, u, T)</annotation></semantics></math> using current parameters <math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="center" style="text-align: center"><mi>i</mi><mo>∼</mo><mtext mathvariant="normal">Categorical</mtext><mrow><mo stretchy="true" form="prefix">(</mo><mi>𝐏</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="prefix">|</mo><mi>ψ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mi>u</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>;</mo><mi>ψ</mi><mo>,</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msub><mi>F</mi><mi>i</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>;</mo><msub><mi>θ</mi><mi>i</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mi>M</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>q</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>ⅆ</mi><mover><mi>q</mi><mo accent="true">̇</mo></mover><mo>+</mo><mi>h</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>;</mo><mi>ψ</mi><mo>,</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>ⅆ</mi><mi>t</mi><mo>−</mo><mi>ⅆ</mi><mi>R</mi><mo>=</mo><mn>0</mn><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> (Moreau’s time stepping)</mtext></mrow></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{gather*}
 i  \sim \text{Categorical} (\mathbf{P}(x| \psi)) \\
 u(x; \psi, \theta) = F_i(x; \theta_i) \\
 M(q) \dd \dot{q} + h(x; \psi, \theta) \dd t - \dd R  = 0 \text{ (Moreau's time stepping)}
 \end{gather*}</annotation></semantics></math></li>
 <li class="fragment">Assign a running cost <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>ℓ</mo><annotation encoding="application/x-tex">\ell</annotation></semantics></math> to the trajectories based on performance</li>
-<li class="fragment">Update parameters <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mi>ψ</mi><mo>,</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(\psi, \theta)</annotation></semantics></math> to minimize running cost</li>
+<li class="fragment">Update parameters <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mi>ψ</mi><mo>,</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(\psi, \theta)</annotation></semantics></math> to minimize the cost-to-go</li>
 </ul></li>
 </ul>
 </div>
@@ -838,9 +845,15 @@ M(q) \dd \dot{q} + h(x; \psi, \theta) \dd t - \dd R  = 0 \text{ (Moreau's time s
 <h2>Conclusions</h2>
 <p><br> <br></p>
 <ul>
-<li><p>We provide a data-driven control design that <em>automatically</em> learns several policies and the necessary switching scheme.</p></li>
-<li><p>The framework leverages the switching controllers to stabilize the multi-modal dynamical system.</p></li>
-<li><p>The gating network successsfully parameterizes the control-switching conditionals that achieves the desired performance.</p></li>
+<li>We provide a data-driven control design that <em>automatically</em> learns several policies and the necessary switching scheme.</li>
+</ul>
+<p><br></p>
+<ul>
+<li>The framework leverages the switching controllers to stabilize the multi-modal dynamical system.</li>
+</ul>
+<p><br></p>
+<ul>
+<li>The gating network parameterizes the switching surfaces to achieves good performance.</li>
 </ul>
 </section></section>
 <section>
@@ -881,8 +894,8 @@ M(q) \dd \dot{q} + h(x; \psi, \theta) \dd t - \dd R  = 0 \text{ (Moreau's time s
 <ul>
 <li><p>Stored energy at <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>t</mi><mn>1</mn></msub><annotation encoding="application/x-tex">t_1</annotation></semantics></math> is <em>at most</em> equal to stored energy at <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>t</mi><mn>0</mn></msub><annotation encoding="application/x-tex">t_0</annotation></semantics></math>, plus externally supplied energy <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>u</mi><mo>,</mo><mi>y</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">s(u,y)</annotation></semantics></math>.</p></li>
 <li><p>No generation of energy, only internal dissipation.</p></li>
-<li><p>With <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>≡</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">s(t) \equiv 0</annotation></semantics></math>, trajectories tend towards minimum of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℋ</mi><annotation encoding="application/x-tex">\mathcal{H}</annotation></semantics></math>.</p></li>
 </ul>
+<!-- - With $s(t) \equiv 0$, trajectories tend towards minimum of $\mathcal{H}$. -->
 </div>
 </div>
 </div>
@@ -1162,328 +1175,7 @@ M(q) \dd \dot{q} + h(x; \psi, \theta) \dd t - \dd R  = 0 \text{ (Moreau's time s
 </div>
 </div>
 </div>
-</section></section>
-<section>
-<section id="theoretical-justification" class="title-slide slide level1 center" data-visibility="uncounted">
-<h1>Theoretical Justification</h1>
-<!-- ###################################################################### -->
-<p>Why does Bayesian Learning result in more robust controllers?</p>
-</section>
-<section id="system-parameter-uncertainty" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">System Parameter Uncertainty</h2>
-<!-- ###################################################################### -->
-<div class="fragment" data-fragment-index="0">
-<ul>
-<li>Scalar control system</li>
-<li>Uncertain drift vector field: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>∼</mo><mi>𝒩</mi><mrow><mo stretchy="true" form="prefix">(</mo><mover><mi>p</mi><mo accent="true">̂</mo></mover><mo>,</mo><msubsup><mi>σ</mi><mi>p</mi><mn>2</mn></msubsup><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">p \sim
-\mathcal{N}(\hat{p}, \sigma_p^2)</annotation></semantics></math>.</li>
-<li>No measurement uncertainty</li>
-</ul>
-</div>
-<div class="fragment" data-id="system" data-fragment-index="1">
-<div class="quarto-layout-panel" data-layout="[100,-5,60]">
-<div class="quarto-layout-row quarto-layout-valign-center">
-<div class="quarto-layout-cell" style="flex-basis: 60.6%;justify-content: flex-start;">
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Σ</mi><mo>:</mo><mspace width="1.0em"></mspace><mrow><mo stretchy="true" form="prefix">{</mo><mtable><mtr><mtd columnalign="left" style="text-align: left"><mover><mi>x</mi><mo accent="true">̇</mo></mover></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mi>p</mi><mi>x</mi><mo>+</mo><mi>u</mi><mo>,</mo></mtd></mtr><mtr><mtd columnalign="left" style="text-align: left"><mi>u</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mi>θ</mi><mi>x</mi><mo>,</mo></mtd></mtr><mtr><mtd columnalign="left" style="text-align: left"><mi>x</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>1</mn><mi>.</mi></mtd></mtr></mtable></mrow></mrow><annotation encoding="application/x-tex">
-\Sigma: \quad
-\begin{cases}
-  \dot{x} &amp;= px + u, \\
-  u(x) &amp;= \theta x, \\
-  x(0) &amp;= 1.
-\end{cases}
-</annotation></semantics></math> <math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msup><mi>e</mi><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>p</mi><mo>+</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>t</mi></mrow></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">
-  x(t) = e^{(p+\theta)t}.
-</annotation></semantics></math></p>
-</div>
-<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 3.0%;justify-content: flex-start;">
-<p>&nbsp;</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="performance-index" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Performance Index</h2>
-<!-- ###################################################################### -->
-<div data-id="system">
-<div class="quarto-layout-panel" data-layout="[100,-5,60]">
-<div class="quarto-layout-row quarto-layout-valign-center">
-<div class="quarto-layout-cell" style="flex-basis: 60.6%;justify-content: flex-start;">
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Σ</mi><mo>:</mo><mspace width="1.0em"></mspace><mrow><mo stretchy="true" form="prefix">{</mo><mtable><mtr><mtd columnalign="left" style="text-align: left"><mover><mi>x</mi><mo accent="true">̇</mo></mover></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mi>p</mi><mi>x</mi><mo>+</mo><mi>u</mi><mo>,</mo></mtd></mtr><mtr><mtd columnalign="left" style="text-align: left"><mi>u</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mi>θ</mi><mi>x</mi><mo>,</mo></mtd></mtr><mtr><mtd columnalign="left" style="text-align: left"><mi>x</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>1</mn><mi>.</mi></mtd></mtr></mtable></mrow></mrow><annotation encoding="application/x-tex">
-\Sigma: \quad
-\begin{cases}
-  \dot{x} &amp;= px + u, \\
-  u(x) &amp;= \theta x, \\
-  x(0) &amp;= 1.
-\end{cases}
-</annotation></semantics></math> <math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msup><mi>e</mi><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>p</mi><mo>+</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>t</mi></mrow></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">
-  x(t) = e^{(p+\theta)t}.
-</annotation></semantics></math></p>
-</div>
-<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 3.0%;justify-content: flex-start;">
-<p>&nbsp;</p>
-</div>
-</div>
-</div>
-</div>
-<div class="fragment" data-fragment-index="0">
-<p>Quadratic performance index</p>
-<ul>
-<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">q \geq 0</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">r &gt; 0</annotation></semantics></math><br>
-</li>
-<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>T</mi><annotation encoding="application/x-tex">T</annotation></semantics></math>: control horizon</li>
-</ul>
-</div>
-<div class="fragment" data-fragment-index="0," data-id="perf">
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝒥</mi><mo>=</mo><msubsup><mo>∫</mo><mn>0</mn><mi>T</mi></msubsup><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>q</mi><mi>x</mi><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mo>+</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>r</mi><mi>u</mi><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow><mi>d</mi><mi>t</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
-\mathcal{J} = \int_0^T \left( \frac{1}{2}qx(t)^2 + \frac{1}{2}ru(t)^2  \right)dt.
-</annotation></semantics></math></p>
-</div>
-</section>
-<section id="infinite-horizon-best-performance" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Infinite-Horizon Best Performance</h2>
-<!-- ###################################################################### -->
-<div class="fragment quarto-layout-panel" data-layout="[100,-5,60]" data-fragment-index="0" data-id="perf">
-<div class="quarto-layout-row quarto-layout-valign-center">
-<div class="quarto-layout-cell" style="flex-basis: 60.6%;justify-content: flex-start;">
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝒥</mi><mo>=</mo><msubsup><mo>∫</mo><mn>0</mn><mi>T</mi></msubsup><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>q</mi><mi>x</mi><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mo>+</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>r</mi><mi>u</mi><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow><mi>d</mi><mi>t</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
-\mathcal{J} = \int_0^T \left( \frac{1}{2}qx(t)^2 + \frac{1}{2}ru(t)^2  \right)dt.
-</annotation></semantics></math> <math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝒥</mi><mrow><mi>T</mi><mo>→</mo><mi>∞</mi></mrow></msub><mo>=</mo><mo>−</mo><mfrac><mn>1</mn><mn>4</mn></mfrac><mfrac><mrow><mi>q</mi><mo>+</mo><mi>r</mi><msup><mi>θ</mi><mn>2</mn></msup></mrow><mrow><mi>p</mi><mo>+</mo><mi>θ</mi></mrow></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
-\mathcal{J}_{T \to \infty} = -\frac{1}{4}\frac{q+r \theta^2}{p+\theta}.
-</annotation></semantics></math></p>
-</div>
-<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 3.0%;justify-content: flex-start;">
-<p>&nbsp;</p>
-</div>
-</div>
-</div>
-<div class="fragment" data-fragment-index="1">
-<p>Solve for <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>θ</mi><annotation encoding="application/x-tex">\theta</annotation></semantics></math> that minimizes <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>𝒥</mi><mi>∞</mi></msub><annotation encoding="application/x-tex">\mathcal{J}_\infty</annotation></semantics></math>: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>θ</mi><mo>⋆</mo></msup><mo>=</mo><mi>g</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>p</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>:=</mo><mo>−</mo><mi>p</mi><mo>−</mo><msqrt><mrow><msup><mi>p</mi><mn>2</mn></msup><mo>+</mo><mfrac><mi>q</mi><mi>r</mi></mfrac></mrow></msqrt></mrow><annotation encoding="application/x-tex">\theta^\star = g(p) :=
--p -\sqrt{p^2+\frac{q}{r}}</annotation></semantics></math>.</p>
-</div>
-<div class="fragment quarto-layout-panel" data-layout="[100,-5,60]" data-fragment-index="2" data-id="opt-sol">
-<div class="quarto-layout-row quarto-layout-valign-center">
-<div class="quarto-layout-cell" style="flex-basis: 60.6%;justify-content: flex-start;">
-<div class="callout callout-note no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Deterministic</strong></p>
-</div>
-<div class="callout-content">
-<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>θ</mi><mo>⋆</mo></msup><mo>=</mo><mi>g</mi><mrow><mo stretchy="true" form="prefix">(</mo><mover><mi>p</mi><mo accent="true">̂</mo></mover><mo stretchy="true" form="postfix">)</mo></mrow><mo>:=</mo><mo>−</mo><mover><mi>p</mi><mo accent="true">̂</mo></mover><mo>−</mo><msqrt><mrow><msup><mover><mi>p</mi><mo accent="true">̂</mo></mover><mn>2</mn></msup><mo>+</mo><mfrac><mi>q</mi><mi>r</mi></mfrac></mrow></msqrt></mrow><annotation encoding="application/x-tex">\theta^\star = g(\hat{p}) := -\hat{p} -\sqrt{\hat{p}^2+\frac{q}{r}}</annotation></semantics></math></p>
-</div>
-</div>
-</div>
-</div>
-<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 3.0%;justify-content: flex-start;">
-<p>&nbsp;</p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 36.4%;justify-content: flex-start;">
-<div class="callout callout-note no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Probabilistic</strong></p>
-</div>
-<div class="callout-content">
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>f</mi><msup><mi>θ</mi><mo>⋆</mo></msup></msub><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>θ</mi><mo>⋆</mo></msup><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mfrac><mn>1</mn><mrow><msub><mi>σ</mi><mi>p</mi></msub><msqrt><mrow><mn>2</mn><mi>π</mi></mrow></msqrt></mrow></mfrac><mrow><mo stretchy="true" form="prefix">(</mo><mspace width="0.222em"></mspace><mfrac><mn>1</mn><mn>2</mn></mfrac><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>+</mo><mfrac><mi>q</mi><mrow><mi>r</mi><msup><msup><mi>θ</mi><mo>⋆</mo></msup><mn>2</mn></msup></mrow></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>exp</mo><mrow><mo stretchy="true" form="prefix">{</mo><mo>−</mo><mfrac><mn>1</mn><mrow><mn>2</mn><msubsup><mi>σ</mi><mi>p</mi><mn>2</mn></msubsup></mrow></mfrac><msup><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mi>q</mi><mrow><mn>2</mn><mi>r</mi><msup><mi>θ</mi><mo>⋆</mo></msup></mrow></mfrac><mo>−</mo><mfrac><msup><mi>θ</mi><mo>⋆</mo></msup><mn>2</mn></mfrac><mo>−</mo><mover><mi>p</mi><mo accent="true">̂</mo></mover><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mo stretchy="true" form="postfix">}</mo></mrow></mtd></mtr></mtable><annotation encoding="application/x-tex">
-\begin{aligned}
-f_{\theta^\star}(\theta^\star) &amp;= \frac{1}{\sigma_p \sqrt{2\pi}}\left( \
-\frac{1}{2}\left(1+\frac{q}{r{\theta^\star}^2}\right) \right) \\
-&amp;\exp{\left\{ -\frac{1}{2\sigma_p^2}\left( \frac{q}{2r\theta^\star} -
-\frac{\theta^\star}{2} - \hat{p}  \right)^2  \right\} }
-\end{aligned}
-</annotation></semantics></math></p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="infinite-horizon-best-performance-1" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Infinite-Horizon Best Performance</h2>
-<!-- ###################################################################### -->
-<div class="fragment quarto-layout-panel" data-layout="[100,-5,60]" data-fragment-index="0" data-id="opt-sol">
-<div class="quarto-layout-row quarto-layout-valign-center">
-<div class="quarto-layout-cell" style="flex-basis: 60.6%;justify-content: flex-start;">
-<div class="callout callout-note no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Deterministic</strong></p>
-</div>
-<div class="callout-content">
-<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>θ</mi><mo>⋆</mo></msup><mo>=</mo><mi>g</mi><mrow><mo stretchy="true" form="prefix">(</mo><mover><mi>p</mi><mo accent="true">̂</mo></mover><mo stretchy="true" form="postfix">)</mo></mrow><mo>:=</mo><mo>−</mo><mover><mi>p</mi><mo accent="true">̂</mo></mover><mo>−</mo><msqrt><mrow><msup><mover><mi>p</mi><mo accent="true">̂</mo></mover><mn>2</mn></msup><mo>+</mo><mfrac><mi>q</mi><mi>r</mi></mfrac></mrow></msqrt></mrow><annotation encoding="application/x-tex">\theta^\star = g(\hat{p}) := -\hat{p} -\sqrt{\hat{p}^2+\frac{q}{r}}</annotation></semantics></math></p>
-</div>
-</div>
-</div>
-</div>
-<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 3.0%;justify-content: flex-start;">
-<p>&nbsp;</p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 36.4%;justify-content: flex-start;">
-<div class="callout callout-note no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Probabilistic</strong></p>
-</div>
-<div class="callout-content">
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>f</mi><msup><mi>θ</mi><mo>⋆</mo></msup></msub><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>θ</mi><mo>⋆</mo></msup><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mfrac><mn>1</mn><mrow><msub><mi>σ</mi><mi>p</mi></msub><msqrt><mrow><mn>2</mn><mi>π</mi></mrow></msqrt></mrow></mfrac><mrow><mo stretchy="true" form="prefix">(</mo><mspace width="0.222em"></mspace><mfrac><mn>1</mn><mn>2</mn></mfrac><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>+</mo><mfrac><mi>q</mi><mrow><mi>r</mi><msup><msup><mi>θ</mi><mo>⋆</mo></msup><mn>2</mn></msup></mrow></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>exp</mo><mrow><mo stretchy="true" form="prefix">{</mo><mo>−</mo><mfrac><mn>1</mn><mrow><mn>2</mn><msubsup><mi>σ</mi><mi>p</mi><mn>2</mn></msubsup></mrow></mfrac><msup><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mi>q</mi><mrow><mn>2</mn><mi>r</mi><msup><mi>θ</mi><mo>⋆</mo></msup></mrow></mfrac><mo>−</mo><mfrac><msup><mi>θ</mi><mo>⋆</mo></msup><mn>2</mn></mfrac><mo>−</mo><mover><mi>p</mi><mo accent="true">̂</mo></mover><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mo stretchy="true" form="postfix">}</mo></mrow></mtd></mtr></mtable><annotation encoding="application/x-tex">
-\begin{aligned}
-f_{\theta^\star}(\theta^\star) &amp;= \frac{1}{\sigma_p \sqrt{2\pi}}\left( \
-\frac{1}{2}\left(1+\frac{q}{r{\theta^\star}^2}\right) \right) \\
-&amp;\exp{\left\{ -\frac{1}{2\sigma_p^2}\left( \frac{q}{2r\theta^\star} -
-\frac{\theta^\star}{2} - \hat{p}  \right)^2  \right\} }
-\end{aligned}
-</annotation></semantics></math></p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="r-stack">
-<p><img data-src="contents/assets/optimal-dist_1.svg" class="fragment" data-fragment-index="1"></p>
-<p><img data-src="contents/assets/optimal-dist_2.svg" class="fragment" data-fragment-index="2"></p>
-<p><img data-src="contents/assets/optimal-dist_3.svg" class="fragment" data-fragment-index="3"></p>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 data-auto-animate="true" id="parameter-uncertainty-and-measurement-noise">Parameter Uncertainty and Measurement Noise</h3>
-<!-- ###################################################################### -->
-<div class="fragment" data-fragment-index="0">
-<p>Same control system with measurement noise: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∼</mo><mi>𝒩</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>,</mo><msup><mi>σ</mi><mn>2</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">x \sim \mathcal{N}(x, \sigma^2)</annotation></semantics></math>.</p>
-</div>
-<div class="fragment" data-id="stoc-system" data-fragment-index="1">
-<div data-layout-valign="center">
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Σ</mi><mo>:</mo><mspace width="1.0em"></mspace><mrow><mo stretchy="true" form="prefix">{</mo><mtable><mtr><mtd columnalign="left" style="text-align: left"><mi>d</mi><mi>x</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>p</mi><mo>+</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>x</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>d</mi><mi>t</mi><mo>+</mo><mi>θ</mi><mi>σ</mi><mi>d</mi><msub><mi>W</mi><mi>t</mi></msub><mo>,</mo></mtd></mtr><mtr><mtd columnalign="left" style="text-align: left"><mi>x</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>1</mn><mi>.</mi></mtd></mtr></mtable></mrow></mrow><annotation encoding="application/x-tex">
-\Sigma: \quad
-\begin{cases}
-  dx(t) &amp;= (p+\theta)x(t) dt + \theta \sigma dW_t, \\
-  x(0) &amp;= 1.
-\end{cases}
-</annotation></semantics></math></p>
-</div>
-<div data-layout-valign="center">
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msup><mi>e</mi><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>p</mi><mo>+</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>t</mi></mrow></msup><mo>+</mo><mi>θ</mi><mi>σ</mi><msubsup><mo>∫</mo><mn>0</mn><mi>t</mi></msubsup><msup><mi>e</mi><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>p</mi><mo>+</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo>−</mo><mi>s</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></msup><mi>d</mi><msub><mi>W</mi><mi>s</mi></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">
-x(t) = e^{(p+\theta)t} + \theta \sigma \int_0^t e^{(p+\theta)(t-s)}dW_s.
-</annotation></semantics></math></p>
-</div>
-</div>
-<div class="fragment" data-fragment-index="2" data-id="lemma">
-<div class="callout callout-tip no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Lemma</strong></p>
-</div>
-<div class="callout-content">
-<p>The conditional expectation <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>𝒥</mi><mo>∣</mo><mi>p</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">\mathbb{E}[\mathcal{J} \mid p]</annotation></semantics></math> of the performance index given the system parameter <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math> is</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>𝒥</mi><mo>∣</mo><mi>p</mi><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mo>−</mo><mfrac><mn>1</mn><mn>4</mn></mfrac><mfrac><mrow><mi>q</mi><mo>+</mo><mi>r</mi><msup><mi>θ</mi><mn>2</mn></msup></mrow><mrow><mi>p</mi><mo>+</mo><mi>θ</mi></mrow></mfrac><mrow><mo stretchy="true" form="prefix">[</mo><msup><mi>θ</mi><mn>2</mn></msup><msup><mi>σ</mi><mn>2</mn></msup><mi>T</mi><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><msup><mi>e</mi><mrow><mn>2</mn><mi>T</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>p</mi><mo>+</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></msup><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>+</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mfrac><mrow><msup><mi>θ</mi><mn>2</mn></msup><msup><mi>σ</mi><mn>2</mn></msup></mrow><mrow><mi>p</mi><mo>+</mo><mi>θ</mi></mrow></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">
-\mathbb{E}[\mathcal{J} \mid p] =
--\frac{1}{4}\frac{q+r\theta^2}{p+\theta}\left[ \theta^2 \sigma^2 T +
-\left(1-e^{2 T (p+\theta)}\right) \left(1+\frac{1}{2}\frac{\theta^2
-\sigma^2}{p+\theta}\right) \right]
-</annotation></semantics></math></p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="conditional-expectation" class="slide level2 smaller" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Conditional Expectation</h2>
-<!-- ###################################################################### -->
-<div class="fragment" data-fragment-index="2" data-id="lemma">
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>𝒥</mi><mo>∣</mo><mi>p</mi><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mo>−</mo><mfrac><mn>1</mn><mn>4</mn></mfrac><mfrac><mrow><mi>q</mi><mo>+</mo><mi>r</mi><msup><mi>θ</mi><mn>2</mn></msup></mrow><mrow><mi>p</mi><mo>+</mo><mi>θ</mi></mrow></mfrac><mrow><mo stretchy="true" form="prefix">[</mo><msup><mi>θ</mi><mn>2</mn></msup><msup><mi>σ</mi><mn>2</mn></msup><mi>T</mi><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><msup><mi>e</mi><mrow><mn>2</mn><mi>T</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>p</mi><mo>+</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></msup><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>+</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mfrac><mrow><msup><mi>θ</mi><mn>2</mn></msup><msup><mi>σ</mi><mn>2</mn></msup></mrow><mrow><mi>p</mi><mo>+</mo><mi>θ</mi></mrow></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">
-\mathbb{E}[\mathcal{J} \mid p] =
--\frac{1}{4}\frac{q+r\theta^2}{p+\theta}\left[ \theta^2 \sigma^2 T +
-\left(1-e^{2 T (p+\theta)}\right) \left(1+\frac{1}{2}\frac{\theta^2
-\sigma^2}{p+\theta}\right) \right]
-</annotation></semantics></math></p>
-</div>
-<div class="fragment" data-fragment-index="3" data-id="proof">
-<div class="callout callout-warning no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Proof</strong></p>
-</div>
-<div class="callout-content">
-<p>Substituting the solution of the SDE into the performance measure yields</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>𝒥</mi><mo>=</mo></mtd><mtd columnalign="left" style="text-align: left"><mo>−</mo><mfrac><mn>1</mn><mn>4</mn></mfrac><mfrac><mrow><mi>q</mi><mo>+</mo><mi>r</mi><msup><mi>θ</mi><mn>2</mn></msup></mrow><mrow><mi>p</mi><mo>+</mo><mi>θ</mi></mrow></mfrac><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>+</mo><msup><mi>e</mi><mrow><mn>2</mn><mi>T</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>p</mi><mo>+</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></msup><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>q</mi><mo>+</mo><mi>r</mi><msup><mi>θ</mi><mn>2</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow><mi>θ</mi><mi>σ</mi><msubsup><mo>∫</mo><mn>0</mn><mi>T</mi></msubsup><msup><mi>e</mi><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>p</mi><mo>+</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>t</mi></mrow></msup><msubsup><mo>∫</mo><mn>0</mn><mi>t</mi></msubsup><msup><mi>e</mi><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>p</mi><mo>+</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo>−</mo><mi>s</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></msup><mi>d</mi><msub><mi>W</mi><mi>s</mi></msub><mi>d</mi><mi>t</mi><mspace width="0.278em"></mspace><mo>+</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mfrac><mn>1</mn><mn>2</mn></mfrac><mrow><mo stretchy="true" form="prefix">(</mo><mi>q</mi><mo>+</mo><mi>r</mi><msup><mi>θ</mi><mn>2</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow><msup><mi>θ</mi><mn>2</mn></msup><msup><mi>σ</mi><mn>2</mn></msup><msubsup><mo>∫</mo><mn>0</mn><mi>T</mi></msubsup><msup><mrow><mo stretchy="true" form="prefix">(</mo><msubsup><mo>∫</mo><mn>0</mn><mi>t</mi></msubsup><msup><mi>e</mi><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>p</mi><mo>+</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo>−</mo><mi>s</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></msup><mi>d</mi><msub><mi>W</mi><mi>s</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mi>d</mi><mi>t</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
-\begin{aligned} \mathcal{J} =
-        &amp; -\frac{1}{4}\frac{q+r\theta^2}{p+\theta}\left(1 +
-        e^{2T(p+\theta)}\right) + 
-        (q+r\theta^2)\theta\sigma \int_0^T
-        e^{(p+\theta)t} \int_0^t e^{(p+\theta)(t-s)}dW_s
-        dt \; + \\ &amp;\frac{1}{2}(q+r\theta^2)\theta^2
-        \sigma^2 \int_0^T \left( \int_0^t
-        e^{(p+\theta)(t-s)} dW_s  \right)^2 dt 
-\end{aligned}
-</annotation></semantics></math></p>
-<p>The conditional expectation of this quantity given the system parameter <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math> under the distribution induced by the Wiener process may be computed in closed-form using Ito calculus.</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>𝔼</mi><mi>W</mi></msub><mrow><mo stretchy="true" form="prefix">[</mo><mi>𝒥</mi><mo>∣</mo><mi>p</mi><mo stretchy="true" form="postfix">]</mo></mrow></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mo>−</mo><mfrac><mn>1</mn><mn>4</mn></mfrac><mfrac><mrow><mi>q</mi><mo>+</mo><mi>r</mi><msup><mi>θ</mi><mn>2</mn></msup></mrow><mrow><mi>p</mi><mo>+</mo><mi>θ</mi></mrow></mfrac><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><msup><mi>e</mi><mrow><mn>2</mn><mi>T</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>p</mi><mo>+</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></msup><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>q</mi><mo>+</mo><mi>r</mi><msup><mi>θ</mi><mn>2</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow><mi>θ</mi><mi>σ</mi><msubsup><mo>∫</mo><mn>0</mn><mi>T</mi></msubsup><msup><mi>e</mi><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>p</mi><mo>+</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>t</mi></mrow></msup><msub><mi>𝔼</mi><mi>W</mi></msub><mrow><mo stretchy="true" form="prefix">[</mo><msubsup><mo>∫</mo><mn>0</mn><mi>t</mi></msubsup><msup><mi>e</mi><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>p</mi><mo>+</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo>−</mo><mi>s</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></msup><mi>d</mi><msub><mi>W</mi><mi>s</mi></msub><mspace width="0.222em"></mspace><mo minsize="1.8" maxsize="1.8" stretchy="false" form="postfix">|</mo><mi>p</mi><mo stretchy="true" form="postfix">]</mo></mrow><mi>d</mi><mi>t</mi><mo>+</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mfrac><mn>1</mn><mn>2</mn></mfrac><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>q</mi><mo>+</mo><mi>r</mi><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><msup><mi>θ</mi><mn>2</mn></msup><msup><mi>σ</mi><mn>2</mn></msup><msubsup><mo>∫</mo><mn>0</mn><mi>T</mi></msubsup><msub><mi>𝔼</mi><mi>W</mi></msub><mrow><mo stretchy="true" form="prefix">[</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><msubsup><mo>∫</mo><mn>0</mn><mi>t</mi></msubsup><msup><mi>e</mi><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>p</mi><mo>+</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo>−</mo><mi>s</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></msup><mi>d</mi><msub><mi>W</mi><mi>s</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mspace width="0.222em"></mspace><mo minsize="2.4" maxsize="2.4" stretchy="false" form="postfix">|</mo><mi>p</mi><mo stretchy="true" form="postfix">]</mo></mrow><mi>d</mi><mi>t</mi></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mo>−</mo><mfrac><mn>1</mn><mn>4</mn></mfrac><mfrac><mrow><mi>q</mi><mo>+</mo><mi>r</mi><msup><mi>θ</mi><mn>2</mn></msup></mrow><mrow><mi>p</mi><mo>+</mo><mi>θ</mi></mrow></mfrac><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><msup><mi>e</mi><mrow><mn>2</mn><mi>T</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>p</mi><mo>+</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></msup><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mrow><mo stretchy="true" form="prefix">(</mo><mi>q</mi><mo>+</mo><mi>r</mi><msup><mi>θ</mi><mn>2</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow><msup><mi>θ</mi><mn>2</mn></msup><msup><mi>σ</mi><mn>2</mn></msup><msubsup><mo>∫</mo><mn>0</mn><mi>T</mi></msubsup><mrow><mo stretchy="true" form="prefix">(</mo><msubsup><mo>∫</mo><mn>0</mn><mi>t</mi></msubsup><msup><mi>e</mi><mrow><mn>2</mn><mrow><mo stretchy="true" form="prefix">(</mo><mi>p</mi><mo>+</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo>−</mo><mi>s</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></msup><mi>d</mi><mi>s</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>d</mi><mi>t</mi></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mo>−</mo><mfrac><mn>1</mn><mn>4</mn></mfrac><mfrac><mrow><mi>q</mi><mo>+</mo><mi>r</mi><msup><mi>θ</mi><mn>2</mn></msup></mrow><mrow><mi>p</mi><mo>+</mo><mi>θ</mi></mrow></mfrac><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><msup><mi>e</mi><mrow><mn>2</mn><mi>T</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>p</mi><mo>+</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></msup><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mrow><mo stretchy="true" form="prefix">(</mo><mi>q</mi><mo>+</mo><mi>r</mi><msup><mi>θ</mi><mn>2</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow><msup><mi>θ</mi><mn>2</mn></msup><msup><mi>σ</mi><mn>2</mn></msup><msubsup><mo>∫</mo><mn>0</mn><mi>T</mi></msubsup><mo>−</mo><mfrac><mn>1</mn><mrow><mn>2</mn><mrow><mo stretchy="true" form="prefix">(</mo><mi>p</mi><mo>+</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></mfrac><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><msup><mi>e</mi><mrow><mn>2</mn><mi>T</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>p</mi><mo>+</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></msup><mo stretchy="true" form="postfix">)</mo></mrow><mi>d</mi><mi>t</mi></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mo>−</mo><mfrac><mn>1</mn><mn>4</mn></mfrac><mfrac><mrow><mi>q</mi><mo>+</mo><mi>r</mi><msup><mi>θ</mi><mn>2</mn></msup></mrow><mrow><mi>p</mi><mo>+</mo><mi>θ</mi></mrow></mfrac><mrow><mo stretchy="true" form="prefix">[</mo><msup><mi>θ</mi><mn>2</mn></msup><msup><mi>σ</mi><mn>2</mn></msup><mi>T</mi><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><msup><mi>e</mi><mrow><mn>2</mn><mi>T</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>p</mi><mo>+</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></msup><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>+</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mfrac><mrow><msup><mi>θ</mi><mn>2</mn></msup><msup><mi>σ</mi><mn>2</mn></msup></mrow><mrow><mi>p</mi><mo>+</mo><mi>θ</mi></mrow></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
-\begin{aligned} 
-\mathbb{E}_W\left[\mathcal{J} \mid p \right] &amp;= -\frac{1}{4}\frac{q+r\theta^2}{p+\theta}\left(1 - e^{2T(p+\theta)}\right) +
-        (q+r\theta^2)\theta\sigma\int_0^Te^{(p+\theta)t}\mathbb{E}_W\left[\int_0^t
-        e^{(p+\theta)(t-s)} dW_s~\Big\rvert p\right] dt + \\
-        &amp;\frac{1}{2}(q+r\theta)^2\theta^2\sigma^2\int_0^T\mathbb{E}_W\left[\left(\int_0^t
-        e^{(p+\theta)(t-s)} dW_s \right)^2~\bigg\rvert p\right] dt \\
-        &amp;=-\frac{1}{4}\frac{q+r\theta^2}{p+\theta}\left(1 -
-        e^{2T(p+\theta)}\right) + 
-        \frac{1}{2}(q+r\theta^2)\theta^2\sigma^2\int_0^T\left(\int_0^t
-        e^{2(p+\theta)(t-s)} ds \right) dt \\ 
-        &amp;=-\frac{1}{4}\frac{q+r\theta^2}{p+\theta}\left(1 - e^{2T(p+\theta)}\right) + 
-        \frac{1}{2}(q+r\theta^2)\theta^2\sigma^2\int_0^T
-        -\frac{1}{2(p+\theta)}\left(1 - e^{2T(p+\theta)}\right) dt \\ 
-        &amp;=-\frac{1}{4}\frac{q+r\theta^2}{p+\theta} \left[ \theta^2 \sigma^2 T +
-        \left(1 - e^{2T(p+\theta)}\right) \left(1 +
-        \frac{1}{2}\frac{\theta^2\sigma^2}{p+\theta}\right)\right]. 
-\end{aligned}
-</annotation></semantics></math></p>
-<div style="text-align: right">
-<span class="emoji" data-emoji="orange_square">🟧</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="optimal-controller" class="slide level2" data-auto-animate="true" data-auto-animate-easing="ease-in-out">
-<h2 data-id="quarto-animate-title">Optimal Controller</h2>
-<!-- ###################################################################### -->
-<div class="r-stack" data-layout-valign="center">
-<p><img data-src="contents/assets/optimal_ctrl.svg" class="fragment" style="width:80.0%" data-fragment-index="0" data-id="opt-ctrl"></p>
-<div class="fragment" style="vertical-align: bottom" data-fragment-index="0">
-Optimal controller <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">|</mo><msup><mi>θ</mi><mo>⋆</mo></msup><mo stretchy="true" form="postfix">|</mo></mrow><annotation encoding="application/x-tex">|\theta^\star|</annotation></semantics></math> minimizing <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mi>𝒥</mi></mrow><annotation encoding="application/x-tex">\mathbb{E}\mathcal{J}</annotation></semantics></math>
-</div>
-<p><img data-src="contents/assets/optimal_cost.svg" class="fragment" style="width:80.0%" data-fragment-index="1" data-id="opt-cost"></p>
-<div class="fragment" style="vertical-align: bottom" data-fragment-index="1">
-Minimal expected cost <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mi>𝒥</mi></mrow><annotation encoding="application/x-tex">\mathbb{E}\mathcal{J}</annotation></semantics></math>
-</div>
-</div>
-</section>
-<section id="optimal-controller-1" class="slide level2" data-auto-animate="true" data-auto-animate-easing="ease-in-out">
-<h2 data-id="quarto-animate-title">Optimal Controller</h2>
-<!-- ###################################################################### -->
-<div class="r-hstack">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="contents/assets/optimal_ctrl.svg" class="fragment" data-fragment-index="0" data-id="opt-ctrl"></p>
-<figcaption>Optimal controller <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">|</mo><msup><mi>θ</mi><mo>⋆</mo></msup><mo stretchy="true" form="postfix">|</mo></mrow><annotation encoding="application/x-tex">|\theta^\star|</annotation></semantics></math> minimizing <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mi>𝒥</mi></mrow><annotation encoding="application/x-tex">\mathbb{E}\mathcal{J}</annotation></semantics></math></figcaption>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="contents/assets/optimal_cost.svg" class="fragment" data-fragment-index="0" data-id="opt-cost"></p>
-<figcaption>Minimal expected cost <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mi>𝒥</mi></mrow><annotation encoding="application/x-tex">\mathbb{E}\mathcal{J}</annotation></semantics></math></figcaption>
-</figure>
-</div>
-</div>
-<div class="fragment" data-fragment-index="1">
-<ul>
-<li class="fragment">Optimal control parameter a nontrivial function of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>σ</mi><annotation encoding="application/x-tex">\sigma</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>σ</mi><mi>p</mi></msub><annotation encoding="application/x-tex">\sigma_p</annotation></semantics></math>.</li>
-<li class="fragment">Bayesian learning strikes the right trade-off.</li>
-</ul>
-</div>
+<!-- {{< include contents/_justification.qmd >}} -->
 <!-- {{< include contents/_neuralpbc.qmd >}} -->
 <!-- {{< include contents/_background_idapbc.qmd >}} -->
 <!-- {{< include contents/_neuralidapbc.qmd >}} -->
@@ -1528,7 +1220,7 @@ Minimal expected cost <math display="inline" xmlns="http://www.w3.org/1998/Math/
 <p><br></p>
 <div>
 <ul>
-<li class="fragment"><span class="smallcaps">NeuralPbc</span> assumes a nominal model <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>x</mi><mo accent="true">̇</mo></mover><mo>=</mo><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>u</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\dot{x} = f(x, u)</annotation></semantics></math></li>
+<li class="fragment"><span class="smallcaps">NeuralPbc</span> assumes a nominal model <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>x</mi><mo accent="true">̇</mo></mover><mo>=</mo><msub><mi>f</mi><mi>p</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>u</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\dot{x} = f_p(x, u)</annotation></semantics></math></li>
 <li class="fragment">The trained controller must not overfit on the observations generated from the nominal model</li>
 </ul>
 </div>
@@ -1739,7 +1431,7 @@ Minimal expected cost <math display="inline" xmlns="http://www.w3.org/1998/Math/
 <section id="neuralpbc-hybrid-system" class="slide level2">
 <h2><span class="smallcaps">NeuralPbc</span>: Hybrid System</h2>
 <p><br></p>
-<div class="fragment quarto-layout-panel" data-layout="[50,-5,50]" data-fragment-index="0">
+<div class="fragment quarto-layout-panel" data-fragment-index="0" data-layout="[50,-5,50]">
 <div class="quarto-layout-row quarto-layout-valign-center">
 <div class="quarto-layout-cell" style="flex-basis: 47.6%;justify-content: flex-start;">
 <div class="callout callout-note no-icon callout-titled callout-style-default">

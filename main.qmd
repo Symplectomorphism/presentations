@@ -41,7 +41,7 @@ revealjs-plugins:
 
 {{< include contents/_background_pbc.qmd >}}
 
-{{< include contents/_justification.qmd >}}
+<!-- {{< include contents/_justification.qmd >}} -->
 
 <!-- {{< include contents/_neuralpbc.qmd >}} -->
 

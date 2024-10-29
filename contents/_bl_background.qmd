@@ -40,7 +40,7 @@
 <br/>
 
 :::{.incremental}
-* <span style="font-variant:small-caps;">NeuralPbc</span> assumes a nominal model $\dot{x} = f(x, u)$
+* <span style="font-variant:small-caps;">NeuralPbc</span> assumes a nominal model $\dot{x} = f_p(x, u)$
 * The trained controller must not overfit on the observations generated from the nominal model
 
 :::

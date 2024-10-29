@@ -56,8 +56,12 @@ background-video-loop="true"}
 <br/>
 <br/>
 
-* We provide a data-driven control design that *automatically* learns several policies and the necessary switching scheme.
+* We provide a data-driven control design that *automatically* learns several policies and the necessary switching scheme. 
 
-* The framework leverages the switching controllers to stabilize the multi-modal dynamical system.
+<br>
 
-* The gating network successsfully parameterizes the control-switching conditionals that achieves the desired performance.
+* The framework leverages the switching controllers to stabilize the multi-modal dynamical system. 
+
+<br>
+
+* The gating network parameterizes the switching surfaces to achieves good performance.

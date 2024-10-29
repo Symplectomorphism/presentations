@@ -33,7 +33,7 @@
 ::: {.incremental}
 * Training procedure:
   + Start from initial parameters $(\psi, \theta)$
-  + Sample initial state $x_0$
+  + Sample initial state $x_0$ (more on this later)
   + Generate trajectories $\phi(x_0, u, T)$ using current parameters
   \begin{gather*}
     i  \sim \text{Categorical} (\mathbf{P}(x| \psi)) \\
@@ -41,7 +41,7 @@
     M(q) \dd \dot{q} + h(x; \psi, \theta) \dd t - \dd R  = 0 \text{ (Moreau's time stepping)}
   \end{gather*}
   + Assign a running cost $\ell$ to the trajectories based on performance
-  + Update parameters $(\psi, \theta)$ to minimize running cost
+  + Update parameters $(\psi, \theta)$ to minimize the cost-to-go
 :::
 
 ## Performance Objective

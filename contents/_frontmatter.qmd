@@ -13,11 +13,14 @@ institute: "Boise State University"
 
 <br/>
 
-::: {layout="[120, 60]"}
+::: {layout="[80, 60, 60]"}
 __Presenter__: Aykut Satici, Ph.D. <br>
 Associate Professor <br>
-Mechanical and Biomedical Engineering <br>
-Boise State University, Boise, Idaho, USA 
+Mechanical and Biomedical Eng. <br>
+Boise, Idaho, USA 
+
+
+![](./contents/assets/bsu_logo2.jpg){width="200" height="120" fig-align="center"}
 
 __Graduate Students__: <br/>
 Wankun Sirichotiyakul :mortar_board: <br/>

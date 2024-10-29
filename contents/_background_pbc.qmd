@@ -41,7 +41,7 @@ $$
 
 - No generation of energy, only internal dissipation.
 
-- With $s(t) \equiv 0$, trajectories tend towards minimum of $\mathcal{H}$.
+<!-- - With $s(t) \equiv 0$, trajectories tend towards minimum of $\mathcal{H}$. -->
 
 :::
 
