@@ -245,6 +245,62 @@
     "text": "Acknowledgments"
   },
   {
+    "objectID": "main.html#theoretical-justification",
+    "href": "main.html#theoretical-justification",
+    "title": "main",
+    "section": "Theoretical Justification",
+    "text": "Theoretical Justification\nWhy does Bayesian Learning result in more robust controllers?"
+  },
+  {
+    "objectID": "main.html#system-parameter-uncertainty",
+    "href": "main.html#system-parameter-uncertainty",
+    "title": "main",
+    "section": "System Parameter Uncertainty",
+    "text": "System Parameter Uncertainty\n\n\n\nScalar control system\nUncertain drift vector field: p∼𝒩(p̂,σp2)p \\sim\n\\mathcal{N}(\\hat{p}, \\sigma_p^2).\nNo measurement uncertainty\n\n\n\n\n\n\nΣ:{ẋ=px+u,u(x)=θx,x(0)=1.\n\\Sigma: \\quad\n\\begin{cases}\n  \\dot{x} &= px + u, \\\\\n  u(x) &= \\theta x, \\\\\n  x(0) &= 1.\n\\end{cases}\n x(t)=e(p+θ)t.\n  x(t) = e^{(p+\\theta)t}."
+  },
+  {
+    "objectID": "main.html#performance-index",
+    "href": "main.html#performance-index",
+    "title": "main",
+    "section": "Performance Index",
+    "text": "Performance Index\n\n\n\n\n\nΣ:{ẋ=px+u,u(x)=θx,x(0)=1.\n\\Sigma: \\quad\n\\begin{cases}\n  \\dot{x} &= px + u, \\\\\n  u(x) &= \\theta x, \\\\\n  x(0) &= 1.\n\\end{cases}\n x(t)=e(p+θ)t.\n  x(t) = e^{(p+\\theta)t}.\n\n\n\n \n\n\n\n\n\nQuadratic performance index\n\nq≥0q \\geq 0, r&gt;0r &gt; 0\n\nTT: control horizon\n\n\n\n𝒥=∫0T(12qx(t)2+12ru(t)2)dt.\n\\mathcal{J} = \\int_0^T \\left( \\frac{1}{2}qx(t)^2 + \\frac{1}{2}ru(t)^2  \\right)dt."
+  },
+  {
+    "objectID": "main.html#infinite-horizon-best-performance",
+    "href": "main.html#infinite-horizon-best-performance",
+    "title": "main",
+    "section": "Infinite-Horizon Best Performance",
+    "text": "Infinite-Horizon Best Performance\n\n\n\n\n𝒥=∫0T(12qx(t)2+12ru(t)2)dt.\n\\mathcal{J} = \\int_0^T \\left( \\frac{1}{2}qx(t)^2 + \\frac{1}{2}ru(t)^2  \\right)dt.\n 𝒥T→∞=−14q+rθ2p+θ.\n\\mathcal{J}_{T \\to \\infty} = -\\frac{1}{4}\\frac{q+r \\theta^2}{p+\\theta}.\n\n\n\n \n\n\n\n\nSolve for θ\\theta that minimizes 𝒥∞\\mathcal{J}_\\infty: θ⋆=g(p):=−p−p2+qr\\theta^\\star = g(p) :=\n-p -\\sqrt{p^2+\\frac{q}{r}}.\n\n\n\n\n\n\n\nDeterministic\n\n\nθ⋆=g(p̂):=−p̂−p̂2+qr\\theta^\\star = g(\\hat{p}) := -\\hat{p} -\\sqrt{\\hat{p}^2+\\frac{q}{r}}\n\n\n\n\n\n \n\n\n\n\n\nProbabilistic\n\n\nfθ⋆(θ⋆)=1σp2π(12(1+qrθ⋆2))exp{−12σp2(q2rθ⋆−θ⋆2−p̂)2}\n\\begin{aligned}\nf_{\\theta^\\star}(\\theta^\\star) &= \\frac{1}{\\sigma_p \\sqrt{2\\pi}}\\left( \\\n\\frac{1}{2}\\left(1+\\frac{q}{r{\\theta^\\star}^2}\\right) \\right) \\\\\n&\\exp{\\left\\{ -\\frac{1}{2\\sigma_p^2}\\left( \\frac{q}{2r\\theta^\\star} -\n\\frac{\\theta^\\star}{2} - \\hat{p}  \\right)^2  \\right\\} }\n\\end{aligned}"
+  },
+  {
+    "objectID": "main.html#infinite-horizon-best-performance-1",
+    "href": "main.html#infinite-horizon-best-performance-1",
+    "title": "main",
+    "section": "Infinite-Horizon Best Performance",
+    "text": "Infinite-Horizon Best Performance\n\n\n\n\n\n\n\nDeterministic\n\n\nθ⋆=g(p̂):=−p̂−p̂2+qr\\theta^\\star = g(\\hat{p}) := -\\hat{p} -\\sqrt{\\hat{p}^2+\\frac{q}{r}}\n\n\n\n\n\n \n\n\n\n\n\nProbabilistic\n\n\nfθ⋆(θ⋆)=1σp2π(12(1+qrθ⋆2))exp{−12σp2(q2rθ⋆−θ⋆2−p̂)2}\n\\begin{aligned}\nf_{\\theta^\\star}(\\theta^\\star) &= \\frac{1}{\\sigma_p \\sqrt{2\\pi}}\\left( \\\n\\frac{1}{2}\\left(1+\\frac{q}{r{\\theta^\\star}^2}\\right) \\right) \\\\\n&\\exp{\\left\\{ -\\frac{1}{2\\sigma_p^2}\\left( \\frac{q}{2r\\theta^\\star} -\n\\frac{\\theta^\\star}{2} - \\hat{p}  \\right)^2  \\right\\} }\n\\end{aligned}"
+  },
+  {
+    "objectID": "main.html#conditional-expectation",
+    "href": "main.html#conditional-expectation",
+    "title": "main",
+    "section": "Conditional Expectation",
+    "text": "Conditional Expectation\n\n\n𝔼[𝒥∣p]=−14q+rθ2p+θ[θ2σ2T+(1−e2T(p+θ))(1+12θ2σ2p+θ)]\n\\mathbb{E}[\\mathcal{J} \\mid p] =\n-\\frac{1}{4}\\frac{q+r\\theta^2}{p+\\theta}\\left[ \\theta^2 \\sigma^2 T +\n\\left(1-e^{2 T (p+\\theta)}\\right) \\left(1+\\frac{1}{2}\\frac{\\theta^2\n\\sigma^2}{p+\\theta}\\right) \\right]\n\n\n\n\n\n\nProof\n\n\nSubstituting the solution of the SDE into the performance measure yields\n𝒥=−14q+rθ2p+θ(1+e2T(p+θ))+(q+rθ2)θσ∫0Te(p+θ)t∫0te(p+θ)(t−s)dWsdt+12(q+rθ2)θ2σ2∫0T(∫0te(p+θ)(t−s)dWs)2dt\n\\begin{aligned} \\mathcal{J} =\n        & -\\frac{1}{4}\\frac{q+r\\theta^2}{p+\\theta}\\left(1 +\n        e^{2T(p+\\theta)}\\right) + \n        (q+r\\theta^2)\\theta\\sigma \\int_0^T\n        e^{(p+\\theta)t} \\int_0^t e^{(p+\\theta)(t-s)}dW_s\n        dt \\; + \\\\ &\\frac{1}{2}(q+r\\theta^2)\\theta^2\n        \\sigma^2 \\int_0^T \\left( \\int_0^t\n        e^{(p+\\theta)(t-s)} dW_s  \\right)^2 dt \n\\end{aligned}\n\nThe conditional expectation of this quantity given the system parameter pp under the distribution induced by the Wiener process may be computed in closed-form using Ito calculus.\n𝔼W[𝒥∣p]=−14q+rθ2p+θ(1−e2T(p+θ))+(q+rθ2)θσ∫0Te(p+θ)t𝔼W[∫0te(p+θ)(t−s)dWs|p]dt+12(q+rθ)2θ2σ2∫0T𝔼W[(∫0te(p+θ)(t−s)dWs)2|p]dt=−14q+rθ2p+θ(1−e2T(p+θ))+12(q+rθ2)θ2σ2∫0T(∫0te2(p+θ)(t−s)ds)dt=−14q+rθ2p+θ(1−e2T(p+θ))+12(q+rθ2)θ2σ2∫0T−12(p+θ)(1−e2T(p+θ))dt=−14q+rθ2p+θ[θ2σ2T+(1−e2T(p+θ))(1+12θ2σ2p+θ)].\n\\begin{aligned} \n\\mathbb{E}_W\\left[\\mathcal{J} \\mid p \\right] &= -\\frac{1}{4}\\frac{q+r\\theta^2}{p+\\theta}\\left(1 - e^{2T(p+\\theta)}\\right) +\n        (q+r\\theta^2)\\theta\\sigma\\int_0^Te^{(p+\\theta)t}\\mathbb{E}_W\\left[\\int_0^t\n        e^{(p+\\theta)(t-s)} dW_s~\\Big\\rvert p\\right] dt + \\\\\n        &\\frac{1}{2}(q+r\\theta)^2\\theta^2\\sigma^2\\int_0^T\\mathbb{E}_W\\left[\\left(\\int_0^t\n        e^{(p+\\theta)(t-s)} dW_s \\right)^2~\\bigg\\rvert p\\right] dt \\\\\n        &=-\\frac{1}{4}\\frac{q+r\\theta^2}{p+\\theta}\\left(1 -\n        e^{2T(p+\\theta)}\\right) + \n        \\frac{1}{2}(q+r\\theta^2)\\theta^2\\sigma^2\\int_0^T\\left(\\int_0^t\n        e^{2(p+\\theta)(t-s)} ds \\right) dt \\\\ \n        &=-\\frac{1}{4}\\frac{q+r\\theta^2}{p+\\theta}\\left(1 - e^{2T(p+\\theta)}\\right) + \n        \\frac{1}{2}(q+r\\theta^2)\\theta^2\\sigma^2\\int_0^T\n        -\\frac{1}{2(p+\\theta)}\\left(1 - e^{2T(p+\\theta)}\\right) dt \\\\ \n        &=-\\frac{1}{4}\\frac{q+r\\theta^2}{p+\\theta} \\left[ \\theta^2 \\sigma^2 T +\n        \\left(1 - e^{2T(p+\\theta)}\\right) \\left(1 +\n        \\frac{1}{2}\\frac{\\theta^2\\sigma^2}{p+\\theta}\\right)\\right]. \n\\end{aligned}\n\n\n🟧"
+  },
+  {
+    "objectID": "main.html#optimal-controller",
+    "href": "main.html#optimal-controller",
+    "title": "main",
+    "section": "Optimal Controller",
+    "text": "Optimal Controller\n\n\n\n\nOptimal controller |θ⋆||\\theta^\\star| minimizing 𝔼𝒥\\mathbb{E}\\mathcal{J}\n\n\n\nMinimal expected cost 𝔼𝒥\\mathbb{E}\\mathcal{J}"
+  },
+  {
+    "objectID": "main.html#optimal-controller-1",
+    "href": "main.html#optimal-controller-1",
+    "title": "main",
+    "section": "Optimal Controller",
+    "text": "Optimal Controller\n\n\n\n\n\nOptimal controller |θ⋆||\\theta^\\star| minimizing 𝔼𝒥\\mathbb{E}\\mathcal{J}\n\n\n\n\n\nMinimal expected cost 𝔼𝒥\\mathbb{E}\\mathcal{J}\n\n\n\n\n\nOptimal control parameter a nontrivial function of σ\\sigma and σp\\sigma_p.\nBayesian learning strikes the right trade-off."
+  },
+  {
     "objectID": "main.html#neuralpbc-publications",
     "href": "main.html#neuralpbc-publications",
     "title": "main",
