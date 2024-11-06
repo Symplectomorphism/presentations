@@ -94,7 +94,7 @@ aspect-ratio=5x3 width="450" autoplay="true" loop="true" >}}
 
 ::: {.column width="50%" style='display: flex; justify-content: center; align-items: center;'}
 {{< video ./contents/assets/soft_juggler_sped_x3.mp4
-aspect-ratio=4x4 width="450" autoplay="true" loop="true" >}}
+aspect-ratio=4x4 width="450" autoplay="true" loop="true" muted="true" >}}
 :::
 
 ::: {.column width="50%" style='display: flex; justify-content: center; align-items: center;'}
@@ -106,4 +106,25 @@ aspect-ratio=4x4 width="450" autoplay="true" loop="true" >}}
 
 
 
-## Boise State University: Robust Data-Driven Control of Robots
+## <span style="font-size: 89%"> Boise State University: Robust Data-Driven Control of Robotic Contact</span>
+
+:::: {.columns}
+
+::: {.column width="50%"}
+<!-- ![](./contents/assets/rw_even.mp4){width="55%" autoplay="true" loop="true"}
+
+![](./contents/assets/rw_uneven.mp4){width="85%" autoplay="true" loop="true"} -->
+
+![](./contents/assets/iwp-cut-firefox.mp4){width="85%" autoplay="true" loop="true" muted="true"}
+
+![](./contents/assets/rimless_wheel.webp){width="85%"}
+:::
+
+::: {.column width="50%"}
+![](./contents/assets/astria_encoded_trimmed.mp4){width="85%" autoplay="true" loop="true" muted="true"}
+
+![](contents/assets/acknowledgment3.JPG){width="85%"}
+:::
+
+
+::::
