@@ -11,3 +11,11 @@
 .test h3 {
     text-align: center;
 }
+
+/* file: style.css */
+.v-center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90%;
+  }

@@ -1,24 +1,7 @@
-# Who am I? {visibility="uncounted"}
+# Aykut Satici: Brief Academic History {visibility="uncounted"}
 <!-- ###################################################################### -->
 
-## Sabanci University: Mechatronics Engineering BSc. and MSc.
-
-:::: {.columns}
-
-::: {.column width="50%"}
-:::
-
-::: {.column width="50%"}
-:::
-
-::::
-
-::: {.fragment fragment-index=0}
-![](./contents/assets/sabanci_sub_pride.png){width=70% fig-align="center"}
-:::
-
-
-## University of Texas at Dallas {auto-animate=true}
+## Sabanci University: Rehabilitation Robotics 
 
 :::: {.columns}
 
@@ -26,12 +9,38 @@
 
 ::: {.fragment .fade-in fragment-index=0}
 <center>
-<img src="./contents/assets/spong-lab-650-2013-08.jpg" width="75%" /img>
+<img src="./contents/assets/sabanci_team_far_cropped.jpg" width="100%" /img>
 </center>
 
-::: {.callout-note icon=false appearance="minimal"}
-## UT Dallas
+![](./contents/assets/wrist_rehabilitation.png){width=70%}
 :::
+:::
+
+::: {.column width="50%"}
+
+::: {.fragment .fade-in fragment-index=0}
+![](./contents/assets/sabanci_sub_pride.png){width=100% fig-align="center"}
+
+<center>
+<img src="./contents/assets/ankle_rehabilitation.png" width="55%" /img>
+</center>
+:::
+:::
+
+::::
+
+
+## UT Dallas: Multi-Robot Cooperation and Geometric Control {auto-animate=true}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+::: {.fragment .fade-in fragment-index=0}
+<img src="./contents/assets/spong-lab-650-2013-08.jpg" width="65%" /img>
+
+{{< video ./contents/assets/quadrotor_lissajous_clipped.mp4
+aspect-ratio=4x3 width="400" autoplay="true" loop="true" >}}
 
 :::
 
@@ -40,19 +49,61 @@
 ::: {.column width="50%"}
 
 ::: {.fragment .fade-in fragment-index=0}
-{{< video https://youtu.be/6mRcgwKy-Ko?si=fg-x5hUMeS-hlvZI 
+{{< video ./contents/assets/swarming_connectivity_clipped.mp4
     aspect-ratio=4x3 width="400" autoplay="true" loop="true" >}}
+
+![](./contents/assets/utd_atec.jpg){width="90%"}
 :::
 :::
 
 ::::
 
 
+## University of Naples Federico II: PB and Geometric Control {auto-animate=true}
 
+:::: {.columns}
 
-
-## University of Texas at Dallas {auto-animate=true}
+::: {.column width="50%"}
 
 ::: {.fragment .fade-in fragment-index=0}
-![UT Dallas: LARS](./contents/assets/spong-lab-650-2013-08.jpg)
+![](./contents/assets/PRISMA_Team_s.gif){width="90%"}
+
+{{< video ./contents/assets/pizza_tossing_clipped.mp4
+aspect-ratio=5x3 width="450" autoplay="true" loop="true" >}}
+
 :::
+
+:::
+
+::: {.column width="50%"}
+
+::: {.fragment .fade-in fragment-index=0}
+
+![](./contents/assets/rodyman_real.jpg){width="80%"}
+:::
+:::
+
+
+
+::::
+
+
+## Massachusetts Institute of Technology: Soft Robotics {auto-animate=true}
+
+:::: {.columns style='display: flex !important; height: 90%;'}
+
+::: {.column width="50%" style='display: flex; justify-content: center; align-items: center;'}
+{{< video ./contents/assets/soft_juggler_sped_x3.mp4
+aspect-ratio=4x4 width="450" autoplay="true" loop="true" >}}
+:::
+
+::: {.column width="50%" style='display: flex; justify-content: center; align-items: center;'}
+![](./contents/assets/satici_atlas_kaveh.jpg){width="100%"}
+:::
+
+
+::::
+
+
+
+## Boise State University: Robust Data-Driven Control of Robots
