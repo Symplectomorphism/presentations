@@ -27,7 +27,10 @@ revealjs-plugins:
   - pointer  
 ---
 
+
 {{< include contents/_frontmatter.qmd >}}
+
+{{< include ./contents/_whoami.qmd >}}
 
 <!-- {{< include contents/_reminiscence.qmd >}} -->
 

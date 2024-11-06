@@ -1,0 +1,58 @@
+# Who am I? {visibility="uncounted"}
+<!-- ###################################################################### -->
+
+## Sabanci University: Mechatronics Engineering BSc. and MSc.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+:::
+
+::: {.column width="50%"}
+:::
+
+::::
+
+::: {.fragment fragment-index=0}
+![](./contents/assets/sabanci_sub_pride.png){width=70% fig-align="center"}
+:::
+
+
+## University of Texas at Dallas {auto-animate=true}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+::: {.fragment .fade-in fragment-index=0}
+<center>
+<img src="./contents/assets/spong-lab-650-2013-08.jpg" width="75%" /img>
+</center>
+
+::: {.callout-note icon=false appearance="minimal"}
+## UT Dallas
+:::
+
+:::
+
+:::
+
+::: {.column width="50%"}
+
+::: {.fragment .fade-in fragment-index=0}
+{{< video https://youtu.be/6mRcgwKy-Ko?si=fg-x5hUMeS-hlvZI 
+    aspect-ratio=4x3 width="400" autoplay="true" loop="true" >}}
+:::
+:::
+
+::::
+
+
+
+
+
+## University of Texas at Dallas {auto-animate=true}
+
+::: {.fragment .fade-in fragment-index=0}
+![UT Dallas: LARS](./contents/assets/spong-lab-650-2013-08.jpg)
+:::
