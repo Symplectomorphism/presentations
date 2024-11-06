@@ -14,7 +14,7 @@ format:
     chalkboard: 
       buttons: false
     preview-links: auto
-    theme: [white, custom.scss]
+    theme: [simple, custom.scss]
     standalone: false
     self-contained: false
     # embed-resources: true

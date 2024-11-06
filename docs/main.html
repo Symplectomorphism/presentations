@@ -332,25 +332,34 @@
     <div class="slides">
 
 
-<section id="data-driven-passivity-based-control-of-robotic-locomotion-and-manipulation" class="slide level2 center smaller">
-<h2>Data-Driven Passivity-Based Control of Robotic Locomotion and Manipulation</h2>
+<section id="data-driven-robust-control-of-contact-rich-robotic-tasks" class="slide level2 center smaller">
+<h2>Data-Driven Robust Control of Contact-Rich Robotic Tasks</h2>
 <!-- ###################################################################### -->
 <hr>
-<p><em>Sabanci University Seminar</em></p>
-<p><br></p>
-<div class="quarto-layout-panel" data-layout="[80, 60, 60]">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 40.0%;justify-content: flex-start;">
-<p><strong>Presenter</strong>: Aykut Satici, Ph.D.&nbsp;<br> Associate Professor <br> Mechanical and Biomedical Eng. <br> Boise, Idaho, USA</p>
+<div class="r-stack" style="font-size: 30px">
+<p><br> <span style="font-weight: bold;">UT Dallas Seminar</span></p>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 30.0%;justify-content: center;">
+<div class="center">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="./contents/assets/bsu_logo2.jpg" class="quarto-figure quarto-figure-center" width="200" height="120"></p>
+<p><img data-src="./contents/assets/UT_Dallas_2_Color_Emblem.svg" class="quarto-figure quarto-figure-center" style="width:12.0%"></p>
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 30.0%;justify-content: flex-start;">
+<p><br></p>
+<div class="quarto-layout-panel" data-layout="[50, 50, 50]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<p><strong>Presenter</strong>: <br> Aykut Satici, Ph.D.&nbsp;<br> Associate Professor <br> Director, Robot Control Lab <br> Mechanical and Biomed. Eng. <br> Boise, Idaho, USA</p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="./contents/assets/boisestate-stackedlogo-2color-rgb_v2.png" class="quarto-figure quarto-figure-center" style="width:40.0%"></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
 <p><strong>Graduate Students</strong>: <br> Wankun Sirichotiyakul <span class="emoji" data-emoji="mortar_board">🎓</span> <br> Nardos Ayele Ashenafi <span class="emoji" data-emoji="mortar_board">🎓</span> <br> Chandika Silva <span class="emoji" data-emoji="mortar_board">🎓</span> <br> Chris Dagher <span class="emoji" data-emoji="mortar_board">🎓</span> <br></p>
 </div>
 </div>
@@ -1738,7 +1747,7 @@ Figure&nbsp;1: NSF Award #2330794
 <section id="infinite-horizon-best-performance" class="slide level2" data-auto-animate="true" data-visibility="uncounted">
 <h2 data-id="quarto-animate-title">Infinite-Horizon Best Performance</h2>
 <!-- ###################################################################### -->
-<div class="fragment quarto-layout-panel" data-layout="[100,-5,60]" data-id="perf" data-fragment-index="0">
+<div class="fragment quarto-layout-panel" data-layout="[100,-5,60]" data-fragment-index="0" data-id="perf">
 <div class="quarto-layout-row quarto-layout-valign-center">
 <div class="quarto-layout-cell" style="flex-basis: 60.6%;justify-content: flex-start;">
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝒥</mi><mo>=</mo><msubsup><mo>∫</mo><mn>0</mn><mi>T</mi></msubsup><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>q</mi><mi>x</mi><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mo>+</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>r</mi><mi>u</mi><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow><mi>d</mi><mi>t</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
@@ -1756,7 +1765,7 @@ Figure&nbsp;1: NSF Award #2330794
 <p>Solve for <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>θ</mi><annotation encoding="application/x-tex">\theta</annotation></semantics></math> that minimizes <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>𝒥</mi><mi>∞</mi></msub><annotation encoding="application/x-tex">\mathcal{J}_\infty</annotation></semantics></math>: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>θ</mi><mo>⋆</mo></msup><mo>=</mo><mi>g</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>p</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>:=</mo><mo>−</mo><mi>p</mi><mo>−</mo><msqrt><mrow><msup><mi>p</mi><mn>2</mn></msup><mo>+</mo><mfrac><mi>q</mi><mi>r</mi></mfrac></mrow></msqrt></mrow><annotation encoding="application/x-tex">\theta^\star = g(p) :=
 -p -\sqrt{p^2+\frac{q}{r}}</annotation></semantics></math>.</p>
 </div>
-<div class="fragment quarto-layout-panel" data-layout="[100,-5,60]" data-id="opt-sol" data-fragment-index="2">
+<div class="fragment quarto-layout-panel" data-layout="[100,-5,60]" data-fragment-index="2" data-id="opt-sol">
 <div class="quarto-layout-row quarto-layout-valign-center">
 <div class="quarto-layout-cell" style="flex-basis: 60.6%;justify-content: flex-start;">
 <div class="callout callout-note no-icon callout-titled callout-style-default">
@@ -1798,7 +1807,7 @@ f_{\theta^\star}(\theta^\star) &amp;= \frac{1}{\sigma_p \sqrt{2\pi}}\left( \
 <section id="infinite-horizon-best-performance-1" class="slide level2" data-auto-animate="true" data-visibility="uncounted">
 <h2 data-id="quarto-animate-title">Infinite-Horizon Best Performance</h2>
 <!-- ###################################################################### -->
-<div class="fragment quarto-layout-panel" data-layout="[100,-5,60]" data-id="opt-sol" data-fragment-index="0">
+<div class="fragment quarto-layout-panel" data-layout="[100,-5,60]" data-fragment-index="0" data-id="opt-sol">
 <div class="quarto-layout-row quarto-layout-valign-center">
 <div class="quarto-layout-cell" style="flex-basis: 60.6%;justify-content: flex-start;">
 <div class="callout callout-note no-icon callout-titled callout-style-default">

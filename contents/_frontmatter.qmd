@@ -4,23 +4,33 @@ author-meta: "Aykut C. Satici"
 institute: "Boise State University"
 ---
 
-## Data-Driven Passivity-Based Control of Robotic Locomotion and Manipulation {.center .smaller}
+## Data-Driven Robust Control of Contact-Rich Robotic Tasks {.center .smaller}
 <!-- ###################################################################### -->
 
 <hr>
 
-*Sabanci University Seminar*
+::: {.r-stack style="font-size: 30px"}
+<br>
+<span style="font-weight: bold;">UT Dallas Seminar</span>
+:::
+
+::: {.center}
+![](./contents/assets/UT_Dallas_2_Color_Emblem.svg){width="12%" fig-align="center"}
+:::
+
 
 <br/>
 
-::: {layout="[80, 60, 60]"}
-__Presenter__: Aykut Satici, Ph.D. <br>
+::: {layout="[50, 50, 50]"}
+__Presenter__: <br>
+Aykut Satici, Ph.D. <br>
 Associate Professor <br>
-Mechanical and Biomedical Eng. <br>
+Director, Robot Control Lab <br>
+Mechanical and Biomed. Eng. <br>
 Boise, Idaho, USA 
 
 
-![](./contents/assets/bsu_logo2.jpg){width="200" height="120" fig-align="center"}
+![](./contents/assets/boisestate-stackedlogo-2color-rgb_v2.png){width="40%" fig-align="center"}
 
 __Graduate Students__: <br/>
 Wankun Sirichotiyakul :mortar_board: <br/>
