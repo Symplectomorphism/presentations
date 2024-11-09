@@ -1,16 +1,16 @@
 ---
-pagetitle: "Data-Driven Passivity-Based Control"
+pagetitle: "Robust Sensing and Data-Driven Control"
 author-meta: "Aykut C. Satici"
 institute: "Boise State University"
 from: markdown+emoji
 format:
   revealjs: 
     css: styles.css
-    html-math-method: mathml
+    html-math-method: mathjax
     controls: true
     smaller: false
     slide-number: true
-    footer: "Data-Driven Passivity-Based Control • Aykut C. Satici"
+    footer: "Robust Sensing and Data-Driven Control • Aykut C. Satici"
     chalkboard: 
       buttons: false
     preview-links: auto
@@ -27,12 +27,13 @@ revealjs-plugins:
   - pointer  
 ---
 
+{{< include macros.qmd >}}
 
 {{< include contents/_frontmatter.qmd >}}
 
 {{< include ./contents/_whoami.qmd >}}
 
-<!-- {{< include contents/_reminiscence.qmd >}} -->
+{{< include ./contents/_outline.qmd >}}
 
 {{< include contents/_introduction.qmd >}}
 
@@ -46,11 +47,11 @@ revealjs-plugins:
 
 <!-- {{< include contents/_justification.qmd >}} -->
 
-<!-- {{< include contents/_neuralpbc.qmd >}} -->
+{{< include contents/_neuralpbc.qmd >}}
 
-<!-- {{< include contents/_background_idapbc.qmd >}} -->
+{{< include contents/_background_idapbc.qmd >}}
 
-<!-- {{< include contents/_neuralidapbc.qmd >}} -->
+{{< include contents/_neuralidapbc.qmd >}}
 
 {{< include contents/_bl_background.qmd >}}
 

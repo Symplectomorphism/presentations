@@ -1,4 +1,4 @@
-# Aykut Satici: Brief Academic History {visibility="uncounted"}
+# Who is the speaker? {visibility="uncounted"}
 <!-- ###################################################################### -->
 
 ## Sabanci University: Rehabilitation Robotics 
@@ -126,5 +126,22 @@ aspect-ratio=4x4 width="450" autoplay="true" loop="true" muted="true" >}}
 ![](contents/assets/acknowledgment3.JPG){width="85%"}
 :::
 
+
+::::
+
+
+## Loosening up: Chess and Basketball {auto-animate=true}
+
+
+:::: {.columns style='display: flex !important; height: 90%;'}
+
+::: {.column width="50%" style='display: flex; justify-content: center; align-items: center;' .fragment fragment-index=0}
+![](https://lichess1.org/game/export/gif/black/cFPKYjzh.gif?theme=brown&piece=cburnett){width="75%"}
+:::
+
+::: {.column width="50%" style='display: flex; justify-content: center; align-items: center;' .fragment fragment-index=1}
+![](./contents/assets/nowitzki_shots_clipped.mp4){width="100%" autoplay="true" loop="true" muted="true"}
+<!-- ![](./contents/assets/nowitzki.webp){width="85%"} -->
+:::
 
 ::::

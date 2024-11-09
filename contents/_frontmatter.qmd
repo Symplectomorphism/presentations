@@ -1,10 +1,10 @@
 ---
-pagetitle: "Data-Driven Passivity-Based Control"
+pagetitle: "Robust Sensing and Data-Driven Control"
 author-meta: "Aykut C. Satici"
 institute: "Boise State University"
 ---
 
-## Data-Driven Robust Control of Contact-Rich Robotic Tasks {.center .smaller}
+## Robust Sensing and Learning Control of Contact-Rich Robots {.center .smaller}
 <!-- ###################################################################### -->
 
 <hr>
@@ -35,6 +35,7 @@ Boise, Idaho, USA
 __Graduate Students__: <br/>
 Wankun Sirichotiyakul :mortar_board: <br/>
 Nardos Ayele Ashenafi :mortar_board: <br/>
+Alex Peterson :mortar_board: <br/>
 Chandika Silva :mortar_board: <br/>
 Chris Dagher :mortar_board: <br/>
 :::

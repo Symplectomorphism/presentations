@@ -1,0 +1,16 @@
+::: {.hidden}
+
+\newcommand*{\e}{\mathrm{e}}
+\renewcommand{\P}{\mathrm{P}}
+
+$$
+\DeclarePairedDelimiters{\set}{\{}{\}}
+\DeclareMathOperator*{\argmax}{argmax}
+$$
+
+\definecolor{quarto-callout-note-color}{HTML}{4477AA}
+
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand*\Diff[1]{\mathop{}\!\mathrm{d^#1}}
+
+:::
