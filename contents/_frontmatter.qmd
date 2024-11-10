@@ -22,12 +22,12 @@ institute: "Boise State University"
 <br/>
 
 ::: {layout="[50, 50, 50]"}
-__Presenter__: <br>
-Aykut Satici, Ph.D. <br>
-Associate Professor <br>
-Director, Robot Control Lab <br>
-Mechanical and Biomed. Eng. <br>
-Boise, Idaho, USA 
+<span style="margin-left: 72px">__Presenter__:</span> <br>
+<span style="margin-left: 72px">Aykut Satici, Ph.D.</span> <br>
+<span style="margin-left: 72px">Associate Professor</span> <br>
+<span style="margin-left: 72px">Director, Robot Control Lab</span> <br>
+<span style="margin-left: 72px">Mechanical and Biomed. Eng.</span> <br>
+<span style="margin-left: 72px">Boise, Idaho, USA</span>
 
 
 ![](./contents/assets/boisestate-stackedlogo-2color-rgb_v2.png){width="40%" fig-align="center"}
