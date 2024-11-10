@@ -332,15 +332,7 @@
     <div class="slides">
 
 
-<section class="slide level2">
 
-<div class="hidden">
-<p><span class="math display">\[
-\DeclarePairedDelimiters{\set}{\{}{\}}
-\DeclareMathOperator*{\argmax}{argmax}
-\]</span></p>
-</div>
-</section>
 <section id="robust-sensing-and-learning-control-of-contact-rich-robots" class="slide level2 center smaller">
 <h2>Robust Sensing and Learning Control of Contact-Rich Robots</h2>
 <!-- ###################################################################### -->
@@ -508,184 +500,106 @@
 </div>
 </section></section>
 <section>
-<section id="outline" class="title-slide slide level1 center" data-visibility="uncounted">
-<h1>Outline</h1>
+<section id="robust-robotic-system-design" class="title-slide slide level1 center" data-visibility="uncounted">
+<h1>Robust Robotic System Design</h1>
 <!-- ###################################################################### -->
 </section>
-<section id="current-research-approx.-30-minutes" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Current Research (approx. <strong>30 minutes</strong>)</h2>
-<ul>
-<li>Introduction – Theme: <strong>Robustness</strong> - both control and measurement! (~<strong>5 minutes</strong>)
-<ul>
-<li>Challenges in robotic manipulation: all challenges in one go
-<ul>
-<li>Modeling <span class="emoji" data-emoji="left_right_arrow">↔︎️</span> Sensing <span class="emoji" data-emoji="arrow_right">➡️</span> Control Synthesis <span class="emoji" data-emoji="arrow_right">➡️</span> Robustness <span class="emoji" data-emoji="arrow_right">➡️</span> Performance <span class="emoji" data-emoji="arrow_down">⬇️</span></li>
-<li>Iteration<br>
-</li>
-</ul></li>
-<li>Basic comparison between our approach and the typical literature
-<ul>
-<li>Factor graphs for GTSAM + OrbSlam + EM field integration</li>
-<li>Data-driven Controller Synthesis: basic overview, no details!</li>
-</ul></li>
-</ul></li>
-<li>EM Sensing with GTSAM (~<strong>10 minutes</strong>)
-<ul>
-<li>Difficulties with relative pose sensing</li>
-<li>Three-phase power line geometry</li>
-<li>Lack of any good state-of-the-art method</li>
-<li>Our method based on gradient of the total electromagnetic field strength</li>
-</ul></li>
-</ul>
-</section>
-<section id="current-research-approx.-30-minutes-1" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Current Research (approx. <strong>30 minutes</strong>)</h2>
-<ul>
-<li>EM Sensing with GTSAM (~<strong>10 minutes</strong>)
-<ul>
-<li>Difficulties with relative pose sensing</li>
-<li>Three-phase power line geometry</li>
-<li>Lack of any good state-of-the-art method</li>
-<li>Our method based on gradient of the total electromagnetic field strength</li>
-</ul></li>
-<li>Passivity-Based Data-Driven Controller Synthesis (~<strong>15 minutes</strong>)
-<ul>
-<li>Brief PBC design motivation</li>
-<li>NeuralPBC explanation - add training procedure here.</li>
-<li>Current manipulation results (EAGER project)</li>
-<li>Current drone-line manipulation results</li>
-</ul></li>
-</ul>
-</section>
-<section id="research-agenda-approx.-20-minutes" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Research Agenda (approx. <strong>20 minutes</strong>)</h2>
-<ul>
-<li>Vision (~<strong>5 minutes</strong>)
-<ul>
-<li>Service robotics needs robust low-level controllers</li>
-<li>Drones / AGVs need robust sensing and controllers to perform dangerous tasks.</li>
-<li>In 10 years, data-driven synthesis methods will have matured and made robust.</li>
-</ul></li>
-<li>Future Techniques (~<strong>10 minutes</strong>)
-<ul>
-<li>Robustness of GNN-based controllers</li>
-<li>Convex Optimization Layers and ADMM on GNNs</li>
-<li>Transfer learning to multiple domains (few-shot performance)
-<ul>
-<li>Guiding controller synthesis with human-imitation using LLMs</li>
-<li>Representation learning</li>
-</ul></li>
-</ul></li>
-<li>Potential Funding Mechanisms (~<strong>5 minutes</strong>)
-<ul>
-<li>NSF: Foundational Research in Robotics</li>
-<li>SBIR / STTR: Currently with Pitch Aeronautics, explore local companies</li>
-<li>NIH: Retain and expand biomedical collaboration with BSU / UTD faculty</li>
-</ul></li>
-</ul>
-</section></section>
-<section>
-<section id="challenges-in-robotic-manipulation-and-locomotion" class="title-slide slide level1 center" data-visibility="uncounted">
-<h1>Challenges in Robotic Manipulation and Locomotion</h1>
-<!-- ###################################################################### -->
-</section>
-<section id="hybrid-systems" class="slide level2">
-<h2>Hybrid Systems</h2>
-<div class="fragment fade-in" data-fragment-index="0">
-<ul>
-<li>Exhibit both continuous state flow and discrete state transitions</li>
-</ul>
-</div>
-<div class="fragment fade-in" data-fragment-index="0">
-<ul>
-<li>Examples: room temperature control, contact-rich robots</li>
-</ul>
-</div>
-<div class="fragment fade-in" data-fragment-index="1">
-<ul>
-<li>We tackle two main challenges in the control of contact-rich robots</li>
-</ul>
-</div>
-<div class="fragment fade-in" data-fragment-index="0">
+<section id="the-surge-in-reliance-upon-robotic-systems" class="slide level2">
+<h2>The Surge in Reliance Upon Robotic Systems</h2>
+<p><br></p>
 <div class="columns">
-<div class="column" style="width:60%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="contents/assets/walking_model.png" class="quarto-figure quarto-figure-center" width="500" height="300"></p>
-<figcaption>Walking machines</figcaption>
-</figure>
+<!-- -  A robot can utilize a wide variety of sensors to observe its environment --><div class="column" style="width:50%;">
+<div class="fragment fade-in-then-semi-out" data-fragment-index="0">
+<ul>
+<li>Warehouse automation</li>
+</ul>
 </div>
-</div><div class="column" style="width:0%;">
+<div class="fragment fade-in-then-semi-out" data-fragment-index="1">
+<ul>
+<li>Autonomous vehicles</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out" data-fragment-index="2">
+<ul>
+<li>Drones for first responders</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out" data-fragment-index="3">
+<ul>
+<li>Utility drones</li>
+</ul>
+</div>
+<p><br></p>
+<div class="fragment fade-right" data-fragment-index="4">
+<ul>
+<li>Robotics becoming ever more ubiquitous, and increasing the requirement of robust sensing and control.</li>
+</ul>
+</div>
+</div><div class="column" style="width:50%;">
+<!-- ![](images/all.png){fig-alight="center" width=100%} -->
+<div class="r-stack">
+<div class="fragment fade-in-then-out" data-fragment-index="0">
+<!-- video data-autoplay src="./contents/assets/warehouse22.mp4"></video-->
+<p><video data-src="./contents/assets/warehouse22.mp4" autoplay="true" muted="true" controls=""><a href="./contents/assets/warehouse22.mp4">Video</a></video></p>
+</div>
+<div class="fragment fade-in-then-out" data-fragment-index="1">
+<!-- video data-autoplay src="contents/assets/vehicles.mp4"></video-->
+<p><video data-src="./contents/assets/vehicles.mp4" autoplay="true" muted="true" controls=""><a href="./contents/assets/vehicles.mp4">Video</a></video></p>
+</div>
+<div class="fragment fade-in-then-out" data-fragment-index="2">
+<!-- video data-autoplay src="contents/assets/responders.mp4"></video-->
+<p><video data-src="./contents/assets/responders.mp4" autoplay="true" muted="true" controls=""><a href="./contents/assets/responders.mp4">Video</a></video></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="3">
+<!-- ::: {.fragment .fade-out fragment-index=5} -->
+<!-- video data-autoplay src="contents/assets/astria_22.mp4"></video-->
+<p><video data-src="./contents/assets/astria_22.mp4" autoplay="true" muted="true" controls=""><a href="./contents/assets/astria_22.mp4">Video</a></video></p>
+</div>
+<!-- ::: -->
+<!-- 
+:::{.fragment .fade-in fragment-index=5 }
 
-</div><div class="column" style="width:40%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="contents/assets/manipulator.jpg" class="quarto-figure quarto-figure-center" width="300" height="300"></p>
-<figcaption>Manipulators</figcaption>
-</figure>
-</div>
+![](media/robots_common_2.png){fig-alight="center" width=100%}
+
+::: -->
 </div>
 </div>
 </div>
 </section>
-<section id="challenge-1-multiple-mode-changes" class="slide level2">
-<h2>Challenge 1: Multiple Mode Changes</h2>
-<!-- ###################################################################### -->
-<!-- <div class="fragment" data-fragment-index="0">
-
-
-<video autoplay="true" loop="true" aspect-ratio="4x3" width="350">
-<source src="contents/assets/cartpole_oneController.mp4">
-</video>
-
-<video autoplay="true" loop="true" aspect-ratio="4x3" width="350">
-<source src="contents/assets/ballbot_youtube_trim.mp4">
-</video>
-
-</div>
-
-
-<div class="fragment" data-fragment-index="1">
-* Contacts cause instantaneous changes in the dynamics and states.
-* Potential contacts grow exponentially, making controller inference difficult.
-</div>
-
--->
-<div class="fragment" data-fragment-index="0">
-<div class="columns">
-<div class="column" style="width:60%;">
-<video id="video_shortcode_videojs_video5" width="600" height="338" class="video-js vjs-default-skin " controls="" preload="auto" data-setup="{}" title=""><source src="contents/assets/astria_encoded_trimmed.mp4"></video>
-</div><div class="column" style="width:40%;">
+<section id="robustness-against-contact-under-uncertainty" class="slide level2" data-auto-animate="true" data-auto-animate-easing="ease-in-out">
+<h2 data-id="quarto-animate-title">Robustness against Contact under Uncertainty</h2>
+<div class="r-stack" data-layout-valign="center">
+<p><img data-src="./contents/assets/nonrobust_plan.svg" class="fragment fade-in-then-out" data-fragment-index="0" width="900"></p>
 <!--  -->
-<p><img data-src="contents/assets/nhcm.png" width="366" height="300"></p>
-</div>
-</div>
-</div>
-<div class="fragment" data-fragment-index="1">
-<ul>
-<li>Contacts cause instantaneous changes in the dynamics and states.</li>
-<li>Potential contacts grow exponentially, making controller inference difficult.</li>
-</ul>
+<p><video data-src="./contents/assets/astria_encoded_trimmed.mp4" class="fragment fade-in-then-out" data-fragment-index="1" width="900" controls=""><a href="./contents/assets/astria_encoded_trimmed.mp4">Video</a></video></p>
 </div>
 </section>
-<section id="challenge-1-proposed-method" class="slide level2">
-<h2>Challenge 1: Proposed Method</h2>
-<p><br> <br></p>
-<ul>
-<li>Our method uses data-driven technique to <em>automatically</em> learn a mixture of expert controller and the switching conditionals.</li>
-</ul>
-<p><br></p>
-<ul>
-<li>We infer <em>contact-aware</em> controllers by training on trajectories generated from contact models.
-<ul>
-<li><em>Contact-aware</em> controllers minimize the adverse effects of contacts or even take advantage of them.</li>
-</ul></li>
-</ul>
+<section id="robustness-against-contact-under-uncertainty-1" class="slide level2" data-auto-animate="true" data-auto-animate-easing="ease-in-out">
+<h2 data-id="quarto-animate-title">Robustness against Contact under Uncertainty</h2>
+<div class="r-stack" data-layout-valign="center">
+<p><img data-src="./contents/assets/true_closedloop.svg" class="fragment fade-in-then-out" style="width:100.0%" data-fragment-index="0"></p>
+<p><img data-src="./contents/assets/trained_closedloop.svg" class="fragment" style="width:100.0%" data-fragment-index="1"></p>
+</div>
 </section>
-<section id="challenge-2-operating-under-uncertain-conditions" class="slide level2">
-<h2>Challenge 2: Operating under Uncertain Conditions</h2>
-<p><br></p>
-<p><br></p>
+<section id="robustness-against-contact-under-uncertainty-2" class="slide level2">
+<h2>Robustness against Contact under Uncertainty</h2>
+<div class="r-hstack" data-layout-valign="center">
+<p><img data-src="./contents/assets/true_closedloop.svg" class="fragment" style="width:100.0%" data-fragment-index="0"></p>
+<p><img data-src="./contents/assets/trained_closedloop.svg" class="fragment" style="width:100.0%" data-fragment-index="0"></p>
+</div>
+<div class="fragment quarto-layout-panel" data-fragment-index="0" data-layout="[100, 100]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<iframe data-external="1" src="https://www.youtube.com/embed/7t1E7FWawgA" width="100%" height="300" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<iframe data-external="1" src="https://www.youtube.com/embed/Kl6_hAY8PFw" width="100%" height="300" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+</div>
+</div>
+</div>
+</section>
+<section id="robustness-against-contact-and-uncertainty" class="slide level2">
+<h2>Robustness against Contact and Uncertainty</h2>
 <div class="quarto-layout-panel" data-layout="[100, 100]">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
@@ -696,17 +610,22 @@
 </div>
 </div>
 </div>
-<!--  -->
-<!-- ## {background-video="contents/assets/rw_failing.MP4" background-size="contain" background-video-muted="true"} -->
+<div>
+<ul>
+<li class="fragment">Need to design both robust state estimation and controllers.</li>
+<li class="fragment">Domain randomization and Bayesian learning help for controller design.</li>
+<li class="fragment">GTSAM and optimization over factor graphs help for state estimation.</li>
+</ul>
+</div>
 </section>
-<section id="challenge-2-existing-methods" class="slide level2 smaller" data-transition="fade">
-<h2>Challenge 2: Existing Methods</h2>
+<section id="existing-vs.-proposed-control-synthesis-methods" class="slide level2 smaller" data-transition="fade">
+<h2>Existing vs.&nbsp;Proposed Control Synthesis Methods</h2>
 <p><br></p>
 <div class="fragment semi-fade-out" data-fragment-index="1">
 <div class="quarto-layout-panel" data-layout="[100,-5,60]">
 <div class="quarto-layout-row quarto-layout-valign-center">
 <div class="quarto-layout-cell" style="flex-basis: 60.6%;justify-content: flex-start;">
-<p>Reinforcement learning <img data-src="contents/assets/rl-outline.svg"></p>
+<p>Reinforcement learning (similarly Decision Transformers) <img data-src="contents/assets/rl-outline.svg"></p>
 </div>
 <div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 3.0%;justify-content: flex-start;">
 <p>&nbsp;</p>
@@ -800,253 +719,64 @@ Reasons about model uncertainties<br>
 </div>
 </div>
 </section></section>
-<section id="switching-control-with-deep-net-mixture-of-experts" class="title-slide slide level1 center">
-<h1>Switching Control with Deep-net Mixture of Experts</h1>
-
-</section>
-
 <section>
-<section id="background" class="title-slide slide level1 center">
-<h1>Background</h1>
-<p>Mixture of Experts</p>
+<section id="robust-manipulation-over-power-lines" class="title-slide slide level1 center" data-visibility="uncounted">
+<h1>Robust Manipulation over Power Lines</h1>
+<!-- ###################################################################### -->
 </section>
-<section id="mixture-of-experts-moe-old-faithful" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Mixture of Experts (MOE): Old Faithful</h2>
-<ul>
-<li><strong>Objective</strong>: learn two expert Gaussian models that represent dataset <span class="math inline">\(\mathbb{D} = \{(x_1, y_1), \dots, (x_N, y_N) \}\)</span></li>
-</ul>
+<section id="localization-in-sparse-environments" class="slide level2">
+<h2>Localization in Sparse Environments</h2>
 <div class="columns">
-<!-- :::{.r-stack} --><div class="column" style="width:60%;">
-<div class="fragment fade-in" data-fragment-index="2">
-<ul>
-<li>The experts are chosen as <span class="math display">\[\begin{align*}
-F(x;\theta) &amp;= \{\mathcal{N}_1(\mu_1, \sigma_1), \mathcal{N}_2(\mu_2, \sigma_2)\} \\
-\theta &amp;= \{(\mu_1, \sigma_1), (\mu_2, \sigma_2) \}
-\end{align*}\]</span>
-<ul>
-<li>Prediction is a weighted-average of experts</li>
-</ul></li>
-</ul>
-</div>
-</div><div class="column" style="width:40%;">
-<!-- :::{.r-stack}
-
-![](contents/assets/geyser.JPG){.absolute top=100 left=700 .fragment .fade-in-then-out fragment-index=0} -->
-<p><img data-src="contents/assets/old_faithful.svg" class="absolute fragment fade-in" style="top: 75px; left: 600px; width: 550px; height: 400px; " data-fragment-index="0"></p>
-<!-- ::: -->
-</div>
-</div>
-<div class="fragment fade-in" data-fragment-index="3">
-<ul>
-<li>The gating network is a neural net <span class="math inline">\(\mathbf{P}(x | \psi) = [P_1(x | \psi), P_2(x | \psi) ]\)</span>
-<ul>
-<li>Splits the input space into partitions</li>
-</ul></li>
-</ul>
-</div>
-<div class="fragment fade-in" data-fragment-index="4">
-<ul>
-<li><em>Expectation Maximization</em>: maximizes log likelihood <span class="math display">\[
-\ln \{P(\mathbb{D} | \theta, \psi) \} = \sum_{j=1}^{N} \ln \sum_{i=1}^{N_F} \frac{1}{\sqrt{2 \pi \sigma_i^2}} \exp \left( -\frac{1}{2}\frac{(y_j - \mu_i)^2}{\sigma_i^2} \right) P_i(x_j, \psi)
-\]</span></li>
-</ul>
-</div>
-</section></section>
-<section>
-<section id="mixture-of-experts-controller" class="title-slide slide level1 center">
-<h1>Mixture of Experts Controller</h1>
-
-</section>
-<section id="mixture-of-experts-controller-1" class="slide level2">
-<h2>Mixture of Experts Controller</h2>
+<div class="column" style="width:55%;">
 <p><br></p>
-<div class="fragment" data-fragment-index="0">
-<ul>
-<li><strong>Objective</strong>: learn contact-aware mixture of experts controller and a gating network</li>
-</ul>
+<ol type="1">
+<li>The ground has a uniform texture</li>
+<li>There are too few utility poles or immediate fences.</li>
+<li>There are no trees or other geometries.</li>
+</ol>
+</div><div class="column" style="width:45%;">
+<div class="fragment fade-in" data-fragment-index="1">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/-CU5aX9z62I?si=8N3OLPNZO5y0uv31?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
+</iframe>
 </div>
-<div class="fragment" data-fragment-index="1">
-<ul>
-<li>All the experts and the gating network are given by neural nets</li>
-<li>We pose the search over the parameters <span class="math inline">\(\psi, \theta\)</span> as the following optimization problem</li>
-</ul>
-<div class="callout callout-tip no-icon callout-titled callout-style-default">
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="1">
+<div class="callout callout-note callout-titled callout-style-simple">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>Optimization Problem</strong></p>
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Insufficient landmarks</strong></p>
 </div>
 <div class="callout-content">
-<p><span class="math display">\[\begin{align*}
-    \begin{aligned}
-        \underset{\psi, \theta}{\textrm{minimize}}
-        &amp; &amp; &amp; \int_0^T \ell (x(t),u) \dd t , \\%
-        \textrm{subject to}
-        &amp; &amp; &amp; M(q) \dd \dot{q} + h(x; \psi, \theta)\dd t - \dd R  = 0,\\%
-        &amp; &amp; &amp; u = \{F_i(x; \theta_i) \; | \; i  \sim \text{Categorical} (\mathbf{P}(x| \psi)) \}.
-    \end{aligned}
-\end{align*}\]</span></p>
+<p>Any vision-based estimation mechanism will not perform reliably and robustly for drone localization.</p>
 </div>
 </div>
 </div>
 </div>
-</section>
-<section id="training" class="slide level2">
-<h2>Training</h2>
-<p><br></p>
-<div>
-<ul>
-<li class="fragment">Training procedure:
-<ul>
-<li class="fragment">Start from initial parameters <span class="math inline">\((\psi, \theta)\)</span></li>
-<li class="fragment">Sample initial state <span class="math inline">\(x_0\)</span> (more on this later)</li>
-<li class="fragment">Generate trajectories <span class="math inline">\(\phi(x_0, u, T)\)</span> using current parameters <span class="math display">\[\begin{gather*}
-i  \sim \text{Categorical} (\mathbf{P}(x| \psi)) \\
-u(x; \psi, \theta) = F_i(x; \theta_i) \\
-M(q) \dd \dot{q} + h(x; \psi, \theta) \dd t - \dd R  = 0 \text{ (Moreau's time stepping)}
-\end{gather*}\]</span></li>
-<li class="fragment">Assign a running cost <span class="math inline">\(\ell\)</span> to the trajectories based on performance</li>
-<li class="fragment">Update parameters <span class="math inline">\((\psi, \theta)\)</span> to minimize the cost-to-go</li>
-</ul></li>
-</ul>
-</div>
-</section>
-<section id="performance-objective" class="slide level2">
-<h2>Performance Objective</h2>
-<p><br></p>
-<p><span class="math display">\[\begin{align*}
-    \begin{aligned}
-        \underset{\psi, \theta}{\textrm{minimize}}
-        &amp; &amp; &amp; \int_0^T \ell (x(t),u) \dd t , \\%
-        \textrm{subject to}
-        &amp; &amp; &amp; M(q) \dd \dot{q} + h(x; \psi, \theta)\dd t - \dd R  = 0,\\%
-        &amp; &amp; &amp; u = \{F_i(x; \theta_i) \; | \; i  \sim \text{Categorical} (\mathbf{P}(x| \psi)) \}.
-    \end{aligned}
-\end{align*}\]</span></p>
-<div class="fragment" data-fragment-index="0">
-<ul>
-<li>Accumulated loss: total quadratic loss from desired state <span class="math inline">\(x^*\)</span> <span class="math display">\[\begin{gather*}
-\ell(x, u) = \frac{1}{2}(x - x^*)^\top \mathcal{Q} (x - x^*) + \frac{1}{2} u^\top \mathcal{R} u \\
-\mathcal{Q} \succ 0, \mathcal{R} \succeq 0
-\end{gather*}\]</span></li>
-</ul>
-</div>
-<div class="fragment" data-fragment-index="1">
-<p>The corresponding likelihood function is</p>
-</div>
-<div class="r-stack">
-<div class="fragment fade-in-then-out" data-fragment-index="1">
-<p><span class="math display">\[
-\ln \{P(\mathbb{D} | \theta, \psi) \} = \sum_{j=1}^{N} \ln \sum_{i=1}^{N_F} \frac{1}{\sqrt{2 \pi \sigma_i^2}} \exp \left( -\frac{1}{2}\frac{(y_j - \mu_i)^2}{\sigma_i^2} \right) P_i(x_j, \psi)
-\]</span></p>
-</div>
-<div class="fragment fade-in" data-fragment-index="2">
-<p><span class="math display">\[
-\ln \{P(\phi | \theta, \psi) \} = \sum_{t=0}^{T} \ln \sum_{i=1}^{N_F} \frac{1}{\sqrt{2 \pi s^2}} \exp \left( -\frac{1}{2}\frac{\ell (x(t+\Delta t), F_i )^2}{s^2} \right) P_i(x(t), \psi)
-\]</span></p>
-</div>
-</div>
-</section>
-<section id="state-sampling" class="slide level2">
-<h2>State Sampling</h2>
-<p><strong>Objective</strong>: meet performance for various initial states</p>
-<div class="r-stack">
-<p><img data-src="contents/assets/neuralpbc/033.svg" class="fragment"></p>
-<p><img data-src="contents/assets/neuralpbc/000.svg"></p>
-<p><img data-src="contents/assets/neuralpbc/001.svg" class="fragment"></p>
-<p><img data-src="contents/assets/neuralpbc/002.svg" class="fragment"></p>
-<p><img data-src="contents/assets/neuralpbc/003.svg" class="fragment"></p>
-<p><img data-src="contents/assets/neuralpbc/004.svg" class="fragment"></p>
-<p><img data-src="contents/assets/neuralpbc/005.svg" class="fragment"></p>
-<p><img data-src="contents/assets/neuralpbc/006.svg" class="fragment"></p>
-<p><img data-src="contents/assets/neuralpbc/007.svg" class="fragment"></p>
-<p><img data-src="contents/assets/neuralpbc/008.svg" class="fragment"></p>
-<p><img data-src="contents/assets/neuralpbc/009.svg" class="fragment"></p>
-<p><img data-src="contents/assets/neuralpbc/010.svg" class="fragment"></p>
-<p><img data-src="contents/assets/neuralpbc/011.svg" class="fragment"></p>
-<p><img data-src="contents/assets/neuralpbc/012.svg" class="fragment"></p>
-<p><img data-src="contents/assets/neuralpbc/013.svg" class="fragment"></p>
-<p><img data-src="contents/assets/neuralpbc/014.svg" class="fragment"></p>
-<p><img data-src="contents/assets/neuralpbc/015.svg" class="fragment"></p>
-<p><img data-src="contents/assets/neuralpbc/016.svg" class="fragment"></p>
-<p><img data-src="contents/assets/neuralpbc/021.svg" class="fragment"></p>
-<p><img data-src="contents/assets/neuralpbc/022.svg" class="fragment"></p>
-<p><img data-src="contents/assets/neuralpbc/023.svg" class="fragment"></p>
-<p><img data-src="contents/assets/neuralpbc/024.svg" class="fragment"></p>
-<p><img data-src="contents/assets/neuralpbc/025.svg" class="fragment"></p>
-<p><img data-src="contents/assets/neuralpbc/026.svg" class="fragment"></p>
-<p><img data-src="contents/assets/neuralpbc/027.svg" class="fragment"></p>
-<p><img data-src="contents/assets/neuralpbc/032.svg" class="fragment"></p>
-<p><img data-src="contents/assets/neuralpbc/033.svg" class="fragment"></p>
-</div>
-</section></section>
-<section>
-<section id="case-study" class="title-slide slide level1 center">
-<h1>Case Study</h1>
-
-</section>
-<section id="section" class="slide level2" data-background-video="contents/assets/cartpole-firefox.mp4" data-background-size="contain" data-background-video-muted="true" data-background-video-loop="true">
-<h2></h2>
-</section>
-<section id="cartpole-with-wall-barriers" class="slide level2">
-<h2>Cartpole with wall barriers</h2>
-<p><br></p>
-<div class="columns">
-<div class="column" style="width:50%;">
 <div class="fragment fade-in" data-fragment-index="1">
-<ul>
-<li>Notice <em>LQR</em> fails due to the impact from the wall</li>
-<li>MOE controller training
-<ul>
-<li>there are three deep-net experts <span class="math inline">\(F_i(x;\theta_i)\)</span></li>
-<li>the gating network is also a neural net</li>
-</ul></li>
-</ul>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-</div><div class="column" style="width:50%;">
-<div class="fragment fade-in" data-fragment-index="0">
-<!--  -->
-<iframe data-external="1" src="https://www.youtube.com/embed/Ydbed2DZotU" width="600" height="400" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+<p><strong>Electromagnetic field around the power lines</strong></p>
+</div>
+<div class="callout-content">
+<p>If we can get reliable measurements, then we can devise a distance and bearing factor exploiting this field.</p>
 </div>
 </div>
 </div>
-<!-- :::{.fragment .fade-in fragment-index=2}
-
-
-
-
-::: -->
-</section>
-<section id="section-1" class="slide level2" data-background-video="contents/assets/cartpole_hardware.mp4" data-background-size="contain" data-background-video-muted="true" data-background-video-loop="true">
-<h2></h2>
-</section>
-<section id="results" class="slide level2">
-<h2>Results</h2>
-<ul>
-<li>The contact-aware MOE controller
-<ul>
-<li>leverages the impacts from the wall</li>
-<li>switches to a policy that <em>rapidly brakes</em> to assist in the catching process</li>
-</ul></li>
-</ul>
-
-<img data-src="contents/assets/moe_traj_control.jpg" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="conclusions" class="slide level2">
-<h2>Conclusions</h2>
-<p><br> <br></p>
-<ul>
-<li>We provide a data-driven control design that <em>automatically</em> learns several policies and the necessary switching scheme.</li>
-</ul>
-<p><br></p>
-<ul>
-<li>The framework leverages the switching controllers to stabilize the multi-modal dynamical system.</li>
-</ul>
-<p><br></p>
-<ul>
-<li>The gating network parameterizes the switching surfaces to achieves good performance.</li>
-</ul>
+</div>
+<!-- {{< include contents/_moe_background.qmd >}} -->
+<!-- {{< include contents/_moe_methods.qmd >}} -->
+<!-- {{< include contents/_moe_results.qmd >}} -->
 </section></section>
 <section>
-<section id="background-1" class="title-slide slide level1 center" data-visibility="uncounted">
+<section id="background" class="title-slide slide level1 center" data-visibility="uncounted">
 <h1>Background</h1>
 <!-- ###################################################################### -->
 <p>Passive System Theory and Passivity-Based Control (PBC)</p>
@@ -1244,7 +974,7 @@ M(q) \dd \dot{q} + h(x; \psi, \theta) \dd t - \dd R  = 0 \text{ (Moreau's time s
 </div>
 </div>
 </section>
-<section id="section-2" class="slide level2" data-background-video="contents/assets/ballbot_youtube_trim_reverse.mp4">
+<section id="section-1" class="slide level2" data-background-video="contents/assets/ballbot_youtube_trim_reverse.mp4">
 <h2></h2>
 <!-- ###################################################################### -->
 <div class="r-stack">
@@ -1269,7 +999,7 @@ M(q) \dd \dot{q} + h(x; \psi, \theta) \dd t - \dd R  = 0 \text{ (Moreau's time s
 <section id="our-methods" class="slide level2">
 <h2>Our Methods</h2>
 <!-- ###################################################################### -->
-<div class="quarto-layout-panel" data-layout="[-1,8,-1]" data-layout-align="center">
+<div class="quarto-layout-panel" data-layout-align="center" data-layout="[-1,8,-1]">
 <div class="quarto-layout-row quarto-layout-valign-center">
 <div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 10.0%;justify-content: center;">
 <p>&nbsp;</p>
@@ -1783,7 +1513,7 @@ Acrobot
 </div>
 </div>
 </section>
-<section id="section-3" class="slide level2" data-background-video="contents/assets/cartpole-firefox.mp4" data-background-size="contain" data-background-video-loop="true" data-background-video-muted="true">
+<section id="section-2" class="slide level2" data-background-video="contents/assets/cartpole-firefox.mp4" data-background-size="contain" data-background-video-loop="true" data-background-video-muted="true">
 <h2></h2>
 <!-- ###################################################################### -->
 </section>
@@ -1803,11 +1533,11 @@ Acrobot
 <!-- ###################################################################### -->
 <p><img data-src="contents/assets/cartpole-cost-compare.svg"></p>
 <aside><ol class="aside-footnotes"><li id="fn2"><p>K. J. Åström and K. Furuta, “Swinging up a pendulum by energy control,” Automatica, vol.&nbsp;36, no. 2, pp.&nbsp;287–295, 2000.</p></li></ol></aside></section>
-<section id="section-4" class="slide level2" data-background-video="contents/assets/cartpole-exp.mp4" data-background-size="contain" data-background-video-loop="true" data-background-video-muted="true">
+<section id="section-3" class="slide level2" data-background-video="contents/assets/cartpole-exp.mp4" data-background-size="contain" data-background-video-loop="true" data-background-video-muted="true">
 <h2></h2>
 <!-- ###################################################################### -->
 </section>
-<section id="section-5" class="slide level2" data-background-video="contents/assets/acrobot-firefox.mp4" data-background-size="contain" data-background-video-loop="true" data-background-video-muted="true">
+<section id="section-4" class="slide level2" data-background-video="contents/assets/acrobot-firefox.mp4" data-background-size="contain" data-background-video-loop="true" data-background-video-muted="true">
 <h2></h2>
 <!-- ###################################################################### -->
 </section></section>
@@ -2095,7 +1825,7 @@ u_{di} &amp;= -K_v G^\top \nabla_p H_d \phantom{\left\|\left(\nabla_p\right)^{\t
 </div>
 </div>
 </section>
-<section id="section-6" class="slide level2">
+<section id="section-5" class="slide level2">
 <h2></h2>
 <!-- ###################################################################### -->
 <p><br></p>
@@ -2117,7 +1847,7 @@ u_{di} &amp;= -K_v G^\top \nabla_p H_d \phantom{\left\|\left(\nabla_p\right)^{\t
 <li>Ball-beam system</li>
 </ul>
 <aside><ol class="aside-footnotes"><li id="fn3"><p>R. Ortega, M. W. Spong, F. Gómez-Estern, and G. Blankenstein, “Stabilization of a class of underactuated mechanical systems via interconnection and damping assignment,” IEEE transactions on automatic control, vol.&nbsp;47, no. 8, pp. 1218–1233, 2002.</p></li></ol></aside></section>
-<section id="section-7" class="slide level2" data-background-video="contents/assets/iwp-firefox.mp4" data-background-size="contain" data-background-video-loop="true" data-background-video-muted="true">
+<section id="section-6" class="slide level2" data-background-video="contents/assets/iwp-firefox.mp4" data-background-size="contain" data-background-video-loop="true" data-background-video-muted="true">
 <h2></h2>
 <!-- ###################################################################### -->
 </section>
@@ -2183,7 +1913,7 @@ b_1\dot{q}_1\right) \\ \frac{1}{I_2}\left(u^\theta -b_2 \dot{q}_2 \right)
 </div>
 </div>
 </section>
-<section id="section-8" class="slide level2" data-background-video="contents/assets/iwp-cut-firefox.mp4" data-background-size="contain" data-background-video-loop="true" data-background-video-muted="true">
+<section id="section-7" class="slide level2" data-background-video="contents/assets/iwp-cut-firefox.mp4" data-background-size="contain" data-background-video-loop="true" data-background-video-muted="true">
 <h2></h2>
 <!-- ###################################################################### -->
 </section>
@@ -2525,7 +2255,7 @@ b_1\dot{q}_1\right) \\ \frac{1}{I_2}\left(u^\theta -b_2 \dot{q}_2 \right)
 <section id="neuralpbc-hybrid-system" class="slide level2">
 <h2><span class="smallcaps">NeuralPbc</span>: Hybrid System</h2>
 <p><br></p>
-<div class="fragment quarto-layout-panel" data-layout="[50,-5,50]" data-fragment-index="0">
+<div class="fragment quarto-layout-panel" data-fragment-index="0" data-layout="[50,-5,50]">
 <div class="quarto-layout-row quarto-layout-valign-center">
 <div class="quarto-layout-cell" style="flex-basis: 47.6%;justify-content: flex-start;">
 <div class="callout callout-note no-icon callout-titled callout-style-default">
@@ -2636,7 +2366,7 @@ H(x^+) \leq H(x^-)
 </div>
 </div>
 </section>
-<section id="section-9" class="slide level2" data-background-video="contents/assets/4_rings_hardware.mp4" data-background-size="contain" data-background-video-muted="true" data-background-video-loop="true">
+<section id="section-8" class="slide level2" data-background-video="contents/assets/4_rings_hardware.mp4" data-background-size="contain" data-background-video-muted="true" data-background-video-loop="true">
 <h2></h2>
 </section>
 <section id="rimless-wheel" class="slide level2">
@@ -2651,7 +2381,7 @@ p_s \sim \mathbb{U}(0 \textrm{cm}, 2\textrm{cm})
 \]</span></li>
 </ul>
 </section>
-<section id="section-10" class="slide level2" data-background-video="contents/assets/rw_uneven_success.mp4" data-background-size="contain" data-background-video-muted="true" data-background-video-loop="true">
+<section id="section-9" class="slide level2" data-background-video="contents/assets/rw_uneven_success.mp4" data-background-size="contain" data-background-video-muted="true" data-background-video-loop="true">
 <h2></h2>
 </section>
 <section id="deterministic-vs-bayesian" class="slide level2">
@@ -2677,7 +2407,7 @@ J_T &amp;= \sum_{t=0}^{T} \| \dot{x}_c^* - \dot{x}_c(t; \theta) \|
 </div>
 </div>
 </section>
-<section id="conclusions-1" class="slide level2">
+<section id="conclusions" class="slide level2">
 <h2>Conclusions</h2>
 <p><br> <br></p>
 <div>
@@ -2832,7 +2562,7 @@ Figure&nbsp;1: NSF Award #2330794
 <section id="infinite-horizon-best-performance" class="slide level2" data-auto-animate="true" data-visibility="uncounted">
 <h2 data-id="quarto-animate-title">Infinite-Horizon Best Performance</h2>
 <!-- ###################################################################### -->
-<div class="fragment quarto-layout-panel" data-layout="[100,-5,60]" data-fragment-index="0" data-id="perf">
+<div class="fragment quarto-layout-panel" data-id="perf" data-fragment-index="0" data-layout="[100,-5,60]">
 <div class="quarto-layout-row quarto-layout-valign-center">
 <div class="quarto-layout-cell" style="flex-basis: 60.6%;justify-content: flex-start;">
 <p><span class="math display">\[
@@ -2850,7 +2580,7 @@ Figure&nbsp;1: NSF Award #2330794
 <p>Solve for <span class="math inline">\(\theta\)</span> that minimizes <span class="math inline">\(\mathcal{J}_\infty\)</span>: <span class="math inline">\(\theta^\star = g(p) :=
 -p -\sqrt{p^2+\frac{q}{r}}\)</span>.</p>
 </div>
-<div class="fragment quarto-layout-panel" data-layout="[100,-5,60]" data-fragment-index="2" data-id="opt-sol">
+<div class="fragment quarto-layout-panel" data-id="opt-sol" data-fragment-index="2" data-layout="[100,-5,60]">
 <div class="quarto-layout-row quarto-layout-valign-center">
 <div class="quarto-layout-cell" style="flex-basis: 60.6%;justify-content: flex-start;">
 <div class="callout callout-note no-icon callout-titled callout-style-default">
@@ -2892,7 +2622,7 @@ f_{\theta^\star}(\theta^\star) &amp;= \frac{1}{\sigma_p \sqrt{2\pi}}\left( \
 <section id="infinite-horizon-best-performance-1" class="slide level2" data-auto-animate="true" data-visibility="uncounted">
 <h2 data-id="quarto-animate-title">Infinite-Horizon Best Performance</h2>
 <!-- ###################################################################### -->
-<div class="fragment quarto-layout-panel" data-layout="[100,-5,60]" data-fragment-index="0" data-id="opt-sol">
+<div class="fragment quarto-layout-panel" data-id="opt-sol" data-fragment-index="0" data-layout="[100,-5,60]">
 <div class="quarto-layout-row quarto-layout-valign-center">
 <div class="quarto-layout-cell" style="flex-basis: 60.6%;justify-content: flex-start;">
 <div class="callout callout-note no-icon callout-titled callout-style-default">
@@ -3149,6 +2879,83 @@ Minimal expected cost <span class="math inline">\(\mathbb{E}\mathcal{J}\)</span>
 <div class="fragment">
 <p><span class="math display">\[\begin{aligned} p(x) = &amp;\left(0.116x_1^2 + 0.01x_1x_2 - 2x_2^2 + 1.015\right)^2 \\ &amp; + \; \left(-0.569x_1^3 + 1.938x_1 + 0.244x_2\right)^2 \\ &amp; + \; \left(0.224x_1^2 + 0.666x_1x_2 + 0.029x_2^2 + 0.026\right)^2 \\ &amp; + \; \left(-0.188x_1^2 + 0.063x_1x_2 - 0.006x_2^2 + 0.009\right)^2 \\ &amp; + \; \left(0.099x_1^3 + 0.029x_1 + 0.004x_2\right)^2 + \left(0.009x_1^2x_2\right)^2 \end{aligned}\]</span></p>
 </div>
+</section></section>
+<section>
+<section id="outline" class="title-slide slide level1 center" data-visibility="uncounted">
+<h1>Outline</h1>
+<!-- ###################################################################### -->
+</section>
+<section id="current-research-approx.-30-minutes" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Current Research (approx. <strong>30 minutes</strong>)</h2>
+<ul>
+<li>Introduction – Theme: <strong>Robustness</strong> - both control and measurement! (~<strong>5 minutes</strong>)
+<ul>
+<li>Challenges in robotic manipulation: all challenges in one go
+<ul>
+<li>Modeling <span class="emoji" data-emoji="left_right_arrow">↔︎️</span> Sensing <span class="emoji" data-emoji="arrow_right">➡️</span> Control Synthesis <span class="emoji" data-emoji="arrow_right">➡️</span> Robustness <span class="emoji" data-emoji="arrow_right">➡️</span> Performance <span class="emoji" data-emoji="arrow_down">⬇️</span></li>
+<li>Iteration<br>
+</li>
+</ul></li>
+<li>Basic comparison between our approach and the typical literature
+<ul>
+<li>Factor graphs for GTSAM + OrbSlam + EM field integration</li>
+<li>Data-driven Controller Synthesis: basic overview, no details!</li>
+</ul></li>
+</ul></li>
+<li>EM Sensing with GTSAM (~<strong>10 minutes</strong>)
+<ul>
+<li>Difficulties with relative pose sensing</li>
+<li>Three-phase power line geometry</li>
+<li>Lack of any good state-of-the-art method</li>
+<li>Our method based on gradient of the total electromagnetic field strength</li>
+</ul></li>
+</ul>
+</section>
+<section id="current-research-approx.-30-minutes-1" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Current Research (approx. <strong>30 minutes</strong>)</h2>
+<ul>
+<li>EM Sensing with GTSAM (~<strong>10 minutes</strong>)
+<ul>
+<li>Difficulties with relative pose sensing</li>
+<li>Three-phase power line geometry</li>
+<li>Lack of any good state-of-the-art method</li>
+<li>Our method based on gradient of the total electromagnetic field strength</li>
+</ul></li>
+<li>Passivity-Based Data-Driven Controller Synthesis (~<strong>15 minutes</strong>)
+<ul>
+<li>Brief PBC design motivation</li>
+<li>NeuralPBC explanation - add training procedure here.</li>
+<li>Current manipulation results (EAGER project)</li>
+<li>Current drone-line manipulation results</li>
+</ul></li>
+</ul>
+</section>
+<section id="research-agenda-approx.-20-minutes" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Research Agenda (approx. <strong>20 minutes</strong>)</h2>
+<ul>
+<li>Vision (~<strong>5 minutes</strong>)
+<ul>
+<li>Service robotics needs robust low-level controllers</li>
+<li>Drones / AGVs need robust sensing and controllers to perform dangerous tasks.</li>
+<li>In 10 years, data-driven synthesis methods will have matured and made robust.</li>
+</ul></li>
+<li>Future Techniques (~<strong>10 minutes</strong>)
+<ul>
+<li>Robustness of GNN-based controllers</li>
+<li>Convex Optimization Layers and ADMM on GNNs</li>
+<li>Transfer learning to multiple domains (few-shot performance)
+<ul>
+<li>Guiding controller synthesis with human-imitation using LLMs</li>
+<li>Representation learning</li>
+</ul></li>
+</ul></li>
+<li>Potential Funding Mechanisms (~<strong>5 minutes</strong>)
+<ul>
+<li>NSF: Foundational Research in Robotics</li>
+<li>SBIR / STTR: Currently with Pitch Aeronautics, explore local companies</li>
+<li>NIH: Retain and expand biomedical collaboration with BSU / UTD faculty</li>
+</ul></li>
+</ul>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
@@ -3533,10 +3340,6 @@ Minimal expected cost <span class="math inline">\(\mathbb{E}\mathcal{J}\)</span>
     <script>videojs(video_shortcode_videojs_video4);</script>
     <script>videojs(video_shortcode_videojs_video5);</script>
     <script>videojs(video_shortcode_videojs_video6);</script>
-    <script>videojs(video_shortcode_videojs_video7);</script>
-    <script>videojs(video_shortcode_videojs_video8);</script>
-    <script>videojs(video_shortcode_videojs_video9);</script>
-    <script>videojs(video_shortcode_videojs_video10);</script>
     
 
 </body></html>

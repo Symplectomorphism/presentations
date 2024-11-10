@@ -1,0 +1,1447 @@
+% Encoding: UTF-8
+
+@Article{Sock2016,
+  author   = {Juil Sock and Jun Kim and Jihong Min and Kiho Kwak},
+  title    = {Probabilistic traversability map generation using 3D-LIDAR and camera},
+  doi      = {10.1109/icra.2016.7487782},
+  abstract = {Estimating the traversability of rough terrain is a critical task for an outdoor mobile robot. While classifying structured environment can be learned from large number of training data, it is an extremely difficult task to learn and estimate traversability of unstructured rough terrain. Moreover, in many cases information from a single sensor may not be sufficient for estimating traversability reliably in the absence of artificial landmarks such as lane markings or curbs. Our approach estimates traversability of the terrain and build a 2D probabilistic grid map online using 3D-LIDAR and camera. The combination of LIDAR and camera is favoured in many robotic application because they provide complementary information. Our approach assumes the data captured by these two sensors are independent and build separate traversability maps, each with information captured from one sensor. Traversability estimation with vision sensor autonomously collects training data and update classifier without human intervention as the vehicle traverse the terrain. Traversability estimation with 3D-LIDAR measures the slopes of the ground to predict the traversability. Two independently built probabilistic maps are fused using Bayes' rule to improve the detection performance. This is in contrast with other methods in which each sensor performs different tasks. We have implemented the algorithm on a UGV(Unmanned Ground Vehicle) and tested our approach on a rough terrain to evaluate the detection performance.},
+  journal  = {IEEE International Conference on Robotics and Automation},
+  mag_id   = {2413995699},
+  pmcid    = {null},
+  pmid     = {null},
+  year     = {2016},
+}
+
+@book{thrun2005probabilistic,
+author = {Thrun, Sebastian and Burgard, Wolfram and Fox, Dieter},
+title = {Probabilistic Robotics (Intelligent Robotics and Autonomous Agents)},
+year = {2005},
+isbn = {0262201623},
+publisher = {The MIT Press}
+}
+
+@ARTICLE{Dellaert_2017_fg_perception,title={Factor Graphs for Robot Perception},year={2017},author={Frank Dellaert and Michael Kaess},doi={10.1561/2300000043},pmid={null},pmcid={null},mag_id={2746349752},journal={Found. Trends Robotics},abstract={Factor Graphs for Robot Perception reviews the use of factor graphs for the modeling and solving of large-scale inference problems in robotics. Factor graphs are a family of probabilistic graphical models, other examples of which are Bayesian networks and Markov random fields, well known from the statistical modeling and machine learning literature. They provide a powerful abstraction that gives insight into particular inference problems, making it easier to think about and design solutions, and write modular software to perform the actual inference. This book illustrates their use in the simultaneous localization and mapping problem and other important problems associated with deploying robots in the real world. Factor graphs are introduced as an economical representation within which to formulate the different inference problems, setting the stage for the subsequent sections on practical methods to solve them. The book explains the nonlinear optimization techniques for solving arbitrary nonlinear factor graphs, which requires repeatedly solving large sparse linear systems. Factor Graphs for Robot Perception will be of interest to students, researchers and practicing roboticists with an interest in the broad impact factor graphs have had, and continue to have, in robot perception.}}
+
+@article{gtsam,
+  title={Factor graphs and GTSAM: A hands-on introduction},
+  author={Dellaert, Frank},
+  journal={Georgia Institute of Technology, Tech. Rep},
+  volume={2},
+  pages={4},
+  year={2012}
+}
+
+@article{satici_peterson,
+author = {Satici, Aykut and Peterson, Alex and Chiasson, John and Adams, Zachary},
+year = {2023},
+month = {01},
+pages = {1-1},
+title = {Controlling UAVs by Sensing the Electric or the Magnetic Field Around Power Lines},
+volume = {PP},
+journal = {IEEE Control Systems Letters},
+doi = {10.1109/LCSYS.2023.3334998}
+}
+
+@article{ambig,
+author = {Li, Gen and Meng, Jie and Xie, Yuanlong and Zhang, Xiaolong and Huang, Yu and Lijian, Jiang and Liu, Chao},
+year = {2019},
+month = {07},
+pages = {3331},
+title = {Reliable and Fast Localization in Ambiguous Environments Using Ambiguity Grid Map},
+volume = {19},
+journal = {Sensors},
+doi = {10.3390/s19153331}
+}
+
+@ARTICLE{7747236,
+  author={Cadena, Cesar and Carlone, Luca and Carrillo, Henry and Latif, Yasir and Scaramuzza, Davide and Neira, José and Reid, Ian and Leonard, John J.},
+  journal={IEEE Transactions on Robotics}, 
+  title={Past, Present, and Future of Simultaneous Localization and Mapping: Toward the Robust-Perception Age}, 
+  year={2016},
+  volume={32},
+  number={6},
+  pages={1309-1332},
+  keywords={Graph theory;Simultaneous location and mapping;Service robots;Robustness;Localization;Factor graphs;localization;mapping;maximum a posteriori estimation;perception;robots;sensing;simultaneous localization and mapping (SLAM)},
+  doi={10.1109/TRO.2016.2624754}}
+
+
+@inbook{Spong_Hutchinson_Vidyasagar_2020, place={Hoboken, NJ}, title={1.1 Mathematical Modeling of Robots}, booktitle={Robot Modeling and control}, publisher={John Wiley & Sons, Inc.}, author={Spong, Mark W. and Hutchinson, Seth and Vidyasagar, M.}, year={2020}} 
+
+@inproceedings{bensaci2018nonlinear,
+  title={Nonlinear Control of a differential wheeled mobile robot in real time-Turtlebot 2},
+  author={Bensaci, Chaima and Zennir, Youcef and Pomorski, Denis},
+  booktitle={International Conference on Advanced Technologies and Electrical Engineering (ICTAEE'18)},
+  pages={12--14},
+  year={2018}
+}
+
+@article{nonholonomic_luca,
+author = {De Luca, Andrea and Oriolo, Giuseppe},
+year = {1995},
+month = {01},
+pages = {},
+title = {Modelling and Control of Nonholonomic Mechanical Systems},
+isbn = {978-3-211-82731-4},
+journal = {Kinematics and Dynamics of Multi-Body Systems},
+doi = {10.1007/978-3-7091-4362-9_7}
+}
+
+@ARTICLE{Patwardhan_2022,title={Distributing Collaborative Multi-Robot Planning With Gaussian Belief Propagation},year={2022},author={Aalok Patwardhan and Riku Murai and A. Davison},doi={10.1109/lra.2022.3227858},pmid={null},pmcid={null},mag_id={null},journal={IEEE Robotics and Automation Letters},abstract={Precise coordinated planning over a forward time window enables safe and highly efficient motion when many robots must work together in tight spaces, but this would normally require centralised control of all devices which is difficult to scale. We demonstrate GBP Planning, a new purely distributed technique based on Gaussian Belief Propagation for multi-robot planning problems, formulated by a generic factor graph defining dynamics and collision constraints over a forward time window. In simulations, we show that our method allows high performance collaborative planning where robots are able to cross each other in busy, intricate scenarios. They maintain shorter, quicker and smoother trajectories than alternative distributed planning techniques even in cases of communication failure. We encourage the reader to view the accompanying video demonstration.}}
+
+@ARTICLE{Dellaert_2021,title={Factor Graphs: Exploiting Structure in Robotics},year={2021},author={Frank Dellaert},doi={10.1146/annurev-control-061520-010504},pmid={null},pmcid={null},mag_id={3118408399},journal={null},abstract={Many estimation, planning, and optimal control problems in robotics have an optimization problem at their core. In most of these optimization problems, the objective to be maximized or minimized is...}}
+
+@ARTICLE{Doherty_2019,title={Multimodal Semantic SLAM with Probabilistic Data Association},year={2019},author={Kevin Doherty and Dehann Fourie and John J. Leonard},doi={10.1109/icra.2019.8794244},pmid={null},pmcid={null},mag_id={2967044683},journal={IEEE International Conference on Robotics and Automation},abstract={The recent success of object detection systems motivates object-based representations for robot navigation; i.e. semantic simultaneous localization and mapping (SLAM). The semantic SLAM problem can be decomposed into a discrete inference problem: determining object class labels and measurement-landmark correspondences (the data association problem), and a continuous inference problem: obtaining the set of robot poses and object locations in the environment. A solution to the semantic SLAM problem necessarily addresses this joint inference, but under ambiguous data associations this is in general a non-Gaussian inference problem, while the majority of previous work focuses on Gaussian inference. Previous solutions to data association either produce solutions between potential hypotheses or maintain multiple explicit hypotheses for each association. We propose a solution that represents hypotheses as multiple modes of an equivalent non-Gaussian sensor model. We then solve the resulting non-Gaussian inference problem using nonparametric belief propagation. We validate our approach in a simulated hallway environment under a variety of sensor noise characteristics, as well as using real data from the KITTI dataset, demonstrating improved robustness to perceptual aliasing and odometry uncertainty.}}
+
+@ARTICLE{Huang_2021,title={NF-iSAM: Incremental Smoothing and Mapping via Normalizing Flows},year={2021},author={Qiangqiang Huang and Can Pu and Dehann Fourie and Kasra Khosoussi and Jonathan P. How and John J. Leonard},doi={10.1109/icra48506.2021.9561436},pmid={null},pmcid={null},mag_id={3206179892},journal={IEEE International Conference on Robotics and Automation},abstract={This paper presents a novel non-Gaussian inference algorithm, Normalizing Flow iSAM (NF-iSAM), for solving SLAM problems with non-Gaussian factors and/or non-linear measurement models. NF-iSAM exploits the expressive power of neural networks, and trains normalizing flows to draw samples from the joint posterior of non-Gaussian factor graphs. By leveraging the Bayes tree, NF-iSAM is able to exploit the sparsity structure of SLAM, thus enabling efficient incremental updates similar to iSAM2, albeit in the more challenging non-Gaussian setting. We demonstrate the performance of NF-iSAM and compare it against the state-of-the-art algorithms such as iSAM2 (Gaussian) and mm-iSAM (non-Gaussian) in synthetic and real range-only SLAM datasets.}}
+
+@ARTICLE{Juric_2021,title={A Comparison of Graph Optimization Approaches for Pose Estimation in SLAM},year={2021},author={Andela Juric and Filip Kendeš and Ivan Marković and I. Petrović},doi={10.23919/mipro52101.2021.9596721},pmid={null},pmcid={null},mag_id={null},journal={International Convention on Information and Communication Technology, Electronics and Microelectronics},abstract={Simultaneous localization and mapping (SLAM) is an important tool that enables autonomous navigation of mobile robots through unknown environments. As the name SLAM suggests, it is important to obtain a correct representation of the environment and estimate a correct trajectory of the robot poses in the map. Dominant state-of-the-art approaches solve the pose estimation problem using graph optimization techniques based on the least squares minimization method. Among the most popular approaches are libraries such as g2o, Ceres, GTSAM and SE-Sync. The aim of this paper is to describe these approaches in a unified manner and to evaluate them on an array of publicly available synthetic and real-world pose graph datasets. In the evaluation experiments, the computation time and the value of the objective function of the four optimization libraries are analyzed.}}
+
+@online{em_sensor,
+  title = {EM/Nav is the drone industry's solution for shielded operations},
+  author = {{Manifold Robotics}},
+  url = {https://www.manifoldrobotics.com/em-nav},
+  year = {2023},
+  urldate = {2023-03-24}
+}
+
+
+@Inbook{Herath2022,
+author="Herath, Damith",
+editor="Herath, Damith
+and St-Onge, David",
+title="Lost in Space! Localisation and Mapping",
+bookTitle="Foundations of Robotics: A Multidisciplinary Approach with Python and ROS",
+year="2022",
+publisher="Springer Nature Singapore",
+address="Singapore",
+pages="239--263",
+abstract="Imagine you are visiting a new city or country. Perhaps, if you are like me, one of the first things you might do is download or print a copy of the local area map.",
+isbn="978-981-19-1983-1",
+doi="10.1007/978-981-19-1983-1_9",
+url="https://doi.org/10.1007/978-981-19-1983-1_9"
+}
+
+@ARTICLE{Lajoie_2019,title={Modeling Perceptual Aliasing in SLAM via Discrete–Continuous Graphical Models},year={2019},author={Pierre-Yves Lajoie and Siyi Hu and Giovanni Beltrame and Luca Carlone},doi={10.1109/lra.2019.2894852},pmid={null},pmcid={null},mag_id={2963873956},journal={IEEE Robotics and Automation Letters},abstract={Perceptual aliasing is one of the main causes of the failure for simultaneous localization and mapping (SLAM) systems operating in the wild. Perceptual aliasing is a phenomenon where different places generate a similar visual (or, in general, perceptual) footprint. This causes spurious measurements to be fed to the SLAM estimator, which typically results in incorrect localization and mapping results. This problem is exacerbated by the fact that those outliers are  highly correlated , in the sense that perceptual aliasing creates a large number of mutually consistent outliers. Another issue stems from the fact that most state-of-the-art techniques rely on a  given trajectory guess  (e.g., from odometry) to discern between inliers and outliers, and this makes the resulting pipeline brittle, since the accumulation of error may result in incorrect choices and recovery from failures is far from trivial. This paper provides a unified framework to  model  perceptual aliasing in SLAM and provides practical algorithms that can cope with outliers without relying on any initial guess. We present two main contributions. The first is a  discrete–continuous graphical model  ( DC-GM ) for SLAM: The continuous portion of the  DC-GM  captures the standard SLAM problem, while the discrete portion describes the selection of the outliers and models their correlation. The second contribution is a semidefinite relaxation to perform inference in the  DC-GM  that returns estimates with provable sub-optimality guarantees. Experimental results on standard benchmarking datasets show that the proposed technique compares favorably with state-of-the-art methods while not relying on an initial guess for optimization.}}
+
+@misc{manifold:2022,
+  author       = {Jeffrey Laut},
+  year         = {2022},
+  title        = {Improving UAS operations near transmission lines by sensing electromagnetic field data in flight},
+  howpublished = {Webinar Slideset},
+  month        = {January},
+  day          = {15},
+  url          = {https://distribution.epri.com/adi/workshop/content/s6/MR_EPRI_webinar.pdf},
+}
+
+
+@ARTICLE{rand2023queued,
+  title={Queued Up: Characteristics of Power Plants Seeking Transmission Interconnection As of the End of 2022},
+  author={Rand, Joseph and Strauss, Rose and Gorman, Will and Seel, Joachim and Kemp, Julie Mulvaney and Jeong, Seongeun and Robson, Dana and Wiser, Ryan H},
+  year={2023}
+}
+
+
+@Article{s21041146,
+AUTHOR = {Li, Yincheng and Zhang, Wenbin and Li, Peng and Ning, Youhuan and Suo, Chunguang},
+TITLE = {A Method for Autonomous Navigation and Positioning of UAV Based on Electric Field Array Detection},
+JOURNAL = {Sensors},
+VOLUME = {21},
+YEAR = {2021},
+NUMBER = {4},
+ARTICLE-NUMBER = {1146},
+URL = {https://www.mdpi.com/1424-8220/21/4/1146},
+PubMedID = {33562095},
+ISSN = {1424-8220},
+ABSTRACT = {At present, the method of using unmanned aerial vehicles (UAVs) with traditional navigation equipment for inspection of overhead transmission lines has the limitations of expensive sensors, difficult data processing, and vulnerable to weather and environmental factors, which cannot ensure the safety of UAV and power systems. Therefore, this paper establishes a mathematical model of spatial distribution of transmission lines to study the field strength distribution information around transmission lines. Based on this, research the navigation and positioning algorithm. The data collected by the positioning system are input into the mathematical model to complete the identification, positioning, and safety distance diagnosis of the field source. The detected data and processing results can provide reference for UAV obstacle avoidance navigation and safety warning. The experimental results show that the positioning effect of the positioning navigation algorithm is obvious, and the positioning error is within the range of use error and has good usability and application value.},
+DOI = {10.3390/s21041146}
+}
+
+@misc{Adams_Gibson, title={Up-close, touch, and robotic capable cyclorotor drone}, url={https://www.pitchaero.com/}, journal={Pitch Aeronautics}, author={Adams, Zach and Gibson, IAN}} 
+
+@ARTICLE{Doumbia_2020,title={State Estimation and Localization Based on Sensor Fusion for Autonomous Robots in Indoor Environment},year={2020},author={Mamadou Doumbia and Xu Cheng},doi={10.3390/computers9040084},pmid={null},pmcid={null},mag_id={3092975313},journal={The first computers},abstract={Currently, almost all robot state estimation and localization systems are based on the Kalman filter (KF) and its derived methods, in particular the unscented Kalman filter (UKF). When applying the UKF alone, the estimate of the state is not sufficiently precise. In this paper, a new hierarchical infrared navigational algorithm hybridization (HIRNAH) system is developed to provide better state estimation and localization for mobile robots. Two navigation subsystems (inertial navigation system (INS) and, using a novel infrared navigation algorithm (NIRNA), Odom-NIRNA) and an RPLIDAR-A3 scanner cooperation to build HIRNAH. The robot pose (position and orientation) errors are estimated by a system filtering module (SFM) and used to smooth the robot’s final poses. A prototype (two rotary encoders, one smartphone-based robot sensing model and one RPLIDAR-A3 scanner) has been built and mounted on a four-wheeled mobile robot (4-WMR). Simulation results have motivated real-life experiments, and obtained results are compared to some existent research (hardware and control technology navigation (HCTNav), rapid exploring random tree (RRT) and in stand-alone mode (INS)) for performance measurements. The experimental results confirm that HIRNAH presents a more accurate estimation and a lower mean square error (MSE) of the robot’s state than those calculated by the previously cited HCTNav, RRT and INS.}}
+
+
+@inproceedings{kalibr,
+author = {Rehder, Joern and Nikolic, Janosch and Schneider, Thomas and Hinzmann, Timo and Siegwart, Roland},
+year = {2016},
+month = {05},
+pages = {4304-4311},
+title = {Extending kalibr: Calibrating the extrinsics of multiple IMUs and of individual axes},
+doi = {10.1109/ICRA.2016.7487628}
+}
+
+
+@ARTICLE{8036258,
+
+  author={Kim, Yunki and An, Jongwoo and Lee, Jangmyung},
+
+  journal={IEEE Transactions on Industrial Electronics}, 
+
+  title={Robust Navigational System for a Transporter Using GPS/INS Fusion}, 
+
+  year={2018},
+
+  volume={65},
+
+  number={4},
+
+  pages={3346-3354},
+
+  doi={10.1109/TIE.2017.2752137}}
+
+
+@Article{doi:10.1260/1756-8293.5.2.145,
+  author   = {Zachary Adams and Moble Benedict and Vikram Hrishikeshavan and Inderjit Chopra},
+  title    = {Design, Development, and Flight Test of a Small-Scale Cyclogyro UAV Utilizing a Novel Cam-Based Passive Blade Pitching Mechanism},
+  doi      = {10.1260/1756-8293.5.2.145},
+  eprint   = {https://doi.org/10.1260/1756-8293.5.2.145},
+  number   = {2},
+  pages    = {145-162},
+  url      = {https://doi.org/10.1260/1756-8293.5.2.145},
+  volume   = {5},
+  abstract = {A cycloidal rotor is an innovative horizontal axis propulsion system, which is utilized in the present study to develop a fully-controllable flying aircraft (known as “Cyclogyro”). The present 535 gram cyclogyro uses a hybrid configuration with two cyclorotors and a horizontal tail rotor. Since a cycloidal rotor relies on cyclic blade pitching for producing thrust and also for control, designing a reliable pitch mechanism that can provide the required blade pitching kinematics (depending on the advance ratio) is extremely important. A novel blade pitch mechanism has been developed, which is passively driven by centrifugal force, and could potentially be adapted to generate the required pitching schedules for efficient operation over a range of advance ratios. A simplified flightworthy version of this mechanism was implemented in the present cyclogyro. The mechanism was able to generate the appropriate blade kinematics and the thrust required for the vehicle to hover. Also, the present mechanism is designed such that it is possible to vary both amplitude and phasing of the cyclic blade pitching. A novel control strategy was developed using blade pitch amplitude (thrust magnitude) control for roll, phasing (thrust direction) for yaw and tail rotor for pitch control. The control strategy was implemented using a three gram onboard processor, which was used to stabilize the vehicle without a pilot, through a closed-loop feedback control system. This is the first flight-capable cyclogyro reported in the literature to utilize cycloidal rotors having both pitch amplitude and phase control. The successful flight for the present vehicle also validates the flightworthiness of this completely passive pitch mechanism design, which has great potential for efficient forward flight.},
+  journal  = {International Journal of Micro Air Vehicles},
+  year     = {2013},
+}
+
+
+@ARTICLE{10.3389/frobt.2020.00068,
+  
+AUTHOR={Camurri, Marco and Ramezani, Milad and Nobili, Simona and Fallon, Maurice},   
+	 
+TITLE={Pronto: A Multi-Sensor State Estimator for Legged Robots in Real-World Scenarios},      
+	
+JOURNAL={Frontiers in Robotics and AI},      
+	
+VOLUME={7},           
+	
+YEAR={2020},      
+	  
+URL={https://www.frontiersin.org/articles/10.3389/frobt.2020.00068},       
+	
+DOI={10.3389/frobt.2020.00068},      
+	
+ISSN={2296-9144},   
+   
+ABSTRACT={In this paper, we present a modular and flexible state estimation framework for legged robots operating in real-world scenarios, where environmental conditions, such as occlusions, low light, rough terrain, and dynamic obstacles can severely impair estimation performance. At the core of the proposed estimation system, called Pronto, is an Extended Kalman Filter (EKF) that fuses IMU and Leg Odometry sensing for pose and velocity estimation. We also show how Pronto can integrate pose corrections from visual and LIDAR and odometry to correct pose drift in a loosely coupled manner. This allows it to have a real-time proprioceptive estimation thread running at high frequency (250–1,000 Hz) for use in the control loop while taking advantage of occasional (and often delayed) low frequency (1–15 Hz) updates from exteroceptive sources, such as cameras and LIDARs. To demonstrate the robustness and versatility of the approach, we have tested it on a variety of legged platforms, including two humanoid robots (the Boston Dynamics Atlas and NASA Valkyrie) and two dynamic quadruped robots (IIT HyQ and ANYbotics ANYmal) for more than 2 h of total runtime and 1.37 km of distance traveled. The tests were conducted in a number of different field scenarios under the conditions described above. The algorithms presented in this paper are made available to the research community as open-source ROS packages.}
+}
+
+@Misc{felix_quadruped,
+  author = {Felix Ruppert and Alexander Badri-Spröwitz},
+  date   = {2022-07-18},
+  title  = {Learning plastic matching of robot dynamics in closed-loop central pattern generators},
+  url    = {https://is.mpg.de/news/robot-dog-learns-to-walk-in-one-hour},
+  file   = {:/home/alex/State-Estimation-Masters-Thesis/src/figures/content_Morti_the_robot2.jpeg:jpeg},
+  year   = {2022},
+}
+
+@Misc{GreyOrange,
+  author = {GreyOrange},
+  url    = {https://www.greyorange.com/},
+  year   = {2018},
+
+}
+
+
+
+
+@Article{Campos2020,
+  author  = {Campos, Carlos and Elvira, Richard and G{\'o}mez Rodr{\'i}guez, Juan J. and Montiel, Jos{\'e} M. M. and Tard{\'o}s, Juan D.},
+  title   = {ORB-SLAM3: An Accurate Open-Source Library for Visual, Visual-Inertial, and Multimap SLAM},
+  journal = {arXiv preprint arXiv:2007.11898},
+  year    = {2020},
+}
+
+
+@article{Kostavelis2016RobotNV,
+  title={Robot navigation via spatial and temporal coherent semantic maps},
+  author={I. Kostavelis and Konstantinos Charalampous and A. Gasteratos and John K. Tsotsos},
+  journal={Eng. Appl. Artif. Intell.},
+  volume={48},
+  pages={173-187},
+  year={2016},
+  publisher={Elsevier},
+  doi={10.1016/j.engappai.2015.11.004},
+}
+
+@INPROCEEDINGS{8311878,
+  author={Seow, Yiploon and Miyagusuku, Renato and Yamashita, Atsushi and Asama, Hajime},
+  booktitle={2017 IEEE International Conference on Real-time Computing and Robotics (RCAR)}, 
+  title={Detecting and solving the kidnapped robot problem using laser range finder and wifi signal}, 
+  year={2017},
+  volume={},
+  number={},
+  pages={303-308},
+  keywords={Mobile robots;Robot sensing systems;Atmospheric measurements;Particle measurements;Training},
+  doi={10.1109/RCAR.2017.8311878}}
+
+
+@article{dag,
+author = {Jack Kuipers, Polina Suter and Giusi Moffa},
+title = {Efficient Sampling and Structure Learning of Bayesian Networks},
+journal = {Journal of Computational and Graphical Statistics},
+volume = {31},
+number = {3},
+pages = {639--650},
+year = {2022},
+publisher = {Taylor \& Francis},
+doi = {10.1080/10618600.2021.2020127},
+
+URL = { 
+    
+        https://doi.org/10.1080/10618600.2021.2020127
+        
+},
+eprint = { 
+    
+        https://doi.org/10.1080/10618600.2021.2020127
+    
+    }
+
+}
+
+
+
+@article{He2018Simultaneous,
+title={Simultaneous Location and Map Construction Based on RBPF-SLAM Algorithm},
+author={Hong He and Yunhui Jia and Lei Sun},
+journal={2018 Chinese Control And Decision Conference (CCDC)},
+year={2018},
+pages={4907-4910},
+doi={10.1109/CCDC.2018.8407981}
+}
+
+@article{klancar,
+author = {Klančar, Gregor and Teslic, Luka},
+year = {2014},
+month = {12},
+pages = {},
+title = {Mobile-robot pose estimation and environment mapping using an extended Kalman filter},
+volume = {45},
+journal = {International Journal of Systems Science},
+doi = {10.1080/00207721.2013.775379}
+}
+
+@article{Kucner2023Survey,
+title={Survey of maps of dynamics for mobile robots},
+author={T. Kucner and Martin Magnusson and Sariah Mghames and Luigi Palmieri and Francesco Verdoja and Chittaranjan Srinivas Swaminathan and T. Krajník and E. Schaffernicht and N. Bellotto and Marc Hanheide and A. Lilienthal},
+journal={The International Journal of Robotics Research},
+year={2023},
+volume={42},
+pages={977 - 1006},
+doi={10.1177/02783649231190428}
+}
+
+@article{Rublee2011ORBAE,
+  title={ORB: An efficient alternative to SIFT or SURF},
+  author={Ethan Rublee and Vincent Rabaud and Kurt Konolige and Gary R. Bradski},
+  journal={2011 International Conference on Computer Vision},
+  year={2011},
+  pages={2564-2571},
+  url={https://api.semanticscholar.org/CorpusID:206769866}
+}
+
+@InProceedings{10.1007/978-3-642-15561-1_56,
+author="Calonder, Michael
+and Lepetit, Vincent
+and Strecha, Christoph
+and Fua, Pascal",
+editor="Daniilidis, Kostas
+and Maragos, Petros
+and Paragios, Nikos",
+title="BRIEF: Binary Robust Independent Elementary Features",
+booktitle="Computer Vision -- ECCV 2010",
+year="2010",
+publisher="Springer Berlin Heidelberg",
+address="Berlin, Heidelberg",
+pages="778--792",
+abstract="We propose to use binary strings as an efficient feature point descriptor, which we call BRIEF.We show that it is highly discriminative even when using relatively few bits and can be computed using simple intensity difference tests. Furthermore, the descriptor similarity can be evaluated using the Hamming distance, which is very efficient to compute, instead of the L2 norm as is usually done.",
+isbn="978-3-642-15561-1"
+}
+
+
+
+@article{Artal2015,
+title={ORB-SLAM: A Versatile and Accurate Monocular SLAM System},
+author={Raul Mur-Artal and J. Montiel and J. D. Tardós},
+journal={IEEE Transactions on Robotics},
+year={2015},
+volume={31},
+pages={1147-1163},
+doi={10.1109/TRO.2015.2463671}
+}
+
+@article{Rogers2010Effects,
+title={Effects of Sensory Precision on Mobile Robot Localization and Mapping},
+author={J. Rogers and A. J. Trevor and Carlos Nieto-Granda and Alexander G. Cunningham and Manohar Paluri and Nathan Michael and F. Dellaert and H. Christensen and Vijay R. Kumar},
+year={2010},
+pages={433-446},
+doi={10.1007/978-3-642-28572-1_30}
+}
+
+@article{Boukabou2023Electromagnetic,title={Electromagnetic Environment Around Overhead Parallel Extra-High-Voltage Transmission Lines for UAS During Powerline Inspection},author={Issam Boukabou and Dulana Rupanetti and N. Kaabouch and L. Foust},journal={2023 IEEE Symposium on Electromagnetic Compatibility & Signal/Power Integrity (EMC+SIPI)},year={2023},pages={413-418},doi={10.1109/EMCSIPI50001.2023.10241534}}
+
+@article{en11040866,
+AUTHOR = {Zhai, Yongjie and Zhao, Hailong and Zhao, Meng and Jiao, Songming},
+TITLE = {Design of Electric Patrol UAVs Based on a Dual Antenna System},
+JOURNAL = {Energies},
+VOLUME = {11},
+YEAR = {2018},
+NUMBER = {4},
+ARTICLE-NUMBER = {866},
+URL = {https://www.mdpi.com/1996-1073/11/4/866},
+ISSN = {1996-1073},
+ABSTRACT = {China completed the construction of more than 1.15 million kilometers of transmission lines with conventional voltage levels spanning its vast territory in 2014. This large and complicated power grid structure relies mainly on manual operation and maintenance of lines. Unmanned aerial vehicles (UAVs) equipped with high-definition digital video cameras and cameras and GPS positioning systems can conduct autonomous patrols along the grid. However, the presence of electromagnetic fields around high-voltage transmission lines can affect the UAV’s magnetometer, resulting in a wrong heading and thus unsafe flight. In this paper, the traditional method of UAV heading calculation using a magnetometer was analyzed, and a novel method for calculating UAV heading based on dual antennas was proposed. Experimental data showed that the proposed method improves the anti-magnetic interference characteristics of UAVs and increases UAV security and stability for power inspection applications.},
+DOI = {10.3390/en11040866}
+}
+
+
+@book{slater1947electromagnetism,
+  title={Electromagnetism},
+  author={Slater, J.C. and Frank, N.H.},
+  isbn={9780486622637},
+  lccn={47030963},
+  series={International Series In Pure},
+  url={https://books.google.com/books?id=wBg6AQAAIAAJ},
+  year={1947},
+  publisher={McGraw-Hill Book Company}
+}
+
+
+@book{kreyszig2010advanced,
+  title={Advanced Engineering Mathematics},
+  author={Kreyszig, E.},
+  isbn={9780470458365},
+  lccn={2011287100},
+  url={https://books.google.com/books?id=UnN8DpXI74EC},
+  year={2010},
+  publisher={John Wiley \& Sons}
+}
+
+
+@article{gps_distortions,
+author = {Park, Joon‐Young and Kim, Seok‐Tae and Lee, Jae‐Kyung and Ham, Ji‐Wan and Oh, Ki-Yong},
+year = {2019},
+month = {10},
+pages = {},
+title = {Method of operating a GIS‐based autopilot drone to inspect ultrahigh voltage power lines and its field tests},
+volume = {37},
+journal = {Journal of Field Robotics},
+doi = {10.1002/rob.21916}
+}
+
+
+@article{camera_powerlines,
+author = {Hui, Xiaolong and Bian, Jiang and Zhao, Xiaoguang and Tan, M.},
+year = {2018},
+month = {01},
+pages = {172988141775282},
+title = {Vision-based autonomous navigation approach for unmanned aerial vehicle transmission-line inspection},
+volume = {15},
+journal = {International Journal of Advanced Robotic Systems},
+doi = {10.1177/1729881417752821}
+}
+
+@INPROCEEDINGS{10187002,
+  author={Rad, Shervin Salehi and Kheirollahi, Reza and Zhao, Shuyan and Mostafa, Amr and Zheng, Zilong and Wang, Yao and Zhang, Hua and Friedman, Gary and Lu, Fei},
+  booktitle={2023 IEEE Transportation Electrification Conference & Expo (ITEC)}, 
+  title={Experimental Study of Magnetic Field Effect on Multi-Rotor Drones Operation in Autonomous Power Line Inspection}, 
+  year={2023},
+  volume={},
+  number={},
+  pages={1-5},
+  keywords={Accelerometers;Power transmission lines;Magnetometers;Navigation;Magnetic sensors;Inspection;Gyroscopes;Magnetic Fields;Safety Distance Multi-rotor drones;Power Transmission Lines},
+  doi={10.1109/ITEC55900.2023.10187002}}
+
+
+
+
+
+@article{cam_exposure,
+author = {Tomasi, Justin and Wagstaff, Brandon and Waslander, Steven and Kelly, Jonathan},
+year = {2021},
+month = {02},
+pages = {1-1},
+title = {Learned Camera Gain and Exposure Control for Improved Visual Feature Detection and Matching},
+volume = {PP},
+journal = {IEEE Robotics and Automation Letters},
+doi = {10.1109/LRA.2021.3058909}
+}
+
+@ARTICLE{halleffect,
+  author={Son, Donghoon and Yim, Sehyuk and Sitti, Metin},
+  journal={IEEE/ASME Transactions on Mechatronics}, 
+  title={A 5-D Localization Method for a Magnetically Manipulated Untethered Robot Using a 2-D Array of Hall-Effect Sensors}, 
+  year={2016},
+  volume={21},
+  number={2},
+  pages={708-716},
+  keywords={Magnetic sensors;Sensor arrays;Electromagnets;Robots;Magnetic separation;Capsule endoscopy;localization;magnetic robot;magnetic actuation;Capsule endoscopy;localization;magnetic actuation;magnetic robot},
+  doi={10.1109/TMECH.2015.2488361}}
+
+
+@Article{s20174922,
+AUTHOR = {Cao, Like and Ling, Jie and Xiao, Xiaohui},
+TITLE = {Study on the Influence of Image Noise on Monocular Feature-Based Visual SLAM Based on FFDNet},
+JOURNAL = {Sensors},
+VOLUME = {20},
+YEAR = {2020},
+NUMBER = {17},
+ARTICLE-NUMBER = {4922},
+URL = {https://www.mdpi.com/1424-8220/20/17/4922},
+PubMedID = {32878145},
+ISSN = {1424-8220},
+ABSTRACT = {Noise appears in images captured by real cameras. This paper studies the influence of noise on monocular feature-based visual Simultaneous Localization and Mapping (SLAM). First, an open-source synthetic dataset with different noise levels is introduced in this paper. Then the images in the dataset are denoised using the Fast and Flexible Denoising convolutional neural Network (FFDNet); the matching performances of Scale Invariant Feature Transform (SIFT), Speeded Up Robust Features (SURF) and Oriented FAST and Rotated BRIEF (ORB) which are commonly used in feature-based SLAM are analyzed in comparison and the results show that ORB has a higher correct matching rate than that of SIFT and SURF, the denoised images have a higher correct matching rate than noisy images. Next, the Absolute Trajectory Error (ATE) of noisy and denoised sequences are evaluated on ORB-SLAM2 and the results show that the denoised sequences perform better than the noisy sequences at any noise level. Finally, the completely clean sequence in the dataset and the sequences in the KITTI dataset are denoised and compared with the original sequence through comprehensive experiments. For the clean sequence, the Root-Mean-Square Error (RMSE) of ATE after denoising has decreased by 16.75%; for KITTI sequences, 7 out of 10 sequences have lower RMSE than the original sequences. The results show that the denoised image can achieve higher accuracy in the monocular feature-based visual SLAM under certain conditions.},
+DOI = {10.3390/s20174922}
+}
+
+
+@article{allan_kf,
+author = {Zhang, Alan and Atia, Mohamed},
+year = {2020},
+month = {09},
+pages = {},
+title = {An Efficient Tuning Framework for Kalman Filter Parameter Optimization using Design of Experiments and Genetic Algorithms},
+volume = {In press},
+journal = {Navigation - Journal of The Institute of Navigation},
+doi = {10.1002/navi.399}
+}
+
+@INPROCEEDINGS{9549993,
+  author={Zhang, Min and Tang, Di and Liu, Cong and Xu, Xiaobin and Tan, Zhiying},
+  booktitle={2021 40th Chinese Control Conference (CCC)}, 
+  title={A LiDAR and camera fusion-based approach to mapping and navigation}, 
+  year={2021},
+  volume={},
+  number={},
+  pages={4163-4168},
+  keywords={Laser radar;Simultaneous localization and mapping;Navigation;Filtering;Robot kinematics;Robot vision systems;Buildings;LiDAR;camera;fusion map building;SLAM;navigation},
+  doi={10.23919/CCC52363.2021.9549993}}
+
+
+
+
+@article{Elfring2021ParticleFA,
+  title={Particle Filters: A Hands-On Tutorial},
+  author={Jos Elfring and Elena Torta and Ren{\'e} van de Molengraft},
+  journal={Sensors (Basel, Switzerland)},
+  year={2021},
+  volume={21},
+  url={https://api.semanticscholar.org/CorpusID:231595612}
+}
+
+
+@ARTICLE{6092505,
+  author={Lupton, Todd and Sukkarieh, Salah},
+  journal={IEEE Transactions on Robotics}, 
+  title={Visual-Inertial-Aided Navigation for High-Dynamic Motion in Built Environments Without Initial Conditions}, 
+  year={2012},
+  volume={28},
+  number={1},
+  pages={61-76},
+  keywords={Navigation;Vehicles;Uncertainty;Simultaneous localization and mapping;Gravity;Equations;Field robots;localization;search-and-rescue robots;sensor fusion},
+  doi={10.1109/TRO.2011.2170332}}
+
+
+@INPROCEEDINGS{10103985,
+  author={Hiller, Tobias and Vujadinović, Miloš and Blocher, Lukas and Mayer, Wolfram and Radović, Dušan and Balslink, Thorsten and Northemann, Thomas and Buhmann, Alexander},
+  booktitle={2023 IEEE International Symposium on Inertial Sensors and Systems (INERTIAL)}, 
+  title={Practical Approaches to Allan Deviation Analysis of Low-Cost MEMS Inertial Sensors}, 
+  year={2023},
+  volume={},
+  number={},
+  pages={1-4},
+  keywords={Micromechanical devices;Accelerometers;Inertial sensors;Time series analysis;Low-pass filters;Reliability;Best practices;MEMS inertial sensor;low-cost;Allan deviation;gyroscope;accelerometer;angle random walk;bias instability},
+  doi={10.1109/INERTIAL56358.2023.10103985}}
+
+@INPROCEEDINGS{8878552,
+  author={Marinov, Marin B. and Ganev, Borislav and Djermanova, Nina and Tashev, Tasho D.},
+  booktitle={2019 IEEE XXVIII International Scientific Conference Electronics (ET)}, 
+  title={Analysis of Sensors Noise Performance Using Allan Deviation}, 
+  year={2019},
+  volume={},
+  number={},
+  pages={1-4},
+  keywords={Sensor phenomena and characterization;Accelerometers;Stochastic processes;Temperature measurement;Analytical models;Micromechanical devices;Allan Variance;CO2 sensors;inertial sensors;pressure sensors, sensor noise},
+  doi={10.1109/ET.2019.8878552}}
+
+  @article{Draganova_allan_mag,
+author = {Draganová, Katarína and Kmec, F. and Blazek, Josef and Praslicka, Dusan and Hudak, Jozef and Laššák, M.},
+year = {2014},
+month = {07},
+pages = {394-395},
+title = {Noise Analysis of Magnetic Sensors Using Allan Variance},
+volume = {126},
+journal = {Acta Physica Polonica A},
+doi = {10.12693/APhysPolA.126.394}
+}
+
+% emfield
+
+@article{ortega2002stabilization,
+  title={Stabilization of a class of underactuated mechanical systems via interconnection and damping assignment},
+  author={Ortega, Romeo and Spong, Mark W and G{\'o}mez-Estern, Fabio and Blankenstein, Guido},
+  journal={IEEE transactions on automatic control},
+  volume={47},
+  number={8},
+  pages={1218--1233},
+  year={2002},
+  publisher={IEEE}
+}
+
+
+@book{van2000l2,
+  title={L2-gain and passivity techniques in nonlinear control},
+  author={Van Der Schaft, Arjan},
+  volume={2},
+  year={2000},
+  publisher={Springer}
+}
+
+@article{ortega2001putting,
+  title={Putting energy back in control},
+  author={Ortega, Romeo and Van Der Schaft, Arjan J and Mareels, Iven and Maschke, Bernhard},
+  journal={IEEE Control Systems Magazine},
+  volume={21},
+  number={2},
+  pages={18--33},
+  year={2001},
+  publisher={IEEE}
+}
+
+@inproceedings{karaman2011anytime,
+  title={Anytime motion planning using the RRT},
+  author={Karaman, Sertac and Walter, Matthew R and Perez, Alejandro and Frazzoli, Emilio and Teller, Seth},
+  booktitle={2011 IEEE International Conference on Robotics and Automation},
+  pages={1478--1483},
+  year={2011},
+  organization={IEEE}
+}
+
+@book{choset2005principles,
+  title={Principles of robot motion: theory, algorithms, and implementation},
+  author={Choset, Howie M and Hutchinson, Seth and Lynch, Kevin M and Kantor, George and Burgard, Wolfram and Kavraki, Lydia E and Thrun, Sebastian and Arkin, Ronald C},
+  year={2005},
+  publisher={MIT press}
+}
+
+@misc{conway2002practical,
+  title={Practical Methods for Optimal Control Using Nonlinear Programming},
+  author={Conway, Bruce},
+  year={2002},
+  publisher={JSTOR}
+}
+
+@article{shiriaev2005constructive,
+  title={Constructive tool for orbital stabilization of underactuated nonlinear systems: Virtual constraints approach},
+  author={Shiriaev, Anton and Perram, John W and Canudas-de-Wit, Carlos},
+  journal={IEEE Transactions on Automatic Control},
+  volume={50},
+  number={8},
+  pages={1164--1176},
+  year={2005},
+  publisher={IEEE}
+}
+
+@article{spong2001nonlinear,
+  title={Nonlinear control of the reaction wheel pendulum},
+  author={Spong, Mark W and Corke, Peter and Lozano, Rogelio},
+  journal={Automatica},
+  volume={37},
+  number={11},
+  pages={1845--1851},
+  year={2001},
+  publisher={Elsevier}
+}
+
+@article{shiriaev2009transverse,
+  title={Transverse linearization for impulsive mechanical systems with one passive link},
+  author={Shiriaev, Anton S and Freidovich, Leonid B},
+  journal={IEEE Transactions on Automatic Control},
+  volume={54},
+  number={12},
+  pages={2882--2888},
+  year={2009},
+  publisher={IEEE}
+}
+
+@article{manchester2011transverse,
+  title={Transverse dynamics and regions of stability for nonlinear hybrid limit cycles},
+  author={Manchester, Ian R},
+  journal={IFAC Proceedings Volumes},
+  volume={44},
+  number={1},
+  pages={6285--6290},
+  year={2011},
+  publisher={Elsevier}
+}
+
+@inproceedings{ross2011no,
+  title={No-regret reductions for imitation learning and structured prediction},
+  author={Ross, St{\'e}phane and Gordon, Geoffrey J and Bagnell, J Andrew},
+  booktitle={In AISTATS},
+  year={2011},
+  organization={Citeseer}
+}
+
+
+@article{DBLP:journals/corr/abs-2001-04385,
+  author    = {Christopher Rackauckas and
+               Yingbo Ma and
+               Julius Martensen and
+               Collin Warner and
+               Kirill Zubov and
+               Rohit Supekar and
+               Dominic Skinner and
+               Ali Jasim Ramadhan},
+  title     = {Universal Differential Equations for Scientific Machine Learning},
+  journal   = {CoRR},
+  volume    = {abs/2001.04385},
+  year      = {2020},
+  url       = {https://arxiv.org/abs/2001.04385},
+  eprinttype = {arXiv},
+  eprint    = {2001.04385},
+  timestamp = {Fri, 17 Jan 2020 14:07:30 +0100},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2001-04385.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+
+
+@misc{chen2018neural,
+    title={Neural Ordinary Differential Equations},
+    author={Ricky T. Q. Chen and Yulia Rubanova and Jesse Bettencourt and David Duvenaud},
+    year={2018},
+    eprint={1806.07366},
+    archivePrefix={arXiv},
+    primaryClass={cs.LG}
+}
+
+@article{kingma2014adam,
+  title={Adam: A method for stochastic optimization},
+  author={Kingma, Diederik P and Ba, Jimmy},
+  journal={arXiv preprint arXiv:1412.6980},
+  year={2014}
+}
+
+@book{pontryagin1962mathematical,
+  title={The mathematical theory of optimal processes},
+  author={Pontryagin, Lev Semenovich and Mishchenko, EF and Boltyanskii, VG and Gamkrelidze, RV},
+  year={1962},
+  publisher={Wiley},
+}
+
+@manual{quanser,
+    organization  = "Quanser",
+    title         = "Linear Servo Base Unit with Inverted Pendulum",
+    number        = "IP02",
+    year          =  2013,
+    note          = "Rev. 1.0"
+}
+
+@article{clevert2015fast,
+  title={Fast and accurate deep network learning by exponential linear units (elus)},
+  author={Clevert, Djork-Arn{\'e} and Unterthiner, Thomas and Hochreiter, Sepp},
+  journal={arXiv preprint arXiv:1511.07289},
+  year={2015}
+}
+
+
+@article{lillicrap2015continuous,
+  title={Continuous control with deep reinforcement learning},
+  author={Lillicrap, Timothy P and Hunt, Jonathan J and Pritzel, Alexander and Heess, Nicolas and Erez, Tom and Tassa, Yuval and Silver, David and Wierstra, Daan},
+  journal={arXiv preprint arXiv:1509.02971},
+  year={2015}
+}
+
+
+@book{sutton2018reinforcement,
+  title={Reinforcement learning: An introduction},
+  author={Sutton, Richard S and Barto, Andrew G},
+  year={2018},
+  publisher={MIT press}
+}
+
+@article{heess2017emergence,
+  title={Emergence of locomotion behaviours in rich environments},
+  author={Heess, Nicolas and TB, Dhruva and Sriram, Srinivasan and Lemmon, Jay and Merel, Josh and Wayne, Greg and Tassa, Yuval and Erez, Tom and Wang, Ziyu and Eslami, SM and others},
+  journal={arXiv preprint arXiv:1707.02286},
+  year={2017}
+}
+
+@article{andrychowicz2020learning,
+  title={Learning dexterous in-hand manipulation},
+  author={Andrychowicz, OpenAI: Marcin and Baker, Bowen and Chociej, Maciek and Jozefowicz, Rafal and McGrew, Bob and Pachocki, Jakub and Petron, Arthur and Plappert, Matthias and Powell, Glenn and Ray, Alex and others},
+  journal={The International Journal of Robotics Research},
+  volume={39},
+  number={1},
+  pages={3--20},
+  year={2020},
+  publisher={SAGE Publications Sage UK: London, England}
+}
+
+@article{greydanus2019hamiltonian,
+  title={Hamiltonian neural networks},
+  author={Greydanus, Samuel J and Dzumba, Misko and Yosinski, Jason},
+  year={2019}
+}
+
+@article{cranmer2020lagrangian,
+  title={Lagrangian neural networks},
+  author={Cranmer, Miles and Greydanus, Sam and Hoyer, Stephan and Battaglia, Peter and Spergel, David and Ho, Shirley},
+  journal={arXiv preprint arXiv:2003.04630},
+  year={2020}
+}
+
+@article{zhong2019symplectic,
+  title={Symplectic ODE-Net: Learning Hamiltonian Dynamics with Control},
+  author={Zhong, Yaofeng Desmond and Dey, Biswadip and Chakraborty, Amit},
+  journal={arXiv preprint arXiv:1909.12077},
+  year={2019}
+}
+
+@article{bishop2006pattern,
+  title={Pattern recognition},
+  author={Bishop, Christopher M},
+  journal={Machine learning},
+  volume={128},
+  number={9},
+  year={2006}
+}
+
+@article{christensen2021roadmap,
+  title={A Roadmap for US Robotics--From Internet to Robotics 2020 Edition},
+  author={Christensen, Henrik and Amato, Nancy and Yanco, Holly and Mataric, Maja and Choset, Howie and Drobnis, Ann and Goldberg, Ken and Grizzle, Jessy and Hager, Gregory and Hollerbach, John and others},
+  journal={Foundations and Trends{\textregistered} in Robotics},
+  volume={8},
+  number={4},
+  pages={307--424},
+  year={2021},
+  publisher={Now Publishers, Inc.}
+}
+@article{beaudoin2021structured,
+  title={Structured learning of safety guarantees for the control of uncertain dynamical systems},
+  author={Beaudoin, Marc-Antoine and Boulet, Benoit},
+  journal={arXiv preprint arXiv:2112.03347},
+  year={2021}
+}
+
+@InProceedings{pmlr-v54-linderman17a,
+  title = 	 {{Bayesian Learning and Inference in Recurrent Switching Linear Dynamical Systems}},
+  author = 	 {Linderman, Scott and Johnson, Matthew and Miller, Andrew and Adams, Ryan and Blei, David and Paninski, Liam},
+  booktitle = 	 {Proceedings of the 20th International Conference on Artificial Intelligence and Statistics},
+  pages = 	 {914--922},
+  year = 	 {2017},
+  volume = 	 {54},
+  month = 	 {20--22 Apr},
+  publisher =    {PMLR},
+  pdf = 	 {http://proceedings.mlr.press/v54/linderman17a/linderman17a.pdf},
+  url = 	 {https://proceedings.mlr.press/v54/linderman17a.html},
+}
+@article{sadigh2015safe,
+  title={Safe control under uncertainty},
+  author={Sadigh, Dorsa and Kapoor, Ashish},
+  journal={arXiv preprint arXiv:1510.07313},
+  year={2015}
+}
+
+@ARTICLE{nagy,
+  author={Nagy, Z.K. and Braatz, R.D.},
+  journal={IEEE Transactions on Control Systems Technology}, 
+  title={Worst-case and distributional robustness analysis of finite-time control trajectories for nonlinear distributed parameter systems}, 
+  year={2003},
+  volume={11},
+  number={5},
+  pages={694-704},
+  doi={10.1109/TCST.2003.816419}}
+
+@article{wu2020active,
+  title={Active disturbance rejection control design based on probabilistic robustness for uncertain systems},
+  author={Wu, Zhenlong and Li, Donghai and Chen, YangQuan},
+  journal={Industrial \& Engineering Chemistry Research},
+  volume={59},
+  number={40},
+  pages={18070--18087},
+  year={2020},
+  publisher={ACS Publications}
+}
+
+
+@article{STENGEL,
+author = { Robert F.   Stengel  and  Laura R. Ray  and  Christopher I. Marrison },
+title = {Probabilistic evaluation of control system robustness},
+journal = {International Journal of Systems Science},
+volume = {26},
+number = {7},
+pages = {1363-1382},
+year  = {1995},
+publisher = {Taylor & Francis},
+doi = {10.1080/00207729508929105},
+URL = { 
+        https://doi.org/10.1080/00207729508929105 
+},
+eprint = { 
+        https://doi.org/10.1080/00207729508929105
+}
+}
+@Article{boonprong,
+AUTHOR = {Boonprong, Sornkitja and Cao, Chunxiang and Chen, Wei and Ni, Xiliang and Xu, Min and Acharya, Bipin Kumar},
+TITLE = {The Classification of Noise-Afflicted Remotely Sensed Data Using Three Machine-Learning Techniques: Effect of Different Levels and Types of Noise on Accuracy},
+JOURNAL = {ISPRS International Journal of Geo-Information},
+VOLUME = {7},
+YEAR = {2018},
+NUMBER = {7},
+ARTICLE-NUMBER = {274},
+URL = {https://www.mdpi.com/2220-9964/7/7/274},
+ISSN = {2220-9964},
+ABSTRACT = {Remotely sensed data are often adversely affected by many types of noise, which influences the classification result. Supervised machine-learning (ML) classifiers such as random forest (RF), support vector machine (SVM), and back-propagation neural network (BPNN) are broadly reported to improve robustness against noise. However, only a few comparative studies that may help investigate this robustness have been reported. An important contribution, going beyond previous studies, is that we perform the analyses by employing the most well-known and broadly implemented packages of the three classifiers and control their settings to represent users&rsquo; actual applications. This facilitates an understanding of the extent to which the noise types and levels in remotely sensed data impact classification accuracy using ML classifiers. By using those implementations, we classified the land cover data from a satellite image that was separately afflicted by seven-level zero-mean Gaussian, salt&ndash;pepper, and speckle noise. The modeling data and features were strictly controlled. Finally, we discussed how each noise type affects the accuracy obtained from each classifier and the robustness of the classifiers to noise in the data. This may enhance our understanding of the relationship between noises, the supervised ML classifiers, and remotely sensed data.},
+DOI = {10.3390/ijgi7070274}
+}
+
+@article{nettleton2010study,
+  title={A study of the effect of different types of noise on the precision of supervised learning techniques},
+  author={Nettleton, David F and Orriols-Puig, Albert and Fornells, Albert},
+  journal={Artificial intelligence review},
+  volume={33},
+  number={4},
+  pages={275--306},
+  year={2010},
+  publisher={Springer}
+}
+@INPROCEEDINGS{thakur,
+  author={Thakur, Sanjay and van Hoof, Herke and Higuera, Juan Camilo Gamboa and Precup, Doina and Meger, David},
+  booktitle={2019 International Conference on Robotics and Automation (ICRA)}, 
+  title={Uncertainty Aware Learning from Demonstrations in Multiple Contexts using Bayesian Neural Networks}, 
+  year={2019},
+  volume={},
+  number={},
+  pages={768-774},
+  doi={10.1109/ICRA.2019.8794328}}
+
+@article{ARGALL2009469,
+title = {A survey of robot learning from demonstration},
+journal = {Robotics and Autonomous Systems},
+volume = {57},
+number = {5},
+pages = {469-483},
+year = {2009},
+issn = {0921-8890},
+doi = {https://doi.org/10.1016/j.robot.2008.10.024},
+url = {https://www.sciencedirect.com/science/article/pii/S0921889008001772},
+author = {Brenna D. Argall and Sonia Chernova and Manuela Veloso and Brett Browning},
+keywords = {Learning from demonstration, Robotics, Machine learning, Autonomous systems},
+abstract = {We present a comprehensive survey of robot Learning from Demonstration (LfD), a technique that develops policies from example state to action mappings. We introduce the LfD design choices in terms of demonstrator, problem space, policy derivation and performance, and contribute the foundations for a structure in which to categorize LfD research. Specifically, we analyze and categorize the multiple ways in which examples are gathered, ranging from teleoperation to imitation, as well as the various techniques for policy derivation, including matching functions, dynamics models and plans. To conclude we discuss LfD limitations and related promising areas for future research.}
+}
+
+@inproceedings{gal2016improving,
+  title={Improving PILCO with Bayesian neural network dynamics models},
+  author={Gal, Yarin and McAllister, Rowan and Rasmussen, Carl Edward},
+  booktitle={Data-Efficient Machine Learning workshop, ICML},
+  volume={4},
+  number={34},
+  pages={25},
+  year={2016}
+}
+
+@article{HOU20133,
+title = {From model-based control to data-driven control: Survey, classification and perspective},
+journal = {Information Sciences},
+volume = {235},
+pages = {3-35},
+year = {2013},
+note = {Data-based Control, Decision, Scheduling and Fault Diagnostics},
+issn = {0020-0255},
+doi = {https://doi.org/10.1016/j.ins.2012.07.014},
+url = {https://www.sciencedirect.com/science/article/pii/S0020025512004781},
+author = {Zhong-Sheng Hou and Zhuo Wang},
+keywords = {Data-driven control, Data-based control, Survey, Classification, Perspective},
+abstract = {This paper is a brief survey on the existing problems and challenges inherent in model-based control (MBC) theory, and some important issues in the analysis and design of data-driven control (DDC) methods are here reviewed and addressed. The necessity of data-driven control is discussed from the aspects of the history, the present, and the future of control theories and applications. The state of the art of the existing DDC methods and applications are presented with appropriate classifications and insights. The relationship between the MBC method and the DDC method, the differences among different DDC methods, and relevant topics in data-driven optimization and modeling are also highlighted. Finally, the perspective of DDC and associated research topics are briefly explored and discussed.}
+}
+@article{jospin2020hands,
+  title={Hands-on Bayesian Neural Networks--a Tutorial for Deep Learning Users},
+  author={Jospin, Laurent Valentin and Buntine, Wray and Boussaid, Farid and Laga, Hamid and Bennamoun, Mohammed},
+  journal={arXiv preprint arXiv:2007.06823},
+  year={2020}
+}
+
+@inproceedings{tipping2003bayesian,
+  title={Bayesian inference: An introduction to principles and practice in machine learning},
+  author={Tipping, Michael E},
+  booktitle={Summer School on Machine Learning},
+  pages={41--62},
+  year={2003},
+  organization={Springer}
+}
+@ARTICLE{motionclassification,
+  author={Bu, Nan and Okamoto, Masaru and Tsuji, Toshio},
+  journal={IEEE Transactions on Robotics}, 
+  title={A Hybrid Motion Classification Approach for EMG-Based Human–Robot Interfaces Using Bayesian and Neural Networks}, 
+  year={2009},
+  volume={25},
+  number={3},
+  pages={502-511},
+  doi={10.1109/TRO.2009.2019782}}
+  
+@article{lazkano2007use,
+  title={On the use of Bayesian Networks to develop behaviours for mobile robots},
+  author={Lazkano, Elena and Sierra, Basilio and Astigarraga, Aitzol and Martinez-Otzeta, Jos{\'e} Maria},
+  journal={Robotics and Autonomous Systems},
+  volume={55},
+  number={3},
+  pages={253--265},
+  year={2007},
+  publisher={Elsevier},
+}
+
+@inproceedings{choi1995sums,
+  title={Sums of squares of real polynomials},
+  author={Choi, Man-Duen and Lam, Tsit Yuen and Reznick, Bruce},
+  booktitle={Proceedings of Symposia in Pure mathematics},
+  volume={58},
+  pages={103--126},
+  year={1995},
+  organization={American Mathematical Society},
+}
+
+@article{cohen2016bayesian,
+  title={Bayesian analysis in natural language processing},
+  author={Cohen, Shay},
+  journal={Synthesis Lectures on Human Language Technologies},
+  volume={9},
+  number={2},
+  pages={1--274},
+  year={2016},
+  publisher={Morgan \& Claypool Publishers}
+}
+
+@article{mohamed2020monte,
+  title={Monte Carlo Gradient Estimation in Machine Learning.},
+  author={Mohamed, Shakir and Rosca, Mihaela and Figurnov, Michael and Mnih, Andriy},
+  journal={J. Mach. Learn. Res.},
+  volume={21},
+  number={132},
+  pages={1--62},
+  year={2020}
+}
+@article{kucukelbir2015automatic,
+  title={Automatic variational inference in Stan},
+  author={Kucukelbir, Alp and Ranganath, Rajesh and Gelman, Andrew and Blei, David M},
+  journal={arXiv preprint arXiv:1506.03431},
+  year={2015}
+}
+@article{lin1992self,
+  title={Self-improving reactive agents based on reinforcement learning, planning and teaching},
+  author={Lin, Long-Ji},
+  journal={Machine learning},
+  volume={8},
+  number={3-4},
+  pages={293--321},
+  year={1992},
+  publisher={Springer}
+}
+
+@article{griewank1989automatic,
+  title={On automatic differentiation},
+  author={Griewank, Andreas and others},
+  journal={Mathematical Programming: recent developments and applications},
+  volume={6},
+  number={6},
+  pages={83--107},
+  year={1989},
+  publisher={Citeseer}
+}
+
+@article{lydia2019adagrad,
+  title={Adagrad—an optimizer for stochastic gradient descent},
+  author={Lydia, Agnes and Francis, Sagayaraj},
+  journal={Int. J. Inf. Comput. Sci},
+  volume={6},
+  number={5},
+  year={2019}
+}
+
+
+@article{acosta2005interconnection,
+  title={Interconnection and damping assignment passivity-based control of mechanical systems with underactuation degree one},
+  author={Acosta, Jose Angel and Ortega, Romeo and Astolfi, Alessandro and Mahindrakar, Arun D},
+  journal={IEEE Transactions on Automatic Control},
+  volume={50},
+  number={12},
+  pages={1936--1955},
+  year={2005},
+  publisher={IEEE}
+}
+
+@article{d2006further,
+  title={Further constructive results on interconnection and damping assignment control of mechanical systems: The acrobot example},
+  author={D. Mahindrakar, Arun and Astolfi, Alessandro and Ortega, Romeo and Viola, Giuseppe},
+  journal={International Journal of Robust and Nonlinear Contro},
+  volume={16},
+  number={14},
+  pages={671--685},
+  year={2006},
+  publisher={Wiley Online Library}
+}
+
+@article{viola2007total,
+  title={Total energy shaping control of mechanical systems: simplifying the matching equations via coordinate changes},
+  author={Viola, Giuseppe and Ortega, Romeo and Banavar, Ravi and Acosta, Jos{\'e} {\'A}ngel and Astolfi, Alessandro},
+  journal={IEEE Transactions on Automatic Control},
+  volume={52},
+  number={6},
+  pages={1093--1099},
+  year={2007},
+  publisher={IEEE}
+}
+
+@book{murphy2012machine,
+  title={Machine learning: a probabilistic perspective},
+  author={Murphy, Kevin P},
+  year={2012},
+  publisher={MIT press}
+}
+
+@INCOLLECTION{Bucker2005ABo,
+     author = "H. M. B{\"u}cker and G. F. Corliss",
+     title = "A Bibliography on Automatic Differentiation",
+     booktitle = "Automatic Differentiation: {A}pplications, Theory, and Implementations",
+     editor = "H. M. B{\"u}cker and G. F. Corliss and P. D. Hovland and U. Naumann and B. Norris",
+     series = "Lecture Notes in Computational Science and Engineering",
+     volume = "50",
+     address = "New York, NY",
+     year = "2005",
+     publisher = "Springer",
+     pages = "321--322",
+     doi = "10.1007/3-540-28438-9_28"
+}
+
+@article{massaroli2021optimal,
+  title={Optimal Energy Shaping via Neural Approximators},
+  author={Massaroli, Stefano and Poli, Michael and Califano, Federico and Park, Jinkyoo and Yamashita, Atsushi and Asama, Hajime},
+  journal={arXiv preprint arXiv:2101.05537},
+  year={2021}
+}
+
+@inproceedings{sirichotiyakul2020data,
+  title={Data-Driven Design of Energy-Shaping Controllers for Swing-Up Control of Underactuated Robots},
+  author={Sirichotiyakul, Wankun and Satici, Aykut C},
+  booktitle={International Symposium on Experimental Robotics},
+  pages={323--333},
+  year={2020},
+  organization={Springer}
+}
+
+@book{evans2012introduction,
+  title={An introduction to stochastic differential equations},
+  author={Evans, Lawrence C},
+  volume={82},
+  year={2012},
+  publisher={American Mathematical Soc.}
+}
+
+@inproceedings{glorot2010understanding,
+  title={Understanding the difficulty of training deep feedforward neural networks},
+  author={Glorot, Xavier and Bengio, Yoshua},
+  booktitle={Proceedings of the thirteenth international conference on artificial intelligence and statistics},
+  pages={249--256},
+  year={2010},
+  organization={JMLR Workshop and Conference Proceedings}
+}
+
+@inproceedings{turing,
+  author    = {Hong Ge and
+               Kai Xu and
+               Zoubin Ghahramani},
+  title     = {Turing: a language for flexible probabilistic inference},
+  booktitle = {International Conference on Artificial Intelligence and Statistics,
+               {AISTATS} 2018, 9-11 April 2018, Playa Blanca, Lanzarote, Canary Islands,
+               Spain},
+  pages     = {1682--1690},
+  year      = {2018},
+  url       = {http://proceedings.mlr.press/v84/ge18b.html},
+  biburl    = {https://dblp.org/rec/bib/conf/aistats/GeXG18},
+}
+
+
+@book{hartman2002ordinary,
+  title={Ordinary differential equations},
+  author={Hartman, Philip},
+  year={2002},
+  publisher={SIAM}
+}
+
+
+@inproceedings{fan2020bayesian,
+  title={Bayesian learning-based adaptive control for safety critical systems},
+  author={Fan, David D and Nguyen, Jennifer and Thakker, Rohan and Alatur, Nikhilesh and Agha-mohammadi, Ali-akbar and Theodorou, Evangelos A},
+  booktitle={2020 IEEE international conference on robotics and automation (ICRA)},
+  pages={4093--4099},
+  year={2020},
+  organization={IEEE}
+}
+
+@article{shen2022online,
+  title={Online identification of time-varying dynamical systems for industrial robots based on sparse Bayesian learning},
+  author={Shen, Tan and Dong, YunLong and He, DingXin and Yuan, Ye},
+  journal={Science China Technological Sciences},
+  volume={65},
+  number={2},
+  pages={386--395},
+  year={2022},
+  publisher={Springer}
+}
+
+@book{khalil2015nonlinear,
+  title={Nonlinear Control},
+  author={Khalil, H.K.},
+  isbn={9780133499261},
+  lccn={2014000315},
+  series={Always Learning},
+  url={https://books.google.com/books?id=OfHhnQEACAAJ},
+  year={2015},
+  publisher={Pearson}
+}
+
+@book{spong2020robot,
+  title={Robot Modeling and Control},
+  author={Spong, M.W. and Hutchinson, S. and Vidyasagar, M.},
+  isbn={9781119523994},
+  lccn={2019055413},
+  url={https://books.google.com/books?id=DdjNDwAAQBAJ},
+  year={2020},
+  publisher={Wiley}
+}
+
+@book{griffiths2014introduction,
+  title={Introduction to Electrodynamics},
+  author={Griffiths, D.J.},
+  isbn={9780321972101},
+  url={https://books.google.com/books?id=J9ygBwAAQBAJ},
+  year={2014},
+  publisher={Pearson Education}
+}
+
+@article{olsen1992characteristics,
+  title={Characteristics of low frequency electric and magnetic fields in the vicinity of electric power lines},
+  author={Olsen, Robert G and Wong, PSK},
+  journal={IEEE Transactions on Power Delivery},
+  volume={7},
+  number={4},
+  pages={2046--2055},
+  year={1992},
+  publisher={IEEE}
+}
+
+@book{kaiser2005transmission,
+  title={Transmission Lines, Matching, and Crosstalk},
+  author={Kaiser, K.L.},
+  isbn={9780849363627},
+  lccn={2005050489},
+  url={https://books.google.com/books?id=QWFd-33xXvgC},
+  year={2005},
+  publisher={Taylor \& Francis}
+}
+
+@software{ElmerFEM,
+author = {Ruokolainen, Juha and Råback, Peter and Malinen, Mika and Zwinger, Thomas},
+license = {GPL-2.0-or-later},
+title = {{ElmerFEM}},
+url = {https://github.com/ElmerCSC/elmerfem}
+}
+
+@InBook{ParaView,
+  author    = {Ahrens, James and Geveci, Berk and Law, Charles},
+  chapter   = {{ParaView}: An End-User Tool for Large Data Visualization},
+  editor    = {Hansen, Charles D. and Johnson, Christopher R.},
+  pages     = {717--731},
+  publisher = {Elsevier Inc.},
+  title     = {Visualization Handbook},
+  year      = {2005},
+  address   = {Burlington, MA, USA},
+  url       = {https://www.sciencedirect.com/book/9780123875822/visualization-handbook},
+}
+
+@article{raaback2013elmer,
+  title={Elmer models manual},
+  author={R{\aa}back, Peter and Malinen, Mika and Ruokolainen, Juha and Pursula, Antti and Zwinger, Thomas},
+  journal={CSC--IT Center for Science, Helsinki, Finland},
+  year={2013}
+}
+@inproceedings{HomotopyContinuation.jl,
+  title={{H}omotopy{C}ontinuation.jl: {A} {P}ackage for {H}omotopy {C}ontinuation in {J}ulia},
+  author={Breiding, Paul and Timme, Sascha},
+  booktitle={International Congress on Mathematical Software},
+  pages={458--465},
+  year={2018},
+  organization={Springer}
+}
+
+@book{gelfand2009discriminants,
+  title={Discriminants, Resultants, and Multidimensional Determinants},
+  author={Gelfand, I.M. and Kapranov, M. and Zelevinsky, A.},
+  isbn={9780817647711},
+  lccn={93046733},
+  series={Modern Birkh{\"a}user Classics},
+  url={https://books.google.com/books?id=ZxeQBAAAQBAJ},
+  year={2009},
+  publisher={Birkh{\"a}user Boston}
+}
+
+@article{chace1963vector,
+  title={Vector analysis of linkages},
+  author={Chace, Milton A},
+  year={1963}
+}
+
+@article{daniali2006planar,
+  title={Planar vector equations in engineering},
+  author={Daniali, HR Mohammadi},
+  journal={International Journal of Engineering Education},
+  volume={22},
+  number={2},
+  pages={402},
+  year={2006},
+  publisher={TEMPUS PUBLICATIONS IJEE, ROSSMORE,, DURRUS, BANTRY, COUNTY CORK 00000, IRELAND}
+}
+
+@book{burns2005differential,
+  title={Differential Geometry and Topology: With a View to Dynamical Systems},
+  author={Burns, K. and Gidea, M.},
+  isbn={9781584882534},
+  lccn={2005045562},
+  series={Studies in Advanced Mathematics},
+  url={https://books.google.com/books?id=tV9sTDnaf40C},
+  year={2005},
+  publisher={Taylor \& Francis}
+}
+
+@book{harrington1961time,
+  title={Time-harmonic Electromagnetic Fields},
+  author={Harrington, R.F.},
+  isbn={9780070267459},
+  lccn={60014221},
+  series={Electronics Series},
+  url={https://books.google.com/books?id=FtpPAAAAMAAJ},
+  year={1961},
+  publisher={McGraw-Hill}
+}
+
+@online{magscience,
+    author = {{Magnetic Sciences}},
+    title = {M{C}06 Sensor},
+  url = {http://web.archive.org/web/20080207010024/http://www.808multimedia.com/winnt/kernel.htm},
+  urldate = {2023-07-11}
+}
+
+@online{astria,
+    author = {{Pitch Aeronautics}},
+    title = {Astria Drone},
+    date   = {2023-07-18},
+    year={2023},
+      howpublished = "\url{https://www.pitchaero.com/}",
+    url = {https://www.pitchaero.com/},
+    urldate = {2023-07-11}
+}
+
+
+@book{wangsness1979electromagnetic,
+  title={Electromagnetic {F}ields},
+  author={Wangsness, Roald K},
+  volume={},
+  year={1979},
+  publisher={Wiley New York}
+}
+
+@article{schwarz2018workplace,
+  title={Workplace hazards facing line installers and repairers},
+  author={Schwarz, Michael and Drudi, Dino},
+  journal={Monthly Lab. Rev.},
+  volume={141},
+  pages={1},
+  year={2018},
+  publisher={HeinOnline}
+}
+
+@article{bhattarai2018improvement,
+  title={Improvement of transmission line ampacity utilization by weather-based dynamic line rating},
+  author={Bhattarai, Bishnu P and Gentle, Jake P and McJunkin, Timothy and Hill, Porter J and Myers, Kurt S and Abboud, Alexander W and Renwick, Rodger and Hengst, David},
+  journal={IEEE Transactions on Power Delivery},
+  volume={33},
+  number={4},
+  pages={1853--1863},
+  year={2018},
+  publisher={IEEE}
+}
+
+@misc{seppa1996power,
+  title={Power transmission line tension monitoring system},
+  author={Seppa, Tapani O},
+  year={1996},
+  month=may # "~21",
+  publisher={Google Patents},
+  note={US Patent 5,517,864}
+}
+
+@article{MICHIORRI20151713,
+title = {Forecasting for dynamic line rating},
+journal = {Renewable and Sustainable Energy Reviews},
+volume = {52},
+pages = {1713-1730},
+year = {2015},
+issn = {1364-0321},
+doi = {https://doi.org/10.1016/j.rser.2015.07.134},
+url = {https://www.sciencedirect.com/science/article/pii/S1364032115007819},
+author = {Andrea Michiorri and Huu-Minh Nguyen and Stefano Alessandrini and John Bjørnar Bremnes and Silke Dierer and Enrico Ferrero and Bjørn-Egil Nygaard and Pierre Pinson and Nikolaos Thomaidis and Sanna Uski},
+keywords = {Rating, Overhead lines, Forecast, Smart grid},
+}
+
+
+@online{strand,
+    author = {{Pitch Aeronautics}},
+    title = {Astria DLR Install},
+       date   = {2023-07-18},
+        year={2023},
+          howpublished = "\url{https://youtu.be/aBcJUtJR_Tk}",
+    url = {https://youtu.be/aBcJUtJR_Tk},
+    urldate = {2023-10-18}
+}
+
+@online{PitchINL,
+    author = {{Pitch Aeronautics}},
+    title = {Astria and INL},
+       date   = {2023-07-18},
+        year={2023},
+    url = {https://youtu.be/S9F0jz4eqNY?si=0ZHaIQg_vOa6v88},
+      howpublished = "\url{https://youtu.be/S9F0jz4eqNY?si=0ZHaIQg_vOa6v88}",
+    urldate = {2023-10-18}
+}
+
+%  emfield
+
+
+
+@ARTICLE{4472240,
+  author={Candes, Emmanuel J. and Wakin, Michael B.},
+  journal={IEEE Signal Processing Magazine}, 
+  title={An Introduction To Compressive Sampling}, 
+  year={2008},
+  volume={25},
+  number={2},
+  pages={21-30},
+  keywords={Sampling methods;Image sampling;Protocols;Signal sampling;Image coding;Frequency;Signal processing;Data acquisition;Biomedical imaging;Receivers},
+  doi={10.1109/MSP.2007.914731}}
+
+
+@Comment{jabref-meta: databaseType:biblatex;}
+
+
+
+@inproceedings{sawicki2017compensation,
+  title={Compensation of hard-and soft-iron distortions is magnetometer measurement data},
+  author={Sawicki, Aleksander and Slanina, Zdenek and Linkel, Arturas},
+  booktitle={Photonics Applications in Astronomy, Communications, Industry, and High Energy Physics Experiments 2017},
+  volume={10445},
+  pages={1715--1723},
+  year={2017},
+  organization={SPIE}
+}

@@ -49,60 +49,46 @@
     "text": "Loosening up: Chess and Basketball\n\n\n\n\nVideo"
   },
   {
-    "objectID": "main.html#current-research-approx.-30-minutes",
-    "href": "main.html#current-research-approx.-30-minutes",
+    "objectID": "main.html#the-surge-in-reliance-upon-robotic-systems",
+    "href": "main.html#the-surge-in-reliance-upon-robotic-systems",
     "title": "main",
-    "section": "Current Research (approx. 30 minutes)",
-    "text": "Current Research (approx. 30 minutes)\n\nIntroduction – Theme: Robustness - both control and measurement! (~5 minutes)\n\nChallenges in robotic manipulation: all challenges in one go\n\nModeling ↔︎️ Sensing ➡️ Control Synthesis ➡️ Robustness ➡️ Performance ⬇️\nIteration\n\n\nBasic comparison between our approach and the typical literature\n\nFactor graphs for GTSAM + OrbSlam + EM field integration\nData-driven Controller Synthesis: basic overview, no details!\n\n\nEM Sensing with GTSAM (~10 minutes)\n\nDifficulties with relative pose sensing\nThree-phase power line geometry\nLack of any good state-of-the-art method\nOur method based on gradient of the total electromagnetic field strength"
+    "section": "The Surge in Reliance Upon Robotic Systems",
+    "text": "The Surge in Reliance Upon Robotic Systems\n\n\n\n\n\nWarehouse automation\n\n\n\n\nAutonomous vehicles\n\n\n\n\nDrones for first responders\n\n\n\n\nUtility drones\n\n\n\n\n\nRobotics becoming ever more ubiquitous, and increasing the requirement of robust sensing and control.\n\n\n\n\n\n\n\nVideo\n\n\n\nVideo\n\n\n\nVideo\n\n\n\n\nVideo"
   },
   {
-    "objectID": "main.html#current-research-approx.-30-minutes-1",
-    "href": "main.html#current-research-approx.-30-minutes-1",
+    "objectID": "main.html#robustness-against-contact-under-uncertainty",
+    "href": "main.html#robustness-against-contact-under-uncertainty",
     "title": "main",
-    "section": "Current Research (approx. 30 minutes)",
-    "text": "Current Research (approx. 30 minutes)\n\nEM Sensing with GTSAM (~10 minutes)\n\nDifficulties with relative pose sensing\nThree-phase power line geometry\nLack of any good state-of-the-art method\nOur method based on gradient of the total electromagnetic field strength\n\nPassivity-Based Data-Driven Controller Synthesis (~15 minutes)\n\nBrief PBC design motivation\nNeuralPBC explanation - add training procedure here.\nCurrent manipulation results (EAGER project)\nCurrent drone-line manipulation results"
+    "section": "Robustness against Contact under Uncertainty",
+    "text": "Robustness against Contact under Uncertainty\n\n\n\nVideo"
   },
   {
-    "objectID": "main.html#research-agenda-approx.-20-minutes",
-    "href": "main.html#research-agenda-approx.-20-minutes",
+    "objectID": "main.html#robustness-against-contact-under-uncertainty-1",
+    "href": "main.html#robustness-against-contact-under-uncertainty-1",
     "title": "main",
-    "section": "Research Agenda (approx. 20 minutes)",
-    "text": "Research Agenda (approx. 20 minutes)\n\nVision (~5 minutes)\n\nService robotics needs robust low-level controllers\nDrones / AGVs need robust sensing and controllers to perform dangerous tasks.\nIn 10 years, data-driven synthesis methods will have matured and made robust.\n\nFuture Techniques (~10 minutes)\n\nRobustness of GNN-based controllers\nConvex Optimization Layers and ADMM on GNNs\nTransfer learning to multiple domains (few-shot performance)\n\nGuiding controller synthesis with human-imitation using LLMs\nRepresentation learning\n\n\nPotential Funding Mechanisms (~5 minutes)\n\nNSF: Foundational Research in Robotics\nSBIR / STTR: Currently with Pitch Aeronautics, explore local companies\nNIH: Retain and expand biomedical collaboration with BSU / UTD faculty"
+    "section": "Robustness against Contact under Uncertainty",
+    "text": "Robustness against Contact under Uncertainty"
   },
   {
-    "objectID": "main.html#hybrid-systems",
-    "href": "main.html#hybrid-systems",
+    "objectID": "main.html#robustness-against-contact-under-uncertainty-2",
+    "href": "main.html#robustness-against-contact-under-uncertainty-2",
     "title": "main",
-    "section": "Hybrid Systems",
-    "text": "Hybrid Systems\n\n\nExhibit both continuous state flow and discrete state transitions\n\n\n\n\nExamples: room temperature control, contact-rich robots\n\n\n\n\nWe tackle two main challenges in the control of contact-rich robots\n\n\n\n\n\n\n\n\nWalking machines\n\n\n\n\n\n\n\n\nManipulators"
+    "section": "Robustness against Contact under Uncertainty",
+    "text": "Robustness against Contact under Uncertainty"
   },
   {
-    "objectID": "main.html#challenge-1-multiple-mode-changes",
-    "href": "main.html#challenge-1-multiple-mode-changes",
+    "objectID": "main.html#robustness-against-contact-and-uncertainty",
+    "href": "main.html#robustness-against-contact-and-uncertainty",
     "title": "main",
-    "section": "Challenge 1: Multiple Mode Changes",
-    "text": "Challenge 1: Multiple Mode Changes\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nContacts cause instantaneous changes in the dynamics and states.\nPotential contacts grow exponentially, making controller inference difficult."
+    "section": "Robustness against Contact and Uncertainty",
+    "text": "Robustness against Contact and Uncertainty\n\n\n\n\n\n\n\n\n\n\n\n\nNeed to design both robust state estimation and controllers.\nDomain randomization and Bayesian learning help for controller design.\nGTSAM and optimization over factor graphs help for state estimation."
   },
   {
-    "objectID": "main.html#challenge-1-proposed-method",
-    "href": "main.html#challenge-1-proposed-method",
+    "objectID": "main.html#existing-vs.-proposed-control-synthesis-methods",
+    "href": "main.html#existing-vs.-proposed-control-synthesis-methods",
     "title": "main",
-    "section": "Challenge 1: Proposed Method",
-    "text": "Challenge 1: Proposed Method\n \n\nOur method uses data-driven technique to automatically learn a mixture of expert controller and the switching conditionals.\n\n\n\nWe infer contact-aware controllers by training on trajectories generated from contact models.\n\nContact-aware controllers minimize the adverse effects of contacts or even take advantage of them."
-  },
-  {
-    "objectID": "main.html#challenge-2-operating-under-uncertain-conditions",
-    "href": "main.html#challenge-2-operating-under-uncertain-conditions",
-    "title": "main",
-    "section": "Challenge 2: Operating under Uncertain Conditions",
-    "text": "Challenge 2: Operating under Uncertain Conditions"
-  },
-  {
-    "objectID": "main.html#challenge-2-existing-methods",
-    "href": "main.html#challenge-2-existing-methods",
-    "title": "main",
-    "section": "Challenge 2: Existing Methods",
-    "text": "Challenge 2: Existing Methods\n\n\n\n\n\nReinforcement learning \n\n\n \n\n\n\nStrengths\n\nMore general\nUnknown dynamics OK\n\nWeaknesses\n\nSample complexity\nStability guarantees?\n\n\n\n\n\n\n\n\n\n\nBayesian Neural Passivity-based Control \n\n\n \n\n\n\nStrengths\n\nStability guarantees\nClosed-form policy\nReasons about model uncertainties"
+    "section": "Existing vs. Proposed Control Synthesis Methods",
+    "text": "Existing vs. Proposed Control Synthesis Methods\n\n\n\n\n\nReinforcement learning (similarly Decision Transformers) \n\n\n \n\n\n\nStrengths\n\nMore general\nUnknown dynamics OK\n\nWeaknesses\n\nSample complexity\nStability guarantees?\n\n\n\n\n\n\n\n\n\n\nBayesian Neural Passivity-based Control \n\n\n \n\n\n\nStrengths\n\nStability guarantees\nClosed-form policy\nReasons about model uncertainties"
   },
   {
     "objectID": "main.html#robustness-via-bayesian-learning",
@@ -112,60 +98,11 @@
     "text": "Robustness via Bayesian Learning\n\n\n\n\n\n\nSystem Parameter Uncertainty and Measurement Noise\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLess robust\n\n\n\n\n\n\n\n\n\n\n\nMore robust"
   },
   {
-    "objectID": "main.html#mixture-of-experts-moe-old-faithful",
-    "href": "main.html#mixture-of-experts-moe-old-faithful",
+    "objectID": "main.html#localization-in-sparse-environments",
+    "href": "main.html#localization-in-sparse-environments",
     "title": "main",
-    "section": "Mixture of Experts (MOE): Old Faithful",
-    "text": "Mixture of Experts (MOE): Old Faithful\n\nObjective: learn two expert Gaussian models that represent dataset \\(\\mathbb{D} = \\{(x_1, y_1), \\dots, (x_N, y_N) \\}\\)\n\n\n\n\n\nThe experts are chosen as \\[\\begin{align*}\nF(x;\\theta) &= \\{\\mathcal{N}_1(\\mu_1, \\sigma_1), \\mathcal{N}_2(\\mu_2, \\sigma_2)\\} \\\\\n\\theta &= \\{(\\mu_1, \\sigma_1), (\\mu_2, \\sigma_2) \\}\n\\end{align*}\\]\n\nPrediction is a weighted-average of experts\n\n\n\n\n\n\n\n\n\n\n\nThe gating network is a neural net \\(\\mathbf{P}(x | \\psi) = [P_1(x | \\psi), P_2(x | \\psi) ]\\)\n\nSplits the input space into partitions\n\n\n\n\n\nExpectation Maximization: maximizes log likelihood \\[\n\\ln \\{P(\\mathbb{D} | \\theta, \\psi) \\} = \\sum_{j=1}^{N} \\ln \\sum_{i=1}^{N_F} \\frac{1}{\\sqrt{2 \\pi \\sigma_i^2}} \\exp \\left( -\\frac{1}{2}\\frac{(y_j - \\mu_i)^2}{\\sigma_i^2} \\right) P_i(x_j, \\psi)\n\\]"
-  },
-  {
-    "objectID": "main.html#mixture-of-experts-controller-1",
-    "href": "main.html#mixture-of-experts-controller-1",
-    "title": "main",
-    "section": "Mixture of Experts Controller",
-    "text": "Mixture of Experts Controller\n\n\n\nObjective: learn contact-aware mixture of experts controller and a gating network\n\n\n\n\nAll the experts and the gating network are given by neural nets\nWe pose the search over the parameters \\(\\psi, \\theta\\) as the following optimization problem\n\n\n\n\nOptimization Problem\n\n\n\\[\\begin{align*}\n    \\begin{aligned}\n        \\underset{\\psi, \\theta}{\\textrm{minimize}}\n        & & & \\int_0^T \\ell (x(t),u) \\dd t , \\\\%\n        \\textrm{subject to}\n        & & & M(q) \\dd \\dot{q} + h(x; \\psi, \\theta)\\dd t - \\dd R  = 0,\\\\%\n        & & & u = \\{F_i(x; \\theta_i) \\; | \\; i  \\sim \\text{Categorical} (\\mathbf{P}(x| \\psi)) \\}.\n    \\end{aligned}\n\\end{align*}\\]"
-  },
-  {
-    "objectID": "main.html#training",
-    "href": "main.html#training",
-    "title": "main",
-    "section": "Training",
-    "text": "Training\n\n\n\nTraining procedure:\n\nStart from initial parameters \\((\\psi, \\theta)\\)\nSample initial state \\(x_0\\) (more on this later)\nGenerate trajectories \\(\\phi(x_0, u, T)\\) using current parameters \\[\\begin{gather*}\ni  \\sim \\text{Categorical} (\\mathbf{P}(x| \\psi)) \\\\\nu(x; \\psi, \\theta) = F_i(x; \\theta_i) \\\\\nM(q) \\dd \\dot{q} + h(x; \\psi, \\theta) \\dd t - \\dd R  = 0 \\text{ (Moreau's time stepping)}\n\\end{gather*}\\]\nAssign a running cost \\(\\ell\\) to the trajectories based on performance\nUpdate parameters \\((\\psi, \\theta)\\) to minimize the cost-to-go"
-  },
-  {
-    "objectID": "main.html#performance-objective",
-    "href": "main.html#performance-objective",
-    "title": "main",
-    "section": "Performance Objective",
-    "text": "Performance Objective\n\n\\[\\begin{align*}\n    \\begin{aligned}\n        \\underset{\\psi, \\theta}{\\textrm{minimize}}\n        & & & \\int_0^T \\ell (x(t),u) \\dd t , \\\\%\n        \\textrm{subject to}\n        & & & M(q) \\dd \\dot{q} + h(x; \\psi, \\theta)\\dd t - \\dd R  = 0,\\\\%\n        & & & u = \\{F_i(x; \\theta_i) \\; | \\; i  \\sim \\text{Categorical} (\\mathbf{P}(x| \\psi)) \\}.\n    \\end{aligned}\n\\end{align*}\\]\n\n\nAccumulated loss: total quadratic loss from desired state \\(x^*\\) \\[\\begin{gather*}\n\\ell(x, u) = \\frac{1}{2}(x - x^*)^\\top \\mathcal{Q} (x - x^*) + \\frac{1}{2} u^\\top \\mathcal{R} u \\\\\n\\mathcal{Q} \\succ 0, \\mathcal{R} \\succeq 0\n\\end{gather*}\\]\n\n\n\nThe corresponding likelihood function is\n\n\n\n\\[\n\\ln \\{P(\\mathbb{D} | \\theta, \\psi) \\} = \\sum_{j=1}^{N} \\ln \\sum_{i=1}^{N_F} \\frac{1}{\\sqrt{2 \\pi \\sigma_i^2}} \\exp \\left( -\\frac{1}{2}\\frac{(y_j - \\mu_i)^2}{\\sigma_i^2} \\right) P_i(x_j, \\psi)\n\\]\n\n\n\\[\n\\ln \\{P(\\phi | \\theta, \\psi) \\} = \\sum_{t=0}^{T} \\ln \\sum_{i=1}^{N_F} \\frac{1}{\\sqrt{2 \\pi s^2}} \\exp \\left( -\\frac{1}{2}\\frac{\\ell (x(t+\\Delta t), F_i )^2}{s^2} \\right) P_i(x(t), \\psi)\n\\]"
-  },
-  {
-    "objectID": "main.html#state-sampling",
-    "href": "main.html#state-sampling",
-    "title": "main",
-    "section": "State Sampling",
-    "text": "State Sampling\nObjective: meet performance for various initial states"
-  },
-  {
-    "objectID": "main.html#cartpole-with-wall-barriers",
-    "href": "main.html#cartpole-with-wall-barriers",
-    "title": "main",
-    "section": "Cartpole with wall barriers",
-    "text": "Cartpole with wall barriers\n\n\n\n\n\nNotice LQR fails due to the impact from the wall\nMOE controller training\n\nthere are three deep-net experts \\(F_i(x;\\theta_i)\\)\nthe gating network is also a neural net"
-  },
-  {
-    "objectID": "main.html#results",
-    "href": "main.html#results",
-    "title": "main",
-    "section": "Results",
-    "text": "Results\n\nThe contact-aware MOE controller\n\nleverages the impacts from the wall\nswitches to a policy that rapidly brakes to assist in the catching process"
-  },
-  {
-    "objectID": "main.html#conclusions",
-    "href": "main.html#conclusions",
-    "title": "main",
-    "section": "Conclusions",
-    "text": "Conclusions\n \n\nWe provide a data-driven control design that automatically learns several policies and the necessary switching scheme.\n\n\n\nThe framework leverages the switching controllers to stabilize the multi-modal dynamical system.\n\n\n\nThe gating network parameterizes the switching surfaces to achieves good performance."
+    "section": "Localization in Sparse Environments",
+    "text": "Localization in Sparse Environments\n\n\n\n\nThe ground has a uniform texture\nThere are too few utility poles or immediate fences.\nThere are no trees or other geometries.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInsufficient landmarks\n\n\nAny vision-based estimation mechanism will not perform reliably and robustly for drone localization.\n\n\n\n\n\n\n\n\n\n\n\nElectromagnetic field around the power lines\n\n\nIf we can get reliable measurements, then we can devise a distance and bearing factor exploiting this field."
   },
   {
     "objectID": "main.html#dissipativity",
@@ -497,8 +434,8 @@
     "text": "Deterministic vs Bayesian\n\n\n\n\n\n\n\n\n\\[\\begin{align*}\np_s &\\sim \\mathbb{U}(0, p_{max})  \\\\\np_{max} &= [0, 0.5, 1, 1.5, 2] \\textrm{cm} \\\\\nJ_T &= \\sum_{t=0}^{T} \\| \\dot{x}_c^* - \\dot{x}_c(t; \\theta) \\|\n\\end{align*}\\]"
   },
   {
-    "objectID": "main.html#conclusions-1",
-    "href": "main.html#conclusions-1",
+    "objectID": "main.html#conclusions",
+    "href": "main.html#conclusions",
     "title": "main",
     "section": "Conclusions",
     "text": "Conclusions\n \n\n\nMOE controller: multi-modal controller for multi-modal dynamics\nNeuralPbc + Bayesian inference = robust controller with stability properties"
@@ -613,13 +550,27 @@
     "href": "main.html#sos-polynomials",
     "title": "main",
     "section": "SoS Polynomials",
-    "text": "SoS Polynomials\n\nIs \\(p(x)\\) nonnegative for all \\(x\\)? \\[p(x) = 4x_1^2 + x_1x_2 - 4x_2^2 - 2.1x_1^4 + 4x_2^4 + \\frac{1}{3}x_1^6 + 1.0316\\;\\]\n\n\\[\\begin{aligned} p(x) = &\\left(0.116x_1^2 + 0.01x_1x_2 - 2x_2^2 + 1.015\\right)^2 \\\\ & + \\; \\left(-0.569x_1^3 + 1.938x_1 + 0.244x_2\\right)^2 \\\\ & + \\; \\left(0.224x_1^2 + 0.666x_1x_2 + 0.029x_2^2 + 0.026\\right)^2 \\\\ & + \\; \\left(-0.188x_1^2 + 0.063x_1x_2 - 0.006x_2^2 + 0.009\\right)^2 \\\\ & + \\; \\left(0.099x_1^3 + 0.029x_1 + 0.004x_2\\right)^2 + \\left(0.009x_1^2x_2\\right)^2 \\end{aligned}\\]\n\n\n\n\nRobust Sensing and Data-Driven Control • Aykut C. Satici"
+    "text": "SoS Polynomials\n\nIs \\(p(x)\\) nonnegative for all \\(x\\)? \\[p(x) = 4x_1^2 + x_1x_2 - 4x_2^2 - 2.1x_1^4 + 4x_2^4 + \\frac{1}{3}x_1^6 + 1.0316\\;\\]\n\n\\[\\begin{aligned} p(x) = &\\left(0.116x_1^2 + 0.01x_1x_2 - 2x_2^2 + 1.015\\right)^2 \\\\ & + \\; \\left(-0.569x_1^3 + 1.938x_1 + 0.244x_2\\right)^2 \\\\ & + \\; \\left(0.224x_1^2 + 0.666x_1x_2 + 0.029x_2^2 + 0.026\\right)^2 \\\\ & + \\; \\left(-0.188x_1^2 + 0.063x_1x_2 - 0.006x_2^2 + 0.009\\right)^2 \\\\ & + \\; \\left(0.099x_1^3 + 0.029x_1 + 0.004x_2\\right)^2 + \\left(0.009x_1^2x_2\\right)^2 \\end{aligned}\\]"
   },
   {
-    "objectID": "macros.html",
-    "href": "macros.html",
+    "objectID": "main.html#current-research-approx.-30-minutes",
+    "href": "main.html#current-research-approx.-30-minutes",
     "title": "main",
-    "section": "",
-    "text": "\\[\n\\DeclarePairedDelimiters{\\set}{\\{}{\\}}\n\\DeclareMathOperator*{\\argmax}{argmax}\n\\]"
+    "section": "Current Research (approx. 30 minutes)",
+    "text": "Current Research (approx. 30 minutes)\n\nIntroduction – Theme: Robustness - both control and measurement! (~5 minutes)\n\nChallenges in robotic manipulation: all challenges in one go\n\nModeling ↔︎️ Sensing ➡️ Control Synthesis ➡️ Robustness ➡️ Performance ⬇️\nIteration\n\n\nBasic comparison between our approach and the typical literature\n\nFactor graphs for GTSAM + OrbSlam + EM field integration\nData-driven Controller Synthesis: basic overview, no details!\n\n\nEM Sensing with GTSAM (~10 minutes)\n\nDifficulties with relative pose sensing\nThree-phase power line geometry\nLack of any good state-of-the-art method\nOur method based on gradient of the total electromagnetic field strength"
+  },
+  {
+    "objectID": "main.html#current-research-approx.-30-minutes-1",
+    "href": "main.html#current-research-approx.-30-minutes-1",
+    "title": "main",
+    "section": "Current Research (approx. 30 minutes)",
+    "text": "Current Research (approx. 30 minutes)\n\nEM Sensing with GTSAM (~10 minutes)\n\nDifficulties with relative pose sensing\nThree-phase power line geometry\nLack of any good state-of-the-art method\nOur method based on gradient of the total electromagnetic field strength\n\nPassivity-Based Data-Driven Controller Synthesis (~15 minutes)\n\nBrief PBC design motivation\nNeuralPBC explanation - add training procedure here.\nCurrent manipulation results (EAGER project)\nCurrent drone-line manipulation results"
+  },
+  {
+    "objectID": "main.html#research-agenda-approx.-20-minutes",
+    "href": "main.html#research-agenda-approx.-20-minutes",
+    "title": "main",
+    "section": "Research Agenda (approx. 20 minutes)",
+    "text": "Research Agenda (approx. 20 minutes)\n\nVision (~5 minutes)\n\nService robotics needs robust low-level controllers\nDrones / AGVs need robust sensing and controllers to perform dangerous tasks.\nIn 10 years, data-driven synthesis methods will have matured and made robust.\n\nFuture Techniques (~10 minutes)\n\nRobustness of GNN-based controllers\nConvex Optimization Layers and ADMM on GNNs\nTransfer learning to multiple domains (few-shot performance)\n\nGuiding controller synthesis with human-imitation using LLMs\nRepresentation learning\n\n\nPotential Funding Mechanisms (~5 minutes)\n\nNSF: Foundational Research in Robotics\nSBIR / STTR: Currently with Pitch Aeronautics, explore local companies\nNIH: Retain and expand biomedical collaboration with BSU / UTD faculty\n\n\n\n\n\nRobust Sensing and Data-Driven Control • Aykut C. Satici"
   }
 ]

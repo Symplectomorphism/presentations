@@ -1,0 +1,38 @@
+# Robust Manipulation over Power Lines {visibility="uncounted"}
+<!-- ###################################################################### -->
+
+## Localization in Sparse Environments 
+
+:::: {.columns}
+
+::: {.column width="55%"}
+
+<br/>
+
+1. The ground has a uniform texture
+2. There are too few utility poles or immediate fences.
+3. There are no trees or other geometries.
+
+:::
+
+::: {.column width="45%"}
+
+::: {.fragment .fade-in fragment-index=1}
+<iframe width="560" height="315" src="https://www.youtube.com/embed/-CU5aX9z62I?si=8N3OLPNZO5y0uv31?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+:::
+
+:::
+
+::::
+
+::: {.callout-note appearance="simple" .fragment .fade-in fragment-index=1}
+## Insufficient landmarks
+Any vision-based estimation mechanism will not perform reliably and robustly for drone localization.
+:::
+
+::: {.callout-tip appearance="default" .fragment .fade-in fragment-index=1}
+## Electromagnetic field around the power lines
+If we can get reliable measurements, then we can devise a distance and bearing 
+factor exploiting this field.
+:::
+

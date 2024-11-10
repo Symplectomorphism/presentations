@@ -3,6 +3,7 @@ pagetitle: "Robust Sensing and Data-Driven Control"
 author-meta: "Aykut C. Satici"
 institute: "Boise State University"
 from: markdown+emoji
+# bibliography: bibliography.bib
 format:
   revealjs: 
     css: styles.css
@@ -23,25 +24,29 @@ format:
       - reveal-plugins/animate/svg.min.js
     plugins:
       - RevealAnimate
+  # pdf:
+  #   cite-method: biblatex
 revealjs-plugins:
   - pointer  
+
+# csl: chicago-note-bibliography.csl
 ---
 
-{{< include macros.qmd >}}
+{{< include ./contents/_macros.qmd >}}
 
 {{< include contents/_frontmatter.qmd >}}
 
 {{< include ./contents/_whoami.qmd >}}
 
-{{< include ./contents/_outline.qmd >}}
-
 {{< include contents/_introduction.qmd >}}
 
-{{< include contents/_moe_background.qmd >}}
+{{< include ./contents/_robust_sensing.qmd >}}
 
-{{< include contents/_moe_methods.qmd >}}
+<!-- {{< include contents/_moe_background.qmd >}} -->
 
-{{< include contents/_moe_results.qmd >}}
+<!-- {{< include contents/_moe_methods.qmd >}} -->
+
+<!-- {{< include contents/_moe_results.qmd >}} -->
 
 {{< include contents/_background_pbc.qmd >}}
 
@@ -63,3 +68,5 @@ revealjs-plugins:
 <!-- {{< include contents/_closing.qmd >}} -->
 
 {{< include contents/_appendix.qmd >}}
+
+{{< include ./contents/_outline.qmd >}}
