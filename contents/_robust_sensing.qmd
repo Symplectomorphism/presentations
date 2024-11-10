@@ -1,4 +1,4 @@
-# Robust Manipulation over Power Lines {visibility="uncounted"}
+# Robust Localization over Power Lines {visibility="uncounted"}
 <!-- ###################################################################### -->
 
 ## Robust Localization w.r.t. Power Lines in Sparse Environments 
@@ -145,15 +145,121 @@ power lines.
 ::::
 
 
-## Robust Localization {auto-animate=true}
+## Robust Localization with GTSAM: Sensor Fusion Library {auto-animate=true}
 
-:::: {.columns}
+:::: {.columns} 
+
 
 ::: {.column width="50%"}
+
+
+
+* Factors depict constaints on the poses as:
+    * prior state: $f_0(x_1)$
+    * odometry relation: $f_i(x_i, x_{i+1}; o_i)$
+    * observations: $f_i(x_i;z_i)$.
+
+
 :::
 
 ::: {.column width="50%"}
-![](./contents/assets/e_field_trajectory.svg){width="100%"}
+
+<div class="r-stack">
+
+<!-- odom: -->
+:::{.fragment .fade-in-then-out fragment-index=2 }
+$$
+\begin{aligned}
+p(\mathbf{x} | \mathbf{o}) \propto p(x_1) \prod_{i=2}^{3} p(x_i | x_{i-1}, o_i)\\
+% f(\mathbf{x}) = \arg\max_{\mathbf{x}}  f_0(x_1) \prod_{i=1}^{2} f_i(x_i, x_{i+1}; o_i) 
+\end{aligned}
+$$
+
+:::
+
+<!-- odom with gps: -->
+:::{.fragment .fade-in-then-out fragment-index=3 }
+$$
+\begin{aligned}
+p(\mathbf{x} | \mathbf{o}, \mathbf{z}) \propto p(x_1) \prod_{i=2}^{3} p(x_i | x_{i-1}, o_i) p(z_i | x_i) \\
+% f(\mathbf{x}) = \arg\max_{\mathbf{x}}  f_0(x_1) \prod_{i=1}^{2} f_i(x_i, x_{i+1}; o_i)  g_i(x_i; z_i) 
+\end{aligned}
+$$
+
+:::
+
+<!-- odom with landmark: -->
+:::{.fragment .fade-in-then-out fragment-index=4 }
+$$
+\begin{aligned}
+p(\mathbf{x} | \mathbf{o}, \mathbf{l}) \propto p(x_1) \prod_{i=2}^{3} p(x_i | x_{i-1}, o_i) p(l_i | x_i) \\
+% f(\mathbf{x}) = \arg\max_{\mathbf{x}}  f_0(x_1) \prod_{i=1}^{2} f_i(x_i, x_{i+1}; o_i)  h_i(x_i; l_i)
+\end{aligned}
+$$
+
+:::
+
+</div>
+
 :::
 
 ::::
+
+::: {.r-stack}
+
+:::{.fragment .fade-in-then-out fragment-index=2 }
+
+![](./contents/assets/nodes_gtsam_2.svg){.absolute top=194 left=50 width="1400" height="250"}
+
+:::
+
+:::{.fragment .fade-in-then-out fragment-index=3 }
+
+![](./contents/assets/nodes_gtsam_3.svg){.absolute top=250 left=50 width="1400" height="350"}
+
+:::
+
+
+:::{.fragment .fade-in fragment-index=4 }
+
+![](./contents/assets/nodes_gtsam_1.svg){.absolute top=250 left=50 width="1500" height="450"}
+
+:::
+
+:::
+
+
+
+## GTSAM meets Gradient of the Electric Field {auto-animate=true}
+
+:::: {.columns}
+
+::: {.column width="55%"}
+
+::: {.callout-tip icon=false}
+## $\nabla_{\mathbf{q}}\bar{E}(\mathbf{q})$ points towards the convex hull
+The unit vector along this gradient may be used as a _bearing_ factor in GTSAM 
+at any point $\mathbf{q}$ during navigation!
+
+* Turns the convex hull of the power lines into a __landmark__.
+
+:::
+
+
+{{< video ./contents/assets/translate_video.mp4 width=600 autoplay="true" >}}
+:::
+
+::: {.column width="45%"}
+![](./contents/assets/bearing_range_exp_arrangement.svg){width="70%" fig-align="center"}
+
+::: {.r-stack}
+![](./contents/assets/estimated_true_line_phis_cal_uncal2.svg){width="100%" fig-align="right" .fragment .fade-in-then-out fragment-index=0}
+
+![](./contents/assets/relative_position.svg){width="100%" fig-align="right" .fragment .fade-in fragment-index=1}
+:::
+
+:::
+
+
+::::
+

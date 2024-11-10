@@ -126,11 +126,18 @@
     "text": "Navigating the Drone to One of the Power Lines\n\n\n\n\n\nPotential Function and its Gradient\n\n\nDefine the potential function \\(V(\\mathbf{q}) = \\frac{1}{\\bar{E}^2(\\mathbf{q})}\\). Its gradient is \\[\n\\nabla_{\\mathbf{q}}V(\\mathbf{q}) = -\\frac{2}{\\bar{E}^3}\\nabla_{\\mathbf{q}}\\bar{E}(\\mathbf{q})\n\\] Further, \\(\\lVert \\nabla_{\\mathbf{q}}V(\\mathbf{q}) \\rVert = O\\left(\\frac{1}{\\bar{E}}\\right)\\) as \\(\\bar{E} \\rightarrow \\infty\\) (or \\(r_\\alpha \\rightarrow 0\\)).\n\n\n\n\n\n\nLemma: Critical points of \\(V(\\mathbf{q})\\)\n\n\n\nGenerically \\(V\\) has \\(5\\) isolated critical points, \\(3\\) of which are global minima and have \\(r_\\alpha = 0\\).\nApplying Poincaré-Hopf theorem on the convex hull of the power lines yields the remaining 2 are saddle points!\n\n\n\n\n\n\n\n\n\nFollowing \\(\\nabla_{\\mathbf{q}}V(\\mathbf{q})\\) navigates the drone to one of the power lines."
   },
   {
-    "objectID": "main.html#robust-localization",
-    "href": "main.html#robust-localization",
+    "objectID": "main.html#robust-localization-with-gtsam-sensor-fusion-library",
+    "href": "main.html#robust-localization-with-gtsam-sensor-fusion-library",
     "title": "main",
-    "section": "Robust Localization",
-    "text": "Robust Localization"
+    "section": "Robust Localization with GTSAM: Sensor Fusion Library",
+    "text": "Robust Localization with GTSAM: Sensor Fusion Library\n\n\n\nFactors depict constaints on the poses as:\n\nprior state: \\(f_0(x_1)\\)\nodometry relation: \\(f_i(x_i, x_{i+1}; o_i)\\)\nobservations: \\(f_i(x_i;z_i)\\).\n\n\n\n\n\n\n\\[\n\\begin{aligned}\np(\\mathbf{x} | \\mathbf{o}) \\propto p(x_1) \\prod_{i=2}^{3} p(x_i | x_{i-1}, o_i)\\\\\n% f(\\mathbf{x}) = \\arg\\max_{\\mathbf{x}}  f_0(x_1) \\prod_{i=1}^{2} f_i(x_i, x_{i+1}; o_i)\n\\end{aligned}\n\\]\n\n\n\n\\[\n\\begin{aligned}\np(\\mathbf{x} | \\mathbf{o}, \\mathbf{z}) \\propto p(x_1) \\prod_{i=2}^{3} p(x_i | x_{i-1}, o_i) p(z_i | x_i) \\\\\n% f(\\mathbf{x}) = \\arg\\max_{\\mathbf{x}}  f_0(x_1) \\prod_{i=1}^{2} f_i(x_i, x_{i+1}; o_i)  g_i(x_i; z_i)\n\\end{aligned}\n\\]\n\n\n\n\\[\n\\begin{aligned}\np(\\mathbf{x} | \\mathbf{o}, \\mathbf{l}) \\propto p(x_1) \\prod_{i=2}^{3} p(x_i | x_{i-1}, o_i) p(l_i | x_i) \\\\\n% f(\\mathbf{x}) = \\arg\\max_{\\mathbf{x}}  f_0(x_1) \\prod_{i=1}^{2} f_i(x_i, x_{i+1}; o_i)  h_i(x_i; l_i)\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "main.html#gtsam-meets-gradient-of-the-electric-field",
+    "href": "main.html#gtsam-meets-gradient-of-the-electric-field",
+    "title": "main",
+    "section": "GTSAM meets Gradient of the Electric Field",
+    "text": "GTSAM meets Gradient of the Electric Field\n\n\n\n\n\n\\(\\nabla_{\\mathbf{q}}\\bar{E}(\\mathbf{q})\\) points towards the convex hull\n\n\nThe unit vector along this gradient may be used as a bearing factor in GTSAM at any point \\(\\mathbf{q}\\) during navigation!\n\nTurns the convex hull of the power lines into a landmark."
   },
   {
     "objectID": "main.html#dissipativity",
