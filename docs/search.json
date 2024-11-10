@@ -109,14 +109,28 @@
     "href": "main.html#electric-and-magnetic-field-around-three-phase-power-lines",
     "title": "main",
     "section": "Electric and Magnetic Field around Three-Phase Power Lines",
-    "text": "Electric and Magnetic Field around Three-Phase Power Lines\n\n\n\n\n\n\n\n\nEM Field near Three-Phase Power Lines\n\n\nQuasi-static approximation to Maxwell’s equations yields (\\(\\mathbf{q} = (x, z)\\) is the location of the sensor)\n\\[\n\\bar{E}^2(\\mathbf{q}) = \\frac{1}{2}\\sum_{\\alpha=1}^3\\left(e_\\alpha^2 -\n\\sum_{\\alpha^\\prime &gt; \\alpha}^3 c_{\\alpha\\alpha^\\prime}e_\\alpha e_{\\alpha^\\prime} \\right),\n\\]\nwhere \\(e_\\alpha = \\frac{\\beta c \\mu_0 I_0}{2\\pi}\\frac{1}{r_\\alpha}\\) is the peak electric field magnitude and \\(c_{\\alpha\\alpha^\\prime} = \\cos{\\left(\\theta_\\alpha - \\theta_{\\alpha^\\prime}\\right)}\\).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFrom total rms energy considerations, it can be shown that \\(\\bar{B} = \\sqrt{\\mu_0 \\varepsilon_0} \\bar{E}\\)."
+    "text": "Electric and Magnetic Field around Three-Phase Power Lines\n\n\n\n\n\nEM Field near Three-Phase Power Lines\n\n\nQuasi-static approximation to Maxwell’s equations yields (\\(\\mathbf{q} = (x, z)\\) is the location of the sensor)\n\\[\n\\bar{E}^2(\\mathbf{q}) = \\frac{1}{2}\\sum_{\\alpha=1}^3\\left(e_\\alpha^2 -\n\\sum_{\\alpha^\\prime &gt; \\alpha}^3 c_{\\alpha\\alpha^\\prime}e_\\alpha e_{\\alpha^\\prime} \\right),\n\\]\nwhere \\(e_\\alpha = \\frac{\\xi}{r_\\alpha} = \\frac{\\beta c \\mu_0 I_0}{2\\pi}\\frac{1}{r_\\alpha}\\) is the peak electric field magnitude and \\(c_{\\alpha\\alpha^\\prime} = \\cos{\\left(\\theta_\\alpha - \\theta_{\\alpha^\\prime}\\right)}\\).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFrom total rms energy considerations, it can be shown that \\(\\bar{B} = \\sqrt{\\mu_0 \\varepsilon_0} \\bar{E}\\)."
   },
   {
     "objectID": "main.html#gradient-of-the-electric-field-around-three-phase-power-lines",
     "href": "main.html#gradient-of-the-electric-field-around-three-phase-power-lines",
     "title": "main",
     "section": "Gradient of the Electric Field around Three-Phase Power Lines",
-    "text": "Gradient of the Electric Field around Three-Phase Power Lines\n\n\n\n\n\n\n\n\nGradient of the rms Electric Field\n\n\n\\[\n\\nabla_{\\mathbf{q}} \\bar{E}(\\mathbf{q}) =\n\\]"
+    "text": "Gradient of the Electric Field around Three-Phase Power Lines\n\n\n\n\n\nGradient of the rms Electric Field\n\n\n\\[\\begin{align*}\n&\\nabla_{\\mathbf{q}} \\bar{E}(\\mathbf{q}) = 2\\bar{E}\\nabla_{\\mathbf{q}}\\bar{E} \\\\\n&\\phantom{12}= \\frac{1}{2\\xi}\\sum_{\\alpha=1}^3 e_\\alpha \\begin{bmatrix}\n  -2e_\\alpha^2c_\\alpha + \\sum_{\\alpha^\\prime \\neq \\alpha} e_{\\alpha^\\prime}^2 \\cos{\\left(\\theta_\\alpha - 2\\theta_{\\alpha^\\prime}\\right)}\\\\\n  2e_\\alpha^2c_\\alpha + \\sum_{\\alpha^\\prime \\neq \\alpha} e_{\\alpha^\\prime}^2 \\sin{\\left(\\theta_\\alpha - 2\\theta_{\\alpha^\\prime}\\right)}\n\\end{bmatrix}\n\\end{align*}\\]\n\n\n\n\n\n\nLemma: Direction of the gradient\n\n\nThe gradient \\(\\nabla_{\\mathbf{q}} \\bar{E}(\\mathbf{q})\\) points into the convex hull (triangle) formed by the transmission wires for every \\(\\mathbf{q}\\)."
+  },
+  {
+    "objectID": "main.html#navigating-the-drone-to-one-of-the-power-lines",
+    "href": "main.html#navigating-the-drone-to-one-of-the-power-lines",
+    "title": "main",
+    "section": "Navigating the Drone to One of the Power Lines",
+    "text": "Navigating the Drone to One of the Power Lines\n\n\n\n\n\nPotential Function and its Gradient\n\n\nDefine the potential function \\(V(\\mathbf{q}) = \\frac{1}{\\bar{E}^2(\\mathbf{q})}\\). Its gradient is \\[\n\\nabla_{\\mathbf{q}}V(\\mathbf{q}) = -\\frac{2}{\\bar{E}^3}\\nabla_{\\mathbf{q}}\\bar{E}(\\mathbf{q})\n\\] Further, \\(\\lVert \\nabla_{\\mathbf{q}}V(\\mathbf{q}) \\rVert = O\\left(\\frac{1}{\\bar{E}}\\right)\\) as \\(\\bar{E} \\rightarrow \\infty\\) (or \\(r_\\alpha \\rightarrow 0\\)).\n\n\n\n\n\n\nLemma: Critical points of \\(V(\\mathbf{q})\\)\n\n\n\nGenerically \\(V\\) has \\(5\\) isolated critical points, \\(3\\) of which are global minima and have \\(r_\\alpha = 0\\).\nApplying Poincaré-Hopf theorem on the convex hull of the power lines yields the remaining 2 are saddle points!\n\n\n\n\n\n\n\n\n\nFollowing \\(\\nabla_{\\mathbf{q}}V(\\mathbf{q})\\) navigates the drone to one of the power lines."
+  },
+  {
+    "objectID": "main.html#robust-localization",
+    "href": "main.html#robust-localization",
+    "title": "main",
+    "section": "Robust Localization",
+    "text": "Robust Localization"
   },
   {
     "objectID": "main.html#dissipativity",

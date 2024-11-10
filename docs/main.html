@@ -587,7 +587,7 @@
 <p><img data-src="./contents/assets/true_closedloop.svg" class="fragment" style="width:100.0%" data-fragment-index="0"></p>
 <p><img data-src="./contents/assets/trained_closedloop.svg" class="fragment" style="width:100.0%" data-fragment-index="0"></p>
 </div>
-<div class="fragment quarto-layout-panel" data-fragment-index="0" data-layout="[100, 100]">
+<div class="fragment quarto-layout-panel" data-layout="[100, 100]" data-fragment-index="0">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <iframe data-external="1" src="https://www.youtube.com/embed/7t1E7FWawgA" width="100%" height="300" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
@@ -776,12 +776,9 @@ Reasons about model uncertainties<br>
 <h2 data-id="quarto-animate-title">Electric and Magnetic Field around Three-Phase Power Lines</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout callout-important no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
 <p><strong>EM Field near Three-Phase Power Lines</strong></p>
 </div>
 <div class="callout-content">
@@ -790,7 +787,7 @@ Reasons about model uncertainties<br>
 \bar{E}^2(\mathbf{q}) = \frac{1}{2}\sum_{\alpha=1}^3\left(e_\alpha^2 -
 \sum_{\alpha^\prime &gt; \alpha}^3 c_{\alpha\alpha^\prime}e_\alpha e_{\alpha^\prime} \right),
 \]</span></p>
-<p>where <span class="math inline">\(e_\alpha = \frac{\beta c \mu_0 I_0}{2\pi}\frac{1}{r_\alpha}\)</span> is the peak electric field magnitude and <span class="math inline">\(c_{\alpha\alpha^\prime} = \cos{\left(\theta_\alpha - \theta_{\alpha^\prime}\right)}\)</span>.</p>
+<p>where <span class="math inline">\(e_\alpha = \frac{\xi}{r_\alpha} = \frac{\beta c \mu_0 I_0}{2\pi}\frac{1}{r_\alpha}\)</span> is the peak electric field magnitude and <span class="math inline">\(c_{\alpha\alpha^\prime} = \cos{\left(\theta_\alpha - \theta_{\alpha^\prime}\right)}\)</span>.</p>
 </div>
 </div>
 </div>
@@ -814,24 +811,86 @@ Reasons about model uncertainties<br>
 <section id="gradient-of-the-electric-field-around-three-phase-power-lines" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Gradient of the Electric Field around Three-Phase Power Lines</h2>
 <div class="columns">
-<div class="column" style="width:50%;">
-<div class="callout callout-important callout-titled callout-style-default">
+<div class="column" style="width:53%;">
+<div class="callout callout-important no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
 <p><strong>Gradient of the rms Electric Field</strong></p>
 </div>
 <div class="callout-content">
-<p><span class="math display">\[
-\nabla_{\mathbf{q}} \bar{E}(\mathbf{q}) =
-\]</span></p>
+<p><span class="math display">\[\begin{align*}
+&amp;\nabla_{\mathbf{q}} \bar{E}(\mathbf{q}) = 2\bar{E}\nabla_{\mathbf{q}}\bar{E} \\
+&amp;\phantom{12}= \frac{1}{2\xi}\sum_{\alpha=1}^3 e_\alpha \begin{bmatrix}
+  -2e_\alpha^2c_\alpha + \sum_{\alpha^\prime \neq \alpha} e_{\alpha^\prime}^2 \cos{\left(\theta_\alpha - 2\theta_{\alpha^\prime}\right)}\\
+  2e_\alpha^2c_\alpha + \sum_{\alpha^\prime \neq \alpha} e_{\alpha^\prime}^2 \sin{\left(\theta_\alpha - 2\theta_{\alpha^\prime}\right)}
+\end{bmatrix}
+\end{align*}\]</span></p>
 </div>
 </div>
 </div>
-</div><div class="column" style="width:50%;">
+<div class="callout callout-tip no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Lemma: Direction of the gradient</strong></p>
+</div>
+<div class="callout-content">
+<p>The gradient <span class="math inline">\(\nabla_{\mathbf{q}} \bar{E}(\mathbf{q})\)</span> points into the convex hull (triangle) formed by the transmission wires for every <span class="math inline">\(\mathbf{q}\)</span>.</p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:47%;">
 <p><img data-src="./contents/assets/e_field.svg" style="width:100.0%"></p>
+</div>
+</div>
+</section>
+<section id="navigating-the-drone-to-one-of-the-power-lines" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Navigating the Drone to One of the Power Lines</h2>
+<div class="columns">
+<div class="column" style="width:53%;">
+<div class="callout callout-tip no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Potential Function and its Gradient</strong></p>
+</div>
+<div class="callout-content">
+<p>Define the potential function <span class="math inline">\(V(\mathbf{q}) = \frac{1}{\bar{E}^2(\mathbf{q})}\)</span>. Its gradient is <span class="math display">\[
+\nabla_{\mathbf{q}}V(\mathbf{q}) = -\frac{2}{\bar{E}^3}\nabla_{\mathbf{q}}\bar{E}(\mathbf{q})
+\]</span> Further, <span class="math inline">\(\lVert \nabla_{\mathbf{q}}V(\mathbf{q}) \rVert = O\left(\frac{1}{\bar{E}}\right)\)</span> as <span class="math inline">\(\bar{E} \rightarrow \infty\)</span> (or <span class="math inline">\(r_\alpha \rightarrow 0\)</span>).</p>
+</div>
+</div>
+</div>
+<div class="callout callout-tip no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Lemma: Critical points of <span class="math inline">\(V(\mathbf{q})\)</span></strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><p><em>Generically</em> <span class="math inline">\(V\)</span> has <span class="math inline">\(5\)</span> isolated critical points, <span class="math inline">\(3\)</span> of which are global minima and have <span class="math inline">\(r_\alpha = 0\)</span>.</p></li>
+<li><p>Applying Poincaré-Hopf theorem on the convex hull of the power lines yields the remaining 2 are <strong>saddle points</strong>!</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:47%;">
+<p><img data-src="./contents/assets/e_field_trajectory.svg" style="width:100.0%"></p>
+<div class="callout callout-important no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>Following <span class="math inline">\(\nabla_{\mathbf{q}}V(\mathbf{q})\)</span> navigates the drone to one of the power lines.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="robust-localization" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Robust Localization</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+
+</div><div class="column" style="width:50%;">
+<p><img data-src="./contents/assets/e_field_trajectory.svg" style="width:100.0%"></p>
 </div>
 </div>
 <!-- {{< include contents/_moe_background.qmd >}} -->
@@ -1062,7 +1121,7 @@ Reasons about model uncertainties<br>
 <section id="our-methods" class="slide level2">
 <h2>Our Methods</h2>
 <!-- ###################################################################### -->
-<div class="quarto-layout-panel" data-layout-align="center" data-layout="[-1,8,-1]">
+<div class="quarto-layout-panel" data-layout="[-1,8,-1]" data-layout-align="center">
 <div class="quarto-layout-row quarto-layout-valign-center">
 <div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 10.0%;justify-content: center;">
 <p>&nbsp;</p>
@@ -2318,7 +2377,7 @@ b_1\dot{q}_1\right) \\ \frac{1}{I_2}\left(u^\theta -b_2 \dot{q}_2 \right)
 <section id="neuralpbc-hybrid-system" class="slide level2">
 <h2><span class="smallcaps">NeuralPbc</span>: Hybrid System</h2>
 <p><br></p>
-<div class="fragment quarto-layout-panel" data-fragment-index="0" data-layout="[50,-5,50]">
+<div class="fragment quarto-layout-panel" data-layout="[50,-5,50]" data-fragment-index="0">
 <div class="quarto-layout-row quarto-layout-valign-center">
 <div class="quarto-layout-cell" style="flex-basis: 47.6%;justify-content: flex-start;">
 <div class="callout callout-note no-icon callout-titled callout-style-default">
@@ -2625,7 +2684,7 @@ Figure&nbsp;1: NSF Award #2330794
 <section id="infinite-horizon-best-performance" class="slide level2" data-auto-animate="true" data-visibility="uncounted">
 <h2 data-id="quarto-animate-title">Infinite-Horizon Best Performance</h2>
 <!-- ###################################################################### -->
-<div class="fragment quarto-layout-panel" data-fragment-index="0" data-id="perf" data-layout="[100,-5,60]">
+<div class="fragment quarto-layout-panel" data-layout="[100,-5,60]" data-fragment-index="0" data-id="perf">
 <div class="quarto-layout-row quarto-layout-valign-center">
 <div class="quarto-layout-cell" style="flex-basis: 60.6%;justify-content: flex-start;">
 <p><span class="math display">\[
@@ -2643,7 +2702,7 @@ Figure&nbsp;1: NSF Award #2330794
 <p>Solve for <span class="math inline">\(\theta\)</span> that minimizes <span class="math inline">\(\mathcal{J}_\infty\)</span>: <span class="math inline">\(\theta^\star = g(p) :=
 -p -\sqrt{p^2+\frac{q}{r}}\)</span>.</p>
 </div>
-<div class="fragment quarto-layout-panel" data-fragment-index="2" data-id="opt-sol" data-layout="[100,-5,60]">
+<div class="fragment quarto-layout-panel" data-layout="[100,-5,60]" data-fragment-index="2" data-id="opt-sol">
 <div class="quarto-layout-row quarto-layout-valign-center">
 <div class="quarto-layout-cell" style="flex-basis: 60.6%;justify-content: flex-start;">
 <div class="callout callout-note no-icon callout-titled callout-style-default">
@@ -2685,7 +2744,7 @@ f_{\theta^\star}(\theta^\star) &amp;= \frac{1}{\sigma_p \sqrt{2\pi}}\left( \
 <section id="infinite-horizon-best-performance-1" class="slide level2" data-auto-animate="true" data-visibility="uncounted">
 <h2 data-id="quarto-animate-title">Infinite-Horizon Best Performance</h2>
 <!-- ###################################################################### -->
-<div class="fragment quarto-layout-panel" data-fragment-index="0" data-id="opt-sol" data-layout="[100,-5,60]">
+<div class="fragment quarto-layout-panel" data-layout="[100,-5,60]" data-fragment-index="0" data-id="opt-sol">
 <div class="quarto-layout-row quarto-layout-valign-center">
 <div class="quarto-layout-cell" style="flex-basis: 60.6%;justify-content: flex-start;">
 <div class="callout callout-note no-icon callout-titled callout-style-default">

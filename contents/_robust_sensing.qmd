@@ -42,7 +42,7 @@ factor exploiting this field.
 
 ::: {.column width="50%"}
 
-::: {.callout-important}
+::: {.callout-important icon=false}
 ## EM Field near Three-Phase Power Lines
 Quasi-static approximation to Maxwell's equations yields ($\mathbf{q} = (x, z)$ 
 is the location of the sensor)
@@ -52,7 +52,7 @@ $$
 \sum_{\alpha^\prime > \alpha}^3 c_{\alpha\alpha^\prime}e_\alpha e_{\alpha^\prime} \right),
 $$
 
-where $e_\alpha = \frac{\beta c \mu_0 I_0}{2\pi}\frac{1}{r_\alpha}$ is the peak 
+where $e_\alpha = \frac{\xi}{r_\alpha} = \frac{\beta c \mu_0 I_0}{2\pi}\frac{1}{r_\alpha}$ is the peak 
 electric field magnitude and $c_{\alpha\alpha^\prime} = \cos{\left(\theta_\alpha - \theta_{\alpha^\prime}\right)}$.
 :::
 
@@ -77,19 +77,83 @@ From total rms energy considerations, it can be shown that $\bar{B} = \sqrt{\mu_
 
 :::: {.columns}
 
-::: {.column width="50%"}
+::: {.column width="53%"}
 
-::: {.callout-important}
+::: {.callout-important icon=false}
 ## Gradient of the rms Electric Field
-$$
-\nabla_{\mathbf{q}} \bar{E}(\mathbf{q}) = 
-$$
+\begin{align*}
+&\nabla_{\mathbf{q}} \bar{E}(\mathbf{q}) = 2\bar{E}\nabla_{\mathbf{q}}\bar{E} \\
+&\phantom{12}= \frac{1}{2\xi}\sum_{\alpha=1}^3 e_\alpha \begin{bmatrix}
+  -2e_\alpha^2c_\alpha + \sum_{\alpha^\prime \neq \alpha} e_{\alpha^\prime}^2 \cos{\left(\theta_\alpha - 2\theta_{\alpha^\prime}\right)}\\
+  2e_\alpha^2c_\alpha + \sum_{\alpha^\prime \neq \alpha} e_{\alpha^\prime}^2 \sin{\left(\theta_\alpha - 2\theta_{\alpha^\prime}\right)}
+\end{bmatrix}
+\end{align*}
 :::
 
+::: {.callout-tip icon=false}
+## Lemma: Direction of the gradient
+The gradient $\nabla_{\mathbf{q}} \bar{E}(\mathbf{q})$ points into the convex hull (triangle)
+formed by the transmission wires for every $\mathbf{q}$.
+:::
+
+:::
+
+::: {.column width="47%"}
+![](./contents/assets/e_field.svg){width="100%"}
+:::
+
+::::
+
+
+## Navigating the Drone to One of the Power Lines {auto-animate=true}
+
+:::: {.columns}
+
+::: {.column width="53%"}
+
+::: {.callout-tip icon=false}
+## Potential Function and its Gradient
+Define the potential function $V(\mathbf{q}) = \frac{1}{\bar{E}^2(\mathbf{q})}$.
+Its gradient is 
+$$
+\nabla_{\mathbf{q}}V(\mathbf{q}) = -\frac{2}{\bar{E}^3}\nabla_{\mathbf{q}}\bar{E}(\mathbf{q})
+$$
+Further, $\lVert \nabla_{\mathbf{q}}V(\mathbf{q}) \rVert = O\left(\frac{1}{\bar{E}}\right)$
+as $\bar{E} \rightarrow \infty$ (or $r_\alpha \rightarrow 0$).
+:::
+
+::: {.callout-tip icon=false}
+## Lemma: Critical points of $V(\mathbf{q})$
+* _Generically_ $V$ has $5$ isolated critical points, $3$ of which are global minima and have $r_\alpha = 0$. 
+
+* Applying Poincar&#233;-Hopf theorem on the convex hull of the power lines yields 
+the remaining 2 are __saddle points__!
+:::
+
+:::
+
+::: {.column width="47%"}
+![](./contents/assets/e_field_trajectory.svg){width="100%"}
+
+::: {.callout-important appearance="minimal"}
+Following $\nabla_{\mathbf{q}}V(\mathbf{q})$ navigates the drone to one of the 
+power lines.
+:::
+
+:::
+
+::::
+
+
+## Robust Localization {auto-animate=true}
+
+:::: {.columns}
+
+::: {.column width="50%"}
 :::
 
 ::: {.column width="50%"}
-![](./contents/assets/e_field.svg){width="100%"}
+![](./contents/assets/e_field_trajectory.svg){width="100%"}
 :::
 
 ::::
