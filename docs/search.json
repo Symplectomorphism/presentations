@@ -140,6 +140,13 @@
     "text": "GTSAM meets Gradient of the Electric Field\n\n\n\n\n\n\\(\\nabla_{\\mathbf{q}}\\bar{E}(\\mathbf{q})\\) points towards the convex hull\n\n\nThe unit vector along this gradient may be used as a bearing factor in GTSAM at any point \\(\\mathbf{q}\\) during navigation!\n\nTurns the convex hull of the power lines into a landmark."
   },
   {
+    "objectID": "main.html#stable-contact-and-manipulation-over-power-lines",
+    "href": "main.html#stable-contact-and-manipulation-over-power-lines",
+    "title": "main",
+    "section": "Stable Contact and Manipulation over Power Lines",
+    "text": "Stable Contact and Manipulation over Power Lines\n\n\n\n\nWe are implementing passivity-based controllers (data-driven or otherwise) for manipulation over power lines."
+  },
+  {
     "objectID": "main.html#dissipativity",
     "href": "main.html#dissipativity",
     "title": "main",
