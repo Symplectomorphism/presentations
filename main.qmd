@@ -44,6 +44,8 @@ revealjs-plugins:
 
 {{< include ./contents/_data_pbc.qmd >}}
 
+{{< include ./contents/_research_agenda.qmd >}}
+
 <!-- {{< include contents/_moe_background.qmd >}} -->
 
 <!-- {{< include contents/_moe_methods.qmd >}} -->

@@ -1229,7 +1229,7 @@ p(\mathbf{x} | \mathbf{o}, \mathbf{l}) \propto p(x_1) \prod_{i=2}^{3} p(x_i | x_
 <section id="our-methods" class="slide level2">
 <h2>Our Methods</h2>
 <!-- ###################################################################### -->
-<div class="quarto-layout-panel" data-layout="[-1,8,-1]" data-layout-align="center">
+<div class="quarto-layout-panel" data-layout-align="center" data-layout="[-1,8,-1]">
 <div class="quarto-layout-row quarto-layout-valign-center">
 <div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 10.0%;justify-content: center;">
 <p>&nbsp;</p>
@@ -1392,30 +1392,37 @@ p(\mathbf{x} | \mathbf{o}, \mathbf{l}) \propto p(x_1) \prod_{i=2}^{3} p(x_i | x_
 </ul></li>
 </ul>
 </div>
+<!-- ## Parameter Uncertainty and Measurement Noise {auto-animate="true" visibility="uncounted"} -->
 </section>
-<section id="parameter-uncertainty-and-measurement-noise" class="slide level2" data-auto-animate="true" data-visibility="uncounted">
-<h2 data-id="quarto-animate-title">Parameter Uncertainty and Measurement Noise</h2>
+<section id="bayesian-learning-produces-more-robust-controllers" class="slide level2">
+<h2>Bayesian Learning Produces More Robust Controllers</h2>
 <!-- ###################################################################### -->
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Consider the control system:</p>
 <div class="fragment" data-fragment-index="0">
-<p>Consider the control system with</p>
+<p><br></p>
 <ul>
 <li>Parameter uncertainty: <span class="math inline">\(p \sim \mathcal{N}(\hat{p}, \sigma_p^2)\)</span>.</li>
 <li>Measurement noise: <span class="math inline">\(x \sim \mathcal{N}(x, \sigma^2)\)</span>.</li>
 </ul>
 </div>
-<div class="fragment" data-id="stoc-system" data-fragment-index="1">
-<div data-layout-valign="center">
+</div><div class="column" style="width:50%;">
 <p><span class="math display">\[
 \Sigma: \quad
 \begin{cases}
   dx(t) &amp;= (p+\theta)x(t) dt + \theta \sigma dW_t, \\
   x(0) &amp;= 1.
 \end{cases}
+\]</span> <span class="math display">\[
+x(t) = e^{(p+\theta)t} + \theta \sigma \int_0^t e^{(p+\theta)(t-s)}dW_s.
 \]</span></p>
 </div>
+</div>
+<div class="fragment" data-id="stoc-system" data-fragment-index="1">
 <div data-layout-valign="center">
 <p><span class="math display">\[
-x(t) = e^{(p+\theta)t} + \theta \sigma \int_0^t e^{(p+\theta)(t-s)}dW_s.
+\mathcal{J} = \int_0^T \left( \frac{1}{2}qx(t)^2 + \frac{1}{2}ru(t)^2  \right)dt.
 \]</span></p>
 </div>
 </div>
@@ -1463,7 +1470,7 @@ x(t) = e^{(p+\theta)t} + \theta \sigma \int_0^t e^{(p+\theta)(t-s)}dW_s.
         e^{2T(p+\theta)}\right) +
         (q+r\theta^2)\theta\sigma \int_0^T
         e^{(p+\theta)t} \int_0^t e^{(p+\theta)(t-s)}dW_s
-        dt \; + \\ &amp;\frac{1}{2}(q+r\theta^2)\theta^2
+        dt + \frac{1}{2}(q+r\theta^2)\theta^2
         \sigma^2 \int_0^T \left( \int_0^t
         e^{(p+\theta)(t-s)} dW_s  \right)^2 dt
 \end{aligned}
@@ -1531,80 +1538,6 @@ Minimal expected cost <span class="math inline">\(\mathbb{E}\mathcal{J}\)</span>
 <ul>
 <li class="fragment">Optimal control parameter a nontrivial function of <span class="math inline">\(\sigma\)</span> and <span class="math inline">\(\sigma_p\)</span>.</li>
 <li class="fragment">Bayesian learning strikes the right trade-off.</li>
-</ul>
-</div>
-</section>
-<section id="training-stochastic-models" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Training Stochastic Models</h2>
-<p><br></p>
-<div class="r-stack">
-<div class="fragment fade-in-then-out" data-fragment-index="0">
-<div class="callout callout-important no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Bayesian Inference</strong></p>
-</div>
-<div class="callout-content">
-<p><span class="math display">\[
-\begin{aligned}
-\underset{P(\theta | \mathbb{D})}{\text{maximize}} &amp;&amp;&amp; P(\mathbb{D} | \theta) P(\theta), \\
-\text{subject to} &amp;&amp;
-&amp; \theta \sim P(\theta | \mathbb{D}), \\
-&amp;&amp; \mathbb{D} &amp;= \{(x_1, y_1), \dots, (x_N, y_N) \}.
-\end{aligned}
-\]</span></p>
-</div>
-</div>
-</div>
-<!-- callout -->
-</div>
-<div class="fragment fade-in-then-out" data-fragment-index="1">
-<div class="callout callout-important no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Bayesian Inference</strong></p>
-</div>
-<div class="callout-content">
-<p><span class="math display">\[
-\begin{aligned}
-\underset{P(\theta | \mathbb{D})}{\text{maximize}} &amp;&amp; \prod_{j=1}^{N} \mathcal{N}&amp;(\| F(x_j; \theta) -  y_j \| \; | \; 0, s_1) \mathcal{N}(\| \theta - \theta_0 \| \; | \; 0, s_2), \\
-\text{subject to} &amp;&amp;
-&amp; \theta \sim P(\theta | \mathbb{D}), \\
-&amp;&amp; \mathbb{D} &amp;= \{(x_1, y_1), \dots, (x_N, y_N) \}.
-\end{aligned}
-\]</span></p>
-</div>
-</div>
-</div>
-<!-- callout -->
-</div>
-<div class="fragment fade-in" data-fragment-index="2">
-<div class="callout callout-important no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Bayesian Inference</strong></p>
-</div>
-<div class="callout-content">
-<p><span class="math display">\[
-\begin{aligned}
-\underset{z}{\text{maximize}} &amp;&amp; \mathcal{L}(\mathbb{D},z) &amp;= \mathbb{E}_{\theta \sim Q} \left[\ln(P(\mathbb{D} \mid \theta)P(\theta)) - \ln(Q(\theta;z)) \right], \\
-\text{subject to} &amp;&amp;
-&amp; \theta \sim Q(\theta;z), \\
-&amp;&amp; \mathbb{D} &amp;= \{(x_1, y_1), \dots, (x_N, y_N) \}.
-\end{aligned}
-\]</span></p>
-</div>
-</div>
-</div>
-<!-- callout -->
-</div>
-</div>
-<div class="fragment" data-fragment-index="2">
-<ul>
-<li><strong>Variational Inference</strong>: approximates the posterior <span class="math inline">\(P(\theta | \mathbb{D})\)</span> with a pre-selected distribution <span class="math inline">\(Q(\theta; z)\)</span></li>
-<li><strong>Objective</strong>: collect <span class="math inline">\(N_\theta\)</span> samples from the current posterior <span class="math inline">\(Q(\theta; z)\)</span> and maximize <span class="smallcaps">Elbo</span> <span class="math display">\[
-\mathcal{L}(\mathbb{D},z) = \mathbb{E}_{\theta \sim Q} \left[\ln(P(\mathbb{D} \mid \theta)P(\theta)) - \ln(Q(\theta;z)) \right]
-\]</span></li>
 </ul>
 </div>
 </section>
@@ -1871,8 +1804,8 @@ J_T &amp;= \sum_{t=0}^{T} \| \dot{x}_c^* - \dot{x}_c(t; \theta) \|
 </div>
 </div>
 </section>
-<section id="current-work" class="slide level2">
-<h2>Current work</h2>
+<section id="joint-work-with-university-of-kentucky" class="slide level2">
+<h2>Joint Work with University of Kentucky</h2>
 <div class="columns">
 <div class="column" style="width:80%;">
 <center>
@@ -1921,6 +1854,39 @@ Figure&nbsp;1: NSF Award #2330794
 </center>
 </div>
 </div>
+</section>
+<section id="results-from-the-joint-work" class="slide level2">
+<h2>Results from the Joint Work</h2>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<div class="r-stack">
+<div class="fragment fade-in-then-out" data-fragment-index="0">
+<p><img data-src="./contents/assets/box_push_not_so_good.gif" style="width:100.0%"></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="1">
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="./contents/assets/initial_box_pose.png" style="width:100.0%"></p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="./contents/assets/time_lapse.png" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="research-agenda" class="title-slide slide level1 center" data-visibility="uncounted">
+<h1>Research Agenda</h1>
+
+</section>
+<section id="where-the-roboticscontrol-field-is-going" class="slide level2">
+<h2>Where the Robotics/Control Field is Going?</h2>
+</section>
+<section id="state-of-the-art-neural-network-techniques" class="slide level2">
+<h2>State-of-the-Art Neural Network Techniques</h2>
+</section>
+<section id="potential-funding-mechanisms" class="slide level2">
+<h2>Potential Funding Mechanisms</h2>
 <!-- {{< include contents/_moe_background.qmd >}} -->
 <!-- {{< include contents/_moe_methods.qmd >}} -->
 <!-- {{< include contents/_moe_results.qmd >}} -->
@@ -1989,13 +1955,13 @@ Figure&nbsp;1: NSF Award #2330794
 <section id="research-agenda-approx.-10-minutes" class="slide level2" data-auto-animate="true" data-visibility="uncounted">
 <h2 data-id="quarto-animate-title">Research Agenda (approx. <strong>10 minutes</strong>)</h2>
 <ul>
-<li>Vision (~<strong>2 minutes</strong>)
+<li>Vision (~<strong>3 minutes</strong>)
 <ul>
 <li>Service robotics needs robust low-level controllers</li>
 <li>Drones / AGVs need robust sensing and controllers to perform dangerous tasks.</li>
 <li>In 10 years, data-driven synthesis methods will have matured and made robust.</li>
 </ul></li>
-<li>Future Techniques (~<strong>6 minutes</strong>)
+<li>Future Techniques (~<strong>4 minutes</strong>)
 <ul>
 <li>Robustness of GNN-based controllers</li>
 <li>Convex Optimization Layers and ADMM on GNNs</li>
@@ -2005,7 +1971,7 @@ Figure&nbsp;1: NSF Award #2330794
 <li>Representation learning</li>
 </ul></li>
 </ul></li>
-<li>Potential Funding Mechanisms (~<strong>2 minutes</strong>)
+<li>Potential Funding Mechanisms (~<strong>3 minutes</strong>)
 <ul>
 <li>NSF: Foundational Research in Robotics</li>
 <li>SBIR / STTR: Currently with Pitch Aeronautics, explore local companies</li>

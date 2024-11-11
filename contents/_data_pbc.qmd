@@ -361,19 +361,24 @@ $$
 :::
 
 
-## Parameter Uncertainty and Measurement Noise {auto-animate="true" visibility="uncounted"}
+<!-- ## Parameter Uncertainty and Measurement Noise {auto-animate="true" visibility="uncounted"} -->
+## Bayesian Learning Produces More Robust Controllers
 <!-- ###################################################################### -->
 
+:::: {.columns}
+
+::: {.column width="50%"}
+Consider the control system:
+
 ::: {.fragment data-fragment-index=0}
-Consider the control system with
+<br>
 
 * Parameter uncertainty:  $p \sim \mathcal{N}(\hat{p}, \sigma_p^2)$.
 * Measurement noise: $x \sim \mathcal{N}(x, \sigma^2)$.
 :::
+:::
 
-::: {data-id="stoc-system" .fragment data-fragment-index=1}
-
-::: {layout-valign="center"}
+::: {.column width="50%"}
 $$
 \Sigma: \quad
 \begin{cases}
@@ -381,12 +386,21 @@ $$
   x(0) &= 1.
 \end{cases}
 $$
-:::
-::: {layout-valign="center"}
 $$
 x(t) = e^{(p+\theta)t} + \theta \sigma \int_0^t e^{(p+\theta)(t-s)}dW_s.
 $$
 :::
+
+::::
+
+::: {data-id="stoc-system" .fragment data-fragment-index=1}
+
+::: {layout-valign="center"}
+$$
+\mathcal{J} = \int_0^T \left( \frac{1}{2}qx(t)^2 + \frac{1}{2}ru(t)^2  \right)dt.
+$$
+:::
+
 :::
 
 ::: {.fragment data-fragment-index=2 data-id="lemma"}
@@ -430,7 +444,7 @@ $$
         e^{2T(p+\theta)}\right) + 
         (q+r\theta^2)\theta\sigma \int_0^T
         e^{(p+\theta)t} \int_0^t e^{(p+\theta)(t-s)}dW_s
-        dt \; + \\ &\frac{1}{2}(q+r\theta^2)\theta^2
+        dt + \frac{1}{2}(q+r\theta^2)\theta^2
         \sigma^2 \int_0^T \left( \int_0^t
         e^{(p+\theta)(t-s)} dW_s  \right)^2 dt 
 \end{aligned}
@@ -496,70 +510,6 @@ $$
 * Optimal control parameter a nontrivial function of $\sigma$ and $\sigma_p$.
 * Bayesian learning strikes the right trade-off.
 :::
-
-## Training Stochastic Models {auto-animate=true}
-
-<br/>
-
-:::{.r-stack}
-:::{.fragment .fade-in-then-out fragment-index=0}
-:::{.callout-important icon=false }
-## Bayesian Inference
-
-$$
-\begin{aligned}
-\underset{P(\theta | \mathbb{D})}{\text{maximize}} &&& P(\mathbb{D} | \theta) P(\theta), \\
-\text{subject to} &&
-& \theta \sim P(\theta | \mathbb{D}), \\
-&& \mathbb{D} &= \{(x_1, y_1), \dots, (x_N, y_N) \}.
-\end{aligned}
-$$
-::: 
-<!-- callout -->
-:::
-
-:::{ .fragment .fade-in-then-out fragment-index=1}
-:::{.callout-important icon=false}
-## Bayesian Inference
-
-$$
-\begin{aligned}
-\underset{P(\theta | \mathbb{D})}{\text{maximize}} && \prod_{j=1}^{N} \mathcal{N}&(\| F(x_j; \theta) -  y_j \| \; | \; 0, s_1) \mathcal{N}(\| \theta - \theta_0 \| \; | \; 0, s_2), \\
-\text{subject to} &&
-& \theta \sim P(\theta | \mathbb{D}), \\
-&& \mathbb{D} &= \{(x_1, y_1), \dots, (x_N, y_N) \}.
-\end{aligned}
-$$
-::: 
-<!-- callout -->
-:::
-
-:::{ .fragment .fade-in fragment-index=2}
-:::{.callout-important icon=false}
-## Bayesian Inference
-
-$$
-\begin{aligned}
-\underset{z}{\text{maximize}} && \mathcal{L}(\mathbb{D},z) &= \mathbb{E}_{\theta \sim Q} \left[\ln(P(\mathbb{D} \mid \theta)P(\theta)) - \ln(Q(\theta;z)) \right], \\
-\text{subject to} &&
-& \theta \sim Q(\theta;z), \\
-&& \mathbb{D} &= \{(x_1, y_1), \dots, (x_N, y_N) \}.
-\end{aligned}
-$$
-::: 
-<!-- callout -->
-:::
-:::
-
-:::{.fragment fragment-index=2}
-* **Variational Inference**: approximates the posterior $P(\theta | \mathbb{D})$ with a pre-selected distribution $Q(\theta; z)$
-* **Objective**: collect $N_\theta$ samples from the current posterior $Q(\theta; z)$ and maximize <span style="font-variant:small-caps;">Elbo</span> 
-$$
-  \mathcal{L}(\mathbb{D},z) = \mathbb{E}_{\theta \sim Q} \left[\ln(P(\mathbb{D} \mid \theta)P(\theta)) - \ln(Q(\theta;z)) \right]
-$$
-:::
-
-
 
 ## Bayesian <span style="font-variant:small-caps;">NeuralPbc</span>
 
@@ -779,7 +729,7 @@ J_T &= \sum_{t=0}^{T} \| \dot{x}_c^* - \dot{x}_c(t; \theta) \|
 :::
 ::::
 
-## Current work
+## Joint Work with University of Kentucky
 
 :::: {.columns}
 
@@ -813,3 +763,35 @@ NSF Award \#2330794
 :::
 
 ::::
+
+
+## Results from the Joint Work
+
+&nbsp;
+
+&nbsp;
+
+::: {.r-stack}
+
+::: {.fragment .fade-in-then-out fragment-index=0}
+![](./contents/assets/box_push_not_so_good.gif){width="100%"}
+:::
+
+::: {.fragment .fade-in fragment-index=1}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+![](./contents/assets/initial_box_pose.png){width="100%"}
+:::
+
+::: {.column width="50%"}
+![](./contents/assets/time_lapse.png){width="100%"}
+:::
+
+::::
+
+:::
+
+
+:::

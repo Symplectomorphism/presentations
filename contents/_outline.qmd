@@ -35,19 +35,19 @@
 
 ## Research Agenda (approx. **10 minutes**) {auto-animate=true visibility="uncounted"}
 
-* Vision (~**2 minutes**)
+* Vision (~**3 minutes**)
     * Service robotics needs robust low-level controllers
     * Drones / AGVs need robust sensing and controllers to perform dangerous tasks.
     * In 10 years, data-driven synthesis methods will have matured and made robust.
 
-* Future Techniques (~**6 minutes**)
+* Future Techniques (~**4 minutes**)
     * Robustness of GNN-based controllers
     * Convex Optimization Layers and ADMM on GNNs
     * Transfer learning to multiple domains (few-shot performance)
         * Guiding controller synthesis with human-imitation using LLMs
         * Representation learning
 
-* Potential Funding Mechanisms (~**2 minutes**)
+* Potential Funding Mechanisms (~**3 minutes**)
     * NSF: Foundational Research in Robotics
     * SBIR / STTR: Currently with Pitch Aeronautics, explore local companies
     * NIH: Retain and expand biomedical collaboration with BSU / UTD faculty
