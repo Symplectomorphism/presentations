@@ -1,7 +1,7 @@
 # Outline {visibility="uncounted"}
 <!-- ###################################################################### -->
 
-## Current Research (approx. **30 minutes**) {auto-animate=true}
+## Current Research (approx. **30 minutes**) {auto-animate=true visibility="uncounted"}
 
 * Introduction -- Theme: **Robustness** - both control and measurement! (~**5 minutes**)
     * Challenges in robotic manipulation: all challenges in one go
@@ -18,7 +18,7 @@
     * Our method based on gradient of the total electromagnetic field strength
 
 
-## Current Research (approx. **30 minutes**) {auto-animate=true}
+## Current Research (approx. **30 minutes**) {auto-animate=true visibility="uncounted"}
 
 * EM Sensing with GTSAM (~**10 minutes**)
     * Difficulties with relative pose sensing
@@ -33,7 +33,7 @@
     * Current drone-line manipulation results
 
 
-## Research Agenda (approx. **10 minutes**) {auto-animate=true}
+## Research Agenda (approx. **10 minutes**) {auto-animate=true visibility="uncounted"}
 
 * Vision (~**2 minutes**)
     * Service robotics needs robust low-level controllers
