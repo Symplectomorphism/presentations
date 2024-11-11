@@ -1,0 +1,914 @@
+# Robust Data-Driven Passivity-Based Controller Synthesis {visibility="uncounted"}
+<!-- ###################################################################### -->
+
+## Dissipativity {auto-animate="true"}
+<!-- ###################################################################### -->
+
+A dynamical system
+
+$$
+\Sigma: \quad
+\begin{cases}
+  \dot{x} &= f(x,u) \\
+  y &= h(x,u)
+\end{cases}
+\quad x \in \mathcal{X} \subset \mathbb{R}^{2n}, \, u \in \mathcal{U} \subset \mathbb{R}^{m} 
+$$
+ -->
+is __dissipative__ with respect to some supply rate $s$ if there exists a *storage function* $\mathcal{H}: \mathcal{X} \to \mathbb{R}^{+}$ such that
+
+$$
+\mathcal{H}\left(  x(t_1) \right) \leq  \mathcal{H}\left(  x(t_0) \right) + \int_{t_0}^{t_1} s(u(t), y(t)) \, \text{d}t
+$$
+
+for all $x(t_0) = x_0$, all input $u$, and all $t_1 \geq t_0$
+
+
+## Dissipativity and Passivity {auto-animate="true"}
+
+$$
+\mathcal{H}\left(  x(t_1) \right) \leq  \mathcal{H}\left(  x(t_0) \right) + \int_{t_0}^{t_1} s(u(t), y(t)) \, \text{d}t
+$$
+
+::: {.callout}
+## Dissipation Inequality
+
+- Stored energy at $t_1$ is *at most* equal to stored energy at $t_0$, plus externally supplied energy $s(u,y)$.
+
+- No generation of energy, only internal dissipation.
+
+<!-- - With $s(t) \equiv 0$, trajectories tend towards minimum of $\mathcal{H}$. -->
+
+:::
+
+::: {.callout-note icon=false}
+## Passivity
+The system $\Sigma$ is __passive__ if it is dissipative with supply rate
+
+$$s = u^\top y.$$
+
+It is __output strictly passive__ if it is dissipative with supply rate
+
+$$s = u^\top y - \delta \lVert y \rVert^2, \; \delta > 0.$$
+
+:::
+
+
+## Stability of Passive Systems {auto-animate="true"}
+<!-- ###################################################################### -->
+
+$$
+\Sigma: \quad
+\begin{cases}
+  \dot{x} &= f(x,u), && f(0,0) = 0, \\
+  y &= h(x,u), && h(0,0) = 0,
+\end{cases}
+$$
+
+
+$u^{\top} y \geq \dot{\mathcal{H}} = \frac{\partial\mathcal{H}}{\partial x} f(x,u),\quad \mathcal{H} \geq 0,\quad y \equiv 0 \implies x \equiv 0$
+
+::: {layout="[[-1], [1], [-1]]"}
+
+::: {.callout-note icon="false"}
+## Lemma (Khalil, 2002)
+The origin of $\Sigma$ is: 
+
+- __stable__ if $\Sigma$ is passive,
+- __asymptotically stable__ if $\Sigma$ is output strictly passive,
+- __globally asymptotically stable__ if $\Sigma$ is output strictly passive and the storage function $\mathcal{H}(x) \to \infty$ as $\lVert x \rVert \to \infty$ (radially unbounded)
+:::
+
+:::
+
+
+::: {.notes}
+* Notice that we only require that the function $\mathcal{H}$ be positive semidefinite and not necessarily positive definite as per usual Lyapunov conditions.
+* Observability (detectability) ensures LaSalle's theorem works.
+:::
+
+
+## Passivity-Based Control (PBC)
+<!-- ###################################################################### -->
+
+
+::: {layout="[[-1], [1], [-1]]"}
+$$
+\Sigma_o: \quad
+\begin{cases}
+  \dot{x} &= f(x) + g(x)u, \\
+  y &= h(x)
+\end{cases}
+$$
+<span hidden="hidden">%</span>
+Main idea --- Select $u(x) = u_{es} + u_{di}$ that renders the closed-loop system passive.
+<span hidden="hidden">%</span>
+$$
+\Sigma_d: \quad
+\begin{cases}
+  \dot{x} &= f_d(x) + g(x) u_{di}, \quad f_d := f(x) + g(x) u_{es}(x) \\
+  y_d &= h_d(x)
+\end{cases}
+$$
+<span hidden="hidden">%</span>
+Control problem is cast as a search for $H_d$ and $h_d$ s.t. $\dot{H}_d \leq y_d^\top u_{di}$
+:::
+
+## PBC Example - Simple Pendulum {auto-animate="false" auto-animate-easing="ease"}
+<!-- ###################################################################### -->
+
+:::: {.callout-note icon="false"}
+
+## System Dynamics
+
+$H(q,p) = \frac{1}{2} J^{-1} p^2 + mgl (1 - \cos q)$
+
+$$
+\begin{bmatrix} \dot{q} \\ \dot{p} \end{bmatrix} = 
+\begin{bmatrix} \phantom{-}0 & 1 \\ -1 & 0 \end{bmatrix} 
+\begin{bmatrix} \nabla_q H_{\phantom{d}} \\ \nabla_p H_{\phantom{d}} \end{bmatrix} +
+\begin{bmatrix} 0 \\ G \end{bmatrix} u_\phantom{di},
+\qquad y = \dot{q}
+$$
+
+::: {.fragment .fade-in fragment-index=1}
+Choose $u = u_{es} + u_{di}$ that transforms system into a passive one  with $x^\star = (q^\star, 0)$
+<!-- and $H_d$ satisfying $\dot{H}_{d} \leq y^\top u_{di}$ -->
+:::
+
+::: {.fragment .fade-in  fragment-index=2}
+
+$Gu_{es} = \nabla_q H  - \nabla_q H_d , \quad Gu_{di} = -GK_D G^\top \nabla_p H_d$
+:::
+
+
+::: {.r-stack}
+
+::: {.fragment .fade-in-then-out fragment-index=1}
+$$
+\begin{bmatrix} \dot{q} \\ \dot{p} \end{bmatrix} = 
+\begin{bmatrix} \phantom{-}0 & 1 \\ -1 & 0 \end{bmatrix} 
+\begin{bmatrix} \nabla_q H_d \\ \nabla_p H_d \end{bmatrix} +
+\begin{bmatrix} 0 \\ G \end{bmatrix} u_{di},
+\qquad y = \dot{q}
+$$
+:::
+
+::: {.fragment .fade-in fragment-index=2}
+
+$$
+\begin{bmatrix} \dot{q} \\ \dot{p} \end{bmatrix} = 
+\begin{bmatrix} \phantom{-}0 & 1 \\ -1 & -G K_D G^\top \end{bmatrix} 
+\begin{bmatrix} \nabla_q H_d \\ \nabla_p H_d \end{bmatrix},
+\qquad y = \dot{q}
+$$
+
+:::
+
+:::
+
+::::
+
+
+## PBC Example - Simple Pendulum {auto-animate="false" auto-animate-easing="ease"}
+<!-- ###################################################################### -->
+
+:::: {.callout-tip icon="false"}
+
+## Control Synthesis via PBC
+
+Choose $u = u_{es} + u_{di}$ that transforms system into a passive one with $x^\star =  (q^\star, 0)$
+
+$Gu_{es} = \nabla_q H  - \nabla_q H_d , \quad Gu_{di} = -GK_D G^\top \nabla_p H_d$
+
+$$
+\begin{bmatrix} \dot{q} \\ \dot{p} \end{bmatrix} = 
+\begin{bmatrix} \phantom{-}0 & 1 \\ -1 & -G K_D G^\top \end{bmatrix} 
+\begin{bmatrix} \nabla_q H_d \\ \nabla_p H_d \end{bmatrix},
+\qquad y = \dot{q}
+$$
+
+
+::: {.fragment .fade-up}
+$H_d(q,p) = \frac{1}{2} J^{-1} p^2 + V_d(q), \quad V_d(q) = \frac{1}{2} K_{P} \left( q - q^\star \right)^2$
+:::
+
+<!-- $\dot{H_d} = -\left(  \nabla_p H_d \right)^\top K_D \left(  \nabla_p H_d \right) \leq 0$ -->
+
+::: {.fragment .fade-up}
+$\dot{H}_d = -K_D \left( J^{-1} p \right)^2 = y^\top u_{di} \leq 0$
+:::
+
+::: {.fragment .fade-up}
+$\boxed{u = -mgl\sin(x) - K_P(q - q^\star) - K_D \dot{q}}$
+:::
+
+::::
+
+## {background-video="contents/assets/ballbot_youtube_trim_reverse.mp4"}
+<!-- ###################################################################### -->
+
+:::: {.r-stack}
+
+::: {.fragment .fade-in fragment-index=0}
+<div class="semi-transparent-overlay"></div>
+:::
+
+<center>![](contents/assets/Ballbot_Rezero_2010.jpg){.fragment .fade-in-then-out fragment-index=0 height=640}</center>
+
+<center>![](contents/assets/ballbot_schematic.png){.fragment .fade-in-then-semi-out fragment-index=1 width=800}</center>
+
+![](contents/assets/ballbot_derivation_1.png){.fragment .fade-in-then-semi-out .absolute top=200 left=20 width=800 }
+
+![](contents/assets/ballbot_derivation_2.png){.fragment .fade-in-then-semi-out .absolute top=20 right=20 width=800 }
+
+:::{.fragment}
+:::
+
+::::
+
+
+## Our Methods
+<!-- ###################################################################### -->
+
+::: {layout="[-1,8,-1]" layout-align="center" layout-valign="center"}
+![](contents/assets/pbc-ml-outline.svg){width=50%}
+:::
+
+:::: {.fragment}
+::: {style="text-align: center; font-size: 27px"}
+<span style="font-variant:small-caps;">NeuralPbc</span> | <span style="font-variant:small-caps;">NeuralIdaPbc</span> 
+:---: | :---:
+$H_d$ neural net | $H_d$ quadratic in $p$
+Sample state space | __Sample configuration space__
+No stability certificate | __Stability certificate__
+__More flexible__ | As applicable as <span style="font-variant:small-caps;">IdaPbc</span>
+:::
+::::
+
+
+
+## <span style="font-variant:small-caps;">NeuralPbc</span> Problem Statement
+<!-- ###################################################################### -->
+
+Consider the mechanical system
+
+$$
+\begin{bmatrix} \dot{q} \\ \dot{p} \end{bmatrix} = 
+\begin{bmatrix} \phantom{-}0 & 1 \\ -1 & 0 \end{bmatrix} 
+\begin{bmatrix} \nabla_q H_{\phantom{d}} \\ \nabla_p H_{\phantom{d}} \end{bmatrix} +
+\begin{bmatrix} 0 \\ G \end{bmatrix} u_\phantom{di}
+$$
+
+__Control task__: stabilize desired equilibrium $x^\star = (q^\star, 0)$
+
+:::: {.r-stack}
+
+::: {.fragment .fade-out fragment-index=3}
+$$u = u_{es} + u_{di} = G^{\dagger} \left( \nabla_q H  - \nabla_q H_d \right)  - K_D G^\top \nabla_p H_d $$
+:::
+
+::: {.fragment .fade-in  fragment-index=3}
+$$u = u_{es} + u_{di} = - G^{\dagger} \nabla_q H_d^{\theta}  - K_D G^\top \nabla_p H_d^{\theta} $$
+:::
+
+::::
+
+Choosing a suitable $H_d$ is not trivial
+
+::: {.fragment .fade-in fragment-index=2}
+Parameterize $H_d$ by a neural network $H_d^\theta$, and relax control task to bringing $x$ to a small neighborhood of $x^\star$
+:::
+
+::: {.notes}
+* Instead of asking for asymptotic stabilization, we only require that trajectories pass thru a nbhd of $x^\star$
+* This is reasonable because we know how to stabilize a fixed point, e.g. stabilize the linearization of the system using LQR
+* This allows us to find approximations for $H_d^\theta$ using learning techniques
+:::
+
+
+## <span style="font-variant:small-caps;">NeuralPbc</span> Problem Statement
+<!-- ###################################################################### -->
+
+::: {.callout}
+$$
+\begin{aligned}
+\underset{\theta}{\text{minimize}} && J(\theta, x_0) &= \int_{0}^{T} \ell \left(\phi,u^\theta,\theta\right)\, \text{d} t \\
+\text{subject to} &&
+\begin{bmatrix}
+  \dot{q} \\ \dot{p}
+\end{bmatrix} &=
+\begin{bmatrix}
+  0 & I \\ -I & 0
+\end{bmatrix}
+\begin{bmatrix} \nabla_q H \\ \nabla_p H \end{bmatrix} + 
+\begin{bmatrix}
+  0 \\ G
+\end{bmatrix} u^{\theta}
+\\
+&& u^\theta &= - G^{\dagger}\nabla_q H_d^{\theta}  - K_D G^\top \nabla_p H_d^{\theta}
+\end{aligned}
+$$
+:::
+
+- Injecting control task into loss function design
+  * May require an initial motion/path planning step
+  * For simple tasks, can just be quadratic loss to goal
+- Backprop through closed-loop trajectories 
+  * Forward or adjoint differentiation
+  * Typically adjoint differentiation is more efficient
+- Sampling the state space efficiently 
+  * DAgger sampling
+  * Initial conditions chosen from previously visited states
+
+
+## Robustness via Bayesian Learning 
+
+::::{.columns}
+:::{.column width=50%}
+
+<br/>
+
+:::{.incremental}
+* <span style="font-variant:small-caps;">NeuralPbc</span> assumes a nominal model $\dot{x} = f_p(x, u)$
+* The trained controller must not overfit on the observations generated from the nominal model
+
+:::
+:::
+
+:::{.column width=50%}
+
+![](contents/assets/regular-vs-bayesian.svg){.absolute width="575" heigth="575"}
+
+:::
+<!-- column -->
+
+::::
+
+:::{.fragment fragment-index=0}
+:::{.incremental}
+* **Our method**: $H_d$ is a Bayesian neural network
+    + achieves the performance objective for samples $\theta \sim P(\theta | \mathbb{D})$
+    + searches for ensemble of parameters that meet the desired performance 
+  $$
+    P(\theta \mid \mathbb{D}) = \frac{\overbrace{P(\mathbb{D} \mid
+    \theta)}^{\text{likelihood}}\overbrace{P(\theta)}^{\text{prior}}}
+    {\underbrace{\int_\theta P(\mathbb{D} \mid \theta^\prime)P(\theta^\prime)
+    d\theta^\prime}_{\text{evidence}}}.
+  $$
+:::
+:::
+
+
+## Parameter Uncertainty and Measurement Noise {auto-animate="true" visibility="uncounted"}
+<!-- ###################################################################### -->
+
+::: {.fragment data-fragment-index=0}
+Consider the control system with
+
+* Parameter uncertainty:  $p \sim \mathcal{N}(\hat{p}, \sigma_p^2)$.
+* Measurement noise: $x \sim \mathcal{N}(x, \sigma^2)$.
+:::
+
+::: {data-id="stoc-system" .fragment data-fragment-index=1}
+
+::: {layout-valign="center"}
+$$
+\Sigma: \quad
+\begin{cases}
+  dx(t) &= (p+\theta)x(t) dt + \theta \sigma dW_t, \\
+  x(0) &= 1.
+\end{cases}
+$$
+:::
+::: {layout-valign="center"}
+$$
+x(t) = e^{(p+\theta)t} + \theta \sigma \int_0^t e^{(p+\theta)(t-s)}dW_s.
+$$
+:::
+:::
+
+::: {.fragment data-fragment-index=2 data-id="lemma"}
+::: {.callout-tip icon=false}
+## Lemma
+
+The conditional expectation $\mathbb{E}[\mathcal{J} \mid p]$ of the performance
+index given the system parameter $p$ is
+
+$$
+\mathbb{E}[\mathcal{J} \mid p] =
+-\frac{1}{4}\frac{q+r\theta^2}{p+\theta}\left[ \theta^2 \sigma^2 T +
+\left(1-e^{2 T (p+\theta)}\right) \left(1+\frac{1}{2}\frac{\theta^2
+\sigma^2}{p+\theta}\right) \right]
+$$
+:::
+:::
+
+
+## Conditional Expectation {auto-animate="true" visibility="uncounted" .smaller }
+<!-- ###################################################################### -->
+
+::: {.fragment data-fragment-index=2 data-id="lemma"}
+$$
+\mathbb{E}[\mathcal{J} \mid p] =
+-\frac{1}{4}\frac{q+r\theta^2}{p+\theta}\left[ \theta^2 \sigma^2 T +
+\left(1-e^{2 T (p+\theta)}\right) \left(1+\frac{1}{2}\frac{\theta^2
+\sigma^2}{p+\theta}\right) \right]
+$$
+:::
+
+::: {.fragment data-fragment-index=3 data-id="proof"}
+::: {.callout-warning icon=false}
+## Proof
+
+Substituting the solution of the SDE into the performance measure yields
+
+$$
+\begin{aligned} \mathcal{J} =
+        & -\frac{1}{4}\frac{q+r\theta^2}{p+\theta}\left(1 +
+        e^{2T(p+\theta)}\right) + 
+        (q+r\theta^2)\theta\sigma \int_0^T
+        e^{(p+\theta)t} \int_0^t e^{(p+\theta)(t-s)}dW_s
+        dt \; + \\ &\frac{1}{2}(q+r\theta^2)\theta^2
+        \sigma^2 \int_0^T \left( \int_0^t
+        e^{(p+\theta)(t-s)} dW_s  \right)^2 dt 
+\end{aligned}
+$$
+
+The conditional expectation of this quantity given the system parameter $p$
+under the distribution induced by the Wiener process may be computed in
+closed-form using Ito calculus.
+
+$$
+\begin{aligned} 
+\mathbb{E}_W\left[\mathcal{J} \mid p \right] &= -\frac{1}{4}\frac{q+r\theta^2}{p+\theta}\left(1 - e^{2T(p+\theta)}\right) +
+        (q+r\theta^2)\theta\sigma\int_0^Te^{(p+\theta)t}\mathbb{E}_W\left[\int_0^t
+        e^{(p+\theta)(t-s)} dW_s~\Big\rvert p\right] dt + \\
+        &\frac{1}{2}(q+r\theta)^2\theta^2\sigma^2\int_0^T\mathbb{E}_W\left[\left(\int_0^t
+        e^{(p+\theta)(t-s)} dW_s \right)^2~\bigg\rvert p\right] dt \\
+        &=-\frac{1}{4}\frac{q+r\theta^2}{p+\theta}\left(1 -
+        e^{2T(p+\theta)}\right) + 
+        \frac{1}{2}(q+r\theta^2)\theta^2\sigma^2\int_0^T\left(\int_0^t
+        e^{2(p+\theta)(t-s)} ds \right) dt \\ 
+        &=-\frac{1}{4}\frac{q+r\theta^2}{p+\theta}\left(1 - e^{2T(p+\theta)}\right) + 
+        \frac{1}{2}(q+r\theta^2)\theta^2\sigma^2\int_0^T
+        -\frac{1}{2(p+\theta)}\left(1 - e^{2T(p+\theta)}\right) dt \\ 
+        &=-\frac{1}{4}\frac{q+r\theta^2}{p+\theta} \left[ \theta^2 \sigma^2 T +
+        \left(1 - e^{2T(p+\theta)}\right) \left(1 +
+        \frac{1}{2}\frac{\theta^2\sigma^2}{p+\theta}\right)\right]. 
+\end{aligned}
+$$
+
+<div style="text-align: right"> :orange_square: </div>
+
+:::
+:::
+
+
+## Optimal Controller {auto-animate="true" auto-animate-easing="ease-in-out" visibility="uncounted"}
+<!-- ###################################################################### -->
+
+
+::: {.r-stack layout-valign="center"}
+![](contents/assets/optimal_ctrl.svg){width="80%" .fragment data-fragment-index=0 data-id="opt-ctrl"}
+
+<div style="vertical-align: bottom" class="fragment" data-fragment-index="0">Optimal controller $|\theta^\star|$ minimizing $\mathbb{E}\mathcal{J}$</div>
+
+![](contents/assets/optimal_cost.svg){width="80%" .fragment data-fragment-index=1 data-id="opt-cost"}
+
+<div style="vertical-align: bottom" class="fragment" data-fragment-index="1">Minimal expected cost $\mathbb{E}\mathcal{J}$</div>
+
+:::
+
+
+## Optimal Controller {auto-animate="true" auto-animate-easing="ease-in-out" visibility="uncounted"}
+<!-- ###################################################################### -->
+
+
+::: r-hstack
+![Optimal controller $|\theta^\star|$ minimizing $\mathbb{E}\mathcal{J}$](contents/assets/optimal_ctrl.svg){.fragment data-fragment-index=0 data-id="opt-ctrl"}
+
+![Minimal expected cost $\mathbb{E}\mathcal{J}$](contents/assets/optimal_cost.svg){.fragment data-fragment-index=0 data-id="opt-cost"}
+:::
+
+::: {.incremental .fragment data-fragment-index=1}
+* Optimal control parameter a nontrivial function of $\sigma$ and $\sigma_p$.
+* Bayesian learning strikes the right trade-off.
+:::
+
+## Training Stochastic Models {auto-animate=true}
+
+<br/>
+
+:::{.r-stack}
+:::{.fragment .fade-in-then-out fragment-index=0}
+:::{.callout-important icon=false }
+## Bayesian Inference
+
+$$
+\begin{aligned}
+\underset{P(\theta | \mathbb{D})}{\text{maximize}} &&& P(\mathbb{D} | \theta) P(\theta), \\
+\text{subject to} &&
+& \theta \sim P(\theta | \mathbb{D}), \\
+&& \mathbb{D} &= \{(x_1, y_1), \dots, (x_N, y_N) \}.
+\end{aligned}
+$$
+::: 
+<!-- callout -->
+:::
+
+:::{ .fragment .fade-in-then-out fragment-index=1}
+:::{.callout-important icon=false}
+## Bayesian Inference
+
+$$
+\begin{aligned}
+\underset{P(\theta | \mathbb{D})}{\text{maximize}} && \prod_{j=1}^{N} \mathcal{N}&(\| F(x_j; \theta) -  y_j \| \; | \; 0, s_1) \mathcal{N}(\| \theta - \theta_0 \| \; | \; 0, s_2), \\
+\text{subject to} &&
+& \theta \sim P(\theta | \mathbb{D}), \\
+&& \mathbb{D} &= \{(x_1, y_1), \dots, (x_N, y_N) \}.
+\end{aligned}
+$$
+::: 
+<!-- callout -->
+:::
+
+:::{ .fragment .fade-in fragment-index=2}
+:::{.callout-important icon=false}
+## Bayesian Inference
+
+$$
+\begin{aligned}
+\underset{z}{\text{maximize}} && \mathcal{L}(\mathbb{D},z) &= \mathbb{E}_{\theta \sim Q} \left[\ln(P(\mathbb{D} \mid \theta)P(\theta)) - \ln(Q(\theta;z)) \right], \\
+\text{subject to} &&
+& \theta \sim Q(\theta;z), \\
+&& \mathbb{D} &= \{(x_1, y_1), \dots, (x_N, y_N) \}.
+\end{aligned}
+$$
+::: 
+<!-- callout -->
+:::
+:::
+
+:::{.fragment fragment-index=2}
+* **Variational Inference**: approximates the posterior $P(\theta | \mathbb{D})$ with a pre-selected distribution $Q(\theta; z)$
+* **Objective**: collect $N_\theta$ samples from the current posterior $Q(\theta; z)$ and maximize <span style="font-variant:small-caps;">Elbo</span> 
+$$
+  \mathcal{L}(\mathbb{D},z) = \mathbb{E}_{\theta \sim Q} \left[\ln(P(\mathbb{D} \mid \theta)P(\theta)) - \ln(Q(\theta;z)) \right]
+$$
+:::
+
+
+
+# Bayesian <span style="font-variant:small-caps;">NeuralPbc</span>
+
+## Bayesian <span style="font-variant:small-caps;">NeuralPbc</span>
+
+<br/>
+
+:::{.r-stack}
+
+:::{.fragment .fade-in-then-out fragment-index=0}
+::: {.callout-tip icon="false"}
+## <span style="font-variant:small-caps;">NeuralPbc</span> Optimization Problem 
+
+$$
+\begin{aligned}
+\underset{\theta}{\text{minimize}} && J(\phi, u^\theta) &= \mathbb{E}_{x_0 \in \mathcal{D}_N}[ \ell( \phi(x_0, u, T), u) ], \\
+\text{subject to} &&
+\begin{bmatrix}
+  \dot{q} \\ \dot{p}
+\end{bmatrix} &=
+\begin{bmatrix}
+  0 & I \\ -I & 0
+\end{bmatrix}
+\begin{bmatrix} \nabla_q H \\ \nabla_p H \end{bmatrix} + 
+\begin{bmatrix}
+  0 \\ \Omega
+\end{bmatrix} u^{\theta},
+\\
+&& u^\theta &= \Omega^{\dagger}(\nabla_q H  - \nabla_q H_d^\theta).
+\end{aligned}
+$$
+:::
+:::
+
+:::{.fragment .fade-in-then-out fragment-index=1}
+::: {.callout-note icon="false"}
+## Bayesian <span style="font-variant:small-caps;">NeuralPbc</span> Optimization Problem 
+$$
+\begin{aligned}
+    \underset{z}{\text{minimize}} && J(\phi, u^\theta) &= \mathbb{E}_{x_0 \in \mathcal{D}_N}[ \ell( \phi(x_0, u, T), u) ], \\
+    \text{subject to} &&
+    \begin{bmatrix}
+    \dot{q} \\ \dot{p}
+    \end{bmatrix} &=
+    \begin{bmatrix}
+    0 & I \\ -I & 0
+    \end{bmatrix}
+    \begin{bmatrix} \nabla_q H \\ \nabla_p H \end{bmatrix} + 
+    \begin{bmatrix}
+    0 \\ \Omega
+    \end{bmatrix} u^{\theta},
+    \\
+    && u^\theta &= \Omega^{\dagger}(\nabla_q H  - \nabla_q H_d^\theta),\\
+    && \theta &\sim Q(\theta; z).
+\end{aligned} 
+$$
+:::
+:::
+
+
+:::
+
+:::{.fragment .fade-in fragment-index=1}
+* The parameter $z$ of the posterior $Q(\theta;z)$ is inferred from running cost $J(\phi, u^\theta)$
+* $H_d^\theta$ is a Bayesian neural network (BNN)
+:::
+
+## Uncertainty Modeling
+
+* We provide more structure to the variance of the Bayesian controllers
+
+::: {.callout-note icon="false"}
+## Bayesian <span style="font-variant:small-caps;">NeuralPbc</span> Optimization Problem 
+$$
+\begin{aligned}
+    \underset{z}{\text{minimize}} && J(\phi, u^\theta) &= \mathbb{E}_{x_0 \in \mathcal{D}_N}[ \ell( \phi(x_0, u, T), u) ], \\
+    \text{subject to} &&
+    \diff x &= \left(
+        \begin{bmatrix}\phantom{-}\nabla_p H \\-\nabla_q H \end{bmatrix} + \begin{bmatrix} 0 \\ \Omega \end{bmatrix} u^{\theta}(x) \right) \diff t + \nabla_x u(x) \diff W_t, \\
+    && u^\theta &= \Omega^{\dagger}(\nabla_q H  - \nabla_q H_d^\theta),\\
+    && \theta &\sim Q(\theta; z), \\
+    && p_s &\sim \mathcal{N}(\hat{p}_s, \sigma_p).
+\end{aligned} 
+$$
+:::
+* **Objective**: maximize <span style="font-variant:small-caps;">Elbo</span> 
+
+\begin{gather*}
+  \mathcal{L}(J,z) = \mathbb{E}_{\theta \sim Q} \left[\ln(P(J \mid \theta)P(\theta)) - \ln(Q(\theta;z)) \right] \\ 
+  P(J | \theta) = \mathcal{N}(J \; | \; 0, s).
+\end{gather*}
+
+
+## <span style="font-variant:small-caps;">NeuralPbc</span>: Hybrid System
+
+<br/>
+
+::: {layout="[50,-5,50]" layout-valign="center" .fragment fragment-index=0}
+
+:::{.callout-note icon="false"}
+## Passive Smooth System
+$$
+H\left(  x(t_1) \right) \leq  H\left(  x(t_0) \right) + \int_{t_0}^{t_1} s(u(t), y(t)) \, \text{d}t
+$$
+:::
+
+:::{.callout-important icon="false"}
+## Passive Hybrid System
+\begin{gather*}
+H\left(  x(t_1) \right) \leq  H\left(  x(t_0) \right) + \int_{t_0}^{t_1} s(u(t), y(t)) \, \text{d}t \\
+H(x^+) \leq H(x^-)
+\end{gather*}
+:::
+
+:::
+
+:::{.fragment fragment-index=1}
+:::{.callout-warning icon="false" }
+## <span style="font-variant:small-caps;">NeuralPbc</span> for contact-rich system
+\begin{aligned}
+    \underset{\theta}{\textrm{minimize}} 
+    & & J(\phi, u^\theta) &= \mathbb{E}_{x_0 \in \mathcal{D}_N}[ \ell( \phi(x_0, u, T), u) ], \\%
+    \textrm{subject to}
+    & & M(q) &\diff \dot{q} + h(q, \dot{q}, \theta)\diff t - \diff R  = 0,\\%
+    & & u^{\theta} &= \Omega^{\dagger}(\nabla_q H  - \nabla_q H_d).%
+\end{aligned}
+:::
+:::
+
+## Bayesian <span style="font-variant:small-caps;">NeuralPbc</span>: Hybrid System
+
+:::{.callout-warning icon="false" }
+## <span style="font-variant:small-caps;">NeuralPbc</span> for contact-rich system
+
+\begin{aligned}
+    \underset{z}{\textrm{minimize}} 
+    & & & J(\phi, u) = \mathbb{E}_{x_0 \in \mathcal{D}_N}[\ell(\phi(x_0, u^\theta, T), u^\theta)], \\
+    \textrm{subject to}
+    & & M(q) &\diff \dot{q} + h(q, \dot{q}, \theta)\diff t - \diff R  = 0,\\
+    & & u^{\theta} &= \Omega^{\dagger}(\nabla_q H  - \nabla_q H_d^\theta), \\
+    & & p_s &\sim \mathbb{U}(p_{min}, p_{max}), \\
+    & & \theta &\sim Q(\theta; z).
+\end{aligned}
+
+:::
+<!-- {{< video contents/assets/rw_uneven.mp4 >}} -->
+{{< video https://youtu.be/bWdrBP5Ax9s
+   height=300 width="100%" >}}
+
+
+## Comparison of Methods {.smaller}
+<!-- ###################################################################### -->
+
+&nbsp;
+
+::: {.callout-note icon=false}
+## Advantages :heavy_check_mark: and Disadvantages :x:
+
+|Case|Deterministic|Bayesian|
+|---|:---:|:---:|
+|Robustness|:x:|:heavy_check_mark:|
+|Computation cost|:heavy_check_mark:|:x:|
+|Model selection|:x:|:heavy_check_mark:|
+|Prior knowledge|:heavy_check_mark:|:heavy_check_mark::heavy_check_mark:|
+|Overfitting|:x:|:heavy_check_mark:|
+:::
+
+
+## Energy-Shaping Pendulum Swing-Up {auto-animate="true" auto-animate-easing="ease-in-out"}
+<!-- ###################################################################### -->
+
+
+::: {.r-stack layout-valign="center"}
+![](contents/assets/neuralpbc/033.svg){.fragment .shrink fragment-index=0}
+
+![](contents/assets/H.svg){.fragment fragmend-index=1}
+:::
+
+
+## Energy-Shaping Pendulum Swing-Up {auto-animate="true" auto-animate-easing="ease-in-out"}
+<!-- ###################################################################### -->
+
+
+::: r-hstack
+![](contents/assets/neuralpbc/033.svg){.fragment data-fragment-index=0}
+
+![](contents/assets/H.svg){.fragment data-fragment-index=0}
+:::
+
+::: {.incremental .fragment data-fragment-index=1}
+* Deterministic training vs. Bayesian training under parameter uncertainty and measurement noise.
+* Measurement noise: $\epsilon_q = 5 \times 10^4$ rad., $\epsilon_{\dot{q}} = 5 \times 10^2$ rad/s.
+:::
+
+
+## <span style="font-variant:small-caps;">NeuralPbc</span> Experiments
+<!-- ###################################################################### -->
+Benchmark underactuated  control problems:
+
+:::: {.columns}
+::: {.column width="60%"}
+<ul>
+<li class="fragment highlight-current-blue" data-fragment-index="0">Cart-pole</li>
+<li class="fragment highlight-current-blue" data-fragment-index="1">Inertia-Wheel Pendulum (IWP)</li>
+<li class="fragment highlight-current-blue" data-fragment-index="2">Acrobot</li>
+</ul>
+:::
+::: {.column width=40%}
+::: {.r-stack}
+![](contents/assets/cartpole.svg){.fragment .fade-in-then-out fragment-index=0}
+
+![](contents/assets/iwp.svg){.fragment .fade-in-then-out fragment-index=1}
+
+![](contents/assets/acrobot.svg){.fragment .fade-in-then-out fragment-index=2}
+:::
+:::
+::::
+
+## {background-video="contents/assets/cartpole-firefox.mp4" background-size="contain" background-video-loop="true" background-video-muted="true"}
+<!-- ###################################################################### -->
+
+## Learned storage function
+<!-- ###################################################################### -->
+
+![](contents/assets/cartpole-contours.png)
+
+Observations
+: 
+$H_d^\theta$ has a local minimum at $x^\star$, control law $u^\theta$ commands the force in the expected direction
+
+
+## Comparison with Energy Shaping[^astrom]
+<!-- ###################################################################### -->
+
+![](contents/assets/cartpole-cost-compare.svg)
+
+
+
+[^astrom]: K. J. Åström and K. Furuta, "Swinging up a pendulum by energy control,"
+Automatica, vol. 36, no. 2, pp. 287–295, 2000.
+
+## {background-video="contents/assets/cartpole-exp.mp4" background-size="contain" background-video-loop="true" background-video-muted="true"}
+<!-- ###################################################################### -->
+
+
+## {background-video="contents/assets/acrobot-firefox.mp4" background-size="contain" background-video-loop="true" background-video-muted="true"}
+<!-- ###################################################################### -->
+
+
+
+
+# Case Studies
+
+
+## Deterministic vs. Bayesian
+<!-- ###################################################################### -->
+
+<br/>
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+![](contents/assets/hardware.svg){width=70% fig-align="center"}
+
+:::
+
+::: {.column width="50%"}
+
+* Subtracting rings from the wheel
+    * decreases wheel mass
+    * decreases wheel and pendulum inertia 
+    * moves the center of mass
+
+![](contents/assets/neuralpbc_bandplot.jpg){width=90% fig-align="center"}
+
+:::
+
+::::
+
+## {background-video="contents/assets/4_rings_hardware.mp4" background-size="contain" background-video-muted="true" background-video-loop="true"}
+
+## Rimless Wheel
+
+![](contents/assets/rimlesswheel.svg){width=70% fig-align="center"}
+
+* Performance objective: achieve hip speed $\dot{x}_c^* = 1$m/s
+\begin{align*}
+    J_T = \sum_{t=0}^{T} \| \dot{x}_c^* - \dot{x}_c(t; \theta) \|
+\end{align*}
+* Uncertainty in elevation under each spoke
+$$
+p_s \sim \mathbb{U}(0 \textrm{cm}, 2\textrm{cm}) 
+$$
+
+
+## {background-video="contents/assets/rw_uneven_success.mp4" background-size="contain" background-video-muted="true" background-video-loop="true"}
+
+
+## Deterministic vs Bayesian
+
+::::{.columns}
+:::{.column width=50%}
+![](contents/assets/RW_deter_trajectory2.svg){width=90% fig-align="center"}
+
+:::
+
+:::{.column width=50%}
+
+\begin{align*}
+p_s &\sim \mathbb{U}(0, p_{max})  \\
+p_{max} &= [0, 0.5, 1, 1.5, 2] \textrm{cm} \\
+J_T &= \sum_{t=0}^{T} \| \dot{x}_c^* - \dot{x}_c(t; \theta) \|
+\end{align*}
+
+![](contents/assets/simulationComparison.svg){width=90% fig-align="center"}
+:::
+::::
+
+## Current work
+
+:::: {.columns}
+
+::: {.column width="80%"}
+
+<center>
+<img src="./contents/assets/resoverview.png" width="100%" />
+</center>
+
+
+::: {#fig-elephants layout-ncol=2}
+
+![State partition according to NN](./contents/assets/hasanpartition.png){#fig-surus width=200}
+
+![Experimental set up](./contents/assets/layoutphysical.png){#fig-hanno}
+
+NSF Award \#2330794
+:::
+
+:::
+
+
+::: {.column width="20%"}
+<center>
+<img src="./contents/assets/hasan.jpg" width="100%"/>
+
+<br>
+
+<img src="./contents/assets/nsf-logo.svg" width="80%" />
+</center>
+:::
+
+::::

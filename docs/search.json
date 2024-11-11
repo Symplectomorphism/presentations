@@ -151,28 +151,28 @@
     "href": "main.html#dissipativity",
     "title": "main",
     "section": "Dissipativity",
-    "text": "Dissipativity\n\nA dynamical system\n\\[\n\\Sigma: \\quad\n\\begin{cases}\n  \\dot{x} &= f(x,u) \\\\\n  y &= h(x,u)\n\\end{cases}\n\\quad x \\in \\mathcal{X} \\subset \\mathbb{R}^{2n}, \\, u \\in \\mathcal{U} \\subset \\mathbb{R}^{m}\n\\]\nis dissipative with respect to some supply rate \\(s\\) if there exists a storage function \\(\\mathcal{H}: \\mathcal{X} \\to \\mathbb{R}^{+}\\) such that\n\\[\n\\mathcal{H}\\left(  x(t_1) \\right) \\leq  \\mathcal{H}\\left(  x(t_0) \\right) + \\int_{t_0}^{t_1} s(u(t), y(t)) \\, \\text{d}t\n\\]\nfor all \\(x(t_0) = x_0\\), all input \\(u\\), and all \\(t_1 \\geq t_0\\)"
+    "text": "Dissipativity\n\nA dynamical system\n\\[\n\\Sigma: \\quad\n\\begin{cases}\n  \\dot{x} &= f(x,u) \\\\\n  y &= h(x,u)\n\\end{cases}\n\\quad x \\in \\mathcal{X} \\subset \\mathbb{R}^{2n}, \\, u \\in \\mathcal{U} \\subset \\mathbb{R}^{m}\n\\] –&gt; is dissipative with respect to some supply rate \\(s\\) if there exists a storage function \\(\\mathcal{H}: \\mathcal{X} \\to \\mathbb{R}^{+}\\) such that\n\\[\n\\mathcal{H}\\left(  x(t_1) \\right) \\leq  \\mathcal{H}\\left(  x(t_0) \\right) + \\int_{t_0}^{t_1} s(u(t), y(t)) \\, \\text{d}t\n\\]\nfor all \\(x(t_0) = x_0\\), all input \\(u\\), and all \\(t_1 \\geq t_0\\)"
   },
   {
     "objectID": "main.html#dissipativity-and-passivity",
     "href": "main.html#dissipativity-and-passivity",
     "title": "main",
     "section": "Dissipativity and Passivity",
-    "text": "Dissipativity and Passivity\n\\[\n\\mathcal{H}\\left(  x(t_1) \\right) \\leq  \\mathcal{H}\\left(  x(t_0) \\right) + \\int_{t_0}^{t_1} s(u(t), y(t)) \\, \\text{d}t\n\\]\n\n\n\nDissipation Inequality\n\n\n\nStored energy at \\(t_1\\) is at most equal to stored energy at \\(t_0\\), plus externally supplied energy \\(s(u,y)\\).\nNo generation of energy, only internal dissipation.\n\n\n\n\n\n\n\n\nPassivity\n\n\nThe system \\(\\Sigma\\) is passive if it is dissipative with supply rate\n\\[s = u^\\top y.\\]\nIt is output strictly passive if it is dissipative with supply rate\n\\[s = u^\\top y - \\delta \\lVert y \\rVert^2, \\; \\delta &gt; 0.\\]\nIt is input strictly passive if it is dissipative with supply rate\n\\[s = u^\\top y - \\delta \\lVert u \\rVert^2, \\; \\delta &gt; 0.\\]"
+    "text": "Dissipativity and Passivity\n\\[\n\\mathcal{H}\\left(  x(t_1) \\right) \\leq  \\mathcal{H}\\left(  x(t_0) \\right) + \\int_{t_0}^{t_1} s(u(t), y(t)) \\, \\text{d}t\n\\]\n\n\n\nDissipation Inequality\n\n\n\nStored energy at \\(t_1\\) is at most equal to stored energy at \\(t_0\\), plus externally supplied energy \\(s(u,y)\\).\nNo generation of energy, only internal dissipation.\n\n\n\n\n\n\n\n\nPassivity\n\n\nThe system \\(\\Sigma\\) is passive if it is dissipative with supply rate\n\\[s = u^\\top y.\\]\nIt is output strictly passive if it is dissipative with supply rate\n\\[s = u^\\top y - \\delta \\lVert y \\rVert^2, \\; \\delta &gt; 0.\\]"
   },
   {
     "objectID": "main.html#stability-of-passive-systems",
     "href": "main.html#stability-of-passive-systems",
     "title": "main",
     "section": "Stability of Passive Systems",
-    "text": "Stability of Passive Systems\n\n\\[\n\\Sigma: \\quad\n\\begin{cases}\n  \\dot{x} &= f(x,u), && f(0,0) = 0, \\\\\n  y &= h(x,u), && h(0,0) = 0,\n\\end{cases}\n\\]\n\\(u^{\\top} y \\geq \\dot{\\mathcal{H}} = \\frac{\\partial\\mathcal{H}}{\\partial x} f(x,u),\\quad \\mathcal{H} \\geq 0,\\quad y \\equiv 0 \\implies x \\equiv 0\\)\n\n\n\nLemma (Khalil, 2002)\n\n\nThe origin of \\(\\Sigma\\) is:\n\nstable if \\(\\Sigma\\) is passive,\nasymptotically stable if \\(\\Sigma\\) is output strictly passive,\nglobally asymptotically stable if \\(\\Sigma\\) is output strictly passive and the storage function \\(\\mathcal{H}(x) \\to \\infty\\) as \\(\\lVert x \\rVert \\to \\infty\\) (radially unbounded)\n\n\n\n\n\n\nNotice that we only require that the function \\(\\mathcal{H}\\) be positive semidefinite and not necessarily positive definite as per usual Lyapunov conditions.\nObservability (detectability) ensures LaSalle’s theorem works."
+    "text": "Stability of Passive Systems\n\n\\[\n\\Sigma: \\quad\n\\begin{cases}\n  \\dot{x} &= f(x,u), && f(0,0) = 0, \\\\\n  y &= h(x,u), && h(0,0) = 0,\n\\end{cases}\n\\]\n\\(u^{\\top} y \\geq \\dot{\\mathcal{H}} = \\frac{\\partial\\mathcal{H}}{\\partial x} f(x,u),\\quad \\mathcal{H} \\geq 0,\\quad y \\equiv 0 \\implies x \\equiv 0\\)\n\n\n\n \n\n\n\n\n\n\n\nLemma (Khalil, 2002)\n\n\nThe origin of \\(\\Sigma\\) is:\n\nstable if \\(\\Sigma\\) is passive,\nasymptotically stable if \\(\\Sigma\\) is output strictly passive,\nglobally asymptotically stable if \\(\\Sigma\\) is output strictly passive and the storage function \\(\\mathcal{H}(x) \\to \\infty\\) as \\(\\lVert x \\rVert \\to \\infty\\) (radially unbounded)\n\n\n\n\n\n\n\n\n\nNotice that we only require that the function \\(\\mathcal{H}\\) be positive semidefinite and not necessarily positive definite as per usual Lyapunov conditions.\nObservability (detectability) ensures LaSalle’s theorem works."
   },
   {
     "objectID": "main.html#passivity-based-control-pbc",
     "href": "main.html#passivity-based-control-pbc",
     "title": "main",
     "section": "Passivity-Based Control (PBC)",
-    "text": "Passivity-Based Control (PBC)\n\n\\[\n\\Sigma_o: \\quad\n\\begin{cases}\n  \\dot{x} &= f(x) + g(x)u, \\\\\n  y &= h(x)\n\\end{cases}\n\\]\nMain idea — Select \\(u(x) = u_{es} + u_{di}\\) that renders the closed-loop system passive.\n\\[\n\\Sigma_d: \\quad\n\\begin{cases}\n  \\dot{x} &= f_d(x) + g(x) u_{di}, \\quad f_d := f(x) + g(x) u_{es}(x) \\\\\n  y_d &= h_d(x)\n\\end{cases}\n\\]\nControl problem is cast as a search for \\(H_d\\) and \\(h_d\\) s.t. \\(\\dot{H}_d \\leq y_d^\\top u_{di}\\)"
+    "text": "Passivity-Based Control (PBC)\n\n\n\n\n \n\n\n\n\n\\[\n\\Sigma_o: \\quad\n\\begin{cases}\n  \\dot{x} &= f(x) + g(x)u, \\\\\n  y &= h(x)\n\\end{cases}\n\\] % Main idea — Select \\(u(x) = u_{es} + u_{di}\\) that renders the closed-loop system passive. % \\[\n\\Sigma_d: \\quad\n\\begin{cases}\n  \\dot{x} &= f_d(x) + g(x) u_{di}, \\quad f_d := f(x) + g(x) u_{es}(x) \\\\\n  y_d &= h_d(x)\n\\end{cases}\n\\] % Control problem is cast as a search for \\(H_d\\) and \\(h_d\\) s.t. \\(\\dot{H}_d \\leq y_d^\\top u_{di}\\)"
   },
   {
     "objectID": "main.html#pbc-example---simple-pendulum",
@@ -196,20 +196,6 @@
     "text": "Our Methods\n\n\n\n\n \n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\nNeuralPbc\nNeuralIdaPbc\n\n\n\n\n\\(H_d\\) neural net\n\\(H_d\\) quadratic in \\(p\\)\n\n\nSample state space\nSample configuration space\n\n\nNo stability certificate\nStability certificate\n\n\nMore flexible\nAs applicable as IdaPbc"
   },
   {
-    "objectID": "main.html#robustness-via-bayesian-learning-1",
-    "href": "main.html#robustness-via-bayesian-learning-1",
-    "title": "main",
-    "section": "Robustness via Bayesian Learning",
-    "text": "Robustness via Bayesian Learning\n\n\n\n\n\n\nSystem Parameter Uncertainty and Measurement Noise\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLess robust\n\n\n\n\n\n\n\n\n\n\n\nMore robust"
-  },
-  {
-    "objectID": "main.html#motivation",
-    "href": "main.html#motivation",
-    "title": "main",
-    "section": "Motivation",
-    "text": "Motivation\n\nControl synthesis in PBC: \\[\nGu_{es} = \\nabla_q H - \\nabla_q H_d\n\\]\n\nIf underactuated, \\(G\\) is not invertible\n\nChoice of \\(u_{es}\\) must satisfy nonlinear PDE\nQuadratic potential most likely not viable\n\nIncorporate performance objective into design of \\(H_d\\)?"
-  },
-  {
     "objectID": "main.html#neuralpbc-problem-statement",
     "href": "main.html#neuralpbc-problem-statement",
     "title": "main",
@@ -221,56 +207,77 @@
     "href": "main.html#neuralpbc-problem-statement-1",
     "title": "main",
     "section": "NeuralPbc Problem Statement",
-    "text": "NeuralPbc Problem Statement\n\n\n\n\n\\[\n\\begin{aligned}\n\\underset{\\theta}{\\text{minimize}} && J(\\theta, x_0) &= \\int_{0}^{T} \\ell \\left(\\phi,u^\\theta,\\theta\\right)\\, \\text{d} t \\\\\n\\text{subject to} &&\n\\begin{bmatrix}\n  \\dot{q} \\\\ \\dot{p}\n\\end{bmatrix} &=\n\\begin{bmatrix}\n  0 & I \\\\ -I & 0\n\\end{bmatrix}\n\\begin{bmatrix} \\nabla_q H \\\\ \\nabla_p H \\end{bmatrix} +\n\\begin{bmatrix}\n  0 \\\\ G\n\\end{bmatrix} u^{\\theta}\n\\\\\n&& u^\\theta &= - G^{\\dagger}\\nabla_q H_d^{\\theta}  - K_D G^\\top \\nabla_p H_d^{\\theta}\n\\end{aligned}\n\\]\n\n\n\n\nInjecting control task into loss function design\nBackprop through closed-loop trajectories\nSampling the state space efficiently"
+    "text": "NeuralPbc Problem Statement\n\n\n\n\n\\[\n\\begin{aligned}\n\\underset{\\theta}{\\text{minimize}} && J(\\theta, x_0) &= \\int_{0}^{T} \\ell \\left(\\phi,u^\\theta,\\theta\\right)\\, \\text{d} t \\\\\n\\text{subject to} &&\n\\begin{bmatrix}\n  \\dot{q} \\\\ \\dot{p}\n\\end{bmatrix} &=\n\\begin{bmatrix}\n  0 & I \\\\ -I & 0\n\\end{bmatrix}\n\\begin{bmatrix} \\nabla_q H \\\\ \\nabla_p H \\end{bmatrix} +\n\\begin{bmatrix}\n  0 \\\\ G\n\\end{bmatrix} u^{\\theta}\n\\\\\n&& u^\\theta &= - G^{\\dagger}\\nabla_q H_d^{\\theta}  - K_D G^\\top \\nabla_p H_d^{\\theta}\n\\end{aligned}\n\\]\n\n\n\n\nInjecting control task into loss function design\n\nMay require an initial motion/path planning step\nFor simple tasks, can just be quadratic loss to goal\n\nBackprop through closed-loop trajectories\n\nForward or adjoint differentiation\nTypically adjoint differentiation is more efficient\n\nSampling the state space efficiently\n\nDAgger sampling\nInitial conditions chosen from previously visited states"
   },
   {
-    "objectID": "main.html#neuralpbc-loss-function",
-    "href": "main.html#neuralpbc-loss-function",
+    "objectID": "main.html#robustness-via-bayesian-learning-1",
+    "href": "main.html#robustness-via-bayesian-learning-1",
     "title": "main",
-    "section": "NeuralPbc Loss Function",
-    "text": "NeuralPbc Loss Function\n\n\\[\nJ(\\theta, x_0) = \\int_{0}^{T} \\ell \\left(\\phi,u^\\theta,\\theta\\right)\\, \\text{d} t\n\\]\n\\(\\ell \\triangleq \\ell_{\\text{set}}(\\gamma) + \\ell_{\\bot}(\\gamma,u)\\) where\n\n\\(\\phi\\) is the flow of the equation of motion\n\\(\\gamma\\) is the closed-loop trajectory starting from \\(x_0\\)\n\\(T\\) is the time horizon (hyperparameter)"
+    "section": "Robustness via Bayesian Learning",
+    "text": "Robustness via Bayesian Learning\n\n\n\n\n\nNeuralPbc assumes a nominal model \\(\\dot{x} = f_p(x, u)\\)\nThe trained controller must not overfit on the observations generated from the nominal model\n\n\n\n\n\n\n\n\n\nOur method: \\(H_d\\) is a Bayesian neural network\n\nachieves the performance objective for samples \\(\\theta \\sim P(\\theta | \\mathbb{D})\\)\nsearches for ensemble of parameters that meet the desired performance \\[\n  P(\\theta \\mid \\mathbb{D}) = \\frac{\\overbrace{P(\\mathbb{D} \\mid\n  \\theta)}^{\\text{likelihood}}\\overbrace{P(\\theta)}^{\\text{prior}}}\n  {\\underbrace{\\int_\\theta P(\\mathbb{D} \\mid \\theta^\\prime)P(\\theta^\\prime)\n  d\\theta^\\prime}_{\\text{evidence}}}.\n\\]"
   },
   {
-    "objectID": "main.html#neuralpbc-loss-function-1",
-    "href": "main.html#neuralpbc-loss-function-1",
+    "objectID": "main.html#parameter-uncertainty-and-measurement-noise",
+    "href": "main.html#parameter-uncertainty-and-measurement-noise",
     "title": "main",
-    "section": "NeuralPbc Loss Function",
-    "text": "NeuralPbc Loss Function\n\n\\[\\ell \\triangleq \\ell_{\\text{set}}(\\gamma) + \\ell_{\\bot}(\\gamma,u)\\]\n\n\n\nSet Distance Loss \\(\\ell_{\\text{set}}\\)\n\n\nPenalizes when closed-loop trajectory \\(\\gamma\\) under the current control law is far away from a neighborhood \\(\\mathcal{S}\\) of \\(x^\\star\\)\n\n\n\n\n\n\n\\[\\ell_{\\text{set}}(x) = \\underset{t}{\\inf} \\left\\{ \\lVert a-b \\rVert : a \\in \\gamma(t), b \\in \\mathcal{S}\\right\\}\\] * The set \\(\\mathcal{S}\\) may be chosen as * A ball around \\(x^\\star\\) * Estimated region of attraction * No additional loss if any point in \\(\\gamma\\) is in \\(\\mathcal{S}\\)"
+    "section": "Parameter Uncertainty and Measurement Noise",
+    "text": "Parameter Uncertainty and Measurement Noise\n\n\nConsider the control system with\n\nParameter uncertainty: \\(p \\sim \\mathcal{N}(\\hat{p}, \\sigma_p^2)\\).\nMeasurement noise: \\(x \\sim \\mathcal{N}(x, \\sigma^2)\\).\n\n\n\n\n\\[\n\\Sigma: \\quad\n\\begin{cases}\n  dx(t) &= (p+\\theta)x(t) dt + \\theta \\sigma dW_t, \\\\\n  x(0) &= 1.\n\\end{cases}\n\\]\n\n\n\\[\nx(t) = e^{(p+\\theta)t} + \\theta \\sigma \\int_0^t e^{(p+\\theta)(t-s)}dW_s.\n\\]\n\n\n\n\n\n\nLemma\n\n\nThe conditional expectation \\(\\mathbb{E}[\\mathcal{J} \\mid p]\\) of the performance index given the system parameter \\(p\\) is\n\\[\n\\mathbb{E}[\\mathcal{J} \\mid p] =\n-\\frac{1}{4}\\frac{q+r\\theta^2}{p+\\theta}\\left[ \\theta^2 \\sigma^2 T +\n\\left(1-e^{2 T (p+\\theta)}\\right) \\left(1+\\frac{1}{2}\\frac{\\theta^2\n\\sigma^2}{p+\\theta}\\right) \\right]\n\\]"
   },
   {
-    "objectID": "main.html#neuralpbc-loss-function-2",
-    "href": "main.html#neuralpbc-loss-function-2",
+    "objectID": "main.html#conditional-expectation",
+    "href": "main.html#conditional-expectation",
     "title": "main",
-    "section": "NeuralPbc Loss Function",
-    "text": "NeuralPbc Loss Function\n\n\\[\\ell \\triangleq \\ell_{\\text{set}}(\\gamma) + \\ell_{\\bot}(\\gamma,u)\\]\n\n\n\nTransversal Distance Loss \\(\\ell_{\\bot}\\)\n\n\nMeasures how close \\(\\gamma\\) is to \\(\\gamma^\\star\\) (expert trajectory) using transverse coordinates \\(x_\\bot\\)\n\n\n\n\n\n\n\nCoordinate transformation\n\n\\(\\tau \\in \\mathbb{R}\\) a surrogate for time\n\\(x_{\\bot} \\in \\mathbb{R}^{2n-1}\\) quantify how far away the current state is from \\(\\gamma^\\star\\)\n\nBy construction \\(x_{\\bot} \\to 0 \\iff \\gamma = \\gamma^\\star\\)\n\n\\[\\ell_{\\bot} = x_\\bot^\\top Q x_\\bot + u^\\top R u, \\, Q \\succeq 0, \\, R \\succ 0\\]\n\nNo preferred orbit? \\(Q = 0\\)\n\n\n\n\n\n\n\n\n\nWe can find a coordinate transformation such that 1 coordinate \\(\\tau\\) is along the desired orbit and acts as surrogate for time\nThe remaining coordinates \\(x_{\\bot}\\) quantify how far away the current state is from the desired trajectory"
+    "section": "Conditional Expectation",
+    "text": "Conditional Expectation\n\n\n\\[\n\\mathbb{E}[\\mathcal{J} \\mid p] =\n-\\frac{1}{4}\\frac{q+r\\theta^2}{p+\\theta}\\left[ \\theta^2 \\sigma^2 T +\n\\left(1-e^{2 T (p+\\theta)}\\right) \\left(1+\\frac{1}{2}\\frac{\\theta^2\n\\sigma^2}{p+\\theta}\\right) \\right]\n\\]\n\n\n\n\n\nProof\n\n\nSubstituting the solution of the SDE into the performance measure yields\n\\[\n\\begin{aligned} \\mathcal{J} =\n        & -\\frac{1}{4}\\frac{q+r\\theta^2}{p+\\theta}\\left(1 +\n        e^{2T(p+\\theta)}\\right) +\n        (q+r\\theta^2)\\theta\\sigma \\int_0^T\n        e^{(p+\\theta)t} \\int_0^t e^{(p+\\theta)(t-s)}dW_s\n        dt \\; + \\\\ &\\frac{1}{2}(q+r\\theta^2)\\theta^2\n        \\sigma^2 \\int_0^T \\left( \\int_0^t\n        e^{(p+\\theta)(t-s)} dW_s  \\right)^2 dt\n\\end{aligned}\n\\]\nThe conditional expectation of this quantity given the system parameter \\(p\\) under the distribution induced by the Wiener process may be computed in closed-form using Ito calculus.\n\\[\n\\begin{aligned}\n\\mathbb{E}_W\\left[\\mathcal{J} \\mid p \\right] &= -\\frac{1}{4}\\frac{q+r\\theta^2}{p+\\theta}\\left(1 - e^{2T(p+\\theta)}\\right) +\n        (q+r\\theta^2)\\theta\\sigma\\int_0^Te^{(p+\\theta)t}\\mathbb{E}_W\\left[\\int_0^t\n        e^{(p+\\theta)(t-s)} dW_s~\\Big\\rvert p\\right] dt + \\\\\n        &\\frac{1}{2}(q+r\\theta)^2\\theta^2\\sigma^2\\int_0^T\\mathbb{E}_W\\left[\\left(\\int_0^t\n        e^{(p+\\theta)(t-s)} dW_s \\right)^2~\\bigg\\rvert p\\right] dt \\\\\n        &=-\\frac{1}{4}\\frac{q+r\\theta^2}{p+\\theta}\\left(1 -\n        e^{2T(p+\\theta)}\\right) +\n        \\frac{1}{2}(q+r\\theta^2)\\theta^2\\sigma^2\\int_0^T\\left(\\int_0^t\n        e^{2(p+\\theta)(t-s)} ds \\right) dt \\\\\n        &=-\\frac{1}{4}\\frac{q+r\\theta^2}{p+\\theta}\\left(1 - e^{2T(p+\\theta)}\\right) +\n        \\frac{1}{2}(q+r\\theta^2)\\theta^2\\sigma^2\\int_0^T\n        -\\frac{1}{2(p+\\theta)}\\left(1 - e^{2T(p+\\theta)}\\right) dt \\\\\n        &=-\\frac{1}{4}\\frac{q+r\\theta^2}{p+\\theta} \\left[ \\theta^2 \\sigma^2 T +\n        \\left(1 - e^{2T(p+\\theta)}\\right) \\left(1 +\n        \\frac{1}{2}\\frac{\\theta^2\\sigma^2}{p+\\theta}\\right)\\right].\n\\end{aligned}\n\\]\n\n🟧"
   },
   {
-    "objectID": "main.html#backprop-through-ode-solutions",
-    "href": "main.html#backprop-through-ode-solutions",
+    "objectID": "main.html#optimal-controller",
+    "href": "main.html#optimal-controller",
     "title": "main",
-    "section": "Backprop through ODE Solutions",
-    "text": "Backprop through ODE Solutions\n\nWe need \\(\\partial J / \\partial \\theta\\), which depends ODE solutions\n\n😿 Combining autodiff with numerical ODE solvers\n\n\n😿 Adjoint sensitivity method: solve the adjoint problem backward in time \\[\\frac{\\text{d}\\lambda}{\\text{d}t} = -\\lambda \\frac{\\partial f}{\\partial x}, \\quad \\frac{\\partial J}{\\partial \\theta} = \\lambda(t_0) \\frac{\\partial f}{\\partial x}\\]\n\n\n😺 Adjoint methods + autodiff implemented in DiffEqFlux.jl\n\n\n\nPlain autodiff causes errors due to numerical ODE integration, high memory consumption\nAdjoint methods requires storing many passes of the adjoint problem, again high memory consumption\nDiffEqFlux combines the two, avoiding multiple passes through clever implementation, fast an efficient"
+    "section": "Optimal Controller",
+    "text": "Optimal Controller\n\n\n\n\nOptimal controller \\(|\\theta^\\star|\\) minimizing \\(\\mathbb{E}\\mathcal{J}\\)\n\n\n\nMinimal expected cost \\(\\mathbb{E}\\mathcal{J}\\)"
   },
   {
-    "objectID": "main.html#neuralpbc-sampling-state-space",
-    "href": "main.html#neuralpbc-sampling-state-space",
+    "objectID": "main.html#optimal-controller-1",
+    "href": "main.html#optimal-controller-1",
     "title": "main",
-    "section": "NeuralPbc Sampling State Space",
-    "text": "NeuralPbc Sampling State Space\n\nLearned policy \\(u^\\theta\\) need to perform well for a wide range of \\(x_0\\)\n\n\n\\[J(\\theta, x_0) = \\int_{0}^{T} \\ell \\left(\\phi,u^\\theta,\\theta\\right)\\, \\text{d} t\\]\n\n\n\n\\[J(\\theta) = \\mathbb{E}_{x_0 \\sim p(\\mathbf{x}_0)} \\left[ \\int_{0}^{T} \\ell \\left(\\phi(t,x_0),u^\\theta,\\theta\\right)\\, \\text{d} t \\right]\\]\n\n\nSample state space with technique based on DAgger1\n\n\nSimulating system under application of \\(u^\\theta\\)\nCollect samples from the regions of state-space visited by \\(u^\\theta\\)\n\n\n\n\nUse dynamics to guide the collection of samples\n\n\nRoss, S., Gordon, G. J., & Bagnell, J. A. (2011). No-regret reductions for imitation learning and structured prediction. In AISTATS."
+    "section": "Optimal Controller",
+    "text": "Optimal Controller\n\n\n\n\n\nOptimal controller \\(|\\theta^\\star|\\) minimizing \\(\\mathbb{E}\\mathcal{J}\\)\n\n\n\n\n\nMinimal expected cost \\(\\mathbb{E}\\mathcal{J}\\)\n\n\n\n\n\nOptimal control parameter a nontrivial function of \\(\\sigma\\) and \\(\\sigma_p\\).\nBayesian learning strikes the right trade-off."
   },
   {
-    "objectID": "main.html#neuralpbc-algorithm",
-    "href": "main.html#neuralpbc-algorithm",
+    "objectID": "main.html#training-stochastic-models",
+    "href": "main.html#training-stochastic-models",
     "title": "main",
-    "section": "NeuralPbc Algorithm 📉",
-    "text": "NeuralPbc Algorithm 📉"
+    "section": "Training Stochastic Models",
+    "text": "Training Stochastic Models\n\n\n\n\n\n\nBayesian Inference\n\n\n\\[\n\\begin{aligned}\n\\underset{P(\\theta | \\mathbb{D})}{\\text{maximize}} &&& P(\\mathbb{D} | \\theta) P(\\theta), \\\\\n\\text{subject to} &&\n& \\theta \\sim P(\\theta | \\mathbb{D}), \\\\\n&& \\mathbb{D} &= \\{(x_1, y_1), \\dots, (x_N, y_N) \\}.\n\\end{aligned}\n\\]\n\n\n\n\n\n\n\n\n\nBayesian Inference\n\n\n\\[\n\\begin{aligned}\n\\underset{P(\\theta | \\mathbb{D})}{\\text{maximize}} && \\prod_{j=1}^{N} \\mathcal{N}&(\\| F(x_j; \\theta) -  y_j \\| \\; | \\; 0, s_1) \\mathcal{N}(\\| \\theta - \\theta_0 \\| \\; | \\; 0, s_2), \\\\\n\\text{subject to} &&\n& \\theta \\sim P(\\theta | \\mathbb{D}), \\\\\n&& \\mathbb{D} &= \\{(x_1, y_1), \\dots, (x_N, y_N) \\}.\n\\end{aligned}\n\\]\n\n\n\n\n\n\n\n\n\nBayesian Inference\n\n\n\\[\n\\begin{aligned}\n\\underset{z}{\\text{maximize}} && \\mathcal{L}(\\mathbb{D},z) &= \\mathbb{E}_{\\theta \\sim Q} \\left[\\ln(P(\\mathbb{D} \\mid \\theta)P(\\theta)) - \\ln(Q(\\theta;z)) \\right], \\\\\n\\text{subject to} &&\n& \\theta \\sim Q(\\theta;z), \\\\\n&& \\mathbb{D} &= \\{(x_1, y_1), \\dots, (x_N, y_N) \\}.\n\\end{aligned}\n\\]\n\n\n\n\n\n\n\n\nVariational Inference: approximates the posterior \\(P(\\theta | \\mathbb{D})\\) with a pre-selected distribution \\(Q(\\theta; z)\\)\nObjective: collect \\(N_\\theta\\) samples from the current posterior \\(Q(\\theta; z)\\) and maximize Elbo \\[\n\\mathcal{L}(\\mathbb{D},z) = \\mathbb{E}_{\\theta \\sim Q} \\left[\\ln(P(\\mathbb{D} \\mid \\theta)P(\\theta)) - \\ln(Q(\\theta;z)) \\right]\n\\]"
   },
   {
-    "objectID": "main.html#bayesian-solution",
-    "href": "main.html#bayesian-solution",
+    "objectID": "main.html#bayesian-neuralpbc-1",
+    "href": "main.html#bayesian-neuralpbc-1",
     "title": "main",
-    "section": "Bayesian Solution",
-    "text": "Bayesian Solution\n\n \n\nComputing ELBO \\[ \\mathcal{L}(\\mathcal{D};z) = \\mathbb{E}_{\\theta \\sim q}\\left[ \\log p(\\mathcal{D} \\mid \\theta)p(\\theta) - \\log q(\\theta; z)  \\right] \\] requires:  \n\nLikelihood: \\[ p\\left( \\lVert \\ell_{\\text{set}}(\\gamma) + \\ell_\\bot(\\gamma, u) \\rVert^2 \\mid \\theta \\right) = \\mathcal{N}(0, s). \\]\n\n\nPrior:\n\n\nUninformed\n\n\nDeterministic"
+    "section": "Bayesian NeuralPbc",
+    "text": "Bayesian NeuralPbc\n\n\n\n\n\n\nNeuralPbc Optimization Problem\n\n\n\\[\n\\begin{aligned}\n\\underset{\\theta}{\\text{minimize}} && J(\\phi, u^\\theta) &= \\mathbb{E}_{x_0 \\in \\mathcal{D}_N}[ \\ell( \\phi(x_0, u, T), u) ], \\\\\n\\text{subject to} &&\n\\begin{bmatrix}\n  \\dot{q} \\\\ \\dot{p}\n\\end{bmatrix} &=\n\\begin{bmatrix}\n  0 & I \\\\ -I & 0\n\\end{bmatrix}\n\\begin{bmatrix} \\nabla_q H \\\\ \\nabla_p H \\end{bmatrix} +\n\\begin{bmatrix}\n  0 \\\\ \\Omega\n\\end{bmatrix} u^{\\theta},\n\\\\\n&& u^\\theta &= \\Omega^{\\dagger}(\\nabla_q H  - \\nabla_q H_d^\\theta).\n\\end{aligned}\n\\]\n\n\n\n\n\n\n\n\nBayesian NeuralPbc Optimization Problem\n\n\n\\[\n\\begin{aligned}\n    \\underset{z}{\\text{minimize}} && J(\\phi, u^\\theta) &= \\mathbb{E}_{x_0 \\in \\mathcal{D}_N}[ \\ell( \\phi(x_0, u, T), u) ], \\\\\n    \\text{subject to} &&\n    \\begin{bmatrix}\n    \\dot{q} \\\\ \\dot{p}\n    \\end{bmatrix} &=\n    \\begin{bmatrix}\n    0 & I \\\\ -I & 0\n    \\end{bmatrix}\n    \\begin{bmatrix} \\nabla_q H \\\\ \\nabla_p H \\end{bmatrix} +\n    \\begin{bmatrix}\n    0 \\\\ \\Omega\n    \\end{bmatrix} u^{\\theta},\n    \\\\\n    && u^\\theta &= \\Omega^{\\dagger}(\\nabla_q H  - \\nabla_q H_d^\\theta),\\\\\n    && \\theta &\\sim Q(\\theta; z).\n\\end{aligned}\n\\]\n\n\n\n\n\n\n\nThe parameter \\(z\\) of the posterior \\(Q(\\theta;z)\\) is inferred from running cost \\(J(\\phi, u^\\theta)\\)\n\\(H_d^\\theta\\) is a Bayesian neural network (BNN)"
+  },
+  {
+    "objectID": "main.html#uncertainty-modeling",
+    "href": "main.html#uncertainty-modeling",
+    "title": "main",
+    "section": "Uncertainty Modeling",
+    "text": "Uncertainty Modeling\n\nWe provide more structure to the variance of the Bayesian controllers\n\n\n\n\nBayesian NeuralPbc Optimization Problem\n\n\n\\[\n\\begin{aligned}\n    \\underset{z}{\\text{minimize}} && J(\\phi, u^\\theta) &= \\mathbb{E}_{x_0 \\in \\mathcal{D}_N}[ \\ell( \\phi(x_0, u, T), u) ], \\\\\n    \\text{subject to} &&\n    \\mathop{}\\!\\mathrm{d}x &= \\left(\n        \\begin{bmatrix}\\phantom{-}\\nabla_p H \\\\-\\nabla_q H \\end{bmatrix} + \\begin{bmatrix} 0 \\\\ \\Omega \\end{bmatrix} u^{\\theta}(x) \\right) \\mathop{}\\!\\mathrm{d}t + \\nabla_x u(x) \\mathop{}\\!\\mathrm{d}W_t, \\\\\n    && u^\\theta &= \\Omega^{\\dagger}(\\nabla_q H  - \\nabla_q H_d^\\theta),\\\\\n    && \\theta &\\sim Q(\\theta; z), \\\\\n    && p_s &\\sim \\mathcal{N}(\\hat{p}_s, \\sigma_p).\n\\end{aligned}\n\\]\n\n\n\n\nObjective: maximize Elbo\n\n\\[\\begin{gather*}\n  \\mathcal{L}(J,z) = \\mathbb{E}_{\\theta \\sim Q} \\left[\\ln(P(J \\mid \\theta)P(\\theta)) - \\ln(Q(\\theta;z)) \\right] \\\\\n  P(J | \\theta) = \\mathcal{N}(J \\; | \\; 0, s).\n\\end{gather*}\\]"
+  },
+  {
+    "objectID": "main.html#neuralpbc-hybrid-system",
+    "href": "main.html#neuralpbc-hybrid-system",
+    "title": "main",
+    "section": "NeuralPbc: Hybrid System",
+    "text": "NeuralPbc: Hybrid System\n\n\n\n\n\n\n\nPassive Smooth System\n\n\n\\[\nH\\left(  x(t_1) \\right) \\leq  H\\left(  x(t_0) \\right) + \\int_{t_0}^{t_1} s(u(t), y(t)) \\, \\text{d}t\n\\]\n\n\n\n\n\n \n\n\n\n\n\nPassive Hybrid System\n\n\n\\[\\begin{gather*}\nH\\left(  x(t_1) \\right) \\leq  H\\left(  x(t_0) \\right) + \\int_{t_0}^{t_1} s(u(t), y(t)) \\, \\text{d}t \\\\\nH(x^+) \\leq H(x^-)\n\\end{gather*}\\]\n\n\n\n\n\n\n\n\n\n\nNeuralPbc for contact-rich system\n\n\n\\[\\begin{aligned}\n    \\underset{\\theta}{\\textrm{minimize}}\n    & & J(\\phi, u^\\theta) &= \\mathbb{E}_{x_0 \\in \\mathcal{D}_N}[ \\ell( \\phi(x_0, u, T), u) ], \\\\%\n    \\textrm{subject to}\n    & & M(q) &\\mathop{}\\!\\mathrm{d}\\dot{q} + h(q, \\dot{q}, \\theta)\\mathop{}\\!\\mathrm{d}t - \\mathop{}\\!\\mathrm{d}R  = 0,\\\\%\n    & & u^{\\theta} &= \\Omega^{\\dagger}(\\nabla_q H  - \\nabla_q H_d).%\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "main.html#bayesian-neuralpbc-hybrid-system",
+    "href": "main.html#bayesian-neuralpbc-hybrid-system",
+    "title": "main",
+    "section": "Bayesian NeuralPbc: Hybrid System",
+    "text": "Bayesian NeuralPbc: Hybrid System\n\n\n\nNeuralPbc for contact-rich system\n\n\n\\[\\begin{aligned}\n    \\underset{z}{\\textrm{minimize}}\n    & & & J(\\phi, u) = \\mathbb{E}_{x_0 \\in \\mathcal{D}_N}[\\ell(\\phi(x_0, u^\\theta, T), u^\\theta)], \\\\\n    \\textrm{subject to}\n    & & M(q) &\\mathop{}\\!\\mathrm{d}\\dot{q} + h(q, \\dot{q}, \\theta)\\mathop{}\\!\\mathrm{d}t - \\mathop{}\\!\\mathrm{d}R  = 0,\\\\\n    & & u^{\\theta} &= \\Omega^{\\dagger}(\\nabla_q H  - \\nabla_q H_d^\\theta), \\\\\n    & & p_s &\\sim \\mathbb{U}(p_{min}, p_{max}), \\\\\n    & & \\theta &\\sim Q(\\theta; z).\n\\end{aligned}\\]"
   },
   {
     "objectID": "main.html#comparison-of-methods",
@@ -315,146 +322,6 @@
     "text": "Comparison with Energy Shaping1\n\n\nK. J. Åström and K. Furuta, “Swinging up a pendulum by energy control,” Automatica, vol. 36, no. 2, pp. 287–295, 2000."
   },
   {
-    "objectID": "main.html#motivation-1",
-    "href": "main.html#motivation-1",
-    "title": "main",
-    "section": "Motivation",
-    "text": "Motivation\n\nNeuralPbc is flexible, but guaranteeing stability is hard\nAdditional structure of IdaPbc facilitates stability analysis\n\n\n\\[ \\begin{bmatrix} \\dot{q} \\\\ \\dot{p} \\end{bmatrix} = \\begin{bmatrix}0 & I \\\\ -I & 0\\end{bmatrix} \\begin{bmatrix} \\nabla_q H \\\\ \\nabla_p H  \\end{bmatrix} + \\begin{bmatrix} 0 \\\\ G \\end{bmatrix} u \\] \nClosed-loop port-Hamiltonian dynamics:\n\n\\[\n\\begin{bmatrix} \\dot{q} \\\\ \\dot{p} \\end{bmatrix}\n=\n\\begin{bmatrix}0 & M^{-1}M_d \\\\ -M_dM^{-1} & J_2(q,p) - GK_vG^\\top\\end{bmatrix}\n\\begin{bmatrix} \\nabla_q H_d \\\\ \\nabla_p H_d \\end{bmatrix}\n\\]  \n\\(H_d = \\frac{1}{2} p^{\\top} M_d(q)^{-1} p + V_d(q),\\, M_d \\succ 0\\)\n\n\nFurther structure not only facilitates stability analysis but also restricts the search to a pd matrix \\(M_d\\) and \\(V_d\\).\nThis search may be performed solely on the configuration space."
-  },
-  {
-    "objectID": "main.html#idapbc-background",
-    "href": "main.html#idapbc-background",
-    "title": "main",
-    "section": "IdaPbc Background",
-    "text": "IdaPbc Background\n\n\\[ \\begin{bmatrix} \\dot{q} \\\\ \\dot{p} \\end{bmatrix} = \\begin{bmatrix}0 & M^{-1}M_d \\\\ -M_dM^{-1} & J_2(q,p) - GK_vG^\\top\\end{bmatrix} \\begin{bmatrix} \\nabla_q H_d \\\\ \\nabla_p H_d \\end{bmatrix} \\]\n\\(H_d = \\frac{1}{2} p^{\\top} M_d(q)^{-1} p + V_d(q),\\, M_d \\succ 0\\)\n\n\n\n\n\n\nStability results\n\n\n\\[\\begin{aligned}\\dot{H}_d &= \\left( \\nabla_p H_d \\right)^{\\top} \\left(-G K_v G^{\\top}\\right) \\nabla_p H_d \\\\ &\\leq -\\lambda_{\\textrm{min}} \\{ K_v \\} \\left\\| \\left( \\nabla_p H_d \\right)^{\\top} G \\right\\|^2 \\leq 0 \\end{aligned}\\]\nWith \\(q^\\star = \\arg \\min V_d(q)\\), we have \\(x \\to x^\\star = (q^\\star, 0)\\)\n\n\n\n\n\n\n\n\nControl synthesis\n\n\nChoose \\(u = u_{es} + u_{di}\\) where \\[\n\\begin{aligned}\nGu_{es} &= \\nabla_{q} H - M_{d}M^{-1} \\nabla_{q} H_{d} \\\\\n&\\quad\\; + J_{2} M_{d}^{-1} p \\phantom{\\nabla_{p}^{\\top}} \\\\\nu_{di} &= -K_v G^\\top \\nabla_p H_d \\phantom{\\left\\|\\left(\\nabla_p\\right)^{\\top} \\right\\|^2}\n\\end{aligned}\n\\]"
-  },
-  {
-    "objectID": "main.html#idapbc-via-optimization",
-    "href": "main.html#idapbc-via-optimization",
-    "title": "main",
-    "section": "IdaPbc via Optimization",
-    "text": "IdaPbc via Optimization\n\n\n\n\n \n\n\n\n\n\n\\[\n\\begin{aligned}\n\\underset{M_d,\\,J_2,\\,V_d}{\\text{minimize}} && 0 &  \\\\\n\\text{subject to} &&\n0 &= G^{\\bot}\\left\\{ \\nabla_{q} H - M_{d}M^{-1} \\nabla_{q} H_{d} + J_{2} M_{d}^{-1} p  \\right\\}\n\\\\\n&& H_d &= \\frac{1}{2} p^{\\top} M_d(q)^{-1} p + V_d(q)\n\\\\\n&& M_d &= M_d^\\top \\succ 0\n\\\\\n&& J_2 &= -J_2^\\top\n\\\\\n&& q^\\star &= \\underset{q}{\\arg \\min} \\, V_d(q)\n\\end{aligned}\n\\]\n\n\n\n\n\n \n\n\n\n\nInfinite-dimensional—closed-form solution is difficult"
-  },
-  {
-    "objectID": "main.html#neuralidapbc-1",
-    "href": "main.html#neuralidapbc-1",
-    "title": "main",
-    "section": "NeuralIdaPbc",
-    "text": "NeuralIdaPbc"
-  },
-  {
-    "objectID": "main.html#neuralidapbc-problem-statement",
-    "href": "main.html#neuralidapbc-problem-statement",
-    "title": "main",
-    "section": "NeuralIdaPbc Problem Statement",
-    "text": "NeuralIdaPbc Problem Statement\n\n\n\n\n \n\n\n\n\n\n\\[\n\\begin{aligned}\n\\underset{\\theta}{\\text{minimize}} && J(\\theta) &= \\left\\lVert G^{\\bot} \\left\\{ \\nabla_{q} H - M_{d}^{\\theta}M^{-1} \\nabla_{q} H_{d}^{\\theta} + J_{2}^{\\theta} \\left(M_{d}^{\\theta}\\right)^{-1} p \\right\\} \\right\\rVert^2  \\\\\n\\text{subject to}\n&& H_d^{\\theta} &= \\frac{1}{2} p^{\\top} \\left( M_{d}^{\\theta} \\right)^{-1} p + V_{d}^{\\theta}(q)\n\\\\\n&& M_d^{\\theta}(q) &= \\left(M_d^{\\theta}(q)\\right)^\\top \\succ 0\n\\\\\n&& J_{2}^{\\theta}(q,p) &= -\\left(J_{2}^{\\theta}(q,p)\\right)^\\top\n\\\\\n&& q^\\star &= \\underset{q}{\\arg \\min} \\, V_{d}^{\\theta} (q)\n\\end{aligned}\n\\]\n\n\n\n\n\n \n\n\n\n\n\n\n\nFinite-dimensional search\nSample configuration space\n\n\n\n \n\n\n\nController \\(u\\) is a continuous function of \\(J\\)"
-  },
-  {
-    "objectID": "main.html#neuralidapbc-constraints",
-    "href": "main.html#neuralidapbc-constraints",
-    "title": "main",
-    "section": "NeuralIdaPbc Constraints",
-    "text": "NeuralIdaPbc Constraints\n\n\n\\[M_d^{\\theta} = \\left(M_d^{\\theta}\\right)^{\\top} \\succ 0\\]\n\n\n\\[J_{2}^{\\theta} = -\\left(J_{2}^{\\theta}\\right)^{\\top}\\]\n\\[q^\\star = \\underset{q}{\\arg \\min} \\, V_{d}^{\\theta} (q)\\]\n\n\n\n\n\nPositive-definiteness of the desired mass matrix\n\n\n\nCholesky decomposition \\(M_d^\\theta(q) = L_{\\theta}(q) L_{\\theta}^{\\top}(q)\\)\nComponents of the lower-triangular matrix \\(L_\\theta(q)\\) are outputs of a neural network"
-  },
-  {
-    "objectID": "main.html#neuralidapbc-constraints-1",
-    "href": "main.html#neuralidapbc-constraints-1",
-    "title": "main",
-    "section": "NeuralIdaPbc Constraints",
-    "text": "NeuralIdaPbc Constraints\n\n\n\\[M_d^{\\theta} = \\left(M_d^{\\theta}\\right)^{\\top} \\succ 0\\]\n\n\n\\[J_{2}^{\\theta} = -\\left(J_{2}^{\\theta}\\right)^{\\top}\\]\n\n\n\\[q^\\star = \\underset{q}{\\arg \\min} \\, V_{d}^{\\theta} (q)\\]\n\n\n\n\n\nSkew symmetry of \\(J_2^\\theta(q,p)\\)\n\n\n\nDecompose a square matrix into symmetric and skew-symmetric parts \\[J_2^\\theta(q,p) = A_{\\theta}(q,p) -  A_{\\theta}^{\\top}(q,p)\\]\nComponents of the square matrix \\(A_\\theta(q,p)\\) are output of a neural network"
-  },
-  {
-    "objectID": "main.html#neuralidapbc-constraints-2",
-    "href": "main.html#neuralidapbc-constraints-2",
-    "title": "main",
-    "section": "NeuralIdaPbc Constraints",
-    "text": "NeuralIdaPbc Constraints\n\n\n\\[M_d^{\\theta} = \\left(M_d^{\\theta}\\right)^{\\top} \\succ 0\\] \\[J_{2}^{\\theta} = -\\left(J_{2}^{\\theta}\\right)^{\\top}\\]\n\n\n\\[q^\\star = \\underset{q}{\\arg \\min} \\, V_{d}^{\\theta} (q)\\]\n\n\n\n\n\nBoundedness of \\(V_d^\\theta\\)\n\n\n\n\\(V_d^\\theta(q)\\) bounded from below with isolated minimum at \\(q^\\star\\) \nParameterize \\(V_d^\\theta\\) by a sums-of-square (SoS) polynomial\n\\(V_d^\\theta(q) &gt; 0,\\, q \\neq q^\\star\\)"
-  },
-  {
-    "objectID": "main.html#sos-decomposition",
-    "href": "main.html#sos-decomposition",
-    "title": "main",
-    "section": "SoS Decomposition",
-    "text": "SoS Decomposition\n\n\n\n\nTheorem (Choi, 1995)\n\n\nA polynomial \\(P \\in \\mathbb{R}[x]\\) of degree \\(2d\\) has a SoS decomposition \\(\\Leftrightarrow\\) \\(\\exists Q \\succ 0\\) such that, with \\(\\mu(x) = \\begin{bmatrix} 1 & x_1 & \\cdots & x_n & x_1 x_2 & \\cdots & x_n^d\\end{bmatrix}\\), we have \\(P(x) = \\mu(x)^\\top Q \\mu(x)\\)\n\n\n\n\n\n\n\nExample\n\n\n\\[\\begin{aligned} x_1^2 + 2x_1^2x_2 + 5x_1^2x_2^2 + 4x_1x_2^2 + x_2^2  &= \\mu(x)^{\\top} \\begin{pmatrix} 1 & 1 & 0 \\\\ 1 & 5 & 2 \\\\ 0 & 2 & 1 \\end{pmatrix} \\mu(x) \\\\ &= \\mu(x)^{\\top} \\begin{pmatrix} 1 & 0 & 0 \\\\ 1 & 2 & 0 \\\\ 0 & 1 & 0 \\end{pmatrix} \\begin{pmatrix}   1 & 0 & 0 \\\\ 1 & 2 & 0 \\\\ 0 & 1 & 0 \\end{pmatrix}^{\\top} \\mu(x) \\end{aligned} \\]"
-  },
-  {
-    "objectID": "main.html#neuralidapbc-experiments",
-    "href": "main.html#neuralidapbc-experiments",
-    "title": "main",
-    "section": "NeuralIdaPbc Experiments",
-    "text": "NeuralIdaPbc Experiments\n\nFollowed the experiments performed in IdaPbc paper1\n\nInertia-wheel pendulum (IWP)\nBall-beam system\n\nR. Ortega, M. W. Spong, F. Gómez-Estern, and G. Blankenstein, “Stabilization of a class of underactuated mechanical systems via interconnection and damping assignment,” IEEE transactions on automatic control, vol. 47, no. 8, pp. 1218–1233, 2002."
-  },
-  {
-    "objectID": "main.html#simulated-iwp-experiments",
-    "href": "main.html#simulated-iwp-experiments",
-    "title": "main",
-    "section": "Simulated IWP experiments",
-    "text": "Simulated IWP experiments\n\n\n\n\n\n\n\nComparison of control effort expenditure\n\n\n\n\n\n\n\n\n\nNeuralPbc\nNeuralIdaPbc\nIdaPbc"
-  },
-  {
-    "objectID": "main.html#deterministic-vs.-bayesian-training",
-    "href": "main.html#deterministic-vs.-bayesian-training",
-    "title": "main",
-    "section": "Deterministic vs. Bayesian Training",
-    "text": "Deterministic vs. Bayesian Training\n\n\n\n\nPerformance metric: \\(\\mathcal{J} = \\int_0^T \\left( \\frac{1}{2}qx(t)^2 + \\frac{1}{2}ru(t)^2  \\right)dt\\).\n\n \n\nSimulated dynamics\n\\[\n\\begin{aligned}\ndx &= \\begin{bmatrix}\n\\dot{q}_1 \\\\ \\dot{q_2} \\\\ \\frac{1}{I_1}\\left(m g l \\sin{q_1} - u^\\theta -\nb_1\\dot{q}_1\\right) \\\\ \\frac{1}{I_2}\\left(u^\\theta -b_2 \\dot{q}_2 \\right)\n\\end{bmatrix} dt \\\\\n&+ \\nabla_xu^\\theta(x) \\sigma dW_t.\n\\end{aligned}\n\\]"
-  },
-  {
-    "objectID": "main.html#deterministic-vs.-bayesian-training-1",
-    "href": "main.html#deterministic-vs.-bayesian-training-1",
-    "title": "main",
-    "section": "Deterministic vs. Bayesian Training",
-    "text": "Deterministic vs. Bayesian Training\n\n\n\n\n\nSubtracting rings from the wheel\n\ndecreases wheel mass\ndecreases wheel and pendulum inertia\nmoves the center of mass\n\n\n\n\n\n\n\n\n\nParameter vector \\(\\zeta\\)\n\\(I_1\\)\n\\(I_2\\)\n\\(m g l\\)\nError\n\n\n\n\nNominal\n\\(0.0455\\)\n\\(0.00425\\)\n\\(1.795\\)\n\\(0\\)\n\n\n3 rings\n\\(0.0417\\)\n\\(0.00330\\)\n\\(1.577\\)\n\\(0.122\\)\n\n\n2 rings\n\\(0.0378\\)\n\\(0.00235\\)\n\\(1.358\\)\n\\(0.243\\)\n\n\n1 rings\n\\(0.0340\\)\n\\(0.00141\\)\n\\(1.140\\)\n\\(0.365\\)"
-  },
-  {
-    "objectID": "main.html#ball-beam-experiments",
-    "href": "main.html#ball-beam-experiments",
-    "title": "main",
-    "section": "Ball-beam experiments",
-    "text": "Ball-beam experiments"
-  },
-  {
-    "objectID": "main.html#robustness-via-bayesian-learning-2",
-    "href": "main.html#robustness-via-bayesian-learning-2",
-    "title": "main",
-    "section": "Robustness via Bayesian Learning",
-    "text": "Robustness via Bayesian Learning\n\n\n\n\n\nNeuralPbc assumes a nominal model \\(\\dot{x} = f_p(x, u)\\)\nThe trained controller must not overfit on the observations generated from the nominal model\n\n\n\n\n\n\n\n\n\nOur method: \\(H_d\\) is a Bayesian neural network\n\nachieves the performance objective for samples \\(\\theta \\sim P(\\theta | \\mathbb{D})\\)\nsearches for ensemble of parameters that meet the desired performance \\[\n  P(\\theta \\mid \\mathbb{D}) = \\frac{\\overbrace{P(\\mathbb{D} \\mid\n  \\theta)}^{\\text{likelihood}}\\overbrace{P(\\theta)}^{\\text{prior}}}\n  {\\underbrace{\\int_\\theta P(\\mathbb{D} \\mid \\theta^\\prime)P(\\theta^\\prime)\n  d\\theta^\\prime}_{\\text{evidence}}}.\n\\]"
-  },
-  {
-    "objectID": "main.html#training-stochastic-models",
-    "href": "main.html#training-stochastic-models",
-    "title": "main",
-    "section": "Training Stochastic Models",
-    "text": "Training Stochastic Models\n\n\n\n\n\n\nBayesian Inference\n\n\n\\[\n\\begin{aligned}\n\\underset{P(\\theta | \\mathbb{D})}{\\text{maximize}} &&& P(\\mathbb{D} | \\theta) P(\\theta), \\\\\n\\text{subject to} &&\n& \\theta \\sim P(\\theta | \\mathbb{D}), \\\\\n&& \\mathbb{D} &= \\{(x_1, y_1), \\dots, (x_N, y_N) \\}.\n\\end{aligned}\n\\]\n\n\n\n\n\n\n\n\n\nBayesian Inference\n\n\n\\[\n\\begin{aligned}\n\\underset{P(\\theta | \\mathbb{D})}{\\text{maximize}} && \\prod_{j=1}^{N} \\mathcal{N}&(\\| F(x_j; \\theta) -  y_j \\| \\; | \\; 0, s_1) \\mathcal{N}(\\| \\theta - \\theta_0 \\| \\; | \\; 0, s_2), \\\\\n\\text{subject to} &&\n& \\theta \\sim P(\\theta | \\mathbb{D}), \\\\\n&& \\mathbb{D} &= \\{(x_1, y_1), \\dots, (x_N, y_N) \\}.\n\\end{aligned}\n\\]\n\n\n\n\n\n\n\n\n\nBayesian Inference\n\n\n\\[\n\\begin{aligned}\n\\underset{z}{\\text{maximize}} && \\mathcal{L}(\\mathbb{D},z) &= \\mathbb{E}_{\\theta \\sim Q} \\left[\\ln(P(\\mathbb{D} \\mid \\theta)P(\\theta)) - \\ln(Q(\\theta;z)) \\right], \\\\\n\\text{subject to} &&\n& \\theta \\sim Q(\\theta;z), \\\\\n&& \\mathbb{D} &= \\{(x_1, y_1), \\dots, (x_N, y_N) \\}.\n\\end{aligned}\n\\]\n\n\n\n\n\n\n\n\nVariational Inference: approximates the posterior \\(P(\\theta | \\mathbb{D})\\) with a pre-selected distribution \\(Q(\\theta; z)\\)\nObjective: collect \\(N_\\theta\\) samples from the current posterior \\(Q(\\theta; z)\\) and maximize Elbo \\[\n\\mathcal{L}(\\mathbb{D},z) = \\mathbb{E}_{\\theta \\sim Q} \\left[\\ln(P(\\mathbb{D} \\mid \\theta)P(\\theta)) - \\ln(Q(\\theta;z)) \\right]\n\\]"
-  },
-  {
-    "objectID": "main.html#bayesian-neuralpbc-1",
-    "href": "main.html#bayesian-neuralpbc-1",
-    "title": "main",
-    "section": "Bayesian NeuralPbc",
-    "text": "Bayesian NeuralPbc\n\n\n\n\n\n\nNeuralPbc Optimization Problem\n\n\n\\[\n\\begin{aligned}\n\\underset{\\theta}{\\text{minimize}} && J(\\phi, u^\\theta) &= \\mathbb{E}_{x_0 \\in \\mathcal{D}_N}[ \\ell( \\phi(x_0, u, T), u) ], \\\\\n\\text{subject to} &&\n\\begin{bmatrix}\n  \\dot{q} \\\\ \\dot{p}\n\\end{bmatrix} &=\n\\begin{bmatrix}\n  0 & I \\\\ -I & 0\n\\end{bmatrix}\n\\begin{bmatrix} \\nabla_q H \\\\ \\nabla_p H \\end{bmatrix} +\n\\begin{bmatrix}\n  0 \\\\ \\Omega\n\\end{bmatrix} u^{\\theta},\n\\\\\n&& u^\\theta &= \\Omega^{\\dagger}(\\nabla_q H  - \\nabla_q H_d^\\theta).\n\\end{aligned}\n\\]\n\n\n\n\n\n\n\n\nBayesian NeuralPbc Optimization Problem\n\n\n\\[\n\\begin{aligned}\n    \\underset{z}{\\text{minimize}} && J(\\phi, u^\\theta) &= \\mathbb{E}_{x_0 \\in \\mathcal{D}_N}[ \\ell( \\phi(x_0, u, T), u) ], \\\\\n    \\text{subject to} &&\n    \\begin{bmatrix}\n    \\dot{q} \\\\ \\dot{p}\n    \\end{bmatrix} &=\n    \\begin{bmatrix}\n    0 & I \\\\ -I & 0\n    \\end{bmatrix}\n    \\begin{bmatrix} \\nabla_q H \\\\ \\nabla_p H \\end{bmatrix} +\n    \\begin{bmatrix}\n    0 \\\\ \\Omega\n    \\end{bmatrix} u^{\\theta},\n    \\\\\n    && u^\\theta &= \\Omega^{\\dagger}(\\nabla_q H  - \\nabla_q H_d^\\theta),\\\\\n    && \\theta &\\sim Q(\\theta; z).\n\\end{aligned}\n\\]\n\n\n\n\n\n\n\nThe parameter \\(z\\) of the posterior \\(Q(\\theta;z)\\) is inferred from running cost \\(J(\\phi, u^\\theta)\\)\n\\(H_d^\\theta\\) is a Bayesian neural network (BNN)"
-  },
-  {
-    "objectID": "main.html#uncertainty-modeling",
-    "href": "main.html#uncertainty-modeling",
-    "title": "main",
-    "section": "Uncertainty Modeling",
-    "text": "Uncertainty Modeling\n\nWe provide more structure to the variance of the Bayesian controllers\n\n\n\n\nBayesian NeuralPbc Optimization Problem\n\n\n\\[\n\\begin{aligned}\n    \\underset{z}{\\text{minimize}} && J(\\phi, u^\\theta) &= \\mathbb{E}_{x_0 \\in \\mathcal{D}_N}[ \\ell( \\phi(x_0, u, T), u) ], \\\\\n    \\text{subject to} &&\n    \\mathop{}\\!\\mathrm{d}x &= \\left(\n        \\begin{bmatrix}\\phantom{-}\\nabla_p H \\\\-\\nabla_q H \\end{bmatrix} + \\begin{bmatrix} 0 \\\\ \\Omega \\end{bmatrix} u^{\\theta}(x) \\right) \\mathop{}\\!\\mathrm{d}t + \\nabla_x u(x) \\mathop{}\\!\\mathrm{d}W_t, \\\\\n    && u^\\theta &= \\Omega^{\\dagger}(\\nabla_q H  - \\nabla_q H_d^\\theta),\\\\\n    && \\theta &\\sim Q(\\theta; z), \\\\\n    && p_s &\\sim \\mathcal{N}(\\hat{p}_s, \\sigma_p).\n\\end{aligned}\n\\]\n\n\n\n\nObjective: maximize Elbo\n\n\\[\\begin{gather*}\n  \\mathcal{L}(J,z) = \\mathbb{E}_{\\theta \\sim Q} \\left[\\ln(P(J \\mid \\theta)P(\\theta)) - \\ln(Q(\\theta;z)) \\right] \\\\\n  P(J | \\theta) = \\mathcal{N}(J \\; | \\; 0, s).\n\\end{gather*}\\]"
-  },
-  {
-    "objectID": "main.html#neuralpbc-hybrid-system",
-    "href": "main.html#neuralpbc-hybrid-system",
-    "title": "main",
-    "section": "NeuralPbc: Hybrid System",
-    "text": "NeuralPbc: Hybrid System\n\n\n\n\n\n\n\nPassive Smooth System\n\n\n\\[\nH\\left(  x(t_1) \\right) \\leq  H\\left(  x(t_0) \\right) + \\int_{t_0}^{t_1} s(u(t), y(t)) \\, \\text{d}t\n\\]\n\n\n\n\n\n \n\n\n\n\n\nPassive Hybrid System\n\n\n\\[\\begin{gather*}\nH\\left(  x(t_1) \\right) \\leq  H\\left(  x(t_0) \\right) + \\int_{t_0}^{t_1} s(u(t), y(t)) \\, \\text{d}t \\\\\nH(x^+) \\leq H(x^-)\n\\end{gather*}\\]\n\n\n\n\n\n\n\n\n\n\nNeuralPbc for contact-rich system\n\n\n\\[\\begin{aligned}\n    \\underset{\\theta}{\\textrm{minimize}}\n    & & J(\\phi, u^\\theta) &= \\mathbb{E}_{x_0 \\in \\mathcal{D}_N}[ \\ell( \\phi(x_0, u, T), u) ], \\\\%\n    \\textrm{subject to}\n    & & M(q) &\\mathop{}\\!\\mathrm{d}\\dot{q} + h(q, \\dot{q}, \\theta)\\mathop{}\\!\\mathrm{d}t - \\mathop{}\\!\\mathrm{d}R  = 0,\\\\%\n    & & u^{\\theta} &= \\Omega^{\\dagger}(\\nabla_q H  - \\nabla_q H_d).%\n\\end{aligned}\\]"
-  },
-  {
-    "objectID": "main.html#bayesian-neuralpbc-hybrid-system",
-    "href": "main.html#bayesian-neuralpbc-hybrid-system",
-    "title": "main",
-    "section": "Bayesian NeuralPbc: Hybrid System",
-    "text": "Bayesian NeuralPbc: Hybrid System\n\n\n\nNeuralPbc for contact-rich system\n\n\n\\[\\begin{aligned}\n    \\underset{z}{\\textrm{minimize}}\n    & & & J(\\phi, u) = \\mathbb{E}_{x_0 \\in \\mathcal{D}_N}[\\ell(\\phi(x_0, u^\\theta, T), u^\\theta)], \\\\\n    \\textrm{subject to}\n    & & M(q) &\\mathop{}\\!\\mathrm{d}\\dot{q} + h(q, \\dot{q}, \\theta)\\mathop{}\\!\\mathrm{d}t - \\mathop{}\\!\\mathrm{d}R  = 0,\\\\\n    & & u^{\\theta} &= \\Omega^{\\dagger}(\\nabla_q H  - \\nabla_q H_d^\\theta), \\\\\n    & & p_s &\\sim \\mathbb{U}(p_{min}, p_{max}), \\\\\n    & & \\theta &\\sim Q(\\theta; z).\n\\end{aligned}\\]"
-  },
-  {
     "objectID": "main.html#deterministic-vs.-bayesian",
     "href": "main.html#deterministic-vs.-bayesian",
     "title": "main",
@@ -476,123 +343,11 @@
     "text": "Deterministic vs Bayesian\n\n\n\n\n\n\n\n\n\\[\\begin{align*}\np_s &\\sim \\mathbb{U}(0, p_{max})  \\\\\np_{max} &= [0, 0.5, 1, 1.5, 2] \\textrm{cm} \\\\\nJ_T &= \\sum_{t=0}^{T} \\| \\dot{x}_c^* - \\dot{x}_c(t; \\theta) \\|\n\\end{align*}\\]"
   },
   {
-    "objectID": "main.html#conclusions",
-    "href": "main.html#conclusions",
-    "title": "main",
-    "section": "Conclusions",
-    "text": "Conclusions\n \n\n\nMOE controller: multi-modal controller for multi-modal dynamics\nNeuralPbc + Bayesian inference = robust controller with stability properties"
-  },
-  {
     "objectID": "main.html#current-work",
     "href": "main.html#current-work",
     "title": "main",
     "section": "Current work",
     "text": "Current work\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n(a) State partition according to NN\n\n\n\n\n\n\n\n\n\n\n\n(b) Experimental set up\n\n\n\n\n\n\n\nFigure 1: NSF Award #2330794"
-  },
-  {
-    "objectID": "main.html#acknowledgments",
-    "href": "main.html#acknowledgments",
-    "title": "main",
-    "section": "Acknowledgments",
-    "text": "Acknowledgments"
-  },
-  {
-    "objectID": "main.html#theoretical-justification",
-    "href": "main.html#theoretical-justification",
-    "title": "main",
-    "section": "Theoretical Justification",
-    "text": "Theoretical Justification\nWhy does Bayesian Learning result in more robust controllers?"
-  },
-  {
-    "objectID": "main.html#system-parameter-uncertainty",
-    "href": "main.html#system-parameter-uncertainty",
-    "title": "main",
-    "section": "System Parameter Uncertainty",
-    "text": "System Parameter Uncertainty\n\n\n\nScalar control system\nUncertain drift vector field: \\(p \\sim\n\\mathcal{N}(\\hat{p}, \\sigma_p^2)\\).\nNo measurement uncertainty\n\n\n\n\n\n\n\\[\n\\Sigma: \\quad\n\\begin{cases}\n  \\dot{x} &= px + u, \\\\\n  u(x) &= \\theta x, \\\\\n  x(0) &= 1.\n\\end{cases}\n\\] \\[\n  x(t) = e^{(p+\\theta)t}.\n\\]"
-  },
-  {
-    "objectID": "main.html#performance-index",
-    "href": "main.html#performance-index",
-    "title": "main",
-    "section": "Performance Index",
-    "text": "Performance Index\n\n\n\n\n\n\\[\n\\Sigma: \\quad\n\\begin{cases}\n  \\dot{x} &= px + u, \\\\\n  u(x) &= \\theta x, \\\\\n  x(0) &= 1.\n\\end{cases}\n\\] \\[\n  x(t) = e^{(p+\\theta)t}.\n\\]\n\n\n \n\n\n\n\n\nQuadratic performance index\n\n\\(q \\geq 0\\), \\(r &gt; 0\\)\n\n\\(T\\): control horizon\n\n\n\n\\[\n\\mathcal{J} = \\int_0^T \\left( \\frac{1}{2}qx(t)^2 + \\frac{1}{2}ru(t)^2  \\right)dt.\n\\]"
-  },
-  {
-    "objectID": "main.html#infinite-horizon-best-performance",
-    "href": "main.html#infinite-horizon-best-performance",
-    "title": "main",
-    "section": "Infinite-Horizon Best Performance",
-    "text": "Infinite-Horizon Best Performance\n\n\n\n\n\\[\n\\mathcal{J} = \\int_0^T \\left( \\frac{1}{2}qx(t)^2 + \\frac{1}{2}ru(t)^2  \\right)dt.\n\\] \\[\n\\mathcal{J}_{T \\to \\infty} = -\\frac{1}{4}\\frac{q+r \\theta^2}{p+\\theta}.\n\\]\n\n\n \n\n\n\n\nSolve for \\(\\theta\\) that minimizes \\(\\mathcal{J}_\\infty\\): \\(\\theta^\\star = g(p) :=\n-p -\\sqrt{p^2+\\frac{q}{r}}\\).\n\n\n\n\n\n\n\nDeterministic\n\n\n\\(\\theta^\\star = g(\\hat{p}) := -\\hat{p} -\\sqrt{\\hat{p}^2+\\frac{q}{r}}\\)\n\n\n\n\n\n \n\n\n\n\n\nProbabilistic\n\n\n\\[\n\\begin{aligned}\nf_{\\theta^\\star}(\\theta^\\star) &= \\frac{1}{\\sigma_p \\sqrt{2\\pi}}\\left( \\\n\\frac{1}{2}\\left(1+\\frac{q}{r{\\theta^\\star}^2}\\right) \\right) \\\\\n&\\exp{\\left\\{ -\\frac{1}{2\\sigma_p^2}\\left( \\frac{q}{2r\\theta^\\star} -\n\\frac{\\theta^\\star}{2} - \\hat{p}  \\right)^2  \\right\\} }\n\\end{aligned}\n\\]"
-  },
-  {
-    "objectID": "main.html#infinite-horizon-best-performance-1",
-    "href": "main.html#infinite-horizon-best-performance-1",
-    "title": "main",
-    "section": "Infinite-Horizon Best Performance",
-    "text": "Infinite-Horizon Best Performance\n\n\n\n\n\n\n\nDeterministic\n\n\n\\(\\theta^\\star = g(\\hat{p}) := -\\hat{p} -\\sqrt{\\hat{p}^2+\\frac{q}{r}}\\)\n\n\n\n\n\n \n\n\n\n\n\nProbabilistic\n\n\n\\[\n\\begin{aligned}\nf_{\\theta^\\star}(\\theta^\\star) &= \\frac{1}{\\sigma_p \\sqrt{2\\pi}}\\left( \\\n\\frac{1}{2}\\left(1+\\frac{q}{r{\\theta^\\star}^2}\\right) \\right) \\\\\n&\\exp{\\left\\{ -\\frac{1}{2\\sigma_p^2}\\left( \\frac{q}{2r\\theta^\\star} -\n\\frac{\\theta^\\star}{2} - \\hat{p}  \\right)^2  \\right\\} }\n\\end{aligned}\n\\]"
-  },
-  {
-    "objectID": "main.html#conditional-expectation",
-    "href": "main.html#conditional-expectation",
-    "title": "main",
-    "section": "Conditional Expectation",
-    "text": "Conditional Expectation\n\n\n\\[\n\\mathbb{E}[\\mathcal{J} \\mid p] =\n-\\frac{1}{4}\\frac{q+r\\theta^2}{p+\\theta}\\left[ \\theta^2 \\sigma^2 T +\n\\left(1-e^{2 T (p+\\theta)}\\right) \\left(1+\\frac{1}{2}\\frac{\\theta^2\n\\sigma^2}{p+\\theta}\\right) \\right]\n\\]\n\n\n\n\n\nProof\n\n\nSubstituting the solution of the SDE into the performance measure yields\n\\[\n\\begin{aligned} \\mathcal{J} =\n        & -\\frac{1}{4}\\frac{q+r\\theta^2}{p+\\theta}\\left(1 +\n        e^{2T(p+\\theta)}\\right) +\n        (q+r\\theta^2)\\theta\\sigma \\int_0^T\n        e^{(p+\\theta)t} \\int_0^t e^{(p+\\theta)(t-s)}dW_s\n        dt \\; + \\\\ &\\frac{1}{2}(q+r\\theta^2)\\theta^2\n        \\sigma^2 \\int_0^T \\left( \\int_0^t\n        e^{(p+\\theta)(t-s)} dW_s  \\right)^2 dt\n\\end{aligned}\n\\]\nThe conditional expectation of this quantity given the system parameter \\(p\\) under the distribution induced by the Wiener process may be computed in closed-form using Ito calculus.\n\\[\n\\begin{aligned}\n\\mathbb{E}_W\\left[\\mathcal{J} \\mid p \\right] &= -\\frac{1}{4}\\frac{q+r\\theta^2}{p+\\theta}\\left(1 - e^{2T(p+\\theta)}\\right) +\n        (q+r\\theta^2)\\theta\\sigma\\int_0^Te^{(p+\\theta)t}\\mathbb{E}_W\\left[\\int_0^t\n        e^{(p+\\theta)(t-s)} dW_s~\\Big\\rvert p\\right] dt + \\\\\n        &\\frac{1}{2}(q+r\\theta)^2\\theta^2\\sigma^2\\int_0^T\\mathbb{E}_W\\left[\\left(\\int_0^t\n        e^{(p+\\theta)(t-s)} dW_s \\right)^2~\\bigg\\rvert p\\right] dt \\\\\n        &=-\\frac{1}{4}\\frac{q+r\\theta^2}{p+\\theta}\\left(1 -\n        e^{2T(p+\\theta)}\\right) +\n        \\frac{1}{2}(q+r\\theta^2)\\theta^2\\sigma^2\\int_0^T\\left(\\int_0^t\n        e^{2(p+\\theta)(t-s)} ds \\right) dt \\\\\n        &=-\\frac{1}{4}\\frac{q+r\\theta^2}{p+\\theta}\\left(1 - e^{2T(p+\\theta)}\\right) +\n        \\frac{1}{2}(q+r\\theta^2)\\theta^2\\sigma^2\\int_0^T\n        -\\frac{1}{2(p+\\theta)}\\left(1 - e^{2T(p+\\theta)}\\right) dt \\\\\n        &=-\\frac{1}{4}\\frac{q+r\\theta^2}{p+\\theta} \\left[ \\theta^2 \\sigma^2 T +\n        \\left(1 - e^{2T(p+\\theta)}\\right) \\left(1 +\n        \\frac{1}{2}\\frac{\\theta^2\\sigma^2}{p+\\theta}\\right)\\right].\n\\end{aligned}\n\\]\n\n🟧"
-  },
-  {
-    "objectID": "main.html#optimal-controller",
-    "href": "main.html#optimal-controller",
-    "title": "main",
-    "section": "Optimal Controller",
-    "text": "Optimal Controller\n\n\n\n\nOptimal controller \\(|\\theta^\\star|\\) minimizing \\(\\mathbb{E}\\mathcal{J}\\)\n\n\n\nMinimal expected cost \\(\\mathbb{E}\\mathcal{J}\\)"
-  },
-  {
-    "objectID": "main.html#optimal-controller-1",
-    "href": "main.html#optimal-controller-1",
-    "title": "main",
-    "section": "Optimal Controller",
-    "text": "Optimal Controller\n\n\n\n\n\nOptimal controller \\(|\\theta^\\star|\\) minimizing \\(\\mathbb{E}\\mathcal{J}\\)\n\n\n\n\n\nMinimal expected cost \\(\\mathbb{E}\\mathcal{J}\\)\n\n\n\n\n\nOptimal control parameter a nontrivial function of \\(\\sigma\\) and \\(\\sigma_p\\).\nBayesian learning strikes the right trade-off."
-  },
-  {
-    "objectID": "main.html#neuralpbc-publications",
-    "href": "main.html#neuralpbc-publications",
-    "title": "main",
-    "section": "NeuralPbc Publications",
-    "text": "NeuralPbc Publications\n\nThis work is published in ISER 20201, CCTA 20212\nW. Sirichotiyakul and A. C. Satici, “Data-driven design of energy-shaping controllers for swing-up control of underactuated robots,” in International Symposium on Experimental Robotics. Springer, 2020, pp. 323-333.W. Sirichotiyakul and A. C. Satici, “Combining energy-shaping control of dynamical systems with data-driven approaches,” in 2021 IEEE Conference on Control Technology and Applications (CCTA). IEEE, 2021, pp. 1121-1127."
-  },
-  {
-    "objectID": "main.html#neuralpbc-publications-1",
-    "href": "main.html#neuralpbc-publications-1",
-    "title": "main",
-    "section": "NeuralPbc Publications",
-    "text": "NeuralPbc Publications\n\nThis work also provides a foundation for an ongoing research that investigate the improvement of robustness properties of NeuralPbc1,2\nW. Sirichotiyakul, N. A. Ashenafi, and A. C. Satici, “Robust Data-Driven Passivity-Based Control of Underactuated Systems via Neural Approximators and Bayesian Inference,” in 2022 American Control Conference, ACC. IEEE, Accepted for publication January 2022.N. A. Ashenafi, W. Sirichotiyakul, and A. C. Satici, “Robust Passivity-Based Control of Underactuated Systems via Neural Approximators and Bayesian In ference,” in 2022 Conference on Decision and Control, CDC. IEEE. (Submitted for review March 2022)."
-  },
-  {
-    "objectID": "main.html#neuralidapbc-publications",
-    "href": "main.html#neuralidapbc-publications",
-    "title": "main",
-    "section": "NeuralIdaPbc Publications",
-    "text": "NeuralIdaPbc Publications\n\nThis work is published in the International Journal of Control1\n \nNeuralIdaPbc is the basis for an ongoing research that investigate the improvement of robustness properties2\nW. Sirichotiyakul and A. C. Satici, “Data-Driven Passivity-Based Control of Underactuated Mechanical Systems via Interconnection and Damping Assignment,” in International Journal of Control. (Accepted for publication March 2022)W. Sirichotiyakul, N. A. Ashenafi, and A. C. Satici, “Robust Interconnection and Damping Assignment Passivity-Based Control via Neural Bayesian Inference,” in IEEE Transactions on Automatic Control. (Submitted for review April 2022)"
-  },
-  {
-    "objectID": "main.html#diffeqflux.jl-demo",
-    "href": "main.html#diffeqflux.jl-demo",
-    "title": "main",
-    "section": "DiffEqFlux.jl Demo",
-    "text": "DiffEqFlux.jl Demo\n\nLearning \\(\\dot{x} = f(x)\\) where \\(f\\) is a neural network\nRegress on MSE between trajectory of \\(f\\) and data"
-  },
-  {
-    "objectID": "main.html#neuralidapbc-main-problem",
-    "href": "main.html#neuralidapbc-main-problem",
-    "title": "main",
-    "section": "NeuralIdaPbc Main Problem",
-    "text": "NeuralIdaPbc Main Problem\n\n\\[\\begin{aligned} \\underset{\\theta}{\\text{minimize}} && J(\\theta) &= \\left\\lVert G^{\\bot} \\left\\{ \\nabla_{q} H - M_{d}^{\\theta}M^{-1} \\nabla_{q} H_{d}^{\\theta} + J_{2}^{\\theta} \\left(M_{d}^{\\theta}\\right)^{-1} p \\right\\} \\right\\rVert^2  \\\\ \\text{subject to}  && H_d^{\\theta} &= \\frac{1}{2} p^{\\top} \\left( M_{d}^{\\theta} \\right)^{-1} p + V_{d}^{\\theta}(q) \\\\ && M_d^{\\theta}(q) &= \\left(M_d^{\\theta}(q)\\right)^\\top \\succ 0 \\\\ && J_{2}^{\\theta}(q,p) &= -\\left(J_{2}^{\\theta}(q,p)\\right)^\\top \\\\ && q^\\star &= \\underset{q}{\\arg \\min} \\, V_{d}^{\\theta} (q) \\end{aligned}\\]\n\n\n\n\n\n\nNeuralIdaPbc\n\n\n\nSolve nonlinear PDEs using neural networks and SoS polynomials\nSurrogates of \\(M_d\\), \\(J_2\\), \\(V_d\\) are constrained by construction\n\n\n\n\n\n\n\n\n\n\nPinn\n\n\n\nSolve nonlinear PDEs using neural networks\nSolution surrogates are constrained via penalty term in loss function"
-  },
-  {
-    "objectID": "main.html#sos-polynomials",
-    "href": "main.html#sos-polynomials",
-    "title": "main",
-    "section": "SoS Polynomials",
-    "text": "SoS Polynomials\n\nIs \\(p(x)\\) nonnegative for all \\(x\\)? \\[p(x) = 4x_1^2 + x_1x_2 - 4x_2^2 - 2.1x_1^4 + 4x_2^4 + \\frac{1}{3}x_1^6 + 1.0316\\;\\]\n\n\\[\\begin{aligned} p(x) = &\\left(0.116x_1^2 + 0.01x_1x_2 - 2x_2^2 + 1.015\\right)^2 \\\\ & + \\; \\left(-0.569x_1^3 + 1.938x_1 + 0.244x_2\\right)^2 \\\\ & + \\; \\left(0.224x_1^2 + 0.666x_1x_2 + 0.029x_2^2 + 0.026\\right)^2 \\\\ & + \\; \\left(-0.188x_1^2 + 0.063x_1x_2 - 0.006x_2^2 + 0.009\\right)^2 \\\\ & + \\; \\left(0.099x_1^3 + 0.029x_1 + 0.004x_2\\right)^2 + \\left(0.009x_1^2x_2\\right)^2 \\end{aligned}\\]"
   },
   {
     "objectID": "main.html#current-research-approx.-30-minutes",
@@ -609,10 +364,10 @@
     "text": "Current Research (approx. 30 minutes)\n\nEM Sensing with GTSAM (~10 minutes)\n\nDifficulties with relative pose sensing\nThree-phase power line geometry\nLack of any good state-of-the-art method\nOur method based on gradient of the total electromagnetic field strength\n\nPassivity-Based Data-Driven Controller Synthesis (~15 minutes)\n\nBrief PBC design motivation\nNeuralPBC explanation - add training procedure here.\nCurrent manipulation results (EAGER project)\nCurrent drone-line manipulation results"
   },
   {
-    "objectID": "main.html#research-agenda-approx.-20-minutes",
-    "href": "main.html#research-agenda-approx.-20-minutes",
+    "objectID": "main.html#research-agenda-approx.-10-minutes",
+    "href": "main.html#research-agenda-approx.-10-minutes",
     "title": "main",
-    "section": "Research Agenda (approx. 20 minutes)",
-    "text": "Research Agenda (approx. 20 minutes)\n\nVision (~5 minutes)\n\nService robotics needs robust low-level controllers\nDrones / AGVs need robust sensing and controllers to perform dangerous tasks.\nIn 10 years, data-driven synthesis methods will have matured and made robust.\n\nFuture Techniques (~10 minutes)\n\nRobustness of GNN-based controllers\nConvex Optimization Layers and ADMM on GNNs\nTransfer learning to multiple domains (few-shot performance)\n\nGuiding controller synthesis with human-imitation using LLMs\nRepresentation learning\n\n\nPotential Funding Mechanisms (~5 minutes)\n\nNSF: Foundational Research in Robotics\nSBIR / STTR: Currently with Pitch Aeronautics, explore local companies\nNIH: Retain and expand biomedical collaboration with BSU / UTD faculty\n\n\n\n\n\nRobust Sensing and Data-Driven Control • Aykut C. Satici"
+    "section": "Research Agenda (approx. 10 minutes)",
+    "text": "Research Agenda (approx. 10 minutes)\n\nVision (~2 minutes)\n\nService robotics needs robust low-level controllers\nDrones / AGVs need robust sensing and controllers to perform dangerous tasks.\nIn 10 years, data-driven synthesis methods will have matured and made robust.\n\nFuture Techniques (~6 minutes)\n\nRobustness of GNN-based controllers\nConvex Optimization Layers and ADMM on GNNs\nTransfer learning to multiple domains (few-shot performance)\n\nGuiding controller synthesis with human-imitation using LLMs\nRepresentation learning\n\n\nPotential Funding Mechanisms (~2 minutes)\n\nNSF: Foundational Research in Robotics\nSBIR / STTR: Currently with Pitch Aeronautics, explore local companies\nNIH: Retain and expand biomedical collaboration with BSU / UTD faculty\n\n\n\n\n\nRobust Sensing and Data-Driven Control • Aykut C. Satici"
   }
 ]
