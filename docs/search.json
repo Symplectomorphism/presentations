@@ -214,7 +214,7 @@
     "href": "main.html#robustness-via-bayesian-learning-1",
     "title": "main",
     "section": "Robustness via Bayesian Learning",
-    "text": "Robustness via Bayesian Learning\n\n\n\n\n\nNeuralPbc assumes a nominal model \\(\\dot{x} = f_p(x, u)\\)\nThe trained controller must not overfit on the observations generated from the nominal model\n\n\n\n\n\n\n\n\n\nOur method: \\(H_d\\) is a Bayesian neural network\n\nachieves the performance objective for samples \\(\\theta \\sim P(\\theta | \\mathbb{D})\\)\nsearches for ensemble of parameters that meet the desired performance \\[\n  P(\\theta \\mid \\mathbb{D}) = \\frac{\\overbrace{P(\\mathbb{D} \\mid\n  \\theta)}^{\\text{likelihood}}\\overbrace{P(\\theta)}^{\\text{prior}}}\n  {\\underbrace{\\int_\\theta P(\\mathbb{D} \\mid \\theta^\\prime)P(\\theta^\\prime)\n  d\\theta^\\prime}_{\\text{evidence}}}.\n\\]"
+    "text": "Robustness via Bayesian Learning\n\n\n\n\n\nNeuralPbc assumes a nominal model \\(\\dot{x} = f_p(x, u)\\)\nThe trained controller must not overfit on the observations generated from the nominal model\n\n\n\n\n\n\n\n\nOur method: \\(H_d\\) is a Bayesian neural network\n\nachieves the performance objective for samples \\(\\theta \\sim P(\\theta | \\mathbb{D})\\)\nsearches for ensemble of parameters that meet the desired performance \\[\n  P(\\theta \\mid \\mathbb{D}) = \\frac{\\overbrace{P(\\mathbb{D} \\mid\n  \\theta)}^{\\text{likelihood}}\\overbrace{P(\\theta)}^{\\text{prior}}}\n  {\\underbrace{\\int_\\theta P(\\mathbb{D} \\mid \\theta^\\prime)P(\\theta^\\prime)\n  d\\theta^\\prime}_{\\text{evidence}}}.\n\\]"
   },
   {
     "objectID": "main.html#parameter-uncertainty-and-measurement-noise",
@@ -252,8 +252,8 @@
     "text": "Training Stochastic Models\n\n\n\n\n\n\nBayesian Inference\n\n\n\\[\n\\begin{aligned}\n\\underset{P(\\theta | \\mathbb{D})}{\\text{maximize}} &&& P(\\mathbb{D} | \\theta) P(\\theta), \\\\\n\\text{subject to} &&\n& \\theta \\sim P(\\theta | \\mathbb{D}), \\\\\n&& \\mathbb{D} &= \\{(x_1, y_1), \\dots, (x_N, y_N) \\}.\n\\end{aligned}\n\\]\n\n\n\n\n\n\n\n\n\nBayesian Inference\n\n\n\\[\n\\begin{aligned}\n\\underset{P(\\theta | \\mathbb{D})}{\\text{maximize}} && \\prod_{j=1}^{N} \\mathcal{N}&(\\| F(x_j; \\theta) -  y_j \\| \\; | \\; 0, s_1) \\mathcal{N}(\\| \\theta - \\theta_0 \\| \\; | \\; 0, s_2), \\\\\n\\text{subject to} &&\n& \\theta \\sim P(\\theta | \\mathbb{D}), \\\\\n&& \\mathbb{D} &= \\{(x_1, y_1), \\dots, (x_N, y_N) \\}.\n\\end{aligned}\n\\]\n\n\n\n\n\n\n\n\n\nBayesian Inference\n\n\n\\[\n\\begin{aligned}\n\\underset{z}{\\text{maximize}} && \\mathcal{L}(\\mathbb{D},z) &= \\mathbb{E}_{\\theta \\sim Q} \\left[\\ln(P(\\mathbb{D} \\mid \\theta)P(\\theta)) - \\ln(Q(\\theta;z)) \\right], \\\\\n\\text{subject to} &&\n& \\theta \\sim Q(\\theta;z), \\\\\n&& \\mathbb{D} &= \\{(x_1, y_1), \\dots, (x_N, y_N) \\}.\n\\end{aligned}\n\\]\n\n\n\n\n\n\n\n\nVariational Inference: approximates the posterior \\(P(\\theta | \\mathbb{D})\\) with a pre-selected distribution \\(Q(\\theta; z)\\)\nObjective: collect \\(N_\\theta\\) samples from the current posterior \\(Q(\\theta; z)\\) and maximize Elbo \\[\n\\mathcal{L}(\\mathbb{D},z) = \\mathbb{E}_{\\theta \\sim Q} \\left[\\ln(P(\\mathbb{D} \\mid \\theta)P(\\theta)) - \\ln(Q(\\theta;z)) \\right]\n\\]"
   },
   {
-    "objectID": "main.html#bayesian-neuralpbc-1",
-    "href": "main.html#bayesian-neuralpbc-1",
+    "objectID": "main.html#bayesian-neuralpbc",
+    "href": "main.html#bayesian-neuralpbc",
     "title": "main",
     "section": "Bayesian NeuralPbc",
     "text": "Bayesian NeuralPbc\n\n\n\n\n\n\nNeuralPbc Optimization Problem\n\n\n\\[\n\\begin{aligned}\n\\underset{\\theta}{\\text{minimize}} && J(\\phi, u^\\theta) &= \\mathbb{E}_{x_0 \\in \\mathcal{D}_N}[ \\ell( \\phi(x_0, u, T), u) ], \\\\\n\\text{subject to} &&\n\\begin{bmatrix}\n  \\dot{q} \\\\ \\dot{p}\n\\end{bmatrix} &=\n\\begin{bmatrix}\n  0 & I \\\\ -I & 0\n\\end{bmatrix}\n\\begin{bmatrix} \\nabla_q H \\\\ \\nabla_p H \\end{bmatrix} +\n\\begin{bmatrix}\n  0 \\\\ \\Omega\n\\end{bmatrix} u^{\\theta},\n\\\\\n&& u^\\theta &= \\Omega^{\\dagger}(\\nabla_q H  - \\nabla_q H_d^\\theta).\n\\end{aligned}\n\\]\n\n\n\n\n\n\n\n\nBayesian NeuralPbc Optimization Problem\n\n\n\\[\n\\begin{aligned}\n    \\underset{z}{\\text{minimize}} && J(\\phi, u^\\theta) &= \\mathbb{E}_{x_0 \\in \\mathcal{D}_N}[ \\ell( \\phi(x_0, u, T), u) ], \\\\\n    \\text{subject to} &&\n    \\begin{bmatrix}\n    \\dot{q} \\\\ \\dot{p}\n    \\end{bmatrix} &=\n    \\begin{bmatrix}\n    0 & I \\\\ -I & 0\n    \\end{bmatrix}\n    \\begin{bmatrix} \\nabla_q H \\\\ \\nabla_p H \\end{bmatrix} +\n    \\begin{bmatrix}\n    0 \\\\ \\Omega\n    \\end{bmatrix} u^{\\theta},\n    \\\\\n    && u^\\theta &= \\Omega^{\\dagger}(\\nabla_q H  - \\nabla_q H_d^\\theta),\\\\\n    && \\theta &\\sim Q(\\theta; z).\n\\end{aligned}\n\\]\n\n\n\n\n\n\n\nThe parameter \\(z\\) of the posterior \\(Q(\\theta;z)\\) is inferred from running cost \\(J(\\phi, u^\\theta)\\)\n\\(H_d^\\theta\\) is a Bayesian neural network (BNN)"
@@ -278,48 +278,6 @@
     "title": "main",
     "section": "Bayesian NeuralPbc: Hybrid System",
     "text": "Bayesian NeuralPbc: Hybrid System\n\n\n\nNeuralPbc for contact-rich system\n\n\n\\[\\begin{aligned}\n    \\underset{z}{\\textrm{minimize}}\n    & & & J(\\phi, u) = \\mathbb{E}_{x_0 \\in \\mathcal{D}_N}[\\ell(\\phi(x_0, u^\\theta, T), u^\\theta)], \\\\\n    \\textrm{subject to}\n    & & M(q) &\\mathop{}\\!\\mathrm{d}\\dot{q} + h(q, \\dot{q}, \\theta)\\mathop{}\\!\\mathrm{d}t - \\mathop{}\\!\\mathrm{d}R  = 0,\\\\\n    & & u^{\\theta} &= \\Omega^{\\dagger}(\\nabla_q H  - \\nabla_q H_d^\\theta), \\\\\n    & & p_s &\\sim \\mathbb{U}(p_{min}, p_{max}), \\\\\n    & & \\theta &\\sim Q(\\theta; z).\n\\end{aligned}\\]"
-  },
-  {
-    "objectID": "main.html#comparison-of-methods",
-    "href": "main.html#comparison-of-methods",
-    "title": "main",
-    "section": "Comparison of Methods",
-    "text": "Comparison of Methods\n\n \n\n\n\nAdvantages ✔️ and Disadvantages ❌\n\n\n\n\n\n\n\n\n\n\nCase\nDeterministic\nBayesian\n\n\n\n\nRobustness\n❌\n✔️\n\n\nComputation cost\n✔️\n❌\n\n\nModel selection\n❌\n✔️\n\n\nPrior knowledge\n✔️\n✔️✔️\n\n\nOverfitting\n❌\n✔️"
-  },
-  {
-    "objectID": "main.html#energy-shaping-pendulum-swing-up",
-    "href": "main.html#energy-shaping-pendulum-swing-up",
-    "title": "main",
-    "section": "Energy-Shaping Pendulum Swing-Up",
-    "text": "Energy-Shaping Pendulum Swing-Up"
-  },
-  {
-    "objectID": "main.html#energy-shaping-pendulum-swing-up-1",
-    "href": "main.html#energy-shaping-pendulum-swing-up-1",
-    "title": "main",
-    "section": "Energy-Shaping Pendulum Swing-Up",
-    "text": "Energy-Shaping Pendulum Swing-Up\n\n\n\n\n\n\n\nDeterministic training vs. Bayesian training under parameter uncertainty and measurement noise.\nMeasurement noise: \\(\\epsilon_q = 5 \\times 10^4\\) rad., \\(\\epsilon_{\\dot{q}} = 5 \\times 10^2\\) rad/s."
-  },
-  {
-    "objectID": "main.html#neuralpbc-experiments",
-    "href": "main.html#neuralpbc-experiments",
-    "title": "main",
-    "section": "NeuralPbc Experiments",
-    "text": "NeuralPbc Experiments\n\nBenchmark underactuated control problems:\n\n\n\n\nCart-pole\n\n\nInertia-Wheel Pendulum (IWP)\n\n\nAcrobot"
-  },
-  {
-    "objectID": "main.html#learned-storage-function",
-    "href": "main.html#learned-storage-function",
-    "title": "main",
-    "section": "Learned storage function",
-    "text": "Learned storage function\n\n\n\nObservations\n\n\\(H_d^\\theta\\) has a local minimum at \\(x^\\star\\), control law \\(u^\\theta\\) commands the force in the expected direction"
-  },
-  {
-    "objectID": "main.html#comparison-with-energy-shapingastrom",
-    "href": "main.html#comparison-with-energy-shapingastrom",
-    "title": "main",
-    "section": "Comparison with Energy Shaping1",
-    "text": "Comparison with Energy Shaping1\n\n\nK. J. Åström and K. Furuta, “Swinging up a pendulum by energy control,” Automatica, vol. 36, no. 2, pp. 287–295, 2000."
   },
   {
     "objectID": "main.html#deterministic-vs.-bayesian",

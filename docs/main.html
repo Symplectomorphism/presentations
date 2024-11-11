@@ -1368,23 +1368,22 @@ p(\mathbf{x} | \mathbf{o}, \mathbf{l}) \propto p(x_1) \prod_{i=2}^{3} p(x_i | x_
 <div class="columns">
 <div class="column" style="width:50%;">
 <p><br></p>
-<div>
+<div class="fragment" data-fragment-index="0">
 <ul>
-<li class="fragment"><span class="smallcaps">NeuralPbc</span> assumes a nominal model <span class="math inline">\(\dot{x} = f_p(x, u)\)</span></li>
-<li class="fragment">The trained controller must not overfit on the observations generated from the nominal model</li>
+<li><span class="smallcaps">NeuralPbc</span> assumes a nominal model <span class="math inline">\(\dot{x} = f_p(x, u)\)</span></li>
+<li>The trained controller must not overfit on the observations generated from the nominal model</li>
 </ul>
 </div>
 </div><div class="column" style="width:50%;">
 <p><img data-src="contents/assets/regular-vs-bayesian.svg" class="absolute" style="width: 575px; " data-heigth="575"></p>
 </div><!-- column -->
 </div>
-<div class="fragment" data-fragment-index="0">
-<div>
+<div class="fragment" data-fragment-index="1">
 <ul>
-<li class="fragment"><strong>Our method</strong>: <span class="math inline">\(H_d\)</span> is a Bayesian neural network
+<li><strong>Our method</strong>: <span class="math inline">\(H_d\)</span> is a Bayesian neural network
 <ul>
-<li class="fragment">achieves the performance objective for samples <span class="math inline">\(\theta \sim P(\theta | \mathbb{D})\)</span></li>
-<li class="fragment">searches for ensemble of parameters that meet the desired performance <span class="math display">\[
+<li>achieves the performance objective for samples <span class="math inline">\(\theta \sim P(\theta | \mathbb{D})\)</span></li>
+<li>searches for ensemble of parameters that meet the desired performance <span class="math display">\[
   P(\theta \mid \mathbb{D}) = \frac{\overbrace{P(\mathbb{D} \mid
   \theta)}^{\text{likelihood}}\overbrace{P(\theta)}^{\text{prior}}}
   {\underbrace{\int_\theta P(\mathbb{D} \mid \theta^\prime)P(\theta^\prime)
@@ -1392,7 +1391,6 @@ p(\mathbf{x} | \mathbf{o}, \mathbf{l}) \propto p(x_1) \prod_{i=2}^{3} p(x_i | x_
 \]</span></li>
 </ul></li>
 </ul>
-</div>
 </div>
 </section>
 <section id="parameter-uncertainty-and-measurement-noise" class="slide level2" data-auto-animate="true" data-visibility="uncounted">
@@ -1609,13 +1607,8 @@ Minimal expected cost <span class="math inline">\(\mathbb{E}\mathcal{J}\)</span>
 \]</span></li>
 </ul>
 </div>
-</section></section>
-<section>
-<section id="bayesian-neuralpbc" class="title-slide slide level1 center">
-<h1>Bayesian <span class="smallcaps">NeuralPbc</span></h1>
-
 </section>
-<section id="bayesian-neuralpbc-1" class="slide level2">
+<section id="bayesian-neuralpbc" class="slide level2">
 <h2>Bayesian <span class="smallcaps">NeuralPbc</span></h2>
 <p><br></p>
 <div class="r-stack">
@@ -1799,142 +1792,15 @@ H(x^+) \leq H(x^-)
 </div>
 <!--  -->
 <iframe data-external="1" src="https://www.youtube.com/embed/bWdrBP5Ax9s" width="100%" height="300" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
-</section>
-<section id="comparison-of-methods" class="slide level2 smaller">
-<h2>Comparison of Methods</h2>
-<!-- ###################################################################### -->
-<p>&nbsp;</p>
-<div class="callout callout-note no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Advantages <span class="emoji" data-emoji="heavy_check_mark">✔️</span> and Disadvantages <span class="emoji" data-emoji="x">❌</span></strong></p>
-</div>
-<div class="callout-content">
-<table>
-<colgroup>
-<col style="width: 23%">
-<col style="width: 38%">
-<col style="width: 38%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Case</th>
-<th style="text-align: center;">Deterministic</th>
-<th style="text-align: center;">Bayesian</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Robustness</td>
-<td style="text-align: center;"><span class="emoji" data-emoji="x">❌</span></td>
-<td style="text-align: center;"><span class="emoji" data-emoji="heavy_check_mark">✔️</span></td>
-</tr>
-<tr class="even">
-<td>Computation cost</td>
-<td style="text-align: center;"><span class="emoji" data-emoji="heavy_check_mark">✔️</span></td>
-<td style="text-align: center;"><span class="emoji" data-emoji="x">❌</span></td>
-</tr>
-<tr class="odd">
-<td>Model selection</td>
-<td style="text-align: center;"><span class="emoji" data-emoji="x">❌</span></td>
-<td style="text-align: center;"><span class="emoji" data-emoji="heavy_check_mark">✔️</span></td>
-</tr>
-<tr class="even">
-<td>Prior knowledge</td>
-<td style="text-align: center;"><span class="emoji" data-emoji="heavy_check_mark">✔️</span></td>
-<td style="text-align: center;"><span class="emoji" data-emoji="heavy_check_mark">✔️</span><span class="emoji" data-emoji="heavy_check_mark">✔️</span></td>
-</tr>
-<tr class="odd">
-<td>Overfitting</td>
-<td style="text-align: center;"><span class="emoji" data-emoji="x">❌</span></td>
-<td style="text-align: center;"><span class="emoji" data-emoji="heavy_check_mark">✔️</span></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</section>
-<section id="energy-shaping-pendulum-swing-up" class="slide level2" data-auto-animate="true" data-auto-animate-easing="ease-in-out">
-<h2 data-id="quarto-animate-title">Energy-Shaping Pendulum Swing-Up</h2>
-<!-- ###################################################################### -->
-<div class="r-stack" data-layout-valign="center">
-<p><img data-src="contents/assets/neuralpbc/033.svg" class="fragment shrink" data-fragment-index="0"></p>
-<p><img data-src="contents/assets/H.svg" class="fragment" data-fragmend-index="1"></p>
-</div>
-</section>
-<section id="energy-shaping-pendulum-swing-up-1" class="slide level2" data-auto-animate="true" data-auto-animate-easing="ease-in-out">
-<h2 data-id="quarto-animate-title">Energy-Shaping Pendulum Swing-Up</h2>
-<!-- ###################################################################### -->
-<div class="r-hstack">
-<p><img data-src="contents/assets/neuralpbc/033.svg" class="fragment" data-fragment-index="0"></p>
-<p><img data-src="contents/assets/H.svg" class="fragment" data-fragment-index="0"></p>
-</div>
-<div class="fragment" data-fragment-index="1">
-<ul>
-<li class="fragment">Deterministic training vs.&nbsp;Bayesian training under parameter uncertainty and measurement noise.</li>
-<li class="fragment">Measurement noise: <span class="math inline">\(\epsilon_q = 5 \times 10^4\)</span> rad., <span class="math inline">\(\epsilon_{\dot{q}} = 5 \times 10^2\)</span> rad/s.</li>
-</ul>
-</div>
-</section>
-<section id="neuralpbc-experiments" class="slide level2">
-<h2><span class="smallcaps">NeuralPbc</span> Experiments</h2>
-<!-- ###################################################################### -->
-<p>Benchmark underactuated control problems:</p>
-<div class="columns">
-<div class="column" style="width:60%;">
-<ul>
-<li class="fragment highlight-current-blue" data-fragment-index="0">
-Cart-pole
-</li>
-<li class="fragment highlight-current-blue" data-fragment-index="1">
-Inertia-Wheel Pendulum (IWP)
-</li>
-<li class="fragment highlight-current-blue" data-fragment-index="2">
-Acrobot
-</li>
-</ul>
-</div><div class="column" style="width:40%;">
-<div class="r-stack">
-<p><img data-src="contents/assets/cartpole.svg" class="fragment fade-in-then-out" data-fragment-index="0"></p>
-<p><img data-src="contents/assets/iwp.svg" class="fragment fade-in-then-out" data-fragment-index="1"></p>
-<p><img data-src="contents/assets/acrobot.svg" class="fragment fade-in-then-out" data-fragment-index="2"></p>
-</div>
-</div>
-</div>
-</section>
-<section id="section-2" class="slide level2" data-background-video="contents/assets/cartpole-firefox.mp4" data-background-size="contain" data-background-video-loop="true" data-background-video-muted="true">
-<h2></h2>
-<!-- ###################################################################### -->
-</section>
-<section id="learned-storage-function" class="slide level2">
-<h2>Learned storage function</h2>
-<!-- ###################################################################### -->
-
-<img data-src="contents/assets/cartpole-contours.png" class="r-stretch"><dl>
-<dt>Observations</dt>
-<dd>
-<span class="math inline">\(H_d^\theta\)</span> has a local minimum at <span class="math inline">\(x^\star\)</span>, control law <span class="math inline">\(u^\theta\)</span> commands the force in the expected direction
-</dd>
-</dl>
-</section>
-<section id="comparison-with-energy-shapingastrom" class="slide level2">
-<h2>Comparison with Energy Shaping<sup>1</sup></h2>
-<!-- ###################################################################### -->
-<p><img data-src="contents/assets/cartpole-cost-compare.svg"></p>
-<aside><ol class="aside-footnotes"><li id="fn1"><p>K. J. Åström and K. Furuta, “Swinging up a pendulum by energy control,” Automatica, vol.&nbsp;36, no. 2, pp.&nbsp;287–295, 2000.</p></li></ol></aside></section>
-<section id="section-3" class="slide level2" data-background-video="contents/assets/cartpole-exp.mp4" data-background-size="contain" data-background-video-loop="true" data-background-video-muted="true">
-<h2></h2>
-<!-- ###################################################################### -->
-</section>
-<section id="section-4" class="slide level2" data-background-video="contents/assets/acrobot-firefox.mp4" data-background-size="contain" data-background-video-loop="true" data-background-video-muted="true">
-<h2></h2>
-<!-- ###################################################################### -->
 </section></section>
 <section>
 <section id="case-studies" class="title-slide slide level1 center">
 <h1>Case Studies</h1>
 
+</section>
+<section id="section-2" class="slide level2" data-background-video="contents/assets/cartpole-exp.mp4" data-background-size="contain" data-background-video-loop="true" data-background-video-muted="true">
+<h2></h2>
+<!-- ###################################################################### -->
 </section>
 <section id="deterministic-vs.-bayesian" class="slide level2">
 <h2>Deterministic vs.&nbsp;Bayesian</h2>
@@ -1964,7 +1830,7 @@ Acrobot
 </div>
 </div>
 </section>
-<section id="section-5" class="slide level2" data-background-video="contents/assets/4_rings_hardware.mp4" data-background-size="contain" data-background-video-muted="true" data-background-video-loop="true">
+<section id="section-3" class="slide level2" data-background-video="contents/assets/4_rings_hardware.mp4" data-background-size="contain" data-background-video-muted="true" data-background-video-loop="true">
 <h2></h2>
 </section>
 <section id="rimless-wheel" class="slide level2">
@@ -1979,7 +1845,7 @@ p_s \sim \mathbb{U}(0 \textrm{cm}, 2\textrm{cm})
 \]</span></li>
 </ul>
 </section>
-<section id="section-6" class="slide level2" data-background-video="contents/assets/rw_uneven_success.mp4" data-background-size="contain" data-background-video-muted="true" data-background-video-loop="true">
+<section id="section-4" class="slide level2" data-background-video="contents/assets/rw_uneven_success.mp4" data-background-size="contain" data-background-video-muted="true" data-background-video-loop="true">
 <h2></h2>
 </section>
 <section id="deterministic-vs-bayesian" class="slide level2">
@@ -2153,7 +2019,6 @@ Figure&nbsp;1: NSF Award #2330794
 </div>
 </div>
 </section></section>
-
     </div>
   </div>
 

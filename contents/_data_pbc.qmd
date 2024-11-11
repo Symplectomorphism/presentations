@@ -236,6 +236,7 @@ $\boxed{u = -mgl\sin(x) - K_P(q - q^\star) - K_D \dot{q}}$
 :::
 
 :::: {.fragment}
+
 ::: {style="text-align: center; font-size: 27px"}
 <span style="font-variant:small-caps;">NeuralPbc</span> | <span style="font-variant:small-caps;">NeuralIdaPbc</span> 
 :---: | :---:
@@ -243,7 +244,9 @@ $H_d$ neural net | $H_d$ quadratic in $p$
 Sample state space | __Sample configuration space__
 No stability certificate | __Stability certificate__
 __More flexible__ | As applicable as <span style="font-variant:small-caps;">IdaPbc</span>
+
 :::
+
 ::::
 
 
@@ -329,11 +332,11 @@ $$
 
 <br/>
 
-:::{.incremental}
+::: {.fragment fragment-index=0}
 * <span style="font-variant:small-caps;">NeuralPbc</span> assumes a nominal model $\dot{x} = f_p(x, u)$
 * The trained controller must not overfit on the observations generated from the nominal model
-
 :::
+
 :::
 
 :::{.column width=50%}
@@ -345,8 +348,7 @@ $$
 
 ::::
 
-:::{.fragment fragment-index=0}
-:::{.incremental}
+:::{.fragment fragment-index=1}
 * **Our method**: $H_d$ is a Bayesian neural network
     + achieves the performance objective for samples $\theta \sim P(\theta | \mathbb{D})$
     + searches for ensemble of parameters that meet the desired performance 
@@ -356,7 +358,6 @@ $$
     {\underbrace{\int_\theta P(\mathbb{D} \mid \theta^\prime)P(\theta^\prime)
     d\theta^\prime}_{\text{evidence}}}.
   $$
-:::
 :::
 
 
@@ -560,8 +561,6 @@ $$
 
 
 
-# Bayesian <span style="font-variant:small-caps;">NeuralPbc</span>
-
 ## Bayesian <span style="font-variant:small-caps;">NeuralPbc</span>
 
 <br/>
@@ -709,108 +708,10 @@ H(x^+) \leq H(x^-)
    height=300 width="100%" >}}
 
 
-## Comparison of Methods {.smaller}
-<!-- ###################################################################### -->
-
-&nbsp;
-
-::: {.callout-note icon=false}
-## Advantages :heavy_check_mark: and Disadvantages :x:
-
-|Case|Deterministic|Bayesian|
-|---|:---:|:---:|
-|Robustness|:x:|:heavy_check_mark:|
-|Computation cost|:heavy_check_mark:|:x:|
-|Model selection|:x:|:heavy_check_mark:|
-|Prior knowledge|:heavy_check_mark:|:heavy_check_mark::heavy_check_mark:|
-|Overfitting|:x:|:heavy_check_mark:|
-:::
-
-
-## Energy-Shaping Pendulum Swing-Up {auto-animate="true" auto-animate-easing="ease-in-out"}
-<!-- ###################################################################### -->
-
-
-::: {.r-stack layout-valign="center"}
-![](contents/assets/neuralpbc/033.svg){.fragment .shrink fragment-index=0}
-
-![](contents/assets/H.svg){.fragment fragmend-index=1}
-:::
-
-
-## Energy-Shaping Pendulum Swing-Up {auto-animate="true" auto-animate-easing="ease-in-out"}
-<!-- ###################################################################### -->
-
-
-::: r-hstack
-![](contents/assets/neuralpbc/033.svg){.fragment data-fragment-index=0}
-
-![](contents/assets/H.svg){.fragment data-fragment-index=0}
-:::
-
-::: {.incremental .fragment data-fragment-index=1}
-* Deterministic training vs. Bayesian training under parameter uncertainty and measurement noise.
-* Measurement noise: $\epsilon_q = 5 \times 10^4$ rad., $\epsilon_{\dot{q}} = 5 \times 10^2$ rad/s.
-:::
-
-
-## <span style="font-variant:small-caps;">NeuralPbc</span> Experiments
-<!-- ###################################################################### -->
-Benchmark underactuated  control problems:
-
-:::: {.columns}
-::: {.column width="60%"}
-<ul>
-<li class="fragment highlight-current-blue" data-fragment-index="0">Cart-pole</li>
-<li class="fragment highlight-current-blue" data-fragment-index="1">Inertia-Wheel Pendulum (IWP)</li>
-<li class="fragment highlight-current-blue" data-fragment-index="2">Acrobot</li>
-</ul>
-:::
-::: {.column width=40%}
-::: {.r-stack}
-![](contents/assets/cartpole.svg){.fragment .fade-in-then-out fragment-index=0}
-
-![](contents/assets/iwp.svg){.fragment .fade-in-then-out fragment-index=1}
-
-![](contents/assets/acrobot.svg){.fragment .fade-in-then-out fragment-index=2}
-:::
-:::
-::::
-
-## {background-video="contents/assets/cartpole-firefox.mp4" background-size="contain" background-video-loop="true" background-video-muted="true"}
-<!-- ###################################################################### -->
-
-## Learned storage function
-<!-- ###################################################################### -->
-
-![](contents/assets/cartpole-contours.png)
-
-Observations
-: 
-$H_d^\theta$ has a local minimum at $x^\star$, control law $u^\theta$ commands the force in the expected direction
-
-
-## Comparison with Energy Shaping[^astrom]
-<!-- ###################################################################### -->
-
-![](contents/assets/cartpole-cost-compare.svg)
-
-
-
-[^astrom]: K. J. Åström and K. Furuta, "Swinging up a pendulum by energy control,"
-Automatica, vol. 36, no. 2, pp. 287–295, 2000.
+# Case Studies
 
 ## {background-video="contents/assets/cartpole-exp.mp4" background-size="contain" background-video-loop="true" background-video-muted="true"}
 <!-- ###################################################################### -->
-
-
-## {background-video="contents/assets/acrobot-firefox.mp4" background-size="contain" background-video-loop="true" background-video-muted="true"}
-<!-- ###################################################################### -->
-
-
-
-
-# Case Studies
 
 
 ## Deterministic vs. Bayesian
