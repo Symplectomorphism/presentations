@@ -1229,7 +1229,7 @@ p(\mathbf{x} | \mathbf{o}, \mathbf{l}) \propto p(x_1) \prod_{i=2}^{3} p(x_i | x_
 <section id="our-methods" class="slide level2">
 <h2>Our Methods</h2>
 <!-- ###################################################################### -->
-<div class="quarto-layout-panel" data-layout-align="center" data-layout="[-1,8,-1]">
+<div class="quarto-layout-panel" data-layout="[-1,8,-1]" data-layout-align="center">
 <div class="quarto-layout-row quarto-layout-valign-center">
 <div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 10.0%;justify-content: center;">
 <p>&nbsp;</p>
@@ -1321,7 +1321,10 @@ p(\mathbf{x} | \mathbf{o}, \mathbf{l}) \propto p(x_1) \prod_{i=2}^{3} p(x_i | x_
 <section id="neuralpbc-problem-statement-1" class="slide level2">
 <h2><span class="smallcaps">NeuralPbc</span> Problem Statement</h2>
 <!-- ###################################################################### -->
-<p>::: {layout=“[120 100]” layout-valign=“top”}</p>
+<div class="columns">
+
+<div class="column" style="width: 52%">
+
 <div class="callout callout-none no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
@@ -1391,12 +1394,71 @@ Initial conditions chosen from previously visited states
   * <span style="font-size:22px">DAgger sampling</span>
   * <span style="font-size:22px">Initial conditions chosen from previously visited states</span>
 -->
-<div class="fragment" data-fragment-index="0">
-<p><img data-src="contents/assets/pend_damped_phase_edited.svg"></p>
-<p><img data-src="contents/assets/transverseCoordinates.svg"></p>
+</ul></div>
+<div class="column" style="width: 47%">
+<div class="r-stack">
+<div class="fade-in-then-out fragment" data-fragment-index="0">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="contents/assets/pend_damped_phase_edited.svg" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+<figcaption>Penalize states away from a desired ball.</figcaption>
+</figure>
 </div>
-<p>:::</p>
-</ul></section>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="contents/assets/transverseCoordinates.svg" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+<figcaption>Penalize nonzero transverse coordinates.</figcaption>
+</figure>
+</div>
+</div>
+<div class="fade-in-then-out fragment" data-fragment-index="1">
+<p>We need <span class="math inline">\(\partial J / \partial \theta\)</span>, which depends ODE solutions</p>
+<ul>
+<li>Adjoint sensitivity method: solve the adjoint problem backward in time <span class="math display">\[\frac{\text{d}\lambda}{\text{d}t} = -\lambda \frac{\partial f}{\partial x}, \quad \frac{\partial J}{\partial \theta} = \lambda(t_0) \frac{\partial f}{\partial x}\]</span></li>
+</ul>
+</div>
+<div class="fade-in fragment" data-fragment-index="2">
+<div class="r-stack">
+<p><img data-src="contents/assets/neuralpbc/000.svg"></p>
+<p><img data-src="contents/assets/neuralpbc/001.svg" class="fragment"></p>
+<p><img data-src="contents/assets/neuralpbc/002.svg" class="fragment"></p>
+<p><img data-src="contents/assets/neuralpbc/003.svg" class="fragment"></p>
+<p><img data-src="contents/assets/neuralpbc/004.svg" class="fragment"></p>
+<p><img data-src="contents/assets/neuralpbc/005.svg" class="fragment"></p>
+<p><img data-src="contents/assets/neuralpbc/006.svg" class="fragment"></p>
+<p><img data-src="contents/assets/neuralpbc/007.svg" class="fragment"></p>
+<p><img data-src="contents/assets/neuralpbc/008.svg" class="fragment"></p>
+<p><img data-src="contents/assets/neuralpbc/009.svg" class="fragment"></p>
+<p><img data-src="contents/assets/neuralpbc/010.svg" class="fragment"></p>
+<p><img data-src="contents/assets/neuralpbc/011.svg" class="fragment"></p>
+<p><img data-src="contents/assets/neuralpbc/012.svg" class="fragment"></p>
+<p><img data-src="contents/assets/neuralpbc/013.svg" class="fragment"></p>
+<p><img data-src="contents/assets/neuralpbc/014.svg" class="fragment"></p>
+<p><img data-src="contents/assets/neuralpbc/015.svg" class="fragment"></p>
+<p><img data-src="contents/assets/neuralpbc/016.svg" class="fragment"></p>
+<p><img data-src="contents/assets/neuralpbc/017.svg" class="fragment"></p>
+<p><img data-src="contents/assets/neuralpbc/018.svg" class="fragment"></p>
+<p><img data-src="contents/assets/neuralpbc/019.svg" class="fragment"></p>
+<p><img data-src="contents/assets/neuralpbc/020.svg" class="fragment"></p>
+<p><img data-src="contents/assets/neuralpbc/021.svg" class="fragment"></p>
+<p><img data-src="contents/assets/neuralpbc/022.svg" class="fragment"></p>
+<p><img data-src="contents/assets/neuralpbc/023.svg" class="fragment"></p>
+<p><img data-src="contents/assets/neuralpbc/024.svg" class="fragment"></p>
+<p><img data-src="contents/assets/neuralpbc/025.svg" class="fragment"></p>
+<p><img data-src="contents/assets/neuralpbc/026.svg" class="fragment"></p>
+<p><img data-src="contents/assets/neuralpbc/027.svg" class="fragment"></p>
+<p><img data-src="contents/assets/neuralpbc/028.svg" class="fragment"></p>
+<p><img data-src="contents/assets/neuralpbc/029.svg" class="fragment"></p>
+<p><img data-src="contents/assets/neuralpbc/030.svg" class="fragment"></p>
+<p><img data-src="contents/assets/neuralpbc/031.svg" class="fragment"></p>
+<p><img data-src="contents/assets/neuralpbc/032.svg" class="fragment"></p>
+<p><img data-src="contents/assets/neuralpbc/033.svg" class="fragment"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
 <section id="robustness-via-bayesian-learning-1" class="slide level2">
 <h2>Robustness via Bayesian Learning</h2>
 <div class="columns">

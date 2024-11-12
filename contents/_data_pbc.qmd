@@ -293,8 +293,9 @@ Parameterize $H_d$ by a neural network $H_d^\theta$, and relax control task to b
 ## <span style="font-variant:small-caps;">NeuralPbc</span> Problem Statement
 <!-- ###################################################################### -->
 
+<div class="columns">
 
-::: {layout="[120 100]" layout-valign="top"}
+<div class="column" style="width: 52%"> 
 
 ::: {.callout}
 $$
@@ -333,6 +334,7 @@ $$
     <li style="font-size:20px">Initial conditions chosen from previously visited states</li>
 </ul>
 
+
 <!--
 - <span style="font-size:24px">Injecting control task into loss function design</span>
   * <span style="font-size:22px">May require an initial motion/path planning step</span>
@@ -344,16 +346,104 @@ $$
   * <span style="font-size:22px">DAgger sampling</span>
   * <span style="font-size:22px">Initial conditions chosen from previously visited states</span>
 -->
+</div>
 
+<div class="column" style="width: 47%">
 
-::: {.fragment fragment-index=0}
-![](contents/assets/pend_damped_phase_edited.svg)
+::: {.r-stack}
+::: {.fade-in-then-out .fragment fragment-index=0}
+![Penalize states away from a desired ball.](contents/assets/pend_damped_phase_edited.svg){width="80%" fig-align="center"}
 
-![](contents/assets/transverseCoordinates.svg)
+![Penalize nonzero transverse coordinates.](contents/assets/transverseCoordinates.svg){width="80%" fig-align="center"}
+:::
+
+::: {.fade-in-then-out .fragment fragment-index=1}
+We need $\partial J / \partial \theta$, which depends ODE solutions
+
+* Adjoint sensitivity method: solve the adjoint problem backward in time
+$$\frac{\text{d}\lambda}{\text{d}t} = -\lambda \frac{\partial f}{\partial x}, \quad \frac{\partial J}{\partial \theta} = \lambda(t_0) \frac{\partial f}{\partial x}$$
+:::
+
+::: {.fade-in .fragment fragment-index=2}
+
+:::: {.r-stack}
+![](contents/assets/neuralpbc/000.svg)
+
+![](contents/assets/neuralpbc/001.svg){.fragment}
+
+![](contents/assets/neuralpbc/002.svg){.fragment}
+
+![](contents/assets/neuralpbc/003.svg){.fragment}
+
+![](contents/assets/neuralpbc/004.svg){.fragment}
+
+![](contents/assets/neuralpbc/005.svg){.fragment}
+
+![](contents/assets/neuralpbc/006.svg){.fragment}
+
+![](contents/assets/neuralpbc/007.svg){.fragment}
+
+![](contents/assets/neuralpbc/008.svg){.fragment}
+
+![](contents/assets/neuralpbc/009.svg){.fragment}
+
+![](contents/assets/neuralpbc/010.svg){.fragment}
+
+![](contents/assets/neuralpbc/011.svg){.fragment}
+
+![](contents/assets/neuralpbc/012.svg){.fragment}
+
+![](contents/assets/neuralpbc/013.svg){.fragment}
+
+![](contents/assets/neuralpbc/014.svg){.fragment}
+
+![](contents/assets/neuralpbc/015.svg){.fragment}
+
+![](contents/assets/neuralpbc/016.svg){.fragment}
+
+![](contents/assets/neuralpbc/017.svg){.fragment}
+
+![](contents/assets/neuralpbc/018.svg){.fragment}
+
+![](contents/assets/neuralpbc/019.svg){.fragment}
+
+![](contents/assets/neuralpbc/020.svg){.fragment}
+
+![](contents/assets/neuralpbc/021.svg){.fragment}
+
+![](contents/assets/neuralpbc/022.svg){.fragment}
+
+![](contents/assets/neuralpbc/023.svg){.fragment}
+
+![](contents/assets/neuralpbc/024.svg){.fragment}
+
+![](contents/assets/neuralpbc/025.svg){.fragment}
+
+![](contents/assets/neuralpbc/026.svg){.fragment}
+
+![](contents/assets/neuralpbc/027.svg){.fragment}
+
+![](contents/assets/neuralpbc/028.svg){.fragment}
+
+![](contents/assets/neuralpbc/029.svg){.fragment}
+
+![](contents/assets/neuralpbc/030.svg){.fragment}
+
+![](contents/assets/neuralpbc/031.svg){.fragment}
+
+![](contents/assets/neuralpbc/032.svg){.fragment}
+
+![](contents/assets/neuralpbc/033.svg){.fragment}
+::::
+
 :::
 
 :::
 
+
+</div>
+
+</div>
 
 
 ## Robustness via Bayesian Learning 
