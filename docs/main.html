@@ -1006,7 +1006,7 @@ p(\mathbf{x} | \mathbf{o}, \mathbf{l}) \propto p(x_1) \prod_{i=2}^{3} p(x_i | x_
   y &amp;= h(x,u)
 \end{cases}
 \quad x \in \mathcal{X} \subset \mathbb{R}^{2n}, \, u \in \mathcal{U} \subset \mathbb{R}^{m}
-\]</span> –&gt; is <strong>dissipative</strong> with respect to some supply rate <span class="math inline">\(s\)</span> if there exists a <em>storage function</em> <span class="math inline">\(\mathcal{H}: \mathcal{X} \to \mathbb{R}^{+}\)</span> such that</p>
+\]</span> is <strong>dissipative</strong> with respect to some supply rate <span class="math inline">\(s\)</span> if there exists a <em>storage function</em> <span class="math inline">\(\mathcal{H}: \mathcal{X} \to \mathbb{R}^{+}\)</span> such that</p>
 <p><span class="math display">\[
 \mathcal{H}\left(  x(t_1) \right) \leq  \mathcal{H}\left(  x(t_0) \right) + \int_{t_0}^{t_1} s(u(t), y(t)) \, \text{d}t
 \]</span></p>
@@ -1173,7 +1173,7 @@ p(\mathbf{x} | \mathbf{o}, \mathbf{l}) \propto p(x_1) \prod_{i=2}^{3} p(x_i | x_
 </div>
 </div>
 </section>
-<section id="pbc-example---simple-pendulum-1" class="slide level2" data-auto-animate="false" data-auto-animate-easing="ease">
+<section id="pbc-example---simple-pendulum-1" class="slide level2" data-auto-animate="false" data-auto-animate-easing="ease" data-visibility="uncounted">
 <h2 data-id="quarto-animate-title">PBC Example - Simple Pendulum</h2>
 <!-- ###################################################################### -->
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
@@ -1229,7 +1229,7 @@ p(\mathbf{x} | \mathbf{o}, \mathbf{l}) \propto p(x_1) \prod_{i=2}^{3} p(x_i | x_
 <section id="our-methods" class="slide level2">
 <h2>Our Methods</h2>
 <!-- ###################################################################### -->
-<div class="quarto-layout-panel" data-layout="[-1,8,-1]" data-layout-align="center">
+<div class="quarto-layout-panel" data-layout-align="center" data-layout="[-1,8,-1]">
 <div class="quarto-layout-row quarto-layout-valign-center">
 <div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 10.0%;justify-content: center;">
 <p>&nbsp;</p>
@@ -1541,7 +1541,7 @@ x(t) = e^{(p+\theta)t} + \theta \sigma \int_0^t e^{(p+\theta)(t-s)}dW_s.
 </div>
 </div>
 </section>
-<section id="conditional-expectation" class="slide level2 smaller" data-auto-animate="true" data-visibility="uncounted">
+<section id="conditional-expectation" class="slide level2 smaller" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Conditional Expectation</h2>
 <!-- ###################################################################### -->
 <div class="fragment" data-fragment-index="2" data-id="lemma">
@@ -1599,17 +1599,21 @@ x(t) = e^{(p+\theta)t} + \theta \sigma \int_0^t e^{(p+\theta)(t-s)}dW_s.
 </div>
 </div>
 </section>
-<section id="optimal-controller" class="slide level2" data-auto-animate="true" data-auto-animate-easing="ease-in-out" data-visibility="uncounted">
+<section id="optimal-controller" class="slide level2" data-auto-animate="true" data-auto-animate-easing="ease-in-out">
 <h2 data-id="quarto-animate-title">Optimal Controller</h2>
 <!-- ###################################################################### -->
 <div class="r-stack" data-layout-valign="center">
 <p><img data-src="contents/assets/optimal_ctrl.svg" class="fragment" style="width:80.0%" data-fragment-index="0" data-id="opt-ctrl"></p>
-<div class="fragment" style="vertical-align: bottom" data-fragment-index="0">
-Optimal controller <span class="math inline">\(|\theta^\star|\)</span> minimizing <span class="math inline">\(\mathbb{E}\mathcal{J}\)</span>
-</div>
 <p><img data-src="contents/assets/optimal_cost.svg" class="fragment" style="width:80.0%" data-fragment-index="1" data-id="opt-cost"></p>
-<div class="fragment" style="vertical-align: bottom" data-fragment-index="1">
-Minimal expected cost <span class="math inline">\(\mathbb{E}\mathcal{J}\)</span>
+</div>
+<div class="r-stack">
+<div class="{.layout-ncol=2}">
+<div class="fragment fade-in-then-out" data-fragment-index="0">
+<p>Optimal controller <span class="math inline">\(|\theta^\star|\)</span> minimizing <span class="math inline">\(\mathbb{E}\mathcal{J}\)</span></p>
+</div>
+<div class="fragment fade-in-then-out" data-fragment-index="1">
+<p>Minimal expected cost <span class="math inline">\(\mathbb{E}\mathcal{J}\)</span></p>
+</div>
 </div>
 </div>
 </section>
@@ -1632,16 +1636,17 @@ Minimal expected cost <span class="math inline">\(\mathbb{E}\mathcal{J}\)</span>
 </div>
 <div class="fragment" data-fragment-index="1">
 <ul>
-<li class="fragment">Optimal control parameter a nontrivial function of <span class="math inline">\(\sigma\)</span> and <span class="math inline">\(\sigma_p\)</span>.</li>
-<li class="fragment">Bayesian learning strikes the right trade-off.</li>
+<li>Optimal control parameter a nontrivial function of <span class="math inline">\(\sigma\)</span> and <span class="math inline">\(\sigma_p\)</span>.</li>
+<li>Bayesian learning strikes the right trade-off.</li>
 </ul>
 </div>
 </section>
-<section id="bayesian-neuralpbc" class="slide level2">
-<h2>Bayesian <span class="smallcaps">NeuralPbc</span></h2>
+<section id="bayesian-neuralpbc" class="slide level2" data-auto-animate="true" data-auto-animate-easing="ease-in-out">
+<h2 data-id="quarto-animate-title">Bayesian <span class="smallcaps">NeuralPbc</span></h2>
 <p><br></p>
 <div class="r-stack">
 <div class="fragment fade-in-then-out" data-fragment-index="0">
+<div data-id="original">
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -1670,7 +1675,74 @@ Minimal expected cost <span class="math inline">\(\mathbb{E}\mathcal{J}\)</span>
 </div>
 </div>
 </div>
+</div>
 <div class="fragment fade-in-then-out" data-fragment-index="1">
+<div data-id="bayesian">
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Bayesian <span class="smallcaps">NeuralPbc</span> Optimization Problem</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="math display">\[
+\begin{aligned}
+    \underset{z}{\text{minimize}} &amp;&amp; J(\phi, u^\theta) &amp;= \mathbb{E}_{x_0 \in \mathcal{D}_N}[ \ell( \phi(x_0, u, T), u) ], \\
+    \text{subject to} &amp;&amp;
+    \begin{bmatrix}
+    \dot{q} \\ \dot{p}
+    \end{bmatrix} &amp;=
+    \begin{bmatrix}
+    0 &amp; I \\ -I &amp; 0
+    \end{bmatrix}
+    \begin{bmatrix} \nabla_q H \\ \nabla_p H \end{bmatrix} +
+    \begin{bmatrix}
+    0 \\ \Omega
+    \end{bmatrix} u^{\theta},
+    \\
+    &amp;&amp; u^\theta &amp;= \Omega^{\dagger}(\nabla_q H  - \nabla_q H_d^\theta),\\
+    &amp;&amp; \theta &amp;\sim Q(\theta; z).
+\end{aligned}
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="bayesian-neuralpbc-1" class="slide level2" data-auto-animate="true" data-auto-animate-easing="ease-in-out" data-visibility="uncounted">
+<h2 data-id="quarto-animate-title">Bayesian <span class="smallcaps">NeuralPbc</span></h2>
+<div class="r-hstack">
+<div data-id="original">
+<div class="callout callout-tip no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong><span class="smallcaps">NeuralPbc</span> Optimization Problem</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="math display">\[
+\begin{aligned}
+\underset{\theta}{\text{minimize}} &amp;&amp; J(\phi, u^\theta) &amp;= \mathbb{E}_{x_0 \in \mathcal{D}_N}[ \ell( \phi(x_0, u, T), u) ], \\
+\text{subject to} &amp;&amp;
+\begin{bmatrix}
+  \dot{q} \\ \dot{p}
+\end{bmatrix} &amp;=
+\begin{bmatrix}
+  0 &amp; I \\ -I &amp; 0
+\end{bmatrix}
+\begin{bmatrix} \nabla_q H \\ \nabla_p H \end{bmatrix} +
+\begin{bmatrix}
+  0 \\ \Omega
+\end{bmatrix} u^{\theta},
+\\
+&amp;&amp; u^\theta &amp;= \Omega^{\dagger}(\nabla_q H  - \nabla_q H_d^\theta).
+\end{aligned}
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div data-id="bayesian">
 <div class="callout callout-note no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -1744,7 +1816,7 @@ Minimal expected cost <span class="math inline">\(\mathbb{E}\mathcal{J}\)</span>
 <section id="neuralpbc-hybrid-system" class="slide level2">
 <h2><span class="smallcaps">NeuralPbc</span>: Hybrid System</h2>
 <p><br></p>
-<div class="fragment quarto-layout-panel" data-layout="[50,-5,50]" data-fragment-index="0">
+<div class="fragment quarto-layout-panel" data-fragment-index="0" data-layout="[50,-5,50]">
 <div class="quarto-layout-row quarto-layout-valign-center">
 <div class="quarto-layout-cell" style="flex-basis: 47.6%;justify-content: flex-start;">
 <div class="callout callout-note no-icon callout-titled callout-style-default">
@@ -1864,8 +1936,14 @@ H(x^+) \leq H(x^-)
 </section>
 <section id="rimless-wheel" class="slide level2">
 <h2>Rimless Wheel</h2>
-
-<img data-src="contents/assets/rimlesswheel.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"><ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="contents/assets/rimlesswheel.svg" class="quarto-figure quarto-figure-center" style="width:70.0%"></p>
+</figure>
+</div>
+<ul>
 <li>Performance objective: achieve hip speed <span class="math inline">\(\dot{x}_c^* = 1\)</span>m/s <span class="math display">\[\begin{align*}
   J_T = \sum_{t=0}^{T} \| \dot{x}_c^* - \dot{x}_c(t; \theta) \|
 \end{align*}\]</span></li>
@@ -1873,28 +1951,11 @@ H(x^+) \leq H(x^-)
 p_s \sim \mathbb{U}(0 \textrm{cm}, 2\textrm{cm})
 \]</span></li>
 </ul>
-</section>
-<section id="section-4" class="slide level2" data-background-video="contents/assets/rw_uneven_success.mp4" data-background-size="contain" data-background-video-muted="true" data-background-video-loop="true">
-<h2></h2>
-</section>
-<section id="deterministic-vs-bayesian" class="slide level2">
-<h2>Deterministic vs Bayesian</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="contents/assets/RW_deter_trajectory2.svg" class="quarto-figure quarto-figure-center" style="width:90.0%"></p>
-</figure>
-</div>
 </div><div class="column" style="width:50%;">
-<p><span class="math display">\[\begin{align*}
-p_s &amp;\sim \mathbb{U}(0, p_{max})  \\
-p_{max} &amp;= [0, 0.5, 1, 1.5, 2] \textrm{cm} \\
-J_T &amp;= \sum_{t=0}^{T} \| \dot{x}_c^* - \dot{x}_c(t; \theta) \|
-\end{align*}\]</span></p>
+<video id="video_shortcode_videojs_video9" width="600" class="video-js vjs-default-skin " controls="" preload="auto" data-setup="{}" title=""><source src="./contents/assets/rw_uneven_success.mp4"></video>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="contents/assets/simulationComparison.svg" class="quarto-figure quarto-figure-center" style="width:90.0%"></p>
+<p><img data-src="contents/assets/simulationComparison.svg" class="quarto-figure quarto-figure-center" style="width:70.0%"></p>
 </figure>
 </div>
 </div>
@@ -2463,6 +2524,7 @@ Figure&nbsp;1: NSF Award #2330794
     <script>videojs(video_shortcode_videojs_video6);</script>
     <script>videojs(video_shortcode_videojs_video7);</script>
     <script>videojs(video_shortcode_videojs_video8);</script>
+    <script>videojs(video_shortcode_videojs_video9);</script>
     
 
 </body></html>
