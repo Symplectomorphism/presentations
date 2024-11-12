@@ -9,3 +9,81 @@
 
 
 ## Potential Funding Mechanisms
+
+<div class="columns">
+
+<div class="column" style="width:40%">
+
+<iframe width="500" height="281" src="https://www.youtube.com/embed/Av9z51QDNxg?si=tc6XAqDKaYwpxwFD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<iframe width="500" height="281" src="https://www.youtube.com/embed/-_dttDbGhVA?si=kaXjNGkbsSlKi9s3?mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+</div>
+
+<div class="column" style="width:40%">
+<!--{{< video ./contents/assets/PhysicalIntelligence_2min_v2_out.mp4 >}}-->
+
+<video autoplay="false" muted="true" controls="" loop="" playsinline="" class="w-full mx-auto max-w-7xl mb-6 rounded-md"><source src="https://dnrjl01ydafck.cloudfront.net/v2/upload/PhysicalIntelligence_2min_v2_out.mp4" height="281" type="video/mp4"></video>
+
+<br>
+
+<iframe width="500" height="281" src="https://www.youtube.com/embed/cpraXaw7dyc?si=yANbdBlIkuAOhaFn?autoplay=1?mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+</div>
+
+<div class="column" style="width:15%">
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+::: {layout="[[-1], [1], [-1]]"}
+![](./contents/assets/nsf-logo.svg){width="100%"}
+:::
+
+</div>
+
+</div>
+
+
+
+## Potential Funding Mechanisms {visibility="uncounted"}
+
+
+<div class="columns">
+
+<div class="column" style="width:40%">
+
+&nbsp;
+
+&nbsp;
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/wkqyR81LgOc?si=0YICbgkrsU1Igh_X" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+</div>
+
+<div class="column" style="width:40%">
+
+&nbsp;
+
+&nbsp;
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/UVOn-i8JZbE?si=JCOW_cdL0b1xFGMr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+</div>
+
+<div class="column" style="width:15%">
+
+::: {layout="[[1], [-1], [1], [-1], [1]]"}
+![](./contents/assets/dod-logo.svg){width="100%"}
+
+![](./contents/assets/doe-logo.svg){width="100%"}
+
+![](./contents/assets/usda-logo.svg){width="100%"}
+:::
+
+</div>
+
+</div>
