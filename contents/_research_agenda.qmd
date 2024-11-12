@@ -3,12 +3,83 @@
 ## Where the Robotics/Control Field is Going?
 
 
+<div class="columns">
 
-## State-of-the-Art Neural Network Techniques
+<div class="column" style="width:40%; position: left:80px;">
+
+<br>
+
+<iframe align="right" width="315" height="560"
+src="https://youtube.com/embed/KM0YaWq1y4E?si=qWQsT5sCviY45VEq"
+title="YouTube video player"
+frameborder="0"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+allowfullscreen></iframe>
+
+</div>
+
+<div class="column" style="width:58%">
+<!--{{< video ./contents/assets/PhysicalIntelligence_2min_v2_out.mp4 >}}-->
+
+<video autoplay="false" muted="true" controls="" loop="" playsinline="" class="w-full mx-auto max-w-7xl mb-6 rounded-md"><source src="https://dnrjl01ydafck.cloudfront.net/v2/upload/PhysicalIntelligence_2min_v2_out.mp4" height="250" type="video/mp4"></video>
+
+<iframe width="500" height="281" src="https://www.youtube.com/embed/cpraXaw7dyc?si=yANbdBlIkuAOhaFn?autoplay=1?mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+</div>
+
+
+</div>
+
+
+## Future Research: Robustness of GNNs for Robot Control 
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+![](./contents/assets/nervenet.png)
+:::
+
+::: {.column width="50%"}
+
+{{< video src="./contents/assets/nervenet.mp4" start="10" >}}
+
+<!--center>
+<video autoplay="true" muted="true"><source src="./contents/assets/nervenet.mp4"></video>
+</center-->
+
+:::
+
+::::
+
+![](./contents/assets/gnn_robustness.jpg)
+
+
+## Future Research: Convex Optimization Layers on GNNs {visibility="uncounted"}
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+![](./contents/assets/convex_opt_layer.png)
+:::
+
+::: {.column width="50%"}
+
+* Propagate features to neighbors using convex-opt layers rather than MLPs.
+
+:::
+
+
+::::
 
 
 
-## Potential Funding Mechanisms
+## Future Research: Passive imitation-learning through LLMs {visibility="uncounted"}
+
+
+
+## Funding Mechanism: NSF Foundational Research in Robotics
 
 <div class="columns">
 
@@ -49,7 +120,7 @@
 
 
 
-## Potential Funding Mechanisms {visibility="uncounted"}
+## Funding Mechanisms: SBIR and STTRs {visibility="uncounted"}
 
 
 <div class="columns">
@@ -71,6 +142,9 @@
 &nbsp;
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/UVOn-i8JZbE?si=JCOW_cdL0b1xFGMr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
+![](./contents/assets/nsf-logo.svg){width="50%"}
 
 </div>
 

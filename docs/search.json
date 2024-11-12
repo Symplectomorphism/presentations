@@ -315,25 +315,39 @@
     "text": "Where the Robotics/Control Field is Going?"
   },
   {
-    "objectID": "main.html#state-of-the-art-neural-network-techniques",
-    "href": "main.html#state-of-the-art-neural-network-techniques",
+    "objectID": "main.html#future-research-robustness-of-gnns-for-robot-control",
+    "href": "main.html#future-research-robustness-of-gnns-for-robot-control",
     "title": "main",
-    "section": "State-of-the-Art Neural Network Techniques",
-    "text": "State-of-the-Art Neural Network Techniques"
+    "section": "Future Research: Robustness of GNNs for Robot Control",
+    "text": "Future Research: Robustness of GNNs for Robot Control"
   },
   {
-    "objectID": "main.html#potential-funding-mechanisms",
-    "href": "main.html#potential-funding-mechanisms",
+    "objectID": "main.html#future-research-convex-optimization-layers-on-gnns",
+    "href": "main.html#future-research-convex-optimization-layers-on-gnns",
     "title": "main",
-    "section": "Potential Funding Mechanisms",
-    "text": "Potential Funding Mechanisms"
+    "section": "Future Research: Convex Optimization Layers on GNNs",
+    "text": "Future Research: Convex Optimization Layers on GNNs\n\n\n\n\n\nPropagate features to neighbors using convex-opt layers rather than MLPs."
   },
   {
-    "objectID": "main.html#potential-funding-mechanisms-1",
-    "href": "main.html#potential-funding-mechanisms-1",
+    "objectID": "main.html#future-research-passive-imitation-learning-through-llms",
+    "href": "main.html#future-research-passive-imitation-learning-through-llms",
     "title": "main",
-    "section": "Potential Funding Mechanisms",
-    "text": "Potential Funding Mechanisms"
+    "section": "Future Research: Passive imitation-learning through LLMs",
+    "text": "Future Research: Passive imitation-learning through LLMs"
+  },
+  {
+    "objectID": "main.html#funding-mechanism-nsf-foundational-research-in-robotics",
+    "href": "main.html#funding-mechanism-nsf-foundational-research-in-robotics",
+    "title": "main",
+    "section": "Funding Mechanism: NSF Foundational Research in Robotics",
+    "text": "Funding Mechanism: NSF Foundational Research in Robotics"
+  },
+  {
+    "objectID": "main.html#funding-mechanisms-sbir-and-sttrs",
+    "href": "main.html#funding-mechanisms-sbir-and-sttrs",
+    "title": "main",
+    "section": "Funding Mechanisms: SBIR and STTRs",
+    "text": "Funding Mechanisms: SBIR and STTRs"
   },
   {
     "objectID": "main.html#current-research-approx.-30-minutes",
