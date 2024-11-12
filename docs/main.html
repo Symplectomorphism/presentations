@@ -587,7 +587,7 @@
 <p><img data-src="./contents/assets/true_closedloop.svg" class="fragment" style="width:100.0%" data-fragment-index="0"></p>
 <p><img data-src="./contents/assets/trained_closedloop.svg" class="fragment" style="width:100.0%" data-fragment-index="0"></p>
 </div>
-<div class="fragment quarto-layout-panel" data-fragment-index="0" data-layout="[100, 100]">
+<div class="fragment quarto-layout-panel" data-layout="[100, 100]" data-fragment-index="0">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <iframe data-external="1" src="https://www.youtube.com/embed/7t1E7FWawgA" width="100%" height="300" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
@@ -1321,6 +1321,7 @@ p(\mathbf{x} | \mathbf{o}, \mathbf{l}) \propto p(x_1) \prod_{i=2}^{3} p(x_i | x_
 <section id="neuralpbc-problem-statement-1" class="slide level2">
 <h2><span class="smallcaps">NeuralPbc</span> Problem Statement</h2>
 <!-- ###################################################################### -->
+<p>::: {layout=“[120 100]” layout-valign=“top”}</p>
 <div class="callout callout-none no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
@@ -1346,23 +1347,56 @@ p(\mathbf{x} | \mathbf{o}, \mathbf{l}) \propto p(x_1) \prod_{i=2}^{3} p(x_i | x_
 </div>
 </div>
 <ul>
-<li>Injecting control task into loss function design
+<li class="fragment highlight-current-blue" style="font-size:24px" data-fragment-index="0">
+Injecting control task into loss function design
+</li>
 <ul>
-<li>May require an initial motion/path planning step</li>
-<li>For simple tasks, can just be quadratic loss to goal</li>
-</ul></li>
-<li>Backprop through closed-loop trajectories
-<ul>
-<li>Forward or adjoint differentiation</li>
-<li>Typically adjoint differentiation is more efficient</li>
-</ul></li>
-<li>Sampling the state space efficiently
-<ul>
-<li>DAgger sampling</li>
-<li>Initial conditions chosen from previously visited states</li>
-</ul></li>
+<li style="font-size:20px">
+May require an initial motion/path planning step
+</li>
+<li style="font-size:20px">
+For simple tasks, can just be quadratic loss to goal
+</li>
 </ul>
-</section>
+<li class="fragment highlight-current-blue" style="font-size:24px" data-fragment-index="1">
+Backprop through closed-loop trajectories
+</li>
+<ul>
+<li style="font-size:20px">
+Forward or adjoint differentiation
+</li>
+<li style="font-size:20px">
+Typically adjoint differentiation is more efficient
+</li>
+</ul>
+<li class="fragment highlight-current-blue" style="font-size:24px" data-fragment-index="2">
+Sampling the state space efficiently
+</li>
+<ul>
+<li style="font-size:20px">
+DAgger sampling
+</li>
+<li style="font-size:20px">
+Initial conditions chosen from previously visited states
+</li>
+</ul>
+<!--
+- <span style="font-size:24px">Injecting control task into loss function design</span>
+  * <span style="font-size:22px">May require an initial motion/path planning step</span>
+  * <span style="font-size:22px">For simple tasks, can just be quadratic loss to goal</span>
+- <span style="font-size:24px">Backprop through closed-loop trajectories</span>
+  * <span style="font-size:22px">Forward or adjoint differentiation</span>
+  * <span style="font-size:22px">Typically adjoint differentiation is more efficient</span>
+- <span style="font-size:24px">Sampling the state space efficiently </span>
+  * <span style="font-size:22px">DAgger sampling</span>
+  * <span style="font-size:22px">Initial conditions chosen from previously visited states</span>
+-->
+<div class="fragment" data-fragment-index="0">
+<p><img data-src="contents/assets/pend_damped_phase_edited.svg"></p>
+<p><img data-src="contents/assets/transverseCoordinates.svg"></p>
+</div>
+<p>:::</p>
+</ul></section>
 <section id="robustness-via-bayesian-learning-1" class="slide level2">
 <h2>Robustness via Bayesian Learning</h2>
 <div class="columns">
@@ -1648,7 +1682,7 @@ Minimal expected cost <span class="math inline">\(\mathbb{E}\mathcal{J}\)</span>
 <section id="neuralpbc-hybrid-system" class="slide level2">
 <h2><span class="smallcaps">NeuralPbc</span>: Hybrid System</h2>
 <p><br></p>
-<div class="fragment quarto-layout-panel" data-fragment-index="0" data-layout="[50,-5,50]">
+<div class="fragment quarto-layout-panel" data-layout="[50,-5,50]" data-fragment-index="0">
 <div class="quarto-layout-row quarto-layout-valign-center">
 <div class="quarto-layout-cell" style="flex-basis: 47.6%;justify-content: flex-start;">
 <div class="callout callout-note no-icon callout-titled callout-style-default">
@@ -1857,18 +1891,22 @@ Figure&nbsp;1: NSF Award #2330794
 </section>
 <section id="results-from-the-joint-work" class="slide level2">
 <h2>Results from the Joint Work</h2>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<div class="r-stack">
-<div class="fragment fade-in-then-out" data-fragment-index="0">
-<p><img data-src="./contents/assets/box_push_not_so_good.gif" style="width:100.0%"></p>
-</div>
-<div class="fragment fade-in" data-fragment-index="1">
 <div class="columns">
 <div class="column" style="width:50%;">
-<p><img data-src="./contents/assets/initial_box_pose.png" style="width:100.0%"></p>
+<p><img data-src="./contents/assets/manipulation_task.png" style="width:100.0%"></p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Av9z51QDNxg?si=xmPsb5CsH5KCuwz1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
+</iframe>
 </div><div class="column" style="width:50%;">
-<p><img data-src="./contents/assets/time_lapse.png" style="width:100.0%"></p>
+<div class="quarto-layout-panel" data-layout="[[-1], [1], [-1]]">
+<div class="quarto-layout-row">
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<p>&nbsp;</p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<p><img data-src="./contents/assets/guided_vs_unguided_results.png" style="width:100.0%"></p>
+</div>
 </div>
 </div>
 </div>

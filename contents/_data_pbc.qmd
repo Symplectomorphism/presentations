@@ -293,6 +293,9 @@ Parameterize $H_d$ by a neural network $H_d^\theta$, and relax control task to b
 ## <span style="font-variant:small-caps;">NeuralPbc</span> Problem Statement
 <!-- ###################################################################### -->
 
+
+::: {layout="[120 100]" layout-valign="top"}
+
 ::: {.callout}
 $$
 \begin{aligned}
@@ -313,16 +316,44 @@ $$
 \end{aligned}
 $$
 :::
+<ul>
+  <li class="fragment highlight-current-blue" style="font-size:24px" data-fragment-index="0">Injecting control task into loss function design</li>
+  <ul>
+    <li style="font-size:20px">May require an initial motion/path planning step</li>
+    <li style="font-size:20px">For simple tasks, can just be quadratic loss to goal</li>
+  </ul>
+  <li class="fragment highlight-current-blue" style="font-size:24px" data-fragment-index="1">Backprop through closed-loop trajectories </li>
+  <ul>
+    <li style="font-size:20px">Forward or adjoint differentiation</li>
+    <li style="font-size:20px">Typically adjoint differentiation is more efficient</li>
+  </ul>
+  <li class="fragment highlight-current-blue" style="font-size:24px" data-fragment-index="2">Sampling the state space efficiently </li>
+  <ul>
+    <li style="font-size:20px">DAgger sampling</li>
+    <li style="font-size:20px">Initial conditions chosen from previously visited states</li>
+</ul>
 
-- Injecting control task into loss function design
-  * May require an initial motion/path planning step
-  * For simple tasks, can just be quadratic loss to goal
-- Backprop through closed-loop trajectories 
-  * Forward or adjoint differentiation
-  * Typically adjoint differentiation is more efficient
-- Sampling the state space efficiently 
-  * DAgger sampling
-  * Initial conditions chosen from previously visited states
+<!--
+- <span style="font-size:24px">Injecting control task into loss function design</span>
+  * <span style="font-size:22px">May require an initial motion/path planning step</span>
+  * <span style="font-size:22px">For simple tasks, can just be quadratic loss to goal</span>
+- <span style="font-size:24px">Backprop through closed-loop trajectories</span>
+  * <span style="font-size:22px">Forward or adjoint differentiation</span>
+  * <span style="font-size:22px">Typically adjoint differentiation is more efficient</span>
+- <span style="font-size:24px">Sampling the state space efficiently </span>
+  * <span style="font-size:22px">DAgger sampling</span>
+  * <span style="font-size:22px">Initial conditions chosen from previously visited states</span>
+-->
+
+
+::: {.fragment fragment-index=0}
+![](contents/assets/pend_damped_phase_edited.svg)
+
+![](contents/assets/transverseCoordinates.svg)
+:::
+
+:::
+
 
 
 ## Robustness via Bayesian Learning 
@@ -767,31 +798,23 @@ NSF Award \#2330794
 
 ## Results from the Joint Work
 
-&nbsp;
-
-&nbsp;
-
-::: {.r-stack}
-
-::: {.fragment .fade-in-then-out fragment-index=0}
-![](./contents/assets/box_push_not_so_good.gif){width="100%"}
-:::
-
-::: {.fragment .fade-in fragment-index=1}
-
 :::: {.columns}
 
 ::: {.column width="50%"}
-![](./contents/assets/initial_box_pose.png){width="100%"}
+![](./contents/assets/manipulation_task.png){width="100%"}
+
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Av9z51QDNxg?si=xmPsb5CsH5KCuwz1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 :::
 
 ::: {.column width="50%"}
-![](./contents/assets/time_lapse.png){width="100%"}
+
+::: {layout="[[-1], [1], [-1]]"}
+![](./contents/assets/guided_vs_unguided_results.png){width="100%"}
+:::
+
+
 :::
 
 ::::
-
-:::
-
-
-:::
