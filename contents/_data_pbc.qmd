@@ -113,7 +113,7 @@ $$
 Control problem is cast as a search for $H_d$ and $h_d$ s.t. $\dot{H}_d \leq y_d^\top u_{di}$
 :::
 
-## PBC Example - Simple Pendulum {auto-animate="false" auto-animate-easing="ease"}
+## PBC Toy Example: Simple Pendulum {auto-animate="false" auto-animate-easing="ease"}
 <!-- ###################################################################### -->
 
 :::: {.callout-note icon="false"}
@@ -169,7 +169,7 @@ $$
 ::::
 
 
-## PBC Example - Simple Pendulum {auto-animate="false" auto-animate-easing="ease" visibility="uncounted"}
+## PBC Toy Example: Simple Pendulum {auto-animate="false" auto-animate-easing="ease" visibility="uncounted"}
 <!-- ###################################################################### -->
 
 :::: {.callout-tip icon="false"}

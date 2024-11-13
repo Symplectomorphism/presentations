@@ -175,18 +175,18 @@
     "text": "Passivity-Based Control (PBC)\n\n\n\n\n \n\n\n\n\n\\[\n\\Sigma_o: \\quad\n\\begin{cases}\n  \\dot{x} &= f(x) + g(x)u, \\\\\n  y &= h(x)\n\\end{cases}\n\\] % Main idea — Select \\(u(x) = u_{es} + u_{di}\\) that renders the closed-loop system passive. % \\[\n\\Sigma_d: \\quad\n\\begin{cases}\n  \\dot{x} &= f_d(x) + g(x) u_{di}, \\quad f_d := f(x) + g(x) u_{es}(x) \\\\\n  y_d &= h_d(x)\n\\end{cases}\n\\] % Control problem is cast as a search for \\(H_d\\) and \\(h_d\\) s.t. \\(\\dot{H}_d \\leq y_d^\\top u_{di}\\)"
   },
   {
-    "objectID": "main.html#pbc-example---simple-pendulum",
-    "href": "main.html#pbc-example---simple-pendulum",
+    "objectID": "main.html#pbc-toy-example-simple-pendulum",
+    "href": "main.html#pbc-toy-example-simple-pendulum",
     "title": "main",
-    "section": "PBC Example - Simple Pendulum",
-    "text": "PBC Example - Simple Pendulum\n\n\n\n\nSystem Dynamics\n\n\n\\(H(q,p) = \\frac{1}{2} J^{-1} p^2 + mgl (1 - \\cos q)\\)\n\\[\n\\begin{bmatrix} \\dot{q} \\\\ \\dot{p} \\end{bmatrix} =\n\\begin{bmatrix} \\phantom{-}0 & 1 \\\\ -1 & 0 \\end{bmatrix}\n\\begin{bmatrix} \\nabla_q H_{\\phantom{d}} \\\\ \\nabla_p H_{\\phantom{d}} \\end{bmatrix} +\n\\begin{bmatrix} 0 \\\\ G \\end{bmatrix} u_\\phantom{di},\n\\qquad y = \\dot{q}\n\\]\n\nChoose \\(u = u_{es} + u_{di}\\) that transforms system into a passive one with \\(x^\\star = (q^\\star, 0)\\) \n\n\n\\(Gu_{es} = \\nabla_q H  - \\nabla_q H_d , \\quad Gu_{di} = -GK_D G^\\top \\nabla_p H_d\\)\n\n\n\n\\[\n\\begin{bmatrix} \\dot{q} \\\\ \\dot{p} \\end{bmatrix} =\n\\begin{bmatrix} \\phantom{-}0 & 1 \\\\ -1 & 0 \\end{bmatrix}\n\\begin{bmatrix} \\nabla_q H_d \\\\ \\nabla_p H_d \\end{bmatrix} +\n\\begin{bmatrix} 0 \\\\ G \\end{bmatrix} u_{di},\n\\qquad y = \\dot{q}\n\\]\n\n\n\\[\n\\begin{bmatrix} \\dot{q} \\\\ \\dot{p} \\end{bmatrix} =\n\\begin{bmatrix} \\phantom{-}0 & 1 \\\\ -1 & -G K_D G^\\top \\end{bmatrix}\n\\begin{bmatrix} \\nabla_q H_d \\\\ \\nabla_p H_d \\end{bmatrix},\n\\qquad y = \\dot{q}\n\\]"
+    "section": "PBC Toy Example: Simple Pendulum",
+    "text": "PBC Toy Example: Simple Pendulum\n\n\n\n\nSystem Dynamics\n\n\n\\(H(q,p) = \\frac{1}{2} J^{-1} p^2 + mgl (1 - \\cos q)\\)\n\\[\n\\begin{bmatrix} \\dot{q} \\\\ \\dot{p} \\end{bmatrix} =\n\\begin{bmatrix} \\phantom{-}0 & 1 \\\\ -1 & 0 \\end{bmatrix}\n\\begin{bmatrix} \\nabla_q H_{\\phantom{d}} \\\\ \\nabla_p H_{\\phantom{d}} \\end{bmatrix} +\n\\begin{bmatrix} 0 \\\\ G \\end{bmatrix} u_\\phantom{di},\n\\qquad y = \\dot{q}\n\\]\n\nChoose \\(u = u_{es} + u_{di}\\) that transforms system into a passive one with \\(x^\\star = (q^\\star, 0)\\) \n\n\n\\(Gu_{es} = \\nabla_q H  - \\nabla_q H_d , \\quad Gu_{di} = -GK_D G^\\top \\nabla_p H_d\\)\n\n\n\n\\[\n\\begin{bmatrix} \\dot{q} \\\\ \\dot{p} \\end{bmatrix} =\n\\begin{bmatrix} \\phantom{-}0 & 1 \\\\ -1 & 0 \\end{bmatrix}\n\\begin{bmatrix} \\nabla_q H_d \\\\ \\nabla_p H_d \\end{bmatrix} +\n\\begin{bmatrix} 0 \\\\ G \\end{bmatrix} u_{di},\n\\qquad y = \\dot{q}\n\\]\n\n\n\\[\n\\begin{bmatrix} \\dot{q} \\\\ \\dot{p} \\end{bmatrix} =\n\\begin{bmatrix} \\phantom{-}0 & 1 \\\\ -1 & -G K_D G^\\top \\end{bmatrix}\n\\begin{bmatrix} \\nabla_q H_d \\\\ \\nabla_p H_d \\end{bmatrix},\n\\qquad y = \\dot{q}\n\\]"
   },
   {
-    "objectID": "main.html#pbc-example---simple-pendulum-1",
-    "href": "main.html#pbc-example---simple-pendulum-1",
+    "objectID": "main.html#pbc-toy-example-simple-pendulum-1",
+    "href": "main.html#pbc-toy-example-simple-pendulum-1",
     "title": "main",
-    "section": "PBC Example - Simple Pendulum",
-    "text": "PBC Example - Simple Pendulum\n\n\n\n\nControl Synthesis via PBC\n\n\nChoose \\(u = u_{es} + u_{di}\\) that transforms system into a passive one with \\(x^\\star =  (q^\\star, 0)\\)\n\\(Gu_{es} = \\nabla_q H  - \\nabla_q H_d , \\quad Gu_{di} = -GK_D G^\\top \\nabla_p H_d\\)\n\\[\n\\begin{bmatrix} \\dot{q} \\\\ \\dot{p} \\end{bmatrix} =\n\\begin{bmatrix} \\phantom{-}0 & 1 \\\\ -1 & -G K_D G^\\top \\end{bmatrix}\n\\begin{bmatrix} \\nabla_q H_d \\\\ \\nabla_p H_d \\end{bmatrix},\n\\qquad y = \\dot{q}\n\\]\n\n\\(H_d(q,p) = \\frac{1}{2} J^{-1} p^2 + V_d(q), \\quad V_d(q) = \\frac{1}{2} K_{P} \\left( q - q^\\star \\right)^2\\)\n\n\n\n\\(\\dot{H}_d = -K_D \\left( J^{-1} p \\right)^2 = y^\\top u_{di} \\leq 0\\)\n\n\n\\(\\boxed{u = -mgl\\sin(x) - K_P(q - q^\\star) - K_D \\dot{q}}\\)"
+    "section": "PBC Toy Example: Simple Pendulum",
+    "text": "PBC Toy Example: Simple Pendulum\n\n\n\n\nControl Synthesis via PBC\n\n\nChoose \\(u = u_{es} + u_{di}\\) that transforms system into a passive one with \\(x^\\star =  (q^\\star, 0)\\)\n\\(Gu_{es} = \\nabla_q H  - \\nabla_q H_d , \\quad Gu_{di} = -GK_D G^\\top \\nabla_p H_d\\)\n\\[\n\\begin{bmatrix} \\dot{q} \\\\ \\dot{p} \\end{bmatrix} =\n\\begin{bmatrix} \\phantom{-}0 & 1 \\\\ -1 & -G K_D G^\\top \\end{bmatrix}\n\\begin{bmatrix} \\nabla_q H_d \\\\ \\nabla_p H_d \\end{bmatrix},\n\\qquad y = \\dot{q}\n\\]\n\n\\(H_d(q,p) = \\frac{1}{2} J^{-1} p^2 + V_d(q), \\quad V_d(q) = \\frac{1}{2} K_{P} \\left( q - q^\\star \\right)^2\\)\n\n\n\n\\(\\dot{H}_d = -K_D \\left( J^{-1} p \\right)^2 = y^\\top u_{di} \\leq 0\\)\n\n\n\\(\\boxed{u = -mgl\\sin(x) - K_P(q - q^\\star) - K_D \\dot{q}}\\)"
   },
   {
     "objectID": "main.html#our-methods",
@@ -333,7 +333,7 @@
     "href": "main.html#future-research-representation-learning-through-llms",
     "title": "main",
     "section": "Future Research: Representation-learning through LLMs",
-    "text": "Future Research: Representation-learning through LLMs"
+    "text": "Future Research: Representation-learning through LLMs\n\n\n\n\n\n\n\n⬆️\n\n\n\n\n\n\n\n\n\nUtilize a causal transformer to learn trajectory representations.\n\n\nCan learn them for each joint.\n\n\nUse these representations as feature vectors of a subsequent GNN.\n\n\n\n\n\n\n\n\nCourtesy of MIT CSAIL"
   },
   {
     "objectID": "main.html#funding-mechanism-nsf-foundational-research-in-robotics",

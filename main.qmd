@@ -24,6 +24,18 @@ format:
       - reveal-plugins/animate/svg.min.js
     plugins:
       - RevealAnimate
+    include-in-header:
+      text: |
+        <style>
+        .center-xy {
+          margin: 0;
+          position: relative;
+          top: 50%;
+          left: 50%;
+          -ms-transform: translateY(-50%), translateX(-50%);
+          transform: translateY(-50%), translateX(-50%);
+        }
+        </style>
   # pdf:
   #   cite-method: biblatex
 revealjs-plugins:

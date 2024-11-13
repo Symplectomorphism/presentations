@@ -94,7 +94,47 @@ layers.
 
 [^ddagger]: Butterfield, Daniel et. al. (2024) MI-HGNN: Morphology-Informed Heterogeneous Graph Neural Network for Legged Robot Contact Perception. 
 
+
+
 ## Future Research: Representation-learning through LLMs {visibility="uncounted"}
+
+<div class="columns">
+
+<div class="column" style="width:48%">
+
+<center>
+<img src="./contents/assets/GraphSage.jpg" style="width:100%">
+</center>
+
+<div class="center-xy">
+:arrow_up:
+</div>
+
+<center>
+<img src="./contents/assets/causal_transformer.png" style="width:100%">
+</center>
+
+</div>
+
+
+<div class="column" style="width:48%">
+
+<ul>
+  <li>Utilize a causal transformer to learn trajectory representations.</li>
+  <li>Can learn them for each joint.</li>
+  <li>Use these representations as feature vectors of a subsequent GNN.</li>
+</ul>
+
+
+<video autoplay="true" muted="true"><source src="./contents/assets/dexterous_trimmed.mp4" type="video/mp4"></video>
+
+::: {.callout icon="false"}
+## Courtesy of MIT CSAIL
+:::
+
+</div>
+
+</div>
 
 
 

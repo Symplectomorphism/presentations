@@ -326,6 +326,16 @@
       margin-right: 0; 
     }
   </style>
+  <style>
+  .center-xy {
+    margin: 0;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translateY(-50%), translateX(-50%);
+    transform: translateY(-50%), translateX(-50%);
+  }
+  </style>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -1127,8 +1137,8 @@ p(\mathbf{x} | \mathbf{o}, \mathbf{l}) \propto p(x_1) \prod_{i=2}^{3} p(x_i | x_
 </div>
 </div>
 </section>
-<section id="pbc-example---simple-pendulum" class="slide level2" data-auto-animate="false" data-auto-animate-easing="ease">
-<h2 data-id="quarto-animate-title">PBC Example - Simple Pendulum</h2>
+<section id="pbc-toy-example-simple-pendulum" class="slide level2" data-auto-animate="false" data-auto-animate-easing="ease">
+<h2 data-id="quarto-animate-title">PBC Toy Example: Simple Pendulum</h2>
 <!-- ###################################################################### -->
 <div class="callout callout-note no-icon callout-titled callout-style-default">
 <div class="callout-body">
@@ -1173,8 +1183,8 @@ p(\mathbf{x} | \mathbf{o}, \mathbf{l}) \propto p(x_1) \prod_{i=2}^{3} p(x_i | x_
 </div>
 </div>
 </section>
-<section id="pbc-example---simple-pendulum-1" class="slide level2" data-auto-animate="false" data-auto-animate-easing="ease" data-visibility="uncounted">
-<h2 data-id="quarto-animate-title">PBC Example - Simple Pendulum</h2>
+<section id="pbc-toy-example-simple-pendulum-1" class="slide level2" data-auto-animate="false" data-auto-animate-easing="ease" data-visibility="uncounted">
+<h2 data-id="quarto-animate-title">PBC Toy Example: Simple Pendulum</h2>
 <!-- ###################################################################### -->
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
@@ -1816,7 +1826,7 @@ x(t) = e^{(p+\theta)t} + \theta \sigma \int_0^t e^{(p+\theta)(t-s)}dW_s.
 <section id="neuralpbc-hybrid-system" class="slide level2">
 <h2><span class="smallcaps">NeuralPbc</span>: Hybrid System</h2>
 <p><br></p>
-<div class="fragment quarto-layout-panel" data-fragment-index="0" data-layout="[50,-5,50]">
+<div class="fragment quarto-layout-panel" data-layout="[50,-5,50]" data-fragment-index="0">
 <div class="quarto-layout-row quarto-layout-valign-center">
 <div class="quarto-layout-cell" style="flex-basis: 47.6%;justify-content: flex-start;">
 <div class="callout callout-note no-icon callout-titled callout-style-default">
@@ -2112,6 +2122,47 @@ Figure&nbsp;1: NSF Award #2330794
 <aside><ol class="aside-footnotes"><li id="fn1"><p>Jiang, Chao et. al.&nbsp;(2023) End-to-end decentralized formation control using a GNN-based learning method.</p></li><li id="fn2"><p>Butterfield, Daniel et. al.&nbsp;(2024) MI-HGNN: Morphology-Informed Heterogeneous Graph Neural Network for Legged Robot Contact Perception.</p></li></ol></aside></section>
 <section id="future-research-representation-learning-through-llms" class="slide level2" data-visibility="uncounted">
 <h2>Future Research: Representation-learning through LLMs</h2>
+<div class="columns">
+
+<div class="column" style="width:48%">
+<center>
+<img src="./contents/assets/GraphSage.jpg" style="width:100%">
+</center>
+<div class="center-xy">
+<p><span class="emoji" data-emoji="arrow_up">⬆️</span></p>
+</div>
+<center>
+<img src="./contents/assets/causal_transformer.png" style="width:100%">
+</center>
+</div>
+<div class="column" style="width:48%">
+
+<ul>
+<li>
+Utilize a causal transformer to learn trajectory representations.
+</li>
+<li>
+Can learn them for each joint.
+</li>
+<li>
+Use these representations as feature vectors of a subsequent GNN.
+</li>
+</ul>
+<video autoplay="true" muted="true">
+<source src="./contents/assets/dexterous_trimmed.mp4" type="video/mp4">
+</video>
+<div class="callout callout-none no-icon callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Courtesy of MIT CSAIL</strong></p>
+</div>
+<div class="callout-content">
+
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="funding-mechanism-nsf-foundational-research-in-robotics" class="slide level2">
 <h2>Funding Mechanism: NSF Foundational Research in Robotics</h2>
