@@ -326,14 +326,14 @@
     "href": "main.html#future-research-convex-optimization-layers-on-gnns",
     "title": "main",
     "section": "Future Research: Convex Optimization Layers on GNNs",
-    "text": "Future Research: Convex Optimization Layers on GNNs\n\n\n\n\n\nPropagate features to neighbors using convex-opt layers rather than MLPs.\nAlternately, implement the message Aggregate phase using convex-opt layers."
+    "text": "Future Research: Convex Optimization Layers on GNNs\n\n\n\n\n\n\nEnd-to-end formation control with GNNs1\n\n\n\n\n\n\n\n\nPropagate features to neighbors using convex-opt layers rather than MLPs.\nAlternately, implement the message Aggregate phase using convex-opt layers.\n\n\n\n\nGNN for Legged Robot Contact Perception2\n\n\n\n\n\n\n\n\n\n\n\n\nJiang, Chao et. al. (2023) End-to-end decentralized formation control using a GNN-based learning method.Butterfield, Daniel et. al. (2024) MI-HGNN: Morphology-Informed Heterogeneous Graph Neural Network for Legged Robot Contact Perception."
   },
   {
-    "objectID": "main.html#future-research-passive-imitation-learning-through-llms",
-    "href": "main.html#future-research-passive-imitation-learning-through-llms",
+    "objectID": "main.html#future-research-representation-learning-through-llms",
+    "href": "main.html#future-research-representation-learning-through-llms",
     "title": "main",
-    "section": "Future Research: Passive imitation-learning through LLMs",
-    "text": "Future Research: Passive imitation-learning through LLMs"
+    "section": "Future Research: Representation-learning through LLMs",
+    "text": "Future Research: Representation-learning through LLMs"
   },
   {
     "objectID": "main.html#funding-mechanism-nsf-foundational-research-in-robotics",
@@ -354,27 +354,6 @@
     "href": "main.html#funding-mechanism-nih-through-collaborations",
     "title": "main",
     "section": "Funding Mechanism: NIH through Collaborations",
-    "text": "Funding Mechanism: NIH through Collaborations"
-  },
-  {
-    "objectID": "main.html#current-research-approx.-30-minutes",
-    "href": "main.html#current-research-approx.-30-minutes",
-    "title": "main",
-    "section": "Current Research (approx. 30 minutes)",
-    "text": "Current Research (approx. 30 minutes)\n\nIntroduction – Theme: Robustness - both control and measurement! (~5 minutes)\n\nChallenges in robotic manipulation: all challenges in one go\n\nModeling ↔︎️ Sensing ➡️ Control Synthesis ➡️ Robustness ➡️ Performance ⬇️\nIteration\n\n\nBasic comparison between our approach and the typical literature\n\nFactor graphs for GTSAM + OrbSlam + EM field integration\nData-driven Controller Synthesis: basic overview, no details!\n\n\nEM Sensing with GTSAM (~10 minutes)\n\nDifficulties with relative pose sensing\nThree-phase power line geometry\nLack of any good state-of-the-art method\nOur method based on gradient of the total electromagnetic field strength"
-  },
-  {
-    "objectID": "main.html#current-research-approx.-30-minutes-1",
-    "href": "main.html#current-research-approx.-30-minutes-1",
-    "title": "main",
-    "section": "Current Research (approx. 30 minutes)",
-    "text": "Current Research (approx. 30 minutes)\n\nEM Sensing with GTSAM (~10 minutes)\n\nDifficulties with relative pose sensing\nThree-phase power line geometry\nLack of any good state-of-the-art method\nOur method based on gradient of the total electromagnetic field strength\n\nPassivity-Based Data-Driven Controller Synthesis (~15 minutes)\n\nBrief PBC design motivation\nNeuralPBC explanation - add training procedure here.\nCurrent manipulation results (EAGER project)\nCurrent drone-line manipulation results"
-  },
-  {
-    "objectID": "main.html#research-agenda-approx.-10-minutes",
-    "href": "main.html#research-agenda-approx.-10-minutes",
-    "title": "main",
-    "section": "Research Agenda (approx. 10 minutes)",
-    "text": "Research Agenda (approx. 10 minutes)\n\nVision (~3 minutes)\n\nService robotics needs robust low-level controllers\nDrones / AGVs need robust sensing and controllers to perform dangerous tasks.\nIn 10 years, data-driven synthesis methods will have matured and made robust.\n\nFuture Techniques (~4 minutes)\n\nRobustness of GNN-based controllers\nConvex Optimization Layers and ADMM on GNNs\nTransfer learning to multiple domains (few-shot performance)\n\nGuiding controller synthesis with human-imitation using LLMs\nRepresentation learning\n\n\nPotential Funding Mechanisms (~3 minutes)\n\nNSF: Foundational Research in Robotics\nSBIR / STTR: Currently with Pitch Aeronautics, explore local companies\nNIH: Retain and expand biomedical collaboration with BSU / UTD faculty\n\n\n\n\n\nRobust Sensing and Data-Driven Control • Aykut C. Satici"
+    "text": "Funding Mechanism: NIH through Collaborations\n\n\n\n\n\n \n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRobust Sensing and Data-Driven Control • Aykut C. Satici"
   }
 ]

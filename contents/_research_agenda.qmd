@@ -62,6 +62,13 @@ allowfullscreen></iframe>
 
 ::: {.column width="50%"}
 ![](./contents/assets/convex_opt_layer.png)
+
+::: {.callout-warning icon="false"}
+## End-to-end formation control with GNNs[^dagger]
+
+![](./contents/assets/end_to_end_gnn_formation_ctrl.png)
+:::
+
 :::
 
 ::: {.column width="50%"}
@@ -72,14 +79,22 @@ allowfullscreen></iframe>
 <span style="font-variant:small-caps;">Aggregate</span> phase using convex-opt 
 layers.
 
+::: {.callout-warning icon="false"}
+## GNN for Legged Robot Contact Perception[^ddagger]
+
+![](./contents/assets/contact_perception.png){height=200 fig-align="center"}
 :::
 
+:::
 
 ::::
 
 
+[^dagger]: Jiang, Chao et. al. (2023) End-to-end decentralized formation control using a GNN-based learning method. 
 
-## Future Research: Passive imitation-learning through LLMs {visibility="uncounted"}
+[^ddagger]: Butterfield, Daniel et. al. (2024) MI-HGNN: Morphology-Informed Heterogeneous Graph Neural Network for Legged Robot Contact Perception. 
+
+## Future Research: Representation-learning through LLMs {visibility="uncounted"}
 
 
 

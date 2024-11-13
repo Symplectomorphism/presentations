@@ -73,4 +73,4 @@ revealjs-plugins:
 
 <!-- {{< include contents/_appendix.qmd >}} -->
 
-{{< include ./contents/_outline.qmd >}}
+<!-- {{< include ./contents/_outline.qmd >}} -->

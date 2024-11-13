@@ -2078,16 +2078,40 @@ Figure&nbsp;1: NSF Award #2330794
 <div class="columns">
 <div class="column" style="width:50%;">
 <p><img data-src="./contents/assets/convex_opt_layer.png"></p>
+<div class="callout callout-warning no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>End-to-end formation control with GNNs<sup>1</sup></strong></p>
+</div>
+<div class="callout-content">
+<p><img data-src="./contents/assets/end_to_end_gnn_formation_ctrl.png"></p>
+</div>
+</div>
+</div>
 </div><div class="column" style="width:50%;">
 <ul>
 <li><p>Propagate features to neighbors using convex-opt layers rather than MLPs.</p></li>
 <li><p>Alternately, implement the message <span class="smallcaps">Aggregate</span> phase using convex-opt layers.</p></li>
 </ul>
+<div class="callout callout-warning no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>GNN for Legged Robot Contact Perception<sup>2</sup></strong></p>
+</div>
+<div class="callout-content">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="./contents/assets/contact_perception.png" class="quarto-figure quarto-figure-center" height="200"></p>
+</figure>
 </div>
 </div>
-</section>
-<section id="future-research-passive-imitation-learning-through-llms" class="slide level2" data-visibility="uncounted">
-<h2>Future Research: Passive imitation-learning through LLMs</h2>
+</div>
+</div>
+</div>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>Jiang, Chao et. al.&nbsp;(2023) End-to-end decentralized formation control using a GNN-based learning method.</p></li><li id="fn2"><p>Butterfield, Daniel et. al.&nbsp;(2024) MI-HGNN: Morphology-Informed Heterogeneous Graph Neural Network for Legged Robot Contact Perception.</p></li></ol></aside></section>
+<section id="future-research-representation-learning-through-llms" class="slide level2" data-visibility="uncounted">
+<h2>Future Research: Representation-learning through LLMs</h2>
 </section>
 <section id="funding-mechanism-nsf-foundational-research-in-robotics" class="slide level2">
 <h2>Funding Mechanism: NSF Foundational Research in Robotics</h2>
@@ -2234,83 +2258,7 @@ Figure&nbsp;1: NSF Award #2330794
 <!-- # :grey_question: Q&A -->
 <!-- {{< include contents/_closing.qmd >}} -->
 <!-- {{< include contents/_appendix.qmd >}} -->
-</section></section>
-<section>
-<section id="outline" class="title-slide slide level1 center" data-visibility="uncounted">
-<h1>Outline</h1>
-<!-- ###################################################################### -->
-</section>
-<section id="current-research-approx.-30-minutes" class="slide level2" data-auto-animate="true" data-visibility="uncounted">
-<h2 data-id="quarto-animate-title">Current Research (approx. <strong>30 minutes</strong>)</h2>
-<ul>
-<li>Introduction – Theme: <strong>Robustness</strong> - both control and measurement! (~<strong>5 minutes</strong>)
-<ul>
-<li>Challenges in robotic manipulation: all challenges in one go
-<ul>
-<li>Modeling <span class="emoji" data-emoji="left_right_arrow">↔︎️</span> Sensing <span class="emoji" data-emoji="arrow_right">➡️</span> Control Synthesis <span class="emoji" data-emoji="arrow_right">➡️</span> Robustness <span class="emoji" data-emoji="arrow_right">➡️</span> Performance <span class="emoji" data-emoji="arrow_down">⬇️</span></li>
-<li>Iteration<br>
-</li>
-</ul></li>
-<li>Basic comparison between our approach and the typical literature
-<ul>
-<li>Factor graphs for GTSAM + OrbSlam + EM field integration</li>
-<li>Data-driven Controller Synthesis: basic overview, no details!</li>
-</ul></li>
-</ul></li>
-<li>EM Sensing with GTSAM (~<strong>10 minutes</strong>)
-<ul>
-<li>Difficulties with relative pose sensing</li>
-<li>Three-phase power line geometry</li>
-<li>Lack of any good state-of-the-art method</li>
-<li>Our method based on gradient of the total electromagnetic field strength</li>
-</ul></li>
-</ul>
-</section>
-<section id="current-research-approx.-30-minutes-1" class="slide level2" data-auto-animate="true" data-visibility="uncounted">
-<h2 data-id="quarto-animate-title">Current Research (approx. <strong>30 minutes</strong>)</h2>
-<ul>
-<li>EM Sensing with GTSAM (~<strong>10 minutes</strong>)
-<ul>
-<li>Difficulties with relative pose sensing</li>
-<li>Three-phase power line geometry</li>
-<li>Lack of any good state-of-the-art method</li>
-<li>Our method based on gradient of the total electromagnetic field strength</li>
-</ul></li>
-<li>Passivity-Based Data-Driven Controller Synthesis (~<strong>15 minutes</strong>)
-<ul>
-<li>Brief PBC design motivation</li>
-<li>NeuralPBC explanation - add training procedure here.</li>
-<li>Current manipulation results (EAGER project)</li>
-<li>Current drone-line manipulation results</li>
-</ul></li>
-</ul>
-</section>
-<section id="research-agenda-approx.-10-minutes" class="slide level2" data-auto-animate="true" data-visibility="uncounted">
-<h2 data-id="quarto-animate-title">Research Agenda (approx. <strong>10 minutes</strong>)</h2>
-<ul>
-<li>Vision (~<strong>3 minutes</strong>)
-<ul>
-<li>Service robotics needs robust low-level controllers</li>
-<li>Drones / AGVs need robust sensing and controllers to perform dangerous tasks.</li>
-<li>In 10 years, data-driven synthesis methods will have matured and made robust.</li>
-</ul></li>
-<li>Future Techniques (~<strong>4 minutes</strong>)
-<ul>
-<li>Robustness of GNN-based controllers</li>
-<li>Convex Optimization Layers and ADMM on GNNs</li>
-<li>Transfer learning to multiple domains (few-shot performance)
-<ul>
-<li>Guiding controller synthesis with human-imitation using LLMs</li>
-<li>Representation learning</li>
-</ul></li>
-</ul></li>
-<li>Potential Funding Mechanisms (~<strong>3 minutes</strong>)
-<ul>
-<li>NSF: Foundational Research in Robotics</li>
-<li>SBIR / STTR: Currently with Pitch Aeronautics, explore local companies</li>
-<li>NIH: Retain and expand biomedical collaboration with BSU / UTD faculty</li>
-</ul></li>
-</ul>
+<!-- {{< include ./contents/_outline.qmd >}} -->
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
@@ -2318,6 +2266,7 @@ Figure&nbsp;1: NSF Award #2330794
 </div>
 </div>
 </section></section>
+
     </div>
   </div>
 
