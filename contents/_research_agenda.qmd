@@ -68,6 +68,10 @@ allowfullscreen></iframe>
 
 * Propagate features to neighbors using convex-opt layers rather than MLPs.
 
+* Alternately, implement the message
+<span style="font-variant:small-caps;">Aggregate</span> phase using convex-opt 
+layers.
+
 :::
 
 
@@ -161,3 +165,40 @@ allowfullscreen></iframe>
 </div>
 
 </div>
+
+
+## Funding Mechanism: NIH through Collaborations {visibility="uncounted"}
+
+
+:::: {.columns}
+
+
+::: {.column width="42%"}
+
+::: {layout="[[1], [-1], [1], [-1], [1]]"}
+
+![](./contents/assets/omor_pic6.png){width="45%" fig-align="center"}
+![](./contents/assets/iss.avif){width="45%"}
+
+![](./contents/assets/omor_pic3.png){height="20%"}
+:::
+
+:::
+
+
+::: {.column width="42%"}
+![](./contents/assets/nina_pic1.png){width="100%"}
+:::
+
+::: {.column width="16%"}
+
+::: {layout="[[-1], [1], [-1], [1], [-1]]"}
+![](./contents/assets/nih-logo.svg){width="100%"}
+
+![](./contents/assets/omor_pic4.png){width="100%"}
+:::
+
+:::
+
+
+::::

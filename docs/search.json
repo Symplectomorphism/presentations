@@ -326,7 +326,7 @@
     "href": "main.html#future-research-convex-optimization-layers-on-gnns",
     "title": "main",
     "section": "Future Research: Convex Optimization Layers on GNNs",
-    "text": "Future Research: Convex Optimization Layers on GNNs\n\n\n\n\n\nPropagate features to neighbors using convex-opt layers rather than MLPs."
+    "text": "Future Research: Convex Optimization Layers on GNNs\n\n\n\n\n\nPropagate features to neighbors using convex-opt layers rather than MLPs.\nAlternately, implement the message Aggregate phase using convex-opt layers."
   },
   {
     "objectID": "main.html#future-research-passive-imitation-learning-through-llms",
@@ -348,6 +348,13 @@
     "title": "main",
     "section": "Funding Mechanisms: SBIR and STTRs",
     "text": "Funding Mechanisms: SBIR and STTRs"
+  },
+  {
+    "objectID": "main.html#funding-mechanism-nih-through-collaborations",
+    "href": "main.html#funding-mechanism-nih-through-collaborations",
+    "title": "main",
+    "section": "Funding Mechanism: NIH through Collaborations",
+    "text": "Funding Mechanism: NIH through Collaborations"
   },
   {
     "objectID": "main.html#current-research-approx.-30-minutes",
