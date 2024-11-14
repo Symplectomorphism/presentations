@@ -336,6 +336,15 @@
     transform: translateY(-50%), translateX(-50%);
   }
   </style>
+  <style>
+  .center-x {
+    margin: 0;
+    position: relative;
+    left: 50%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+  }
+  </style>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -578,17 +587,70 @@
 </section>
 <section id="robustness-against-contact-under-uncertainty" class="slide level2" data-auto-animate="true" data-auto-animate-easing="ease-in-out">
 <h2 data-id="quarto-animate-title">Robustness against Contact under Uncertainty</h2>
-<div class="r-stack" data-layout-valign="center">
+<div class="r-stack">
+<div class="quarto-layout-panel" data-layout="[[-1], [1], [-1]]">
+<div class="quarto-layout-row">
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<p>&nbsp;</p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <p><img data-src="./contents/assets/nonrobust_plan.svg" class="fragment fade-in-then-out" data-fragment-index="0" width="900"></p>
-<!--  -->
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<p>&nbsp;</p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<p>&nbsp;</p>
+</div>
+</div>
+</div>
+<div class="quarto-layout-panel" data-layout="[[-1], [1], [-1]]">
+<div class="quarto-layout-row">
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<p>&nbsp;</p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <p><video data-src="./contents/assets/astria_encoded_trimmed.mp4" class="fragment fade-in-then-out" data-fragment-index="1" width="900" controls=""><a href="./contents/assets/astria_encoded_trimmed.mp4">Video</a></video></p>
+</div>
+</div>
+</div>
 </div>
 </section>
 <section id="robustness-against-contact-under-uncertainty-1" class="slide level2" data-auto-animate="true" data-auto-animate-easing="ease-in-out">
 <h2 data-id="quarto-animate-title">Robustness against Contact under Uncertainty</h2>
-<div class="r-stack" data-layout-valign="center">
+<div class="r-stack">
+<div class="quarto-layout-panel" data-layout="[[-1], [1], [-1]]">
+<div class="quarto-layout-row">
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<p>&nbsp;</p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <p><img data-src="./contents/assets/true_closedloop.svg" class="fragment fade-in-then-out" style="width:100.0%" data-fragment-index="0"></p>
+</div>
+</div>
+</div>
+<div class="quarto-layout-panel" data-layout="[[-1], [1], [-1]]">
+<div class="quarto-layout-row">
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<p>&nbsp;</p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <p><img data-src="./contents/assets/trained_closedloop.svg" class="fragment" style="width:100.0%" data-fragment-index="1"></p>
+</div>
+</div>
+</div>
 </div>
 </section>
 <section id="robustness-against-contact-under-uncertainty-2" class="slide level2">
@@ -597,7 +659,7 @@
 <p><img data-src="./contents/assets/true_closedloop.svg" class="fragment" style="width:100.0%" data-fragment-index="0"></p>
 <p><img data-src="./contents/assets/trained_closedloop.svg" class="fragment" style="width:100.0%" data-fragment-index="0"></p>
 </div>
-<div class="fragment quarto-layout-panel" data-fragment-index="0" data-layout="[100, 100]">
+<div class="fragment quarto-layout-panel" data-layout="[100, 100]" data-fragment-index="0">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <iframe data-external="1" src="https://www.youtube.com/embed/7t1E7FWawgA" width="100%" height="300" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
@@ -2081,7 +2143,14 @@ Figure&nbsp;1: NSF Award #2330794
 </center-->
 </div>
 </div>
+<div class="columns">
+<div class="column" style="width:80%;">
 <p><img data-src="./contents/assets/gnn_robustness.jpg"></p>
+</div><div class="column" style="width:20%;">
+<p><img data-src="./contents/assets/abbas.jpg" style="width:60.0%"></p>
+<p><img data-src="./contents/assets/ruths.jpg" style="width:60.0%"></p>
+</div>
+</div>
 </section>
 <section id="future-research-convex-optimization-layers-on-gnns" class="slide level2" data-visibility="uncounted">
 <h2>Future Research: Convex Optimization Layers on GNNs</h2>
@@ -2099,10 +2168,19 @@ Figure&nbsp;1: NSF Award #2330794
 </div>
 </div>
 </div><div class="column" style="width:50%;">
+<div class="r-stack">
+<div class="fragment fade-in-then-out" data-fragment-index="0">
 <ul>
 <li><p>Propagate features to neighbors using convex-opt layers rather than MLPs.</p></li>
 <li><p>Alternately, implement the message <span class="smallcaps">Aggregate</span> phase using convex-opt layers.</p></li>
 </ul>
+</div>
+<div class="fragment fade-in" data-fragment-index="1">
+<center>
+<img src="./contents/assets/abbas.jpg" style="width:25%"> <img data-src="./contents/assets/ruths.jpg" class="quarto-figure quarto-figure-center" style="width:25.0%"> <img data-src="./contents/assets/spong_1.jpg" class="quarto-figure quarto-figure-center" style="width:25.0%">
+</center>
+</div>
+</div>
 <div class="callout callout-warning no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -2111,7 +2189,7 @@ Figure&nbsp;1: NSF Award #2330794
 <div class="callout-content">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="./contents/assets/contact_perception.png" class="quarto-figure quarto-figure-center" height="200"></p>
+<p><img data-src="./contents/assets/contact_perception.png" class="quarto-figure quarto-figure-center" height="175"></p>
 </figure>
 </div>
 </div>
@@ -2137,6 +2215,8 @@ Figure&nbsp;1: NSF Award #2330794
 </div>
 <div class="column" style="width:48%">
 
+<div class="r-stack">
+<div class="fragment fade-in-then-out" data-fragment-index="0">
 <ul>
 <li>
 Utilize a causal transformer to learn trajectory representations.
@@ -2148,6 +2228,13 @@ Can learn them for each joint.
 Use these representations as feature vectors of a subsequent GNN.
 </li>
 </ul>
+</div>
+<div class="fragment fade-in" data-fragment-index="1">
+<center>
+<img src="./contents/assets/abbas.jpg" style="width:25%"> <img data-src="./contents/assets/spong_1.jpg" class="quarto-figure quarto-figure-center" style="width:25.0%"> <img data-src="./contents/assets/xiang.jpg" class="quarto-figure quarto-figure-center" style="width:25.0%">
+</center>
+</div>
+</div>
 <video autoplay="true" muted="true">
 <source src="./contents/assets/dexterous_trimmed.mp4" type="video/mp4">
 </video>
@@ -2210,12 +2297,17 @@ Use these representations as feature vectors of a subsequent GNN.
 <p>&nbsp;</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/wkqyR81LgOc?si=0YICbgkrsU1Igh_X" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
 </iframe>
+<center>
+<img src="./contents/assets/adams.webp" style="width:30%">
+</center>
 </div><div class="column" style="width:40%">
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/UVOn-i8JZbE?si=JCOW_cdL0b1xFGMr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
 </iframe>
-<p><img data-src="./contents/assets/nsf-logo.svg" style="width:50.0%"></p>
+<center>
+<img src="./contents/assets/nsf-logo.svg" style="width:50%">
+</center>
 </div><div class="column" style="width:15%">
 <div class="quarto-layout-panel" data-layout="[[1], [-1], [1], [-1], [1]]">
 <div class="quarto-layout-row">
@@ -2271,6 +2363,8 @@ Use these representations as feature vectors of a subsequent GNN.
 </div><div class="column" style="width:42%;">
 <p><img data-src="./contents/assets/nina_pic1.png" style="width:100.0%"></p>
 </div><div class="column" style="width:16%;">
+<div class="r-stack">
+<div class="fragment fade-in-then-out" data-fragment-index="0">
 <div class="quarto-layout-panel" data-layout="[[-1], [1], [-1], [1], [-1]]">
 <div class="quarto-layout-row">
 <div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
@@ -2290,6 +2384,27 @@ Use these representations as feature vectors of a subsequent GNN.
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <p><img data-src="./contents/assets/omor_pic4.png" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="1">
+<div class="quarto-layout-panel" data-layout="[[1], [1], [1]]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<p><img data-src="./contents/assets/uzer.webp" style="width:100.0%"></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<p><img data-src="./contents/assets/moheimani.jpg" style="width:100.0%"></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<p><img data-src="./contents/assets/cao.png" style="width:100.0%"></p>
+</div>
+</div>
 </div>
 </div>
 </div>

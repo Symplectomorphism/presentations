@@ -60,7 +60,7 @@
     "href": "main.html#robustness-against-contact-under-uncertainty",
     "title": "main",
     "section": "Robustness against Contact under Uncertainty",
-    "text": "Robustness against Contact under Uncertainty\n\n\n\nVideo"
+    "text": "Robustness against Contact under Uncertainty\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n \n\n\n\n\n \n\n\n\n\n\n\n \n\n\n\n\nVideo"
   },
   {
     "objectID": "main.html#robustness-against-contact-under-uncertainty-1",
@@ -326,14 +326,14 @@
     "href": "main.html#future-research-convex-optimization-layers-on-gnns",
     "title": "main",
     "section": "Future Research: Convex Optimization Layers on GNNs",
-    "text": "Future Research: Convex Optimization Layers on GNNs\n\n\n\n\n\n\nEnd-to-end formation control with GNNs1\n\n\n\n\n\n\n\n\nPropagate features to neighbors using convex-opt layers rather than MLPs.\nAlternately, implement the message Aggregate phase using convex-opt layers.\n\n\n\n\nGNN for Legged Robot Contact Perception2\n\n\n\n\n\n\n\n\n\n\n\n\nJiang, Chao et. al. (2023) End-to-end decentralized formation control using a GNN-based learning method.Butterfield, Daniel et. al. (2024) MI-HGNN: Morphology-Informed Heterogeneous Graph Neural Network for Legged Robot Contact Perception."
+    "text": "Future Research: Convex Optimization Layers on GNNs\n\n\n\n\n\n\nEnd-to-end formation control with GNNs1\n\n\n\n\n\n\n\n\n\n\nPropagate features to neighbors using convex-opt layers rather than MLPs.\nAlternately, implement the message Aggregate phase using convex-opt layers.\n\n\n\n\n  \n\n\n\n\n\n\nGNN for Legged Robot Contact Perception2\n\n\n\n\n\n\n\n\n\n\n\n\nJiang, Chao et. al. (2023) End-to-end decentralized formation control using a GNN-based learning method.Butterfield, Daniel et. al. (2024) MI-HGNN: Morphology-Informed Heterogeneous Graph Neural Network for Legged Robot Contact Perception."
   },
   {
     "objectID": "main.html#future-research-representation-learning-through-llms",
     "href": "main.html#future-research-representation-learning-through-llms",
     "title": "main",
     "section": "Future Research: Representation-learning through LLMs",
-    "text": "Future Research: Representation-learning through LLMs\n\n\n\n\n\n\n\n⬆️\n\n\n\n\n\n\n\n\n\nUtilize a causal transformer to learn trajectory representations.\n\n\nCan learn them for each joint.\n\n\nUse these representations as feature vectors of a subsequent GNN.\n\n\n\n\n\n\n\n\nCourtesy of MIT CSAIL"
+    "text": "Future Research: Representation-learning through LLMs\n\n\n\n\n\n\n\n⬆️\n\n\n\n\n\n\n\n\n\n\n\nUtilize a causal transformer to learn trajectory representations.\n\n\nCan learn them for each joint.\n\n\nUse these representations as feature vectors of a subsequent GNN.\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\nCourtesy of MIT CSAIL"
   },
   {
     "objectID": "main.html#funding-mechanism-nsf-foundational-research-in-robotics",
@@ -354,6 +354,6 @@
     "href": "main.html#funding-mechanism-nih-through-collaborations",
     "title": "main",
     "section": "Funding Mechanism: NIH through Collaborations",
-    "text": "Funding Mechanism: NIH through Collaborations\n\n\n\n\n\n \n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRobust Sensing and Data-Driven Control • Aykut C. Satici"
+    "text": "Funding Mechanism: NIH through Collaborations\n\n\n\n\n\n \n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRobust Sensing and Data-Driven Control • Aykut C. Satici"
   }
 ]

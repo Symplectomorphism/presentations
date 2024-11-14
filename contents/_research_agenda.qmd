@@ -52,7 +52,24 @@ allowfullscreen></iframe>
 
 ::::
 
+:::: {.columns}
+
+::: {.column width="80%"}
+
 ![](./contents/assets/gnn_robustness.jpg)
+
+:::
+
+::: {.column width="20%"}
+
+![](./contents/assets/abbas.jpg){width="60%"}
+
+![](./contents/assets/ruths.jpg){width="60%"}
+
+:::
+
+
+::::
 
 
 ## Future Research: Convex Optimization Layers on GNNs {visibility="uncounted"}
@@ -73,16 +90,33 @@ allowfullscreen></iframe>
 
 ::: {.column width="50%"}
 
+::: {.r-stack}
+
+::: {.fragment .fade-in-then-out fragment-index=0}
 * Propagate features to neighbors using convex-opt layers rather than MLPs.
 
 * Alternately, implement the message
 <span style="font-variant:small-caps;">Aggregate</span> phase using convex-opt 
 layers.
 
+:::
+
+::: {.fragment .fade-in fragment-index=1}
+
+<center>
+<img src="./contents/assets/abbas.jpg" style="width:25%"></img>
+![](./contents/assets/ruths.jpg){width="25%" fig-align="center"}
+![](./contents/assets/spong_1.jpg){width="25%" fig-align="center"}
+</center>
+
+:::
+
+:::
+
 ::: {.callout-warning icon="false"}
 ## GNN for Legged Robot Contact Perception[^ddagger]
 
-![](./contents/assets/contact_perception.png){height=200 fig-align="center"}
+![](./contents/assets/contact_perception.png){height=175 fig-align="center"}
 :::
 
 :::
@@ -119,11 +153,31 @@ layers.
 
 <div class="column" style="width:48%">
 
+::: {.r-stack}
+
+::: {.fragment .fade-in-then-out fragment-index=0}
+
 <ul>
   <li>Utilize a causal transformer to learn trajectory representations.</li>
   <li>Can learn them for each joint.</li>
   <li>Use these representations as feature vectors of a subsequent GNN.</li>
 </ul>
+
+:::
+
+::: {.fragment .fade-in fragment-index=1}
+
+<center>
+<img src="./contents/assets/abbas.jpg" style="width:25%"></img>
+![](./contents/assets/spong_1.jpg){width="25%" fig-align="center"}
+![](./contents/assets/xiang.jpg){width="25%" fig-align="center"}
+</center>
+
+:::
+
+
+
+:::
 
 
 <video autoplay="true" muted="true"><source src="./contents/assets/dexterous_trimmed.mp4" type="video/mp4"></video>
@@ -192,6 +246,10 @@ layers.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/wkqyR81LgOc?si=0YICbgkrsU1Igh_X" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
+<center>
+<img src="./contents/assets/adams.webp" style="width:30%"></img>
+</center>
+
 </div>
 
 <div class="column" style="width:40%">
@@ -203,7 +261,9 @@ layers.
 <iframe width="560" height="315" src="https://www.youtube.com/embed/UVOn-i8JZbE?si=JCOW_cdL0b1xFGMr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 
-![](./contents/assets/nsf-logo.svg){width="50%"}
+<center>
+<img src="./contents/assets/nsf-logo.svg" style="width:50%"></img>
+</center>
 
 </div>
 
@@ -247,10 +307,27 @@ layers.
 
 ::: {.column width="16%"}
 
+::: {.r-stack}
+
+::: {.fragment .fade-in-then-out fragment-index=0}
 ::: {layout="[[-1], [1], [-1], [1], [-1]]"}
 ![](./contents/assets/nih-logo.svg){width="100%"}
 
 ![](./contents/assets/omor_pic4.png){width="100%"}
+:::
+:::
+
+::: {.fragment .fade-in fragment-index=1}
+::: {layout="[[1], [1], [1]]"}
+![](./contents/assets/uzer.webp){width="100%"}
+
+![](./contents/assets/moheimani.jpg){width="100%"}
+
+![](./contents/assets/cao.png){width="100%"}
+:::
+:::
+
+
 :::
 
 :::
