@@ -151,7 +151,7 @@
     "href": "main.html#dissipativity",
     "title": "main",
     "section": "Dissipativity",
-    "text": "Dissipativity\n\nA dynamical system\n\\[\n\\Sigma: \\quad\n\\begin{cases}\n  \\dot{x} &= f(x,u) \\\\\n  y &= h(x,u)\n\\end{cases}\n\\quad x \\in \\mathcal{X} \\subset \\mathbb{R}^{2n}, \\, u \\in \\mathcal{U} \\subset \\mathbb{R}^{m}\n\\] is dissipative with respect to some supply rate \\(s\\) if there exists a storage function \\(\\mathcal{H}: \\mathcal{X} \\to \\mathbb{R}^{+}\\) such that\n\\[\n\\mathcal{H}\\left(  x(t_1) \\right) \\leq  \\mathcal{H}\\left(  x(t_0) \\right) + \\int_{t_0}^{t_1} s(u(t), y(t)) \\, \\text{d}t\n\\]\nfor all \\(x(t_0) = x_0\\), all input \\(u\\), and all \\(t_1 \\geq t_0\\)"
+    "text": "Dissipativity\n\n\n\n\n \n\n\n\n\nA dynamical system % \\[\n\\Sigma: \\quad\n\\begin{cases}\n  \\dot{x} &= f(x,u) \\\\\n  y &= h(x,u)\n\\end{cases}\n\\quad x \\in \\mathcal{X} \\subset \\mathbb{R}^{2n}, \\, u \\in \\mathcal{U} \\subset \\mathbb{R}^{m}\n\\] is dissipative with respect to some supply rate \\(s\\) if there exists a storage function \\(\\mathcal{H}: \\mathcal{X} \\to \\mathbb{R}^{+}\\) such that % \\[\n\\mathcal{H}\\left(  x(t_1) \\right) \\leq  \\mathcal{H}\\left(  x(t_0) \\right) + \\int_{t_0}^{t_1} s(u(t), y(t)) \\, \\text{d}t\n\\] % for all \\(x(t_0) = x_0\\), all input \\(u\\), and all \\(t_1 \\geq t_0\\)."
   },
   {
     "objectID": "main.html#dissipativity-and-passivity",

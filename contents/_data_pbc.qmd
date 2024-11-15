@@ -4,8 +4,10 @@
 ## Dissipativity {auto-animate="true"}
 <!-- ###################################################################### -->
 
-A dynamical system
+::: {layout="[[-1], [1], [-1]]"}
 
+A dynamical system
+<span hidden="hidden">%</span>
 $$
 \Sigma: \quad
 \begin{cases}
@@ -15,12 +17,14 @@ $$
 \quad x \in \mathcal{X} \subset \mathbb{R}^{2n}, \, u \in \mathcal{U} \subset \mathbb{R}^{m} 
 $$
 is __dissipative__ with respect to some supply rate $s$ if there exists a *storage function* $\mathcal{H}: \mathcal{X} \to \mathbb{R}^{+}$ such that
-
+<span hidden="hidden">%</span>
 $$
 \mathcal{H}\left(  x(t_1) \right) \leq  \mathcal{H}\left(  x(t_0) \right) + \int_{t_0}^{t_1} s(u(t), y(t)) \, \text{d}t
 $$
+<span hidden="hidden">%</span>
+for all $x(t_0) = x_0$, all input $u$, and all $t_1 \geq t_0$.
 
-for all $x(t_0) = x_0$, all input $u$, and all $t_1 \geq t_0$
+:::
 
 
 ## Dissipativity and Passivity {auto-animate="true"}

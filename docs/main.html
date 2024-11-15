@@ -1070,19 +1070,27 @@ p(\mathbf{x} | \mathbf{o}, \mathbf{l}) \propto p(x_1) \prod_{i=2}^{3} p(x_i | x_
 <section id="dissipativity" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Dissipativity</h2>
 <!-- ###################################################################### -->
-<p>A dynamical system</p>
-<p><span class="math display">\[
+<div class="quarto-layout-panel" data-layout="[[-1], [1], [-1]]">
+<div class="quarto-layout-row">
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<p>&nbsp;</p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<p>A dynamical system <span hidden="hidden">%</span> <span class="math display">\[
 \Sigma: \quad
 \begin{cases}
   \dot{x} &amp;= f(x,u) \\
   y &amp;= h(x,u)
 \end{cases}
 \quad x \in \mathcal{X} \subset \mathbb{R}^{2n}, \, u \in \mathcal{U} \subset \mathbb{R}^{m}
-\]</span> is <strong>dissipative</strong> with respect to some supply rate <span class="math inline">\(s\)</span> if there exists a <em>storage function</em> <span class="math inline">\(\mathcal{H}: \mathcal{X} \to \mathbb{R}^{+}\)</span> such that</p>
-<p><span class="math display">\[
+\]</span> is <strong>dissipative</strong> with respect to some supply rate <span class="math inline">\(s\)</span> if there exists a <em>storage function</em> <span class="math inline">\(\mathcal{H}: \mathcal{X} \to \mathbb{R}^{+}\)</span> such that <span hidden="hidden">%</span> <span class="math display">\[
 \mathcal{H}\left(  x(t_1) \right) \leq  \mathcal{H}\left(  x(t_0) \right) + \int_{t_0}^{t_1} s(u(t), y(t)) \, \text{d}t
-\]</span></p>
-<p>for all <span class="math inline">\(x(t_0) = x_0\)</span>, all input <span class="math inline">\(u\)</span>, and all <span class="math inline">\(t_1 \geq t_0\)</span></p>
+\]</span> <span hidden="hidden">%</span> for all <span class="math inline">\(x(t_0) = x_0\)</span>, all input <span class="math inline">\(u\)</span>, and all <span class="math inline">\(t_1 \geq t_0\)</span>.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="dissipativity-and-passivity" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Dissipativity and Passivity</h2>
