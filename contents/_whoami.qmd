@@ -1,7 +1,40 @@
 # Who is the speaker? {visibility="uncounted"}
 <!-- ###################################################################### -->
 
-## Sabanci University: Rehabilitation Robotics 
+## Graduate Studies: Sabanci University and UT Dallas
+
+:::: {.columns}
+
+::: {.column width="48%"}
+
+::: {.fragment .fade-in fragment-index=0}
+<center>
+<img src="./contents/assets/sabanci_team_far_cropped.jpg" width="100%" /img>
+</center>
+
+![](./contents/assets/wrist_rehabilitation.png){width=70% fig-align="center"}
+:::
+:::
+
+::: {.column width="48%"}
+
+::: {.fragment .fade-in fragment-index=1}
+
+::: {layout="[[1], [-1], [1]]"}
+{{< video ./contents/assets/quadrotor_lissajous_clipped.mp4
+aspect-ratio=4x3 width="400" autoplay="true" loop="true" fig-align="center" >}}
+
+{{< video ./contents/assets/swarming_connectivity_clipped.mp4
+    aspect-ratio=4x3 width="400" autoplay="true" loop="true" fig-align="center" >}}
+:::
+:::
+
+:::
+
+::::
+
+
+## Sabanci University: Rehabilitation Robotics {visibility="hidden"}
 
 :::: {.columns}
 
@@ -30,7 +63,7 @@
 ::::
 
 
-## UT Dallas: Multi-Robot Cooperation and Geometric Control {auto-animate=true}
+## UT Dallas: Multi-Robot Cooperation and Geometric Control {auto-animate=true visibility="hidden"}
 
 :::: {.columns}
 
@@ -59,7 +92,38 @@ aspect-ratio=4x3 width="400" autoplay="true" loop="true" >}}
 ::::
 
 
-## University of Naples Federico II: PB and Geometric Control {auto-animate=true}
+## Postdoctoral Training: University of Naples and MIT
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+::: {.fragment .fade-in fragment-index=0}
+![](./contents/assets/PRISMA_Team_s.gif){width="90%"}
+
+{{< video ./contents/assets/pizza_tossing_clipped.mp4
+aspect-ratio=5x3 width="450" autoplay="true" loop="true" >}}
+
+:::
+
+:::
+
+::: {.column width="50%"}
+
+::: {.fragment .fade-in fragment-index=1}
+::: {layout="[[-1], [1], [-1]]"}
+{{< video ./contents/assets/soft_juggler_sped_x3.mp4
+aspect-ratio=4x4 width="450" autoplay="true" loop="true" muted="true" >}}
+:::
+:::
+
+
+:::
+
+::::
+
+
+## University of Naples Federico II: PB and Geometric Control {auto-animate=true visibility="hidden"}
 
 :::: {.columns}
 
@@ -88,7 +152,7 @@ aspect-ratio=5x3 width="450" autoplay="true" loop="true" >}}
 ::::
 
 
-## Massachusetts Institute of Technology: Soft Robotics {auto-animate=true}
+## Massachusetts Institute of Technology: Soft Robotics {auto-animate=true visibility="hidden"}
 
 :::: {.columns style='display: flex !important; height: 90%;'}
 
