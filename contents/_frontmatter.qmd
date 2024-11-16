@@ -33,11 +33,11 @@ institute: "Boise State University"
 ![](./contents/assets/boisestate-stackedlogo-2color-rgb_v2.png){width="40%" fig-align="center"}
 
 __Graduate Students__: <br/>
-Wankun Sirichotiyakul :mortar_board: <br/>
-Nardos Ayele Ashenafi :mortar_board: <br/>
-Alex Peterson :mortar_board: <br/>
-Chandika Silva :mortar_board: <br/>
-Chris Dagher :mortar_board: <br/>
+:thailand: Wankun Sirichotiyakul :mortar_board: <br/>
+:ethiopia: Nardos Ayele Ashenafi :mortar_board: <br/>
+:us: Alex Peterson :mortar_board: <br/>
+:us: Chandika Silva :mortar_board: <br/>
+:us: Chris Dagher :mortar_board: <br/>
 :::
 
 <!--
