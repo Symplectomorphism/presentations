@@ -105,7 +105,7 @@ formed by the transmission wires for every $\mathbf{q}$.
 ::::
 
 
-## Navigating the Drone to One of the Power Lines {auto-animate=true}
+## Navigating the UAV to One of the Power Lines {auto-animate=true}
 
 :::: {.columns}
 
