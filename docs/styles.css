@@ -14,8 +14,8 @@
 
 /* file: style.css */
 .v-center-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 90%;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    height: 90% !important;
   }
