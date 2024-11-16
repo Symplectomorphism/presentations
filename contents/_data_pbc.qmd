@@ -231,7 +231,7 @@ $\boxed{u = -mgl\sin(x) - K_P(q - q^\star) - K_D \dot{q}}$
 ::::
 
 
-## Our Methods
+## Our Methods {visibility="hidden"}
 <!-- ###################################################################### -->
 
 ::: {layout="[-1,8,-1]" layout-align="center" layout-valign="center"}
@@ -293,7 +293,7 @@ Parameterize $H_d$ by a neural network $H_d^\theta$, and relax control task to b
 :::
 
 
-## <span style="font-variant:small-caps;">NeuralPbc</span> Problem Statement
+## <span style="font-variant:small-caps;">NeuralPbc</span> Techniques
 <!-- ###################################################################### -->
 
 <div class="columns">
@@ -494,12 +494,10 @@ $$\frac{\text{d}\lambda}{\text{d}t} = -\lambda \frac{\partial f}{\partial x}, \q
 ::: {.column width="50%"}
 Consider the control system:
 
-::: {.fragment data-fragment-index=0}
 <br>
 
 * Parameter uncertainty:  $p \sim \mathcal{N}(\hat{p}, \sigma_p^2)$.
 * Measurement noise: $x \sim \mathcal{N}(x, \sigma^2)$.
-:::
 :::
 
 ::: {.column width="50%"}
@@ -843,7 +841,7 @@ H(x^+) \leq H(x^-)
    height=300 width="100%" >}}
 
 
-# Case Studies
+# Case Studies {visibility="uncounted"}
 
 ## {background-video="contents/assets/cartpole-exp.mp4" background-size="contain" background-video-loop="true" background-video-muted="true"}
 <!-- ###################################################################### -->
@@ -877,7 +875,7 @@ H(x^+) \leq H(x^-)
 
 ## {background-video="contents/assets/4_rings_hardware.mp4" background-size="contain" background-video-muted="true" background-video-loop="true"}
 
-## Rimless Wheel
+## Rimless Wheel with Torso
 
 :::: {.columns}
 

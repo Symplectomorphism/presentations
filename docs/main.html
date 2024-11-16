@@ -1306,57 +1306,7 @@ p(\mathbf{x} | \mathbf{o}, \mathbf{l}) \propto p(x_1) \prod_{i=2}^{3} p(x_i | x_
 </div>
 </div>
 </section>
-<section id="our-methods" class="slide level2">
-<h2>Our Methods</h2>
-<!-- ###################################################################### -->
-<div class="quarto-layout-panel" data-layout-align="center" data-layout="[-1,8,-1]">
-<div class="quarto-layout-row quarto-layout-valign-center">
-<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 10.0%;justify-content: center;">
-<p>&nbsp;</p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 80.0%;justify-content: center;">
-<p><img data-src="contents/assets/pbc-ml-outline.svg" style="width:50.0%"></p>
-</div>
-<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 10.0%;justify-content: center;">
-<p>&nbsp;</p>
-</div>
-</div>
-</div>
-<div class="fragment">
-<div style="text-align: center; font-size: 27px">
-<table>
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;"><span class="smallcaps">NeuralPbc</span></th>
-<th style="text-align: center;"><span class="smallcaps">NeuralIdaPbc</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(H_d\)</span> neural net</td>
-<td style="text-align: center;"><span class="math inline">\(H_d\)</span> quadratic in <span class="math inline">\(p\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">Sample state space</td>
-<td style="text-align: center;"><strong>Sample configuration space</strong></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">No stability certificate</td>
-<td style="text-align: center;"><strong>Stability certificate</strong></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><strong>More flexible</strong></td>
-<td style="text-align: center;">As applicable as <span class="smallcaps">IdaPbc</span></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</section>
+
 <section id="neuralpbc-problem-statement" class="slide level2">
 <h2><span class="smallcaps">NeuralPbc</span> Problem Statement</h2>
 <!-- ###################################################################### -->
@@ -1398,8 +1348,8 @@ p(\mathbf{x} | \mathbf{o}, \mathbf{l}) \propto p(x_1) \prod_{i=2}^{3} p(x_i | x_
           display:block!important;
       }</style></aside>
 </section>
-<section id="neuralpbc-problem-statement-1" class="slide level2">
-<h2><span class="smallcaps">NeuralPbc</span> Problem Statement</h2>
+<section id="neuralpbc-techniques" class="slide level2">
+<h2><span class="smallcaps">NeuralPbc</span> Techniques</h2>
 <!-- ###################################################################### -->
 <div class="columns">
 
@@ -1576,13 +1526,11 @@ Initial conditions chosen from previously visited states
 <div class="columns">
 <div class="column" style="width:50%;">
 <p>Consider the control system:</p>
-<div class="fragment" data-fragment-index="0">
 <p><br></p>
 <ul>
 <li>Parameter uncertainty: <span class="math inline">\(p \sim \mathcal{N}(\hat{p}, \sigma_p^2)\)</span>.</li>
 <li>Measurement noise: <span class="math inline">\(x \sim \mathcal{N}(x, \sigma^2)\)</span>.</li>
 </ul>
-</div>
 </div><div class="column" style="width:50%;">
 <p><span class="math display">\[
 \Sigma: \quad
@@ -1975,7 +1923,7 @@ H(x^+) \leq H(x^-)
 <iframe data-external="1" src="https://www.youtube.com/embed/bWdrBP5Ax9s" width="100%" height="300" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
 </section></section>
 <section>
-<section id="case-studies" class="title-slide slide level1 center">
+<section id="case-studies" class="title-slide slide level1 center" data-visibility="uncounted">
 <h1>Case Studies</h1>
 
 </section>
@@ -2014,8 +1962,8 @@ H(x^+) \leq H(x^-)
 <section id="section-3" class="slide level2" data-background-video="contents/assets/4_rings_hardware.mp4" data-background-size="contain" data-background-video-muted="true" data-background-video-loop="true">
 <h2></h2>
 </section>
-<section id="rimless-wheel" class="slide level2">
-<h2>Rimless Wheel</h2>
+<section id="rimless-wheel-with-torso" class="slide level2">
+<h2>Rimless Wheel with Torso</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">

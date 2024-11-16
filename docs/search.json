@@ -189,13 +189,6 @@
     "text": "PBC Toy Example: Simple Pendulum\n\n\n\n\nControl Synthesis via PBC\n\n\nChoose \\(u = u_{es} + u_{di}\\) that transforms system into a passive one with \\(x^\\star =  (q^\\star, 0)\\)\n\\(Gu_{es} = \\nabla_q H  - \\nabla_q H_d , \\quad Gu_{di} = -GK_D G^\\top \\nabla_p H_d\\)\n\\[\n\\begin{bmatrix} \\dot{q} \\\\ \\dot{p} \\end{bmatrix} =\n\\begin{bmatrix} \\phantom{-}0 & 1 \\\\ -1 & -G K_D G^\\top \\end{bmatrix}\n\\begin{bmatrix} \\nabla_q H_d \\\\ \\nabla_p H_d \\end{bmatrix},\n\\qquad y = \\dot{q}\n\\]\n\n\\(H_d(q,p) = \\frac{1}{2} J^{-1} p^2 + V_d(q), \\quad V_d(q) = \\frac{1}{2} K_{P} \\left( q - q^\\star \\right)^2\\)\n\n\n\n\\(\\dot{H}_d = -K_D \\left( J^{-1} p \\right)^2 = y^\\top u_{di} \\leq 0\\)\n\n\n\\(\\boxed{u = -mgl\\sin(x) - K_P(q - q^\\star) - K_D \\dot{q}}\\)"
   },
   {
-    "objectID": "main.html#our-methods",
-    "href": "main.html#our-methods",
-    "title": "main",
-    "section": "Our Methods",
-    "text": "Our Methods\n\n\n\n\n \n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\nNeuralPbc\nNeuralIdaPbc\n\n\n\n\n\\(H_d\\) neural net\n\\(H_d\\) quadratic in \\(p\\)\n\n\nSample state space\nSample configuration space\n\n\nNo stability certificate\nStability certificate\n\n\nMore flexible\nAs applicable as IdaPbc"
-  },
-  {
     "objectID": "main.html#neuralpbc-problem-statement",
     "href": "main.html#neuralpbc-problem-statement",
     "title": "main",
@@ -203,11 +196,11 @@
     "text": "NeuralPbc Problem Statement\n\nConsider the mechanical system\n\\[\n\\begin{bmatrix} \\dot{q} \\\\ \\dot{p} \\end{bmatrix} =\n\\begin{bmatrix} \\phantom{-}0 & 1 \\\\ -1 & 0 \\end{bmatrix}\n\\begin{bmatrix} \\nabla_q H_{\\phantom{d}} \\\\ \\nabla_p H_{\\phantom{d}} \\end{bmatrix} +\n\\begin{bmatrix} 0 \\\\ G \\end{bmatrix} u_\\phantom{di}\n\\]\nControl task: stabilize desired equilibrium \\(x^\\star = (q^\\star, 0)\\)\n\n\n\\[u = u_{es} + u_{di} = G^{\\dagger} \\left( \\nabla_q H  - \\nabla_q H_d \\right)  - K_D G^\\top \\nabla_p H_d \\]\n\n\n\\[u = u_{es} + u_{di} = - G^{\\dagger} \\nabla_q H_d^{\\theta}  - K_D G^\\top \\nabla_p H_d^{\\theta} \\]\n\n\nChoosing a suitable \\(H_d\\) is not trivial\n\nParameterize \\(H_d\\) by a neural network \\(H_d^\\theta\\), and relax control task to bringing \\(x\\) to a small neighborhood of \\(x^\\star\\)\n\n\n\nInstead of asking for asymptotic stabilization, we only require that trajectories pass thru a nbhd of \\(x^\\star\\)\nThis is reasonable because we know how to stabilize a fixed point, e.g. stabilize the linearization of the system using LQR\nThis allows us to find approximations for \\(H_d^\\theta\\) using learning techniques"
   },
   {
-    "objectID": "main.html#neuralpbc-problem-statement-1",
-    "href": "main.html#neuralpbc-problem-statement-1",
+    "objectID": "main.html#neuralpbc-techniques",
+    "href": "main.html#neuralpbc-techniques",
     "title": "main",
-    "section": "NeuralPbc Problem Statement",
-    "text": "NeuralPbc Problem Statement\n\n\n\n\n\n\n\n\n\\[\n\\begin{aligned}\n\\underset{\\theta}{\\text{minimize}} && J(\\theta, x_0) &= \\int_{0}^{T} \\ell \\left(\\phi,u^\\theta,\\theta\\right)\\, \\text{d} t \\\\\n\\text{subject to} &&\n\\begin{bmatrix}\n  \\dot{q} \\\\ \\dot{p}\n\\end{bmatrix} &=\n\\begin{bmatrix}\n  0 & I \\\\ -I & 0\n\\end{bmatrix}\n\\begin{bmatrix} \\nabla_q H \\\\ \\nabla_p H \\end{bmatrix} +\n\\begin{bmatrix}\n  0 \\\\ G\n\\end{bmatrix} u^{\\theta}\n\\\\\n&& u^\\theta &= - G^{\\dagger}\\nabla_q H_d^{\\theta}  - K_D G^\\top \\nabla_p H_d^{\\theta}\n\\end{aligned}\n\\]\n\n\n\n\n\nInjecting control task into loss function design\n\n\n\nMay require an initial motion/path planning step\n\n\nFor simple tasks, can just be quadratic loss to goal\n\n\n\nBackprop through closed-loop trajectories\n\n\n\nForward or adjoint differentiation\n\n\nTypically adjoint differentiation is more efficient\n\n\n\nSampling the state space efficiently\n\n\n\nDAgger sampling\n\n\nInitial conditions chosen from previously visited states\n\n\n\n\n\n\n\n\n\n\nPenalize states away from a desired ball.\n\n\n\n\n\nPenalize nonzero transverse coordinates.\n\n\n\n\nWe need \\(\\partial J / \\partial \\theta\\), which depends ODE solutions\n\nAdjoint sensitivity method: solve the adjoint problem backward in time \\[\\frac{\\text{d}\\lambda}{\\text{d}t} = -\\lambda \\frac{\\partial f}{\\partial x}, \\quad \\frac{\\partial J}{\\partial \\theta} = \\lambda(t_0) \\frac{\\partial f}{\\partial x}\\]"
+    "section": "NeuralPbc Techniques",
+    "text": "NeuralPbc Techniques\n\n\n\n\n\n\n\n\n\\[\n\\begin{aligned}\n\\underset{\\theta}{\\text{minimize}} && J(\\theta, x_0) &= \\int_{0}^{T} \\ell \\left(\\phi,u^\\theta,\\theta\\right)\\, \\text{d} t \\\\\n\\text{subject to} &&\n\\begin{bmatrix}\n  \\dot{q} \\\\ \\dot{p}\n\\end{bmatrix} &=\n\\begin{bmatrix}\n  0 & I \\\\ -I & 0\n\\end{bmatrix}\n\\begin{bmatrix} \\nabla_q H \\\\ \\nabla_p H \\end{bmatrix} +\n\\begin{bmatrix}\n  0 \\\\ G\n\\end{bmatrix} u^{\\theta}\n\\\\\n&& u^\\theta &= - G^{\\dagger}\\nabla_q H_d^{\\theta}  - K_D G^\\top \\nabla_p H_d^{\\theta}\n\\end{aligned}\n\\]\n\n\n\n\n\nInjecting control task into loss function design\n\n\n\nMay require an initial motion/path planning step\n\n\nFor simple tasks, can just be quadratic loss to goal\n\n\n\nBackprop through closed-loop trajectories\n\n\n\nForward or adjoint differentiation\n\n\nTypically adjoint differentiation is more efficient\n\n\n\nSampling the state space efficiently\n\n\n\nDAgger sampling\n\n\nInitial conditions chosen from previously visited states\n\n\n\n\n\n\n\n\n\n\nPenalize states away from a desired ball.\n\n\n\n\n\nPenalize nonzero transverse coordinates.\n\n\n\n\nWe need \\(\\partial J / \\partial \\theta\\), which depends ODE solutions\n\nAdjoint sensitivity method: solve the adjoint problem backward in time \\[\\frac{\\text{d}\\lambda}{\\text{d}t} = -\\lambda \\frac{\\partial f}{\\partial x}, \\quad \\frac{\\partial J}{\\partial \\theta} = \\lambda(t_0) \\frac{\\partial f}{\\partial x}\\]"
   },
   {
     "objectID": "main.html#robustness-via-bayesian-learning-1",
@@ -221,7 +214,7 @@
     "href": "main.html#bayesian-learning-produces-more-robust-controllers",
     "title": "main",
     "section": "Bayesian Learning Produces More Robust Controllers",
-    "text": "Bayesian Learning Produces More Robust Controllers\n\n\n\nConsider the control system:\n\n\n\nParameter uncertainty: \\(p \\sim \\mathcal{N}(\\hat{p}, \\sigma_p^2)\\).\nMeasurement noise: \\(x \\sim \\mathcal{N}(x, \\sigma^2)\\).\n\n\n\n\\[\n\\Sigma: \\quad\n\\begin{cases}\n  dx(t) &= (p+\\theta)x(t) dt + \\theta \\sigma dW_t, \\\\\n  x(0) &= 1.\n\\end{cases}\n\\] \\[\nx(t) = e^{(p+\\theta)t} + \\theta \\sigma \\int_0^t e^{(p+\\theta)(t-s)}dW_s.\n\\]\n\n\n\n\n\\[\n\\mathcal{J} = \\int_0^T \\left( \\frac{1}{2}qx(t)^2 + \\frac{1}{2}ru(t)^2  \\right)dt.\n\\]\n\n\n\n\n\n\nLemma\n\n\nThe conditional expectation \\(\\mathbb{E}[\\mathcal{J} \\mid p]\\) of the performance index given the system parameter \\(p\\) is\n\\[\n\\mathbb{E}[\\mathcal{J} \\mid p] =\n-\\frac{1}{4}\\frac{q+r\\theta^2}{p+\\theta}\\left[ \\theta^2 \\sigma^2 T +\n\\left(1-e^{2 T (p+\\theta)}\\right) \\left(1+\\frac{1}{2}\\frac{\\theta^2\n\\sigma^2}{p+\\theta}\\right) \\right]\n\\]"
+    "text": "Bayesian Learning Produces More Robust Controllers\n\n\n\nConsider the control system:\n\n\nParameter uncertainty: \\(p \\sim \\mathcal{N}(\\hat{p}, \\sigma_p^2)\\).\nMeasurement noise: \\(x \\sim \\mathcal{N}(x, \\sigma^2)\\).\n\n\n\\[\n\\Sigma: \\quad\n\\begin{cases}\n  dx(t) &= (p+\\theta)x(t) dt + \\theta \\sigma dW_t, \\\\\n  x(0) &= 1.\n\\end{cases}\n\\] \\[\nx(t) = e^{(p+\\theta)t} + \\theta \\sigma \\int_0^t e^{(p+\\theta)(t-s)}dW_s.\n\\]\n\n\n\n\n\\[\n\\mathcal{J} = \\int_0^T \\left( \\frac{1}{2}qx(t)^2 + \\frac{1}{2}ru(t)^2  \\right)dt.\n\\]\n\n\n\n\n\n\nLemma\n\n\nThe conditional expectation \\(\\mathbb{E}[\\mathcal{J} \\mid p]\\) of the performance index given the system parameter \\(p\\) is\n\\[\n\\mathbb{E}[\\mathcal{J} \\mid p] =\n-\\frac{1}{4}\\frac{q+r\\theta^2}{p+\\theta}\\left[ \\theta^2 \\sigma^2 T +\n\\left(1-e^{2 T (p+\\theta)}\\right) \\left(1+\\frac{1}{2}\\frac{\\theta^2\n\\sigma^2}{p+\\theta}\\right) \\right]\n\\]"
   },
   {
     "objectID": "main.html#conditional-expectation",
@@ -287,11 +280,11 @@
     "text": "Deterministic vs. Bayesian\n\n\n\n\n\n\n\n\n\n\n\nSubtracting rings from the wheel\n\ndecreases wheel mass\ndecreases wheel and pendulum inertia\nmoves the center of mass"
   },
   {
-    "objectID": "main.html#rimless-wheel",
-    "href": "main.html#rimless-wheel",
+    "objectID": "main.html#rimless-wheel-with-torso",
+    "href": "main.html#rimless-wheel-with-torso",
     "title": "main",
-    "section": "Rimless Wheel",
-    "text": "Rimless Wheel\n\n\n\n\n\n\n\n\nPerformance objective: achieve hip speed \\(\\dot{x}_c^* = 1\\)m/s \\[\\begin{align*}\n  J_T = \\sum_{t=0}^{T} \\| \\dot{x}_c^* - \\dot{x}_c(t; \\theta) \\|\n\\end{align*}\\]\nUncertainty in elevation under each spoke \\[\np_s \\sim \\mathbb{U}(0 \\textrm{cm}, 2\\textrm{cm})\n\\]"
+    "section": "Rimless Wheel with Torso",
+    "text": "Rimless Wheel with Torso\n\n\n\n\n\n\n\n\nPerformance objective: achieve hip speed \\(\\dot{x}_c^* = 1\\)m/s \\[\\begin{align*}\n  J_T = \\sum_{t=0}^{T} \\| \\dot{x}_c^* - \\dot{x}_c(t; \\theta) \\|\n\\end{align*}\\]\nUncertainty in elevation under each spoke \\[\np_s \\sim \\mathbb{U}(0 \\textrm{cm}, 2\\textrm{cm})\n\\]"
   },
   {
     "objectID": "main.html#joint-work-with-university-of-kentucky",
