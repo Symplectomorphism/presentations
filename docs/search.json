@@ -49,25 +49,18 @@
     "text": "Robustness against Contact under Uncertainty\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n \n\n\n\n\n \n\n\n\n\n\n\n \n\n\n\n\nVideo"
   },
   {
-    "objectID": "main.html#robustness-against-contact-under-uncertainty-1",
-    "href": "main.html#robustness-against-contact-under-uncertainty-1",
+    "objectID": "main.html#sources-of-uncertainty",
+    "href": "main.html#sources-of-uncertainty",
     "title": "main",
-    "section": "Robustness against Contact under Uncertainty",
-    "text": "Robustness against Contact under Uncertainty"
+    "section": "Sources of Uncertainty",
+    "text": "Sources of Uncertainty"
   },
   {
-    "objectID": "main.html#robustness-against-contact-under-uncertainty-2",
-    "href": "main.html#robustness-against-contact-under-uncertainty-2",
+    "objectID": "main.html#repercussions-of-untreated-uncertainty",
+    "href": "main.html#repercussions-of-untreated-uncertainty",
     "title": "main",
-    "section": "Robustness against Contact under Uncertainty",
-    "text": "Robustness against Contact under Uncertainty"
-  },
-  {
-    "objectID": "main.html#robustness-against-contact-and-uncertainty",
-    "href": "main.html#robustness-against-contact-and-uncertainty",
-    "title": "main",
-    "section": "Robustness against Contact and Uncertainty",
-    "text": "Robustness against Contact and Uncertainty\n\n\n\n\n\n\n\n\n\n\n\n\nNeed to design both robust state estimation and controllers.\nDomain randomization and Bayesian learning help for controller design.\nGTSAM and optimization over factor graphs help for state estimation."
+    "section": "Repercussions of Untreated Uncertainty",
+    "text": "Repercussions of Untreated Uncertainty\n\n\n\n\n\n\n\n\n\n\n\n\nNeed to design both robust state estimation and controllers.\nDomain randomization and Bayesian learning help for controller design.\nGTSAM and optimization over factor graphs help for state estimation."
   },
   {
     "objectID": "main.html#existing-vs.-proposed-control-synthesis-methods",
@@ -130,7 +123,7 @@
     "href": "main.html#stable-contact-and-manipulation-over-power-lines",
     "title": "main",
     "section": "Stable Contact and Manipulation over Power Lines",
-    "text": "Stable Contact and Manipulation over Power Lines\n\n\n\n\nWe are implementing passivity-based controllers (data-driven or otherwise) for manipulation over power lines."
+    "text": "Stable Contact and Manipulation over Power Lines\n\n\n\n\n\n\nWe are implementing passivity-based controllers (data-driven or otherwise) for manipulation over power lines."
   },
   {
     "objectID": "main.html#dissipativity",

@@ -267,8 +267,33 @@ at any point $\mathbf{q}$ during navigation!
 
 ## Stable Contact and Manipulation over Power Lines
 
-{{< video ./contents/assets/unclamped_then_clamped.mp4 width=850 autoplay="true" >}}
+:::: {.columns}
+
+::: {.column width="85%"}
+{{< video ./contents/assets/unclamped_then_clamped.mp4 width="850%" autoplay="true" >}}
 
 ::: {.callout-tip appearance="minimal"}
 We are implementing passivity-based controllers (data-driven or otherwise) for manipulation over power lines.
 :::
+:::
+
+
+::: {.column width="15%"}
+
+::: {.center-xy}
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+![](./contents/assets/nsf-logo.svg){width="150%"}
+
+:::
+
+:::
+
+::::

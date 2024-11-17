@@ -104,7 +104,7 @@ robust sensing and control.
 
 :::
 
-## Robustness against Contact under Uncertainty {auto-animate=true auto-animate-easing="ease-in-out"}
+## Sources of Uncertainty {auto-animate=true auto-animate-easing="ease-in-out"}
 
 ::: {.r-stack}
 
@@ -119,24 +119,7 @@ robust sensing and control.
 :::
 
 
-## Robustness against Contact under Uncertainty
-
-::: {.r-hstack layout-valign="center"}
-![](./contents/assets/true_closedloop.svg){width="100%" .fragment fragment-index=0}
-
-![](./contents/assets/trained_closedloop.svg){width="100%" .fragment fragment-index=0}
-:::
-
-::: {layout="[100, 100]" .fragment data-fragment-index=0}
-{{< video https://youtu.be/7t1E7FWawgA 
-   height=300 width="100%" >}}
-
-{{< video https://youtu.be/Kl6_hAY8PFw
-    height=300 width="100%" >}}
-:::
-
-
-## Robustness against Contact and Uncertainty
+## Repercussions of Untreated Uncertainty {auto-animate=true}
 
 ::: {layout="[100, 100]"}
 {{< video https://youtu.be/7t1E7FWawgA 
