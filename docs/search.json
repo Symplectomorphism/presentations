@@ -217,6 +217,13 @@
     "text": "Bayesian NeuralPbc: Hybrid System\n\n\n\nNeuralPbc for contact-rich system\n\n\n\\[\\begin{aligned}\n    \\underset{z}{\\textrm{minimize}}\n    & & & J(\\phi, u) = \\mathbb{E}_{x_0 \\in \\mathcal{D}_N}[\\ell(\\phi(x_0, u^\\theta, T), u^\\theta)], \\\\\n    \\textrm{subject to}\n    & & M(q) &\\mathop{}\\!\\mathrm{d}\\dot{q} + h(q, \\dot{q}, \\theta)\\mathop{}\\!\\mathrm{d}t - \\mathop{}\\!\\mathrm{d}R  = 0,\\\\\n    & & u^{\\theta} &= \\Omega^{\\dagger}(\\nabla_q H  - \\nabla_q H_d^\\theta), \\\\\n    & & p_s &\\sim \\mathbb{U}(p_{min}, p_{max}), \\\\\n    & & \\theta &\\sim Q(\\theta; z).\n\\end{aligned}\\]\n\n\n\n\n\n\n\n\n\n\n\\(p_s \\sim \\mathbb{U}(0 \\textrm{cm}, 2\\textrm{cm})\\)"
   },
   {
+    "objectID": "main.html#cart-pole-and-cart-pole-with-walls",
+    "href": "main.html#cart-pole-and-cart-pole-with-walls",
+    "title": "main",
+    "section": "Cart-Pole and Cart-Pole with Walls",
+    "text": "Cart-Pole and Cart-Pole with Walls"
+  },
+  {
     "objectID": "main.html#deterministic-vs.-bayesian",
     "href": "main.html#deterministic-vs.-bayesian",
     "title": "main",

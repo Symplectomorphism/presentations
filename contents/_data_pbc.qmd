@@ -881,9 +881,33 @@ $p_s \sim \mathbb{U}(0 \textrm{cm}, 2\textrm{cm})$
 
 # Case Studies {visibility="uncounted"}
 
-## {background-video="contents/assets/cartpole-exp.mp4" background-size="contain" background-video-loop="true" background-video-muted="true"}
+<!-- ## {background-video="contents/assets/cartpole-exp.mp4" background-size="contain" background-video-loop="true" background-video-muted="true"} -->
 <!-- ###################################################################### -->
 
+## Cart-Pole and Cart-Pole with Walls
+
+:::: {.columns}
+
+
+::: {.column width="50%"}
+
+&nbsp;
+
+&nbsp;
+
+{{< video ./contents/assets/cartpole-exp.mp4 width=550 >}}
+:::
+
+::: {.column width="50%"}
+
+&nbsp;
+
+&nbsp;
+
+{{< video ./contents/assets/cartpole_hardware.mp4 width=550 >}}
+:::
+
+::::
 
 ## Deterministic vs. Bayesian
 <!-- ###################################################################### -->
@@ -912,6 +936,7 @@ $p_s \sim \mathbb{U}(0 \textrm{cm}, 2\textrm{cm})$
 ::::
 
 ## {background-video="contents/assets/4_rings_hardware.mp4" background-size="contain" background-video-muted="true" background-video-loop="true"}
+
 
 ## Rimless Wheel with Torso {visibility="hidden"}
 
