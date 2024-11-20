@@ -4,126 +4,119 @@
     "href": "main.html#robust-sensing-and-learning-control-of-contact-rich-robots",
     "title": "main",
     "section": "Robust Sensing and Learning Control of Contact-Rich Robots",
-    "text": "Robust Sensing and Learning Control of Contact-Rich Robots\n\n\n\n UT Dallas Seminar\n\n\n\n\n\n\n\n\n\n\n\n\nPresenter:  Aykut Satici, Ph.D.  Associate Professor  Director, Robot Control Lab  Mechanical and Biomed. Eng.  Boise, Idaho, USA\n\n\n\n\n\n\n\n\n\nGraduate Students:  🇹🇭 Wankun Sirichotiyakul 🎓  🇪🇹 Nardos Ayele Ashenafi 🎓  🇺🇸 Alex Peterson 🎓  🇺🇸 Chandika Silva 🎓  🇺🇸 Chris Dagher 🎓"
+    "text": "Robust Sensing and Learning Control of Contact-Rich Robots\n\n\n\n UT Dallas Seminar\n\n\n\n\n\n\n\n\n\n\n\n\nPresenter:  Aykut Satici, Ph.D.  Associate Professor  Director, Robot Control Lab  Mechanical and Biomed. Eng.  Boise, Idaho, USA\n\n\n\n\n\n\n\n\n\nGraduate Students:  🇹🇭 Wankun Sirichotiyakul 🎓  🇪🇹 Nardos Ayele Ashenafi 🎓  🇺🇸 Alex Peterson 🎓  🇺🇸 Chandika Silva 🎓  🇺🇸 Chris Dagher 🎓 \n\n\n\n\n\nProduced several ECE and MBE MS and PhDs.\nThey landed high tech jobs at robotics, ML."
   },
   {
     "objectID": "main.html#graduate-studies-sabanci-university-and-ut-dallas",
     "href": "main.html#graduate-studies-sabanci-university-and-ut-dallas",
     "title": "main",
     "section": "Graduate Studies: Sabanci University and UT Dallas",
-    "text": "Graduate Studies: Sabanci University and UT Dallas"
+    "text": "Graduate Studies: Sabanci University and UT Dallas\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAt Sabanci: BS and MS degrees in Mechatronics w/ a lot of robotics/controls focus.\nCame to UTD in 2010 for my PhD\n\nOptimal Control of drones\nGeometric control of mutlirobot collaboration\n\nI also got an MS in math."
   },
   {
     "objectID": "main.html#postdoctoral-training-university-of-naples-and-mit",
     "href": "main.html#postdoctoral-training-university-of-naples-and-mit",
     "title": "main",
     "section": "Postdoctoral Training: University of Naples and MIT",
-    "text": "Postdoctoral Training: University of Naples and MIT"
+    "text": "Postdoctoral Training: University of Naples and MIT\n\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\nAfter PhD, did a brief stunt at Mathworks before getting hired at\n\nProf. Siciliano’s group at University of Naples, Federico II as a postdoctoral researcher.\nhired to help with control system design for the RoDyMan project – (EU) nonprehensile robotic manipulation.\nWorked on PBC for underactuated/nonprehensile robots and geometric motion planning for tossing and catching\n\nSpent a second year of postdoc at MIT in Russ Tedrake’s group.\n\nWorked on modeling and control of soft robotic systems.\nVideo shows modeling a soft end-effector w/ a cable contraint\nDevised a model-based controller and tested in experiment."
   },
   {
     "objectID": "main.html#boise-state-university-robust-data-driven-control-of-robotic-contact",
     "href": "main.html#boise-state-university-robust-data-driven-control-of-robotic-contact",
     "title": "main",
     "section": " Boise State University: Robust Data-Driven Control of Robotic Contact",
-    "text": "Boise State University: Robust Data-Driven Control of Robotic Contact\n\n\n\nVideo\n\n\nVideo"
-  },
-  {
-    "objectID": "main.html#loosening-up-chess-and-basketball",
-    "href": "main.html#loosening-up-chess-and-basketball",
-    "title": "main",
-    "section": "Loosening up: Chess and Basketball",
-    "text": "Loosening up: Chess and Basketball\n\n\n\n\nVideo"
+    "text": "Boise State University: Robust Data-Driven Control of Robotic Contact\n\n\n\nVideo\n\n\nVideo\n\n\n\n\n\nJoined BSU as an TT assistant professor at MBE dept.\nFostered a collaboration w/ local drone compnay over the last 3 years.\n\nPerforming manipulation on power lines."
   },
   {
     "objectID": "main.html#the-surge-in-reliance-upon-robotic-systems",
     "href": "main.html#the-surge-in-reliance-upon-robotic-systems",
     "title": "main",
     "section": "The Surge in Reliance Upon Robotic Systems",
-    "text": "The Surge in Reliance Upon Robotic Systems\n\n\n\n\n\nWarehouse automation\n\n\n\n\nAutonomous vehicles\n\n\n\n\nDrones for first responders\n\n\n\n\nUtility drones\n\n\n\n\n\nRobotics becoming ever more ubiquitous, and increasing the requirement of robust sensing and control.\n\n\n\n\n\n\n\nVideo\n\n\n\nVideo\n\n\n\nVideo\n\n\n\n\nVideo"
+    "text": "The Surge in Reliance Upon Robotic Systems\n\n\n\n\n\n\nWarehouse automation\n\n\n\n\nAutonomous vehicles\n\n\n\n\nDrones for first responders\n\n\n\n\nUtility drones\n\n\n\n\n\n\n\nVideo\n\n\n\nVideo\n\n\n\nVideo\n\n\n\n\nVideo\n\n\n\n\n\n\n\n\n\n\nRobotics becoming ever more ubiquitous, and increasing the requirement of robust sensing and control.\n\n\n\n\n\n\nRobot Institute of America: reprogrammable, multifunctional manipulator designed to move things.\nThe definition changed and robots became more ubiquitous, requiring ever more robustness."
   },
   {
     "objectID": "main.html#robustness-against-contact-under-uncertainty",
     "href": "main.html#robustness-against-contact-under-uncertainty",
     "title": "main",
     "section": "Robustness against Contact under Uncertainty",
-    "text": "Robustness against Contact under Uncertainty\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n \n\n\n\n\n \n\n\n\n\n\n\n \n\n\n\n\nVideo"
+    "text": "Robustness against Contact under Uncertainty\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n \n\n\n\n\n \n\n\n\n\n\n\n \n\n\n\n\nVideo\n\n\n\n\n\n\nNeed to make and break contact to be useful\nContact inherently very complex\n\nInstantaneous jumps\nDynamics changes\n\nA quasi-static or quasi-dynamic motion plan may fail due to these\nObserve Astria bird-diverter installation\n\nUnexpected mode of contact kicks and destabilizes the flight controller."
   },
   {
     "objectID": "main.html#sources-of-uncertainty",
     "href": "main.html#sources-of-uncertainty",
     "title": "main",
     "section": "Sources of Uncertainty",
-    "text": "Sources of Uncertainty"
+    "text": "Sources of Uncertainty\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\nClassical control system depiction\nDesired task encoded in the trajectory cost block\nEvolution of the states described by MDEs (necessary for friction/contact modeling)\nEstimated state corrupted with noise\nController is trained with imperfections\n\ndynamics model\nperfect state information or model of the noise\n\n\nConclusion: Performance of the CL system in real life will deviate from predictions. Need to devise a controller that is insensitive to unexpected yet inevitable discrepancies."
   },
   {
     "objectID": "main.html#repercussions-of-untreated-uncertainty",
     "href": "main.html#repercussions-of-untreated-uncertainty",
     "title": "main",
     "section": "Repercussions of Untreated Uncertainty",
-    "text": "Repercussions of Untreated Uncertainty\n\n\n\n\n\n\n\n\n\n\n\n\nNeed to design both robust state estimation and controllers.\nDomain randomization and Bayesian learning help for controller design.\nGTSAM and optimization over factor graphs help for state estimation."
+    "text": "Repercussions of Untreated Uncertainty\n\n\n\n\n\n\n\n\n\n\n\n\nNeed to design both robust state estimation and controllers.\nDomain randomization and Bayesian learning help for controller design.\nGTSAM and optimization over factor graphs help for state estimation.\n\n\n\n\nFairly complex robot trained in simulation, implemented in real life.\nShows the sources of uncertainty:\n\nmanufacturing tolerances\nuneven terrain\nsensor characteristics\n\nPerformance suffers.\n\nTake away: * State estimators and controllers need to be designed to be insensitive - to various kinds of uncertainties. * Will advocate several concepts in this vein - PBC - Bayesian learning - domain randomization - optimization over factor graphs."
   },
   {
     "objectID": "main.html#existing-vs.-proposed-control-synthesis-methods",
     "href": "main.html#existing-vs.-proposed-control-synthesis-methods",
     "title": "main",
     "section": "Existing vs. Proposed Control Synthesis Methods",
-    "text": "Existing vs. Proposed Control Synthesis Methods\n\n\n\n\n\nReinforcement learning (similarly Decision Transformers) \n\n\n \n\n\n\nStrengths\n\nMore general\nUnknown dynamics OK\n\nWeaknesses\n\nSample complexity\nStability guarantees?\n\n\n\n\n\n\n\n\n\n\nBayesian Neural Passivity-based Control \n\n\n \n\n\n\nStrengths\n\nStability guarantees\nClosed-form policy\nReasons about model uncertainties"
+    "text": "Existing vs. Proposed Control Synthesis Methods\n\n\n\n\n\nReinforcement learning (similarly Decision Transformers) \n\n\n \n\n\n\nStrengths\n\nMore general\nUnknown dynamics OK\n\nWeaknesses\n\nSample complexity\nStability guarantees?\n\n\n\n\n\n\n\n\n\n\nBayesian Neural Passivity-based Control \n\n\n \n\n\n\nStrengths\n\nStability guarantees\nClosed-form policy\nReasons about model uncertainties\n\n\n\n\n\n\n\n\n\nBasic methods such as RL and even decision transformers\n\nare data hungry,\nstability guarantees hard to obtain\n\nOur methods\n\nPBC yields robustness and some stability guarantees\nMDEs, SDEs allow domain randomization rigorously\nBayesian learning provides more robustness."
   },
   {
     "objectID": "main.html#robustness-via-bayesian-learning",
     "href": "main.html#robustness-via-bayesian-learning",
     "title": "main",
     "section": "Robustness via Bayesian Learning",
-    "text": "Robustness via Bayesian Learning\n\n\n\n\n\n\nSystem Parameter Uncertainty and Measurement Noise\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLess robust\n\n\n\n\n\n\n\n\n\n\n\nMore robust"
+    "text": "Robustness via Bayesian Learning\n\n\n\n\n\n\nSystem Parameter Uncertainty and Measurement Noise\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLess robust\n\n\n\n\n\n\n\n\n\n\n\nMore robust\n\n\n\n\n\n\n\n\n\n\n\nAny function approximator (weights and biases)\n\nnot just point estimates\nhave assoc. prob. distributions\n\nInference time\n\ndistributions are marginalized out\n\nMAP estimates\nsimple sampling\nintegration"
   },
   {
     "objectID": "main.html#robust-localization-w.r.t.-power-lines-in-sparse-environments",
     "href": "main.html#robust-localization-w.r.t.-power-lines-in-sparse-environments",
     "title": "main",
     "section": "Robust Localization w.r.t. Power Lines in Sparse Environments",
-    "text": "Robust Localization w.r.t. Power Lines in Sparse Environments\n\n\n\nThe ground has a uniform texture.\nThere are too few utility poles or immediate fences.\nThere are no trees or other geometries.\nGPS provides absolute position, need relative pose to power lines!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInsufficient landmarks\n\n\nAny vision-based estimation mechanism will not perform reliably and robustly for drone localization.\n\n\n\n\n\n\n\n\n\n\n\nElectromagnetic field around the power lines\n\n\nIf we can get reliable measurements, then we can devise a distance and bearing factor exploiting this field."
+    "text": "Robust Localization w.r.t. Power Lines in Sparse Environments\n\n\n\nThe ground has a uniform texture.\nThere are too few utility poles or immediate fences.\nThere are no trees or other geometries.\nGPS provides absolute position, need relative pose to power lines!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInsufficient landmarks\n\n\nAny vision-based estimation mechanism will not perform reliably and robustly for drone localization.\n\n\n\n\n\n\n\n\n\n\n\nElectromagnetic field around the power lines\n\n\nIf we can get reliable measurements, then we can devise a distance and bearing factor exploiting this field.\n\n\n\n\n\n\nExamples:\n\nmounting bird diverters\ndynamic line rating sensors to facilitate efficient power flow through trans. lines.\n\nLocalization problem difficult b/c\n\nscene has no salient features\nGPS absolute not relative\n\nLiterature not good at exploiting the EM field\n\nGreat for robust relative pose estimation"
   },
   {
     "objectID": "main.html#electric-and-magnetic-field-around-three-phase-power-lines",
     "href": "main.html#electric-and-magnetic-field-around-three-phase-power-lines",
     "title": "main",
     "section": "Electric and Magnetic Field around Three-Phase Power Lines",
-    "text": "Electric and Magnetic Field around Three-Phase Power Lines\n\n\n\n\n\nEM Field near Three-Phase Power Lines\n\n\nQuasi-static approximation to Maxwell’s equations yields (\\(\\mathbf{q} = (x, z)\\) is the location of the sensor)\n\\[\n\\bar{E}^2(\\mathbf{q}) = \\frac{1}{2}\\sum_{\\alpha=1}^3\\left(e_\\alpha^2 -\n\\sum_{\\alpha^\\prime &gt; \\alpha}^3 c_{\\alpha\\alpha^\\prime}e_\\alpha e_{\\alpha^\\prime} \\right),\n\\]\nwhere \\(e_\\alpha = \\frac{\\xi}{r_\\alpha} = \\frac{\\beta c \\mu_0 I_0}{2\\pi}\\frac{1}{r_\\alpha}\\) is the peak electric field magnitude and \\(c_{\\alpha\\alpha^\\prime} = \\cos{\\left(\\theta_\\alpha - \\theta_{\\alpha^\\prime}\\right)}\\).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFrom total rms energy considerations, it can be shown that \\(\\bar{B} = \\sqrt{\\mu_0 \\varepsilon_0} \\bar{E}\\)."
+    "text": "Electric and Magnetic Field around Three-Phase Power Lines\n\n\n\n\n\nEM Field near Three-Phase Power Lines\n\n\nQuasi-static approximation to Maxwell’s equations yields (\\(\\mathbf{q} = (x, z)\\) is the location of the sensor)\n\\[\n\\bar{E}^2(\\mathbf{q}) = \\frac{1}{2}\\sum_{\\alpha=1}^3\\left(e_\\alpha^2 -\n\\sum_{\\alpha^\\prime &gt; \\alpha}^3 c_{\\alpha\\alpha^\\prime}e_\\alpha e_{\\alpha^\\prime} \\right),\n\\]\nwhere \\(e_\\alpha = \\frac{\\xi}{r_\\alpha} = \\frac{\\beta c \\mu_0 I_0}{2\\pi}\\frac{1}{r_\\alpha}\\) is the peak electric field magnitude and \\(c_{\\alpha\\alpha^\\prime} = \\cos{\\left(\\theta_\\alpha - \\theta_{\\alpha^\\prime}\\right)}\\).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFrom total rms energy considerations, it can be shown that \\(\\bar{B} = \\sqrt{\\mu_0 \\varepsilon_0} \\bar{E}\\).\n\n\n\n\n\n\n\nThe structure and geometry of the EM Field around three-phase flow\n\ncontours curves: rms E-field\ngradient\ntransverse plane\n\nQuasi-static approx. to Maxwell’s eqns. are good enough.\n\nClosed form\n\nFrom energy considerations: rms B-field \\(\\propto\\) rms E-field\n\nEasier to measure the rms Bdot."
   },
   {
     "objectID": "main.html#gradient-of-the-electric-field-around-three-phase-power-lines",
     "href": "main.html#gradient-of-the-electric-field-around-three-phase-power-lines",
     "title": "main",
     "section": "Gradient of the Electric Field around Three-Phase Power Lines",
-    "text": "Gradient of the Electric Field around Three-Phase Power Lines\n\n\n\n\n\nGradient of the rms Electric Field\n\n\n\\[\\begin{align*}\n&\\nabla_{\\mathbf{q}} \\bar{E}(\\mathbf{q}) = 2\\bar{E}\\nabla_{\\mathbf{q}}\\bar{E} \\\\\n&\\phantom{12}= \\frac{1}{2\\xi}\\sum_{\\alpha=1}^3 e_\\alpha \\begin{bmatrix}\n  -2e_\\alpha^2c_\\alpha + \\sum_{\\alpha^\\prime \\neq \\alpha} e_{\\alpha^\\prime}^2 \\cos{\\left(\\theta_\\alpha - 2\\theta_{\\alpha^\\prime}\\right)}\\\\\n  2e_\\alpha^2c_\\alpha + \\sum_{\\alpha^\\prime \\neq \\alpha} e_{\\alpha^\\prime}^2 \\sin{\\left(\\theta_\\alpha - 2\\theta_{\\alpha^\\prime}\\right)}\n\\end{bmatrix}\n\\end{align*}\\]\n\n\n\n\n\n\nLemma: Direction of the gradient\n\n\nThe gradient \\(\\nabla_{\\mathbf{q}} \\bar{E}(\\mathbf{q})\\) points into the convex hull (triangle) formed by the transmission wires for every \\(\\mathbf{q}\\)."
+    "text": "Gradient of the Electric Field around Three-Phase Power Lines\n\n\n\n\n\nGradient of the rms Electric Field\n\n\n\\[\\begin{align*}\n&\\nabla_{\\mathbf{q}} \\bar{E}(\\mathbf{q}) = 2\\bar{E}\\nabla_{\\mathbf{q}}\\bar{E} \\\\\n&\\phantom{12}= \\frac{1}{2\\xi}\\sum_{\\alpha=1}^3 e_\\alpha \\begin{bmatrix}\n  -2e_\\alpha^2c_\\alpha + \\sum_{\\alpha^\\prime \\neq \\alpha} e_{\\alpha^\\prime}^2 \\cos{\\left(\\theta_\\alpha - 2\\theta_{\\alpha^\\prime}\\right)}\\\\\n  2e_\\alpha^2c_\\alpha + \\sum_{\\alpha^\\prime \\neq \\alpha} e_{\\alpha^\\prime}^2 \\sin{\\left(\\theta_\\alpha - 2\\theta_{\\alpha^\\prime}\\right)}\n\\end{bmatrix}\n\\end{align*}\\]\n\n\n\n\n\n\nLemma: Direction of the gradient\n\n\nThe gradient \\(\\nabla_{\\mathbf{q}} \\bar{E}(\\mathbf{q})\\) points into the convex hull (triangle) formed by the transmission wires for every \\(\\mathbf{q}\\).\n\n\n\n\n\n\n\n\n\nGradient in closed-form\n\nhas some remarkable properties\nall thanks to this lemma: points to the convex hull of the transmission wires."
   },
   {
     "objectID": "main.html#navigating-the-uav-to-one-of-the-power-lines",
     "href": "main.html#navigating-the-uav-to-one-of-the-power-lines",
     "title": "main",
     "section": "Navigating the UAV to One of the Power Lines",
-    "text": "Navigating the UAV to One of the Power Lines\n\n\n\n\n\nPotential Function and its Gradient\n\n\nDefine the potential function \\(V(\\mathbf{q}) = \\frac{1}{\\bar{E}^2(\\mathbf{q})}\\). Its gradient is \\[\n\\nabla_{\\mathbf{q}}V(\\mathbf{q}) = -\\frac{2}{\\bar{E}^3}\\nabla_{\\mathbf{q}}\\bar{E}(\\mathbf{q})\n\\] Further, \\(\\lVert \\nabla_{\\mathbf{q}}V(\\mathbf{q}) \\rVert = O\\left(\\frac{1}{\\bar{E}}\\right)\\) as \\(\\bar{E} \\rightarrow \\infty\\) (or \\(r_\\alpha \\rightarrow 0\\)).\n\n\n\n\n\n\nLemma: Critical points of \\(V(\\mathbf{q})\\)\n\n\n\nGenerically \\(V\\) has \\(5\\) isolated critical points, \\(3\\) of which are global minima and have \\(r_\\alpha = 0\\).\nApplying Poincaré-Hopf theorem on the convex hull of the power lines yields the remaining 2 are saddle points!\n\n\n\n\n\n\n\n\n\nFollowing \\(\\nabla_{\\mathbf{q}}V(\\mathbf{q})\\) navigates the drone to one of the power lines."
+    "text": "Navigating the UAV to One of the Power Lines\n\n\n\n\n\nPotential Function and its Gradient\n\n\nDefine the potential function \\(V(\\mathbf{q}) = \\frac{1}{\\bar{E}^2(\\mathbf{q})}\\). Its gradient is \\[\n\\nabla_{\\mathbf{q}}V(\\mathbf{q}) = -\\frac{2}{\\bar{E}^3}\\nabla_{\\mathbf{q}}\\bar{E}(\\mathbf{q})\n\\] Further, \\(\\lVert \\nabla_{\\mathbf{q}}V(\\mathbf{q}) \\rVert = O\\left(\\frac{1}{\\bar{E}}\\right)\\) as \\(\\bar{E} \\rightarrow \\infty\\) (or \\(r_\\alpha \\rightarrow 0\\)).\n\n\n\n\n\n\nLemma: Critical points of \\(V(\\mathbf{q})\\)\n\n\n\nGenerically \\(V\\) has \\(5\\) isolated critical points, \\(3\\) of which are global minima and have \\(r_\\alpha = 0\\).\nApplying Poincaré-Hopf theorem on the convex hull of the power lines yields the remaining 2 are saddle points!\n\n\n\n\n\nFirst way to exploit: navigate the UAV to one of the power lines.\n\nCreate potential so that\n\nits gradient vanishes at one of the power lines.\n\nFurther lemma: these are its only minima\nOther critical points of V are saddle points\n\nCan be shown by combining Morse theory and Poincare-Hopf theorem\n\nIndex of a vector field around a critical point\nlined to the Euler characteristic of the underlying manifold\n\n\nAnalysis shows:\n\nFollowing the grad of the rms E-field gets to one of the power lines\nRMS quantities: low-pass filter –&gt; robustness\n\n\n\n\n\n\n\nFollowing \\(\\nabla_{\\mathbf{q}}V(\\mathbf{q})\\) navigates the drone to one of the power lines."
   },
   {
     "objectID": "main.html#robust-localization-with-gtsam-sensor-fusion-library",
     "href": "main.html#robust-localization-with-gtsam-sensor-fusion-library",
     "title": "main",
     "section": "Robust Localization with GTSAM: Sensor Fusion Library",
-    "text": "Robust Localization with GTSAM: Sensor Fusion Library\n\n\n\nFactors depict constaints on the poses as:\n\nprior state: \\(f_0(x_1)\\)\nodometry relation: \\(f_i(x_i, x_{i+1}; o_i)\\)\nobservations: \\(f_i(x_i;z_i)\\).\n\n\n\n\n\n\n\\[\n\\begin{aligned}\np(\\mathbf{x} | \\mathbf{o}) \\propto p(x_1) \\prod_{i=2}^{3} p(x_i | x_{i-1}, o_i)\\\\\n% f(\\mathbf{x}) = \\arg\\max_{\\mathbf{x}}  f_0(x_1) \\prod_{i=1}^{2} f_i(x_i, x_{i+1}; o_i)\n\\end{aligned}\n\\]\n\n\n\n\\[\n\\begin{aligned}\np(\\mathbf{x} | \\mathbf{o}, \\mathbf{z}) \\propto p(x_1) \\prod_{i=2}^{3} p(x_i | x_{i-1}, o_i) p(z_i | x_i) \\\\\n% f(\\mathbf{x}) = \\arg\\max_{\\mathbf{x}}  f_0(x_1) \\prod_{i=1}^{2} f_i(x_i, x_{i+1}; o_i)  g_i(x_i; z_i)\n\\end{aligned}\n\\]\n\n\n\n\\[\n\\begin{aligned}\np(\\mathbf{x} | \\mathbf{o}, \\mathbf{l}) \\propto p(x_1) \\prod_{i=2}^{3} p(x_i | x_{i-1}, o_i) p(l_i | x_i) \\\\\n% f(\\mathbf{x}) = \\arg\\max_{\\mathbf{x}}  f_0(x_1) \\prod_{i=1}^{2} f_i(x_i, x_{i+1}; o_i)  h_i(x_i; l_i)\n\\end{aligned}\n\\]"
+    "text": "Robust Localization with GTSAM: Sensor Fusion Library\n\n\n\nFactors depict constaints on the poses as:\n\nprior state: \\(f_0(x_1)\\)\nodometry relation: \\(f_i(x_i, x_{i+1}; o_i)\\)\nobservations: \\(f_i(x_i;z_i)\\).\n\n\n\n\n\n\n\\[\n\\begin{aligned}\np(\\mathbf{x} | \\mathbf{o}) \\propto p(x_1) \\prod_{i=2}^{3} p(x_i | x_{i-1}, o_i)\\\\\n% f(\\mathbf{x}) = \\arg\\max_{\\mathbf{x}}  f_0(x_1) \\prod_{i=1}^{2} f_i(x_i, x_{i+1}; o_i)\n\\end{aligned}\n\\]\n\n\n\n\\[\n\\begin{aligned}\np(\\mathbf{x} | \\mathbf{o}, \\mathbf{z}) \\propto p(x_1) \\prod_{i=2}^{3} p(x_i | x_{i-1}, o_i) p(z_i | x_i) \\\\\n% f(\\mathbf{x}) = \\arg\\max_{\\mathbf{x}}  f_0(x_1) \\prod_{i=1}^{2} f_i(x_i, x_{i+1}; o_i)  g_i(x_i; z_i)\n\\end{aligned}\n\\]\n\n\n\n\\[\n\\begin{aligned}\np(\\mathbf{x} | \\mathbf{o}, \\mathbf{l}) \\propto p(x_1) \\prod_{i=2}^{3} p(x_i | x_{i-1}, o_i) p(l_i | x_i) \\\\\n% f(\\mathbf{x}) = \\arg\\max_{\\mathbf{x}}  f_0(x_1) \\prod_{i=1}^{2} f_i(x_i, x_{i+1}; o_i)  h_i(x_i; l_i)\n\\end{aligned}\n\\]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSecond way to exploit the gradient: use it as a measurement factor.\n\nFactor-graph based state estimators\n\neach measurement is a factor of a graph\nthe graph’s nodes are estimated states\nthe graph’s edges connect state estimates to observations with a factor.\n\nProb. distribution constructed\n\ncorresponds to the current belief of states\neach measurement/observation contributes\nan optimization problem is solved to find the MAP of this prob. dist."
   },
   {
     "objectID": "main.html#gtsam-meets-gradient-of-the-electric-field",
     "href": "main.html#gtsam-meets-gradient-of-the-electric-field",
     "title": "main",
     "section": "GTSAM meets Gradient of the Electric Field",
-    "text": "GTSAM meets Gradient of the Electric Field\n\n\n\n\n\n\\(\\nabla_{\\mathbf{q}}\\bar{E}(\\mathbf{q})\\) points towards the convex hull\n\n\nThe unit vector along this gradient may be used as a bearing factor in GTSAM at any point \\(\\mathbf{q}\\) during navigation!\n\nTurns the convex hull of the power lines into a landmark."
+    "text": "GTSAM meets Gradient of the Electric Field\n\n\n\n\n\n\\(\\nabla_{\\mathbf{q}}\\bar{E}(\\mathbf{q})\\) points towards the convex hull\n\n\nThe unit vector along this gradient may be used as a bearing factor in GTSAM at any point \\(\\mathbf{q}\\) during navigation!\n\nTurns the convex hull of the power lines into a landmark.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRecall: the grad of the rms E-field points into the convex hull\n\neach measurement of the E- or B-field is a bearing to a landmark (convex hull)\nthink of ships observing the light from a lighthouse!\nLandmark observation handed to GTSAM for optimization of factor-graph\n\nExperiments conducted on custom powered transmission line\n\nAGV carries the appratus for measurements\nPlots show that the estimated bearing and distance is close to the truth.\nDistance gets more and more accurate as the sensors get close to the line."
   },
   {
     "objectID": "main.html#stable-contact-and-manipulation-over-power-lines",
     "href": "main.html#stable-contact-and-manipulation-over-power-lines",
     "title": "main",
     "section": "Stable Contact and Manipulation over Power Lines",
-    "text": "Stable Contact and Manipulation over Power Lines\n\n\n\n\n\n\nWe are implementing passivity-based controllers (data-driven or otherwise) for manipulation over power lines."
+    "text": "Stable Contact and Manipulation over Power Lines\n\n\n\n\n\n\nWe are implementing passivity-based controllers (data-driven or otherwise) for manipulation over power lines.\n\n\n\n\n\n \n \n \n \n\n\n\n\n\n\nNSF STTR grant secured.\n\nImplement our state estimation and navigation alg on real UAV.\nAutonomously approach and make stable contact.\n\nNow designing PBC controllers for\n\nmaking and breaking stable contact\nusing high-fidelity simulations of the power line and the UAV interaction\n\nNext goal (control design):\n\nIncorporate wind gusts effects (NN approximators)\nCoM changes after installing or uninstalling devices (adaptive ctrl. ideas)"
   },
   {
     "objectID": "main.html#dissipativity",
@@ -326,6 +319,13 @@
     "href": "main.html#funding-mechanism-nih-through-collaborations",
     "title": "main",
     "section": "Funding Mechanism: NIH through Collaborations",
-    "text": "Funding Mechanism: NIH through Collaborations\n\n\n\n\n\n \n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRobust Sensing and Data-Driven Control • Aykut C. Satici"
+    "text": "Funding Mechanism: NIH through Collaborations"
+  },
+  {
+    "objectID": "main.html#loosening-up-chess-and-basketball-1",
+    "href": "main.html#loosening-up-chess-and-basketball-1",
+    "title": "main",
+    "section": "Loosening up: Chess and Basketball",
+    "text": "Loosening up: Chess and Basketball\n\n\n\n\nVideo \n\n\n\n\n\n\nRobust Sensing and Data-Driven Control • Aykut C. Satici"
   }
 ]

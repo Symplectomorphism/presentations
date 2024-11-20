@@ -40,6 +40,11 @@ __Graduate Students__: <br/>
 :us: Chris Dagher :mortar_board: <br/>
 :::
 
+::: {.notes}
+* Produced several ECE and MBE MS and PhDs.
+* They landed high tech jobs at robotics, ML.
+:::
+
 <!--
 ## Peer-Reviewed Contributions
 

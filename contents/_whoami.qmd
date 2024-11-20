@@ -37,6 +37,15 @@ aspect-ratio=4x3 width="400" autoplay="true" loop="true" fig-align="center" >}}
 ::::
 
 
+::: {.notes}
+* At Sabanci: BS and MS degrees in Mechatronics w/ a lot of robotics/controls focus.
+* Came to UTD in 2010 for my PhD
+  - Optimal Control of drones
+  - Geometric control of mutlirobot collaboration
+* I also got an MS in math.
+:::
+
+
 ## Sabanci University: Rehabilitation Robotics {visibility="hidden"}
 
 :::: {.columns}
@@ -64,6 +73,7 @@ aspect-ratio=4x3 width="400" autoplay="true" loop="true" fig-align="center" >}}
 :::
 
 ::::
+
 
 
 ## UT Dallas: Multi-Robot Cooperation and Geometric Control {auto-animate=true visibility="hidden"}
@@ -124,6 +134,17 @@ aspect-ratio=4x4 width="450" autoplay="true" loop="true" muted="true" >}}
 :::
 
 ::::
+
+::: {.notes}
+* After PhD, did a brief stunt at Mathworks before getting hired at
+  - Prof. Siciliano's group at University of Naples, Federico II as a postdoctoral researcher.
+  - hired to help with control system design for the RoDyMan project -- (EU) nonprehensile robotic manipulation.
+  - Worked on PBC for underactuated/nonprehensile robots and geometric motion planning for tossing and catching
+* Spent a second year of postdoc at MIT in Russ Tedrake's group.
+  - Worked on modeling and control of soft robotic systems.
+  - Video shows modeling a soft end-effector w/ a cable contraint
+  - Devised a model-based controller and tested in experiment.
+:::
 
 
 ## University of Naples Federico II: PB and Geometric Control {auto-animate=true visibility="hidden"}
@@ -193,11 +214,16 @@ aspect-ratio=4x4 width="450" autoplay="true" loop="true" muted="true" >}}
 ![](contents/assets/acknowledgment3.JPG){width="85%"}
 :::
 
-
 ::::
 
+::: {.notes}
+* Joined BSU as an TT assistant professor at MBE dept.
+* Fostered a collaboration w/ local drone compnay over the last 3 years.
+  - Performing manipulation on power lines.
+:::
 
-## Loosening up: Chess and Basketball {auto-animate=true}
+
+## Loosening up: Chess and Basketball {auto-animate=true visibility="hidden"}
 
 
 :::: {.columns style='display: flex !important; height: 90%;'}

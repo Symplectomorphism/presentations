@@ -11,6 +11,7 @@
 
 ::: {.column width="50%"}
 
+<br>
 
 :::{.fragment .fade-in-then-semi-out fragment-index=0}
 * Warehouse automation
@@ -26,13 +27,6 @@
 
 :::{.fragment .fade-in-then-semi-out fragment-index=3}
 * Utility drones
-:::
-
-<br/>
-
-::: {.fragment .fade-right fragment-index=4}
-* Robotics becoming ever more ubiquitous, and increasing the requirement of 
-robust sensing and control.
 :::
 
 
@@ -86,6 +80,18 @@ robust sensing and control.
 
 ::::
 
+::: {.fragment .fade-right fragment-index=4}
+::: {.callout-tip appearance="minimal"}
+Robotics becoming ever more ubiquitous, and increasing the requirement of 
+robust sensing and control.
+:::
+:::
+
+::: {.notes}
+* Robot Institute of America: reprogrammable, multifunctional manipulator designed to move things.
+* The definition changed and robots became more ubiquitous, requiring ever more **robustness**.
+:::
+
 
 ## Robustness against Contact under Uncertainty {auto-animate=true auto-animate-easing="ease-in-out"}
 
@@ -104,6 +110,16 @@ robust sensing and control.
 
 :::
 
+::: {.notes}
+* Need to make and break contact to be useful
+* Contact inherently very complex
+  - Instantaneous jumps
+  - Dynamics changes
+* A quasi-static or quasi-dynamic motion plan may fail due to these
+* Observe Astria bird-diverter installation
+  - Unexpected mode of contact kicks and destabilizes the flight controller.
+:::
+
 ## Sources of Uncertainty {auto-animate=true auto-animate-easing="ease-in-out"}
 
 ::: {.r-stack}
@@ -116,6 +132,20 @@ robust sensing and control.
 ![](./contents/assets/trained_closedloop.svg){width="100%" .fragment fragment-index=1}
 :::
 
+:::
+
+::: {.notes}
+* Classical control system depiction
+* Desired task encoded in the trajectory cost block
+* Evolution of the states described by MDEs (necessary for friction/contact modeling)
+* Estimated state corrupted with noise
+
+* Controller is trained with imperfections
+  - dynamics model
+  - perfect state information or model of the noise
+
+**Conclusion:** Performance of the CL system in real life will deviate from predictions.
+Need to devise a controller that is insensitive to unexpected yet inevitable discrepancies.
 :::
 
 
@@ -133,6 +163,26 @@ robust sensing and control.
 * Need to design both robust state estimation and controllers.
 * Domain randomization and Bayesian learning help for controller design.
 * GTSAM and optimization over factor graphs help for state estimation.
+:::
+
+::: {.notes}
+
+* Fairly complex robot trained in simulation, implemented in real life.
+* Shows the sources of uncertainty:
+  - manufacturing tolerances
+  - uneven terrain
+  - sensor characteristics
+* Performance suffers.
+
+**Take away:** 
+* State estimators and controllers need to be designed to be insensitive
+  - to various kinds of uncertainties.
+* Will advocate several concepts in this vein
+  - PBC
+  - Bayesian learning
+  - domain randomization
+  - optimization over factor graphs.
+
 :::
 
 
@@ -171,6 +221,15 @@ Reasons about model uncertainties \
 :::
 ::::
 
+::: {.notes}
+* Basic methods such as RL and even decision transformers
+  - are data hungry,
+  - stability guarantees hard to obtain
+* Our methods
+  - PBC yields robustness and some stability guarantees
+  - MDEs, SDEs allow domain randomization rigorously
+  - Bayesian learning provides more robustness.
+:::
 
 
 
@@ -192,3 +251,14 @@ Reasons about model uncertainties \
 :::
 
 ::::
+
+::: {.notes}
+* Any function approximator (weights and biases)
+  - not just point estimates
+  - have assoc. prob. distributions
+* Inference time
+  - distributions are marginalized out
+    * MAP estimates
+    * simple sampling
+    * integration
+:::

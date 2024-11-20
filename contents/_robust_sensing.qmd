@@ -35,6 +35,19 @@ If we can get reliable measurements, then we can devise a distance and bearing
 factor exploiting this field.
 :::
 
+::: {.notes}
+* Examples:
+  - mounting bird diverters
+  - dynamic line rating sensors to facilitate efficient power flow through trans. lines.
+
+* Localization problem difficult b/c
+  - scene has no salient features
+  - GPS absolute not relative
+
+* Literature not good at exploiting the EM field
+  - Great for robust relative pose estimation
+:::
+
 
 ## Electric and Magnetic Field around Three-Phase Power Lines {auto-animate=true}
 
@@ -71,6 +84,19 @@ From total rms energy considerations, it can be shown that $\bar{B} = \sqrt{\mu_
 
 ::::
 
+::: {.notes}
+* The structure and geometry of the EM Field around three-phase flow
+  - contours curves: rms E-field
+  - gradient 
+  - transverse plane
+
+* Quasi-static approx. to Maxwell's eqns. are good enough.
+  - Closed form
+
+* From energy considerations: rms B-field $\propto$ rms E-field
+  - Easier to measure the rms Bdot.
+:::
+
 
 ## Gradient of the Electric Field around Three-Phase Power Lines {auto-animate=true}
 
@@ -104,6 +130,12 @@ formed by the transmission wires for every $\mathbf{q}$.
 
 ::::
 
+::: {.notes}
+* Gradient in closed-form
+  - has some remarkable properties
+  - all thanks to this lemma: points to the convex hull of the transmission wires.
+:::
+
 
 ## Navigating the UAV to One of the Power Lines {auto-animate=true}
 
@@ -131,6 +163,23 @@ the remaining 2 are __saddle points__!
 :::
 
 :::
+
+::: {.notes}
+**First way to exploit:** navigate the UAV to one of the power lines.
+
+* Create potential so that 
+  - its gradient vanishes at one of the power lines.
+* Further lemma: these are its only minima
+* Other critical points of V are saddle points
+  - Can be shown by combining Morse theory and Poincare-Hopf theorem 
+    - Index of a vector field around a critical point
+    - lined to the Euler characteristic of the underlying manifold
+
+* Analysis shows:
+  - Following the grad of the rms E-field gets to one of the power lines
+  - RMS quantities: low-pass filter --> robustness
+:::
+
 
 ::: {.column width="47%"}
 ![](./contents/assets/e_field_trajectory.svg){width="100%"}
@@ -229,6 +278,20 @@ $$
 :::
 
 
+::: {.notes}
+**Second way to exploit the gradient:** use it as a measurement factor.
+
+* Factor-graph based state estimators
+  - each measurement is a factor of a graph
+  - the graph's nodes are estimated states
+  - the graph's edges connect state estimates to observations with a factor.
+
+* Prob. distribution constructed
+  - corresponds to the current belief of states
+  - each measurement/observation contributes
+  - an optimization problem is solved to find the MAP of this prob. dist.
+:::
+
 
 ## GTSAM meets Gradient of the Electric Field {auto-animate=true}
 
@@ -262,6 +325,18 @@ at any point $\mathbf{q}$ during navigation!
 
 
 ::::
+
+::: {.notes}
+* **Recall**: the grad of the rms E-field points into the convex hull
+  - each measurement of the E- or B-field is a bearing to a landmark (convex hull)
+  - think of ships observing the light from a lighthouse!
+  - Landmark observation handed to GTSAM for optimization of factor-graph
+
+* Experiments conducted on custom powered transmission line
+  - AGV carries the appratus for measurements
+  - Plots show that the estimated bearing and distance is close to the truth.
+  - Distance gets more and more accurate as the sensors get close to the line.
+:::
 
 
 
@@ -297,3 +372,17 @@ We are implementing passivity-based controllers (data-driven or otherwise) for m
 :::
 
 ::::
+
+::: {.notes}
+* NSF STTR grant secured.
+  - Implement our state estimation and navigation alg on real UAV.
+  - Autonomously approach and make stable contact.
+
+* Now designing PBC controllers for
+  - making and breaking stable contact
+  - using high-fidelity simulations of the power line and the UAV interaction
+
+* Next goal (control design):
+  - Incorporate wind gusts effects (NN approximators)
+  - CoM changes after installing or uninstalling devices (adaptive ctrl. ideas)
+:::

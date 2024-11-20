@@ -6,6 +6,7 @@ from: markdown+emoji
 # bibliography: bibliography.bib
 format:
   revealjs: 
+    show-notes: true
     css: styles.css
     html-math-method: mathjax
     controls: true
@@ -23,6 +24,7 @@ format:
       - reveal-plugins/animate/plugin.js
       - reveal-plugins/animate/svg.min.js
     plugins:
+      - RevealNotes
       - RevealAnimate
     include-in-header:
       text: |
@@ -92,6 +94,6 @@ revealjs-plugins:
 <!-- # :grey_question: Q&A -->
 <!-- {{< include contents/_closing.qmd >}} -->
 
-<!-- {{< include contents/_appendix.qmd >}} -->
+{{< include contents/_appendix.qmd >}}
 
 <!-- {{< include ./contents/_outline.qmd >}} -->
