@@ -19,20 +19,18 @@
 
 ::: {.column width="45%"}
 
-::: {.fragment .fade-in fragment-index=1}
 <iframe width="560" height="315" src="https://www.youtube.com/embed/-CU5aX9z62I?si=8N3OLPNZO5y0uv31?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-:::
 
 :::
 
 ::::
 
-::: {.callout-note appearance="simple" .fragment .fade-in fragment-index=1}
+::: {.callout-warning appearance="simple"}
 ## Insufficient landmarks
 Any vision-based estimation mechanism will not perform reliably and robustly for drone localization.
 :::
 
-::: {.callout-tip appearance="default" .fragment .fade-in fragment-index=1}
+::: {.callout-tip appearance="default"}
 ## Electromagnetic field around the power lines
 If we can get reliable measurements, then we can devise a distance and bearing 
 factor exploiting this field.
@@ -146,14 +144,14 @@ formed by the transmission wires for every $\mathbf{q}$.
 
 ::: {.column width="53%"}
 
-::: {.callout-tip icon=false}
-## Potential Function and its Gradient
+::: {.callout-warning appearance="minimal"}
+<!-- ## Potential Function and its Gradient -->
 Define the potential function $V(\mathbf{q}) = \frac{1}{\bar{E}^2(\mathbf{q})}$.
 Its gradient is 
 $$
 \nabla_{\mathbf{q}}V(\mathbf{q}) = -\frac{2}{\bar{E}^3}\nabla_{\mathbf{q}}\bar{E}(\mathbf{q})
 $$
-Further, $\lVert \nabla_{\mathbf{q}}V(\mathbf{q}) \rVert = O\left(\frac{1}{\bar{E}}\right)$
+Further, $\lVert \nabla_{\mathbf{q}}V(\mathbf{q}) \rVert = O\left(1/\bar{E}\right)$
 as $\bar{E} \rightarrow \infty$ (or $r_\alpha \rightarrow 0$).
 :::
 
@@ -193,7 +191,7 @@ the remaining 2 are __saddle points__!
 ::: {.column width="47%"}
 ![](./contents/assets/e_field_trajectory.svg){width="100%"}
 
-::: {.callout-important appearance="minimal"}
+::: {.callout-warning appearance="minimal"}
 Following $\nabla_{\mathbf{q}}V(\mathbf{q})$ navigates the drone to one of the 
 power lines.
 :::
@@ -309,7 +307,7 @@ $$
 ::: {.r-stack}
 
 ::: {.fragment .fade-in-then-out fragment-index=0}
-{{< video ./contents/assets/translate_video.mp4 width=900 autoplay="true" >}}
+{{< video ./contents/assets/translate_trimmed.mp4 width=900 autoplay="true" >}}
 :::
 
 ::: {.fragment .fade-in-then-out fragment-index=1}

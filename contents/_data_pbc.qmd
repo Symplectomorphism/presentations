@@ -29,7 +29,7 @@ for all $x(t_0) = x_0$, all input $u$, and all $t_1 \geq t_0$.
 
 <!-- ::: -->
 
-::: {.callout-note icon=false}
+::: {.callout-warning icon=false}
 ## Passivity
 The system $\Sigma$ is __passive__ if it is dissipative with supply rate
 
@@ -88,7 +88,7 @@ $u^{\top} y \geq \dot{\mathcal{H}} = \frac{\partial\mathcal{H}}{\partial x} f(x,
 
 ::: {layout="[[-1], [1], [-1]]"}
 
-::: {.callout-note icon="false"}
+::: {.callout-tip icon="false"}
 ## Lemma (Khalil, 2002)
 The origin of $\Sigma$ is: 
 
@@ -109,7 +109,7 @@ The origin of $\Sigma$ is:
 ## Passivity-Based Control (PBC) Toy Example: Simple Pendulum {auto-animate="false" auto-animate-easing="ease"}
 <!-- ###################################################################### -->
 
-:::: {.callout-note icon="false"}
+:::: {.callout-warning icon="false"}
 
 ## System Dynamics
 
@@ -478,10 +478,11 @@ $$\frac{\text{d}\lambda}{\text{d}t} = -\lambda \frac{\partial f}{\partial x}, \q
 ::::{.columns}
 :::{.column width=50%}
 
-<br/>
-
 ::: {.fragment fragment-index=0}
-* <span style="font-variant:small-caps;">NeuralPbc</span> assumes a nominal model $\dot{x} = f_p(x, u)$
+* <span style="font-variant:small-caps;">NeuralPbc</span> assumes a nominal model 
+$$
+\dot{x} = f_p(x, u)
+$$
 * The trained controller must not overfit on the observations generated from the nominal model
 :::
 
@@ -695,7 +696,7 @@ $$
 :::
 
 :::{.fragment .fade-in-then-out fragment-index=1}
-::: {.callout-note icon="false" data-id="bayesian"}
+::: {.callout-warning icon="false" data-id="bayesian"}
 ## Bayesian <span style="font-variant:small-caps;">NeuralPbc</span> Optimization Problem 
 $$
 \begin{aligned}
@@ -751,7 +752,7 @@ $$
 $$
 :::
 
-::: {.callout-note icon="false" data-id="bayesian"}
+::: {.callout-warning icon="false" data-id="bayesian"}
 ## Bayesian <span style="font-variant:small-caps;">NeuralPbc</span> Optimization Problem 
 $$
 \begin{aligned}
@@ -786,7 +787,7 @@ $$
 
 * We provide more structure to the variance of the Bayesian controllers
 
-::: {.callout-note icon="false"}
+::: {.callout-tip icon="false"}
 ## Bayesian <span style="font-variant:small-caps;">NeuralPbc</span> Optimization Problem 
 $$
 \begin{aligned}
@@ -814,14 +815,14 @@ $$
 
 ::: {layout="[50,-5,50]" layout-valign="center" .fragment fragment-index=0}
 
-:::{.callout-note icon="false"}
+:::{.callout-tip icon="false"}
 ## Passive Smooth System
 $$
 H\left(  x(t_1) \right) \leq  H\left(  x(t_0) \right) + \int_{t_0}^{t_1} s(u(t), y(t)) \, \text{d}t
 $$
 :::
 
-:::{.callout-important icon="false"}
+:::{.callout-tip icon="false"}
 ## Passive Hybrid System
 \begin{gather*}
 H\left(  x(t_1) \right) \leq  H\left(  x(t_0) \right) + \int_{t_0}^{t_1} s(u(t), y(t)) \, \text{d}t \\
@@ -884,30 +885,20 @@ $p_s \sim \mathbb{U}(0 \textrm{cm}, 2\textrm{cm})$
 <!-- ## {background-video="contents/assets/cartpole-exp.mp4" background-size="contain" background-video-loop="true" background-video-muted="true"} -->
 <!-- ###################################################################### -->
 
+
 ## Cart-Pole and Cart-Pole with Walls
 
-:::: {.columns}
-
-
-::: {.column width="50%"}
-
 &nbsp;
 
 &nbsp;
 
+::: {layout="[[-100], [100 -20 100], [-100]]"}
 {{< video ./contents/assets/cartpole-exp.mp4 width=550 >}}
-:::
-
-::: {.column width="50%"}
-
-&nbsp;
-
-&nbsp;
 
 {{< video ./contents/assets/cartpole_hardware.mp4 width=550 >}}
 :::
 
-::::
+
 
 ## Deterministic vs. Bayesian
 <!-- ###################################################################### -->

@@ -794,7 +794,7 @@
 <div class="columns">
 <div class="column" style="width:50%;">
 <iframe data-external="1" src="https://www.youtube.com/embed/7t1E7FWawgA" width="100%" height="300" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
-<div class="callout callout-tip no-icon callout-style-simple">
+<div class="callout callout-warning no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
 <p>Training without taking uncertainty into account</p>
@@ -879,7 +879,7 @@
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="callout callout-none no-icon callout-style-simple">
+<div class="callout callout-warning no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
 <p><strong>Less robust</strong>: learns point estimates of the weights.</p>
@@ -888,7 +888,7 @@
 </div>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="callout callout-none no-icon callout-style-simple">
+<div class="callout callout-warning no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
 <p><strong>More robust</strong>: learns prob. distribution over the weights.</p>
@@ -942,14 +942,11 @@ There are no trees or other geometries.</li>
 Drone requires pose relative to power lines!</li>
 </ol>
 </div><div class="column" style="width:45%;">
-<div class="fragment fade-in" data-fragment-index="1">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/-CU5aX9z62I?si=8N3OLPNZO5y0uv31?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
 </iframe>
 </div>
 </div>
-</div>
-<div class="fragment fade-in" data-fragment-index="1">
-<div class="callout callout-note callout-titled callout-style-simple">
+<div class="callout callout-warning callout-titled callout-style-simple">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
@@ -962,8 +959,6 @@ Drone requires pose relative to power lines!</li>
 </div>
 </div>
 </div>
-</div>
-<div class="fragment fade-in" data-fragment-index="1">
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -974,7 +969,6 @@ Drone requires pose relative to power lines!</li>
 </div>
 <div class="callout-content">
 <p>If we can get reliable measurements, then we can devise a distance and bearing factor exploiting this field.</p>
-</div>
 </div>
 </div>
 </div>
@@ -1013,15 +1007,13 @@ Drone requires pose relative to power lines!</li>
 <h2 data-id="quarto-animate-title">Navigating the UAV to One of the Power Lines</h2>
 <div class="columns">
 <div class="column" style="width:53%;">
-<div class="callout callout-tip no-icon callout-titled callout-style-default">
+<div class="callout callout-warning no-icon callout-style-simple">
 <div class="callout-body">
-<div class="callout-title">
-<p><strong>Potential Function and its Gradient</strong></p>
-</div>
 <div class="callout-content">
+<!-- ## Potential Function and its Gradient -->
 <p>Define the potential function <span class="math inline">\(V(\mathbf{q}) = \frac{1}{\bar{E}^2(\mathbf{q})}\)</span>. Its gradient is <span class="math display">\[
 \nabla_{\mathbf{q}}V(\mathbf{q}) = -\frac{2}{\bar{E}^3}\nabla_{\mathbf{q}}\bar{E}(\mathbf{q})
-\]</span> Further, <span class="math inline">\(\lVert \nabla_{\mathbf{q}}V(\mathbf{q}) \rVert = O\left(\frac{1}{\bar{E}}\right)\)</span> as <span class="math inline">\(\bar{E} \rightarrow \infty\)</span> (or <span class="math inline">\(r_\alpha \rightarrow 0\)</span>).</p>
+\]</span> Further, <span class="math inline">\(\lVert \nabla_{\mathbf{q}}V(\mathbf{q}) \rVert = O\left(1/\bar{E}\right)\)</span> as <span class="math inline">\(\bar{E} \rightarrow \infty\)</span> (or <span class="math inline">\(r_\alpha \rightarrow 0\)</span>).</p>
 </div>
 </div>
 </div>
@@ -1082,7 +1074,7 @@ Drone requires pose relative to power lines!</li>
           display:block!important;
       }</style></aside><div class="column" style="width:47%;">
 <p><img data-src="./contents/assets/e_field_trajectory.svg" style="width:100.0%"></p>
-<div class="callout callout-important no-icon callout-style-simple">
+<div class="callout callout-warning no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
 <p>Following <span class="math inline">\(\nabla_{\mathbf{q}}V(\mathbf{q})\)</span> navigates the drone to one of the power lines.</p>
@@ -1180,7 +1172,7 @@ p(\mathbf{x} | \mathbf{o}, \mathbf{l}) \propto p(x_1) \prod_{i=2}^{3} p(x_i | x_
 <h2 data-id="quarto-animate-title">GTSAM meets Gradient of the Electric Field</h2>
 <div class="r-stack">
 <div class="fragment fade-in-then-out" data-fragment-index="0">
-<video id="video_shortcode_videojs_video10" width="900" class="video-js vjs-default-skin " controls="" preload="auto" data-setup="{}" title=""><source src="./contents/assets/translate_video.mp4"></video>
+<video id="video_shortcode_videojs_video10" width="900" class="video-js vjs-default-skin " controls="" preload="auto" data-setup="{}" title=""><source src="./contents/assets/translate_trimmed.mp4"></video>
 </div>
 <div class="fragment fade-in-then-out" data-fragment-index="1">
 <div class="quarto-figure quarto-figure-center">
@@ -1304,7 +1296,7 @@ p(\mathbf{x} | \mathbf{o}, \mathbf{l}) \propto p(x_1) \prod_{i=2}^{3} p(x_i | x_
 </div>
 </div>
 <!-- ::: -->
-<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout callout-warning no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <p><strong>Passivity</strong></p>
@@ -1338,7 +1330,7 @@ p(\mathbf{x} | \mathbf{o}, \mathbf{l}) \propto p(x_1) \prod_{i=2}^{3} p(x_i | x_
 </div>
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
-<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <p><strong>Lemma (Khalil, 2002)</strong></p>
@@ -1376,7 +1368,7 @@ p(\mathbf{x} | \mathbf{o}, \mathbf{l}) \propto p(x_1) \prod_{i=2}^{3} p(x_i | x_
 <section id="passivity-based-control-pbc-toy-example-simple-pendulum" class="slide level2" data-auto-animate="false" data-auto-animate-easing="ease">
 <h2 data-id="quarto-animate-title">Passivity-Based Control (PBC) Toy Example: Simple Pendulum</h2>
 <!-- ###################################################################### -->
-<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout callout-warning no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <p><strong>System Dynamics</strong></p>
@@ -1690,10 +1682,11 @@ Initial conditions chosen from previously visited states
 <h2>Robustness via Bayesian Learning</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<p><br></p>
 <div class="fragment" data-fragment-index="0">
 <ul>
-<li><span class="smallcaps">NeuralPbc</span> assumes a nominal model <span class="math inline">\(\dot{x} = f_p(x, u)\)</span></li>
+<li><span class="smallcaps">NeuralPbc</span> assumes a nominal model <span class="math display">\[
+\dot{x} = f_p(x, u)
+\]</span></li>
 <li>The trained controller must not overfit on the observations generated from the nominal model</li>
 </ul>
 </div>
@@ -1903,7 +1896,7 @@ x(t) = e^{(p+\theta)t} + \theta \sigma \int_0^t e^{(p+\theta)(t-s)}dW_s.
 </div>
 <div class="fragment fade-in-then-out" data-fragment-index="1">
 <div data-id="bayesian">
-<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout callout-warning no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <p><strong>Bayesian <span class="smallcaps">NeuralPbc</span> Optimization Problem</strong></p>
@@ -1968,7 +1961,7 @@ x(t) = e^{(p+\theta)t} + \theta \sigma \int_0^t e^{(p+\theta)(t-s)}dW_s.
 </div>
 </div>
 <div data-id="bayesian">
-<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout callout-warning no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <p><strong>Bayesian <span class="smallcaps">NeuralPbc</span> Optimization Problem</strong></p>
@@ -2010,7 +2003,7 @@ x(t) = e^{(p+\theta)t} + \theta \sigma \int_0^t e^{(p+\theta)(t-s)}dW_s.
 <ul>
 <li>We provide more structure to the variance of the Bayesian controllers</li>
 </ul>
-<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <p><strong>Bayesian <span class="smallcaps">NeuralPbc</span> Optimization Problem</strong></p>
@@ -2041,10 +2034,10 @@ x(t) = e^{(p+\theta)t} + \theta \sigma \int_0^t e^{(p+\theta)(t-s)}dW_s.
 <section id="neuralpbc-hybrid-system" class="slide level2">
 <h2><span class="smallcaps">NeuralPbc</span>: Hybrid System</h2>
 <p><br></p>
-<div class="fragment quarto-layout-panel" data-layout="[50,-5,50]" data-fragment-index="0">
+<div class="fragment quarto-layout-panel" data-fragment-index="0" data-layout="[50,-5,50]">
 <div class="quarto-layout-row quarto-layout-valign-center">
 <div class="quarto-layout-cell" style="flex-basis: 47.6%;justify-content: flex-start;">
-<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <p><strong>Passive Smooth System</strong></p>
@@ -2061,7 +2054,7 @@ H\left(  x(t_1) \right) \leq  H\left(  x(t_0) \right) + \int_{t_0}^{t_1} s(u(t),
 <p>&nbsp;</p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 47.6%;justify-content: flex-start;">
-<div class="callout callout-important no-icon callout-titled callout-style-default">
+<div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <p><strong>Passive Hybrid System</strong></p>
@@ -2140,15 +2133,21 @@ H(x^+) \leq H(x^-)
 </section>
 <section id="cart-pole-and-cart-pole-with-walls" class="slide level2">
 <h2>Cart-Pole and Cart-Pole with Walls</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
 <p>&nbsp;</p>
 <p>&nbsp;</p>
+<div class="quarto-layout-panel" data-layout="[[-100], [100 -20 100], [-100]]">
+<div class="quarto-layout-row">
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<p>&nbsp;</p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 83.3%;justify-content: flex-start;">
 <video id="video_shortcode_videojs_video14" width="550" class="video-js vjs-default-skin " controls="" preload="auto" data-setup="{}" title=""><source src="./contents/assets/cartpole-exp.mp4"></video>
-</div><div class="column" style="width:50%;">
-<p>&nbsp;</p>
-<p>&nbsp;</p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 16.7%;justify-content: flex-start;">
 <video id="video_shortcode_videojs_video15" width="550" class="video-js vjs-default-skin " controls="" preload="auto" data-setup="{}" title=""><source src="./contents/assets/cartpole_hardware.mp4"></video>
+</div>
 </div>
 </div>
 </section>

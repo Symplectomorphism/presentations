@@ -159,7 +159,7 @@ Need to devise a controller that is insensitive to unexpected yet inevitable dis
 {{< video https://youtu.be/7t1E7FWawgA 
    height=300 width="100%" >}}
 
-::: {.callout-tip appearance="minimal"}
+::: {.callout-warning appearance="minimal"}
 Training without taking uncertainty into account
 :::
 
@@ -261,11 +261,11 @@ Reasons about model uncertainties \
 
 :::: {layout-ncol="2"}
 
-::: {.callout appearance="minimal"}
+::: {.callout-warning appearance="minimal"}
 **Less robust**: learns point estimates of the weights.
 :::
 
-::: {.callout appearance="minimal"}
+::: {.callout-warning appearance="minimal"}
 **More robust**: learns prob. distribution over the weights.
 :::
 
