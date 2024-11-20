@@ -41,6 +41,12 @@ $$s = u^\top y - \delta \lVert y \rVert^2, \; \delta > 0.$$
 
 :::
 
+::: {.notes}
+* Dissipative if $\exists$ a storage function $H$ and an supply rate $s$ s.t. 
+the storage increases *at most* as much as that supplies by $s$.
+* Passivity: special case, where $s = u^\top y$.
+:::
+
 
 ## Dissipativity and Passivity {auto-animate="true" visibility="hidden"}
 
@@ -161,6 +167,15 @@ $$
 
 ::::
 
+::: {.notes}
+**Most basic PBC**
+
+* Start with Hamiltonian dynamics.
+* Use control authority to impose a desired storage fcn., with a minimum at the desired state.
+* Need to solve PDEs in general.
+* Damping injection for asymptotic stability.
+:::
+
 
 ## Passivity-Based Control (PBC) Toy Example: Simple Pendulum {auto-animate="false" auto-animate-easing="ease" visibility="uncounted"}
 <!-- ###################################################################### -->
@@ -199,6 +214,11 @@ $\boxed{u = -mgl\sin(q) - K_P(q - q^\star) - K_D \dot{q}}$
 
 ::::
 
+::: {.notes}
+* Difficulty is in finding an $H_d$ that satisfies the PDEs with the desired minimum.
+* In this fully actuated case, it is simple, with the resulting controller given.
+:::
+
 
 ## Passivity-Based Control (PBC)
 <!-- ###################################################################### -->
@@ -228,6 +248,13 @@ $$
 \dot{H}_d \leq y_d^\top u_{di}
 $$
 
+:::
+
+::: {.notes}
+* General PBC follows a similar trajectory.
+* Start with a Hamiltonian system
+* Use control authority to seek a suitable desired Hamiltonian with a minimum at the desired state.
+* Stabilize using damping injection.
 :::
 
 
@@ -509,6 +536,15 @@ $$
   $$
 :::
 
+::: {.notes}
+* The vanilla NeuralPBC generates data from a nominal model
+  - Deduces a neural network whose weights are point estimates.
+* Contrast, we want to make $H_d$ a BNN.
+  - Learn prob. distributions over the weights conditioned on the observed data.
+  - Do this by invoking Bayes's rule, where we postulate a simple likelihood and a prior function
+  - No need to compute the evidence, as it turns out.
+:::
+
 
 <!-- ## Parameter Uncertainty and Measurement Noise {auto-animate="true" visibility="uncounted"} -->
 ## Bayesian Learning Produces More Robust Controllers
@@ -564,6 +600,19 @@ $$
 \sigma^2}{p+\theta}\right) \right]
 $$
 :::
+:::
+
+::: {.notes}
+* Simplest dynamical system with a continuous flow depending on 
+  - uncertain system parameter $p$ modelled as a normal distribution
+  - controller parameter $\theta$
+* The stochastic part models the measurement uncertainty
+  - state $x$ is sensed through a gaussian noise process
+
+* Solution can be found for this simple case.
+* Consider the cost function being the state and the control not being zero.
+  - Inserting the solution $x(t)$ into the cost fcn. allows us to compute its 
+  conditional expectation over the measurement distribution
 :::
 
 
@@ -627,6 +676,16 @@ $$
 :::
 
 
+::: {.notes}
+* The derivation of this conditional expectation follows the rules of Ito 
+calculus and the Wiener process to perform some simplifications.
+* This computation is important because it allows us to take a further expectation 
+to compute the total expectation $\mathbb{E}\mathcal{J}$ of the cost fcn. 
+* The total expectation can only be computed numerically and this computation 
+can then be autodiff'd to find its gradient w.r.t. the parameter $\theta$
+:::
+
+
 ## Optimal Controller {auto-animate="true" auto-animate-easing="ease-in-out"}
 <!-- ###################################################################### -->
 
@@ -663,6 +722,13 @@ Minimal expected cost $\mathbb{E}\mathcal{J}$
 * Optimal control parameter a nontrivial function of $\sigma$ and $\sigma_p$.
 * Bayesian learning strikes the right trade-off.
 :::
+
+::: {.notes}
+* The gradient information may be used to deduce the optimal control parameter $\theta$ 
+under the various sources of uncertaintly.
+* There is a nontrivial trade-off $\ldots$
+:::
+
 
 ## Bayesian <span style="font-variant:small-caps;">NeuralPbc</span> {auto-animate="true" auto-animate-easing="ease-in-out"}
 
