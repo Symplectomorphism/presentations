@@ -88,7 +88,7 @@
     "href": "main.html#gtsam-meets-gradient-of-the-electric-field",
     "title": "main",
     "section": "GTSAM meets Gradient of the Electric Field",
-    "text": "GTSAM meets Gradient of the Electric Field\n\n\n\n\n\n\\(\\nabla_{\\mathbf{q}}\\bar{E}(\\mathbf{q})\\) points towards the convex hull\n\n\nThe unit vector along this gradient may be used as a bearing factor in GTSAM at any point \\(\\mathbf{q}\\) during navigation!\n\nTurns the convex hull of the power lines into a landmark.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRecall: the grad of the rms E-field points into the convex hull\n\neach measurement of the E- or B-field is a bearing to a landmark (convex hull)\nthink of ships observing the light from a lighthouse!\nLandmark observation handed to GTSAM for optimization of factor-graph\n\nExperiments conducted on custom powered transmission line\n\nAGV carries the appratus for measurements\nPlots show that the estimated bearing and distance is close to the truth.\nDistance gets more and more accurate as the sensors get close to the line."
+    "text": "GTSAM meets Gradient of the Electric Field\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRecall: the grad of the rms E-field points into the convex hull\n\neach measurement of the E- or B-field is a bearing to a landmark (convex hull)\nthink of ships observing the light from a lighthouse!\nLandmark observation handed to GTSAM for optimization of factor-graph\n\nExperiments conducted on custom powered transmission line\n\nAGV carries the appratus for measurements\nPlots show that the estimated bearing and distance is close to the truth.\nDistance gets more and more accurate as the sensors get close to the line."
   },
   {
     "objectID": "main.html#stable-contact-and-manipulation-over-power-lines",
@@ -98,46 +98,39 @@
     "text": "Stable Contact and Manipulation over Power Lines\n\n\n\n\n\n\nWe are implementing passivity-based controllers (data-driven or otherwise) for manipulation over power lines.\n\n\n\n\n\n \n \n \n \n\n\n\n\n\n\nNSF STTR grant secured.\n\nImplement our state estimation and navigation alg on real UAV.\nAutonomously approach and make stable contact.\n\nNow designing PBC controllers for\n\nmaking and breaking stable contact\nusing high-fidelity simulations of the power line and the UAV interaction\n\nNext goal (control design):\n\nIncorporate wind gusts effects (NN approximators)\nCoM changes after installing or uninstalling devices (adaptive ctrl. ideas)"
   },
   {
-    "objectID": "main.html#dissipativity",
-    "href": "main.html#dissipativity",
-    "title": "main",
-    "section": "Dissipativity",
-    "text": "Dissipativity\n\n\n\n\n \n\n\n\n\nA dynamical system % \\[\n\\Sigma: \\quad\n\\begin{cases}\n  \\dot{x} &= f(x,u) \\\\\n  y &= h(x,u)\n\\end{cases}\n\\quad x \\in \\mathcal{X} \\subset \\mathbb{R}^{2n}, \\, u \\in \\mathcal{U} \\subset \\mathbb{R}^{m}\n\\] is dissipative with respect to some supply rate \\(s\\) if there exists a storage function \\(\\mathcal{H}: \\mathcal{X} \\to \\mathbb{R}^{+}\\) such that % \\[\n\\mathcal{H}\\left(  x(t_1) \\right) \\leq  \\mathcal{H}\\left(  x(t_0) \\right) + \\int_{t_0}^{t_1} s(u(t), y(t)) \\, \\text{d}t\n\\] % for all \\(x(t_0) = x_0\\), all input \\(u\\), and all \\(t_1 \\geq t_0\\)."
-  },
-  {
     "objectID": "main.html#dissipativity-and-passivity",
     "href": "main.html#dissipativity-and-passivity",
     "title": "main",
     "section": "Dissipativity and Passivity",
-    "text": "Dissipativity and Passivity\n\\[\n\\mathcal{H}\\left(  x(t_1) \\right) \\leq  \\mathcal{H}\\left(  x(t_0) \\right) + \\int_{t_0}^{t_1} s(u(t), y(t)) \\, \\text{d}t\n\\]\n\n\n\nDissipation Inequality\n\n\n\nStored energy at \\(t_1\\) is at most equal to stored energy at \\(t_0\\), plus externally supplied energy \\(s(u,y)\\).\nNo generation of energy, only internal dissipation.\n\n\n\n\n\n\n\n\nPassivity\n\n\nThe system \\(\\Sigma\\) is passive if it is dissipative with supply rate\n\\[s = u^\\top y.\\]\nIt is output strictly passive if it is dissipative with supply rate\n\\[s = u^\\top y - \\delta \\lVert y \\rVert^2, \\; \\delta &gt; 0.\\]"
+    "text": "Dissipativity and Passivity\n\n\n\n\n\nDissipativity\n\n\n% \\[\n\\Sigma: \\quad\n\\begin{cases}\n  \\dot{x} &= f(x,u) \\\\\n  y &= h(x,u)\n\\end{cases}\n\\quad x \\in \\mathcal{X} \\subset \\mathbb{R}^{2n}, \\, u \\in \\mathcal{U} \\subset \\mathbb{R}^{m}\n\\] is dissipative with respect to some supply rate \\(s\\) if there exists a storage function \\(\\mathcal{H}: \\mathcal{X} \\to \\mathbb{R}^{+}\\) such that % \\[\n\\mathcal{H}\\left(  x(t_1) \\right) \\leq  \\mathcal{H}\\left(  x(t_0) \\right) + \\int_{t_0}^{t_1} s(u(t), y(t)) \\, \\text{d}t\n\\] % for all \\(x(t_0) = x_0\\), all input \\(u\\), and all \\(t_1 \\geq t_0\\).\n\n\n\n\n\n\n\nPassivity\n\n\nThe system \\(\\Sigma\\) is passive if it is dissipative with supply rate\n\\[s = u^\\top y.\\]\nIt is output strictly passive if it is dissipative with supply rate\n\\[s = u^\\top y - \\delta \\lVert y \\rVert^2, \\; \\delta &gt; 0.\\]"
   },
   {
-    "objectID": "main.html#stability-of-passive-systems",
-    "href": "main.html#stability-of-passive-systems",
+    "objectID": "main.html#lyapunov-stability-of-passive-systems",
+    "href": "main.html#lyapunov-stability-of-passive-systems",
     "title": "main",
-    "section": "Stability of Passive Systems",
-    "text": "Stability of Passive Systems\n\n\\[\n\\Sigma: \\quad\n\\begin{cases}\n  \\dot{x} &= f(x,u), && f(0,0) = 0, \\\\\n  y &= h(x,u), && h(0,0) = 0,\n\\end{cases}\n\\]\n\\(u^{\\top} y \\geq \\dot{\\mathcal{H}} = \\frac{\\partial\\mathcal{H}}{\\partial x} f(x,u),\\quad \\mathcal{H} \\geq 0,\\quad y \\equiv 0 \\implies x \\equiv 0\\)\n\n\n\n \n\n\n\n\n\n\n\nLemma (Khalil, 2002)\n\n\nThe origin of \\(\\Sigma\\) is:\n\nstable if \\(\\Sigma\\) is passive,\nasymptotically stable if \\(\\Sigma\\) is output strictly passive,\nglobally asymptotically stable if \\(\\Sigma\\) is output strictly passive and the storage function \\(\\mathcal{H}(x) \\to \\infty\\) as \\(\\lVert x \\rVert \\to \\infty\\) (radially unbounded)\n\n\n\n\n\n\n\n\n\nNotice that we only require that the function \\(\\mathcal{H}\\) be positive semidefinite and not necessarily positive definite as per usual Lyapunov conditions.\nObservability (detectability) ensures LaSalle’s theorem works."
+    "section": "(Lyapunov) Stability of Passive Systems",
+    "text": "(Lyapunov) Stability of Passive Systems\n\n\\[\n\\Sigma: \\quad\n\\begin{cases}\n  \\dot{x} &= f(x,u), && f(0,0) = 0, \\\\\n  y &= h(x,u), && h(0,0) = 0,\n\\end{cases}\n\\]\n\\(u^{\\top} y \\geq \\dot{\\mathcal{H}} = \\frac{\\partial\\mathcal{H}}{\\partial x} f(x,u),\\quad \\mathcal{H} \\geq 0,\\quad y \\equiv 0 \\implies x \\equiv 0\\)\n\n\n\n \n\n\n\n\n\n\n\nLemma (Khalil, 2002)\n\n\nThe origin of \\(\\Sigma\\) is:\n\nstable if \\(\\Sigma\\) is passive,\nasymptotically stable if \\(\\Sigma\\) is output strictly passive,\nglobally asymptotically stable if \\(\\Sigma\\) is output strictly passive and the storage function \\(\\mathcal{H}(x) \\to \\infty\\) as \\(\\lVert x \\rVert \\to \\infty\\) (radially unbounded)\n\n\n\n\n\n\n\n\n\nNotice that we only require that the function \\(\\mathcal{H}\\) be positive semidefinite and not necessarily positive definite as per usual Lyapunov conditions.\nObservability (detectability) ensures LaSalle’s theorem works."
+  },
+  {
+    "objectID": "main.html#passivity-based-control-pbc-toy-example-simple-pendulum",
+    "href": "main.html#passivity-based-control-pbc-toy-example-simple-pendulum",
+    "title": "main",
+    "section": "Passivity-Based Control (PBC) Toy Example: Simple Pendulum",
+    "text": "Passivity-Based Control (PBC) Toy Example: Simple Pendulum\n\n\n\n\nSystem Dynamics\n\n\n\\(H(q,p) = \\frac{1}{2} J^{-1} p^2 + mgl (1 - \\cos q)\\)\n\\[\n\\begin{bmatrix} \\dot{q} \\\\ \\dot{p} \\end{bmatrix} =\n\\begin{bmatrix} \\phantom{-}0 & 1 \\\\ -1 & 0 \\end{bmatrix}\n\\begin{bmatrix} \\nabla_q H_{\\phantom{d}} \\\\ \\nabla_p H_{\\phantom{d}} \\end{bmatrix} +\n\\begin{bmatrix} 0 \\\\ G \\end{bmatrix} u_\\phantom{di},\n\\qquad y = \\dot{q}\n\\]\n\nChoose \\(u = u_{es} + u_{di}\\) that transforms system into a passive one with \\(x^\\star = (q^\\star, 0)\\) \n\n\n\\(Gu_{es} = \\nabla_q H  - \\nabla_q H_d , \\quad Gu_{di} = -GK_D G^\\top \\nabla_p H_d\\)\n\n\n\n\\[\n\\begin{bmatrix} \\dot{q} \\\\ \\dot{p} \\end{bmatrix} =\n\\begin{bmatrix} \\phantom{-}0 & 1 \\\\ -1 & 0 \\end{bmatrix}\n\\begin{bmatrix} \\nabla_q H_d \\\\ \\nabla_p H_d \\end{bmatrix} +\n\\begin{bmatrix} 0 \\\\ G \\end{bmatrix} u_{di},\n\\qquad y = \\dot{q}\n\\]\n\n\n\\[\n\\begin{bmatrix} \\dot{q} \\\\ \\dot{p} \\end{bmatrix} =\n\\begin{bmatrix} \\phantom{-}0 & 1 \\\\ -1 & -G K_D G^\\top \\end{bmatrix}\n\\begin{bmatrix} \\nabla_q H_d \\\\ \\nabla_p H_d \\end{bmatrix},\n\\qquad y = \\dot{q}\n\\]"
+  },
+  {
+    "objectID": "main.html#passivity-based-control-pbc-toy-example-simple-pendulum-1",
+    "href": "main.html#passivity-based-control-pbc-toy-example-simple-pendulum-1",
+    "title": "main",
+    "section": "Passivity-Based Control (PBC) Toy Example: Simple Pendulum",
+    "text": "Passivity-Based Control (PBC) Toy Example: Simple Pendulum\n\n\n\n\nControl Synthesis via PBC\n\n\nChoose \\(u = u_{es} + u_{di}\\) that transforms system into a passive one with \\(x^\\star =  (q^\\star, 0)\\)\n\\(Gu_{es} = \\nabla_q H  - \\nabla_q H_d , \\quad Gu_{di} = -GK_D G^\\top \\nabla_p H_d\\)\n\\[\n\\begin{bmatrix} \\dot{q} \\\\ \\dot{p} \\end{bmatrix} =\n\\begin{bmatrix} \\phantom{-}0 & 1 \\\\ -1 & -G K_D G^\\top \\end{bmatrix}\n\\begin{bmatrix} \\nabla_q H_d \\\\ \\nabla_p H_d \\end{bmatrix},\n\\qquad y = \\dot{q}\n\\]\n\n\\(H_d(q,p) = \\frac{1}{2} J^{-1} p^2 + V_d(q), \\quad V_d(q) = \\frac{1}{2} K_{P} \\left( q - q^\\star \\right)^2 \\implies H_d \\geq 0\\)\n\n\n\n\\(\\dot{H}_d = -K_D \\left( J^{-1} p \\right)^2 = y^\\top u_{di} \\leq 0\\)\nIn general, hard to show that such an \\(H_d\\) exists!\n\n\n\\(\\boxed{u = -mgl\\sin(q) - K_P(q - q^\\star) - K_D \\dot{q}}\\)"
   },
   {
     "objectID": "main.html#passivity-based-control-pbc",
     "href": "main.html#passivity-based-control-pbc",
     "title": "main",
     "section": "Passivity-Based Control (PBC)",
-    "text": "Passivity-Based Control (PBC)\n\n\n\n\n \n\n\n\n\n\\[\n\\Sigma_o: \\quad\n\\begin{cases}\n  \\dot{x} &= f(x) + g(x)u, \\\\\n  y &= h(x)\n\\end{cases}\n\\] % Main idea — Select \\(u(x) = u_{es} + u_{di}\\) that renders the closed-loop system passive. % \\[\n\\Sigma_d: \\quad\n\\begin{cases}\n  \\dot{x} &= f_d(x) + g(x) u_{di}, \\quad f_d := f(x) + g(x) u_{es}(x) \\\\\n  y_d &= h_d(x)\n\\end{cases}\n\\] % Control problem is cast as a search for \\(H_d\\) and \\(h_d\\) s.t. \\(\\dot{H}_d \\leq y_d^\\top u_{di}\\)"
-  },
-  {
-    "objectID": "main.html#pbc-toy-example-simple-pendulum",
-    "href": "main.html#pbc-toy-example-simple-pendulum",
-    "title": "main",
-    "section": "PBC Toy Example: Simple Pendulum",
-    "text": "PBC Toy Example: Simple Pendulum\n\n\n\n\nSystem Dynamics\n\n\n\\(H(q,p) = \\frac{1}{2} J^{-1} p^2 + mgl (1 - \\cos q)\\)\n\\[\n\\begin{bmatrix} \\dot{q} \\\\ \\dot{p} \\end{bmatrix} =\n\\begin{bmatrix} \\phantom{-}0 & 1 \\\\ -1 & 0 \\end{bmatrix}\n\\begin{bmatrix} \\nabla_q H_{\\phantom{d}} \\\\ \\nabla_p H_{\\phantom{d}} \\end{bmatrix} +\n\\begin{bmatrix} 0 \\\\ G \\end{bmatrix} u_\\phantom{di},\n\\qquad y = \\dot{q}\n\\]\n\nChoose \\(u = u_{es} + u_{di}\\) that transforms system into a passive one with \\(x^\\star = (q^\\star, 0)\\) \n\n\n\\(Gu_{es} = \\nabla_q H  - \\nabla_q H_d , \\quad Gu_{di} = -GK_D G^\\top \\nabla_p H_d\\)\n\n\n\n\\[\n\\begin{bmatrix} \\dot{q} \\\\ \\dot{p} \\end{bmatrix} =\n\\begin{bmatrix} \\phantom{-}0 & 1 \\\\ -1 & 0 \\end{bmatrix}\n\\begin{bmatrix} \\nabla_q H_d \\\\ \\nabla_p H_d \\end{bmatrix} +\n\\begin{bmatrix} 0 \\\\ G \\end{bmatrix} u_{di},\n\\qquad y = \\dot{q}\n\\]\n\n\n\\[\n\\begin{bmatrix} \\dot{q} \\\\ \\dot{p} \\end{bmatrix} =\n\\begin{bmatrix} \\phantom{-}0 & 1 \\\\ -1 & -G K_D G^\\top \\end{bmatrix}\n\\begin{bmatrix} \\nabla_q H_d \\\\ \\nabla_p H_d \\end{bmatrix},\n\\qquad y = \\dot{q}\n\\]"
-  },
-  {
-    "objectID": "main.html#pbc-toy-example-simple-pendulum-1",
-    "href": "main.html#pbc-toy-example-simple-pendulum-1",
-    "title": "main",
-    "section": "PBC Toy Example: Simple Pendulum",
-    "text": "PBC Toy Example: Simple Pendulum\n\n\n\n\nControl Synthesis via PBC\n\n\nChoose \\(u = u_{es} + u_{di}\\) that transforms system into a passive one with \\(x^\\star =  (q^\\star, 0)\\)\n\\(Gu_{es} = \\nabla_q H  - \\nabla_q H_d , \\quad Gu_{di} = -GK_D G^\\top \\nabla_p H_d\\)\n\\[\n\\begin{bmatrix} \\dot{q} \\\\ \\dot{p} \\end{bmatrix} =\n\\begin{bmatrix} \\phantom{-}0 & 1 \\\\ -1 & -G K_D G^\\top \\end{bmatrix}\n\\begin{bmatrix} \\nabla_q H_d \\\\ \\nabla_p H_d \\end{bmatrix},\n\\qquad y = \\dot{q}\n\\]\n\n\\(H_d(q,p) = \\frac{1}{2} J^{-1} p^2 + V_d(q), \\quad V_d(q) = \\frac{1}{2} K_{P} \\left( q - q^\\star \\right)^2\\)\n\n\n\n\\(\\dot{H}_d = -K_D \\left( J^{-1} p \\right)^2 = y^\\top u_{di} \\leq 0\\)\n\n\n\\(\\boxed{u = -mgl\\sin(x) - K_P(q - q^\\star) - K_D \\dot{q}}\\)"
+    "text": "Passivity-Based Control (PBC)\n\n\n\n\n \n\n\n\n\n\\[\n\\Sigma_o: \\quad\n\\begin{cases}\n  \\dot{x} &= f(x) + g(x)u, \\\\\n  y &= h(x)\n\\end{cases}\n\\] % Main idea — Select \\(u(x) = u_{es} + u_{di}\\) that renders the closed-loop system passive. % \\[\n\\Sigma_d: \\quad\n\\begin{cases}\n  \\dot{x} &= f_d(x) + g(x) u_{di}, \\quad f_d := f(x) + g(x) u_{es}(x) \\\\\n  y_d &= h_d(x)\n\\end{cases}\n\\] % Control problem is cast as a search for \\(H_d\\) and \\(h_d\\) such that \\[\n\\dot{H}_d \\leq y_d^\\top u_{di}\n\\]"
   },
   {
     "objectID": "main.html#neuralpbc-problem-statement",
@@ -221,7 +214,7 @@
     "href": "main.html#bayesian-neuralpbc-hybrid-system",
     "title": "main",
     "section": "Bayesian NeuralPbc: Hybrid System",
-    "text": "Bayesian NeuralPbc: Hybrid System\n\n\n\nNeuralPbc for contact-rich system\n\n\n\\[\\begin{aligned}\n    \\underset{z}{\\textrm{minimize}}\n    & & & J(\\phi, u) = \\mathbb{E}_{x_0 \\in \\mathcal{D}_N}[\\ell(\\phi(x_0, u^\\theta, T), u^\\theta)], \\\\\n    \\textrm{subject to}\n    & & M(q) &\\mathop{}\\!\\mathrm{d}\\dot{q} + h(q, \\dot{q}, \\theta)\\mathop{}\\!\\mathrm{d}t - \\mathop{}\\!\\mathrm{d}R  = 0,\\\\\n    & & u^{\\theta} &= \\Omega^{\\dagger}(\\nabla_q H  - \\nabla_q H_d^\\theta), \\\\\n    & & p_s &\\sim \\mathbb{U}(p_{min}, p_{max}), \\\\\n    & & \\theta &\\sim Q(\\theta; z).\n\\end{aligned}\\]"
+    "text": "Bayesian NeuralPbc: Hybrid System\n\n\n\nNeuralPbc for contact-rich system\n\n\n\\[\\begin{aligned}\n    \\underset{z}{\\textrm{minimize}}\n    & & & J(\\phi, u) = \\mathbb{E}_{x_0 \\in \\mathcal{D}_N}[\\ell(\\phi(x_0, u^\\theta, T), u^\\theta)], \\\\\n    \\textrm{subject to}\n    & & M(q) &\\mathop{}\\!\\mathrm{d}\\dot{q} + h(q, \\dot{q}, \\theta)\\mathop{}\\!\\mathrm{d}t - \\mathop{}\\!\\mathrm{d}R  = 0,\\\\\n    & & u^{\\theta} &= \\Omega^{\\dagger}(\\nabla_q H  - \\nabla_q H_d^\\theta), \\\\\n    & & p_s &\\sim \\mathbb{U}(p_{min}, p_{max}), \\\\\n    & & \\theta &\\sim Q(\\theta; z).\n\\end{aligned}\\]\n\n\n\n\n\n\n\n\n\n\n\\(p_s \\sim \\mathbb{U}(0 \\textrm{cm}, 2\\textrm{cm})\\)"
   },
   {
     "objectID": "main.html#deterministic-vs.-bayesian",
@@ -229,13 +222,6 @@
     "title": "main",
     "section": "Deterministic vs. Bayesian",
     "text": "Deterministic vs. Bayesian\n\n\n\n\n\n\n\n\n\n\n\nSubtracting rings from the wheel\n\ndecreases wheel mass\ndecreases wheel and pendulum inertia\nmoves the center of mass"
-  },
-  {
-    "objectID": "main.html#rimless-wheel-with-torso",
-    "href": "main.html#rimless-wheel-with-torso",
-    "title": "main",
-    "section": "Rimless Wheel with Torso",
-    "text": "Rimless Wheel with Torso\n\n\n\n\n\n\n\n\nPerformance objective: achieve hip speed \\(\\dot{x}_c^* = 1\\)m/s \\[\\begin{align*}\n  J_T = \\sum_{t=0}^{T} \\| \\dot{x}_c^* - \\dot{x}_c(t; \\theta) \\|\n\\end{align*}\\]\nUncertainty in elevation under each spoke \\[\np_s \\sim \\mathbb{U}(0 \\textrm{cm}, 2\\textrm{cm})\n\\]"
   },
   {
     "objectID": "main.html#joint-work-with-university-of-kentucky",
@@ -263,21 +249,21 @@
     "href": "main.html#future-research-robustness-of-gnns-for-robot-control",
     "title": "main",
     "section": "Future Research: Robustness of GNNs for Robot Control",
-    "text": "Future Research: Robustness of GNNs for Robot Control"
+    "text": "Future Research: Robustness of GNNs for Robot Control\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCollaboration: Robustness of Networked Systems\n\n\n\nDr. Waseem Abbas\nDr. Justin Ruths"
   },
   {
     "objectID": "main.html#future-research-convex-optimization-layers-on-gnns",
     "href": "main.html#future-research-convex-optimization-layers-on-gnns",
     "title": "main",
     "section": "Future Research: Convex Optimization Layers on GNNs",
-    "text": "Future Research: Convex Optimization Layers on GNNs\n\n\n\n\n\n\nEnd-to-end formation control with GNNs1\n\n\n\n\n\n\n\n\n\n\nPropagate features to neighbors using convex-opt layers rather than MLPs.\nAlternately, implement the message Aggregate phase using convex-opt layers.\n\n\n\n\n  \n\n\n\n\n\n\nGNN for Legged Robot Contact Perception2\n\n\n\n\n\n\n\n\n\n\n\n\nJiang, Chao et. al. (2023) End-to-end decentralized formation control using a GNN-based learning method.Butterfield, Daniel et. al. (2024) MI-HGNN: Morphology-Informed Heterogeneous Graph Neural Network for Legged Robot Contact Perception."
+    "text": "Future Research: Convex Optimization Layers on GNNs\n\n\n\n\n\n\nEnd-to-end formation control with GNNs1\n\n\n\n\n\n\n\n\n\n\nPropagate features to neighbors using convex-opt layers rather than MLPs.\nAlternately, implement the message Aggregate phase using convex-opt layers.\n\n\n\n\n\n\nCollaboration: Networked Systems and Convex Opt.\n\n\n\nDr. Justin Ruths\nDr. Waseem Abbas\nDr. Mark Spong\n\n\n\n\n\n\n\n\n\n\nGNN for Legged Robot Contact Perception2\n\n\n\n\n\n\n\n\n\n\n\n\nJiang, Chao et. al. (2023) End-to-end decentralized formation control using a GNN-based learning method.Butterfield, Daniel et. al. (2024) MI-HGNN: Morphology-Informed Heterogeneous Graph Neural Network for Legged Robot Contact Perception."
   },
   {
     "objectID": "main.html#future-research-representation-learning-through-llms",
     "href": "main.html#future-research-representation-learning-through-llms",
     "title": "main",
     "section": "Future Research: Representation-learning through LLMs",
-    "text": "Future Research: Representation-learning through LLMs\n\n\n\n\n\n\n\n⬆️\n\n\n\n\n\n\n\n\n\n\n\nUtilize a causal transformer to learn trajectory representations.\n\n\nCan learn them for each joint.\n\n\nUse these representations as feature vectors of a subsequent GNN.\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\nCourtesy of MIT CSAIL"
+    "text": "Future Research: Representation-learning through LLMs\n\n\n\n\n\n\n\n⬆️\n\n\n\n\n\n\n\n\n\n\n\nUtilize a causal transformer to learn trajectory representations.\n\n\nCan learn them for each joint.\n\n\nUse these representations as feature vectors of a subsequent GNN.\n\n\n\n\n\n\n\nCollaboration: Representation Learning\n\n\n\nDr. Waseem Abbas\nDr. Yu Xiang from Computer Science\n\n\n\n\n\n\n\n\n\n\n\n\n\nCourtesy of MIT CSAIL"
   },
   {
     "objectID": "main.html#funding-mechanism-nsf-foundational-research-in-robotics",
@@ -298,7 +284,7 @@
     "href": "main.html#funding-mechanism-nih-through-collaborations",
     "title": "main",
     "section": "Funding Mechanism: NIH through Collaborations",
-    "text": "Funding Mechanism: NIH through Collaborations"
+    "text": "Funding Mechanism: NIH through Collaborations\n\n\n\n\n\n \n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCollaboration: Cellular Structures and Imaging\n\n\n\nDr. Chen Cao (Bioeng.)\nDr. Reza Moheimani"
   },
   {
     "objectID": "main.html#loosening-up-chess-and-basketball-1",

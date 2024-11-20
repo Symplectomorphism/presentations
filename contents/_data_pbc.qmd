@@ -1,12 +1,13 @@
 # Robust Data-Driven Passivity-Based Controller Synthesis {visibility="uncounted"}
 <!-- ###################################################################### -->
 
-## Dissipativity {auto-animate="true"}
+## Dissipativity and Passivity {auto-animate="true"}
 <!-- ###################################################################### -->
 
-::: {layout="[[-1], [1], [-1]]"}
+<!-- ::: {layout="[[-1], [1], [-1]]"} -->
 
-A dynamical system
+::: {.callout-tip icon="false"}
+## Dissipativity
 <span hidden="hidden">%</span>
 $$
 \Sigma: \quad
@@ -26,8 +27,22 @@ for all $x(t_0) = x_0$, all input $u$, and all $t_1 \geq t_0$.
 
 :::
 
+<!-- ::: -->
 
-## Dissipativity and Passivity {auto-animate="true"}
+::: {.callout-note icon=false}
+## Passivity
+The system $\Sigma$ is __passive__ if it is dissipative with supply rate
+
+$$s = u^\top y.$$
+
+It is __output strictly passive__ if it is dissipative with supply rate
+
+$$s = u^\top y - \delta \lVert y \rVert^2, \; \delta > 0.$$
+
+:::
+
+
+## Dissipativity and Passivity {auto-animate="true" visibility="hidden"}
 
 $$
 \mathcal{H}\left(  x(t_1) \right) \leq  \mathcal{H}\left(  x(t_0) \right) + \int_{t_0}^{t_1} s(u(t), y(t)) \, \text{d}t
@@ -57,7 +72,7 @@ $$s = u^\top y - \delta \lVert y \rVert^2, \; \delta > 0.$$
 :::
 
 
-## Stability of Passive Systems {auto-animate="true"}
+## (Lyapunov) Stability of Passive Systems {auto-animate="true"}
 <!-- ###################################################################### -->
 
 $$
@@ -91,33 +106,7 @@ The origin of $\Sigma$ is:
 :::
 
 
-## Passivity-Based Control (PBC)
-<!-- ###################################################################### -->
-
-
-::: {layout="[[-1], [1], [-1]]"}
-$$
-\Sigma_o: \quad
-\begin{cases}
-  \dot{x} &= f(x) + g(x)u, \\
-  y &= h(x)
-\end{cases}
-$$
-<span hidden="hidden">%</span>
-Main idea --- Select $u(x) = u_{es} + u_{di}$ that renders the closed-loop system passive.
-<span hidden="hidden">%</span>
-$$
-\Sigma_d: \quad
-\begin{cases}
-  \dot{x} &= f_d(x) + g(x) u_{di}, \quad f_d := f(x) + g(x) u_{es}(x) \\
-  y_d &= h_d(x)
-\end{cases}
-$$
-<span hidden="hidden">%</span>
-Control problem is cast as a search for $H_d$ and $h_d$ s.t. $\dot{H}_d \leq y_d^\top u_{di}$
-:::
-
-## PBC Toy Example: Simple Pendulum {auto-animate="false" auto-animate-easing="ease"}
+## Passivity-Based Control (PBC) Toy Example: Simple Pendulum {auto-animate="false" auto-animate-easing="ease"}
 <!-- ###################################################################### -->
 
 :::: {.callout-note icon="false"}
@@ -173,7 +162,7 @@ $$
 ::::
 
 
-## PBC Toy Example: Simple Pendulum {auto-animate="false" auto-animate-easing="ease" visibility="uncounted"}
+## Passivity-Based Control (PBC) Toy Example: Simple Pendulum {auto-animate="false" auto-animate-easing="ease" visibility="uncounted"}
 <!-- ###################################################################### -->
 
 :::: {.callout-tip icon="false"}
@@ -192,21 +181,56 @@ $$
 $$
 
 
-::: {.fragment .fade-up}
-$H_d(q,p) = \frac{1}{2} J^{-1} p^2 + V_d(q), \quad V_d(q) = \frac{1}{2} K_{P} \left( q - q^\star \right)^2$
+::: {.fragment .fade-up fragment-index=0}
+$H_d(q,p) = \frac{1}{2} J^{-1} p^2 + V_d(q), \quad V_d(q) = \frac{1}{2} K_{P} \left( q - q^\star \right)^2 \implies H_d \geq 0$  
 :::
 
 <!-- $\dot{H_d} = -\left(  \nabla_p H_d \right)^\top K_D \left(  \nabla_p H_d \right) \leq 0$ -->
 
-::: {.fragment .fade-up}
+::: {.fragment .fade-up fragment-index=0}
 $\dot{H}_d = -K_D \left( J^{-1} p \right)^2 = y^\top u_{di} \leq 0$
+
+**In general, hard to show that such an $H_d$ exists!**
 :::
 
 ::: {.fragment .fade-up}
-$\boxed{u = -mgl\sin(x) - K_P(q - q^\star) - K_D \dot{q}}$
+$\boxed{u = -mgl\sin(q) - K_P(q - q^\star) - K_D \dot{q}}$
 :::
 
 ::::
+
+
+## Passivity-Based Control (PBC)
+<!-- ###################################################################### -->
+
+
+::: {layout="[[-1], [1], [-1]]"}
+$$
+\Sigma_o: \quad
+\begin{cases}
+  \dot{x} &= f(x) + g(x)u, \\
+  y &= h(x)
+\end{cases}
+$$
+<span hidden="hidden">%</span>
+Main idea --- Select $u(x) = u_{es} + u_{di}$ that renders the closed-loop system passive.
+<span hidden="hidden">%</span>
+$$
+\Sigma_d: \quad
+\begin{cases}
+  \dot{x} &= f_d(x) + g(x) u_{di}, \quad f_d := f(x) + g(x) u_{es}(x) \\
+  y_d &= h_d(x)
+\end{cases}
+$$
+<span hidden="hidden">%</span>
+Control problem is cast as a search for $H_d$ and $h_d$ such that 
+$$
+\dot{H}_d \leq y_d^\top u_{di}
+$$
+
+:::
+
+
 
 ## {background-video="contents/assets/ballbot_youtube_trim_reverse.mp4"}
 <!-- ###################################################################### -->
@@ -836,10 +860,24 @@ H(x^+) \leq H(x^-)
 \end{aligned}
 
 :::
-<!-- {{< video contents/assets/rw_uneven.mp4 >}} -->
-{{< video https://youtu.be/bWdrBP5Ax9s
-   height=300 width="100%" >}}
 
+:::: {.columns}
+
+::: {.column width="50%"}
+<!-- {{< video contents/assets/rw_uneven.mp4 >}} -->
+{{< video https://youtu.be/bWdrBP5Ax9s width=500 height=181 >}}
+
+::: {.callout appearance="minimal"}
+$p_s \sim \mathbb{U}(0 \textrm{cm}, 2\textrm{cm})$
+:::
+
+:::
+
+::: {.column width="50%"}
+{{< video ./contents/assets/rw_uneven_success.mp4 width=500 >}}
+:::
+
+::::
 
 # Case Studies {visibility="uncounted"}
 
@@ -875,7 +913,7 @@ H(x^+) \leq H(x^-)
 
 ## {background-video="contents/assets/4_rings_hardware.mp4" background-size="contain" background-video-muted="true" background-video-loop="true"}
 
-## Rimless Wheel with Torso
+## Rimless Wheel with Torso {visibility="hidden"}
 
 :::: {.columns}
 

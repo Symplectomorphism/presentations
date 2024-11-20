@@ -306,36 +306,25 @@ $$
 
 ## GTSAM meets Gradient of the Electric Field {auto-animate=true}
 
-:::: {.columns}
-
-::: {.column width="55%"}
-
-::: {.callout-tip icon=false}
-## $\nabla_{\mathbf{q}}\bar{E}(\mathbf{q})$ points towards the convex hull
-The unit vector along this gradient may be used as a _bearing_ factor in GTSAM 
-at any point $\mathbf{q}$ during navigation!
-
-* Turns the convex hull of the power lines into a __landmark__.
-
-:::
-
-
-{{< video ./contents/assets/translate_video.mp4 width=600 autoplay="true" >}}
-:::
-
-::: {.column width="45%"}
-![](./contents/assets/bearing_range_exp_arrangement.svg){width="70%" fig-align="center"}
-
 ::: {.r-stack}
-![](./contents/assets/estimated_true_line_phis_cal_uncal2.svg){width="100%" fig-align="right" .fragment .fade-in-then-out fragment-index=0}
 
-![](./contents/assets/relative_position.svg){width="100%" fig-align="right" .fragment .fade-in fragment-index=1}
+::: {.fragment .fade-in-then-out fragment-index=0}
+{{< video ./contents/assets/translate_video.mp4 width=900 autoplay="true" >}}
+:::
+
+::: {.fragment .fade-in-then-out fragment-index=1}
+![](./contents/assets/bearing_range_exp_arrangement.svg){width=900 fig-align="center"}
+:::
+
+::: {.fragment .fade-in-then-out fragment-index=2}
+![](./contents/assets/estimated_true_line_phis_cal.svg){width="100%"}
+:::
+
+::: {.fragment .fade-in fragment-index=3}
+![](./contents/assets/relative_position.svg){width="100%"}
 :::
 
 :::
-
-
-::::
 
 ::: {.notes}
 * **Recall**: the grad of the rms E-field points into the convex hull

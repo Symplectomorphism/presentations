@@ -62,9 +62,16 @@ allowfullscreen></iframe>
 
 ::: {.column width="20%"}
 
-![](./contents/assets/abbas.jpg){width="60%"}
+<!-- ![](./contents/assets/abbas.jpg){width="60%"} -->
 
-![](./contents/assets/ruths.jpg){width="60%"}
+<!-- ![](./contents/assets/ruths.jpg){width="60%"} -->
+
+::: {.callout-tip icon="false"}
+## Collaboration: Robustness of Networked Systems
+* Dr. Waseem Abbas 
+
+* Dr. Justin Ruths
+:::
 
 :::
 
@@ -103,11 +110,19 @@ layers.
 
 ::: {.fragment .fade-in fragment-index=1}
 
-<center>
+::: {.callout-tip icon="false"}
+## Collaboration: Networked Systems and Convex Opt.
+* Dr. Justin Ruths
+* Dr. Waseem Abbas 
+* Dr. Mark Spong
+:::
+
+
+<!--center>
 <img src="./contents/assets/abbas.jpg" style="width:25%"></img>
 ![](./contents/assets/ruths.jpg){width="25%" fig-align="center"}
 ![](./contents/assets/spong_1.jpg){width="25%" fig-align="center"}
-</center>
+</center-->
 
 :::
 
@@ -167,11 +182,17 @@ layers.
 
 ::: {.fragment .fade-in fragment-index=1}
 
-<center>
+::: {.callout-tip icon="false"}
+## Collaboration: Representation Learning
+* Dr. Waseem Abbas 
+* Dr. Yu Xiang from Computer Science
+:::
+
+<!--center>
 <img src="./contents/assets/abbas.jpg" style="width:25%"></img>
 ![](./contents/assets/spong_1.jpg){width="25%" fig-align="center"}
 ![](./contents/assets/xiang.jpg){width="25%" fig-align="center"}
-</center>
+</center-->
 
 :::
 
@@ -321,9 +342,15 @@ layers.
 ::: {layout="[[1], [1], [1]]"}
 ![](./contents/assets/uzer.webp){width="100%"}
 
-![](./contents/assets/moheimani.jpg){width="100%"}
+::: {.callout-tip icon="false"}
+## Collaboration: Cellular Structures and Imaging
+* Dr. Chen Cao (Bioeng.)
+* Dr. Reza Moheimani
+:::
 
-![](./contents/assets/cao.png){width="100%"}
+<!-- ![](./contents/assets/moheimani.jpg){width="100%"} -->
+
+<!-- ![](./contents/assets/cao.png){width="100%"} -->
 :::
 :::
 

@@ -1178,40 +1178,22 @@ p(\mathbf{x} | \mathbf{o}, \mathbf{l}) \propto p(x_1) \prod_{i=2}^{3} p(x_i | x_
 </section>
 <section id="gtsam-meets-gradient-of-the-electric-field" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">GTSAM meets Gradient of the Electric Field</h2>
-<div class="columns">
-<div class="column" style="width:55%;">
-<div class="callout callout-tip no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong><span class="math inline">\(\nabla_{\mathbf{q}}\bar{E}(\mathbf{q})\)</span> points towards the convex hull</strong></p>
+<div class="r-stack">
+<div class="fragment fade-in-then-out" data-fragment-index="0">
+<video id="video_shortcode_videojs_video10" width="900" class="video-js vjs-default-skin " controls="" preload="auto" data-setup="{}" title=""><source src="./contents/assets/translate_video.mp4"></video>
 </div>
-<div class="callout-content">
-<p>The unit vector along this gradient may be used as a <em>bearing</em> factor in GTSAM at any point <span class="math inline">\(\mathbf{q}\)</span> during navigation!</p>
-<ul>
-<li>Turns the convex hull of the power lines into a <strong>landmark</strong>.</li>
-</ul>
-</div>
-</div>
-</div>
-<video id="video_shortcode_videojs_video10" width="600" class="video-js vjs-default-skin " controls="" preload="auto" data-setup="{}" title=""><source src="./contents/assets/translate_video.mp4"></video>
-</div><div class="column" style="width:45%;">
+<div class="fragment fade-in-then-out" data-fragment-index="1">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="./contents/assets/bearing_range_exp_arrangement.svg" class="quarto-figure quarto-figure-center" style="width:70.0%"></p>
-</figure>
-</div>
-<div class="r-stack">
-<div class="quarto-figure quarto-figure-right">
-<figure>
-<p><img data-src="./contents/assets/estimated_true_line_phis_cal_uncal2.svg" class="fragment fade-in-then-out quarto-figure quarto-figure-right" style="width:100.0%" data-fragment-index="0"></p>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-right">
-<figure>
-<p><img data-src="./contents/assets/relative_position.svg" class="fragment fade-in quarto-figure quarto-figure-right" style="width:100.0%" data-fragment-index="1"></p>
+<p><img data-src="./contents/assets/bearing_range_exp_arrangement.svg" class="quarto-figure quarto-figure-center" width="900"></p>
 </figure>
 </div>
 </div>
+<div class="fragment fade-in-then-out" data-fragment-index="2">
+<p><img data-src="./contents/assets/estimated_true_line_phis_cal.svg" style="width:100.0%"></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="3">
+<p><img data-src="./contents/assets/relative_position.svg" style="width:100.0%"></p>
 </div>
 </div>
 <aside class="notes">
@@ -1298,18 +1280,17 @@ p(\mathbf{x} | \mathbf{o}, \mathbf{l}) \propto p(x_1) \prod_{i=2}^{3} p(x_i | x_
 <h1>Robust Data-Driven Passivity-Based Controller Synthesis</h1>
 <!-- ###################################################################### -->
 </section>
-<section id="dissipativity" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Dissipativity</h2>
+<section id="dissipativity-and-passivity" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Dissipativity and Passivity</h2>
 <!-- ###################################################################### -->
-<div class="quarto-layout-panel" data-layout="[[-1], [1], [-1]]">
-<div class="quarto-layout-row">
-<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
-<p>&nbsp;</p>
+<!-- ::: {layout="[[-1], [1], [-1]]"} -->
+<div class="callout callout-tip no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Dissipativity</strong></p>
 </div>
-</div>
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
-<p>A dynamical system <span hidden="hidden">%</span> <span class="math display">\[
+<div class="callout-content">
+<p><span hidden="hidden">%</span> <span class="math display">\[
 \Sigma: \quad
 \begin{cases}
   \dot{x} &amp;= f(x,u) \\
@@ -1322,26 +1303,7 @@ p(\mathbf{x} | \mathbf{o}, \mathbf{l}) \propto p(x_1) \prod_{i=2}^{3} p(x_i | x_
 </div>
 </div>
 </div>
-</section>
-<section id="dissipativity-and-passivity" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Dissipativity and Passivity</h2>
-<p><span class="math display">\[
-\mathcal{H}\left(  x(t_1) \right) \leq  \mathcal{H}\left(  x(t_0) \right) + \int_{t_0}^{t_1} s(u(t), y(t)) \, \text{d}t
-\]</span></p>
-<div class="callout callout-none no-icon callout-titled callout-style-simple">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Dissipation Inequality</strong></p>
-</div>
-<div class="callout-content">
-<ul>
-<li><p>Stored energy at <span class="math inline">\(t_1\)</span> is <em>at most</em> equal to stored energy at <span class="math inline">\(t_0\)</span>, plus externally supplied energy <span class="math inline">\(s(u,y)\)</span>.</p></li>
-<li><p>No generation of energy, only internal dissipation.</p></li>
-</ul>
-<!-- - With $s(t) \equiv 0$, trajectories tend towards minimum of $\mathcal{H}$. -->
-</div>
-</div>
-</div>
+<!-- ::: -->
 <div class="callout callout-note no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -1356,8 +1318,9 @@ p(\mathbf{x} | \mathbf{o}, \mathbf{l}) \propto p(x_1) \prod_{i=2}^{3} p(x_i | x_
 </div>
 </div>
 </section>
-<section id="stability-of-passive-systems" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Stability of Passive Systems</h2>
+
+<section id="lyapunov-stability-of-passive-systems" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">(Lyapunov) Stability of Passive Systems</h2>
 <!-- ###################################################################### -->
 <p><span class="math display">\[
 \Sigma: \quad
@@ -1410,36 +1373,8 @@ p(\mathbf{x} | \mathbf{o}, \mathbf{l}) \propto p(x_1) \prod_{i=2}^{3} p(x_i | x_
           display:block!important;
       }</style></aside>
 </section>
-<section id="passivity-based-control-pbc" class="slide level2">
-<h2>Passivity-Based Control (PBC)</h2>
-<!-- ###################################################################### -->
-<div class="quarto-layout-panel" data-layout="[[-1], [1], [-1]]">
-<div class="quarto-layout-row">
-<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
-<p>&nbsp;</p>
-</div>
-</div>
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
-<p><span class="math display">\[
-\Sigma_o: \quad
-\begin{cases}
-  \dot{x} &amp;= f(x) + g(x)u, \\
-  y &amp;= h(x)
-\end{cases}
-\]</span> <span hidden="hidden">%</span> Main idea — Select <span class="math inline">\(u(x) = u_{es} + u_{di}\)</span> that renders the closed-loop system passive. <span hidden="hidden">%</span> <span class="math display">\[
-\Sigma_d: \quad
-\begin{cases}
-  \dot{x} &amp;= f_d(x) + g(x) u_{di}, \quad f_d := f(x) + g(x) u_{es}(x) \\
-  y_d &amp;= h_d(x)
-\end{cases}
-\]</span> <span hidden="hidden">%</span> Control problem is cast as a search for <span class="math inline">\(H_d\)</span> and <span class="math inline">\(h_d\)</span> s.t. <span class="math inline">\(\dot{H}_d \leq y_d^\top u_{di}\)</span></p>
-</div>
-</div>
-</div>
-</section>
-<section id="pbc-toy-example-simple-pendulum" class="slide level2" data-auto-animate="false" data-auto-animate-easing="ease">
-<h2 data-id="quarto-animate-title">PBC Toy Example: Simple Pendulum</h2>
+<section id="passivity-based-control-pbc-toy-example-simple-pendulum" class="slide level2" data-auto-animate="false" data-auto-animate-easing="ease">
+<h2 data-id="quarto-animate-title">Passivity-Based Control (PBC) Toy Example: Simple Pendulum</h2>
 <!-- ###################################################################### -->
 <div class="callout callout-note no-icon callout-titled callout-style-default">
 <div class="callout-body">
@@ -1484,8 +1419,8 @@ p(\mathbf{x} | \mathbf{o}, \mathbf{l}) \propto p(x_1) \prod_{i=2}^{3} p(x_i | x_
 </div>
 </div>
 </section>
-<section id="pbc-toy-example-simple-pendulum-1" class="slide level2" data-auto-animate="false" data-auto-animate-easing="ease" data-visibility="uncounted">
-<h2 data-id="quarto-animate-title">PBC Toy Example: Simple Pendulum</h2>
+<section id="passivity-based-control-pbc-toy-example-simple-pendulum-1" class="slide level2" data-auto-animate="false" data-auto-animate-easing="ease" data-visibility="uncounted">
+<h2 data-id="quarto-animate-title">Passivity-Based Control (PBC) Toy Example: Simple Pendulum</h2>
 <!-- ###################################################################### -->
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
@@ -1501,16 +1436,47 @@ p(\mathbf{x} | \mathbf{o}, \mathbf{l}) \propto p(x_1) \prod_{i=2}^{3} p(x_i | x_
 \begin{bmatrix} \nabla_q H_d \\ \nabla_p H_d \end{bmatrix},
 \qquad y = \dot{q}
 \]</span></p>
-<div class="fragment fade-up">
-<p><span class="math inline">\(H_d(q,p) = \frac{1}{2} J^{-1} p^2 + V_d(q), \quad V_d(q) = \frac{1}{2} K_{P} \left( q - q^\star \right)^2\)</span></p>
+<div class="fragment fade-up" data-fragment-index="0">
+<p><span class="math inline">\(H_d(q,p) = \frac{1}{2} J^{-1} p^2 + V_d(q), \quad V_d(q) = \frac{1}{2} K_{P} \left( q - q^\star \right)^2 \implies H_d \geq 0\)</span></p>
 </div>
 <!-- $\dot{H_d} = -\left(  \nabla_p H_d \right)^\top K_D \left(  \nabla_p H_d \right) \leq 0$ -->
-<div class="fragment fade-up">
+<div class="fragment fade-up" data-fragment-index="0">
 <p><span class="math inline">\(\dot{H}_d = -K_D \left( J^{-1} p \right)^2 = y^\top u_{di} \leq 0\)</span></p>
+<p><strong>In general, hard to show that such an <span class="math inline">\(H_d\)</span> exists!</strong></p>
 </div>
 <div class="fragment fade-up">
-<p><span class="math inline">\(\boxed{u = -mgl\sin(x) - K_P(q - q^\star) - K_D \dot{q}}\)</span></p>
+<p><span class="math inline">\(\boxed{u = -mgl\sin(q) - K_P(q - q^\star) - K_D \dot{q}}\)</span></p>
 </div>
+</div>
+</div>
+</div>
+</section>
+<section id="passivity-based-control-pbc" class="slide level2">
+<h2>Passivity-Based Control (PBC)</h2>
+<!-- ###################################################################### -->
+<div class="quarto-layout-panel" data-layout="[[-1], [1], [-1]]">
+<div class="quarto-layout-row">
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<p>&nbsp;</p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<p><span class="math display">\[
+\Sigma_o: \quad
+\begin{cases}
+  \dot{x} &amp;= f(x) + g(x)u, \\
+  y &amp;= h(x)
+\end{cases}
+\]</span> <span hidden="hidden">%</span> Main idea — Select <span class="math inline">\(u(x) = u_{es} + u_{di}\)</span> that renders the closed-loop system passive. <span hidden="hidden">%</span> <span class="math display">\[
+\Sigma_d: \quad
+\begin{cases}
+  \dot{x} &amp;= f_d(x) + g(x) u_{di}, \quad f_d := f(x) + g(x) u_{es}(x) \\
+  y_d &amp;= h_d(x)
+\end{cases}
+\]</span> <span hidden="hidden">%</span> Control problem is cast as a search for <span class="math inline">\(H_d\)</span> and <span class="math inline">\(h_d\)</span> such that <span class="math display">\[
+\dot{H}_d \leq y_d^\top u_{di}
+\]</span></p>
 </div>
 </div>
 </div>
@@ -2150,8 +2116,21 @@ H(x^+) \leq H(x^-)
 </div>
 </div>
 </div>
+<div class="columns">
+<div class="column" style="width:50%;">
 <!--  -->
-<iframe data-external="1" src="https://www.youtube.com/embed/bWdrBP5Ax9s" width="100%" height="300" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+<iframe data-external="1" src="https://www.youtube.com/embed/bWdrBP5Ax9s" width="500" height="181" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+<div class="callout callout-none no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p><span class="math inline">\(p_s \sim \mathbb{U}(0 \textrm{cm}, 2\textrm{cm})\)</span></p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<video id="video_shortcode_videojs_video13" width="500" class="video-js vjs-default-skin " controls="" preload="auto" data-setup="{}" title=""><source src="./contents/assets/rw_uneven_success.mp4"></video>
+</div>
+</div>
 </section></section>
 <section>
 <section id="case-studies" class="title-slide slide level1 center" data-visibility="uncounted">
@@ -2193,33 +2172,7 @@ H(x^+) \leq H(x^-)
 <section id="section-3" class="slide level2" data-background-video="contents/assets/4_rings_hardware.mp4" data-background-size="contain" data-background-video-muted="true" data-background-video-loop="true">
 <h2></h2>
 </section>
-<section id="rimless-wheel-with-torso" class="slide level2">
-<h2>Rimless Wheel with Torso</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="contents/assets/rimlesswheel.svg" class="quarto-figure quarto-figure-center" style="width:70.0%"></p>
-</figure>
-</div>
-<ul>
-<li>Performance objective: achieve hip speed <span class="math inline">\(\dot{x}_c^* = 1\)</span>m/s <span class="math display">\[\begin{align*}
-  J_T = \sum_{t=0}^{T} \| \dot{x}_c^* - \dot{x}_c(t; \theta) \|
-\end{align*}\]</span></li>
-<li>Uncertainty in elevation under each spoke <span class="math display">\[
-p_s \sim \mathbb{U}(0 \textrm{cm}, 2\textrm{cm})
-\]</span></li>
-</ul>
-</div><div class="column" style="width:50%;">
-<video id="video_shortcode_videojs_video13" width="600" class="video-js vjs-default-skin " controls="" preload="auto" data-setup="{}" title=""><source src="./contents/assets/rw_uneven_success.mp4"></video>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="contents/assets/simulationComparison.svg" class="quarto-figure quarto-figure-center" style="width:70.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
+
 <section id="joint-work-with-university-of-kentucky" class="slide level2">
 <h2>Joint Work with University of Kentucky</h2>
 <div class="columns">
@@ -2324,7 +2277,7 @@ Figure&nbsp;1: NSF Award #2330794
 <div class="column" style="width:50%;">
 <p><img data-src="./contents/assets/nervenet.png"></p>
 </div><div class="column" style="width:50%;">
-<video id="video_shortcode_videojs_video15" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="./contents/assets/nervenet.mp4"></video>
+<video id="video_shortcode_videojs_video16" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="./contents/assets/nervenet.mp4"></video>
 <!--center>
 <video autoplay="true" muted="true"><source src="./contents/assets/nervenet.mp4"></video>
 </center-->
@@ -2334,8 +2287,21 @@ Figure&nbsp;1: NSF Award #2330794
 <div class="column" style="width:80%;">
 <p><img data-src="./contents/assets/gnn_robustness.jpg"></p>
 </div><div class="column" style="width:20%;">
-<p><img data-src="./contents/assets/abbas.jpg" style="width:60.0%"></p>
-<p><img data-src="./contents/assets/ruths.jpg" style="width:60.0%"></p>
+<!-- ![](./contents/assets/abbas.jpg){width="60%"} -->
+<!-- ![](./contents/assets/ruths.jpg){width="60%"} -->
+<div class="callout callout-tip no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Collaboration: Robustness of Networked Systems</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><p>Dr.&nbsp;Waseem Abbas</p></li>
+<li><p>Dr.&nbsp;Justin Ruths</p></li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 </div>
 </section>
@@ -2363,9 +2329,25 @@ Figure&nbsp;1: NSF Award #2330794
 </ul>
 </div>
 <div class="fragment fade-in" data-fragment-index="1">
-<center>
-<img src="./contents/assets/abbas.jpg" style="width:25%"> <img data-src="./contents/assets/ruths.jpg" class="quarto-figure quarto-figure-center" style="width:25.0%"> <img data-src="./contents/assets/spong_1.jpg" class="quarto-figure quarto-figure-center" style="width:25.0%">
-</center>
+<div class="callout callout-tip no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Collaboration: Networked Systems and Convex Opt.</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>Dr.&nbsp;Justin Ruths</li>
+<li>Dr.&nbsp;Waseem Abbas</li>
+<li>Dr.&nbsp;Mark Spong</li>
+</ul>
+</div>
+</div>
+</div>
+<!--center>
+<img src="./contents/assets/abbas.jpg" style="width:25%"></img>
+![](./contents/assets/ruths.jpg){width="25%" fig-align="center"}
+![](./contents/assets/spong_1.jpg){width="25%" fig-align="center"}
+</center-->
 </div>
 </div>
 <div class="callout callout-warning no-icon callout-titled callout-style-default">
@@ -2417,9 +2399,24 @@ Use these representations as feature vectors of a subsequent GNN.
 </ul>
 </div>
 <div class="fragment fade-in" data-fragment-index="1">
-<center>
-<img src="./contents/assets/abbas.jpg" style="width:25%"> <img data-src="./contents/assets/spong_1.jpg" class="quarto-figure quarto-figure-center" style="width:25.0%"> <img data-src="./contents/assets/xiang.jpg" class="quarto-figure quarto-figure-center" style="width:25.0%">
-</center>
+<div class="callout callout-tip no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Collaboration: Representation Learning</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>Dr.&nbsp;Waseem Abbas</li>
+<li>Dr.&nbsp;Yu Xiang from Computer Science</li>
+</ul>
+</div>
+</div>
+</div>
+<!--center>
+<img src="./contents/assets/abbas.jpg" style="width:25%"></img>
+![](./contents/assets/spong_1.jpg){width="25%" fig-align="center"}
+![](./contents/assets/xiang.jpg){width="25%" fig-align="center"}
+</center-->
 </div>
 </div>
 <video autoplay="true" muted="true">
@@ -2583,13 +2580,30 @@ Use these representations as feature vectors of a subsequent GNN.
 </div>
 </div>
 <div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<p><img data-src="./contents/assets/moheimani.jpg" style="width:100.0%"></p>
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div class="callout callout-tip no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Collaboration: Cellular Structures and Imaging</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>Dr.&nbsp;Chen Cao (Bioeng.)</li>
+<li>Dr.&nbsp;Reza Moheimani</li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<p><img data-src="./contents/assets/cao.png" style="width:100.0%"></p>
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<!-- ![](./contents/assets/moheimani.jpg){width="100%"} -->
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<!-- ![](./contents/assets/cao.png){width="100%"} -->
 </div>
 </div>
 </div>
@@ -3020,6 +3034,7 @@ Use these representations as feature vectors of a subsequent GNN.
     <script>videojs(video_shortcode_videojs_video14);</script>
     <script>videojs(video_shortcode_videojs_video15);</script>
     <script>videojs(video_shortcode_videojs_video16);</script>
+    <script>videojs(video_shortcode_videojs_video17);</script>
     
 
 </body></html>
