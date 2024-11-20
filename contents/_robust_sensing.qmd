@@ -1,16 +1,19 @@
-# Robust Localization over Power Lines {visibility="uncounted"}
+<!-- # Robust Localization over Power Lines {visibility="uncounted"} -->
 <!-- ###################################################################### -->
 
-## Robust Localization w.r.t. Power Lines in Sparse Environments 
+## Robust Localization over Power Lines
 
 :::: {.columns}
 
 ::: {.column width="55%"}
 
+<br>
+
 1. The ground has a uniform texture.
-2. There are too few utility poles or immediate fences.
-3. There are no trees or other geometries.
-4. GPS provides absolute position, need relative pose to power lines!
+2. Too few utility poles or immediate fences.  
+   There are no trees or other geometries.
+3. GPS provides absolute position.  
+   Drone requires pose relative to power lines!
 
 :::
 
@@ -49,7 +52,7 @@ factor exploiting this field.
 :::
 
 
-## Electric and Magnetic Field around Three-Phase Power Lines {auto-animate=true}
+## Electric and Magnetic Field around Three-Phase Power Lines {auto-animate=true visibility="hidden"}
 
 :::: {.columns}
 
@@ -98,7 +101,7 @@ From total rms energy considerations, it can be shown that $\bar{B} = \sqrt{\mu_
 :::
 
 
-## Gradient of the Electric Field around Three-Phase Power Lines {auto-animate=true}
+## Gradient of the Electric Field around Three-Phase Power Lines {auto-animate=true visibility="hidden"}
 
 
 :::: {.columns}
@@ -155,6 +158,12 @@ as $\bar{E} \rightarrow \infty$ (or $r_\alpha \rightarrow 0$).
 :::
 
 ::: {.callout-tip icon=false}
+## Lemma: Direction of the gradient
+The gradient $\nabla_{\mathbf{q}} \bar{E}(\mathbf{q})$ points into the convex hull (triangle)
+formed by the transmission wires for every $\mathbf{q}$.
+:::
+
+::: {.callout-tip icon=false}
 ## Lemma: Critical points of $V(\mathbf{q})$
 * _Generically_ $V$ has $5$ isolated critical points, $3$ of which are global minima and have $r_\alpha = 0$. 
 
@@ -194,7 +203,9 @@ power lines.
 ::::
 
 
-## Robust Localization with GTSAM: Sensor Fusion Library {auto-animate=true}
+## Robust Localization with GTSAM: Sensor Fusion
+
+### Fuse $\nabla_{\mathbf{q}}\bar{E}(\mathbf{q})$, IMU, GPS, Camera Measurements {auto-animate=true}
 
 :::: {.columns} 
 
@@ -258,20 +269,20 @@ $$
 
 :::{.fragment .fade-in-then-out fragment-index=2 }
 
-![](./contents/assets/nodes_gtsam_2.svg){.absolute top=194 left=50 width="1400" height="250"}
+![](./contents/assets/nodes_gtsam_2.svg){.absolute top=254 left=50 width="1400" height="250"}
 
 :::
 
 :::{.fragment .fade-in-then-out fragment-index=3 }
 
-![](./contents/assets/nodes_gtsam_3.svg){.absolute top=250 left=50 width="1400" height="350"}
+![](./contents/assets/nodes_gtsam_3.svg){.absolute top=310 left=50 width="1400" height="350"}
 
 :::
 
 
 :::{.fragment .fade-in fragment-index=4 }
 
-![](./contents/assets/nodes_gtsam_1.svg){.absolute top=250 left=50 width="1500" height="450"}
+![](./contents/assets/nodes_gtsam_1.svg){.absolute top=310 left=50 width="1500" height="390"}
 
 :::
 

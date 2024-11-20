@@ -1,4 +1,4 @@
-# Who is the speaker? {visibility="uncounted"}
+# Who is the speaker? {visibility="hidden"}
 <!-- ###################################################################### -->
 
 ## Graduate Studies: Sabanci University and UT Dallas

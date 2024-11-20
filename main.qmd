@@ -6,7 +6,7 @@ from: markdown+emoji
 # bibliography: bibliography.bib
 format:
   revealjs: 
-    show-notes: true
+    # show-notes: true
     css: styles.css
     html-math-method: mathjax
     controls: true

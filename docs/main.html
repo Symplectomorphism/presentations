@@ -440,10 +440,7 @@
 -->
 </section>
 <section>
-<section id="who-is-the-speaker" class="title-slide slide level1 center" data-visibility="uncounted">
-<h1>Who is the speaker?</h1>
-<!-- ###################################################################### -->
-</section>
+
 <section id="graduate-studies-sabanci-university-and-ut-dallas" class="slide level2">
 <h2>Graduate Studies: Sabanci University and UT Dallas</h2>
 <div class="columns">
@@ -599,14 +596,11 @@
           display:block!important;
       }</style></aside>
 </section>
-</section>
-<section>
-<section id="robust-robotic-system-design" class="title-slide slide level1 center" data-visibility="uncounted">
-<h1>Robust Robotic System Design</h1>
+
+<section id="robust-robotic-system-design" class="slide level2" data-visibility="uncounted">
+<h2>Robust Robotic System Design</h2>
 <!-- ###################################################################### -->
-</section>
-<section id="the-surge-in-reliance-upon-robotic-systems" class="slide level2">
-<h2>The Surge in Reliance Upon Robotic Systems</h2>
+<h3 id="the-surge-in-reliance-upon-robotic-systems">The Surge in Reliance Upon Robotic Systems</h3>
 <p><br></p>
 <div class="columns">
 <!-- -  A robot can utilize a wide variety of sensors to observe its environment --><div class="column" style="width:50%;">
@@ -665,7 +659,7 @@
 <div class="callout callout-tip no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
-<p>Robotics becoming ever more ubiquitous, and increasing the requirement of robust sensing and control.</p>
+<p><span style="font-size:22.5px">Robotics becoming ever more ubiquitous, and increasing the requirement of robust sensing and control.</span></p>
 </div>
 </div>
 </div>
@@ -698,7 +692,7 @@
 </div>
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<p><img data-src="./contents/assets/nonrobust_plan.svg" class="fragment fade-in-then-out" data-fragment-index="0" width="900"></p>
+<p><img data-src="./contents/assets/nonrobust_plan.svg" class="fragment fade-in-then-out" data-fragment-index="0" width="1500"></p>
 </div>
 </div>
 <div class="quarto-layout-row">
@@ -720,7 +714,7 @@
 </div>
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<p><video data-src="./contents/assets/astria_encoded_trimmed.mp4" class="fragment fade-in-then-out" data-fragment-index="1" width="900" controls=""><a href="./contents/assets/astria_encoded_trimmed.mp4">Video</a></video></p>
+<p><video data-src="./contents/assets/astria_encoded_trimmed.mp4" class="fragment fade-in-then-out" data-fragment-index="1" width="1500" controls=""><a href="./contents/assets/astria_encoded_trimmed.mp4">Video</a></video></p>
 </div>
 </div>
 </div>
@@ -753,7 +747,6 @@
 </section>
 <section id="sources-of-uncertainty" class="slide level2" data-auto-animate="true" data-auto-animate-easing="ease-in-out">
 <h2 data-id="quarto-animate-title">Sources of Uncertainty</h2>
-<div class="r-stack">
 <div class="quarto-layout-panel" data-layout="[[-1], [1], [-1]]">
 <div class="quarto-layout-row">
 <div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
@@ -762,23 +755,14 @@
 </div>
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<p><img data-src="./contents/assets/true_closedloop.svg" class="fragment fade-in-then-out" style="width:100.0%" data-fragment-index="0"></p>
+<p><img data-src="./contents/assets/trained_closedloop_cleanedup.svg" class="fragment" style="width:100.0%" data-fragment-index="1"></p>
 </div>
 </div>
 </div>
-<div class="quarto-layout-panel" data-layout="[[-1], [1], [-1]]">
-<div class="quarto-layout-row">
-<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
-<p>&nbsp;</p>
-</div>
-</div>
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<p><img data-src="./contents/assets/trained_closedloop.svg" class="fragment" style="width:100.0%" data-fragment-index="1"></p>
-</div>
-</div>
-</div>
-</div>
+<ul>
+<li><span class="math inline">\(H_d^\theta\)</span> is a desired storage function.</li>
+<li><span class="math inline">\(H_d^\theta\)</span> is a neural network parametrized by <span class="math inline">\(\theta\)</span>.</li>
+</ul>
 <aside class="notes">
 <ul>
 <li><p>Classical control system depiction</p></li>
@@ -806,13 +790,25 @@
 </section>
 <section id="repercussions-of-untreated-uncertainty" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Repercussions of Untreated Uncertainty</h2>
-<div class="quarto-layout-panel" data-layout="[100, 100]">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<h3 id="the-case-of-the-rimless-wheel">The Case of the Rimless Wheel</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
 <iframe data-external="1" src="https://www.youtube.com/embed/7t1E7FWawgA" width="100%" height="300" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+<div class="callout callout-tip no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>Training without taking uncertainty into account</p>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+</div>
+</div>
+</div><div class="column" style="width:50%;">
 <iframe data-external="1" src="https://www.youtube.com/embed/Kl6_hAY8PFw" width="100%" height="300" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+<div class="callout callout-tip no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>Failing real-life implementation</p>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -834,83 +830,18 @@
 </ul></li>
 <li>Performance suffers.</li>
 </ul>
-<p><strong>Take away:</strong> * State estimators and controllers need to be designed to be insensitive - to various kinds of uncertainties. * Will advocate several concepts in this vein - PBC - Bayesian learning - domain randomization - optimization over factor graphs.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="existing-vs.-proposed-control-synthesis-methods" class="slide level2 smaller" data-transition="fade">
-<h2>Existing vs.&nbsp;Proposed Control Synthesis Methods</h2>
-<p><br></p>
-<div class="fragment semi-fade-out" data-fragment-index="1">
-<div class="quarto-layout-panel" data-layout="[100,-5,60]">
-<div class="quarto-layout-row quarto-layout-valign-center">
-<div class="quarto-layout-cell" style="flex-basis: 60.6%;justify-content: flex-start;">
-<p>Reinforcement learning (similarly Decision Transformers) <img data-src="contents/assets/rl-outline.svg"></p>
-</div>
-<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 3.0%;justify-content: flex-start;">
-<p>&nbsp;</p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 36.4%;justify-content: flex-start;">
-<dl>
-<dt>Strengths</dt>
-<dd>
-More general<br>
-Unknown dynamics OK
-</dd>
-<dt>Weaknesses</dt>
-<dd>
-Sample complexity<br>
-Stability guarantees?
-</dd>
-</dl>
-</div>
-</div>
-</div>
-</div>
-<div class="fragment" data-fragment-index="1">
-<div class="quarto-layout-panel" data-layout="[100,-5,60]">
-<div class="quarto-layout-row quarto-layout-valign-center">
-<div class="quarto-layout-cell" style="flex-basis: 60.6%;justify-content: flex-start;">
-<p>Bayesian Neural Passivity-based Control <img data-src="contents/assets/pbc-ml-outline.svg"></p>
-</div>
-<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 3.0%;justify-content: flex-start;">
-<p>&nbsp;</p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 36.4%;justify-content: flex-start;">
-<dl>
-<dt>Strengths</dt>
-<dd>
-Stability guarantees<br>
-Closed-form policy<br>
-Reasons about model uncertainties<br>
-
-</dd>
-</dl>
-</div>
-</div>
-</div>
-</div>
-<aside class="notes">
+<p><strong>Take away:</strong></p>
 <ul>
-<li>Basic methods such as RL and even decision transformers
+<li>State estimators and controllers need to be designed to be insensitive
 <ul>
-<li>are data hungry,</li>
-<li>stability guarantees hard to obtain</li>
+<li>to various kinds of uncertainties.</li>
 </ul></li>
-<li>Our methods
+<li>Will advocate several concepts in this vein
 <ul>
-<li>PBC yields robustness and some stability guarantees</li>
-<li>MDEs, SDEs allow domain randomization rigorously</li>
-<li>Bayesian learning provides more robustness.</li>
+<li>PBC</li>
+<li>Bayesian learning</li>
+<li>domain randomization</li>
+<li>optimization over factor graphs.</li>
 </ul></li>
 </ul>
 <style type="text/css">
@@ -925,6 +856,7 @@ Reasons about model uncertainties<br>
           display:block!important;
       }</style></aside>
 </section>
+
 <section id="robustness-via-bayesian-learning" class="slide level2">
 <h2>Robustness via Bayesian Learning</h2>
 <div class="callout callout-tip callout-titled callout-style-default">
@@ -947,25 +879,19 @@ Reasons about model uncertainties<br>
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="callout callout-none no-icon callout-titled callout-style-simple">
+<div class="callout callout-none no-icon callout-style-simple">
 <div class="callout-body">
-<div class="callout-title">
-<p><strong>Less robust</strong></p>
-</div>
 <div class="callout-content">
-
+<p><strong>Less robust</strong>: learns point estimates of the weights.</p>
 </div>
 </div>
 </div>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="callout callout-none no-icon callout-titled callout-style-simple">
+<div class="callout callout-none no-icon callout-style-simple">
 <div class="callout-body">
-<div class="callout-title">
-<p><strong>More robust</strong></p>
-</div>
 <div class="callout-content">
-
+<p><strong>More robust</strong>: learns prob. distribution over the weights.</p>
 </div>
 </div>
 </div>
@@ -1000,21 +926,20 @@ Reasons about model uncertainties<br>
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</section></section>
-<section>
-<section id="robust-localization-over-power-lines" class="title-slide slide level1 center" data-visibility="uncounted">
-<h1>Robust Localization over Power Lines</h1>
+<!-- # Robust Localization over Power Lines {visibility="uncounted"} -->
 <!-- ###################################################################### -->
 </section>
-<section id="robust-localization-w.r.t.-power-lines-in-sparse-environments" class="slide level2">
-<h2>Robust Localization w.r.t. Power Lines in Sparse Environments</h2>
+<section id="robust-localization-over-power-lines" class="slide level2">
+<h2>Robust Localization over Power Lines</h2>
 <div class="columns">
 <div class="column" style="width:55%;">
+<p><br></p>
 <ol type="1">
 <li>The ground has a uniform texture.</li>
-<li>There are too few utility poles or immediate fences.</li>
-<li>There are no trees or other geometries.</li>
-<li>GPS provides absolute position, need relative pose to power lines!</li>
+<li>Too few utility poles or immediate fences.<br>
+There are no trees or other geometries.</li>
+<li>GPS provides absolute position.<br>
+Drone requires pose relative to power lines!</li>
 </ol>
 </div><div class="column" style="width:45%;">
 <div class="fragment fade-in" data-fragment-index="1">
@@ -1082,124 +1007,8 @@ Reasons about model uncertainties<br>
           display:block!important;
       }</style></aside>
 </section>
-<section id="electric-and-magnetic-field-around-three-phase-power-lines" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Electric and Magnetic Field around Three-Phase Power Lines</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="callout callout-important no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>EM Field near Three-Phase Power Lines</strong></p>
-</div>
-<div class="callout-content">
-<p>Quasi-static approximation to Maxwell’s equations yields (<span class="math inline">\(\mathbf{q} = (x, z)\)</span> is the location of the sensor)</p>
-<p><span class="math display">\[
-\bar{E}^2(\mathbf{q}) = \frac{1}{2}\sum_{\alpha=1}^3\left(e_\alpha^2 -
-\sum_{\alpha^\prime &gt; \alpha}^3 c_{\alpha\alpha^\prime}e_\alpha e_{\alpha^\prime} \right),
-\]</span></p>
-<p>where <span class="math inline">\(e_\alpha = \frac{\xi}{r_\alpha} = \frac{\beta c \mu_0 I_0}{2\pi}\frac{1}{r_\alpha}\)</span> is the peak electric field magnitude and <span class="math inline">\(c_{\alpha\alpha^\prime} = \cos{\left(\theta_\alpha - \theta_{\alpha^\prime}\right)}\)</span>.</p>
-</div>
-</div>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="./contents/assets/general_power_line.svg" class="quarto-figure quarto-figure-center" style="width:40.0%"></p>
-</figure>
-</div>
-</div><div class="column" data-layout-valign="center" style="width:50%;">
-<p><img data-src="./contents/assets/e_field.svg" style="width:100.0%"></p>
-<div class="callout callout-tip no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
-<p>From total rms energy considerations, it can be shown that <span class="math inline">\(\bar{B} = \sqrt{\mu_0 \varepsilon_0} \bar{E}\)</span>.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<aside class="notes">
-<ul>
-<li>The structure and geometry of the EM Field around three-phase flow
-<ul>
-<li>contours curves: rms E-field</li>
-<li>gradient</li>
-<li>transverse plane</li>
-</ul></li>
-<li>Quasi-static approx. to Maxwell’s eqns. are good enough.
-<ul>
-<li>Closed form</li>
-</ul></li>
-<li>From energy considerations: rms B-field <span class="math inline">\(\propto\)</span> rms E-field
-<ul>
-<li>Easier to measure the rms Bdot.</li>
-</ul></li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="gradient-of-the-electric-field-around-three-phase-power-lines" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Gradient of the Electric Field around Three-Phase Power Lines</h2>
-<div class="columns">
-<div class="column" style="width:53%;">
-<div class="callout callout-important no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Gradient of the rms Electric Field</strong></p>
-</div>
-<div class="callout-content">
-<p><span class="math display">\[\begin{align*}
-&amp;\nabla_{\mathbf{q}} \bar{E}(\mathbf{q}) = 2\bar{E}\nabla_{\mathbf{q}}\bar{E} \\
-&amp;\phantom{12}= \frac{1}{2\xi}\sum_{\alpha=1}^3 e_\alpha \begin{bmatrix}
-  -2e_\alpha^2c_\alpha + \sum_{\alpha^\prime \neq \alpha} e_{\alpha^\prime}^2 \cos{\left(\theta_\alpha - 2\theta_{\alpha^\prime}\right)}\\
-  2e_\alpha^2c_\alpha + \sum_{\alpha^\prime \neq \alpha} e_{\alpha^\prime}^2 \sin{\left(\theta_\alpha - 2\theta_{\alpha^\prime}\right)}
-\end{bmatrix}
-\end{align*}\]</span></p>
-</div>
-</div>
-</div>
-<div class="callout callout-tip no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Lemma: Direction of the gradient</strong></p>
-</div>
-<div class="callout-content">
-<p>The gradient <span class="math inline">\(\nabla_{\mathbf{q}} \bar{E}(\mathbf{q})\)</span> points into the convex hull (triangle) formed by the transmission wires for every <span class="math inline">\(\mathbf{q}\)</span>.</p>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:47%;">
-<p><img data-src="./contents/assets/e_field.svg" style="width:100.0%"></p>
-</div>
-</div>
-<aside class="notes">
-<ul>
-<li>Gradient in closed-form
-<ul>
-<li>has some remarkable properties</li>
-<li>all thanks to this lemma: points to the convex hull of the transmission wires.</li>
-</ul></li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
+
+
 <section id="navigating-the-uav-to-one-of-the-power-lines" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Navigating the UAV to One of the Power Lines</h2>
 <div class="columns">
@@ -1213,6 +1022,16 @@ Reasons about model uncertainties<br>
 <p>Define the potential function <span class="math inline">\(V(\mathbf{q}) = \frac{1}{\bar{E}^2(\mathbf{q})}\)</span>. Its gradient is <span class="math display">\[
 \nabla_{\mathbf{q}}V(\mathbf{q}) = -\frac{2}{\bar{E}^3}\nabla_{\mathbf{q}}\bar{E}(\mathbf{q})
 \]</span> Further, <span class="math inline">\(\lVert \nabla_{\mathbf{q}}V(\mathbf{q}) \rVert = O\left(\frac{1}{\bar{E}}\right)\)</span> as <span class="math inline">\(\bar{E} \rightarrow \infty\)</span> (or <span class="math inline">\(r_\alpha \rightarrow 0\)</span>).</p>
+</div>
+</div>
+</div>
+<div class="callout callout-tip no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Lemma: Direction of the gradient</strong></p>
+</div>
+<div class="callout-content">
+<p>The gradient <span class="math inline">\(\nabla_{\mathbf{q}} \bar{E}(\mathbf{q})\)</span> points into the convex hull (triangle) formed by the transmission wires for every <span class="math inline">\(\mathbf{q}\)</span>.</p>
 </div>
 </div>
 </div>
@@ -1273,8 +1092,9 @@ Reasons about model uncertainties<br>
 </div>
 </div>
 </section>
-<section id="robust-localization-with-gtsam-sensor-fusion-library" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Robust Localization with GTSAM: Sensor Fusion Library</h2>
+<section id="robust-localization-with-gtsam-sensor-fusion" class="slide level2">
+<h2>Robust Localization with GTSAM: Sensor Fusion</h2>
+<h3 data-auto-animate="true" id="fuse-nabla_mathbfqbaremathbfq-imu-gps-camera-measurements">Fuse <span class="math inline">\(\nabla_{\mathbf{q}}\bar{E}(\mathbf{q})\)</span>, IMU, GPS, Camera Measurements</h3>
 <div class="columns">
 <div class="column" style="width:50%;">
 <ul>
@@ -1319,13 +1139,13 @@ p(\mathbf{x} | \mathbf{o}, \mathbf{l}) \propto p(x_1) \prod_{i=2}^{3} p(x_i | x_
 </div>
 <div class="r-stack">
 <div class="fragment fade-in-then-out" data-fragment-index="2">
-<p><img data-src="./contents/assets/nodes_gtsam_2.svg" class="absolute" style="top: 194px; left: 50px; width: 1400px; height: 250px; "></p>
+<p><img data-src="./contents/assets/nodes_gtsam_2.svg" class="absolute" style="top: 254px; left: 50px; width: 1400px; height: 250px; "></p>
 </div>
 <div class="fragment fade-in-then-out" data-fragment-index="3">
-<p><img data-src="./contents/assets/nodes_gtsam_3.svg" class="absolute" style="top: 250px; left: 50px; width: 1400px; height: 350px; "></p>
+<p><img data-src="./contents/assets/nodes_gtsam_3.svg" class="absolute" style="top: 310px; left: 50px; width: 1400px; height: 350px; "></p>
 </div>
 <div class="fragment fade-in" data-fragment-index="4">
-<p><img data-src="./contents/assets/nodes_gtsam_1.svg" class="absolute" style="top: 250px; left: 50px; width: 1500px; height: 450px; "></p>
+<p><img data-src="./contents/assets/nodes_gtsam_1.svg" class="absolute" style="top: 310px; left: 50px; width: 1500px; height: 390px; "></p>
 </div>
 </div>
 <aside class="notes">
@@ -2936,7 +2756,7 @@ Use these representations as feature vectors of a subsequent GNN.
         pause: true,
 
         // Flags if speaker notes should be visible to all viewers
-        showNotes: true,
+        showNotes: false,
 
         // Global override for autoplaying embedded media (null/true/false)
         autoPlayMedia: null,
