@@ -71,12 +71,19 @@ allowfullscreen></iframe>
 * Dr. Waseem Abbas 
 
 * Dr. Justin Ruths
+
+* Dr. Justin Koeln (MechE)
 :::
 
 :::
 
 
 ::::
+
+
+::: {.notes}
+* Talk about potential use of Zonotopes for robustness analysis
+:::
 
 
 ## Future Research: Convex Optimization Layers on GNNs {visibility="uncounted"}
@@ -112,9 +119,21 @@ layers.
 
 ::: {.callout-tip icon="false"}
 ## Collaboration: Networked Systems and Convex Opt.
+
+:::: {.columns}
+
+::: {.column width="50%"}
 * Dr. Justin Ruths
 * Dr. Waseem Abbas 
 * Dr. Mark Spong
+:::
+
+::: {.column width="50%"}
+* Dr. Armin Zare (MechE)
+:::
+
+::::
+
 :::
 
 
@@ -185,7 +204,7 @@ layers.
 ::: {.callout-tip icon="false"}
 ## Collaboration: Representation Learning
 * Dr. Waseem Abbas 
-* Dr. Yu Xiang from Computer Science
+* Dr. Yu Xiang (Computer Science)
 :::
 
 <!--center>
