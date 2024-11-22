@@ -202,6 +202,8 @@ Failing real-life implementation
   - domain randomization
   - optimization over factor graphs.
 
+* Do mention Nardos in the second video.
+
 :::
 
 
