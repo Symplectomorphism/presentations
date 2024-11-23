@@ -273,7 +273,7 @@ layers.
 
 
 
-## Funding Mechanisms: SBIR and STTRs {visibility="uncounted"}
+## Funding Mechanisms: SBIRs and STTRs {visibility="uncounted"}
 
 
 <div class="columns">
@@ -286,9 +286,21 @@ layers.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/wkqyR81LgOc?si=0YICbgkrsU1Igh_X" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-<center>
+:::: {.columns}
+
+::: {.column width="50%"}
+<!--center>
 <img src="./contents/assets/adams.webp" style="width:30%"></img>
-</center>
+</center-->
+![](./contents/assets/adams.webp){width="50%" fig-align="center"}
+:::
+
+::: {.column width="50%"}
+Dr. Zach Adams  
+Founder, Pitch Aeronautics
+:::
+
+::::
 
 </div>
 
@@ -328,7 +340,7 @@ layers.
 :::: {.columns}
 
 
-::: {.column width="42%"}
+::: {.column width="38%"}
 
 ::: {layout="[[1], [-1], [1], [-1], [1]]"}
 
@@ -341,42 +353,48 @@ layers.
 :::
 
 
-::: {.column width="42%"}
+::: {.column width="38%"}
 ![](./contents/assets/nina_pic1.png){width="100%"}
 :::
 
-::: {.column width="16%"}
+::: {.column width="24%"}
 
 ::: {.r-stack}
 
+
+
 ::: {.fragment .fade-in-then-out fragment-index=0}
 ::: {layout="[[-1], [1], [-1], [1], [-1]]"}
-![](./contents/assets/nih-logo.svg){width="100%"}
+![](./contents/assets/nih-logo.svg){width="70%"}
 
-![](./contents/assets/omor_pic4.png){width="100%"}
+![](./contents/assets/nsf-logo.svg){width="70%"}
 :::
 :::
 
-::: {.fragment .fade-in fragment-index=1}
-::: {layout="[[1], [1], [1]]"}
-![](./contents/assets/uzer.webp){width="100%"}
+::: {.fragment .fade-in-then-out fragment-index=1}
+::: {layout="[[1], [1]]"}
+![](./contents/assets/uzer.webp){width="70%"}
 
 ::: {.callout-tip icon="false"}
 ## Collaboration: Cellular Structures and Imaging
 * Dr. Chen Cao (Bioeng.)
 * Dr. Reza Moheimani
 :::
-
-<!-- ![](./contents/assets/moheimani.jpg){width="100%"} -->
-
-<!-- ![](./contents/assets/cao.png){width="100%"} -->
 :::
 :::
 
 
-:::
+
+::: 
 
 :::
 
 
 ::::
+
+::: {.fragment .fade-in-then-out fragment-index=1}
+::: {.callout-warning appearance="minimal"}
+**New \$650,000 NSF BMMB grant:**
+Data-driven mechanomics to uncover age-related mechanoregulation of bone
+:::
+:::

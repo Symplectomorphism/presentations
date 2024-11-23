@@ -129,20 +129,14 @@ $$
 \qquad y = \dot{q}
 $$
 
-::: {.fragment .fade-in fragment-index=1}
-Choose $u = u_{es} + u_{di}$ that transforms system into a passive one  with $x^\star = (q^\star, 0)$
+<!-- ::: {.fragment .fade-in fragment-index=1} -->
+Choose $u = u_{es} + u_{di}$ that transforms system into a passive one  with $x^\star = (q^\star, 0)$.
+
+$Gu_{es} = \nabla_q H  - \nabla_q H_d$ transforms to 
 <!-- and $H_d$ satisfying $\dot{H}_{d} \leq y^\top u_{di}$ -->
-:::
+<!-- ::: -->
 
-::: {.fragment .fade-in  fragment-index=2}
-
-$Gu_{es} = \nabla_q H  - \nabla_q H_d , \quad Gu_{di} = -GK_D G^\top \nabla_p H_d$
-:::
-
-
-::: {.r-stack}
-
-::: {.fragment .fade-in-then-out fragment-index=1}
+<!-- ::: {.fragment .fade-in-then-out fragment-index=1} -->
 $$
 \begin{bmatrix} \dot{q} \\ \dot{p} \end{bmatrix} = 
 \begin{bmatrix} \phantom{-}0 & 1 \\ -1 & 0 \end{bmatrix} 
@@ -150,9 +144,20 @@ $$
 \begin{bmatrix} 0 \\ G \end{bmatrix} u_{di},
 \qquad y = \dot{q}
 $$
-:::
+<!-- ::: -->
 
-::: {.fragment .fade-in fragment-index=2}
+
+<!-- ::: {.fragment .fade-in  fragment-index=2} -->
+
+$Gu_{di} = -GK_D G^\top \nabla_p H_d$ transforms to
+<!-- ::: -->
+
+
+<!-- ::: {.r-stack} -->
+
+
+
+<!-- ::: {.fragment .fade-in fragment-index=2} -->
 
 $$
 \begin{bmatrix} \dot{q} \\ \dot{p} \end{bmatrix} = 
@@ -161,9 +166,9 @@ $$
 \qquad y = \dot{q}
 $$
 
-:::
+<!-- ::: -->
 
-:::
+<!-- ::: -->
 
 ::::
 
@@ -249,6 +254,9 @@ $$
 $$
 
 :::
+
+* Choosing $u_{di} = -k y_d \implies \dot{H}_d \leq 0$.
+* Asymptotically stable if zero-state detectability holds.
 
 ::: {.notes}
 * General PBC follows a similar trajectory.
@@ -683,6 +691,7 @@ calculus and the Wiener process to perform some simplifications.
 to compute the total expectation $\mathbb{E}\mathcal{J}$ of the cost fcn. 
 * The total expectation can only be computed numerically and this computation 
 can then be autodiff'd to find its gradient w.r.t. the parameter $\theta$
+* I could can this slide.
 :::
 
 
@@ -869,10 +878,10 @@ $$
 :::
 * **Objective**: maximize <span style="font-variant:small-caps;">Elbo</span> 
 
-\begin{gather*}
-  \mathcal{L}(J,z) = \mathbb{E}_{\theta \sim Q} \left[\ln(P(J \mid \theta)P(\theta)) - \ln(Q(\theta;z)) \right] \\ 
-  P(J | \theta) = \mathcal{N}(J \; | \; 0, s).
-\end{gather*}
+\begin{align*}
+  \mathcal{L}(J,z) &= \mathbb{E}_{\theta \sim Q} \left[\ln(P(J \mid \theta)P(\theta)) - \ln(Q(\theta;z)) \right] \\ 
+  P(J | \theta) &= \mathcal{N}(J \; | \; 0, s).
+\end{align*}
 
 
 ## <span style="font-variant:small-caps;">NeuralPbc</span>: Hybrid System

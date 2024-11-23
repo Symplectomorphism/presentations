@@ -843,6 +843,7 @@
 <li>domain randomization</li>
 <li>optimization over factor graphs.</li>
 </ul></li>
+<li>Do mention Nardos in the second video.</li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -1398,31 +1399,29 @@ p(\mathbf{x} | \mathbf{o}, \mathbf{l}) \propto p(x_1) \prod_{i=2}^{3} p(x_i | x_
 \begin{bmatrix} 0 \\ G \end{bmatrix} u_\phantom{di},
 \qquad y = \dot{q}
 \]</span></p>
-<div class="fragment fade-in" data-fragment-index="1">
-<p>Choose <span class="math inline">\(u = u_{es} + u_{di}\)</span> that transforms system into a passive one with <span class="math inline">\(x^\star = (q^\star, 0)\)</span> <!-- and $H_d$ satisfying $\dot{H}_{d} \leq y^\top u_{di}$ --></p>
-</div>
-<div class="fragment fade-in" data-fragment-index="2">
-<p><span class="math inline">\(Gu_{es} = \nabla_q H  - \nabla_q H_d , \quad Gu_{di} = -GK_D G^\top \nabla_p H_d\)</span></p>
-</div>
-<div class="r-stack">
-<div class="fragment fade-in-then-out" data-fragment-index="1">
+<!-- ::: {.fragment .fade-in fragment-index=1} -->
+<p>Choose <span class="math inline">\(u = u_{es} + u_{di}\)</span> that transforms system into a passive one with <span class="math inline">\(x^\star = (q^\star, 0)\)</span>.</p>
+<p><span class="math inline">\(Gu_{es} = \nabla_q H  - \nabla_q H_d\)</span> transforms to <!-- and $H_d$ satisfying $\dot{H}_{d} \leq y^\top u_{di}$ --> <!-- ::: --></p>
+<!-- ::: {.fragment .fade-in-then-out fragment-index=1} -->
 <p><span class="math display">\[
 \begin{bmatrix} \dot{q} \\ \dot{p} \end{bmatrix} =
 \begin{bmatrix} \phantom{-}0 &amp; 1 \\ -1 &amp; 0 \end{bmatrix}
 \begin{bmatrix} \nabla_q H_d \\ \nabla_p H_d \end{bmatrix} +
 \begin{bmatrix} 0 \\ G \end{bmatrix} u_{di},
 \qquad y = \dot{q}
-\]</span></p>
-</div>
-<div class="fragment fade-in" data-fragment-index="2">
+\]</span> <!-- ::: --></p>
+<!-- ::: {.fragment .fade-in  fragment-index=2} -->
+<p><span class="math inline">\(Gu_{di} = -GK_D G^\top \nabla_p H_d\)</span> transforms to <!-- ::: --></p>
+<!-- ::: {.r-stack} -->
+<!-- ::: {.fragment .fade-in fragment-index=2} -->
 <p><span class="math display">\[
 \begin{bmatrix} \dot{q} \\ \dot{p} \end{bmatrix} =
 \begin{bmatrix} \phantom{-}0 &amp; 1 \\ -1 &amp; -G K_D G^\top \end{bmatrix}
 \begin{bmatrix} \nabla_q H_d \\ \nabla_p H_d \end{bmatrix},
 \qquad y = \dot{q}
 \]</span></p>
-</div>
-</div>
+<!-- ::: -->
+<!-- ::: -->
 </div>
 </div>
 </div>
@@ -1523,6 +1522,10 @@ p(\mathbf{x} | \mathbf{o}, \mathbf{l}) \propto p(x_1) \prod_{i=2}^{3} p(x_i | x_
 </div>
 </div>
 </div>
+<ul>
+<li>Choosing <span class="math inline">\(u_{di} = -k y_d \implies \dot{H}_d \leq 0\)</span>.</li>
+<li>Asymptotically stable if zero-state detectability holds.</li>
+</ul>
 <aside class="notes">
 <ul>
 <li>General PBC follows a similar trajectory.</li>
@@ -1942,6 +1945,7 @@ x(t) = e^{(p+\theta)t} + \theta \sigma \int_0^t e^{(p+\theta)(t-s)}dW_s.
 <li>The derivation of this conditional expectation follows the rules of Ito calculus and the Wiener process to perform some simplifications.</li>
 <li>This computation is important because it allows us to take a further expectation to compute the total expectation <span class="math inline">\(\mathbb{E}\mathcal{J}\)</span> of the cost fcn.</li>
 <li>The total expectation can only be computed numerically and this computation can then be autodiff’d to find its gradient w.r.t. the parameter <span class="math inline">\(\theta\)</span></li>
+<li>I could can this slide.</li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -2180,15 +2184,15 @@ x(t) = e^{(p+\theta)t} + \theta \sigma \int_0^t e^{(p+\theta)(t-s)}dW_s.
 <ul>
 <li><strong>Objective</strong>: maximize <span class="smallcaps">Elbo</span></li>
 </ul>
-<p><span class="math display">\[\begin{gather*}
-  \mathcal{L}(J,z) = \mathbb{E}_{\theta \sim Q} \left[\ln(P(J \mid \theta)P(\theta)) - \ln(Q(\theta;z)) \right] \\
-  P(J | \theta) = \mathcal{N}(J \; | \; 0, s).
-\end{gather*}\]</span></p>
+<p><span class="math display">\[\begin{align*}
+  \mathcal{L}(J,z) &amp;= \mathbb{E}_{\theta \sim Q} \left[\ln(P(J \mid \theta)P(\theta)) - \ln(Q(\theta;z)) \right] \\
+  P(J | \theta) &amp;= \mathcal{N}(J \; | \; 0, s).
+\end{align*}\]</span></p>
 </section>
 <section id="neuralpbc-hybrid-system" class="slide level2">
 <h2><span class="smallcaps">NeuralPbc</span>: Hybrid System</h2>
 <p><br></p>
-<div class="fragment quarto-layout-panel" data-fragment-index="0" data-layout="[50,-5,50]">
+<div class="fragment quarto-layout-panel" data-layout="[50,-5,50]" data-fragment-index="0">
 <div class="quarto-layout-row quarto-layout-valign-center">
 <div class="quarto-layout-cell" style="flex-basis: 47.6%;justify-content: flex-start;">
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
@@ -2661,17 +2665,29 @@ Use these representations as feature vectors of a subsequent GNN.
 </div>
 </div>
 </section>
-<section id="funding-mechanisms-sbir-and-sttrs" class="slide level2" data-visibility="uncounted">
-<h2>Funding Mechanisms: SBIR and STTRs</h2>
+<section id="funding-mechanisms-sbirs-and-sttrs" class="slide level2" data-visibility="uncounted">
+<h2>Funding Mechanisms: SBIRs and STTRs</h2>
 <div class="columns">
 <div class="column" style="width:40%">
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/wkqyR81LgOc?si=0YICbgkrsU1Igh_X" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
 </iframe>
-<center>
-<img src="./contents/assets/adams.webp" style="width:30%">
-</center>
+<div class="columns">
+<div class="column" style="width:50%;">
+<!--center>
+<img src="./contents/assets/adams.webp" style="width:30%"></img>
+</center-->
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="./contents/assets/adams.webp" class="quarto-figure quarto-figure-center" style="width:50.0%"></p>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<p>Dr.&nbsp;Zach Adams<br>
+Founder, Pitch Aeronautics</p>
+</div>
+</div>
 </div><div class="column" style="width:40%">
 <p>&nbsp;</p>
 <p>&nbsp;</p>
@@ -2714,7 +2730,7 @@ Use these representations as feature vectors of a subsequent GNN.
 <section id="funding-mechanism-nih-through-collaborations" class="slide level2" data-visibility="uncounted">
 <h2>Funding Mechanism: NIH through Collaborations</h2>
 <div class="columns">
-<div class="column" style="width:42%;">
+<div class="column" style="width:38%;">
 <div class="quarto-layout-panel" data-layout="[[1], [-1], [1], [-1], [1]]">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
@@ -2732,9 +2748,9 @@ Use these representations as feature vectors of a subsequent GNN.
 </div>
 </div>
 </div>
-</div><div class="column" style="width:42%;">
+</div><div class="column" style="width:38%;">
 <p><img data-src="./contents/assets/nina_pic1.png" style="width:100.0%"></p>
-</div><div class="column" style="width:16%;">
+</div><div class="column" style="width:24%;">
 <div class="r-stack">
 <div class="fragment fade-in-then-out" data-fragment-index="0">
 <div class="quarto-layout-panel" data-layout="[[-1], [1], [-1], [1], [-1]]">
@@ -2745,7 +2761,7 @@ Use these representations as feature vectors of a subsequent GNN.
 </div>
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<p><img data-src="./contents/assets/nih-logo.svg" style="width:100.0%"></p>
+<p><img data-src="./contents/assets/nih-logo.svg" style="width:70.0%"></p>
 </div>
 </div>
 <div class="quarto-layout-row">
@@ -2755,16 +2771,16 @@ Use these representations as feature vectors of a subsequent GNN.
 </div>
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<p><img data-src="./contents/assets/omor_pic4.png" style="width:100.0%"></p>
+<p><img data-src="./contents/assets/nsf-logo.svg" style="width:70.0%"></p>
 </div>
 </div>
 </div>
 </div>
-<div class="fragment fade-in" data-fragment-index="1">
-<div class="quarto-layout-panel" data-layout="[[1], [1], [1]]">
+<div class="fragment fade-in-then-out" data-fragment-index="1">
+<div class="quarto-layout-panel" data-layout="[[1], [1]]">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<p><img data-src="./contents/assets/uzer.webp" style="width:100.0%"></p>
+<p><img data-src="./contents/assets/uzer.webp" style="width:70.0%"></p>
 </div>
 </div>
 <div class="quarto-layout-row">
@@ -2784,17 +2800,16 @@ Use these representations as feature vectors of a subsequent GNN.
 </div>
 </div>
 </div>
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
-<!-- ![](./contents/assets/moheimani.jpg){width="100%"} -->
-</div>
-</div>
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
-<!-- ![](./contents/assets/cao.png){width="100%"} -->
 </div>
 </div>
 </div>
+</div>
+</div>
+<div class="fragment fade-in-then-out" data-fragment-index="1">
+<div class="callout callout-warning no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p><strong>New $650,000 NSF BMMB grant:</strong> Data-driven mechanomics to uncover age-related mechanoregulation of bone</p>
 </div>
 </div>
 </div>
