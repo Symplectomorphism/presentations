@@ -967,7 +967,7 @@ $p_s \sim \mathbb{U}(0 \textrm{cm}, 2\textrm{cm})$
 
 &nbsp;
 
-::: {layout="[[-100], [100 -20 100], [-100]]"}
+::: {layout="[[-100], [100, -20, 100], [-100]]"}
 {{< video ./contents/assets/cartpole-exp.mp4 width=550 >}}
 
 {{< video ./contents/assets/cartpole_hardware.mp4 width=550 >}}
