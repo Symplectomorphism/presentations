@@ -103,7 +103,7 @@ robust sensing and control.</span>
 ![](./contents/assets/nonrobust_plan.svg){width=1500 .fragment .fade-in-then-out fragment-index=0}
 
 <!-- {{< video contents/assets/astria_encoded_trimmed.mp4 
-    aspect-ratio=16x9 width="600" >}} -->
+    width="600" >}} -->
 :::
 
 ::: {layout="[[-1], [1], [-1]]"}
