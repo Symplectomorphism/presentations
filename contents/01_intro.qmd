@@ -2,11 +2,14 @@
 
 :::: {.r-stack}
 
-::: {layout-ncol="2" layout-align="center" layout-valign="bottom"}
-![](contents/assets/twolink-kin.gif){fig-align="center"}
-
-![](contents/assets/acrobot.gif){fig-align="center" width=40% .fragment .fade-in fragment-index=0}
-:::
+<div style="display: grid; grid-template-columns: 1fr 1fr; align-items: end; gap: 1em;">
+  <figure>
+    <img src="contents/assets/twolink-kin.gif" style="width: 100%;">
+  </figure>
+  <figure class="fragment fade-in" data-fragment-index="0">
+    <img src="contents/assets/acrobot.gif" style="width: 100%;">
+  </figure>
+</div>
 
 ::: {.fragment fragment-index=1}
 <div class="semi-transparent-overlay"></div>
@@ -20,5 +23,37 @@
 * Makes the control problem much more complicated.
 :::
 :::
+
+::::
+
+
+## Underactuated Robots 
+<!-- ###################################################################### -->
+
+:::: {.r-stack}
+
+<div class="fragment fade-out" data-fragment-index="0"
+     style="display: grid; grid-template-columns: 1fr 1fr; align-items: end; gap: 1em;">
+  <figure>
+    <img src="contents/assets/walking_model.png" style="width: 100%;">
+    <figcaption>Walking machines</figcaption>
+  </figure>
+  <figure>
+    <img src="contents/assets/quadrotor2d.svg" style="width: 100%;">
+    <figcaption><a href="http://underactuated.mit.edu/acrobot.html#section3">Flying machines</a></figcaption>
+  </figure>
+</div>
+
+<div class="fragment" data-fragment-index="0"
+     style="display: grid; grid-template-columns: 1fr 1fr; align-items: end; gap: 1em;">
+  <figure>
+    <img src="contents/assets/manipulator.jpg" style="width: 100%;">
+    <figcaption>Torque-limited manipulators</figcaption>
+  </figure>
+  <figure>
+    <img src="contents/assets/pushcontact.svg" style="width: 100%;">
+    <figcaption>Nonprehensile manipulation</figcaption>
+  </figure>
+</div>
 
 ::::

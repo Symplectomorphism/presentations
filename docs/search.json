@@ -4,7 +4,14 @@
     "href": "main.html#underactuation",
     "title": "Passivity-Based Bayesian Control of Robotic Systems",
     "section": "Underactuation",
-    "text": "Underactuation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nUnderactuation\n\n\n\nThere is not enough control inputs to generate arbitrary accelerations.\nMakes the control problem much more complicated."
+    "text": "Underactuation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nUnderactuation\n\n\n\nThere is not enough control inputs to generate arbitrary accelerations.\nMakes the control problem much more complicated."
+  },
+  {
+    "objectID": "main.html#underactuated-robots",
+    "href": "main.html#underactuated-robots",
+    "title": "Passivity-Based Bayesian Control of Robotic Systems",
+    "section": "Underactuated Robots",
+    "text": "Underactuated Robots\n\n\n\n\n\n\nWalking machines\n\n\n\n\n\nFlying machines\n\n\n\n\n\n\n\nTorque-limited manipulators\n\n\n\n\n\nNonprehensile manipulation"
   },
   {
     "objectID": "main.html#main-content",
