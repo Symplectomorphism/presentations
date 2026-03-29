@@ -15,6 +15,6 @@ format:
 
 {{< include contents/01_intro.qmd >}}
 
-{{< include contents/02_body.qmd >}}
+{{< include contents/02_background.qmd >}}
 
 {{< include contents/03_conclusion.qmd >}}

@@ -57,3 +57,87 @@
 </div>
 
 ::::
+
+
+## Existing Methods {.smaller transition="fade"}
+<!-- ###################################################################### -->
+
+:::: {.fragment .semi-fade-out fragment-index=1}
+::: {layout="[100,-5,60]" layout-valign="center"}
+![](contents/assets/pbc-outline.svg)
+
+Strengths
+: 
+Stability guarantees \
+Closed-form policy
+
+Weaknesses
+: 
+Model uncertainties \
+Need to solve PDEs
+:::
+::::
+
+:::: {.fragment fragment-index=1}
+::: {layout="[100,-5,60]" layout-valign="center"}
+Reinforcement learning
+![](contents/assets/rl-outline.svg)
+
+Strengths
+: 
+More general \
+Unknown dynamics OK
+
+Weaknesses
+: 
+Sample complexity \
+Stability guarantees?
+:::
+::::
+
+
+<!-- ## {background-image="https://c.tenor.com/EstKpPVveyYAAAAC/both-agree.gif" background-size="50%" visibility="uncounted"} -->
+<!-- ###################################################################### -->
+
+
+## Our Methods {.smaller transition="fade"}
+<!-- ###################################################################### -->
+
+::: {layout="[100,-5,60]" layout-valign="center"}
+![](contents/assets/pbc-outline-cross.svg)
+
+&nbsp;
+
+:::
+
+
+:::: {.fragment fragment-index=1}
+::: {layout="[100,-5,60]" layout-valign="center"}
+![](contents/assets/pbc-ml-outline.svg)
+
+* Systematic approach
+* Prior domain knowledge
+* Stability is _intrinsic_ (subject to successful learning)
+* Model uncertainty considerations possible
+:::
+::::
+
+
+## Robustness via Bayesian Learning
+
+::: {.callout-tip}
+## System Parameter Uncertainty and Measurement Noise
+![](contents/assets/regular-vs-bayesian.svg){fig-align="center"}
+:::
+
+:::: {layout-ncol="2"}
+
+::: {.callout}
+## Less robust
+:::
+
+::: {.callout}
+## More robust
+:::
+
+::::

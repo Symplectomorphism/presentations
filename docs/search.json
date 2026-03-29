@@ -14,18 +14,46 @@
     "text": "Underactuated Robots\n\n\n\n\n\n\nWalking machines\n\n\n\n\n\nFlying machines\n\n\n\n\n\n\n\nTorque-limited manipulators\n\n\n\n\n\nNonprehensile manipulation"
   },
   {
-    "objectID": "main.html#main-content",
-    "href": "main.html#main-content",
+    "objectID": "main.html#existing-methods",
+    "href": "main.html#existing-methods",
     "title": "Passivity-Based Bayesian Control of Robotic Systems",
-    "section": "Main Content",
-    "text": "Main Content\n\n\nLeft column content\n\nRight column content"
+    "section": "Existing Methods",
+    "text": "Existing Methods\n\n\n\n\n\n\n\n\n \n\n\n\nStrengths\n\nStability guarantees\nClosed-form policy\n\nWeaknesses\n\nModel uncertainties\nNeed to solve PDEs\n\n\n\n\n\n\n\n\n\n\nReinforcement learning \n\n\n \n\n\n\nStrengths\n\nMore general\nUnknown dynamics OK\n\nWeaknesses\n\nSample complexity\nStability guarantees?"
   },
   {
-    "objectID": "main.html#code-example",
-    "href": "main.html#code-example",
+    "objectID": "main.html#our-methods",
+    "href": "main.html#our-methods",
     "title": "Passivity-Based Bayesian Control of Robotic Systems",
-    "section": "Code Example",
-    "text": "Code Example\ndef hello_world():\n    print(\"Hello, World!\")\n\nhello_world()"
+    "section": "Our Methods",
+    "text": "Our Methods\n\n\n\n\n\n\n\n \n\n\n \n\n\n\n\n\n\n\n\n\n\n \n\n\n\nSystematic approach\nPrior domain knowledge\nStability is intrinsic (subject to successful learning)\nModel uncertainty considerations possible"
+  },
+  {
+    "objectID": "main.html#robustness-via-bayesian-learning",
+    "href": "main.html#robustness-via-bayesian-learning",
+    "title": "Passivity-Based Bayesian Control of Robotic Systems",
+    "section": "Robustness via Bayesian Learning",
+    "text": "Robustness via Bayesian Learning\n\n\n\n\n\n\nSystem Parameter Uncertainty and Measurement Noise\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLess robust\n\n\n\n\n\n\n\n\n\n\n\nMore robust"
+  },
+  {
+    "objectID": "main.html#passivity-based-control-pbc",
+    "href": "main.html#passivity-based-control-pbc",
+    "title": "Passivity-Based Bayesian Control of Robotic Systems",
+    "section": "Passivity-Based Control (PBC)",
+    "text": "Passivity-Based Control (PBC)\n\n\\[\n\\Sigma_o: \\quad\n\\begin{cases}\n  \\dot{x} &= f(x) + g(x)u, \\\\\n  y &= h(x)\n\\end{cases}\n\\]\nMain idea — Select \\(u(x) = u_{es} + u_{di}\\) that renders the closed-loop system passive.\n\\[\n\\Sigma_d: \\quad\n\\begin{cases}\n  \\dot{x} &= f_d(x) + g(x) u_{di}, \\quad f_d := f(x) + g(x) u_{es}(x) \\\\\n  y_d &= h_d(x)\n\\end{cases}\n\\]\nControl problem is cast as a search for \\(H_d\\) and \\(h_d\\) s.t. \\(\\dot{H}_d \\leq y_d^\\top u_{di}\\)"
+  },
+  {
+    "objectID": "main.html#our-methods-1",
+    "href": "main.html#our-methods-1",
+    "title": "Passivity-Based Bayesian Control of Robotic Systems",
+    "section": "Our Methods",
+    "text": "Our Methods\n\n\n\n\n \n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\nNeuralPbc\nNeuralIdaPbc\n\n\n\n\n\\(H_d\\) neural net\n\\(H_d\\) quadratic in \\(p\\)\n\n\nSample state space\nSample configuration space\n\n\nNo stability certificate\nStability certificate\n\n\nMore flexible\nAs applicable as IdaPbc"
+  },
+  {
+    "objectID": "main.html#bayesian-learning",
+    "href": "main.html#bayesian-learning",
+    "title": "Passivity-Based Bayesian Control of Robotic Systems",
+    "section": "Bayesian Learning",
+    "text": "Bayesian Learning\n\n\\[\np(\\theta \\mid \\mathcal{D}) = \\frac{\\overbrace{p(\\mathcal{D} \\mid\n\\theta)}^{\\text{likelihood}}\\overbrace{p(\\theta)}^{\\text{prior}}}\n{\\underbrace{\\int_\\theta p(\\mathcal{D} \\mid \\theta^\\prime)p(\\theta^\\prime)\nd\\theta^\\prime}_{\\text{evidence}}} \\underbrace{\\approx q(\\theta;\nz)}_{\\text{VI}}.\n\\]\n\n\n\n\n\n\n\nShow ELBO convergence.\n\n\n\n\n\n\n\nKL-divergence and ELBO\n\n\n\\[\n\\begin{aligned}\nD_{\\text{KL}} &= \\mathbb{E}_{\\theta \\sim q}\\left[ \\log \\frac{q(\\theta;\nz)}{p(\\theta \\mid \\mathcal{D})}\\right] \\\\\n&= \\log p(\\mathcal{D}) - \\mathbb{E}_{\\theta \\sim q}\\left[ \\log\n\\frac{p(\\mathcal{D} \\mid \\theta) p(\\theta)}{q(\\theta; z)} \\right] \\\\\n\\mathcal{L}(\\mathcal{D}; z) &= \\mathbb{E}_{\\theta \\sim q}\\left[ \\log\np(\\mathcal{D} \\mid \\theta) p(\\theta) - \\log q(\\theta; z) \\right]\n\\end{aligned}\n\\]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nShow prob. distribution\n\n\n\n\n\n\n\nPrediction through marginalization\n\n\n\\[\n\\begin{aligned}\n\\hat{m} &= \\frac{1}{N}\\sum_{\\theta \\sim q} m(x, \\theta).\n\\end{aligned}\n\\]"
   },
   {
     "objectID": "main.html#thank-you",

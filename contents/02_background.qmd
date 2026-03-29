@@ -1,0 +1,98 @@
+# Background {visibility="uncounted"}
+<!-- ###################################################################### -->
+
+Passivity-Based Control (PBC) and Bayesian Learning
+
+## Passivity-Based Control (PBC)
+<!-- ###################################################################### -->
+
+
+$$
+\Sigma_o: \quad
+\begin{cases}
+  \dot{x} &= f(x) + g(x)u, \\
+  y &= h(x)
+\end{cases}
+$$
+
+Main idea --- Select $u(x) = u_{es} + u_{di}$ that renders the closed-loop system passive.
+
+$$
+\Sigma_d: \quad
+\begin{cases}
+  \dot{x} &= f_d(x) + g(x) u_{di}, \quad f_d := f(x) + g(x) u_{es}(x) \\
+  y_d &= h_d(x)
+\end{cases}
+$$
+
+Control problem is cast as a search for $H_d$ and $h_d$ s.t. $\dot{H}_d \leq y_d^\top u_{di}$
+
+
+## Our Methods
+<!-- ###################################################################### -->
+
+::: {layout="[-1,8,-1]" layout-align="center" layout-valign="center"}
+![](contents/assets/pbc-ml-outline.svg){width=50%}
+:::
+
+:::: {.fragment}
+::: {style="text-align: center; font-size: 27px"}
+<span style="font-variant:small-caps;">NeuralPbc</span> | <span style="font-variant:small-caps;">NeuralIdaPbc</span> 
+:---: | :---:
+$H_d$ neural net | $H_d$ quadratic in $p$
+Sample state space | __Sample configuration space__
+No stability certificate | __Stability certificate__
+__More flexible__ | As applicable as <span style="font-variant:small-caps;">IdaPbc</span>
+:::
+::::
+
+
+
+## Bayesian Learning
+<!-- ###################################################################### -->
+
+
+$$
+p(\theta \mid \mathcal{D}) = \frac{\overbrace{p(\mathcal{D} \mid
+\theta)}^{\text{likelihood}}\overbrace{p(\theta)}^{\text{prior}}}
+{\underbrace{\int_\theta p(\mathcal{D} \mid \theta^\prime)p(\theta^\prime)
+d\theta^\prime}_{\text{evidence}}} \underbrace{\approx q(\theta;
+z)}_{\text{VI}}.
+$$
+
+:::: {.fragment .semi-fade-out fragment-index=1}
+::: {layout="[1,1]" layout-valign="center"}
+![Show ELBO convergence.](contents/assets/pbc-outline.svg){width=200%}
+
+::: {.callout-important icon=false}
+## KL-divergence and ELBO
+$$
+\begin{aligned}
+D_{\text{KL}} &= \mathbb{E}_{\theta \sim q}\left[ \log \frac{q(\theta;
+z)}{p(\theta \mid \mathcal{D})}\right] \\
+&= \log p(\mathcal{D}) - \mathbb{E}_{\theta \sim q}\left[ \log
+\frac{p(\mathcal{D} \mid \theta) p(\theta)}{q(\theta; z)} \right] \\
+\mathcal{L}(\mathcal{D}; z) &= \mathbb{E}_{\theta \sim q}\left[ \log
+p(\mathcal{D} \mid \theta) p(\theta) - \log q(\theta; z) \right]
+\end{aligned}
+$$
+:::
+
+:::
+::::
+
+:::: {.fragment fragment-index=1}
+::: {layout="[1,1]" layout-valign="center"}
+![Show prob. distribution](contents/assets/pbc-outline.svg){width=100%}
+
+::: {.callout-tip icon=false}
+## Prediction through marginalization
+$$
+\begin{aligned}
+\hat{m} &= \frac{1}{N}\sum_{\theta \sim q} m(x, \theta).
+\end{aligned}
+$$
+:::
+
+:::
+::::
