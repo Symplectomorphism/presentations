@@ -1,0 +1,26 @@
+project:
+  title: "TEROS 2026 Presentation"
+  type: website
+  output-dir: docs
+  render:
+    - main.qmd
+  preview:
+    port: 7776
+
+website:
+  site-url: "https://symplectomorphism.github.io/presentations"
+
+from: markdown+emoji
+
+format:
+  revealjs:
+    theme: default
+    slide-number: true
+    html-math-method: mathjax
+    controls: true
+    chalkboard:
+      buttons: false
+    preview-links: auto
+
+revealjs-plugins:
+  - pointer

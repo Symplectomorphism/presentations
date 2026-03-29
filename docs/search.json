@@ -1,0 +1,30 @@
+[
+  {
+    "objectID": "main.html#introduction",
+    "href": "main.html#introduction",
+    "title": "Passivity-Based Bayesian Control of Robotic Systems",
+    "section": "Introduction",
+    "text": "Introduction\n\nBullet point one\nBullet point two\nBullet point three"
+  },
+  {
+    "objectID": "main.html#main-content",
+    "href": "main.html#main-content",
+    "title": "Passivity-Based Bayesian Control of Robotic Systems",
+    "section": "Main Content",
+    "text": "Main Content\n\n\nLeft column content\n\nRight column content"
+  },
+  {
+    "objectID": "main.html#code-example",
+    "href": "main.html#code-example",
+    "title": "Passivity-Based Bayesian Control of Robotic Systems",
+    "section": "Code Example",
+    "text": "Code Example\ndef hello_world():\n    print(\"Hello, World!\")\n\nhello_world()"
+  },
+  {
+    "objectID": "main.html#thank-you",
+    "href": "main.html#thank-you",
+    "title": "Passivity-Based Bayesian Control of Robotic Systems",
+    "section": "Thank You",
+    "text": "Thank You\nQuestions?"
+  }
+]

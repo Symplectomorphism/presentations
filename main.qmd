@@ -1,0 +1,16 @@
+---
+title: "Passivity-Based Bayesian Control of Robotic Systems"
+subtitle: "TEROS 2026"
+author: "Aykut C. Satici"
+date: today
+format:
+  revealjs:
+    transition: slide
+    footer: "Passivity-Based Bayesian Control of Robotic Systems • Aykut C. Satici"
+---
+
+{{< include contents/01_intro.qmd >}}
+
+{{< include contents/02_body.qmd >}}
+
+{{< include contents/03_conclusion.qmd >}}
