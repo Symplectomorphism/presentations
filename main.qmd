@@ -17,4 +17,4 @@ format:
 
 {{< include contents/02_background.qmd >}}
 
-{{< include contents/03_conclusion.qmd >}}
+{{< include contents/03_bayesian.qmd >}}

@@ -434,7 +434,7 @@ Stability guarantees?
 </div>
 </div>
 </section>
-<section id="bayesian-learning" class="slide level2">
+<section id="bayesian-learning" class="slide level2 smaller">
 <h2>Bayesian Learning</h2>
 <!-- ###################################################################### -->
 <p><span class="math display">\[
@@ -444,18 +444,12 @@ p(\theta \mid \mathcal{D}) = \frac{\overbrace{p(\mathcal{D} \mid
 d\theta^\prime}_{\text{evidence}}} \underbrace{\approx q(\theta;
 z)}_{\text{VI}}.
 \]</span></p>
-<div class="fragment semi-fade-out" data-fragment-index="1">
-<div class="quarto-layout-panel" data-layout="[1,1]">
-<div class="quarto-layout-row quarto-layout-valign-center">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="contents/assets/pbc-outline.svg" style="width:200.0%"></p>
-<figcaption>Show ELBO convergence.</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="columns" style="display: flex; align-items: stretch; min-height: 380px;">
+<div class="column" style="width: 38%; display: flex; flex-direction: column; justify-content: center;">
+<p><img data-src="contents/assets/pbc-outline.svg" style="width:100.0%"></p>
+</div><div class="column" style="width: 62%; display: flex; flex-direction: column; justify-content: center;">
+<div class="r-stack" style="flex: 0 0 auto; width: 100%; justify-items: stretch;">
+<div class="fragment fade-out" data-fragment-index="1" style="font-size: 0.85em;">
 <div class="callout callout-important no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -476,21 +470,7 @@ p(\mathcal{D} \mid \theta) p(\theta) - \log q(\theta; z) \right]
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
 <div class="fragment" data-fragment-index="1">
-<div class="quarto-layout-panel" data-layout="[1,1]">
-<div class="quarto-layout-row quarto-layout-valign-center">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="contents/assets/pbc-outline.svg" style="width:100.0%"></p>
-<figcaption>Show prob. distribution</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -507,12 +487,157 @@ p(\mathcal{D} \mid \theta) p(\theta) - \log q(\theta; z) \right]
 </div>
 </div>
 </div>
+</div></div>
+</section></section>
+<section>
+<section id="why-bayesian-learning" class="title-slide slide level1 center">
+<h1>Why Bayesian Learning?</h1>
+<p>Why does Bayesian learning produce more robust controllers?</p>
+</section>
+<section id="scalar-stochastic-control-system" class="slide level2">
+<h2>Scalar Stochastic Control System</h2>
+<ul>
+<li>Uncertain drift vector field: <span class="math inline">\(p \sim \mathcal{N}(\hat{p}, \sigma_p^2)\)</span>.</li>
+<li>Measurement uncertainty: <span class="math inline">\(x_{\text{meas}} \sim \mathcal{N}(x, \sigma^2)\)</span>.</li>
+<li>Linear controller: <span class="math inline">\(u(x) = \theta x\)</span></li>
+</ul>
+<div class="smaller" data-layout-valign="center">
+<p><span class="math display">\[
+\Sigma: \quad
+\begin{cases}
+  \dot{x} &amp;= px + u, \\
+  u(x) &amp;= \theta x, \\
+  x(0) &amp;= 1.
+\end{cases}
+\quad \rightarrowtail \quad
+\Sigma: \quad
+\begin{cases}
+  dx(t) &amp;= (p+\theta)x(t) dt + \theta \sigma dW_t, \\
+  x(0) &amp;= 1.
+\end{cases}
+\]</span></p>
+</div>
+<div data-layout-valign="center">
+<p><span class="math display">\[
+x(t) = e^{(p+\theta)t} + \theta \sigma \int_0^t e^{(p+\theta)(t-s)}dW_s.
+\]</span></p>
+</div>
+</section>
+<section id="performance-index" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Performance Index</h2>
+<!-- ###################################################################### -->
+<div data-id="system">
+<div class="quarto-layout-panel" data-layout="[100,-5,60]">
+<div class="quarto-layout-row quarto-layout-valign-center">
+<div class="quarto-layout-cell" style="flex-basis: 60.6%;justify-content: flex-start;">
+<p><span class="math display">\[
+\Sigma: \quad
+\begin{cases}
+  \dot{x} &amp;= px + u, \\
+  u(x) &amp;= \theta x, \\
+  x(0) &amp;= 1.
+\end{cases}
+\]</span> <span class="math display">\[
+  x(t) = e^{(p+\theta)t}.
+\]</span></p>
+</div>
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 3.0%;justify-content: flex-start;">
+<p>&nbsp;</p>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment" data-fragment-index="0">
+<p>Quadratic performance index</p>
+<ul>
+<li><span class="math inline">\(q \geq 0\)</span>, <span class="math inline">\(r &gt; 0\)</span><br>
+</li>
+<li><span class="math inline">\(T\)</span>: control horizon</li>
+</ul>
+</div>
+<div class="fragment" data-fragment-index="0," data-id="perf">
+<p><span class="math display">\[
+\mathcal{J} = \int_0^T \left( \frac{1}{2}qx(t)^2 + \frac{1}{2}ru(t)^2  \right)dt.
+\]</span></p>
+</div>
+</section>
+<section id="quadratic-best-performance" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Quadratic Best Performance</h2>
+<!-- ###################################################################### -->
+<div class="fragment quarto-layout-panel" data-id="perf" data-fragment-index="0" data-layout="[100,-5,60]">
+<div class="quarto-layout-row quarto-layout-valign-center">
+<div class="quarto-layout-cell" style="flex-basis: 60.6%;justify-content: flex-start;">
+<p><span class="math display">\[
+\mathcal{J} = \int_0^T \left( \frac{1}{2}qx(t)^2 + \frac{1}{2}ru(t)^2  \right)dt.
+\]</span> <span class="math display">\[
+\mathcal{J}_{T \to \infty} = -\frac{1}{4}\frac{q+r \theta^2}{p+\theta}.
+\]</span></p>
+</div>
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 3.0%;justify-content: flex-start;">
+<p>&nbsp;</p>
+</div>
+</div>
+</div>
+<div class="fragment" data-fragment-index="1" data-id="lemma">
+<div class="callout callout-tip no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Lemma</strong></p>
+</div>
+<div class="callout-content">
+<p>The conditional expectation <span class="math inline">\(\mathbb{E}[\mathcal{J} \mid p]\)</span> of the performance index given the system parameter <span class="math inline">\(p\)</span> is</p>
+<p><span class="math display">\[
+\mathbb{E}[\mathcal{J} \mid p] =
+-\frac{1}{4}\frac{q+r\theta^2}{p+\theta}\left[ \theta^2 \sigma^2 T +
+\left(1-e^{2 T (p+\theta)}\right) \left(1+\frac{1}{2}\frac{\theta^2
+\sigma^2}{p+\theta}\right) \right]
+\]</span></p>
+</div>
+</div>
 </div>
 </div>
 </section>
-<section id="thank-you" class="slide level2">
-<h2>Thank You</h2>
-<p>Questions?</p>
+<section id="optimal-controller" class="slide level2" data-auto-animate="true" data-auto-animate-easing="ease-in-out">
+<h2 data-id="quarto-animate-title">Optimal Controller</h2>
+<!-- ###################################################################### -->
+<div class="r-stack" data-layout-valign="center">
+<p><img data-src="contents/assets/optimal_ctrl.svg" class="fragment" style="width:80.0%" data-fragment-index="0" data-id="opt-ctrl"></p>
+<div class="fragment" style="vertical-align: bottom" data-fragment-index="0">
+Optimal controller <span class="math inline">\(|\theta^\star|\)</span> minimizing <span class="math inline">\(\mathbb{E}\mathcal{J}\)</span>
+</div>
+<p><img data-src="contents/assets/optimal_cost.svg" class="fragment" style="width:80.0%" data-fragment-index="1" data-id="opt-cost"></p>
+<div class="fragment" style="vertical-align: bottom" data-fragment-index="1">
+Minimal expected cost <span class="math inline">\(\mathbb{E}\mathcal{J}\)</span>
+</div>
+</div>
+</section>
+<section id="optimal-controller-1" class="slide level2" data-auto-animate="true" data-auto-animate-easing="ease-in-out">
+<h2 data-id="quarto-animate-title">Optimal Controller</h2>
+<!-- ###################################################################### -->
+<div class="r-hstack">
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="contents/assets/optimal_ctrl.svg" data-fragment-index="0" data-id="opt-ctrl"></p>
+<figcaption>Optimal controller <span class="math inline">\(|\theta^\star|\)</span> minimizing <span class="math inline">\(\mathbb{E}\mathcal{J}\)</span></figcaption>
+</figure>
+</div>
+</div>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="contents/assets/optimal_cost.svg" data-fragment-index="0" data-id="opt-cost"></p>
+<figcaption>Minimal expected cost <span class="math inline">\(\mathbb{E}\mathcal{J}\)</span></figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="fragment" data-fragment-index="1">
+<ul>
+<li class="fragment">Optimal control parameter a nontrivial function of <span class="math inline">\(\sigma\)</span> and <span class="math inline">\(\sigma_p\)</span>.</li>
+<li class="fragment">Bayesian learning strikes the right trade-off.</li>
+</ul>
+</div>
 
 
 </section></section>

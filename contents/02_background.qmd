@@ -64,7 +64,7 @@ $$
 ![](contents/assets/pbc-outline.svg){width=100%}
 :::
 ::: {.column style="width: 62%; display: flex; flex-direction: column; justify-content: center;"}
-:::: {.r-stack style="flex: 0 0 auto;"}
+:::: {.r-stack style="flex: 0 0 auto; width: 100%; justify-items: stretch;"}
 ::: {.callout-important .fragment .fade-out fragment-index=1 icon=false style="font-size: 0.85em;"}
 ## KL-divergence and ELBO
 $$
