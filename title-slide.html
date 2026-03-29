@@ -1,19 +1,26 @@
 <section id="title-slide">
-  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5em;">
-    <img src="contents/assets/utd_emblem.svg" style="height: 80px;">
-    <img src="contents/assets/teros_logo_2026.png" style="height: 80px;">
-  </div>
   <h1 class="title">$title$</h1>
-$if(subtitle)$
+  $if(author)$
+  <div style="position: relative;">
+    $if(subtitle)$
+    <p class="subtitle">$subtitle$</p>
+    $endif$
+    <div
+      style="position: absolute; inset: 0; display: flex; justify-content: space-between; align-items: center; pointer-events: none;">
+      <img src="contents/assets/utd_emblem.svg" style="height: 80px;">
+      <img src="contents/assets/teros_logo_2026.png" style="height: 80px;">
+    </div>
+    <p class="author">$author$</p>
+  </div>
+  $else$
+  $if(subtitle)$
   <p class="subtitle">$subtitle$</p>
-$endif$
-$if(author)$
-  <p class="author">$author$</p>
-$endif$
-$if(institute)$
+  $endif$
+  $endif$
+  $if(institute)$
   <p class="institute">$institute$</p>
-$endif$
-$if(date)$
+  $endif$
+  $if(date)$
   <p class="date">$date$</p>
-$endif$
+  $endif$
 </section>
