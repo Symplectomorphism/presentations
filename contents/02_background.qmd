@@ -48,9 +48,8 @@ __More flexible__ | As applicable as <span style="font-variant:small-caps;">IdaP
 
 
 
-## Bayesian Learning
+## Bayesian Learning {.smaller}
 <!-- ###################################################################### -->
-
 
 $$
 p(\theta \mid \mathcal{D}) = \frac{\overbrace{p(\mathcal{D} \mid
@@ -60,11 +59,13 @@ d\theta^\prime}_{\text{evidence}}} \underbrace{\approx q(\theta;
 z)}_{\text{VI}}.
 $$
 
-:::: {.fragment .semi-fade-out fragment-index=1}
-::: {layout="[1,1]" layout-valign="center"}
-![Show ELBO convergence.](contents/assets/pbc-outline.svg){width=200%}
-
-::: {.callout-important icon=false}
+:::: {.columns style="display: flex; align-items: stretch; min-height: 380px;"}
+::: {.column style="width: 38%; display: flex; flex-direction: column; justify-content: center;"}
+![](contents/assets/pbc-outline.svg){width=100%}
+:::
+::: {.column style="width: 62%; display: flex; flex-direction: column; justify-content: center;"}
+:::: {.r-stack style="flex: 0 0 auto;"}
+::: {.callout-important .fragment .fade-out fragment-index=1 icon=false style="font-size: 0.85em;"}
 ## KL-divergence and ELBO
 $$
 \begin{aligned}
@@ -78,14 +79,7 @@ p(\mathcal{D} \mid \theta) p(\theta) - \log q(\theta; z) \right]
 $$
 :::
 
-:::
-::::
-
-:::: {.fragment fragment-index=1}
-::: {layout="[1,1]" layout-valign="center"}
-![Show prob. distribution](contents/assets/pbc-outline.svg){width=100%}
-
-::: {.callout-tip icon=false}
+::: {.callout-tip .fragment fragment-index=1 icon=false}
 ## Prediction through marginalization
 $$
 \begin{aligned}
@@ -93,6 +87,6 @@ $$
 \end{aligned}
 $$
 :::
-
+::::
 :::
 ::::
