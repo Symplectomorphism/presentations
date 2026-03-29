@@ -1,10 +1,10 @@
 [
   {
-    "objectID": "main.html#introduction",
-    "href": "main.html#introduction",
+    "objectID": "main.html#underactuation",
+    "href": "main.html#underactuation",
     "title": "Passivity-Based Bayesian Control of Robotic Systems",
-    "section": "Introduction",
-    "text": "Introduction\n\nBullet point one\nBullet point two\nBullet point three"
+    "section": "Underactuation",
+    "text": "Underactuation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nUnderactuation\n\n\n\nThere is not enough control inputs to generate arbitrary accelerations.\nMakes the control problem much more complicated."
   },
   {
     "objectID": "main.html#main-content",

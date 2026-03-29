@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.9.36">
 
   <meta name="author" content="Aykut C. Satici">
-  <meta name="dcterms.date" content="2026-03-28">
+  <meta name="dcterms.date" content="2026-03-29">
   <title>TEROS 2026 Presentation – Passivity-Based Bayesian Control of Robotic Systems</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -100,6 +100,7 @@
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-2740581606dc327e82f18f789b69d8a0.css">
+  <link rel="stylesheet" href="styles.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -210,15 +211,50 @@
     <p class="author">Aykut C. Satici</p>
   </div>
       <p class="institute">Department of Systems Engineering<br>University of Texas at Dallas</p>
-      <p class="date">2026-03-28</p>
+      <p class="date">2026-03-29</p>
   </section>
-<section id="introduction" class="slide level2">
-<h2>Introduction</h2>
+<section id="underactuation" class="slide level2">
+<h2>Underactuation</h2>
+<div class="r-stack">
+<div class="quarto-layout-panel" data-layout-ncol="2" data-layout-align="center">
+<div class="quarto-layout-row quarto-layout-valign-bottom">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="contents/assets/twolink-kin.gif" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="contents/assets/acrobot.gif" class="fragment fade-in quarto-figure quarto-figure-center" data-fragment-index="0"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment" data-fragment-index="1">
+<div class="semi-transparent-overlay">
+
+</div>
+</div>
+<div class="fragment fade-up" data-fragment-index="1">
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Underactuation</strong></p>
+</div>
+<div class="callout-content">
 <ul>
-<li>Bullet point one</li>
-<li>Bullet point two</li>
-<li>Bullet point three</li>
+<li>There is not enough control inputs to generate arbitrary accelerations.</li>
+<li>Makes the control problem much more complicated.</li>
 </ul>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="main-content" class="slide level2">
 <h2>Main Content</h2>

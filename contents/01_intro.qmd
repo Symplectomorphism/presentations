@@ -1,5 +1,24 @@
-## Introduction
+## Underactuation
 
-- Bullet point one
-- Bullet point two
-- Bullet point three
+:::: {.r-stack}
+
+::: {layout-ncol="2" layout-align="center" layout-valign="bottom"}
+![](contents/assets/twolink-kin.gif){fig-align="center"}
+
+![](contents/assets/acrobot.gif){fig-align="center" width=40% .fragment .fade-in fragment-index=0}
+:::
+
+::: {.fragment fragment-index=1}
+<div class="semi-transparent-overlay"></div>
+:::
+
+::: {.fragment .fade-up fragment-index=1}
+::: {.callout-note icon="false"}
+## Underactuation
+
+* There is not enough control inputs to generate arbitrary accelerations.
+* Makes the control problem much more complicated.
+:::
+:::
+
+::::

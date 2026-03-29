@@ -10,6 +10,7 @@ format:
   revealjs:
     transition: slide
     footer: "Passivity-Based Bayesian Control of Robotic Systems • Aykut C. Satici"
+    css: styles.css
 ---
 
 {{< include contents/01_intro.qmd >}}
