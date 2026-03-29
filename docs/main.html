@@ -386,7 +386,7 @@ Stability guarantees?
 <section id="our-methods-1" class="slide level2">
 <h2>Our Methods</h2>
 <!-- ###################################################################### -->
-<div class="quarto-layout-panel" data-layout-align="center" data-layout="[-1,8,-1]">
+<div class="quarto-layout-panel" data-layout="[-1,8,-1]" data-layout-align="center">
 <div class="quarto-layout-row quarto-layout-valign-center">
 <div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 10.0%;justify-content: center;">
 <p>&nbsp;</p>
@@ -501,83 +501,39 @@ p(\mathcal{D} \mid \theta) p(\theta) - \log q(\theta; z) \right]
 <li>Measurement uncertainty: <span class="math inline">\(x_{\text{meas}} \sim \mathcal{N}(x, \sigma^2)\)</span>.</li>
 <li>Linear controller: <span class="math inline">\(u(x) = \theta x\)</span></li>
 </ul>
-<div class="smaller" data-layout-valign="center">
+<div class="r-stack">
+<div class="fragment fade-out" data-fragment-index="0">
 <p><span class="math display">\[
-\Sigma: \quad
+\Sigma_{\text{det}}: \quad
 \begin{cases}
-  \dot{x} &amp;= px + u, \\
-  u(x) &amp;= \theta x, \\
-  x(0) &amp;= 1.
-\end{cases}
-\quad \rightarrowtail \quad
-\Sigma: \quad
-\begin{cases}
-  dx(t) &amp;= (p+\theta)x(t) dt + \theta \sigma dW_t, \\
-  x(0) &amp;= 1.
+  \dot{x} = px + u, \\
+  u(x) = \theta x, \\
+  x(0) = 1.
 \end{cases}
 \]</span></p>
 </div>
-<div data-layout-valign="center">
+<div class="fragment fade-up" data-fragment-index="0">
 <p><span class="math display">\[
-x(t) = e^{(p+\theta)t} + \theta \sigma \int_0^t e^{(p+\theta)(t-s)}dW_s.
-\]</span></p>
-</div>
-</section>
-<section id="performance-index" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Performance Index</h2>
-<!-- ###################################################################### -->
-<div data-id="system">
-<div class="quarto-layout-panel" data-layout="[100,-5,60]">
-<div class="quarto-layout-row quarto-layout-valign-center">
-<div class="quarto-layout-cell" style="flex-basis: 60.6%;justify-content: flex-start;">
-<p><span class="math display">\[
-\Sigma: \quad
+\Sigma_{\text{stoc}}: \quad
 \begin{cases}
-  \dot{x} &amp;= px + u, \\
-  u(x) &amp;= \theta x, \\
-  x(0) &amp;= 1.
+  dx(t) = (p+\theta)x(t)\, dt + \theta \sigma\, dW_t, \\
+  x(0) = 1.
 \end{cases}
-\]</span> <span class="math display">\[
-  x(t) = e^{(p+\theta)t}.
 \]</span></p>
 </div>
-<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 3.0%;justify-content: flex-start;">
-<p>&nbsp;</p>
 </div>
-</div>
-</div>
-</div>
-<div class="fragment" data-fragment-index="0">
-<p>Quadratic performance index</p>
-<ul>
-<li><span class="math inline">\(q \geq 0\)</span>, <span class="math inline">\(r &gt; 0\)</span><br>
-</li>
-<li><span class="math inline">\(T\)</span>: control horizon</li>
-</ul>
-</div>
-<div class="fragment" data-fragment-index="0," data-id="perf">
+<div class="fragment" data-fragment-index="0" style="margin-top: -1em;">
 <p><span class="math display">\[
-\mathcal{J} = \int_0^T \left( \frac{1}{2}qx(t)^2 + \frac{1}{2}ru(t)^2  \right)dt.
+x(t) = e^{(p+\theta)t} + \theta \sigma \int_0^t e^{(p+\theta)(t-s)}\,dW_s.
 \]</span></p>
 </div>
 </section>
 <section id="quadratic-best-performance" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Quadratic Best Performance</h2>
 <!-- ###################################################################### -->
-<div class="fragment quarto-layout-panel" data-id="perf" data-fragment-index="0" data-layout="[100,-5,60]">
-<div class="quarto-layout-row quarto-layout-valign-center">
-<div class="quarto-layout-cell" style="flex-basis: 60.6%;justify-content: flex-start;">
 <p><span class="math display">\[
-\mathcal{J} = \int_0^T \left( \frac{1}{2}qx(t)^2 + \frac{1}{2}ru(t)^2  \right)dt.
-\]</span> <span class="math display">\[
-\mathcal{J}_{T \to \infty} = -\frac{1}{4}\frac{q+r \theta^2}{p+\theta}.
+\mathcal{J} = \int_0^T \left( \frac{1}{2}qx(t)^2 + \frac{1}{2}ru(t)^2  \right)dt, \quad q \geq 0, \; r &gt; 0.
 \]</span></p>
-</div>
-<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 3.0%;justify-content: flex-start;">
-<p>&nbsp;</p>
-</div>
-</div>
-</div>
 <div class="fragment" data-fragment-index="1" data-id="lemma">
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
@@ -634,8 +590,8 @@ Minimal expected cost <span class="math inline">\(\mathbb{E}\mathcal{J}\)</span>
 </div>
 <div class="fragment" data-fragment-index="1">
 <ul>
-<li class="fragment">Optimal control parameter a nontrivial function of <span class="math inline">\(\sigma\)</span> and <span class="math inline">\(\sigma_p\)</span>.</li>
-<li class="fragment">Bayesian learning strikes the right trade-off.</li>
+<li>Optimal control parameter a nontrivial function of <span class="math inline">\(\sigma\)</span> and <span class="math inline">\(\sigma_p\)</span>.</li>
+<li>Bayesian learning strikes the right trade-off.</li>
 </ul>
 </div>
 

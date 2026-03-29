@@ -8,65 +8,31 @@ Why does Bayesian learning produce more robust controllers?
 * Measurement uncertainty: $x_{\text{meas}} \sim \mathcal{N}(x, \sigma^2)$.
 * Linear controller: $u(x) = \theta x$
 
-::: {layout-valign="center" .smaller}
+:::: {.r-stack}
+::: {.fragment .fade-out fragment-index=0}
 $$
 \Sigma_{\text{det}}: \quad
 \begin{cases}
-  \dot{x} &= px + u, \\
-  u(x) &= \theta x, \\
-  x(0) &= 1.
+  \dot{x} = px + u, \\
+  u(x) = \theta x, \\
+  x(0) = 1.
 \end{cases}
-\quad \rightarrowtail \quad
+$$
+:::
+::: {.fragment .fade-up fragment-index=0}
+$$
 \Sigma_{\text{stoc}}: \quad
 \begin{cases}
-  dx(t) &= (p+\theta)x(t) dt + \theta \sigma dW_t, \\
-  x(0) &= 1.
+  dx(t) = (p+\theta)x(t)\, dt + \theta \sigma\, dW_t, \\
+  x(0) = 1.
 \end{cases}
 $$
 :::
+::::
 
-
-::: {layout-valign="center"}
+::: {.fragment fragment-index=0 style="margin-top: -1em;"}
 $$
-x(t) = e^{(p+\theta)t} + \theta \sigma \int_0^t e^{(p+\theta)(t-s)}dW_s.
-$$
-:::
-
-
-
-
-## Performance Index {auto-animate="true"}
-<!-- ###################################################################### -->
-
-
-::: {data-id="system"}
-
-::: {layout="[100,-5,60]" layout-valign="center"}
-$$
-\Sigma: \quad
-\begin{cases}
-  \dot{x} &= px + u, \\
-  u(x) &= \theta x, \\
-  x(0) &= 1.
-\end{cases}
-$$
-$$
-  x(t) = e^{(p+\theta)t}.
-$$
-:::
-:::
-
-::: {.fragment data-fragment-index=0}
-
-Quadratic performance index
-
-- $q \geq 0$, $r > 0$  
-- $T$: control horizon
-:::
-
-::: {.fragment data-fragment-index=0, data-id="perf"}
-$$
-\mathcal{J} = \int_0^T \left( \frac{1}{2}qx(t)^2 + \frac{1}{2}ru(t)^2  \right)dt.
+x(t) = e^{(p+\theta)t} + \theta \sigma \int_0^t e^{(p+\theta)(t-s)}\,dW_s.
 $$
 :::
 
@@ -74,14 +40,10 @@ $$
 ## Quadratic Best Performance {auto-animate="true"}
 <!-- ###################################################################### -->
 
-::: {layout="[100,-5,60]" layout-valign="center" .fragment data-fragment-index=0 data-id="perf"}
 $$
-\mathcal{J} = \int_0^T \left( \frac{1}{2}qx(t)^2 + \frac{1}{2}ru(t)^2  \right)dt.
+\mathcal{J} = \int_0^T \left( \frac{1}{2}qx(t)^2 + \frac{1}{2}ru(t)^2  \right)dt, \quad q \geq 0, \; r > 0.
 $$
-$$
-\mathcal{J}_{T \to \infty} = -\frac{1}{4}\frac{q+r \theta^2}{p+\theta}.
-$$
-:::
+
 
 
 ::: {.fragment data-fragment-index=1 data-id="lemma"}
@@ -127,7 +89,7 @@ $$
 ![Minimal expected cost $\mathbb{E}\mathcal{J}$](contents/assets/optimal_cost.svg){.fragment data-fragment-index=0 data-id="opt-cost"}
 :::
 
-::: {.incremental .fragment data-fragment-index=1}
+::: {.fragment data-fragment-index=1}
 * Optimal control parameter a nontrivial function of $\sigma$ and $\sigma_p$.
 * Bayesian learning strikes the right trade-off.
 :::
