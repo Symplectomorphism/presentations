@@ -3,7 +3,7 @@ title: "Passivity-Based Bayesian Control of Robotic Systems"
 subtitle: "TEROS 2026"
 author: "Aykut C. Satici"
 institute: "Department of Systems Engineering<br>University of Texas at Dallas"
-date: today
+date: "April 3, 2026"
 template-partials:
   - title-slide.html
 format:

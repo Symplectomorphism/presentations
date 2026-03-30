@@ -2,7 +2,14 @@
   "permissions": {
     "allow": [
       "Bash(quarto render:*)",
-      "Read(//tmp/**)"
+      "Read(//tmp/**)",
+      "Bash(fish -c \"nvm use lts && node /tmp/screenshot_optimal.js\")",
+      "Bash(fish -c \"nvm use lts && node /tmp/screenshot_opt2.js\")",
+      "Bash(fish -c \"nvm use lts && npm list -g puppeteer 2>/dev/null; find ~/.local/share/nvm -name ''puppeteer'' -maxdepth 6 2>/dev/null | head -5; ls /home/icute/repos/presentations/node_modules 2>/dev/null | grep puppet\")",
+      "Bash(fish -c \"curl -s http://localhost:7776 | grep -i ''optimal\\\\|controller'' | head -20\")"
+    ],
+    "additionalDirectories": [
+      "/tmp"
     ]
   }
 }

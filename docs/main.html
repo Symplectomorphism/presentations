@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.9.36">
 
   <meta name="author" content="Aykut C. Satici">
-  <meta name="dcterms.date" content="2026-03-29">
+  <meta name="dcterms.date" content="2026-04-03">
   <title>TEROS 2026 Presentation – Passivity-Based Bayesian Control of Robotic Systems</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -145,7 +145,7 @@
     <p class="author">Aykut C. Satici</p>
   </div>
       <p class="institute">Department of Systems Engineering<br>University of Texas at Dallas</p>
-      <p class="date">2026-03-29</p>
+      <p class="date">2026-04-03</p>
   </section>
 <section id="underactuation" class="slide level2">
 <h2>Underactuation</h2>
@@ -553,40 +553,22 @@ x(t) = e^{(p+\theta)t} + \theta \sigma \int_0^t e^{(p+\theta)(t-s)}\,dW_s.
 </div>
 </div>
 </section>
-<section id="optimal-controller" class="slide level2" data-auto-animate="true" data-auto-animate-easing="ease-in-out">
-<h2 data-id="quarto-animate-title">Optimal Controller</h2>
+<section id="optimal-controller" class="slide level2">
+<h2>Optimal Controller</h2>
 <!-- ###################################################################### -->
-<div class="r-stack" data-layout-valign="center">
-<p><img data-src="contents/assets/optimal_ctrl.svg" class="fragment" style="width:80.0%" data-fragment-index="0" data-id="opt-ctrl"></p>
-<div class="fragment" style="vertical-align: bottom" data-fragment-index="0">
+<div class="fragment fade-in" data-fragment-index="0" style="display: flex; justify-content: center; gap: 1em;">
+<figure style="margin: 0; text-align: center;">
+<img src="contents/assets/optimal_ctrl.svg" style="width: 100%;">
+<figcaption>
 Optimal controller <span class="math inline">\(|\theta^\star|\)</span> minimizing <span class="math inline">\(\mathbb{E}\mathcal{J}\)</span>
-</div>
-<p><img data-src="contents/assets/optimal_cost.svg" class="fragment" style="width:80.0%" data-fragment-index="1" data-id="opt-cost"></p>
-<div class="fragment" style="vertical-align: bottom" data-fragment-index="1">
+</figcaption>
+</figure>
+<figure style="margin: 0; text-align: center;">
+<img src="contents/assets/optimal_cost.svg" style="width: 100%;">
+<figcaption>
 Minimal expected cost <span class="math inline">\(\mathbb{E}\mathcal{J}\)</span>
-</div>
-</div>
-</section>
-<section id="optimal-controller-1" class="slide level2" data-auto-animate="true" data-auto-animate-easing="ease-in-out">
-<h2 data-id="quarto-animate-title">Optimal Controller</h2>
-<!-- ###################################################################### -->
-<div class="r-hstack">
-<div class="fragment">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="contents/assets/optimal_ctrl.svg" data-fragment-index="0" data-id="opt-ctrl"></p>
-<figcaption>Optimal controller <span class="math inline">\(|\theta^\star|\)</span> minimizing <span class="math inline">\(\mathbb{E}\mathcal{J}\)</span></figcaption>
+</figcaption>
 </figure>
-</div>
-</div>
-<div class="fragment">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="contents/assets/optimal_cost.svg" data-fragment-index="0" data-id="opt-cost"></p>
-<figcaption>Minimal expected cost <span class="math inline">\(\mathbb{E}\mathcal{J}\)</span></figcaption>
-</figure>
-</div>
-</div>
 </div>
 <div class="fragment" data-fragment-index="1">
 <ul>
