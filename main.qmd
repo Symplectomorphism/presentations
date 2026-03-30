@@ -18,3 +18,7 @@ format:
 {{< include contents/02_background.qmd >}}
 
 {{< include contents/03_bayesian.qmd >}}
+
+{{< include contents/04_neuralpbc.qmd >}}
+
+{{< include contents/05_neuralidapbc.qmd >}}

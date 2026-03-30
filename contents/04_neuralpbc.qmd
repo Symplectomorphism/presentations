@@ -1,0 +1,89 @@
+# <span style="font-variant:small-caps;">NeuralPbc</span> {visibility="uncounted"}
+<!-- ###################################################################### -->
+
+Learning storage function from trajectories
+
+
+## Motivation
+<!-- ###################################################################### -->
+
+Control synthesis in PBC:
+$$
+Gu_{es} = \nabla_q H - \nabla_q H_d
+$$
+
+- If underactuated, $G$ is not invertible
+  * Choice of $u_{es}$ must satisfy **nonlinear PDE**
+  * Quadratic potential most likely not viable
+- Incorporate **performance objective** into design of $H_d$?
+
+
+
+## <span style="font-variant:small-caps;">NeuralPbc</span> Problem Statement
+<!-- ###################################################################### -->
+
+Consider the mechanical system
+
+$$
+\begin{bmatrix} \dot{q} \\ \dot{p} \end{bmatrix} = 
+\begin{bmatrix} \phantom{-}0 & 1 \\ -1 & 0 \end{bmatrix} 
+\begin{bmatrix} \nabla_q H_{\phantom{d}} \\ \nabla_p H_{\phantom{d}} \end{bmatrix} +
+\begin{bmatrix} 0 \\ G \end{bmatrix} u_\phantom{di}
+$$
+
+__Control task__: stabilize desired equilibrium $x^\star = (q^\star, 0)$
+
+:::: {.r-stack}
+
+::: {.fragment .fade-out fragment-index=3}
+$$u = u_{es} + u_{di} = G^{\dagger} \left( \nabla_q H  - \nabla_q H_d \right)  - K_D G^\top \nabla_p H_d $$
+:::
+
+::: {.fragment .fade-in  fragment-index=3}
+$$u = u_{es} + u_{di} = - G^{\dagger} \nabla_q H_d^{\theta}  - K_D G^\top \nabla_p H_d^{\theta} $$
+:::
+
+::::
+
+Choosing a suitable $H_d$ is not trivial
+
+::: {.fragment .fade-in fragment-index=2}
+Parameterize $H_d$ by a neural network $H_d^\theta$, and relax control task to bringing $x$ to a small neighborhood of $x^\star$
+:::
+
+::: {.notes}
+* Instead of asking for asymptotic stabilization, we only require that trajectories pass thru a nbhd of $x^\star$
+* This is reasonable because we know how to stabilize a fixed point, e.g. stabilize the linearization of the system using LQR
+* This allows us to find approximations for $H_d^\theta$ using learning techniques
+:::
+
+
+## <span style="font-variant:small-caps;">NeuralPbc</span> Problem Statement
+<!-- ###################################################################### -->
+
+::: {.callout}
+$$
+\begin{aligned}
+\underset{\theta}{\text{minimize}} && J(\theta, x_0) &= \int_{0}^{T} \ell \left(\phi,u^\theta,\theta\right)\, \text{d} t \\
+\text{subject to} &&
+\begin{bmatrix}
+  \dot{q} \\ \dot{p}
+\end{bmatrix} &=
+\begin{bmatrix}
+  0 & I \\ -I & 0
+\end{bmatrix}
+\begin{bmatrix} \nabla_q H \\ \nabla_p H \end{bmatrix} + 
+\begin{bmatrix}
+  0 \\ G
+\end{bmatrix} u^{\theta}
+\\
+&& u^\theta &= - G^{\dagger}\nabla_q H_d^{\theta}  - K_D G^\top \nabla_p H_d^{\theta}
+\end{aligned}
+$$
+:::
+
+**Challenges**
+
+- Injecting control task into loss function design 
+- Backprop through closed-loop trajectories
+- Sampling the state space efficiently

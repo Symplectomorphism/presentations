@@ -576,6 +576,360 @@ Minimal expected cost <span class="math inline">\(\mathbb{E}\mathcal{J}\)</span>
 <li>Bayesian learning strikes the right trade-off.</li>
 </ul>
 </div>
+</section></section>
+<section>
+<section id="neuralpbc" class="title-slide slide level1 center" data-visibility="uncounted">
+<h1><span class="smallcaps">NeuralPbc</span></h1>
+<!-- ###################################################################### -->
+<p>Learning storage function from trajectories</p>
+</section>
+<section id="motivation" class="slide level2">
+<h2>Motivation</h2>
+<!-- ###################################################################### -->
+<p>Control synthesis in PBC: <span class="math display">\[
+Gu_{es} = \nabla_q H - \nabla_q H_d
+\]</span></p>
+<ul>
+<li>If underactuated, <span class="math inline">\(G\)</span> is not invertible
+<ul>
+<li>Choice of <span class="math inline">\(u_{es}\)</span> must satisfy <strong>nonlinear PDE</strong></li>
+<li>Quadratic potential most likely not viable</li>
+</ul></li>
+<li>Incorporate <strong>performance objective</strong> into design of <span class="math inline">\(H_d\)</span>?</li>
+</ul>
+</section>
+<section id="neuralpbc-problem-statement" class="slide level2">
+<h2><span class="smallcaps">NeuralPbc</span> Problem Statement</h2>
+<!-- ###################################################################### -->
+<p>Consider the mechanical system</p>
+<p><span class="math display">\[
+\begin{bmatrix} \dot{q} \\ \dot{p} \end{bmatrix} =
+\begin{bmatrix} \phantom{-}0 &amp; 1 \\ -1 &amp; 0 \end{bmatrix}
+\begin{bmatrix} \nabla_q H_{\phantom{d}} \\ \nabla_p H_{\phantom{d}} \end{bmatrix} +
+\begin{bmatrix} 0 \\ G \end{bmatrix} u_\phantom{di}
+\]</span></p>
+<p><strong>Control task</strong>: stabilize desired equilibrium <span class="math inline">\(x^\star = (q^\star, 0)\)</span></p>
+<div class="r-stack">
+<div class="fragment fade-out" data-fragment-index="3">
+<p><span class="math display">\[u = u_{es} + u_{di} = G^{\dagger} \left( \nabla_q H  - \nabla_q H_d \right)  - K_D G^\top \nabla_p H_d \]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="3">
+<p><span class="math display">\[u = u_{es} + u_{di} = - G^{\dagger} \nabla_q H_d^{\theta}  - K_D G^\top \nabla_p H_d^{\theta} \]</span></p>
+</div>
+</div>
+<p>Choosing a suitable <span class="math inline">\(H_d\)</span> is not trivial</p>
+<div class="fragment fade-in" data-fragment-index="2">
+<p>Parameterize <span class="math inline">\(H_d\)</span> by a neural network <span class="math inline">\(H_d^\theta\)</span>, and relax control task to bringing <span class="math inline">\(x\)</span> to a small neighborhood of <span class="math inline">\(x^\star\)</span></p>
+</div>
+<aside class="notes">
+<ul>
+<li>Instead of asking for asymptotic stabilization, we only require that trajectories pass thru a nbhd of <span class="math inline">\(x^\star\)</span></li>
+<li>This is reasonable because we know how to stabilize a fixed point, e.g.&nbsp;stabilize the linearization of the system using LQR</li>
+<li>This allows us to find approximations for <span class="math inline">\(H_d^\theta\)</span> using learning techniques</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="neuralpbc-problem-statement-1" class="slide level2">
+<h2><span class="smallcaps">NeuralPbc</span> Problem Statement</h2>
+<!-- ###################################################################### -->
+<div class="callout callout-none no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p><span class="math display">\[
+\begin{aligned}
+\underset{\theta}{\text{minimize}} &amp;&amp; J(\theta, x_0) &amp;= \int_{0}^{T} \ell \left(\phi,u^\theta,\theta\right)\, \text{d} t \\
+\text{subject to} &amp;&amp;
+\begin{bmatrix}
+  \dot{q} \\ \dot{p}
+\end{bmatrix} &amp;=
+\begin{bmatrix}
+  0 &amp; I \\ -I &amp; 0
+\end{bmatrix}
+\begin{bmatrix} \nabla_q H \\ \nabla_p H \end{bmatrix} +
+\begin{bmatrix}
+  0 \\ G
+\end{bmatrix} u^{\theta}
+\\
+&amp;&amp; u^\theta &amp;= - G^{\dagger}\nabla_q H_d^{\theta}  - K_D G^\top \nabla_p H_d^{\theta}
+\end{aligned}
+\]</span></p>
+</div>
+</div>
+</div>
+<p><strong>Challenges</strong></p>
+<ul>
+<li>Injecting control task into loss function design</li>
+<li>Backprop through closed-loop trajectories</li>
+<li>Sampling the state space efficiently</li>
+</ul>
+</section></section>
+<section>
+<section id="neuralidapbc" class="title-slide slide level1 center" data-visibility="uncounted">
+<h1><span class="smallcaps">NeuralIdaPbc</span></h1>
+<!-- ###################################################################### -->
+<p>Solving matching PDEs with neural networks</p>
+</section>
+<section id="motivation-1" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Motivation</h2>
+<!-- ###################################################################### -->
+<p><span class="smallcaps">NeuralPbc</span> is flexible, but guaranteeing stability is hard</p>
+<p>Additional structure of <span class="smallcaps">IdaPbc</span> facilitates stability analysis</p>
+<!-- :::: {.r-stack} -->
+<!-- ::: {.fragment .fade-out fragment-index=0} -->
+<p><span class="math display">\[ \begin{bmatrix} \dot{q} \\ \dot{p} \end{bmatrix} = \begin{bmatrix}0 &amp; I \\ -I &amp; 0\end{bmatrix} \begin{bmatrix} \nabla_q H \\ \nabla_p H  \end{bmatrix} + \begin{bmatrix} 0 \\ G \end{bmatrix} u \]</span> <!-- ::: --></p>
+<p>Closed-loop port-Hamiltonian dynamics:</p>
+<!-- ::: {.fragment .fade-in fragment-index=0} -->
+<p><span class="math display">\[
+\begin{bmatrix} \dot{q} \\ \dot{p} \end{bmatrix}
+=
+\begin{bmatrix}0 &amp; M^{-1}M_d \\ -M_dM^{-1} &amp; J_2(q,p) - GK_vG^\top\end{bmatrix}
+\begin{bmatrix} \nabla_q H_d \\ \nabla_p H_d \end{bmatrix}
+\]</span> <!-- ::: --> <!-- :::: --></p>
+<p><span class="math display">\[H_d = \frac{1}{2} p^{\top} M_d(q)^{-1} p + V_d(q),\, M_d \succ 0\]</span></p>
+<aside class="notes">
+<ul>
+<li>Further structure not only facilitates stability analysis but also restricts the search to a pd matrix <span class="math inline">\(M_d\)</span> and <span class="math inline">\(V_d\)</span>.</li>
+<li>This search may be performed solely on the configuration space.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="idapbc-background" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"><span class="smallcaps">IdaPbc</span> Background</h2>
+<!-- ###################################################################### -->
+<p><span class="math display">\[ \begin{bmatrix} \dot{q} \\ \dot{p} \end{bmatrix} = \begin{bmatrix}0 &amp; M^{-1}M_d \\ -M_dM^{-1} &amp; J_2(q,p) - GK_vG^\top\end{bmatrix} \begin{bmatrix} \nabla_q H_d \\ \nabla_p H_d \end{bmatrix} \]</span></p>
+<p><span class="math display">\[H_d = \frac{1}{2} p^{\top} M_d(q)^{-1} p + V_d(q),\, M_d \succ 0\]</span></p>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="callout callout-none no-icon callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Stability results</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="math display">\[\begin{aligned}\dot{H}_d &amp;= \left( \nabla_p H_d \right)^{\top} \left(-G K_v G^{\top}\right) \nabla_p H_d \\ &amp;\leq -\lambda_{\textrm{min}} \{ K_v \} \left\| \left( \nabla_p H_d \right)^{\top} G \right\|^2 \leq 0 \end{aligned}\]</span></p>
+<p>With <span class="math inline">\(q^\star = \arg \min V_d(q)\)</span>, we have <span class="math inline">\(x \to x^\star = (q^\star, 0)\)</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment fade-left quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="callout callout-none no-icon callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Control synthesis</strong></p>
+</div>
+<div class="callout-content">
+<p>Choose <span class="math inline">\(u = u_{es} + u_{di}\)</span> where <span class="math display">\[
+\begin{aligned}
+Gu_{es} &amp;= \nabla_{q} H - M_{d}M^{-1} \nabla_{q} H_{d} \\
+&amp;\quad\; + J_{2} M_{d}^{-1} p \phantom{\nabla_{p}^{\top}} \\
+u_{di} &amp;= -K_v G^\top \nabla_p H_d \phantom{\left\|\left(\nabla_p\right)^{\top} \right\|^2}
+\end{aligned}
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="idapbc-via-optimization" class="slide level2" data-transition="slide-out">
+<h2><span class="smallcaps">IdaPbc</span> via Optimization</h2>
+<!-- ###################################################################### -->
+<div class="quarto-layout-panel" data-layout="[-10, 100, -10]">
+<div class="quarto-layout-row">
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 8.3%;justify-content: flex-start;">
+<p>&nbsp;</p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 83.3%;justify-content: flex-start;">
+<div class="callout callout-none no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p><span class="math display">\[
+\begin{aligned}
+\underset{M_d,\,J_2,\,V_d}{\text{minimize}} &amp;&amp; 0 &amp;  \\
+\text{subject to} &amp;&amp;
+0 &amp;= G^{\bot}\left\{ \nabla_{q} H - M_{d}M^{-1} \nabla_{q} H_{d} + J_{2} M_{d}^{-1} p  \right\}
+\\
+&amp;&amp; H_d &amp;= \frac{1}{2} p^{\top} M_d(q)^{-1} p + V_d(q)
+\\
+&amp;&amp; M_d &amp;= M_d^\top \succ 0
+\\
+&amp;&amp; J_2 &amp;= -J_2^\top
+\\
+&amp;&amp; q^\star &amp;= \underset{q}{\arg \min} \, V_d(q)
+\end{aligned}
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 8.3%;justify-content: flex-start;">
+<p>&nbsp;</p>
+</div>
+</div>
+</div>
+<center>
+<em>Infinite-dimensional</em>—closed-form solution is difficult
+</center>
+</section>
+<section id="neuralidapbc-1" class="slide level2">
+<h2><span class="smallcaps">NeuralIdaPbc</span></h2>
+<!-- ###################################################################### -->
+
+<img data-src="contents/assets/nn-pbc-struct-frame-05.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="neuralidapbc-problem-statement" class="slide level2" data-transition="fade-in zoom-out">
+<h2><span class="smallcaps">NeuralIdaPbc</span> Problem Statement</h2>
+<div class="quarto-layout-panel" data-layout="[-10, 100, -10]">
+<div class="quarto-layout-row">
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 8.3%;justify-content: flex-start;">
+<p>&nbsp;</p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 83.3%;justify-content: flex-start;">
+<div class="callout callout-none no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p><span class="math display">\[
+\begin{aligned}
+\underset{\theta}{\text{minimize}} &amp;&amp; J(\theta) &amp;= \left\lVert G^{\bot} \left\{ \nabla_{q} H - M_{d}^{\theta}M^{-1} \nabla_{q} H_{d}^{\theta} + J_{2}^{\theta} \left(M_{d}^{\theta}\right)^{-1} p \right\} \right\rVert^2  \\
+\text{subject to}
+&amp;&amp; H_d^{\theta} &amp;= \frac{1}{2} p^{\top} \left( M_{d}^{\theta} \right)^{-1} p + V_{d}^{\theta}(q)
+\\
+&amp;&amp; M_d^{\theta}(q) &amp;= \left(M_d^{\theta}(q)\right)^\top \succ 0
+\\
+&amp;&amp; J_{2}^{\theta}(q,p) &amp;= -\left(J_{2}^{\theta}(q,p)\right)^\top
+\\
+&amp;&amp; q^\star &amp;= \underset{q}{\arg \min} \, V_{d}^{\theta} (q)
+\end{aligned}
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 8.3%;justify-content: flex-start;">
+<p>&nbsp;</p>
+</div>
+</div>
+</div>
+<div class="quarto-layout-panel" data-layout="[100,-5,90]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 51.3%;justify-content: flex-start;">
+<ul>
+<li class="fragment">Finite-dimensional search</li>
+<li class="fragment">Sample configuration space</li>
+</ul>
+</div>
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 2.6%;justify-content: flex-start;">
+<p>&nbsp;</p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 46.2%;justify-content: flex-start;">
+<ul>
+<li class="fragment">Controller <span class="math inline">\(u\)</span> is a continuous function of <span class="math inline">\(J\)</span></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="neuralidapbc-constraints" class="slide level2">
+<h2><span class="smallcaps">NeuralIdaPbc</span> Constraints</h2>
+<!-- ###################################################################### -->
+<div class="fragment highlight-red" data-fragment-index="0">
+<p><span class="math display">\[M_d^{\theta} = \left(M_d^{\theta}\right)^{\top} \succ 0\]</span></p>
+</div>
+<div class="fragment semi-fade-out" data-fragment-index="0">
+<p><span class="math display">\[J_{2}^{\theta} = -\left(J_{2}^{\theta}\right)^{\top}\]</span></p>
+<p><span class="math display">\[q^\star = \underset{q}{\arg \min} \, V_{d}^{\theta} (q)\]</span></p>
+</div>
+<div class="fragment fade-up" data-fragment-index="0">
+<div class="callout callout-none no-icon callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Positive-definiteness of the desired mass matrix</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>Cholesky decomposition <span class="math inline">\(M_d^\theta(q) = L_{\theta}(q) L_{\theta}^{\top}(q)\)</span></li>
+<li>Components of the lower-triangular matrix <span class="math inline">\(L_\theta(q)\)</span> are outputs of a neural network</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="neuralidapbc-constraints-1" class="slide level2" data-visibility="uncounted">
+<h2><span class="smallcaps">NeuralIdaPbc</span> Constraints</h2>
+<!-- ###################################################################### -->
+<div class="fragment semi-fade-out" data-fragment-index="0">
+<p><span class="math display">\[M_d^{\theta} = \left(M_d^{\theta}\right)^{\top} \succ 0\]</span></p>
+</div>
+<div class="fragment highlight-red" data-fragment-index="0">
+<p><span class="math display">\[J_{2}^{\theta} = -\left(J_{2}^{\theta}\right)^{\top}\]</span></p>
+</div>
+<div class="fragment semi-fade-out" data-fragment-index="0">
+<p><span class="math display">\[q^\star = \underset{q}{\arg \min} \, V_{d}^{\theta} (q)\]</span></p>
+</div>
+<div class="fragment fade-up" data-fragment-index="0">
+<div class="callout callout-none no-icon callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Skew symmetry of <span class="math inline">\(J_2^\theta(q,p)\)</span></strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><p>Decompose a square matrix into symmetric and skew-symmetric parts <span class="math display">\[J_2^\theta(q,p) = A_{\theta}(q,p) -  A_{\theta}^{\top}(q,p)\]</span></p></li>
+<li><p>Components of the square matrix <span class="math inline">\(A_\theta(q,p)\)</span> are output of a neural network</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="neuralidapbc-constraints-2" class="slide level2" data-visibility="uncounted">
+<h2><span class="smallcaps">NeuralIdaPbc</span> Constraints</h2>
+<!-- ###################################################################### -->
+<div class="fragment semi-fade-out" data-fragment-index="0">
+<p><span class="math display">\[M_d^{\theta} = \left(M_d^{\theta}\right)^{\top} \succ 0\]</span> <span class="math display">\[J_{2}^{\theta} = -\left(J_{2}^{\theta}\right)^{\top}\]</span></p>
+</div>
+<div class="fragment highlight-red" data-fragment-index="0">
+<p><span class="math display">\[q^\star = \underset{q}{\arg \min} \, V_{d}^{\theta} (q)\]</span></p>
+</div>
+<div class="fragment fade-up" data-fragment-index="0">
+<div class="callout callout-none no-icon callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Boundedness of <span class="math inline">\(V_d^\theta\)</span></strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><span class="math inline">\(V_d^\theta(q)\)</span> bounded from below with isolated minimum at <span class="math inline">\(q^\star\)</span> <!-- * If $V_d$ is convex, only need first order condition $\nabla V_d^\theta(q^\star) = 0$ --></li>
+<li>Parameterize <span class="math inline">\(V_d^\theta\)</span> by a <em>sums-of-square (SoS) polynomial</em></li>
+<li><span class="math inline">\(V_d^\theta(q) &gt; 0,\, q \neq q^\star\)</span></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 
 
 </section></section>
