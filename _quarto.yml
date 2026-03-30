@@ -4,6 +4,8 @@ project:
   output-dir: docs
   render:
     - main.qmd
+  resources:
+    - contents/assets/**
   preview:
     port: 7776
 

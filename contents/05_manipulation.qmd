@@ -1,3 +1,78 @@
 # Nonprehensile Manipulation {visibility="uncounted"}
 
-How can we apply these ideas to robotic manipulation?
+Applications to robotic manipulation
+
+## Joint Work with University of Kentucky {style="font-size: 0.95em;"}
+
+:::: {.columns}
+
+::: {.column width="80%"}
+
+<center>
+<img src="./contents/assets/resoverview.png" width="100%" />
+</center>
+
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; align-items: end; gap: 0.5em;">
+  <figure style="margin: 0; text-align: center;">
+    <img src="./contents/assets/hasanpartition.png" style="max-height: 180px; width: auto; max-width: 100%;">
+    <figcaption>State partition according to NN</figcaption>
+  </figure>
+  <figure style="margin: 0; text-align: center;">
+    <img src="./contents/assets/layoutphysical.png" style="max-height: 180px; width: auto; max-width: 100%;">
+    <figcaption>Experimental setup</figcaption>
+  </figure>
+</div>
+
+:::
+
+
+::: {.column width="20%"}
+<center>
+<img src="./contents/assets/hasan.jpg" width="100%"/>
+
+<br>
+
+<img src="./contents/assets/nsf-logo.svg" width="80%" />
+
+<span style="font-size: 0.5em;">NSF Award #2330794</span>
+</center>
+:::
+
+::::
+
+
+## Earlier Results
+
+```{=html}
+<div style="display: flex; gap: 1em; align-items: center;">
+  <div style="width: 42%; display: flex; flex-direction: column; align-items: center; gap: 0.5em;">
+    <img src="contents/assets/guided_vs_unguided_results.png" style="width: 90%;">
+    <img src="contents/assets/manipulation_task.png" style="width: 80%;">
+  </div>
+  <div style="width: 58%;">
+    <iframe width="100%" height="340" src="https://www.youtube.com/embed/Av9z51QDNxg?si=xmPsb5CsH5KCuwz1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+</div>
+```
+
+
+## Diffusion-Guided PBC for Manipulation {style="font-size: 0.95em;"}
+
+:::: {.columns style="display: flex; align-items: stretch;"}
+
+::: {.column width="50%"}
+```{=html}
+<video controls loop style="width: 100%; height: 340px; object-fit: contain;">
+  <source src="./contents/assets/manip_w_franka.mp4" type="video/mp4">
+</video>
+```
+:::
+
+::: {.column width="50%" style="display: flex; align-items: center; justify-content: center;"}
+![](./contents/assets/loss_manip.png){style="height: 340px; width: auto; max-width: 100%;"}
+:::
+
+::::
+
+![](./contents/assets/loss_manip_breakdown.png){width="100%"}
