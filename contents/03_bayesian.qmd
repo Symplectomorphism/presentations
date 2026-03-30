@@ -1,4 +1,4 @@
-# Why Bayesian Learning?
+# Why Bayesian Learning? {visibility="uncounted"}
 
 Why does Bayesian learning produce more robust controllers?
 

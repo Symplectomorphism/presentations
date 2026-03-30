@@ -1,0 +1,3 @@
+# Nonprehensile Manipulation {visibility="uncounted"}
+
+How can we apply these ideas to robotic manipulation?

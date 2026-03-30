@@ -24,16 +24,18 @@ $$
 
 Consider the mechanical system
 
+::: {style="font-size: 0.82em; margin: -0.4em 0;"}
 $$
-\begin{bmatrix} \dot{q} \\ \dot{p} \end{bmatrix} = 
-\begin{bmatrix} \phantom{-}0 & 1 \\ -1 & 0 \end{bmatrix} 
+\begin{bmatrix} \dot{q} \\ \dot{p} \end{bmatrix} =
+\begin{bmatrix} \phantom{-}0 & 1 \\ -1 & 0 \end{bmatrix}
 \begin{bmatrix} \nabla_q H_{\phantom{d}} \\ \nabla_p H_{\phantom{d}} \end{bmatrix} +
 \begin{bmatrix} 0 \\ G \end{bmatrix} u_\phantom{di}
 $$
+:::
 
 __Control task__: stabilize desired equilibrium $x^\star = (q^\star, 0)$
 
-:::: {.r-stack}
+:::: {.r-stack style="font-size: 0.82em; margin: -0.4em 0;"}
 
 ::: {.fragment .fade-out fragment-index=3}
 $$u = u_{es} + u_{di} = G^{\dagger} \left( \nabla_q H  - \nabla_q H_d \right)  - K_D G^\top \nabla_p H_d $$
@@ -85,5 +87,126 @@ $$
 **Challenges**
 
 - Injecting control task into loss function design 
-- Backprop through closed-loop trajectories
+- Backpropagating through closed-loop trajectories
 - Sampling the state space efficiently
+
+
+
+## Bayesian Solution
+<!-- ###################################################################### -->
+
+<ol class="fragment" data-fragment-index=0>
+Computing ELBO
+$$ \mathcal{L}(\mathcal{D};z) = \mathbb{E}_{\theta \sim q}\left[ \log p(\mathcal{D} \mid \theta)p(\theta) - \log q(\theta; z)  \right] $$
+requires: 
+&nbsp;
+  <li class="fragment" data-fragment-index=1> _Likelihood_:
+$$ p\left( \text{loss} \mid \theta \right) = \mathcal{N}(0, s). $$
+  </li>
+  <li class="fragment" data-fragment-index=2> _Prior_:
+    <ul>
+      <li> Uninformed </li>
+      <li> Deterministic </li>
+    </ul>
+  </li>
+</ol>
+
+
+
+## Comparison of Methods {.smaller}
+<!-- ###################################################################### -->
+
+&nbsp;
+
+::: {.callout-note icon=false}
+## Advantages :heavy_check_mark: and Disadvantages :x:
+
+|Case|Deterministic|Bayesian|
+|---|:---:|:---:|
+|Robustness|:x:|:heavy_check_mark:|
+|Computation cost|:heavy_check_mark:|:x:|
+|Model selection|:x:|:heavy_check_mark:|
+|Prior knowledge|:heavy_check_mark:|:heavy_check_mark::heavy_check_mark:|
+|Overfitting|:x:|:heavy_check_mark:|
+:::
+
+
+## Energy-Shaping Pendulum Swing-Up {auto-animate="true" auto-animate-easing="ease-in-out"}
+<!-- ###################################################################### -->
+
+
+::: {.r-stack layout-valign="center"}
+![](contents/assets/neuralpbc/033.svg){.fragment .shrink fragment-index=0}
+
+![](contents/assets/H.svg){.fragment fragmend-index=1}
+:::
+
+
+## Energy-Shaping Pendulum Swing-Up {auto-animate="true" auto-animate-easing="ease-in-out"}
+<!-- ###################################################################### -->
+
+
+::: r-hstack
+![](contents/assets/neuralpbc/033.svg){.fragment data-fragment-index=0 width="80%"}
+
+![](contents/assets/H.svg){.fragment data-fragment-index=0 width="90%"}
+:::
+
+::: {.incremental .fragment data-fragment-index=1}
+* Deterministic training vs. Bayesian training under parameter uncertainty and measurement noise.
+* Measurement noise: $\epsilon_q = 5 \times 10^4$ rad., $\epsilon_{\dot{q}} = 5 \times 10^2$ rad/s.
+:::
+
+
+## <span style="font-variant:small-caps;">NeuralPbc</span> Experiments
+<!-- ###################################################################### -->
+Benchmark underactuated  control problems:
+
+:::: {.columns}
+::: {.column width="60%"}
+<ul>
+<li class="fragment highlight-current-blue" data-fragment-index="0">Cart-pole</li>
+<li class="fragment highlight-current-blue" data-fragment-index="1">Inertia-Wheel Pendulum (IWP)</li>
+<li class="fragment highlight-current-blue" data-fragment-index="2">Acrobot</li>
+</ul>
+:::
+::: {.column width=40%}
+::: {.r-stack}
+![](contents/assets/cartpole.svg){.fragment .fade-in-then-out fragment-index=0}
+
+![](contents/assets/iwp.svg){.fragment .fade-in-then-out fragment-index=1}
+
+![](contents/assets/acrobot.svg){.fragment .fade-in-then-out fragment-index=2}
+:::
+:::
+::::
+
+## {background-video="contents/assets/cartpole-firefox.mp4" background-size="contain" background-video-loop="true" background-video-muted="true"}
+<!-- ###################################################################### -->
+
+## Learned storage function
+<!-- ###################################################################### -->
+
+![](contents/assets/cartpole-contours.png)
+
+Observations
+: 
+$H_d^\theta$ has a local minimum at $x^\star$, control law $u^\theta$ commands the force in the expected direction
+
+
+## Comparison with Energy Shaping[^astrom]
+<!-- ###################################################################### -->
+
+![](contents/assets/cartpole-cost-compare.svg)
+
+
+
+[^astrom]: K. J. Åström and K. Furuta, "Swinging up a pendulum by energy control,"
+Automatica, vol. 36, no. 2, pp. 287–295, 2000.
+
+## {background-video="contents/assets/cartpole-exp.mp4" background-size="contain" background-video-loop="true" background-video-muted="true"}
+<!-- ###################################################################### -->
+
+
+## {background-video="contents/assets/acrobot-firefox.mp4" background-size="contain" background-video-loop="true" background-video-muted="true"}
+<!-- ###################################################################### -->

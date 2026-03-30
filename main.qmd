@@ -21,4 +21,8 @@ format:
 
 {{< include contents/04_neuralpbc.qmd >}}
 
-{{< include contents/05_neuralidapbc.qmd >}}
+{{< include contents/05_manipulation.qmd >}}
+
+{{< include contents/06_closing.qmd >}}
+
+{{< include contents/07_neuralidapbc.qmd >}}

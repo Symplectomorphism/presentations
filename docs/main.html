@@ -147,7 +147,7 @@
       <p class="institute">Department of Systems Engineering<br>University of Texas at Dallas</p>
       <p class="date">2026-04-03</p>
   </section>
-<section id="underactuation" class="slide level2">
+<section id="underactuation" class="slide level2" data-visibility="uncounted">
 <h2>Underactuation</h2>
 <div class="r-stack">
 <div style="display: grid; grid-template-columns: 1fr 1fr; align-items: end; gap: 1em;">
@@ -490,7 +490,7 @@ p(\mathcal{D} \mid \theta) p(\theta) - \log q(\theta; z) \right]
 </div></div>
 </section></section>
 <section>
-<section id="why-bayesian-learning" class="title-slide slide level1 center">
+<section id="why-bayesian-learning" class="title-slide slide level1 center" data-visibility="uncounted">
 <h1>Why Bayesian Learning?</h1>
 <p>Why does Bayesian learning produce more robust controllers?</p>
 </section>
@@ -602,14 +602,16 @@ Gu_{es} = \nabla_q H - \nabla_q H_d
 <h2><span class="smallcaps">NeuralPbc</span> Problem Statement</h2>
 <!-- ###################################################################### -->
 <p>Consider the mechanical system</p>
+<div style="font-size: 0.82em; margin: -0.4em 0;">
 <p><span class="math display">\[
 \begin{bmatrix} \dot{q} \\ \dot{p} \end{bmatrix} =
 \begin{bmatrix} \phantom{-}0 &amp; 1 \\ -1 &amp; 0 \end{bmatrix}
 \begin{bmatrix} \nabla_q H_{\phantom{d}} \\ \nabla_p H_{\phantom{d}} \end{bmatrix} +
 \begin{bmatrix} 0 \\ G \end{bmatrix} u_\phantom{di}
 \]</span></p>
+</div>
 <p><strong>Control task</strong>: stabilize desired equilibrium <span class="math inline">\(x^\star = (q^\star, 0)\)</span></p>
-<div class="r-stack">
+<div class="r-stack" style="font-size: 0.82em; margin: -0.4em 0;">
 <div class="fragment fade-out" data-fragment-index="3">
 <p><span class="math display">\[u = u_{es} + u_{di} = G^{\dagger} \left( \nabla_q H  - \nabla_q H_d \right)  - K_D G^\top \nabla_p H_d \]</span></p>
 </div>
@@ -669,9 +671,168 @@ Gu_{es} = \nabla_q H - \nabla_q H_d
 <p><strong>Challenges</strong></p>
 <ul>
 <li>Injecting control task into loss function design</li>
-<li>Backprop through closed-loop trajectories</li>
+<li>Backpropagating through closed-loop trajectories</li>
 <li>Sampling the state space efficiently</li>
 </ul>
+</section>
+<section id="bayesian-solution" class="slide level2">
+<h2>Bayesian Solution</h2>
+<!-- ###################################################################### -->
+<ol class="fragment" data-fragment-index="0">
+Computing ELBO <span class="math display">\[ \mathcal{L}(\mathcal{D};z) = \mathbb{E}_{\theta \sim q}\left[ \log p(\mathcal{D} \mid \theta)p(\theta) - \log q(\theta; z)  \right] \]</span> requires: &nbsp;
+<li class="fragment" data-fragment-index="1">
+<em>Likelihood</em>: <span class="math display">\[ p\left( \text{loss} \mid \theta \right) = \mathcal{N}(0, s). \]</span>
+</li>
+<li class="fragment" data-fragment-index="2">
+<em>Prior</em>:
+<ul>
+<li>
+Uninformed
+</li>
+<li>
+Deterministic
+</li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="comparison-of-methods" class="slide level2 smaller">
+<h2>Comparison of Methods</h2>
+<!-- ###################################################################### -->
+<p>&nbsp;</p>
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Advantages <span class="emoji" data-emoji="heavy_check_mark">✔️</span> and Disadvantages <span class="emoji" data-emoji="x">❌</span></strong></p>
+</div>
+<div class="callout-content">
+<table class="caption-top">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 38%">
+<col style="width: 38%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Case</th>
+<th style="text-align: center;">Deterministic</th>
+<th style="text-align: center;">Bayesian</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Robustness</td>
+<td style="text-align: center;"><span class="emoji" data-emoji="x">❌</span></td>
+<td style="text-align: center;"><span class="emoji" data-emoji="heavy_check_mark">✔️</span></td>
+</tr>
+<tr class="even">
+<td>Computation cost</td>
+<td style="text-align: center;"><span class="emoji" data-emoji="heavy_check_mark">✔️</span></td>
+<td style="text-align: center;"><span class="emoji" data-emoji="x">❌</span></td>
+</tr>
+<tr class="odd">
+<td>Model selection</td>
+<td style="text-align: center;"><span class="emoji" data-emoji="x">❌</span></td>
+<td style="text-align: center;"><span class="emoji" data-emoji="heavy_check_mark">✔️</span></td>
+</tr>
+<tr class="even">
+<td>Prior knowledge</td>
+<td style="text-align: center;"><span class="emoji" data-emoji="heavy_check_mark">✔️</span></td>
+<td style="text-align: center;"><span class="emoji" data-emoji="heavy_check_mark">✔️</span><span class="emoji" data-emoji="heavy_check_mark">✔️</span></td>
+</tr>
+<tr class="odd">
+<td>Overfitting</td>
+<td style="text-align: center;"><span class="emoji" data-emoji="x">❌</span></td>
+<td style="text-align: center;"><span class="emoji" data-emoji="heavy_check_mark">✔️</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="energy-shaping-pendulum-swing-up" class="slide level2" data-auto-animate="true" data-auto-animate-easing="ease-in-out">
+<h2 data-id="quarto-animate-title">Energy-Shaping Pendulum Swing-Up</h2>
+<!-- ###################################################################### -->
+<div class="r-stack" data-layout-valign="center">
+<p><img data-src="contents/assets/neuralpbc/033.svg" class="fragment shrink" data-fragment-index="0"></p>
+<p><img data-src="contents/assets/H.svg" class="fragment" data-fragmend-index="1"></p>
+</div>
+</section>
+<section id="energy-shaping-pendulum-swing-up-1" class="slide level2" data-auto-animate="true" data-auto-animate-easing="ease-in-out">
+<h2 data-id="quarto-animate-title">Energy-Shaping Pendulum Swing-Up</h2>
+<!-- ###################################################################### -->
+<div class="r-hstack">
+<p><img data-src="contents/assets/neuralpbc/033.svg" class="fragment" style="width:80.0%" data-fragment-index="0"></p>
+<p><img data-src="contents/assets/H.svg" class="fragment" style="width:90.0%" data-fragment-index="0"></p>
+</div>
+<div class="fragment" data-fragment-index="1">
+<ul>
+<li class="fragment">Deterministic training vs.&nbsp;Bayesian training under parameter uncertainty and measurement noise.</li>
+<li class="fragment">Measurement noise: <span class="math inline">\(\epsilon_q = 5 \times 10^4\)</span> rad., <span class="math inline">\(\epsilon_{\dot{q}} = 5 \times 10^2\)</span> rad/s.</li>
+</ul>
+</div>
+</section>
+<section id="neuralpbc-experiments" class="slide level2">
+<h2><span class="smallcaps">NeuralPbc</span> Experiments</h2>
+<!-- ###################################################################### -->
+<p>Benchmark underactuated control problems:</p>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li class="fragment highlight-current-blue" data-fragment-index="0">
+Cart-pole
+</li>
+<li class="fragment highlight-current-blue" data-fragment-index="1">
+Inertia-Wheel Pendulum (IWP)
+</li>
+<li class="fragment highlight-current-blue" data-fragment-index="2">
+Acrobot
+</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<div class="r-stack">
+<p><img data-src="contents/assets/cartpole.svg" class="fragment fade-in-then-out" data-fragment-index="0"></p>
+<p><img data-src="contents/assets/iwp.svg" class="fragment fade-in-then-out" data-fragment-index="1"></p>
+<p><img data-src="contents/assets/acrobot.svg" class="fragment fade-in-then-out" data-fragment-index="2"></p>
+</div>
+</div></div>
+</section>
+<section id="section" class="slide level2" data-background-video="contents/assets/cartpole-firefox.mp4" data-background-size="contain" data-background-video-loop="true" data-background-video-muted="true">
+<h2></h2>
+<!-- ###################################################################### -->
+</section>
+<section id="learned-storage-function" class="slide level2">
+<h2>Learned storage function</h2>
+<!-- ###################################################################### -->
+
+<img data-src="contents/assets/cartpole-contours.png" class="r-stretch"><dl>
+<dt>Observations</dt>
+<dd>
+<span class="math inline">\(H_d^\theta\)</span> has a local minimum at <span class="math inline">\(x^\star\)</span>, control law <span class="math inline">\(u^\theta\)</span> commands the force in the expected direction
+</dd>
+</dl>
+</section>
+<section id="comparison-with-energy-shapingastrom" class="slide level2">
+<h2>Comparison with Energy Shaping<sup>1</sup></h2>
+<!-- ###################################################################### -->
+<p><img data-src="contents/assets/cartpole-cost-compare.svg"></p>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>K. J. Åström and K. Furuta, “Swinging up a pendulum by energy control,” Automatica, vol.&nbsp;36, no. 2, pp.&nbsp;287–295, 2000.</p></li></ol></aside></section>
+<section id="section-1" class="slide level2" data-background-video="contents/assets/cartpole-exp.mp4" data-background-size="contain" data-background-video-loop="true" data-background-video-muted="true">
+<h2></h2>
+<!-- ###################################################################### -->
+</section>
+<section id="section-2" class="slide level2" data-background-video="contents/assets/acrobot-firefox.mp4" data-background-size="contain" data-background-video-loop="true" data-background-video-muted="true">
+<h2></h2>
+<!-- ###################################################################### -->
+</section></section>
+<section>
+<section id="nonprehensile-manipulation" class="title-slide slide level1 center" data-visibility="uncounted">
+<h1>Nonprehensile Manipulation</h1>
+<p>How can we apply these ideas to robotic manipulation?</p>
+</section>
+<section id="section-3" class="slide level2" data-background-image="contents/assets/qa_background.png" data-visibility="uncounted">
+<h2></h2>
 </section></section>
 <section>
 <section id="neuralidapbc" class="title-slide slide level1 center" data-visibility="uncounted">
@@ -679,7 +840,7 @@ Gu_{es} = \nabla_q H - \nabla_q H_d
 <!-- ###################################################################### -->
 <p>Solving matching PDEs with neural networks</p>
 </section>
-<section id="motivation-1" class="slide level2" data-auto-animate="true">
+<section id="motivation-1" class="slide level2" data-auto-animate="true" data-visibility="uncounted">
 <h2 data-id="quarto-animate-title">Motivation</h2>
 <!-- ###################################################################### -->
 <p><span class="smallcaps">NeuralPbc</span> is flexible, but guaranteeing stability is hard</p>
@@ -689,12 +850,16 @@ Gu_{es} = \nabla_q H - \nabla_q H_d
 <p><span class="math display">\[ \begin{bmatrix} \dot{q} \\ \dot{p} \end{bmatrix} = \begin{bmatrix}0 &amp; I \\ -I &amp; 0\end{bmatrix} \begin{bmatrix} \nabla_q H \\ \nabla_p H  \end{bmatrix} + \begin{bmatrix} 0 \\ G \end{bmatrix} u \]</span> <!-- ::: --></p>
 <p>Closed-loop port-Hamiltonian dynamics:</p>
 <!-- ::: {.fragment .fade-in fragment-index=0} -->
+<div style="font-size: 0.82em;">
 <p><span class="math display">\[
 \begin{bmatrix} \dot{q} \\ \dot{p} \end{bmatrix}
 =
 \begin{bmatrix}0 &amp; M^{-1}M_d \\ -M_dM^{-1} &amp; J_2(q,p) - GK_vG^\top\end{bmatrix}
 \begin{bmatrix} \nabla_q H_d \\ \nabla_p H_d \end{bmatrix}
-\]</span> <!-- ::: --> <!-- :::: --></p>
+\]</span></p>
+</div>
+<!-- ::: -->
+<!-- :::: -->
 <p><span class="math display">\[H_d = \frac{1}{2} p^{\top} M_d(q)^{-1} p + V_d(q),\, M_d \succ 0\]</span></p>
 <aside class="notes">
 <ul>
@@ -713,10 +878,12 @@ Gu_{es} = \nabla_q H - \nabla_q H_d
           display:block!important;
       }</style></aside>
 </section>
-<section id="idapbc-background" class="slide level2" data-auto-animate="true">
+<section id="idapbc-background" class="slide level2" data-auto-animate="true" data-visibility="uncounted">
 <h2 data-id="quarto-animate-title"><span class="smallcaps">IdaPbc</span> Background</h2>
 <!-- ###################################################################### -->
+<div style="font-size: 0.82em;">
 <p><span class="math display">\[ \begin{bmatrix} \dot{q} \\ \dot{p} \end{bmatrix} = \begin{bmatrix}0 &amp; M^{-1}M_d \\ -M_dM^{-1} &amp; J_2(q,p) - GK_vG^\top\end{bmatrix} \begin{bmatrix} \nabla_q H_d \\ \nabla_p H_d \end{bmatrix} \]</span></p>
+</div>
 <p><span class="math display">\[H_d = \frac{1}{2} p^{\top} M_d(q)^{-1} p + V_d(q),\, M_d \succ 0\]</span></p>
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
@@ -754,7 +921,7 @@ u_{di} &amp;= -K_v G^\top \nabla_p H_d \phantom{\left\|\left(\nabla_p\right)^{\t
 </div>
 </div>
 </section>
-<section id="idapbc-via-optimization" class="slide level2" data-transition="slide-out">
+<section id="idapbc-via-optimization" class="slide level2" data-transition="slide-out" data-visibility="uncounted">
 <h2><span class="smallcaps">IdaPbc</span> via Optimization</h2>
 <!-- ###################################################################### -->
 <div class="quarto-layout-panel" data-layout="[-10, 100, -10]">
@@ -794,12 +961,12 @@ u_{di} &amp;= -K_v G^\top \nabla_p H_d \phantom{\left\|\left(\nabla_p\right)^{\t
 <em>Infinite-dimensional</em>—closed-form solution is difficult
 </center>
 </section>
-<section id="neuralidapbc-1" class="slide level2">
+<section id="neuralidapbc-1" class="slide level2" data-visibility="uncounted">
 <h2><span class="smallcaps">NeuralIdaPbc</span></h2>
 <!-- ###################################################################### -->
 
 <img data-src="contents/assets/nn-pbc-struct-frame-05.png" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="neuralidapbc-problem-statement" class="slide level2" data-transition="fade-in zoom-out">
+<section id="neuralidapbc-problem-statement" class="slide level2" data-transition="fade-in zoom-out" data-visibility="uncounted">
 <h2><span class="smallcaps">NeuralIdaPbc</span> Problem Statement</h2>
 <div class="quarto-layout-panel" data-layout="[-10, 100, -10]">
 <div class="quarto-layout-row">
@@ -851,7 +1018,7 @@ u_{di} &amp;= -K_v G^\top \nabla_p H_d \phantom{\left\|\left(\nabla_p\right)^{\t
 </div>
 </div>
 </section>
-<section id="neuralidapbc-constraints" class="slide level2">
+<section id="neuralidapbc-constraints" class="slide level2" data-visibility="uncounted">
 <h2><span class="smallcaps">NeuralIdaPbc</span> Constraints</h2>
 <!-- ###################################################################### -->
 <div class="fragment highlight-red" data-fragment-index="0">
@@ -890,6 +1057,7 @@ u_{di} &amp;= -K_v G^\top \nabla_p H_d \phantom{\left\|\left(\nabla_p\right)^{\t
 <p><span class="math display">\[q^\star = \underset{q}{\arg \min} \, V_{d}^{\theta} (q)\]</span></p>
 </div>
 <div class="fragment fade-up" data-fragment-index="0">
+<div style="font-size: 0.85em;">
 <div class="callout callout-none no-icon callout-titled callout-style-simple">
 <div class="callout-body">
 <div class="callout-title">
@@ -900,6 +1068,7 @@ u_{di} &amp;= -K_v G^\top \nabla_p H_d \phantom{\left\|\left(\nabla_p\right)^{\t
 <li><p>Decompose a square matrix into symmetric and skew-symmetric parts <span class="math display">\[J_2^\theta(q,p) = A_{\theta}(q,p) -  A_{\theta}^{\top}(q,p)\]</span></p></li>
 <li><p>Components of the square matrix <span class="math inline">\(A_\theta(q,p)\)</span> are output of a neural network</p></li>
 </ul>
+</div>
 </div>
 </div>
 </div>
@@ -930,9 +1099,212 @@ u_{di} &amp;= -K_v G^\top \nabla_p H_d \phantom{\left\|\left(\nabla_p\right)^{\t
 </div>
 </div>
 </div>
+</section>
+<section id="sos-decomposition" class="slide level2" data-visibility="uncounted">
+<h2><span class="smallcaps">SoS</span> Decomposition</h2>
+<!-- ###################################################################### -->
+<div class="callout callout-tip no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Theorem (Choi, 1995)</strong></p>
+</div>
+<div class="callout-content">
+<p>A polynomial <span class="math inline">\(P \in \mathbb{R}[x]\)</span> of degree <span class="math inline">\(2d\)</span> has a SoS decomposition <span class="math inline">\(\Leftrightarrow\)</span> <span class="math inline">\(\exists Q \succ 0\)</span> such that, with <span class="math inline">\(\mu(x) = \begin{bmatrix} 1 &amp; x_1 &amp; \cdots &amp; x_n &amp; x_1 x_2 &amp; \cdots &amp; x_n^d\end{bmatrix}\)</span>, we have <span class="math inline">\(P(x) = \mu(x)^\top Q \mu(x)\)</span></p>
+<!-- $$P(x) = \mu^\top(x) Q \mu(x)$$ -->
+</div>
+</div>
+</div>
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Example</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="math display">\[\begin{aligned} x_1^2 + 2x_1^2x_2 + 5x_1^2x_2^2 + 4x_1x_2^2 + x_2^2  &amp;= \mu(x)^{\top} \begin{pmatrix} 1 &amp; 1 &amp; 0 \\ 1 &amp; 5 &amp; 2 \\ 0 &amp; 2 &amp; 1 \end{pmatrix} \mu(x) \\ &amp;= \mu(x)^{\top} \begin{pmatrix} 1 &amp; 0 &amp; 0 \\ 1 &amp; 2 &amp; 0 \\ 0 &amp; 1 &amp; 0 \end{pmatrix} \begin{pmatrix}   1 &amp; 0 &amp; 0 \\ 1 &amp; 2 &amp; 0 \\ 0 &amp; 1 &amp; 0 \end{pmatrix}^{\top} \mu(x) \end{aligned} \]</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="section-4" class="slide level2" data-visibility="uncounted">
+<h2></h2>
+<!-- ###################################################################### -->
+<p><br></p>
+<div class="r-stack">
+<p><img data-src="contents/assets/nn-pbc-struct-frame-00.png" class="fragment fade-out" data-fragment-index="0"></p>
+<p><img data-src="contents/assets/nn-pbc-struct-frame-01.png" class="fragment fade-in-then-out" data-fragment-index="0"></p>
+<p><img data-src="contents/assets/nn-pbc-struct-frame-02.png" class="fragment fade-in-then-out" data-fragment-index="1"></p>
+<p><img data-src="contents/assets/nn-pbc-struct-frame-03.png" class="fragment fade-in-then-out" data-fragment-index="2"></p>
+<p><img data-src="contents/assets/nn-pbc-struct-frame-04.png" class="fragment fade-in-then-out" data-fragment-index="3"></p>
+<p><img data-src="contents/assets/nn-pbc-struct-frame-05.png" class="fragment fade-in-then-out" data-fragment-index="4"></p>
+</div>
+</section>
+<section id="neuralidapbc-experiments" class="slide level2" data-visibility="uncounted">
+<h2><span class="smallcaps">NeuralIdaPbc</span> Experiments</h2>
+<!-- ###################################################################### -->
+<p>Followed the experiments performed in <span class="smallcaps">IdaPbc</span> paper<sup>1</sup></p>
+<ul>
+<li>Inertia-wheel pendulum (IWP)</li>
+<li>Ball-beam system</li>
+</ul>
+<aside><ol class="aside-footnotes"><li id="fn2"><p>R. Ortega, M. W. Spong, F. Gómez-Estern, and G. Blankenstein, “Stabilization of a class of underactuated mechanical systems via interconnection and damping assignment,” IEEE transactions on automatic control, vol.&nbsp;47, no. 8, pp. 1218–1233, 2002.</p></li></ol></aside></section>
+<section id="section-5" class="slide level2" data-background-video="contents/assets/iwp-firefox.mp4" data-background-size="contain" data-background-video-loop="true" data-background-video-muted="true" data-visibility="uncounted">
+<h2></h2>
+<!-- ###################################################################### -->
+</section>
+<section id="simulated-iwp-experiments" class="slide level2" data-visibility="uncounted">
+<h2>Simulated IWP experiments</h2>
+<!-- ###################################################################### -->
+<div class="r-stack">
+<p><img data-src="contents/assets/idapbc-iwp-evolution.png" class="fragment fade-out" data-fragment-index="0"></p>
+<p><img data-src="contents/assets/idapbc-contours.png" class="fragment fade-in-then-out" data-fragment-index="0"></p>
+<!-- ![](contents/assets/compare_uru.png){.fragment .fade-in fragment-index=1} -->
+<div class="fragment fade-in" data-fragment-index="1">
+<center>
+Comparison of control effort expenditure
+</center>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="smallcaps">NeuralPbc</span></th>
+<th style="text-align: center;"><span class="smallcaps">NeuralIdaPbc</span></th>
+<th style="text-align: center;"><span class="smallcaps">IdaPbc</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><img data-src="contents/assets/compare_uRu_neuralpbc.svg"></td>
+<td style="text-align: center;"><img data-src="contents/assets/compare_uRu_neuralidapbc.svg" style="width:90.0%"></td>
+<td style="text-align: center;"><img data-src="contents/assets/compare_uRu_idapbc.svg" style="width:93.0%"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="deterministic-vs.-bayesian-training" class="slide level2 smaller" data-visibility="uncounted">
+<h2>Deterministic vs.&nbsp;Bayesian Training</h2>
+<!-- ###################################################################### -->
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="fragment">
+<p>Performance metric: <span class="math inline">\(\mathcal{J} = \int_0^T \left( \frac{1}{2}qx(t)^2 + \frac{1}{2}ru(t)^2  \right)dt\)</span>.</p>
+</div>
+<p>&nbsp;</p>
+<div class="fragment">
+<p>Simulated dynamics</p>
+<p><span class="math display">\[
+\begin{aligned}
+dx &amp;= \begin{bmatrix}
+\dot{q}_1 \\ \dot{q_2} \\ \frac{1}{I_1}\left(m g l \sin{q_1} - u^\theta -
+b_1\dot{q}_1\right) \\ \frac{1}{I_2}\left(u^\theta -b_2 \dot{q}_2 \right)
+\end{bmatrix} dt \\
+&amp;+ \nabla_xu^\theta(x) \sigma dW_t.
+\end{aligned}
+\]</span></p>
+</div>
+</div><div class="column" style="width:40%;">
+<p><img data-src="contents/assets/iwp.svg" style="width:50.0%"></p>
+<p><img data-src="contents/assets/bandplot.svg" style="width:90.0%"></p>
+</div></div>
+</section>
+<section id="section-6" class="slide level2" data-background-video="contents/assets/iwp-cut-firefox.mp4" data-background-size="contain" data-background-video-loop="true" data-background-video-muted="true" data-visibility="uncounted">
+<h2></h2>
+<!-- ###################################################################### -->
+</section>
+<section id="deterministic-vs.-bayesian-training-1" class="slide level2 smaller" data-visibility="uncounted">
+<h2>Deterministic vs.&nbsp;Bayesian Training</h2>
+<!-- ###################################################################### -->
+<div class="columns">
+<div class="column fragment" data-fragment-index="1" style="width:50%;">
+<div class="fragment" data-fragment-index="0">
+<ul>
+<li class="fragment">Subtracting rings from the wheel
+<ul>
+<li class="fragment">decreases wheel mass</li>
+<li class="fragment">decreases wheel and pendulum inertia</li>
+<li class="fragment">moves the center of mass</li>
+</ul></li>
+</ul>
+</div>
+<div class="callout callout-none no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Parameter vector <span class="math inline">\(\zeta\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(I_1\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(I_2\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(m g l\)</span></th>
+<th style="text-align: center;">Error</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Nominal</td>
+<td style="text-align: center;"><span class="math inline">\(0.0455\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0.00425\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1.795\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+</tr>
+<tr class="even">
+<td>3 rings</td>
+<td style="text-align: center;"><span class="math inline">\(0.0417\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0.00330\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1.577\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0.122\)</span></td>
+</tr>
+<tr class="odd">
+<td>2 rings</td>
+<td style="text-align: center;"><span class="math inline">\(0.0378\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0.00235\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1.358\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0.243\)</span></td>
+</tr>
+<tr class="even">
+<td>1 rings</td>
+<td style="text-align: center;"><span class="math inline">\(0.0340\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0.00141\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1.140\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0.365\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div><div class="column" data-layout-valign="center" style="width:50%;">
+<p><img data-src="contents/assets/four-rings.jpg" style="width:80.0%" data-layout-valign="center"></p>
+<p><img data-src="contents/assets/idapbc_bar.svg" style="width:90.0%"></p>
+</div></div>
+</section>
+<section id="ball-beam-experiments" class="slide level2" data-visibility="uncounted">
+<h2>Ball-beam experiments</h2>
+<!-- ###################################################################### -->
+<div class="r-stack">
+<p><img data-src="contents/assets/ball-beam.svg" class="fragment fade-out" data-fragment-index="0"></p>
+<div class="fragment fade-in" data-fragment-index="0">
+<div class="quarto-layout-panel" data-layout="[100,85]">
+<div class="quarto-layout-row quarto-layout-valign-center">
+<div class="quarto-layout-cell" style="flex-basis: 54.1%;justify-content: center;">
+<p><img data-src="contents/assets/ball_beam-Vd-contour.svg"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 46.0%;justify-content: center;">
+<p><img data-src="contents/assets/ball_beam-evolution.svg"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
 
 
 </section></section>
+
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

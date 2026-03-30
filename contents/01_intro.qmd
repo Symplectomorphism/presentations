@@ -1,4 +1,4 @@
-## Underactuation
+## Underactuation {visibility="uncounted"}
 
 :::: {.r-stack}
 
