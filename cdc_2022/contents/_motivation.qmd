@@ -1,0 +1,78 @@
+## Underactuated Robots
+
+::: {layout-ncol=2}
+![](contents/assets/manipulator.jpg){fig-align="center"}
+Torque-limited manipulators
+
+&nbsp;
+![](contents/assets/underactuation-illustration.png){fig-align="center"}
+&nbsp;
+Walking robots
+:::
+
+
+
+## Existing Methods {.smaller transition="fade"}
+<!-- ###################################################################### -->
+
+:::: {.fragment .semi-fade-out fragment-index=1}
+::: {layout="[100,-5,60]" layout-valign="center"}
+__Passivity-based Control__
+![](contents/assets/pbc-outline.svg)
+
+Strengths
+: 
+Stability guarantees \
+Closed-form policy
+
+Weaknesses
+: 
+Model uncertainties \
+Need to solve PDEs
+:::
+::::
+
+:::: {.fragment fragment-index=1}
+::: {layout="[100,-5,60]" layout-valign="center"}
+__Reinforcement learning__
+![](contents/assets/rl-outline.svg)
+
+Strengths
+: 
+More general \
+Unknown dynamics OK
+
+Weaknesses
+: 
+Sample complexity \
+Stability guarantees?
+:::
+::::
+
+
+<!-- ## {background-image="https://c.tenor.com/EstKpPVveyYAAAAC/both-agree.gif" background-size="50%" visibility="uncounted"} -->
+<!-- ###################################################################### -->
+
+
+## Data-Driven Passivity-Based Control {.smaller transition="fade"}
+<!-- ###################################################################### -->
+
+::: {layout="[100,-5,60]" layout-valign="center"}
+![](contents/assets/pbc-outline-cross.svg)
+
+&nbsp;
+
+:::
+
+
+:::: {.fragment fragment-index=1}
+::: {layout="[100,-5,60]" layout-valign="center"}
+![](contents/assets/pbc-ml-outline.svg)
+
+* Systematic approach
+* Prior domain knowledge
+* Stability is *intrinsic*
+* Model uncertainty considerations via Bayesian learning
+:::
+::::
+
