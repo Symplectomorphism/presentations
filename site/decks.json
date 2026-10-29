@@ -1,0 +1,111 @@
+[
+  {
+    "slug": "sports_tech",
+    "branch": "sports_tech",
+    "path": "docs",
+    "entry": "main.html",
+    "title": "Sports Technology at UT Dallas",
+    "venue": "UT Dallas",
+    "date": "2026-11-02"
+  },
+  {
+    "slug": "teros_2026",
+    "branch": "teros_2026",
+    "path": "docs",
+    "entry": "main.html",
+    "title": "Passivity-Based Bayesian Control of Robotic Systems",
+    "venue": "TEROS 2026",
+    "date": "2026-04-03"
+  },
+  {
+    "slug": "utd_2024",
+    "branch": "utd_2024",
+    "path": "docs",
+    "entry": "main.html",
+    "title": "Robust Sensing and Data-Driven Control",
+    "venue": "UT Dallas",
+    "date": "2024-12-12"
+  },
+  {
+    "slug": "sabanci",
+    "branch": "sabanci",
+    "path": "docs",
+    "entry": "main.html",
+    "title": "Data-Driven Passivity-Based Control",
+    "venue": "Sabancı University",
+    "date": "2024-10-30"
+  },
+  {
+    "slug": "utd",
+    "branch": "utd",
+    "path": "docs",
+    "entry": "main.html",
+    "title": "Data-Driven Passivity-Based Control",
+    "venue": "UT Dallas",
+    "date": "2023-10-01"
+  },
+  {
+    "slug": "cdc_2022",
+    "branch": "master",
+    "path": "cdc_2022/presentation_video/slides/presentations",
+    "entry": "main.html",
+    "include": [
+      "main.html",
+      "main_files",
+      "contents",
+      "reveal-plugins",
+      "styles.css"
+    ],
+    "title": "Robust Passivity-Based Control",
+    "venue": "CDC 2022",
+    "date": "2022-11-01"
+  },
+  {
+    "slug": "uk",
+    "branch": "uk",
+    "path": "",
+    "entry": "main.html",
+    "include": [
+      "main.html",
+      "main_files",
+      "contents",
+      "reveal-plugins",
+      "styles.css"
+    ],
+    "title": "Data-Driven Passivity-Based Control",
+    "venue": "University of Kentucky",
+    "date": "2022-06-06"
+  },
+  {
+    "slug": "acc2022",
+    "branch": "acc2022",
+    "path": "",
+    "entry": "acc2022.html",
+    "include": [
+      "acc2022.html",
+      "acc2022_files",
+      "images",
+      "videos",
+      "styles.css"
+    ],
+    "title": "Robust Controller Synthesis via Bayesian Learning",
+    "venue": "ACC 2022",
+    "date": "2022-05-15"
+  },
+  {
+    "slug": "career",
+    "branch": "career",
+    "path": "",
+    "entry": "career.html",
+    "include": [
+      "career.html",
+      "career_files",
+      "images",
+      "videos",
+      "styles.css"
+    ],
+    "title": "CAREER 2022",
+    "venue": "NSF CAREER",
+    "date": "2022-05-11"
+  }
+]
