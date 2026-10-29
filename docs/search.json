@@ -1,0 +1,44 @@
+[
+  {
+    "objectID": "main.html#sports-technology-at-ut-dallas",
+    "href": "main.html#sports-technology-at-ut-dallas",
+    "title": "Sports Technology at UT Dallas",
+    "section": "Sports technology at UT Dallas",
+    "text": "Sports technology at UT Dallas\nNot a single center: a cross-department network tied to teaching and startups.\n\n\nTeach\n\nMS in Systems Engineering and Management: Sports Technology Systems concentration (on campus and online)\nAnalytics, wearables, athlete performance, fan experience\n\n\n\nResearch\n\n8 faculty across 5 departments: Bioengineering, Computer Science, Electrical & Computer Eng., Materials Science, Mechanical Eng.\nMovement, AI coaching, wearables, sleep and recovery, materials\n\n\n\nTranslate\n\nUTDesign: every engineering and CS senior completes a company-sponsored capstone\nInstitute for Innovation and Entrepreneurship, Venture Development Center, faculty spinouts\n\n\n\n\n~45 s. Frame: sports tech at UTD is distributed rather than housed in one institute. The concentration answers their interest in teaching; the rest of the talk is the research and the translation pathways."
+  },
+  {
+    "objectID": "main.html#the-athlete-in-motion",
+    "href": "main.html#the-athlete-in-motion",
+    "title": "Sports Technology at UT Dallas",
+    "section": "The athlete in motion",
+    "text": "The athlete in motion\n\n\n\n\nGu Eon Kang ActiveBioengineering · Neuromuscular & Musculoskeletal Biomechanics Lab\nBaseball biomechanics with UT Dallas Baseball and DFW training centers. Return-to-sport jump/landing analysis after ACL reconstruction with Texas Health Resources Sports Medicine.\n\n\n\n\n\nLiang He ActiveComputer Science\nAgentCoach (CHI 2026): AI that turns tutorial videos into movement evaluation and adaptive coaching feedback, validated on sports and exercise videos.\n\n\n\n\n\nHao Zhou EmergingComputer Science · Human-Aware Intelligence Lab\nFull-body muscle activation from insole pressure sensors (MobiCom 2026); smart rings, earbuds, physiological sensing. Athlete monitoring is a natural next step.\n\n\n\n\n\nNasser Kehtarnavaz Earlier workElectrical & Computer Eng. · Embedded Machine Learning Lab\nUTD-MHAD (2015): camera + wearable inertial sensing that recognizes basketball shots, baseball swings, tennis strokes, squats.\n\n\n\nTags: Active: current sports/athlete project · Emerging: closely relevant new technology · Earlier work: documented past project\n\n~1 min. Kang is the most direct: real teams, real clinical partner. He = AI coaching. Zhou just arrived; his insole work is directly relevant even though no athlete partnership yet. Kehtarnavaz = the sensing/recognition methods base."
+  },
+  {
+    "objectID": "main.html#recovery-physiology-and-equipment",
+    "href": "main.html#recovery-physiology-and-equipment",
+    "title": "Sports Technology at UT Dallas",
+    "section": "Recovery, physiology, and equipment",
+    "text": "Recovery, physiology, and equipment\n\n\n\n\nMatthew Walker ActiveBioengineering & Neuroscience · Sleep Innovation Labs\nSleep measurement and intervention tools for health and professional-athlete performance, including a brain-stimulation headband used by NBA players.\n\n\n\n\n\nShalini Prasad ActiveDepartment Head, Bioengineering · Biomedical Microdevices & Nanotechnology Lab\nWearable sweat biosensors: continuous cortisol and melatonin (2026). Co-founder of EnLiSense. Advised a 2016 capstone hydration wearable for athletes.\n\n\n\n\n\nWalter Voit ActiveMaterials Science & Mechanical Eng. · Director, Center for Engineering Innovation\n3D-printed elastomers for running-shoe midsoles: lighter, more comfortable, more energy return. Commercialized through his spinout Adaptive3D.\n\n\n\n\n\nHongbing Lu Earlier workMechanical Engineering · Mechanics of Advanced Materials Lab\nExperimental mechanics and dynamic material behavior. Supported a 2014 capstone modeling sports-related mild traumatic brain injury.\n\n\n\n\n~1 min. Walker and Prasad: recovery and physiology, both with commercial ties. Voit: equipment, and the clearest commercialization story (next slide). Lu: impact/injury mechanics, an earlier lead."
+  },
+  {
+    "objectID": "main.html#from-lab-to-market",
+    "href": "main.html#from-lab-to-market",
+    "title": "Sports Technology at UT Dallas",
+    "section": "From lab to market",
+    "text": "From lab to market\n\n\nSpinout → acquisition\nAdaptive3D (Voit): tough 3D-printable rubbers for footwear to aerospace. Launched with UT Dallas’s Venture Development Center; acquired by Desktop Metal in 2021.\n\n\nFaculty-founded company\nEnLiSense (Prasad, co-founder): non-invasive sweat-biomarker wearables; its CORTI platform was validated in her UT Dallas lab.\n\n\nFounder-scientist\nWalker brings several neurotechnology startups; his sleep-stimulation headband is already in professional sport.\n\n\nStudents as innovators\nUTDesign capstones are proposed and mentored by companies. Example: a student team’s athlete hydration wearable (2016).\n\n\n\n~1 min. This is the slide for an innovation & entrepreneurship audience: four distinct pathways from research to product."
+  },
+  {
+    "objectID": "main.html#beyond-the-core-potential-collaborators",
+    "href": "main.html#beyond-the-core-potential-collaborators",
+    "title": "Sports Technology at UT Dallas",
+    "section": "Beyond the core: potential collaborators",
+    "text": "Beyond the core: potential collaborators\nTransferable expertise: sports applications are possible, not yet established.\n\n\n\nArea\nFaculty\nPossible contribution\n\n\n\n\nWearable hardware\nIfana Mahbub, Hoi Lee, Lakshman Tamil, Dinesh Bhatia (ECE)\nLow-power sensors, wearable ECG, instrumented footwear\n\n\nSignals and AI\nMehrdad Nourani (ECE); Yi Ding, Nicholas Ruozzi (CS)\nPhysiological signals, on-device activity recognition, explainable video analysis\n\n\nImmersive training\nJin Ryong Kim, Xiaohu Guo (CS)\nHaptics, VR/AR, body and equipment simulation\n\n\nSmart textiles and materials\nMajid Minary, Dong Qian, Nandika D’Souza (ME)\nSensing garments, responsive apparel, cushioning and protective foams\n\n\nMovement and rehabilitation\nWooram Park, Yonas Tadesse (ME); Seth Hays, Eric Meyers (BE)\nMovement modeling, exoskeletons, rehabilitation neurotechnology\n\n\n\n\n~30 s. Don’t dwell: the point is that the bench is deep if the delegation wants partners in a specific area."
+  },
+  {
+    "objectID": "main.html#faculty-contacts",
+    "href": "main.html#faculty-contacts",
+    "title": "Sports Technology at UT Dallas",
+    "section": "Faculty contacts",
+    "text": "Faculty contacts\n\n\n\nFaculty\nDepartment\nTheme\nEmail\n\n\n\n\nGu Eon Kang\nBioengineering\nAthlete biomechanics\ngueon.kang2@utdallas.edu\n\n\nMatthew Walker\nBioengineering & Neuroscience\nSleep, recovery, neurotech\nmatthew.walker@utdallas.edu\n\n\nLiang He\nComputer Science\nAI coaching\nliang.he@utdallas.edu\n\n\nWalter Voit\nMaterials Science & Mechanical Eng.\nFootwear materials, commercialization\nwalter.voit@utdallas.edu\n\n\nShalini Prasad\nBioengineering\nSweat biosensors\nshalini.prasad@utdallas.edu\n\n\nNasser Kehtarnavaz\nElectrical & Computer Eng.\nMotion recognition\nkehtar@utdallas.edu\n\n\nHao Zhou\nComputer Science\nWearable muscle sensing\nhao.zhou@utdallas.edu\n\n\nHongbing Lu\nMechanical Engineering\nImpact and injury mechanics\nhongbing.lu@utdallas.edu"
+  }
+]

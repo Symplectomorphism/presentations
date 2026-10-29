@@ -1,0 +1,13 @@
+## Faculty contacts {.appendix}
+
+| Faculty | Department | Theme | Email |
+|---|---|---|---|
+| [Gu Eon Kang](https://be.utdallas.edu/people/faculty/gu-eon-kang/) | Bioengineering | Athlete biomechanics | gueon.kang2@utdallas.edu |
+| [Matthew Walker](https://profiles.utdallas.edu/matthew.walker) | Bioengineering & Neuroscience | Sleep, recovery, neurotech | matthew.walker@utdallas.edu |
+| [Liang He](https://profiles.utdallas.edu/liang.he) | Computer Science | AI coaching | liang.he@utdallas.edu |
+| [Walter Voit](https://profiles.utdallas.edu/walter.voit) | Materials Science & Mechanical Eng. | Footwear materials, commercialization | walter.voit@utdallas.edu |
+| [Shalini Prasad](https://be.utdallas.edu/people/faculty/shalini-prasad/) | Bioengineering | Sweat biosensors | shalini.prasad@utdallas.edu |
+| [Nasser Kehtarnavaz](https://personal.utdallas.edu/~kehtar/) | Electrical & Computer Eng. | Motion recognition | kehtar@utdallas.edu |
+| [Hao Zhou](https://hzhou3.github.io/) | Computer Science | Wearable muscle sensing | hao.zhou@utdallas.edu |
+| [Hongbing Lu](https://profiles.utdallas.edu/hongbing.lu) | Mechanical Engineering | Impact and injury mechanics | hongbing.lu@utdallas.edu |
+: {.contacts}

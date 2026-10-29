@@ -1,0 +1,28 @@
+---
+title: "Sports Technology at UT Dallas"
+subtitle: "Research, innovation, and entrepreneurship in the Jonsson School"
+author: "Aykut C. Satici"
+role: "Associate Professor of Systems Engineering · Associate Head of Graduate Studies"
+institute: "Erik Jonsson School of Engineering and Computer Science, The University of Texas at Dallas"
+date: "2026-11-02"
+date-format: "MMMM D, YYYY"
+template-partials:
+  - title-slide.html
+format:
+  revealjs:
+    theme: [default, utd.scss]
+    transition: fade
+    footer: "Sports Technology at UT Dallas"
+---
+
+{{< include contents/01_landscape.qmd >}}
+
+{{< include contents/02_motion.qmd >}}
+
+{{< include contents/03_body_gear.qmd >}}
+
+{{< include contents/04_lab_to_market.qmd >}}
+
+{{< include contents/05_collaborators.qmd >}}
+
+{{< include contents/06_appendix.qmd >}}

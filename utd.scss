@@ -1,0 +1,156 @@
+/*-- scss:defaults --*/
+
+$utd-orange: #e87500;
+$utd-green: #154734;
+$ink: #1f2a24;
+$muted: #5f6b64;
+$paper: #ffffff;
+$tint: #f4f6f3;
+
+$body-bg: $paper;
+$body-color: $ink;
+$link-color: $utd-orange;
+$presentation-heading-color: $utd-green;
+$presentation-heading-font-weight: 700;
+$presentation-font-size-root: 34px;
+$presentation-h2-font-size: 1.45em;
+$font-family-sans-serif: "Source Sans Pro", Helvetica, Arial, sans-serif;
+$presentation-heading-font: $font-family-sans-serif;
+
+/*-- scss:rules --*/
+
+.reveal h2 {
+  padding-bottom: 0.2em;
+  margin-bottom: 0.6em;
+  border-bottom: 4px solid $utd-orange;
+  display: inline-block;
+}
+
+.reveal .slide-number,
+.reveal .footer { color: $muted; }
+
+// Title slide
+#title-slide {
+  text-align: left;
+  .title-band {
+    display: flex;
+    align-items: center;
+    gap: 0.8em;
+    margin-bottom: 0.6em;
+  }
+  .title-band img { height: 110px; margin: 0; }
+  .title {
+    font-size: 1.6em;
+    color: $utd-green;
+    line-height: 1.1;
+    margin: 0;
+  }
+  .subtitle {
+    font-size: 0.95em;
+    color: $utd-orange;
+    font-weight: 600;
+    margin: 0.3em 0 1.2em;
+  }
+  .author { font-size: 0.9em; font-weight: 700; margin: 0; }
+  .role, .institute { font-size: 0.7em; color: $muted; margin: 0.15em 0; }
+  .date {
+    margin-top: 1.4em;
+    padding-left: 0.6em;
+    border-left: 5px solid $utd-orange;
+    font-size: 0.75em;
+    font-weight: 600;
+  }
+}
+
+// Faculty / item cards
+.cards {
+  display: grid;
+  gap: 0.55em;
+  grid-template-columns: repeat(2, 1fr);
+  font-size: 0.62em;
+  line-height: 1.35;
+}
+.cards.one-col { grid-template-columns: 1fr; }
+.cards.roomy { font-size: 0.72em; gap: 0.7em; margin-top: 1em; .card { padding: 0.8em 1em; } }
+.card {
+  background: $tint;
+  border-top: 5px solid $utd-green;
+  border-radius: 6px;
+  padding: 0.6em 0.8em;
+  p { margin: 0.25em 0 0; }
+}
+.card .name { font-weight: 700; color: $utd-green; font-size: 1.15em; }
+.card .name a { color: inherit; font-weight: inherit; }
+.card .name a:hover { text-decoration: underline; }
+.card .dept a { color: $muted; text-decoration: underline; text-decoration-color: rgba($utd-orange, 0.6); }
+
+// Faculty card with headshot
+.card.person {
+  display: flex;
+  gap: 0.8em;
+  align-items: flex-start;
+  > p:first-child { flex: none; margin: 0; }
+  .bio { min-width: 0; }
+}
+.reveal .card img.headshot {
+  width: 3.6em;
+  height: 3.6em;
+  margin: 0.15em 0 0;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 2px $utd-green;
+}
+.card .dept { color: $muted; font-size: 0.85em; }
+
+// Evidence-strength tags
+.tag {
+  display: inline-block;
+  font-size: 0.72em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.1em 0.5em;
+  border-radius: 3px;
+  margin-left: 0.4em;
+  vertical-align: 0.15em;
+  color: #fff;
+  background: $utd-green;
+}
+.tag.emerging { background: $utd-orange; }
+.tag.earlier { background: $muted; }
+
+.lede { font-size: 0.75em; line-height: 1.3; color: $muted; margin-bottom: 0.8em; }
+.note { font-size: 0.5em; color: $muted; }
+
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6em;
+  font-size: 0.62em;
+  line-height: 1.35;
+  .card { border-top-color: $utd-orange; }
+  .pillar-head { display: block; font-size: 1.25em; font-weight: 700; margin-bottom: 0.3em; color: $utd-green; }
+  ul { margin: 0; padding-left: 1.1em; }
+}
+
+.reveal blockquote {
+  width: auto;
+  font-size: 0.68em;
+  font-style: italic;
+  background: $tint;
+  border-left: 5px solid $utd-orange;
+  box-shadow: none;
+  padding: 0.5em 0.9em;
+  margin: 0.8em 0 0;
+}
+
+.collab {
+  font-size: 0.6em;
+  width: 100%;
+  th { color: $utd-green; }
+  td:first-child { font-weight: 700; white-space: nowrap; }
+}
+.reveal table.collab td, .reveal table.collab th { padding: 0.35em 0.6em; }
+
+.contacts { font-size: 0.55em; }

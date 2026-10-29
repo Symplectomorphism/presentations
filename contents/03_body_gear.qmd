@@ -1,0 +1,47 @@
+## Recovery, physiology, and equipment
+
+::: {.cards}
+::: {.card .person}
+![](contents/assets/faculty/walker.jpg){.headshot}
+
+::: {.bio}
+[[Matthew Walker](https://profiles.utdallas.edu/matthew.walker)]{.name} [Active]{.tag}<br>[Bioengineering & Neuroscience · [Sleep Innovation Labs](https://centerforbrainhealth.org/science/sleep-innovation-labs)]{.dept}
+
+Sleep measurement and intervention tools for health **and professional-athlete performance**, including a brain-stimulation headband **used by NBA players**.
+:::
+:::
+
+::: {.card .person}
+![](contents/assets/faculty/prasad.jpg){.headshot}
+
+::: {.bio}
+[[Shalini Prasad](https://be.utdallas.edu/people/faculty/shalini-prasad/)]{.name} [Active]{.tag}<br>[Department Head, Bioengineering · [Biomedical Microdevices & Nanotechnology Lab](https://labs.utdallas.edu/bmnl/)]{.dept}
+
+Wearable **sweat biosensors**: continuous cortisol and melatonin (2026). Co-founder of [EnLiSense](https://www.enlisense.com/). Advised a 2016 capstone **hydration wearable for athletes**.
+:::
+:::
+
+::: {.card .person}
+![](contents/assets/faculty/voit.jpg){.headshot}
+
+::: {.bio}
+[[Walter Voit](https://profiles.utdallas.edu/walter.voit)]{.name} [Active]{.tag}<br>[Materials Science & Mechanical Eng. · Director, [Center for Engineering Innovation](https://cei.utdallas.edu/)]{.dept}
+
+3D-printed elastomers for **running-shoe midsoles**: lighter, more comfortable, more energy return. Commercialized through his spinout **Adaptive3D**.
+:::
+:::
+
+::: {.card .person}
+![](contents/assets/faculty/lu.jpg){.headshot}
+
+::: {.bio}
+[[Hongbing Lu](https://profiles.utdallas.edu/hongbing.lu)]{.name} [Earlier work]{.tag .earlier}<br>[Mechanical Engineering · [Mechanics of Advanced Materials Lab](https://labs.utdallas.edu/maml/)]{.dept}
+
+Experimental mechanics and dynamic material behavior. Supported a 2014 capstone **modeling sports-related mild traumatic brain injury**.
+:::
+:::
+:::
+
+::: {.notes}
+~1 min. Walker and Prasad: recovery and physiology, both with commercial ties. Voit: equipment, and the clearest commercialization story (next slide). Lu: impact/injury mechanics, an earlier lead.
+:::

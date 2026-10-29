@@ -1,0 +1,27 @@
+project:
+  title: "Sports Technology at UT Dallas"
+  type: website
+  output-dir: docs
+  render:
+    - main.qmd
+  resources:
+    - contents/assets/**
+  preview:
+    port: 7777
+
+website:
+  site-url: "https://symplectomorphism.github.io/presentations"
+
+from: markdown+emoji
+
+format:
+  revealjs:
+    slide-number: true
+    html-math-method: mathjax
+    controls: true
+    preview-links: false
+    link-external-newwindow: true
+    include-after-body: zoom-key.html
+
+revealjs-plugins:
+  - pointer

@@ -1,0 +1,16 @@
+## Beyond the core: potential collaborators
+
+[Transferable expertise: sports applications are possible, not yet established.]{.lede}
+
+| Area | Faculty | Possible contribution |
+|---|---|---|
+| Wearable hardware | [Ifana Mahbub](https://profiles.utdallas.edu/ifana.mahbub), [Hoi Lee](https://profiles.utdallas.edu/hoilee), [Lakshman Tamil](https://profiles.utdallas.edu/lakshman.tamil), [Dinesh Bhatia](https://profiles.utdallas.edu/dinesh.bhatia) (ECE) | Low-power sensors, wearable ECG, instrumented footwear |
+| Signals and AI | [Mehrdad Nourani](https://profiles.utdallas.edu/mehrdad.nourani) (ECE); [Yi Ding](https://profiles.utdallas.edu/yi.ding), [Nicholas Ruozzi](https://profiles.utdallas.edu/nicholas.ruozzi) (CS) | Physiological signals, on-device activity recognition, explainable video analysis |
+| Immersive training | [Jin Ryong Kim](https://profiles.utdallas.edu/jin.kim), [Xiaohu Guo](https://profiles.utdallas.edu/xguo) (CS) | Haptics, VR/AR, body and equipment simulation |
+| Smart textiles and materials | [Majid Minary](https://profiles.utdallas.edu/majid.minary), [Dong Qian](https://profiles.utdallas.edu/dong.qian), [Nandika D'Souza](https://me.utdallas.edu/people/faculty/dr-nandika-dsouza/) (ME) | Sensing garments, responsive apparel, cushioning and protective foams |
+| Movement and rehabilitation | [Wooram Park](https://profiles.utdallas.edu/wooram.park), [Yonas Tadesse](https://profiles.utdallas.edu/yonas.tadesse) (ME); [Seth Hays](https://be.utdallas.edu/people/faculty/seth-hays/), [Eric Meyers](https://be.utdallas.edu/people/faculty/eric-meyers/) (BE) | Movement modeling, exoskeletons, rehabilitation neurotechnology |
+: {.collab}
+
+::: {.notes}
+~30 s. Don't dwell: the point is that the bench is deep if the delegation wants partners in a specific area.
+:::

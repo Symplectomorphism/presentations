@@ -1,0 +1,30 @@
+## Sports technology at UT Dallas
+
+[Not a single center: a cross-department network tied to teaching and startups.]{.lede}
+
+::: {.pillars}
+::: {.card}
+[Teach]{.pillar-head}
+
+- **MS in Systems Engineering and Management:** [*Sports Technology Systems* concentration](https://sem.utdallas.edu/program-and-tuition/sports-technology/) (on campus and online)
+- Analytics, wearables, athlete performance, fan experience
+:::
+
+::: {.card}
+[Research]{.pillar-head}
+
+- **8 faculty** across **5 departments**: Bioengineering, Computer Science, Electrical & Computer Eng., Materials Science, Mechanical Eng.
+- Movement, AI coaching, wearables, sleep and recovery, materials
+:::
+
+::: {.card}
+[Translate]{.pillar-head}
+
+- [**UTDesign**](https://utdesign.utdallas.edu/): every engineering and CS senior completes a company-sponsored capstone
+- [**Institute for Innovation and Entrepreneurship**](https://innovation.utdallas.edu/), Venture Development Center, faculty spinouts
+:::
+:::
+
+::: {.notes}
+~45 s. Frame: sports tech at UTD is distributed rather than housed in one institute. The concentration answers their interest in teaching; the rest of the talk is the research and the translation pathways.
+:::

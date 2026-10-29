@@ -1,0 +1,49 @@
+## The athlete in motion
+
+::: {.cards}
+::: {.card .person}
+![](contents/assets/faculty/kang.jpg){.headshot}
+
+::: {.bio}
+[[Gu Eon Kang](https://be.utdallas.edu/people/faculty/gu-eon-kang/)]{.name} [Active]{.tag}<br>[Bioengineering · [Neuromuscular & Musculoskeletal Biomechanics Lab](https://labs.utdallas.edu/nmbl/)]{.dept}
+
+Baseball biomechanics with **UT Dallas Baseball** and DFW training centers. Return-to-sport jump/landing analysis after ACL reconstruction with **Texas Health Resources Sports Medicine**.
+:::
+:::
+
+::: {.card .person}
+![](contents/assets/faculty/he.jpg){.headshot}
+
+::: {.bio}
+[[Liang He](https://profiles.utdallas.edu/liang.he)]{.name} [Active]{.tag}<br>[Computer Science]{.dept}
+
+[**AgentCoach**](https://engineering.purdue.edu/cdesign/wp/agentcoach/) (CHI 2026): AI that turns tutorial videos into movement evaluation and adaptive coaching feedback, validated on sports and exercise videos.
+:::
+:::
+
+::: {.card .person}
+![](contents/assets/faculty/zhou.jpg){.headshot}
+
+::: {.bio}
+[[Hao Zhou](https://hzhou3.github.io/)]{.name} [Emerging]{.tag .emerging}<br>[Computer Science · [Human-Aware Intelligence Lab](https://hzhou3.github.io/hai/)]{.dept}
+
+Full-body **muscle activation from insole pressure sensors** (MobiCom 2026); smart rings, earbuds, physiological sensing. Athlete monitoring is a natural next step.
+:::
+:::
+
+::: {.card .person}
+![](contents/assets/faculty/kehtarnavaz.jpg){.headshot}
+
+::: {.bio}
+[[Nasser Kehtarnavaz](https://personal.utdallas.edu/~kehtar/)]{.name} [Earlier work]{.tag .earlier}<br>[Electrical & Computer Eng. · [Embedded Machine Learning Lab](https://ece.utdallas.edu/research/facilities/signal-and-image-processing-sip-laboratory/)]{.dept}
+
+[**UTD-MHAD**](https://personal.utdallas.edu/~kehtar/UTD-MHAD.html) (2015): camera + wearable inertial sensing that recognizes basketball shots, baseball swings, tennis strokes, squats.
+:::
+:::
+:::
+
+[Tags: **Active**: current sports/athlete project · **Emerging**: closely relevant new technology · **Earlier work**: documented past project]{.note}
+
+::: {.notes}
+~1 min. Kang is the most direct: real teams, real clinical partner. He = AI coaching. Zhou just arrived; his insole work is directly relevant even though no athlete partnership yet. Kehtarnavaz = the sensing/recognition methods base.
+:::

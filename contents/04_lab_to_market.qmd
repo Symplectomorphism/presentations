@@ -1,0 +1,31 @@
+## From lab to market
+
+::: {.cards .roomy}
+::: {.card}
+[Spinout → acquisition]{.name}
+
+**Adaptive3D** (Voit): tough 3D-printable rubbers for footwear to aerospace. Launched with UT Dallas's Venture Development Center; [acquired by Desktop Metal in 2021](https://news.utdallas.edu/faculty-staff/adaptive3d-sale-2021/).
+:::
+
+::: {.card}
+[Faculty-founded company]{.name}
+
+[**EnLiSense**](https://www.enlisense.com/) (Prasad, co-founder): non-invasive sweat-biomarker wearables; its CORTI platform was validated in her UT Dallas lab.
+:::
+
+::: {.card}
+[Founder-scientist]{.name}
+
+**Walker** brings several neurotechnology startups; his sleep-stimulation headband is already in professional sport.
+:::
+
+::: {.card}
+[Students as innovators]{.name}
+
+[**UTDesign**](https://utdesign.utdallas.edu/) capstones are proposed and mentored by companies. Example: a student team's athlete hydration wearable (2016).
+:::
+:::
+
+::: {.notes}
+~1 min. This is the slide for an innovation & entrepreneurship audience: four distinct pathways from research to product.
+:::
