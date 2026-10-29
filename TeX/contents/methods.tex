@@ -1,0 +1,535 @@
+\section{Methods} \label{sec:methods}
+
+
+The goal of this paper is to systematically design robust controllers for
+underactuated systems by combining the universal approximation capability of
+neural networks with the intrinsic stabilization properties of PBC.
+%
+% We propose two learning-based control design frameworks: 1) parameterize the
+% controller by the gradient of a neural network and optimize the control
+% objective based directly on the evolution of the closed-loop system; and 2)
+% solve the matching PDEs~\eqref{eq:pde_main} of IDA-PBC by formulating a neural
+% network optimization problem while ensuring the relevant constraints remain
+% satisfied. 
+%
+% We propose two learning-based PBC design frameworks. 
+%
+In this approach, which we refer to as \textsc{NeuralPbc}, we employ a neural
+network $H_d^\theta$ as a surrogate for $H_d$, and the control function is
+parametrized by its gradient $\nabla_x H_d^\theta$.
+%
+The control objective is achieved by optimizing the evolution of the closed-loop
+trajectories of~\eqref{eq:hamiltonian_dynamics}.
+%
+% The second approach (\textsc{NeuralIdaPbc}) leverages IDA-PBC and restricts
+% $H_d$ to the form given by~\eqref{eq:desired_hamiltonian}. 
+% %
+% Here we obtain the controller by numerically solving the
+% PDEs~\eqref{eq:pde_main} over a discretization of the state space, with the
+% solutions $M_d, V_d, J_2$ approximated by the surrogates $M_d^\theta,
+% V_d^\theta, J_2^\theta$.
+%
+
+
+For the \textsc{NeuralPbc} learning problem, we devise two approaches to find a
+suitable solution. 
+%
+The first approach obtains a point estimate of the neural net parameters via
+stochastic gradient descent (SGD). We shall refer to these point estimates as
+the \textit{deterministic} parameters for the remainder of this document.
+%
+The second approach obtains a probability distribution for the parameters via
+Bayesian inference.
+%
+The latter addresses concerns about model uncertainties and measurement noise.
+
+{
+    \color{magenta}
+    \begin{rem}
+        We provide a thorough comparison of the deterministic and Bayesian
+        solutions to the optimal control of a one-dimensional linear dynamical
+        system that is subject to parameter and measurement uncertainties
+        in~\cite{ashenafi_robust_control_design}. 
+        %
+        The simplicity of the underlying system facilitates the computation of
+        exact solutions, revealing the fact that the Bayesian solution improves
+        the robustness of the closed-loop system against both types of
+        uncertainties.
+        %
+        This comparison serves as a theoretical justification for the
+        improved robustness properties of controllers obtained via Bayesian learning
+        techniques.
+
+        % We provide a thorough comparison of the deterministic and Bayesian
+        % solutions to the optimal control of a one-dimensional linear dynamical
+        % system that is subject to parameter and measurement uncertainty in [23].
+
+        % We provide a thorough comparison of the
+        % deterministic and Bayesian solutions to the optimal control of a
+        % one-dimensional linear dynamical system that is subject to parameter and
+        % measurement uncertainty. The simplicity of the underlying system
+        % facilitates the computation of exact solutions, revealing the fact that
+        % the Bayesian solution improves the robustness of the closed-loop system
+        % against parameter and measurement uncertainties.
+    \end{rem}
+}
+
+% The proposed methods thus far sum up to several possible combinations of
+% techniques for finding controllers.
+% %
+% While any combination can lead to a satisfactory controller, we have found that
+% certain combinations complement each other better than others.
+% %
+% Section~\ref{ssec:comparisons_of_methods} highlights each method's strengths and
+% provides some guidelines for choosing the most appropriate combination for
+% different use cases.
+%
+% The advantages of choosing one of these approaches over the other is
+% summarized in Table~\ref{sec:comparison_of_methods}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{\textsc{NeuralPbc} Problem Statement}
+\label{ssec:ml-pbc}
+In this framework, rather than limiting $H_d$ to be of a certain form, we
+leverage the expressive power of neural networks and formulate an optimization
+problem to automatically come up with a suitable function. 
+%
+We aim to find an energy-like function $H_d$ such that the closed-loop
+trajectories converge to the vicinity of the desired equilibrium $x^\star$, at
+which point a linear controller, in particular LQR, is employed for
+stabilization.
+%
+% This control objective is encoded in a cost function to be minimized.
+
+Let $H_d^\theta: \mathcal{X} \to \mathbb{R}$ be a neural network, and
+$K_v^\theta \in \mathbb{R}^{m \times m}$ be a positive-definite matrix. 
+%
+Let
+$\phi = \phi \left(t; x_0, u \right)$ denote the flow of the equations of
+motion~\eqref{eq:hamiltonian_dynamics} with the initial condition $x_0 \in
+\mathcal{X}$. 
+%
+With the decision variables $\theta$ comprising the parameters of $H_d^\theta$
+and the entries of $K_v^\theta$, we formulate the minimization problem:
+%
+\begin{equation}
+    \begin{aligned}
+        \underset{\theta}{\textrm{minimize}} 
+        & & &\int_{0}^{T} \ell \left(\phi,u^{\theta}(\phi) \right) \, \dd t , \\%
+        \textrm{subject to}
+        & & \dot{x} &= \bmat{\phantom{-}\nabla_p H \\ -\nabla_q H} + \bmat{0 \\ G(q)}u^{\theta}, \\%
+        & & u^{\theta} &= -G^{\dagger} \nabla_q H_d^{\theta} - K_v^{\theta} G^\top \nabla_p H_d^{\theta},%
+        % & \quad x(0) &= x_0 \in \mathcal{X}, \\%
+    \end{aligned}
+    \label{eq:neural_pbc_finite_optim}
+\end{equation}
+%
+where $T>0$ is the time horizon, and $\ell: \mathcal{X} \times \mathcal{U}
+\rightarrow \mathbb{R}$ is a running cost function to be defined. 
+%
+% The isolated minimum constraints on $H_d^\theta$ are relaxed by encoding into
+% the loss function $\ell$ the task of bringing the states close to the desired
+% equilibrium $x^\star$. 
+%
+Henceforth, we shall refer to each trajectory $\gamma : t \to \phi(t; x_0,
+u^\theta)$ as a prediction from the initial state $x_0$ with the current
+control law.
+
+
+The running cost function $\ell$ that yields the objective function
+of~\eqref{eq:neural_pbc_finite_optim} consists of the set distance,
+$\ell_{\textrm{set}}$, between the current prediction $\gamma$ and the goal set
+$\mathcal{S}$ containing a neighborhood of $x^\star$; and the terminal loss,
+$\ell_T$, between the final state of the trajectory and $x^\star$. The running
+cost is the sum of these components:
+
+%
+\begin{equation}
+    \ell := \ell_{\textrm{set}}(\gamma) + \ell_T\left(\gamma\right),
+    \label{eq:deterministic_loss} 
+\end{equation}
+%
+where each term depends on the decision variables through the
+dependence of the system trajectory on $\theta$.
+
+
+%
+% Each component of $\ell$ is defined as follows.
+% \begin{enumerate}[topsep=-\parskip+3pt, itemsep=3pt, leftmargin=0pt, itemindent=2.4\listparindent, labelsep=2pt]
+%     \item 
+    The set distance $\ell_{\textrm{set}}$ is constructed by defining a convex open
+    neighborhood $\mathcal{S}$ containing $x^\star$ and computing the set distance of
+    $\gamma$ to $\mathcal{S}$:
+    %
+    % \begin{align}
+    %     \ell_{\textrm{set}}(x) & = \textrm{dist}(\gamma, \mathcal{S})\\ 
+    %     & = \underset{t}{\inf} \, {\{ \norm{x - y}{}: x \in \gamma(t),\, y \in \mathcal{S} \}}.  
+    %     \label{eq:set_distance}
+    % \end{align}
+    \begin{equation}
+        \ell_{\textrm{set}}(\gamma)
+        = \underset{t}{\inf} \, {\{ \norm{a - b}{}: a \in \gamma(t),\, b \in \mathcal{S} \}}.  
+        \label{eq:set_distance}
+    \end{equation}
+    % 
+    For instance, the set $\mathcal{S}$ may be chosen as a ball around of radius
+    $r$ around $x^\star$ in the standard norm topology. 
+    %
+    Here, $r$ becomes a hyperparameter of the training algorithm. With a
+    particular choice of $\mathcal{S}$, if at any point along the prediction
+    $\gamma$, a state $x$ is closer than $r$ to $x^\star$, no penalty is
+    incurred by $\ell_{\textrm{set}}$. 
+    %
+    Moreover, we introduce a terminal loss of the form $\ell_T= \vectornorm{x(T)
+    - x^\star}$. 
+    %
+    While set distance loss encourages trajectories to approach the neighborhood
+    of $x^\star$ at any point along the prediction, the terminal loss encourages
+    trajectories to remain as close to the desired state as possible at
+    time $T$.
+    %
+%     \item \textit{The transversal distance} $\ell_{\bot}$ to a preferred orbit $\gamma^\star$
+%     is defined in terms of the transverse
+%     coordinates~\cite{manchester2011transverse}, denoted by $x_\bot$, along
+%     $\gamma^\star$. 
+%     %
+%     The preferred orbit may be generated using any motion planning algorithm
+%     that runs fast enough, such as RRT~\cite{karaman2011anytime},
+%     $\textrm{A}^\star$~\cite{choset2005principles}, trajectory
+%     optimization~\cite{conway2002practical}, virtual holonomic
+%     constraints~\cite{shiriaev2005constructive}, etc. 
+%     %
+%     In some cases, there are natural choices for these preferred orbits, such as
+%     the homoclinic orbit of the pendulum~\cite{spong2001nonlinear}.
+
+%     By construction of the transverse coordinates $x_\bot$, the prediction
+%     $\gamma$ converges to $\gamma^\star$ if and only if $x_\bot \to 0$ as $t \to
+%     \infty$.
+%     %
+%     This provides an efficient way to compute the penalty $\ell_{\bot}$ as
+%     %
+%     \begin{equation}
+%         \ell_\bot(x, u) =  x_{\bot}^{\top} Q x_{\bot} + u^{\top}Ru,
+%         \; Q \succeq 0, \; R \succeq 0.
+%         \label{eq:xperploss}   
+%     \end{equation}
+%     %
+%     If there is no preferable $\gamma^\star$ available, we simply let $Q = 0$
+%     and only incur penalty due to the expenditure of control effort $u$.
+% \end{enumerate}
+
+\subsection{Sampling of the Initial States} 
+\label{sssec:ml-pbc-sampling}
+
+The objective function of~\eqref{eq:neural_pbc_finite_optim} depends on the
+initial state $x_0 \in \mathcal{X}$ through the prediction $\gamma : t \to \phi(t; x_0, u)$.
+%
+We are interested in obtaining a controller that performs well for
+all initial states rather than for a single point. 
+%
+Viewing $x_0$ as a random variable over the state space $\mathcal{X}$, the
+objective function of~\eqref{eq:neural_pbc_finite_optim} may be expressed as the
+expectation of the loss over the distribution of $x_0$:
+%
+\begin{equation}
+    J(\theta) = \mathbb{E}_{x_0 \sim p(\bx_0)} \Bigl[ \ell(\phi(t;x_0), u) \Bigr].
+    \label{eq:loss_expectation}
+\end{equation}
+%
+% In this subsection, we describe a strategy that samples $\mathcal{X}$ efficiently.
+%
+Instead of randomly sampling the entire space, we adopt the state sampling
+techniques from~\cite{ross2011no}.
+%
+Let $\mathcal{D}$ denote the training dataset of size $N_\mathcal{D}$. 
+%
+We randomly alternate between populating $\mathcal{D}$ using (a) the
+\textsc{DAgger} strategy~\cite{ross2011no}, and (b) sampling from $x_0 \sim
+\mathcal{N} \left(x^\star, \Sigma\right)$, where the variance $\Sigma$ is kept
+small. 
+%
+Sampling initial states from $x_0 \sim \mathcal{N} \left(x^\star, \Sigma\right)$
+helps recover from locally optimal solutions obtained from trajectories that
+predominantly miss the goal set $\mathcal{S}$ by a large amount. 
+%
+The \textsc{DAgger} strategy samples a collection of initial states $\{x_0\}$
+from trajectories $\{\gamma\}$ generated by executing the current policy
+$u^\theta$.
+%
+This technique helps to efficiently sample the relevant part of the state space.
+%
+After each iteration through the entire dataset, we substitute $N_{\textrm{R}}$
+points in $\mathcal{D}$ with new samples, keeping an $N_\mathcal{D} -
+N_\textrm{R}$ portion of initial states as the \textit{replay buffer}, a common
+technique used in reinforcement learning algorithms~\cite{lin1992self}.
+%
+% \textsc{DAgger} populates $\mathcal{D}$ with points along the trajectories
+% generated by executing the control law $u^\theta$ with the current parameters
+% $\theta$.
+%
+% This iteratively collects new samples from the regions of the state-space
+% visited by the learned policy.
+%
+% This technique helps recover from locally optimal solutions obtained from
+% trajectories that predominantly miss the goal set $\mathcal{S}$ by a large
+% amount.
+%
+% Initially, $u^\theta$ is poorly trained, and $\mathcal{D}$ may be dominated by
+% points that are far away from the goal set $\mathcal{S}$.
+% %
+% In high-dimensional state spaces with complicated dynamics, it may be difficult
+% to recover from locally optimal solutions if $\{\gamma\}$ predominantly miss the
+% goal set $\mathcal{S}$ by a large amount. 
+% %
+% To circumvent this problem, the training algorithm randomly alternates between
+% populating $\mathcal{D}$ using (a) the \textsc{DAgger} strategy, and (b)
+% sampling from $x_0 \sim \mathcal{N} \left(x^\star, \Sigma\right)$, where the
+% variance $\Sigma$ is kept small. 
+% %
+% The likelihood of populating $\mathcal{D}$ by
+% \textsc{DAgger} is gradually increased as training progresses. 
+% %
+% This kickstarts the algorithm with a dataset that has several initial states
+% already close to the goal set $\mathcal{S}$.
+% %
+% Finally, after each iteration through the entire dataset, we
+% substitute $N_{\textrm{R}}$ points in $\mathcal{D}$ with new samples, keeping a
+% $N_\mathcal{D} - N_\textrm{R}$ portion of initial states as the \textit{replay
+% buffer}, a common technique used in reinforcement learning algorithms~\cite{lin1992self}.
+
+% The complete details of this technique can be found in~\cite{datadriven_ESC}.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Deterministic Solution for \textsc{NeuralPbc}} 
+\label{sssec:ml-pbc-deterministic}
+
+A solution to the nonlinear program~\eqref{eq:neural_pbc_finite_optim} can be
+obtained using a gradient-based search. 
+%
+In this work, we use the stochastic gradient descent (SGD) method, which is
+standard in machine learning applications. 
+%
+% We briefly mention here the approach for computing the relevant gradient
+% $\nicefrac{\partial J}{\partial \theta}$, which depends on the solution
+% $\phi(t;x_0;u^\theta)$ of the ordinary differential equation (ODE) in
+% Eq.~\eqref{eq:hamiltonian_dynamics}. 
+%
+We invoke the adjoint method~\cite{chen2018neural} to compute
+$\nicefrac{\partial J}{\partial \theta}$, which depends on the solution
+$\phi(t;x_0;u^\theta)$ of the ordinary differential equation (ODE)
+provided in~\eqref{eq:hamiltonian_dynamics}. 
+%
+% The Neural ODE paper~\cite{chen2018neural}, invokes the adjoint method, which is
+% based on Pontryagin's maximum principle~\cite{pontryagin1962mathematical}, for
+% computing this gradient.
+% %
+% In~\cite{DBLP:journals/corr/abs-2001-04385}, several automatic differentiation (AD) systems and
+% the adjoint method are generalized to enable efficient gradient computation
+% through solutions of ODEs. 
+% %
+% We leverage this recent development to compute the gradient of $J$ and
+% iteratively update $\theta$ according to any SGD algorithm of choice to reach a
+% satisfactory solution to the optimization
+% problem~\eqref{eq:neural_pbc_finite_optim}.
+%
+Algorithm~\ref{algo:neuralpbc} provides a summary of our training process.
+
+\begin{algorithm}
+\caption{Solution to Nonlinear Program~\eqref{eq:neural_pbc_finite_optim}}
+\label{algo:neuralpbc}
+\small
+\begin{algorithmic}[1]
+    \algrenewcommand\algorithmicindent{0em} % No indent
+    \Procedure{NeuralPBC}{$H,G,\theta$}
+    \State $f \,\gets f(H,G)$ dynamics given by ODE~\eqref{eq:hamiltonian_dynamics} with $u = u^\theta$
+    \State $\mathcal{D} \gets \{x_0\}_{(N_{\mathcal{D}})}$  \Comment{$N_{\mathcal{D}}$ samples of $x_0$ (Section~\ref{sssec:ml-pbc-sampling})}
+    \algrenewcommand\algorithmicindent{1.5em} % Change indent back to default
+    \While{$i < $ \texttt{maxiters}}
+    \For{each \texttt{batch} $\subset \mathcal {D}$}
+        \State $J \gets 0$\Comment{Batch loss}
+        \For{each $x_0 \in$ \texttt{batch}}
+            \State $\gamma \gets$ integrate $f$ from $x_0$ with current $\theta$
+            \State $J \gets J + \ell(\gamma; \theta)$\Comment{Eq.~\eqref{eq:deterministic_loss}}
+        \EndFor
+        \State $\theta \gets \theta + \alpha_i \nicefrac{\partial J}{\partial \theta}$\Comment{SGD step}
+    \EndFor
+    \State $\mathcal{D} \gets \{\mathcal{D}\}_{(1,\ldots,N_{\mathcal{D}}-N_{\textrm{R}})} \cup \{x_0\}_{(N_{\textrm{R}})}$\Comment{Replay buffer}
+    \State $i \;\:\gets i + 1$
+    \EndWhile
+    \State \textbf{return} $\theta$
+    \EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Bayesian Solution for \textsc{NeuralPbc}}
+\label{sssec:ml-pbc-bayes}
+In this subsection, we formulate the Bayesian learning framework that minimizes
+the effects of system parameter uncertainties and measurement errors. 
+%
+In this framework, the neural net parameterization of $H^\theta_d$ given in
+Section~\ref{sssec:ml-pbc-deterministic} is replaced by a Bayesian neural
+network whose parameters are uncorrelated random variables sampled from a
+multivariate probability distribution (MPD).
+%
+The goal is to learn the distribution parameters $z$ of the posterior MPD
+$q(\theta;z)$ that maximize the \textsc{Elbo} given in~\eqref{eq:elbo}. 
+%
+% For continuous probability distributions, ELBO is redefined in terms of
+% continuous entropy as
+% %
+% \begin{equation}
+%     \mathcal{L}(x,z) = \mathbb{E}_{\theta \sim q} \left[\log(f(x|\theta;z)q(\theta)) - \log(q(\theta)) \right],
+%     \label{eqn:cont_entropy_elbo}
+% \end{equation}
+%
+The computation of the \textsc{Elbo} requires the likelihood function and the
+prior distribution.
+%
+The likelihood function is chosen to be a Gaussian probability
+distribution of the form
+\begin{equation}
+    p(J \mid \theta) = \mathcal{N}\left(0, s \right),
+    % \text{likelihood} = \frac{1}{\sqrt{2\pi}s}\exp{\left(-\frac{1}{2} \left ( \frac{-\ell(\gamma, u)}{s}\right)^2 \right)}
+    \label{eqn:likelihood_neuralpbc}
+\end{equation}
+where $s$ is the standard deviation of the likelihood and a hyperparameter. 
+%
+With the choice of the likelihood given in \eqref{eqn:likelihood_neuralpbc},
+maximizing the \textsc{Elbo} pulls the loss $J(\theta)$ to zero.
+%
+% On top of the neural net parameters $\theta$, we wish to learn the posterior
+% over the standard deviation $s$ of the likelihood. 
+% %
+% Hence, the posterior distribution $q(\xi)$ is an MPD over the multivariate
+% random variable $\xi$, where $\xi = [\theta, s]$ and $z$ is the distribution
+% parameters over $\xi$.
+% %
+% \begin{rem}
+%     For continuous posterior distribution, the \textsc{Elbo} given in
+%     equation~\eqref{eq:elbo} is redefined using differential entropy, which
+%     expresses the prior and posterior in terms of their probability density
+%     functions (PDF). In this case, the likelihood
+%     in~\eqref{eqn:likelihood_neuralpbc} is also a PDF and the \textsc{Elbo} is
+%     not bounded by zero.
+% \end{rem}
+
+% We take two approaches to selecting the distribution parameters $z_0$ of the
+% prior. The simplest approach is to use an uninformed prior with randomly
+% initialized $z_0$ to start the optimization problem; this choice encourages
+% exploration but has slow convergence properties. The second approach uses an
+% informed prior that warm-starts the Bayesian training around the solution of the
+% deterministic training. To do so, $z_0$ is selected such that the prior
+% distribution is centered around the parameters learned from the deterministic
+% technique discussed in Section~\ref{sssec:ml-pbc-deterministic}.
+
+
+System parameter uncertainties and measurement noise can deteriorate the
+performance of controllers when employed on real systems. 
+%
+Hence, in the Bayesian framework, we inject these uncertainties directly into
+the training loop in order to learn a controller that works for a wide range of
+system parameters and measurement noise.
+%
+We model system parameter uncertainties by sampling a set of system parameters
+$\zeta$ from a normal distribution $\mathcal{N}(\zeta_0, \sigma_{\zeta})$
+centered around a nominal parameter $\zeta_0$.
+%
+Each time we generate a new trajectory starting from the initial states drawn
+from the replay buffer $\mathcal{D}$, we draw a new sample of $\zeta$.
+%
+
+
+Additionally, we model measurement error by injecting noise into the prediction
+$\gamma$.
+%
+This is achieved by replacing the dynamical constraint given
+in~\eqref{eq:neural_pbc_finite_optim} with the following stochastic differential
+equation (SDE).
+\begin{align}
+    \dd x &= \left(\bmat{\phantom{-}\nabla_p H \\-\nabla_q H} + \bmat{0 \\ G(q)}u^{\theta}(x) \right) \dd t + \nabla_x u(x) \dd W_t, 
+    \label{eq:sde_initial}
+\end{align}
+where $\dd W_t$ is a correlated noise process, such as Wiener process, on the
+states due to measurement uncertainties, and $\nabla_x u(x)$ is the coefficient
+of the first-order Taylor approximation of $u^{\theta}(x)$ around zero noise. 
+
+{
+    \color{magenta}  
+    \begin{rem}
+        Introducing uncertainties to the deterministic training finds a point
+        estimate of the optimal controller parameter, which may be interpreted
+        as the mean of the optimal posterior distribution that Bayesian learning
+        provides. A point estimate of the learned parameters is prone to be
+        biased (for example, if the uncertainty in system parameters is large,
+        the optimal parameter $\theta$ for the true system parameter may be
+        quite far from the deterministic solution). This bias-variance trade-off
+        problem is alleviated by Bayesian inference which allows one to
+        marginalize over the posterior parameter
+        distribution~\cite{bishop2006pattern}.
+    \end{rem}  
+}
+
+%
+This Bayesian framework extends the deterministic training process discussed in
+Section~\ref{sssec:ml-pbc-deterministic}, by replacing lines 7 to 10 of
+Algorithm~\ref{algo:neuralpbc} with Algorithm~\ref{algo:neural_bayes_pbc}.
+%
+% Similar to the deterministic training, the SGD update shown in line 8 of
+% Algorithm~\ref{algo:neural_bayes_pbc} can be replaced by more refined variants
+% such as \textsc{ADAM}, \textsc{ADAGrad}~\cite{lydia2019adagrad}, etc. 
+%
+% The computation of the gradient ${\partial \mathcal{L}}/{\partial z}$ comes with
+% two complications. First, the gradient requires differentiating the
+% \textsc{Elbo} through the solution $\phi(t;x_0;u^\theta)$ of an ODE. We address
+% this issue by using the adjoint method briefly discussed in
+% Section~\ref{sssec:ml-pbc-deterministic}. 
+%
+Similar to the deterministic training, we use the adjoint method to compute the
+gradient ${\partial \mathcal{L}}/{\partial z}$ through the solution of the SDE
+given in~\eqref{eq:sde_initial}.
+%
+Moreover, we invoke the reparameterization trick of the Automatic
+Differentiation Variational
+Inference(\textsc{ADVI})~\cite{kucukelbir2015automatic} to compute the gradient
+of samples $\theta$ with respect to the distribution parameters $z$.
+%
+% Second, computing ${\partial \mathcal{L}}/{\partial z}$ requires the derivative
+% of the sample $\xi$ with respect to the distribution parameters $z$, which is
+% intractable. We handle this complication by invoking the reparameterization
+% trick of the Automatic Differentiation Variational
+% Inference(\textsc{ADVI})~\cite{kucukelbir2015automatic}.
+
+
+
+\begin{algorithm}
+    \caption{Bayesian Learning}\label{algo:neural_bayes_pbc}
+    \small
+    \begin{algorithmic}[1]
+        % \algrenewcommand\algorithmicindent{0em} % No indent
+        % \State Select inform or uninformed prior $z$
+        \State $f \,\gets f(H,G)$ dynamics given by SDE~\eqref{eq:sde_initial} with $u = u^\theta$
+        \For{each $x_0 \in$ \texttt{batch}}
+        \State Initialize $\mathcal{L} = 0$
+        % \algrenewcommand\algorithmicindent{1.5em} % Change indent back to default
+        \For{i=1:N}
+            \State $\theta, s \sim q(\theta; z)$ \Comment{Sample parameters of $H^\theta_d$}
+            \State $\zeta \sim \mathcal{N}(\zeta_0,\sigma_{\zeta})$ \Comment{Sample system parameters}
+            \State $\gamma \gets$ integrate $f$ from $x_0$ 
+            \State $p(J, \theta) = \frac{1}{s\sqrt{2\pi}}\exp{\left(-\frac{1}{2} \left ( \frac{J(\theta)}{s}\right)^2 \right)} p(\theta)$
+            \State $\mathcal{L} \gets \mathcal{L} + \frac{1}{N}\left (\log[p(\ell, \theta)] - \log[q(\theta;z)]\right)$
+        \EndFor
+        \EndFor
+        \State $z \gets z + \alpha_i \left({\partial \mathcal{L}}/{\partial z}\right)$
+    \end{algorithmic}
+\end{algorithm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
