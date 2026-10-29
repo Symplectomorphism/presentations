@@ -15,7 +15,9 @@ import json
 import shutil
 import subprocess
 import sys
+import re
 import tarfile
+import urllib.parse
 from datetime import date
 from pathlib import Path
 
@@ -50,6 +52,21 @@ def extract(deck, dest):
             out = dest / m.name[strip:]
             out.parent.mkdir(parents=True, exist_ok=True)
             out.write_bytes(tf.extractfile(m).read())
+
+
+def check_assets(deck, dest):
+    """Abort if the deck's own CSS/JS is missing (it would render unstyled); warn on media."""
+    page = (dest / deck["entry"]).read_text(errors="ignore")
+    refs = re.findall(r'(?:src|href|data-src|data-background-image|data-background-video)="([^"]+)"', page)
+    missing = {r for r in refs
+               if not re.match(r"^([a-z]+:|//|#|data:)", r) and "{" not in r
+               and not (dest / urllib.parse.unquote(r.split("#")[0].split("?")[0])).exists()}
+    broken = sorted(r for r in missing if r.endswith((".css", ".js")))
+    if broken:
+        sys.exit(f"{deck['slug']}: missing {len(broken)} CSS/JS files on branch "
+                 f"{deck['branch']}, e.g. {broken[0]} — re-render and commit docs/")
+    for r in sorted(missing):
+        print(f"    warning: {deck['slug']} references missing {r}")
 
 
 def redirect(target):
@@ -93,6 +110,7 @@ def main():
         dest = out / deck["slug"]
         print(f"  {deck['slug']:<12} <- {deck['branch']}:{deck['path'] or '.'}")
         extract(deck, dest)
+        check_assets(deck, dest)
         if deck["entry"] != "index.html":
             (dest / "index.html").write_text(redirect(deck["entry"]))
 
