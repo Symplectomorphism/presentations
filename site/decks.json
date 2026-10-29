@@ -46,8 +46,8 @@
   },
   {
     "slug": "cdc_2022",
-    "branch": "master",
-    "path": "cdc_2022/presentation_video/slides/presentations",
+    "branch": "cdc_2022",
+    "path": "presentation_video/slides/presentations",
     "entry": "main.html",
     "include": [
       "main.html",

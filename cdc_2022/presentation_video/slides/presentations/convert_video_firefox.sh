@@ -1,1 +1,0 @@
-ffmpeg -i input.mp4 -vf "pad=ceil(iw/2)*2:ceil(ih/2)*2",format=yuv420p output.mp4
