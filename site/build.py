@@ -5,7 +5,7 @@ Each deck's rendered HTML is pulled from its own branch (see decks.json) with
 `git archive`, so nothing needs to be checked out or re-rendered.
 
 Usage:
-    git worktree add .worktrees/site gh-pages    # once; .worktrees/ is in .git/info/exclude
+    git worktree add .worktrees/site gh-pages    # once; .worktrees/ is gitignored
     python3 site/build.py .worktrees/site
     cd .worktrees/site && git add -A && git commit -m "Rebuild site" && git push
 """
