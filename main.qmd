@@ -12,7 +12,7 @@ format:
   revealjs:
     theme: [default, utd.scss]
     transition: fade
-    footer: "Sports Technology at UT Dallas"
+    footer: "[← All Presentations](https://symplectomorphism.github.io/presentations/){target=\"_self\"} · Sports Technology at UT Dallas"
 ---
 
 {{< include contents/01_landscape.qmd >}}
